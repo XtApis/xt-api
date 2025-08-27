@@ -1,0 +1,41 @@
+name: Continuous Releases
+
+on:
+  push:
+    branches:
+      - main
+      - docusaurus-v**
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    name: Continuous Releases
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: lts/*
+          cache: yarn
+
+      - name: Installation
+        run: yarn || yarn || yarn
+
+      - name: Build packages
+        run: yarn build:packages
+
+      - name: Initialize fresh templates
+        run: |
+          yarn create-docusaurus template/docusaurus-classic-js classic --javascript -p npm
+          yarn create-docusaurus template/docusaurus-classic-ts classic --typescript -p npm
+
+      - name: Release
+        run: npx pkg-pr-new@0.0.20 publish './packages/*' --template './template/*' --compact --comment=off

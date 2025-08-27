@@ -1,0 +1,46 @@
+name: Swizzle Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+      - docusaurus-v**
+    paths:
+      - packages/**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Swizzle
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        action: ['eject', 'wrap']
+        variant: ['js', 'ts']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Set up Node LTS
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: lts/*
+          cache: yarn
+      - name: Installation
+        run: yarn || yarn || yarn
+
+      # Swizzle all the theme components
+      - name: Swizzle (${{matrix.action}} - ${{matrix.variant}})
+        run: yarn workspace website test:swizzle:${{matrix.action}}:${{matrix.variant}}
+      # Build swizzled site
+      - name: Build website
+        run: yarn build:website:fast
+      # Ensure swizzled site still typechecks
+      - name: TypeCheck website
+        run: yarn workspace website typecheck --project tsconfig.skipLibCheck.json
