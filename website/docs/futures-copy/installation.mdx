@@ -1,0 +1,125 @@
+---
+id: installation
+title: 安装和配置
+sidebar_label: 安装配置
+description: 期货跟单 API 的安装和配置指南
+---
+
+# 安装和配置
+
+## 环境要求
+
+- Node.js 16.0 或更高版本
+- npm 8.0 或 yarn 1.22 或更高版本
+- 支持 ES6+ 的现代浏览器
+- 稳定的网络连接
+- 期货交易权限
+
+## 安装步骤
+
+### 1. 安装 SDK
+
+```bash
+npm install @xt/futures-copy-api
+```
+
+或者使用 yarn：
+
+```bash
+yarn add @xt/futures-copy-api
+```
+
+### 2. 导入模块
+
+```javascript
+import {FuturesCopyAPI} from '@xt/futures-copy-api';
+```
+
+### 3. 初始化配置
+
+```javascript
+const futuresCopyAPI = new FuturesCopyAPI({
+  apiKey: 'your-api-key',
+  secretKey: 'your-secret-key',
+  passphrase: 'your-passphrase',
+  sandbox: false,
+  baseURL: 'https://api.xt.com',
+});
+```
+
+## 配置参数
+
+| 参数       | 类型    | 必填 | 说明                 |
+| ---------- | ------- | ---- | -------------------- |
+| apiKey     | string  | 是   | API 访问密钥         |
+| secretKey  | string  | 是   | API 签名密钥         |
+| passphrase | string  | 是   | API 密码短语         |
+| sandbox    | boolean | 否   | 是否使用沙盒环境     |
+| baseURL    | string  | 否   | API 基础地址         |
+| timeout    | number  | 否   | 请求超时时间（毫秒） |
+
+## 期货跟单设置
+
+### 1. 选择期货跟单对象
+
+```javascript
+try {
+  const futuresLeaders = await futuresCopyAPI.getFuturesLeaders({
+    market: 'futures', // 期货市场
+    contractType: 'perpetual', // 合约类型
+    minProfit: 0.15, // 最小收益率
+    maxRisk: 0.08, // 最大风险
+  });
+  console.log('期货跟单对象:', futuresLeaders);
+} catch (error) {
+  console.error('获取失败:', error.message);
+}
+```
+
+### 2. 设置期货跟单参数
+
+```javascript
+try {
+  const result = await futuresCopyAPI.setFuturesCopyParameters({
+    leaderId: 'futures_leader123',
+    copyRatio: 0.6, // 跟单比例
+    maxAmount: 5000, // 最大跟单金额
+    leverage: 10, // 杠杆倍数
+    stopLoss: 0.15, // 止损比例
+    takeProfit: 0.25, // 止盈比例
+  });
+  console.log('期货跟单参数设置成功:', result);
+} catch (error) {
+  console.error('设置失败:', error.message);
+}
+```
+
+## 错误处理
+
+```javascript
+try {
+  const result = await futuresCopyAPI.startFuturesCopyTrading(
+    'futures_leader123',
+  );
+  console.log('期货跟单开始成功:', result);
+} catch (error) {
+  if (error.code === 'INSUFFICIENT_MARGIN') {
+    console.error('保证金不足，请充值');
+  } else if (error.code === 'LEVERAGE_TOO_HIGH') {
+    console.error('杠杆倍数过高，请调整');
+  } else if (error.code === 'CONTRACT_NOT_AVAILABLE') {
+    console.error('合约不可用');
+  } else {
+    console.error('请求失败:', error.message);
+  }
+}
+```
+
+## 下一步
+
+配置完成后，你可以：
+
+1. [选择期货跟单对象](./select-futures-leader)
+2. [设置期货跟单策略](./futures-copy-strategy)
+3. [监控期货跟单状态](./monitor-futures-status)
+4. [管理期货跟单记录](./futures-copy-history)

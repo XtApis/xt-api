@@ -155,6 +155,91 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+  spot: [
+    'spot/index',
+    {
+      type: 'category',
+      label: '下单',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['spot/installation'],
+    },
+  ],
+  futures: [
+    'futures/index',
+    {
+      type: 'category',
+      label: '期货交易',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['futures/installation'],
+    },
+  ],
+  'margin-spot': [
+    'margin-spot/index',
+    {
+      type: 'category',
+      label: '保证金现货',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['margin-spot/installation'],
+    },
+  ],
+  'copy-trading': [
+    'copy-trading/index',
+    {
+      type: 'category',
+      label: '跟单交易',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['copy-trading/installation'],
+    },
+  ],
+  'futures-copy': [
+    'futures-copy/index',
+    {
+      type: 'category',
+      label: '期货跟单',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['futures-copy/installation'],
+    },
+  ],
+  'trading-third-party': [
+    'trading-third-party/index',
+    {
+      type: 'category',
+      label: '第三方交易',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['trading-third-party/installation'],
+    },
+  ],
+  'user-center': [
+    'user-center/index',
+    {
+      type: 'category',
+      label: '用户中心',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['user-center/installation'],
+    },
+  ],
+  changelog: ['changelog/index'],
   api: [
     'cli',
     'docusaurus-core',

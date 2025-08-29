@@ -1,0 +1,142 @@
+---
+id: installation
+title: 安装和配置
+sidebar_label: 安装配置
+description: 现货交易 API 的安装和配置指南
+---
+
+# 安装和配置
+
+## 环境要求
+
+- Node.js 16.0 或更高版本
+- npm 8.0 或 yarn 1.22 或更高版本
+- 支持 ES6+ 的现代浏览器
+- 稳定的网络连接
+
+## 安装步骤
+
+### 1. 安装 SDK
+
+```bash
+npm install @xt/spot-api
+```
+
+或者使用 yarn：
+
+```bash
+yarn add @xt/spot-api
+```
+
+### 2. 导入模块
+
+```javascript
+import {SpotAPI} from '@xt/spot-api';
+```
+
+### 3. 初始化配置
+
+```javascript
+const spotAPI = new SpotAPI({
+  apiKey: 'your-api-key',
+  secretKey: 'your-secret-key',
+  passphrase: 'your-passphrase',
+  sandbox: false,
+  baseURL: 'https://api.xt.com',
+});
+```
+
+## 配置参数
+
+| 参数       | 类型    | 必填 | 说明                 |
+| ---------- | ------- | ---- | -------------------- |
+| apiKey     | string  | 是   | API 访问密钥         |
+| secretKey  | string  | 是   | API 签名密钥         |
+| passphrase | string  | 是   | API 密码短语         |
+| sandbox    | boolean | 否   | 是否使用沙盒环境     |
+| baseURL    | string  | 否   | API 基础地址         |
+| timeout    | number  | 否   | 请求超时时间（毫秒） |
+
+## 环境配置
+
+### 开发环境
+
+```javascript
+const config = {
+  apiKey: process.env.XT_API_KEY,
+  secretKey: process.env.XT_SECRET_KEY,
+  passphrase: process.env.XT_PASSPHRASE,
+  sandbox: true,
+  baseURL: 'https://sandbox-api.xt.com',
+};
+```
+
+### 生产环境
+
+```javascript
+const config = {
+  apiKey: process.env.XT_API_KEY,
+  secretKey: process.env.XT_SECRET_KEY,
+  passphrase: process.env.XT_PASSPHRASE,
+  sandbox: false,
+  baseURL: 'https://api.xt.com',
+};
+```
+
+## 基础使用
+
+### 1. 获取市场数据
+
+```javascript
+try {
+  const ticker = await spotAPI.getTicker('BTC/USDT');
+  console.log('BTC/USDT 价格:', ticker);
+} catch (error) {
+  console.error('获取失败:', error.message);
+}
+```
+
+### 2. 查询账户余额
+
+```javascript
+try {
+  const balance = await spotAPI.getBalance();
+  console.log('账户余额:', balance);
+} catch (error) {
+  console.error('查询失败:', error.message);
+}
+```
+
+## 错误处理
+
+```javascript
+try {
+  const result = await spotAPI.placeOrder({
+    symbol: 'BTC/USDT',
+    side: 'buy',
+    type: 'limit',
+    amount: 0.001,
+    price: 50000,
+  });
+  console.log('下单成功:', result);
+} catch (error) {
+  if (error.code === 'AUTH_ERROR') {
+    console.error('认证失败，请检查 API 密钥');
+  } else if (error.code === 'INSUFFICIENT_BALANCE') {
+    console.error('余额不足，请充值');
+  } else if (error.code === 'RATE_LIMIT') {
+    console.error('请求频率超限，请稍后重试');
+  } else {
+    console.error('请求失败:', error.message);
+  }
+}
+```
+
+## 下一步
+
+配置完成后，你可以：
+
+1. [查看市场数据](./market-data)
+2. [进行交易操作](./trading)
+3. [管理订单](./order-management)
+4. [查询账户信息](./account-info)

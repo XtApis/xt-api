@@ -1,0 +1,109 @@
+---
+id: installation
+title: 安装和配置
+sidebar_label: 安装配置
+description: 期货交易 API 的安装和配置指南
+---
+
+# 安装和配置
+
+## 环境要求
+
+- Node.js 16.0 或更高版本
+- npm 8.0 或 yarn 1.22 或更高版本
+- 支持 ES6+ 的现代浏览器
+
+## 安装步骤
+
+### 1. 安装 SDK
+
+```bash
+npm install @xt/futures-api
+```
+
+或者使用 yarn：
+
+```bash
+yarn add @xt/futures-api
+```
+
+### 2. 导入模块
+
+```javascript
+import {FuturesAPI} from '@xt/futures-api';
+```
+
+### 3. 初始化配置
+
+```javascript
+const futuresAPI = new FuturesAPI({
+  apiKey: 'your-api-key',
+  secretKey: 'your-secret-key',
+  passphrase: 'your-passphrase',
+  sandbox: false, // 生产环境设置为 false
+  baseURL: 'https://api.xt.com', // API 基础地址
+});
+```
+
+## 配置参数
+
+| 参数       | 类型    | 必填 | 说明                 |
+| ---------- | ------- | ---- | -------------------- |
+| apiKey     | string  | 是   | API 访问密钥         |
+| secretKey  | string  | 是   | API 签名密钥         |
+| passphrase | string  | 是   | API 密码短语         |
+| sandbox    | boolean | 否   | 是否使用沙盒环境     |
+| baseURL    | string  | 否   | API 基础地址         |
+| timeout    | number  | 否   | 请求超时时间（毫秒） |
+
+## 环境配置
+
+### 开发环境
+
+```javascript
+const config = {
+  apiKey: process.env.XT_API_KEY,
+  secretKey: process.env.XT_SECRET_KEY,
+  passphrase: process.env.XT_PASSPHRASE,
+  sandbox: true,
+  baseURL: 'https://sandbox-api.xt.com',
+};
+```
+
+### 生产环境
+
+```javascript
+const config = {
+  apiKey: process.env.XT_API_KEY,
+  secretKey: process.env.XT_SECRET_KEY,
+  passphrase: process.env.XT_PASSPHRASE,
+  sandbox: false,
+  baseURL: 'https://api.xt.com',
+};
+```
+
+## 错误处理
+
+```javascript
+try {
+  const result = await futuresAPI.getContracts();
+  console.log('合约列表:', result);
+} catch (error) {
+  if (error.code === 'AUTH_ERROR') {
+    console.error('认证失败，请检查 API 密钥');
+  } else if (error.code === 'RATE_LIMIT') {
+    console.error('请求频率超限，请稍后重试');
+  } else {
+    console.error('请求失败:', error.message);
+  }
+}
+```
+
+## 下一步
+
+配置完成后，你可以：
+
+1. [查看合约信息](./contracts)
+2. [进行交易操作](./trading)
+3. [管理持仓](./positions)
+4. [查询历史数据](./history)

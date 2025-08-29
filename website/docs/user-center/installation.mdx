@@ -1,0 +1,139 @@
+---
+id: installation
+title: 安装和配置
+sidebar_label: 安装配置
+description: 用户中心 API 的安装和配置指南
+---
+
+# 安装和配置
+
+## 环境要求
+
+- Node.js 16.0 或更高版本
+- npm 8.0 或 yarn 1.22 或更高版本
+- 支持 ES6+ 的现代浏览器
+- 稳定的网络连接
+- 有效的 XT 账户
+
+## 安装步骤
+
+### 1. 安装 SDK
+
+```bash
+npm install @xt/user-center-api
+```
+
+或者使用 yarn：
+
+```bash
+yarn add @xt/user-center-api
+```
+
+### 2. 导入模块
+
+```javascript
+import {UserCenterAPI} from '@xt/user-center-api';
+```
+
+### 3. 初始化配置
+
+```javascript
+const userCenterAPI = new UserCenterAPI({
+  apiKey: 'your-api-key',
+  secretKey: 'your-secret-key',
+  passphrase: 'your-passphrase',
+  sandbox: false,
+  baseURL: 'https://api.xt.com',
+});
+```
+
+## 配置参数
+
+| 参数       | 类型    | 必填 | 说明                 |
+| ---------- | ------- | ---- | -------------------- |
+| apiKey     | string  | 是   | API 访问密钥         |
+| secretKey  | string  | 是   | API 签名密钥         |
+| passphrase | string  | 是   | API 密码短语         |
+| sandbox    | boolean | 否   | 是否使用沙盒环境     |
+| baseURL    | string  | 否   | API 基础地址         |
+| timeout    | number  | 否   | 请求超时时间（毫秒） |
+
+## 用户认证
+
+### 1. 获取用户信息
+
+```javascript
+try {
+  const userInfo = await userCenterAPI.getUserInfo();
+  console.log('用户信息:', userInfo);
+} catch (error) {
+  console.error('获取失败:', error.message);
+}
+```
+
+### 2. 更新用户信息
+
+```javascript
+try {
+  const result = await userCenterAPI.updateUserInfo({
+    nickname: '新昵称',
+    avatar: 'https://example.com/avatar.jpg',
+    language: 'zh-CN',
+  });
+  console.log('更新成功:', result);
+} catch (error) {
+  console.error('更新失败:', error.message);
+}
+```
+
+## 安全设置
+
+### 1. 启用 2FA
+
+```javascript
+try {
+  const qrCode = await userCenterAPI.enable2FA();
+  console.log('2FA 二维码:', qrCode);
+} catch (error) {
+  console.error('启用失败:', error.message);
+}
+```
+
+### 2. 验证 2FA
+
+```javascript
+try {
+  const result = await userCenterAPI.verify2FA('123456');
+  console.log('验证成功:', result);
+} catch (error) {
+  console.error('验证失败:', error.message);
+}
+```
+
+## 错误处理
+
+```javascript
+try {
+  const result = await userCenterAPI.getSecuritySettings();
+  console.log('安全设置:', result);
+} catch (error) {
+  if (error.code === 'AUTH_REQUIRED') {
+    console.error('需要重新认证');
+  } else if (error.code === 'PERMISSION_DENIED') {
+    console.error('权限不足');
+  } else if (error.code === 'USER_NOT_FOUND') {
+    console.error('用户不存在');
+  } else {
+    console.error('请求失败:', error.message);
+  }
+}
+```
+
+## 下一步
+
+配置完成后，你可以：
+
+1. [管理用户信息](./account-management)
+2. [配置安全设置](./security-settings)
+3. [设置通知偏好](./notification-preferences)
+4. [管理 API 密钥](./api-key-management)
