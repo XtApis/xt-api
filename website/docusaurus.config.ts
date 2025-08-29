@@ -99,7 +99,8 @@ const crashTest = process.env.DOCUSAURUS_CRASH_TEST === 'true';
 
 // By default, we use Docusaurus Faster
 // DOCUSAURUS_SLOWER=true is useful for benchmarking faster against slower
-// hyperfine --prepare 'yarn clear:website' --runs 3 'DOCUSAURUS_SLOWER=true yarn build:website:fast' 'yarn build:website:fast'
+// hyperfine --prepare 'yarn clear:website' --runs 3
+// 'DOCUSAURUS_SLOWER=true yarn build:website:fast' 'yarn build:website:fast'
 const isSlower = process.env.DOCUSAURUS_SLOWER === 'true';
 if (isSlower) {
   console.log('🐢 Using slower Docusaurus build');
@@ -164,10 +165,10 @@ const showLastUpdate = process.env.DOCUSAURUS_CURRENT_LOCALE === defaultLocale;
 
 export default async function createConfigAsync() {
   return {
-    title: 'Docusaurus',
+    title: 'XT API',
     tagline: getLocalizedConfigValue('tagline'),
     organizationName: 'facebook',
-    projectName: 'docusaurus',
+    projectName: 'XT API',
     baseUrl,
     baseUrlIssueBanner: true,
     url: 'https://docusaurus.io',
@@ -201,18 +202,27 @@ export default async function createConfigAsync() {
         type: 'text/css',
       },
     ],
+    scripts: [
+      {
+        src: '/js/custom-navbar.js',
+        type: 'text/javascript',
+      },
+    ],
     i18n: {
       defaultLocale,
 
-      locales:
-        isDeployPreview || isBranchDeploy
-          ? // Deploy preview and branch deploys: keep them fast!
-            [defaultLocale]
-          : isI18nStaging
-          ? // Staging locales: https://docusaurus-i18n-staging.netlify.app/
-            [defaultLocale, 'ja']
-          : // Production locales
-            [defaultLocale, 'fr', 'pt-BR', 'ko', 'zh-CN'],
+      locales: (() => {
+        if (isDeployPreview || isBranchDeploy) {
+          // Deploy preview and branch deploys: keep them fast!
+          return [defaultLocale];
+        }
+        if (isI18nStaging) {
+          // Staging locales: https://docusaurus-i18n-staging.netlify.app/
+          return [defaultLocale, 'ja'];
+        }
+        // Production locales
+        return [defaultLocale, 'fr', 'pt-BR', 'ko', 'zh-CN'];
+      })(),
     },
     markdown: {
       format: 'detect',
@@ -675,33 +685,46 @@ export default async function createConfigAsync() {
         },
         items: [
           {
-            type: 'doc',
+            type: 'dropdown',
             position: 'left',
-            docId: 'introduction',
-            label: 'Docs',
+            label: '导航菜单',
+            items: [
+              {
+                type: 'doc',
+                docId: 'introduction',
+                label: 'Docs',
+              },
+              {to: '/index-page', label: 'Index'},
+              {to: '/spot', label: 'Spot'},
+              {to: '/futures', label: 'Futures'},
+              {to: '/margin-spot', label: 'Margin Spot'},
+              {to: '/copy-trading', label: 'Copy Trading'},
+              {to: '/futures-copy', label: 'Futures Copy'},
+              {to: '/trading-third-party', label: 'Trading Third Party'},
+              {to: '/user-center', label: 'User Center'},
+              {to: '/changelog', label: 'Changelog'},
+              {
+                type: 'docSidebar',
+                sidebarId: 'api',
+                label: 'API',
+              },
+              {to: 'blog', label: 'Blog'},
+              {to: 'showcase', label: 'Showcase'},
+              {
+                to: '/community/support',
+                label: 'Community',
+                activeBaseRegex: `/community/`,
+              },
+              // This item links to a draft doc: only displayed in dev
+              {
+                type: 'doc',
+                docId: 'index',
+                label: 'Tests',
+                docsPluginId: 'docs-tests',
+              },
+              isDev && {to: '/__docusaurus/debug', label: 'Debug'},
+            ].filter(Boolean),
           },
-          {
-            type: 'docSidebar',
-            position: 'left',
-            sidebarId: 'api',
-            label: 'API',
-          },
-          {to: 'blog', label: 'Blog', position: 'left'},
-          {to: 'showcase', label: 'Showcase', position: 'left'},
-          {
-            to: '/community/support',
-            label: 'Community',
-            position: 'left',
-            activeBaseRegex: `/community/`,
-          },
-          // This item links to a draft doc: only displayed in dev
-          {
-            type: 'doc',
-            docId: 'index',
-            label: 'Tests',
-            docsPluginId: 'docs-tests',
-          },
-          isDev && {to: '/__docusaurus/debug', label: 'Debug'},
           // Custom item for dogfooding: only displayed in /tests/ routes
           {
             type: 'custom-dogfood-navbar-item',

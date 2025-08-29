@@ -14,7 +14,7 @@ export default function MyComponent() {
       <p>MyComponent rendered !</p>
       <p>bool={bool ? 'true' : 'false'}</p>
       <p>
-        <button onClick={() => setBool((b) => !b)}>toggle bool</button>
+        <button type="button" onClick={() => setBool((b) => !b)}>toggle bool</button>
       </p>
     </div>
   );
