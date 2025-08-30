@@ -11,9 +11,8 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import Link from '@docusaurus/Link';
 import Translate, {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl, {useBaseUrlUtils} from '@docusaurus/useBaseUrl';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-import Image from '@theme/IdealImage';
 import Layout from '@theme/Layout';
 
 import Tweet from '@site/src/components/Tweet';
@@ -107,12 +106,13 @@ function QuotesSection() {
           {Quotes.map((quote) => (
             <div className="col" key={quote.name}>
               <div className="avatar avatar--vertical margin-bottom--sm">
-                <Image
-                  alt={quote.name}
-                  className="avatar__photo avatar__photo--xl"
-                  img={quote.thumbnail}
-                  style={{overflow: 'hidden'}}
-                />
+                <div className="avatar__photo avatar__photo--xl">
+                  <img
+                    alt={quote.name}
+                    src={quote.thumbnail}
+                    style={{overflow: 'hidden'}}
+                  />
+                </div>
                 <div className="avatar__intro padding-top--sm">
                   <div className="avatar__name">{quote.name}</div>
                   <small className="avatar__subtitle">{quote.title}</small>
@@ -159,8 +159,6 @@ function Feature({
   feature: FeatureItem;
   className?: string;
 }) {
-  const {withBaseUrl} = useBaseUrlUtils();
-
   return (
     <div className={clsx('col', className)}>
       <img
@@ -168,7 +166,7 @@ function Feature({
         alt={feature.title}
         width={Math.floor(feature.image.width)}
         height={Math.floor(feature.image.height)}
-        src={withBaseUrl(feature.image.src)}
+        src={useBaseUrl(feature.image.src)}
         loading="lazy"
       />
       <Heading as="h3" className={clsx(styles.featureHeading)}>
@@ -228,16 +226,16 @@ function TopBanner() {
       <div style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
         <div style={{flex: 1, whiteSpace: 'nowrap'}}>
           <div className={styles.topBannerDescription}>
-            We are on{' '}
+            <Translate>We are on</Translate>{' '}
             <b>
               <Link to="https://www.producthunt.com/posts/docusaurus-2-0">
-                ProductHunt
+                <Translate>ProductHunt</Translate>
               </Link>{' '}
-              and{' '}
+              <Translate>and</Translate>{' '}
               <Link to="https://news.ycombinator.com/item?id=32303052">
-                Hacker News
+                <Translate>Hacker News</Translate>
               </Link>{' '}
-              today!
+              <Translate>today!</Translate>
             </b>
           </div>
         </div>
@@ -260,11 +258,11 @@ function TopBanner() {
 
 export default function Home(): ReactNode {
   const {
-    siteConfig: {customFields, tagline},
+    siteConfig: {customFields},
   } = useDocusaurusContext();
   const {description} = customFields as {description: string};
   return (
-    <Layout title={tagline} description={description}>
+    <Layout title="Docusaurus" description={description}>
       <main>
         <TopBanner />
         <HeroBanner />
