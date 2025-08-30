@@ -1,0 +1,59 @@
+---
+id: _futures_order_update
+title: Update Orders
+sidebar_label: Update Orders
+description: /future/trade/v1/order/update
+---
+
+## 接口
+
+**POST** `/future/trade/v1/order/update`
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `orderId` | number | 是 |  | Order ID |  |
+| `price` | number | 是 |  | Target price |  |
+| `origQty` | number | 是 |  | Target quantity (cont) |  |
+| `triggerProfitPrice` | number | 否 | N/A | Profit target price |  |
+| `triggerStopPrice` | number | 否 | N/A | Stop-Loss price |  |
+| `triggerPriceType` | string | 否 | LATEST_PRICE | Trigger price type | INDEX_PRICE(Index price)；MARK_PRICE(Mark price)；LATEST_PRICE(latest price) |
+| `profitDelegateOrderType` | string | 否 | N/A | Take-Profit order type | LIMIT；MARKET |
+| `profitDelegateTimeInForce` | string | 否 | N/A | Take-Profit order validity method | GTC;IOC;FOK;GTX |
+| `profitDelegatePrice` | number | 否 | N/A | Take-Profit order price |  |
+| `stopDelegateOrderType` | string | 否 | N/A | Stop-Loss order type | LIMIT；MARKET |
+| `stopDelegateTimeInForce` | string | 否 | N/A | Stop-Loss order validity method | GTC;IOC;FOK;GTX |
+| `stopDelegatePrice` | number | 否 | N/A | Stop-Loss order price |  |
+| `followUpOrder` | boolean | 否 | N/A |  | If true, it indicates chase order |
+
+## 示例请求
+
+### Java
+
+```java
+public void getKLine() {
+	String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```

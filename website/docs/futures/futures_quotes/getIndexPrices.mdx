@@ -1,0 +1,45 @@
+---
+id: _futures_quotes_getindexprices
+title: Get Index Price for All Trading Pairs
+sidebar_label: Get Index Price for All Trading Pairs
+description: /future/market/v1/public/q/index-price
+---
+
+## 接口
+
+**GET** `/future/market/v1/public/q/index-price`
+
+Note：This method does not require a signature.
+
+## 示例请求
+
+### Java
+
+```java
+public void getKLine() {
+	String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "p": 0, //Price
+      "s": "", //Trading pair
+      "t": 0 //Time
+    }
+  ],
+  "returnCode": 0
+}
+```

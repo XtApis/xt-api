@@ -1,0 +1,50 @@
+---
+id: _futures_user_adjustmargin
+title: Alter Margin
+sidebar_label: Alter Margin
+description: /future/user/v1/position/margin
+---
+
+## 接口
+
+**POST** `/future/user/v1/position/margin`
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | 是 | N/A | Trading pair |  |
+| `margin` | number | 否 | N/A | Quantity |  |
+| `positionSide` | string | 否 | N/A | Position side:LONG;SHORT |  |
+| `type` | string | 否 | N/A | Adjust direction (add isolated margin, reduce isolated margin) | ADD;SUB |
+
+## 示例请求
+
+### Java
+
+```java
+public void getMarketConfig() {
+	String text = HttpUtil.get(URL + "/data/api/user/v1/getMarketConfig");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```

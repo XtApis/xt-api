@@ -1,0 +1,51 @@
+---
+id: _futures_quotes_gettickers
+title: Get Market Information for All Trading Pairs
+sidebar_label: Get Market Information for All Trading Pairs
+description: /future/market/v1/public/q/tickers
+---
+
+## 接口
+
+**GET** `/future/market/v1/public/q/tickers`
+
+Note：This method does not require a signature.
+
+## 示例请求
+
+### Java
+
+```java
+public void getKLine() {
+	String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": "", //24h volume
+      "c": "", //Latest price
+      "h": "", //Highest price in 24 hours
+      "l": "", //Lowest price in 24 hours
+      "o": "", //The first transaction price 24 hours ago
+      "r": "", //24h Price Fluctuation Limit
+      "s": "", //Trading pair
+      "t": 0, //Time
+      "v": "" //24h turnover
+    }
+  ],
+  "returnCode": 0
+}
+```

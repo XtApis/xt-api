@@ -1,0 +1,42 @@
+---
+id: _third_party_order_orderdel
+title: Cancell order
+sidebar_label: Cancell order
+description: /spot/v4/order/{orderId}
+---
+
+## 接口
+
+**DELETE** `/spot/v4/order/{orderId}`
+
+## 请求参数
+
+| 名称      | 类型   | 必填 | 默认值 | 说明 | 范围 |
+| --------- | ------ | ---- | ------ | ---- | ---- |
+| `orderId` | number | 是   |        |      |      |
+
+## 示例请求
+
+### Java
+
+```java
+public String orderDel(){
+
+
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "cancelId": "6216559590087220004"
+  }
+}
+```

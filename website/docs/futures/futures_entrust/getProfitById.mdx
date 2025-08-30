@@ -1,0 +1,60 @@
+---
+id: _futures_entrust_getprofitbyid
+title: See Stop Limit base on Profitld
+sidebar_label: See Stop Limit base on Profitld
+description: /future/trade/v1/entrust/profit-detail
+---
+
+## 接口
+
+**GET** `/future/trade/v1/entrust/profit-detail`
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 请求参数
+
+| 名称       | 类型    | 必填 | 默认值 | 说明          | 范围 |
+| ---------- | ------- | ---- | ------ | ------------- | ---- |
+| `profitId` | integer | 是   | N/A    | Stop limit ID |      |
+
+## 示例请求
+
+### Java
+
+```java
+public void getMarketConfig() {
+	String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getMarketConfig");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "createdTime": 0, //Time
+    "entryPrice": 0, //Open position average price
+    "executedQty": 0, //Actual transaction
+    "isolatedMargin": 0, //Isolated Margin
+    "origQty": 0, //Quantity (Cont)
+    "positionSide": "", //Position side
+    "positionSize": 0, //Position quantity (Cont)
+    "profitId": 0, //Order ID
+    "state": "", //Order state:NOT_TRIGGERED：New order (not triggered);TRIGGERING:Triggering;TRIGGERED:Triggered;USER_REVOCATION:User revocation;PLATFORM_REVOCATION:Platform revocation (rejection);EXPIRED:expired;
+    "symbol": "", //Trading pair
+    "triggerProfitPrice": 0, //Stop profit price
+    "triggerStopPrice": 0 //Stop loss price
+  },
+  "returnCode": 0
+}
+```

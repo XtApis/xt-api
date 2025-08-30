@@ -1,0 +1,73 @@
+---
+id: _futures_user_getactiviteposition
+title: Get active position information
+sidebar_label: Get active position information
+description: /future/user/v1/position
+---
+
+## 接口
+
+**GET** `/future/user/v1/position`
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | 否 | N/A | Trading pairs (query the position information of all trading pairs when not uploaded) |  |
+
+## 示例请求
+
+### Java
+
+```java
+public void getMarketConfig() {
+	String text = HttpUtil.get(URL + "/data/api/user/v1/getMarketConfig");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "args": [],
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "autoMargin": false, // Whether to automatically call margin
+      "availableCloseSize": 0, // Available quantity (Cont)
+      "breakPrice": 0, // Blowout price
+      "calMarkPrice": 0, // Calculated mark price
+      "closeOrderSize": 0, // Quantity of open order (Cont)
+      "contractType": "", // Contract Types: PERPETUAL (Perpetual Contract), PREDICT (Predict Contract)
+      "entryPrice": 0, // Average opening price
+      "floatingPL": 0, // Unrealized profit or loss
+      "isolatedMargin": 0, // Warehouse-by-warehouse margin
+      "leverage": 0, // Leverage ratio
+      "openOrderMarginFrozen": 0, // Occupation of deposit for opening order
+      "openOrderSize": 0, // Opening warehouse orders occupied
+      "positionSide": "", // Position direction
+      "positionSize": 0, // Position quantity (Cont)
+      "positionType": "", // Position type: CROSSED (full position); ISOLATED (warehouse by warehouse)
+      "profitId": 0, // Take profit and stop loss id
+      "realizedProfit": 0, // Realized profit and loss
+      "symbol": "", // trading pair
+      "triggerPriceType": "", // Trigger price type 1. Index price 2: Mark price (reasonable price); 3: Latest price
+      "triggerProfitPrice": 0, // Take profit trigger price
+      "triggerStopPrice": 0, // Stop loss trigger price
+      "welfareAccount": true
+    }
+  ],
+  "returnCode": 0
+}
+```

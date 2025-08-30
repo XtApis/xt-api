@@ -1,0 +1,49 @@
+---
+id: _third_party_user_getbalance
+title: Get User's Single Currency Fund Information
+sidebar_label: Get User's Single Currency Fund Information
+description: /futures/user/v1/balance/detail
+---
+
+## 接口
+
+**GET** `/futures/user/v1/balance/detail`
+
+## 请求参数
+
+| 名称   | 类型   | 必填 | 默认值 | 说明     | 范围 |
+| ------ | ------ | ---- | ------ | -------- | ---- |
+| `coin` | string | 是   | N/A    | Currency |      |
+
+## 示例请求
+
+### Java
+
+```java
+public void getMarketConfig() {
+	String text = HttpUtil.get(URL + "/data/api/user/v1/getMarketConfig");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "availableBalance": 0, //Available balance
+    "coin": "", //Currency
+    "isolatedMargin": 0, //Frozen isolated margin
+    "openOrderMarginFrozen": 0, //Frozen order
+    "walletBalance": 0 //Balance
+  },
+  "returnCode": 0
+}
+```

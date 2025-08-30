@@ -694,7 +694,12 @@ export default async function createConfigAsync() {
                 docId: 'introduction',
                 label: 'Docs',
               },
-              {to: '/index-page', label: 'Index'},
+              // {to: '/index-page', label: 'Index'},
+              {
+                type: 'doc',
+                docId: 'index_overview/overview',
+                label: 'index',
+              },
               {
                 type: 'doc',
                 docId: 'spot/index',
@@ -702,7 +707,8 @@ export default async function createConfigAsync() {
               },
               {
                 type: 'doc',
-                docId: 'futures/index',
+                docId:
+                  'futures/futures_documentation/futures_documentation_apibasicinfo',
                 label: 'Futures',
               },
               {
@@ -712,7 +718,7 @@ export default async function createConfigAsync() {
               },
               {
                 type: 'doc',
-                docId: 'copy-trading/index',
+                docId: 'copy-trading/copy_trade/copy_trade_symbol',
                 label: 'Copy Trading',
               },
               {
@@ -722,12 +728,14 @@ export default async function createConfigAsync() {
               },
               {
                 type: 'doc',
-                docId: 'trading-third-party/index',
+                docId:
+                  'trading-third-party/third_party_authorization_page/third_party_authorization_page_oauthpage',
                 label: 'Trading Third Party',
               },
               {
                 type: 'doc',
-                docId: 'user-center/index',
+                docId:
+                  'user-center/user_center_account/user_center_account_createsubaccount',
                 label: 'User Center',
               },
               {

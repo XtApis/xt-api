@@ -1,0 +1,38 @@
+---
+id: _futures_websocket_groupedaggregatemarket
+title: Grouped Aggregate Market
+sidebar_label: Grouped Aggregate Market
+---
+
+Subscribe：
+
+\{"channel":"ex_group_market","group":\{Group\},"event":"addChannel"\}
+
+Unsubscribe：
+
+\{"channel":"ex_group_market","group":\{Group\},"event":"removeChannel"\}
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `group` | string | 否 | all | Group type | all or Trading area（eg：USDT）or trading pair(eg: BTC, USDT) |
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+// [Market name, Market Group, Market price, Price Fluctuation Limit, Highest price, Lowest price, Volume, Turnover]
+{
+  "code": 200,
+  "data": {
+    "records": [["eth_usdt", 1, 103.0, 1.98, 103.0, 101.0, 7.0, 711.0]],
+    "channel": "ex_group_market",
+    "group": "usdt"
+  },
+  "info": "success"
+}
+```

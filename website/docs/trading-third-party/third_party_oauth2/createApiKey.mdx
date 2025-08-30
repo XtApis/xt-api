@@ -1,0 +1,38 @@
+---
+id: _third_party_oauth2_createapikey
+title: Create apiKey
+sidebar_label: Create apiKey
+description: /user/account/api-key
+---
+
+## 接口
+
+**POST** `/user/account/api-key`
+
+## 示例请求
+
+### Java
+
+```java
+public String createApiKey(){
+
+
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": {
+    "userId": 12345678, //user id
+    "accessKey": "99258227-f053-46a2-9b10-66c155eb705c", //encryption key
+    "secretKey": "4b1839e11bf7a1c6de5f078bd9f4b6e0850da3cf" //encryption string
+  }
+}
+```

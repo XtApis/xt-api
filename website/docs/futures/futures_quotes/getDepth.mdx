@@ -1,0 +1,54 @@
+---
+id: _futures_quotes_getdepth
+title: Get Depth Data of Trading Pairs
+sidebar_label: Get Depth Data of Trading Pairs
+description: /future/market/v1/public/q/depth
+---
+
+## 接口
+
+**GET** `/future/market/v1/public/q/depth`
+
+#### **Limit Flow Rules**
+
+`10/s/ip <br> Note：This method does not require a signature`.
+
+## 请求参数
+
+| 名称     | 类型    | 必填 | 默认值 | 说明                | 范围 |
+| -------- | ------- | ---- | ------ | ------------------- | ---- |
+| `symbol` | string  | 是   | N/A    | Trading pair        |      |
+| `level`  | integer | 是   | N/A    | Level(min:1,max:50) |      |
+
+## 示例请求
+
+### Java
+
+```java
+public void getKLine() {
+	String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "a": [], //Buy
+    "b": [], //Sell
+    "s": "", //Trading pair
+    "t": 0, //Time
+    "u": 0 //updateId
+  },
+  "returnCode": 0
+}
+```

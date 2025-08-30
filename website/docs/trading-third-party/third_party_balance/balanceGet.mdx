@@ -1,0 +1,38 @@
+---
+id: _third_party_balance_balanceget
+title: Get a single currency asset
+sidebar_label: Get a single currency asset
+description: /spot/v4/balance
+---
+
+## 接口
+
+**GET** `/spot/v4/balance`
+
+## 请求参数
+
+| 名称       | 类型   | 必填 | 默认值 | 说明    | 范围 |
+| ---------- | ------ | ---- | ------ | ------- | ---- |
+| `currency` | string | 是   |        | eg:usdt |      |
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "currency": "usdt",
+    "currencyId": 0,
+    "frozenAmount": 0,
+    "availableAmount": 0,
+    "totalAmount": 0,
+    "convertBtcAmount": 0 //Converted BTC amount
+  }
+}
+```

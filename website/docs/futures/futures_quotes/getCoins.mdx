@@ -1,0 +1,45 @@
+---
+id: _futures_quotes_getcoins
+title: Get Trading Pair Currency
+sidebar_label: Get Trading Pair Currency
+description: /future/market/v1/public/symbol/coins
+---
+
+## 接口
+
+**GET** `/future/market/v1/public/symbol/coins`
+
+Note：This method does not require a signature.
+
+## 请求参数
+
+| 名称   | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| ------ | ---- | ---- | ------ | ---- | ---- |
+| `None` |      | 否   |        |      |      |
+
+## 示例请求
+
+### Java
+
+```java
+public void getMarketConfig() {
+	String text = HttpUtil.get(URL + "/data/api/future/market/v1/getMarketConfig");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [],
+  "returnCode": 0
+}
+```

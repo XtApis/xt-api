@@ -1,0 +1,59 @@
+---
+id: _third_party_copy_trade_myleadersget
+title: My leaders
+sidebar_label: My leaders
+description: /futures/user/v1/copy-trade/follower-leaders-page
+---
+
+## 接口
+
+**GET** `/futures/user/v1/copy-trade/follower-leaders-page`
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `type` | number | 是 |  | Query type. 1：current Follow,2：historical follow |  |
+| `id` | number | 否 |  | page id |  |
+| `direction` | String | 是 | NEXT | page direction | NEXT/PREV |
+| `limit` | number | 是 | 10 | page size |  |
+
+## 示例请求
+
+### Java
+
+```java
+public String myLeadersGet(){
+
+
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "hasPrev": false, //prev
+    "hasNext": false, //next
+    "items": [
+      {
+        "accountId": 0,
+        "avatar": "",
+        "cancel": false,
+        "followMarginU": 0,
+        "followProfitU": 0,
+        "id": 0,
+        "leaderName": "",
+        "level": 0,
+        "levelName": ""
+      }
+    ]
+  }
+}
+```

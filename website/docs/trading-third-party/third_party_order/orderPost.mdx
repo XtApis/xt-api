@@ -1,0 +1,58 @@
+---
+id: _third_party_order_orderpost
+title: Submit order
+sidebar_label: Submit order
+description: /spot/v4/order
+---
+
+## 接口
+
+**POST** `/spot/v4/order`
+
+#### **Remark**
+
+Create a BUY order based on market price, quantity must be null, quoteQty required; Create a SELL order based on market price, quoteQty must be null, quantity required.
+
+#### **Limit Flow Rules**
+
+20/s/apikey
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | 是 |  |  |  |
+| `clientOrderId` | string | 否 |  | `Pattern: ^[a-zA-Z0-9_]{4,32}$` |  |
+| `side` | string | 是 |  | BUY,SELL |  |
+| `type` | string | 是 |  | order type:LIMIT,MARKET |  |
+| `timeInForce` | string | 是 |  | effective way:GTC, FOK, IOC, GTX |  |
+| `bizType` | string | 是 |  | SPOT, LEVER |  |
+| `price` | number | 否 |  | price. Required if it is the LIMIT price; blank if it is the MARKET price |  |
+| `quantity` | number | 否 |  | quantity. Required if it is the LIMIT price or the order is placed at the market price by quantity |  |
+| `quoteQty` | number | 否 |  | amount. Required if it is the LIMIT price or the order is the market price when placing an order by amount |  |
+
+## 示例请求
+
+### Java
+
+```java
+public String orderPost(){
+
+
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "orderId": "6216559590087220004"
+  }
+}
+```

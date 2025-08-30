@@ -1,0 +1,54 @@
+---
+id: _third_party_copy_trade_leaderdetailget
+title: Leader detail
+sidebar_label: Leader detail
+description: /public/futures/user/v1/public/copy-trade/leader-detail-v2
+---
+
+## 接口
+
+**GET** `/public/futures/user/v1/public/copy-trade/leader-detail-v2`
+
+## 请求参数
+
+| 名称        | 类型   | 必填 | 默认值 | 说明              | 范围 |
+| ----------- | ------ | ---- | ------ | ----------------- | ---- |
+| `accountId` | number | 是   |        | leader account id |      |
+
+## 示例请求
+
+### Java
+
+```java
+public String leaderDetailGet(){
+
+
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "avatar": "",
+    "currentFollowNumber": 0,
+    "displayEquity": false,
+    "displayPosition": false,
+    "followNumber": 0,
+    "label": [],
+    "leadDays": 0, //Check-in time (days)
+    "level": 0,
+    "levelName": "",
+    "maxFollowerSize": 0,
+    "nickName": "",
+    "profitRate": 0,
+    "totalRights": 0
+  }
+}
+```

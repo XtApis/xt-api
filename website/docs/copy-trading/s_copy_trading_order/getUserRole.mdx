@@ -1,0 +1,29 @@
+---
+id: _s_copy_trading_order_getuserrole
+title: Get user role
+sidebar_label: Get user role
+description: /v1/copy-trade-account/copy-trade/user-status
+---
+
+## 接口
+
+**GET** `/v1/copy-trade-account/copy-trade/user-status`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": "string" //LEADER、FOLLOWER、NONE
+}
+```

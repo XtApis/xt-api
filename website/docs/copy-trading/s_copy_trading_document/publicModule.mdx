@@ -1,0 +1,50 @@
+---
+id: _s_copy_trading_document_publicmodule
+title: Public module
+sidebar_label: Public module
+---
+
+#### **<span id="leaderOrderRequestType">Leader order request type</span>**
+
+| Type | Description                      |
+| ---- | -------------------------------- |
+| 1    | Query order details.             |
+| 2    | Query order summary information. |
+
+#### **<span id="copyTradeUserStatus">Copy trade user status</span>**
+
+| User status | Description         |
+| ----------- | ------------------- |
+| LEADER      | Copy trade leader   |
+| FOLLOWER    | Copy trade follower |
+| NONE        | None                |
+
+#### **<span id="leaderType">Leader type</span>**
+
+| Type | Description    |
+| ---- | -------------- |
+| 1    | Current follow |
+| 2    | History follow |
+
+#### **<span id="followType">Copy trade follow type</span>**
+
+| Follow type | Description                             |
+| ----------- | --------------------------------------- |
+| FUND        | Copy trading according to fixed amount. |
+| RATE        | Copy trading according to fund ratio.   |
+
+#### **<span id="followLossOperate">Copy stop loss position processing</span>**
+
+| FollowLossOperate | Description                           |
+| ----------------- | ------------------------------------- |
+| MARKET_SELL       | Immediately settle at market price    |
+| LEADER_CLOSE      | Follow the lead to close the position |
+| MANUAL_PROCESS    | Manual Processing                     |
+
+## 请求参数
+
+| 名称   | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| ------ | ---- | ---- | ------ | ---- | ---- |
+| `None` |      | 否   |        |      |      |
+
+## 示例请求

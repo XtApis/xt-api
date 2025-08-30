@@ -1,0 +1,49 @@
+---
+id: _futures_quotes_getindexprice
+title: Get Index Price for Single Trading Pair
+sidebar_label: Get Index Price for Single Trading Pair
+description: /future/market/v1/public/q/symbol-index-price
+---
+
+## 接口
+
+**GET** `/future/market/v1/public/q/symbol-index-price`
+
+Note：This method does not require a signature.
+
+## 请求参数
+
+| 名称     | 类型   | 必填 | 默认值 | 说明         | 范围 |
+| -------- | ------ | ---- | ------ | ------------ | ---- |
+| `symbol` | string | 是   | N/A    | Trading pair |      |
+
+## 示例请求
+
+### Java
+
+```java
+public void getKLine() {
+	String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "p": 0, //Price
+    "s": "", //Trading pair
+    "t": 0 //Time
+  },
+  "returnCode": 0
+}
+```

@@ -1,0 +1,37 @@
+---
+id: _futures_market_websocket_v2_markprice
+title: Mark price
+sidebar_label: Mark price
+---
+
+**request**
+
+format: mark_price@\{symbol\}
+
+eg: mark_price@btc_usdt
+
+rate: 1000ms
+
+## 请求参数
+
+| 名称   | 类型   | 必填 | 默认值 | 说明 | 范围 |
+| ------ | ------ | ---- | ------ | ---- | ---- |
+| `None` | string | 否   |        |      |      |
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "topic": "mark_price",
+  "event": "mark_price@btc_usdt",
+  "data": {
+    "s": "btc_usdt", //trading pair
+    "p": "50000", //price
+    "t": 123124124 //timestamp
+  }
+}
+```

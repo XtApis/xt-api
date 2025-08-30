@@ -1,0 +1,55 @@
+---
+id: _futures_quote_collection_getdepthinfo
+title: Get Depth Info
+sidebar_label: Get Depth Info
+description: /future/market/v1/public/cg/orderbook
+---
+
+## 接口
+
+**GET** `/future/market/v1/public/cg/orderbook`
+
+Note：This method does not require a signature.
+
+## 请求参数
+
+| 名称     | 类型   | 必填 | 默认值 | 说明                      | 范围  |
+| -------- | ------ | ---- | ------ | ------------------------- | ----- |
+| `symbol` | string | 是   | N/A    | Trading pair, eg.BTC-USDT |       |
+| `level`  | int    | 否   | 50     |                           | 1-200 |
+
+## 示例请求
+
+### Java
+
+```java
+public void getMarketConfig() {
+	String text = HttpUtil.get(URL + "/data/api/future/market/v1/public/cg/orderbook");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+          "ticker_id": "BTC-USDT",
+          "timestamp": 1698668957638,
+          "bids": [[
+               "34794.6",
+               "97164"
+              ],[
+               "34794.5",
+               "9897"
+              ],...],
+          "asks": [[
+               "34794.7",
+               "168479"
+              ],[
+               "34794.8",
+               "4009"
+              ],...]
+}
+```

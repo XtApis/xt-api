@@ -1,0 +1,53 @@
+---
+id: _s_copy_trading_order_mycopytradersget
+title: Get my copy trader list
+sidebar_label: Get my copy trader list
+description: /v1/copy-trade-account/copy-trade/leader-followers
+---
+
+## 接口
+
+**GET** `/v1/copy-trade-account/copy-trade/leader-followers`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `direction` | string | 否 | NEXT | query direction | PREV-previous page,NEXT-next page |
+| `limit` | number | 否 | 10 | number of pages | 1-100 |
+| `id` | object | 否 |  | start ID，e.g. 6216559590087220004 |  |
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "accountId": 0, //copy trader account id
+        "avatar": "string", //avatar of copy trader
+        "days": 0, //follow days
+        "followMargin": 0, //follow margin
+        "followProfit": 0, //follow profit
+        "followProfitRate": 0, //follow profit rate
+        "followerName": "string", //name of copy trader
+        "id": 0, //id
+        "pageId": 0 //the id used for pagination query
+      }
+    ]
+  }
+}
+```

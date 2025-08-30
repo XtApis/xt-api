@@ -1,0 +1,43 @@
+---
+id: _third_party_order_batchorderdel
+title: Cancell batch order
+sidebar_label: Cancell batch order
+description: /spot/v4/batch-order
+---
+
+## 接口
+
+**DELETE** `/spot/v4/batch-order`
+
+Note: The parameters should be placed in the request body in the form of json
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `clientBatchId` | string | 否 |  | client batch id |  |
+| `orderIds` | array | 是 |  | `6216559590087220004, <br> 6216559590087220005` |  |
+
+## 示例请求
+
+### Java
+
+```java
+public String batchOrderDel(){
+
+
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {}
+}
+```

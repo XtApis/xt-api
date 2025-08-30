@@ -1,0 +1,52 @@
+---
+id: _futures_quotes_getopeninterest
+title: Get the open position of a trading pair
+sidebar_label: Get the open position of a trading pair
+description: /future/market/v1/public/contract/open-interest
+---
+
+## 接口
+
+**GET** `/future/market/v1/public/contract/open-interest`
+
+#### **Limit Flow Rules**
+
+`1/s/ip <br> Note：This method does not require a signature`.
+
+## 请求参数
+
+| 名称     | 类型   | 必填 | 默认值 | 说明         | 范围 |
+| -------- | ------ | ---- | ------ | ------------ | ---- |
+| `symbol` | string | 是   | N/A    | Trading pair |      |
+
+## 示例请求
+
+### Java
+
+```java
+public void getKLine() {
+	String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "symbol": "", //Trading pair
+    "openInterest": "", //open position
+    "openInterestUsd": 0, //open value
+    "time": "" //time
+  },
+  "returnCode": 0
+}
+```

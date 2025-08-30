@@ -1,0 +1,49 @@
+---
+id: _futures_user_getsteprate
+title: Get User's Step Rate
+sidebar_label: Get User's Step Rate
+description: /future/user/v1/user/step-rate
+---
+
+## 接口
+
+**GET** `/future/user/v1/user/step-rate`
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| ---- | ---- | ---- | ------ | ---- | ---- |
+
+## 示例请求
+
+### Java
+
+```java
+public void getStepRate() {
+	String text = HttpUtil.get(URL + "/future/user/v1/user/step-rate");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "success",
+  "result": {
+    "makerFee": "0.00004",
+    "takerFee": "0.00001"
+  },
+  "returnCode": 0
+}
+```

@@ -1,0 +1,38 @@
+---
+id: _futures_websocket_aggregatemarket
+title: Aggregate Market
+sidebar_label: Aggregate Market
+---
+
+Subscribe：
+
+\{"channel":"ex_single_market","market":\{Market\},"event":"addChannel"\}
+
+Unsubscribe：
+
+\{"channel":"ex_single_market","market":\{Market\},"event":"removeChannel"\}
+
+## 请求参数
+
+| 名称     | 类型   | 必填 | 默认值 | 说明            | 范围                  |
+| -------- | ------ | ---- | ------ | --------------- | --------------------- |
+| `market` | string | 是   | N/A    | Trading markets | btc_usdt, eth_usdt... |
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+// [Market name, Market Group, Market price, Price Fluctuation Limit, Highest Price, Lowest Price, Volume, Turnover]
+{
+  "code": 200,
+  "data": {
+    "market": "eth_usdt",
+    "records": [["eth_usdt", 1, 101.0, 1.98, 101.0, 101.0, 4.0, 404.0]],
+    "channel": "ex_single_market"
+  },
+  "info": "success"
+}
+```

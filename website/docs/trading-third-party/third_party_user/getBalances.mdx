@@ -1,0 +1,45 @@
+---
+id: _third_party_user_getbalances
+title: Get User's Funds Information
+sidebar_label: Get User's Funds Information
+description: /futures/user/v1/balance/list
+---
+
+## 接口
+
+**GET** `/futures/user/v1/balance/list`
+
+## 示例请求
+
+### Java
+
+```java
+public void getMarketConfig() {
+	String text = HttpUtil.get(URL + "/data/api/user/v1/getMarketConfig");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "availableBalance": 0, //Available balance
+      "coin": "", //Currency
+      "isolatedMargin": 0, //Frozen isolated margin
+      "openOrderMarginFrozen": 0, //Frozen order
+      "walletBalance": 0 //Balance
+    }
+  ],
+  "returnCode": 0
+}
+```

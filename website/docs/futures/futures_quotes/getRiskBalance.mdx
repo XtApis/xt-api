@@ -1,0 +1,60 @@
+---
+id: _futures_quotes_getriskbalance
+title: Get Trading Pair Risk Fund Balance
+sidebar_label: Get Trading Pair Risk Fund Balance
+description: /future/market/v1/public/contract/risk-balance
+---
+
+## 接口
+
+**GET** `/future/market/v1/public/contract/risk-balance`
+
+Note：This method does not require a signature.
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | 是 |  | Trading pair |  |
+| `direction` | string | 否 | NEXT | Direction（PREV:Previous page；NEXT:Next page） | PREV;NEXT |
+| `id` | integer | 否 | N/A | id |  |
+| `limit` | integer | 否 | 10 | Limit |  |
+
+## 示例请求
+
+### Java
+
+```java
+public void getKLine() {
+	String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, //Is there a next page
+    "hasPrev": false, //Is there a previous page
+    "items": [
+      //Datasheets
+      {
+        "amount": 0, //Balance
+        "coin": "", //Currency
+        "createdTime": 0, //Time
+        "id": 0 //id
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```

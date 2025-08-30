@@ -1,0 +1,52 @@
+---
+id: _futures_entrust_createprofit
+title: Create Stop Limit
+sidebar_label: Create Stop Limit
+description: /future/trade/v1/entrust/create-profit
+---
+
+## 接口
+
+**POST** `/future/trade/v1/entrust/create-profit`
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | 否 | N/A | Trading pair |  |
+| `origQty` | integer | 是 |  | Quantity (Cont) |  |
+| `triggerProfitPrice` | integer | 是 |  | TP trigger price |  |
+| `triggerStopPrice` | integer | 是 |  | SL trigger price |  |
+| `expireTime` | integer | 是 |  | Expiration time |  |
+| `positionSide` | string | 是 |  | Position side:LONG;SHORT | LONG;SHORT |
+
+## 示例请求
+
+### Java
+
+```java
+public void getKLine() {
+	String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
+	System.out.println(text);
+}
+```
+
+## 更多示例
+
+```
+{
+    "error": {
+    "code": "",
+    "msg": ""
+    },
+    "msgInfo": "",
+    "result": {},
+    "returnCode": 0
+}
+title: Response
+language: json
+```

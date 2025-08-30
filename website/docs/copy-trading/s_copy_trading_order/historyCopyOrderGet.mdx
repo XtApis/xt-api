@@ -1,0 +1,57 @@
+---
+id: _s_copy_trading_order_historycopyorderget
+title: Get historical copy order
+sidebar_label: Get historical copy order
+description: /v1/copy-trade-order/copy-trade/order/his-follower-order
+---
+
+## 接口
+
+**GET** `/v1/copy-trade-order/copy-trade/order/his-follower-order`
+
+#### **Limit Flow Rules**
+
+2/s/apikey
+
+## 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | 否 |  | Trading pair, if not filled in, represents all |  |
+| `direction` | string | 否 | NEXT | query direction | PREV-previous page,NEXT-next page |
+| `limit` | number | 否 | 10 | number of pages | 1-100 |
+| `id` | object | 否 |  | start ID，e.g. 6216559590087220004 |  |
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "string",
+      "orderId": "string", //order id
+      "symbol": "string", //symbol
+      "buySize": 0, //buy quantity
+      "buyTime": 0, //buy time
+      "buyPrice": 0, //buy price
+      "sellSize": 0, //sell quantity
+      "sellTime": 0, //sell time
+      "sellPrice": 0, //sell price
+      "profit": 0, //profit
+      "profitRate": 0, //profit rate
+      "triggerProfitPrice": 0, //trigger profit price
+      "triggerStopPrice": 0, //trigger stop price
+      "leaderOrderId": "string", //leader order id
+      "leaderNickname": "string", //leader nickname
+      "leaderAvatar": "string" //leader avatar
+    }
+  ]
+}
+```

@@ -1,0 +1,43 @@
+---
+id: _futures_user_getlistenkey
+title: Get ListenKey
+sidebar_label: Get ListenKey
+description: /future/user/v1/user/listen-key
+---
+
+## 接口
+
+**GET** `/future/user/v1/user/listen-key`
+
+Note:Valid time is 8 hours
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 示例请求
+
+### Java
+
+```java
+public void getMarketConfig() {
+	String text = HttpUtil.get(URL + "/data/api/user/v1/getMarketConfig");
+	System.out.println(text);
+}
+```
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```

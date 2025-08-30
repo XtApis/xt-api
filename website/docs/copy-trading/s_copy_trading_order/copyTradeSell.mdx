@@ -1,0 +1,36 @@
+---
+id: _s_copy_trading_order_copytradesell
+title: Sell lead order
+sidebar_label: Sell lead order
+description: /v1/copy-trade-order/copy-trade/order/sell
+---
+
+## 接口
+
+**POST** `/v1/copy-trade-order/copy-trade/order/sell`
+
+#### **Limit Flow Rules**
+
+50/s/apikey
+
+## 请求参数
+
+| 名称            | 类型   | 必填 | 默认值 | 说明            | 范围 |
+| --------------- | ------ | ---- | ------ | --------------- | ---- |
+| `leaderOrderId` | number | 是   |        | leader order id |      |
+| `symbol`        | string | 是   |        | symbol          |      |
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

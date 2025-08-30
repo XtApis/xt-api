@@ -1,0 +1,36 @@
+---
+id: _s_copy_trading_order_copytradeclose
+title: Close copy order
+sidebar_label: Close copy order
+description: /v1/copy-trade-order/copy-trade/order/close
+---
+
+## 接口
+
+**POST** `/v1/copy-trade-order/copy-trade/order/close`
+
+#### **Limit Flow Rules**
+
+50/s/apikey
+
+## 请求参数
+
+| 名称            | 类型   | 必填 | 默认值 | 说明            | 范围 |
+| --------------- | ------ | ---- | ------ | --------------- | ---- |
+| `leaderOrderId` | number | 是   |        | leader order id |      |
+| `symbol`        | string | 是   |        | symbol          |      |
+
+## 示例请求
+
+## 响应示例
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```
