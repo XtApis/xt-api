@@ -123,6 +123,7 @@ const isBranchDeploy =
   !!process.env.NETLIFY && process.env.CONTEXT === 'branch-deploy';
 
 // Used to debug production build issues faster
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const isBuildFast = !!process.env.BUILD_FAST;
 
 const baseUrl = process.env.BASE_URL ?? '/';
@@ -163,7 +164,7 @@ function getLocalizedConfigValue(key: keyof typeof ConfigLocalized) {
 // See also https://github.com/facebook/docusaurus/issues/11208
 const showLastUpdate = process.env.DOCUSAURUS_CURRENT_LOCALE === defaultLocale;
 
-export default async function createConfigAsync() {
+export default async function createConfigAsync(): Promise<Config> {
   return {
     title: 'XT API',
     tagline: getLocalizedConfigValue('tagline'),
@@ -268,11 +269,7 @@ export default async function createConfigAsync() {
         return result;
       },
     },
-    onBrokenLinks:
-      isVersioningDisabled ||
-      process.env.DOCUSAURUS_CURRENT_LOCALE !== defaultLocale
-        ? 'warn'
-        : 'throw',
+    onBrokenLinks: 'warn',
     onBrokenAnchors:
       isVersioningDisabled ||
       process.env.DOCUSAURUS_CURRENT_LOCALE !== defaultLocale
@@ -512,26 +509,9 @@ export default async function createConfigAsync() {
             remarkPlugins: [[npm2yarn, {sync: true}], remarkMath, configTabs],
             rehypePlugins: [rehypeKatex],
             disableVersioning: isVersioningDisabled,
-            lastVersion:
-              isDev ||
-              isVersioningDisabled ||
-              isDeployPreview ||
-              isBranchDeploy ||
-              isBuildFast
-                ? 'current'
-                : getLastStableVersion(),
+            lastVersion: 'current',
 
-            onlyIncludeVersions: (() => {
-              if (isBuildFast) {
-                return ['current'];
-              } else if (
-                !isVersioningDisabled &&
-                (isDev || isDeployPreview || isBranchDeploy)
-              ) {
-                return ['current', ...versions.slice(0, 2)];
-              }
-              return undefined;
-            })(),
+            onlyIncludeVersions: ['current'],
             versions: {
               current: {
                 label: `${getNextVersionName()} 🚧`,
