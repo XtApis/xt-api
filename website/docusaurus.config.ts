@@ -204,10 +204,7 @@ export default async function createConfigAsync(): Promise<Config> {
       },
     ],
     scripts: [
-      {
-        src: '/js/custom-navbar.js',
-        type: 'text/javascript',
-      },
+      // 移除不存在的脚本文件引用
     ],
     i18n: {
       defaultLocale,
@@ -292,6 +289,15 @@ export default async function createConfigAsync(): Promise<Config> {
     ],
     themes: ['live-codeblock', ...dogfoodingThemeInstances],
     plugins: [
+      [
+        './src/plugins/local-search/index.ts',
+        {
+          docsDir: 'docs',
+          indexFile: 'search-index.json',
+          maxResults: 20,
+          minSearchLength: 2,
+        },
+      ],
       function disableExpensiveBundlerOptimizationPlugin() {
         return {
           name: 'disable-expensive-bundler-optimizations',
@@ -641,18 +647,19 @@ export default async function createConfigAsync(): Promise<Config> {
       },
       image: 'img/docusaurus-social-card.jpg',
       // metadata: [{name: 'twitter:card', content: 'summary'}],
-      algolia: {
-        appId: 'X1Z85QJPUV',
-        apiKey: 'bf7211c161e8205da2f933a02534105a',
-        indexName: 'docusaurus-2',
-        replaceSearchResultPathname:
-          isDev || isDeployPreview
-            ? {
-                from: /^\/docs\/next/g.source,
-                to: '/docs',
-              }
-            : undefined,
-      },
+      // 注释掉 Algolia 搜索，使用本地搜索
+      // algolia: {
+      //   appId: 'X1Z85QJPUV',
+      //   apiKey: 'bf7211c161e8205da2f933a02534105a',
+      //   indexName: 'docusaurus-2',
+      //   replaceSearchResultPathname:
+      //     isDev || isDeployPreview
+      //       ? {
+      //           from: /^\/docs\/next/g.source,
+      //           to: '/docs',
+      //         }
+      //       : undefined,
+      // },
       navbar: {
         hideOnScroll: true,
         title: 'XT API',
@@ -798,6 +805,10 @@ export default async function createConfigAsync(): Promise<Config> {
                 label: 'Help Us Translate',
               },
             ],
+          },
+          {
+            type: 'custom-SimpleSearchNavbarItem',
+            position: 'right',
           },
           {
             href: 'https://github.com/facebook/docusaurus',
