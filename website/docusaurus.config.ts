@@ -384,13 +384,18 @@ export default async function createConfigAsync(): Promise<Config> {
         {
           fromExtensions: ['html'],
           createRedirects(routePath) {
-            // Redirect to /docs from /docs/introduction (now docs root doc)
-            if (routePath === '/docs' || routePath === '/docs/') {
-              return [`${routePath}/introduction`];
+            // Redirect from old docs root to new default page
+            if (routePath === '/docs/index_overview/overview') {
+              return ['/docs', '/docs/'];
             }
             return [];
           },
           redirects: [
+            // Redirect root and /docs to the new default page
+            {
+              from: ['/', '/docs', '/docs/'],
+              to: '/docs/index_overview/overview',
+            },
             {
               from: ['/docs/support', '/docs/next/support'],
               to: '/community/support',
@@ -674,13 +679,13 @@ export default async function createConfigAsync(): Promise<Config> {
           {
             type: 'dropdown',
             position: 'left',
-            label: '导航菜单',
+            label: 'Product',
             items: [
-              {
-                type: 'doc',
-                docId: 'introduction',
-                label: 'Docs',
-              },
+              // {
+              //   type: 'doc',
+              //   docId: 'introduction',
+              //   label: 'Docs',
+              // },
               // {to: '/index-page', label: 'Index'},
               {
                 type: 'doc',
@@ -730,26 +735,26 @@ export default async function createConfigAsync(): Promise<Config> {
                 docId: 'changelog/index',
                 label: 'Changelog',
               },
-              {
-                type: 'docSidebar',
-                sidebarId: 'api',
-                label: 'API',
-              },
-              {to: 'blog', label: 'Blog'},
-              {to: 'showcase', label: 'Showcase'},
-              {
-                to: '/community/support',
-                label: 'Community',
-                activeBaseRegex: `/community/`,
-              },
+              // {
+              //   type: 'docSidebar',
+              //   sidebarId: 'api',
+              //   label: 'API',
+              // },
+              // {to: 'blog', label: 'Blog'},
+              // {to: 'showcase', label: 'Showcase'},
+              // {
+              //   to: '/community/support',
+              //   label: 'Community',
+              //   activeBaseRegex: `/community/`,
+              // },
               // This item links to a draft doc: only displayed in dev
-              {
-                type: 'doc',
-                docId: 'index',
-                label: 'Tests',
-                docsPluginId: 'docs-tests',
-              },
-              isDev && {to: '/__docusaurus/debug', label: 'Debug'},
+              // {
+              //   type: 'doc',
+              //   docId: 'index',
+              //   label: 'Tests',
+              //   docsPluginId: 'docs-tests',
+              // },
+              // isDev && {to: '/__docusaurus/debug', label: 'Debug'},
             ].filter(Boolean),
           },
           // Custom item for dogfooding: only displayed in /tests/ routes
