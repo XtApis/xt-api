@@ -671,13 +671,13 @@ export default async function createConfigAsync(): Promise<Config> {
       // },
       navbar: {
         hideOnScroll: true,
-        title: 'XT API',
+        title: '',
         logo: {
           alt: '',
-          src: 'img/docusaurus.svg',
-          srcDark: 'img/docusaurus.svg',
-          width: 32,
-          height: 32,
+          src: 'img/xtlogo.png',
+          srcDark: 'img/xtlogo.png',
+          width: 85,
+          height: 36,
         },
         items: [
           {

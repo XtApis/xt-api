@@ -6,7 +6,7 @@
  */
 
 .searchButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
   border: none;
   color: white;
   font-size: 14px;
@@ -15,7 +15,7 @@
   border-radius: 20px;
   transition: all 0.3s ease;
   font-weight: 500;
-  box-shadow: 0 2px 8px rgb(102 126 234 / 30%);
+  box-shadow: 0 2px 8px rgb(107 114 128 / 30%);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -23,8 +23,8 @@
 
 .searchButton:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgb(102 126 234 / 40%);
-  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  box-shadow: 0 4px 12px rgb(107 114 128 / 40%);
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
 }
 
 .searchButton:active {
@@ -89,7 +89,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
 }
 
 .searchInput input {
@@ -106,8 +106,8 @@
 }
 
 .searchInput input:focus {
-  border-color: #667eea;
-  box-shadow: 0 4px 16px rgb(102 126 234 / 15%);
+  border-color: #6b7280;
+  box-shadow: 0 4px 16px rgb(107 114 128 / 15%);
   transform: translateY(-1px);
 }
 
@@ -198,7 +198,7 @@
 
 .searchTips li::before {
   content: '•';
-  color: #667eea;
+  color: #6b7280;
   position: absolute;
   left: 8px;
   font-weight: bold;
@@ -247,17 +247,17 @@
 }
 
 .resultItem:hover {
-  border-color: #667eea;
+  border-color: #6b7280;
   background: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgb(102 126 234 / 12%);
+  box-shadow: 0 8px 24px rgb(107 114 128 / 12%);
 }
 
 .resultItem.selected {
-  border-color: #667eea;
-  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  border-color: #6b7280;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgb(102 126 234 / 15%);
+  box-shadow: 0 8px 24px rgb(107 114 128 / 15%);
 }
 
 .resultHeader {
@@ -295,7 +295,7 @@
 }
 
 .resultType {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
   color: white;
   padding: 4px 8px;
   border-radius: 12px;
@@ -303,7 +303,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  box-shadow: 0 1px 4px rgb(102 126 234 / 20%);
+  box-shadow: 0 1px 4px rgb(107 114 128 / 20%);
 }
 
 .resultDescription {
@@ -326,7 +326,7 @@
 
 .keyboardHints {
   padding: 16px 24px;
-  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
   border-top: 1px solid #e8ecf7;
   display: flex;
   justify-content: center;
@@ -343,7 +343,7 @@
   padding: 4px 8px;
   background: rgb(255 255 255 / 70%);
   border-radius: 6px;
-  border: 1px solid rgb(102 126 234 / 10%);
+  border: 1px solid rgb(107 114 128 / 10%);
 }
 
 /* 高亮样式 */
@@ -400,10 +400,10 @@ mark {
 }
 
 .results::-webkit-scrollbar-thumb {
-  background: rgb(102 126 234 / 20%);
+  background: rgb(107 114 128 / 20%);
   border-radius: 3px;
 }
 
 .results::-webkit-scrollbar-thumb:hover {
-  background: rgb(102 126 234 / 30%);
+  background: rgb(107 114 128 / 30%);
 }
