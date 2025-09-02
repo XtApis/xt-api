@@ -1,0 +1,52 @@
+---
+id: see_Stop_Limit_Profit_Detail
+title: See Stop Limit base on ProfitId
+sidebar_label: See Stop Limit base on ProfitId
+sidebar_position: 11
+---
+
+## 接口描述
+
+`GET /future/trade/v1/entrust/profit-detail`
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 请求参数
+
+| 名称     | 类型    | 必填 | 默认值 | 描述          |
+| -------- | ------- | ---- | ------ | ------------- |
+| profitId | integer | true | N/A    | Stop limit ID |
+
+## 示例代码
+
+```java
+public void getMarketConfig() {
+    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getMarketConfig");
+    System.out.println(text);
+}
+
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "createdTime": 0,
+    "entryPrice": 0,
+    "executedQty": 0,
+    "isolatedMargin": 0,
+    "origQty": 0,
+    "positionSide": "",
+    "positionSize": 0,
+    "profitId": 0,
+    "state": "",
+    "symbol": "",
+    "triggerProfitPrice": 0,
+    "triggerStopPrice": 0
+  },
+  "returnCode": 0
+}
+```

@@ -1,0 +1,57 @@
+---
+id: Get Fund Fee Information
+title: Get Fund Fee Information
+sidebar_label: Get Fund Fee Information
+sidebar_position: 6
+---
+
+### Description
+
+**GET** `/future/user/v1/balance/funding-rate-list`
+
+**Parameters**
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| symbol | string | Yes | N/A | Trading pair (queries all if not passed) |
+| direction | string | No | NEXT | Direction (PREV: Previous page; NEXT: Next page) |
+| id | integer | No | N/A | Record ID |
+| limit | integer | No | 10 | Limit |
+| startTime | integer | No | N/A | Start time |
+| endTime | integer | No | N/A | End time |
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // Is there a next page
+    "hasPrev": false, // Is there a previous page
+    "items": [
+      // Datasheets
+      {
+        "cast": 0, // Fund fee
+        "coin": "", // Currency
+        "createdTime": 0, // Time
+        "id": 0, // ID
+        "positionSide": "", // Direction
+        "symbol": "" // Trading pair
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```

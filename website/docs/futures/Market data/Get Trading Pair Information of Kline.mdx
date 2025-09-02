@@ -1,0 +1,52 @@
+---
+id: get-trading-pair-information-of-kline
+title: Get Trading Pair Information of Kline
+sidebar_label: Get Trading Pair Information of Kline
+sidebar_position: 15
+---
+
+/future/market/v1/public/q/kline
+
+> Note：This method does not require a signature.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true | N/A | Trading pair |  |
+| interval | string | true | N/A | Time-interval | 1m;5m;15m;30m;1h;4h;1d;1w |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+| limit | integer | false | N/A | Limit |  |
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getKLine() {
+    String text = HttpUtil.get(URL + "/data/api/v1/getKLine?market=btc_usdt&type=1min&since=0");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": 0,  // Volume
+      "c": 0,  // Close price
+      "h": 0,  // Highest price
+      "l": 0,  // Lowest price
+      "o": 0,  // Open price
+      "s": "", // Trading pair
+      "t": 0,  // Time
+      "v": 0   // Turnover
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

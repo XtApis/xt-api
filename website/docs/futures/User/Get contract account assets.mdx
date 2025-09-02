@@ -1,0 +1,56 @@
+---
+id: get-contract-account-assets
+title: Get Contract Account Assets
+sidebar_position: 1
+description: /future/user/v1/compat/balance/list
+slug: /futures/account/assets
+---
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+---
+
+### Parameters
+
+| Name           | Type   | Mandatory | Default | Description |
+| -------------- | ------ | --------- | ------- | ----------- |
+| queryAccountId | string | false     | N/A     | Account ID  |
+
+---
+
+### Request Example
+
+```
+
+Response
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "accountId": 500000000000, // account id
+      "userId": 500000000000, // user id
+      "coin": "usdt", // Currency
+      "underlyingType": 2, // Coin standard, u standard
+      "walletBalance": "2078.57264793", // Currency balance
+      "openOrderMarginFrozen": "0", // Order frozen
+      "isolatedMargin": "0", // Margin freeze
+      "crossedMargin": "0", // Full margin freeze
+      "amount": "2078.57264793", // Net asset balance
+      "totalAmount": "2078.57264793", // Margin balance
+      "convertBtcAmount": "0.03638940", // walletBalance conversion BTC
+      "convertUsdtAmount": "2078.5726", // walletBalance conversion USDT
+      "profit": "0", // Profit and loss
+      "notProfit": "0", // Unrealized profit/loss
+      "bonus": "0", // Trial fee
+      "coupon": "0" // Deduction
+    }
+  ],
+  "returnCode": 0
+}
+```

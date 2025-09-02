@@ -1,0 +1,27 @@
+---
+id: createsubaccount
+title: create a sub-account
+sidebar_label: create a sub-account
+description: /v4/user/account
+---
+
+## 接口
+
+**POST** `/v4/user/account`
+
+## 请求参数
+
+| Name          | Type   | Mandatory | Default | Description      |
+| ------------- | ------ | --------- | ------- | ---------------- |
+| `accountName` | string | Yes       |         | sub-account name |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": true //true: success; false/null: unsuccess
+}
+```

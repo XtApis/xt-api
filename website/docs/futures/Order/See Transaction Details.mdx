@@ -1,0 +1,69 @@
+---
+id: see-transaction-details
+title: See Transaction Details
+sidebar_label: See Transaction Details
+sidebar_position: 1.2
+---
+
+/future/trade/v1/order/trade-list
+
+> Note：This method does not require a signature.
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| orderId | integer | false | N/A | Order ID |  |
+| symbol | string | false | N/A | Trading pair |  |
+| page | integer | false | 1 | Page |  |
+| size | integer | false | 10 | Quantity of a single page |  |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getMarketConfig() {
+    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getMarketConfig");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "fee": 0,              // Fee
+        "feeCoin": "",         // Currency of fee
+        "orderId": 0,          // Order ID
+        "execId": 0,           // Trade ID
+        "price": 0,            // Price
+        "quantity": 0,         // Volume
+        "symbol": "",          // Trading pair
+        "timestamp": 0,        // Time
+        "takerMaker": "TAKER"  // taker or maker
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

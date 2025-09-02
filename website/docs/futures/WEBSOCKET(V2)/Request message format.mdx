@@ -1,0 +1,43 @@
+---
+id: Request_message_format
+title: Request message format
+sidebar_label: Request message format
+sidebar_position: 2
+---
+
+### Request Message Format
+
+Below is the format for subscribing and unsubscribing to WebSocket messages.
+
+---
+
+### Subscribe Message
+
+```javascript
+{
+    "method": "subscribe",
+    "params": [
+        "{topic}@{arg},{arg}",
+        "{topic}@{arg}"
+    ],
+    "id": "{id}"    // Call back ID
+}
+Unsubscribe Message
+{
+    "method": "unsubscribe",
+    "params": [
+        "{topic}@{arg},{arg}"
+    ],
+    "id": "{id}"   // Call back ID
+}
+Response
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```

@@ -1,0 +1,58 @@
+---
+id: Query_trade
+title: Query trade
+sidebar_label: Query trade
+description: /spot/v4/trade
+---
+
+## 接口
+
+**GET** `/spot/v4/trade`
+
+## 请求参数
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `symbol` | string | No |  | Trading pair, if not filled in, represents all |
+| `bizType` | string | No |  | SPOT, LEVER |
+| `orderSide` | string | No |  | BUY,SELL |
+| `orderType` | string | No |  | LIMIT, MARKET |
+| `orderId` | number | No |  |  |
+| `fromId` | number | No |  | start id |
+| `direction` | string | No |  | query direction:PREV, NEXT |
+| `limit` | number | No | 20 | Limit number, max 100 |
+| `startTime` | number | No |  | start time eg:1657682804112 |
+| `endTime` | number | No |  |  |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "hasPrev": true,
+    "hasNext": true,
+    "items": [
+      {
+        "symbol": "BTC_USDT",
+        "tradeId": "6316559590087222001",
+        "orderId": "6216559590087220004",
+        "orderSide": "BUY",
+        "orderType": "LIMIT",
+        "bizType": "SPOT",
+        "time": 1655958915583,
+        "price": "40000",
+        "quantity": "1.2",
+        "quoteQty": "48000", //amount
+        "baseCurrency": "BTC",
+        "quoteCurrency": "USDT",
+        "fee": "0.5",
+        "feeCurrency": "USDT",
+        "takerMaker": "taker" //takerMaker
+      }
+    ]
+  }
+}
+```

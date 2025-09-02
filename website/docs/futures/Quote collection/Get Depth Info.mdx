@@ -1,0 +1,43 @@
+---
+id: get-depth-info
+title: Get Depth Info
+sidebar_label: Get Depth Info
+sidebar_position: 2
+---
+
+/future/market/v1/public/cg/orderbook
+
+> Content-Type = application/x-www-form-urlencoded Note：This method does not require a signature.
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description                 | Ranges |
+| ------ | ------ | --------- | ------- | --------------------------- | ------ |
+| symbol | string | true      | N/A     | Trading pair, e.g. BTC-USDT |        |
+| level  | int    | false     | 50      | Depth level                 | 1-200  |
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getMarketConfig() {
+    String text = HttpUtil.get(URL + "/data/api/future/market/v1/public/cg/orderbook");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "ticker_id": "BTC-USDT",
+  "timestamp": 1698668957638,
+  "bids": [
+    ["34794.6", "97164"],
+    ["34794.5", "9897"],
+    ...
+  ],
+  "asks": [
+    ["34794.7", "168479"],
+    ["34794.8", "4009"],
+    ...
+  ]
+}`}
+</CodeBlock>

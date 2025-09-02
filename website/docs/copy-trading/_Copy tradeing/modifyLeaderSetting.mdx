@@ -1,0 +1,36 @@
+---
+id: spot_copy/_s_copy_trading_order/modifyleadersetting
+title: Modify leader setting
+sidebar_label: Modify leader setting
+description: /v1/copy-trade-account/copy-trade/leader-settings
+---
+
+## 接口
+
+**POST** `/v1/copy-trade-account/copy-trade/leader-settings`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 请求参数
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `leaderIntro` | string | No |  | Leader introduction |
+| `labelIds` | string | No |  | Label ids, separated by commas, e.g. 1,2,3,4 |
+| `displayEquity` | bool | No |  | Display total assets or not |
+| `displayQuantity` | bool | No |  | Display buy quantity or not |
+| `symbols` | string | Yes |  | Selected copy trade symbols, e.g. btc_usdt,eth_usdt |
+| `openLeader` | bool | No |  | Open leader or not |
+
+## 响应示例
+
+```json
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": true
+}
+```

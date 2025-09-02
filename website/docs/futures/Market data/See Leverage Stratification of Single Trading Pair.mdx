@@ -1,0 +1,51 @@
+---
+id: see-leverage-stratification-of-single-trading-pair
+title: See Leverage Stratification of Single Trading Pair
+sidebar_label: See Leverage Stratification of Single Trading Pair
+sidebar_position: 5
+---
+
+/future/market/v1/public/leverage/bracket/detail
+
+> Note：This method does not require a signature.
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      | N/A     | Trading pair |        |
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getKLine() {
+    String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "leverageBrackets": [
+      {
+        "bracket": 0,            // Level
+        "maintMarginRate": 0,    // Maintain margin rate
+        "maxLeverage": 0,        // Maximum leverage
+        "maxNominalValue": 0,    // Maximum notional value
+        "maxStartMarginRate": 0, // Maximum initial margin rate
+        "minLeverage": 0,        // Minimum leverage
+        "startMarginRate": 0,    // Initial margin rate
+        "symbol": ""             // Trading pair
+      }
+    ],
+    "symbol": ""
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

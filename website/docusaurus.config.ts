@@ -687,18 +687,17 @@ export default async function createConfigAsync(): Promise<Config> {
               },
               {
                 type: 'doc',
-                docId:
-                  'futures/futures_documentation/futures_documentation_apibasicinfo',
+                docId: 'futures/AccessDescription/apiDemo',
                 label: 'Futures',
               },
               {
                 type: 'doc',
-                docId: 'margin-spot/index',
-                label: 'Margin Spot',
+                docId: 'margin-spot/AccessDescription/RestApi',
+                label: 'Margin',
               },
               {
                 type: 'doc',
-                docId: 'copy-trading/copy_trade/copy_trade_symbol',
+                docId: 'copy-trading/Access Description/RestApi',
                 label: 'Copy Trading',
               },
               {
@@ -708,14 +707,12 @@ export default async function createConfigAsync(): Promise<Config> {
               },
               {
                 type: 'doc',
-                docId:
-                  'trading-third-party/third_party_authorization_page/third_party_authorization_page_oauthpage',
+                docId: 'trading-third-party/AccessDescription/RestAPI',
                 label: 'Trading Third Party',
               },
               {
                 type: 'doc',
-                docId:
-                  'user-center/user_center_account/user_center_account_createsubaccount',
+                docId: 'user-center/AccessDescription/RestAPI',
                 label: 'User Center',
               },
               {

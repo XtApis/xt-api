@@ -1,0 +1,30 @@
+---
+id: Cancell_batch_order
+title: Cancell batch order
+sidebar_label: Cancell batch order
+description: /spot/v4/batch-order
+---
+
+## 接口
+
+**DELETE** `/spot/v4/batch-order`
+
+Note: The parameters should be placed in the request body in the form of json
+
+## 请求参数
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `clientBatchId` | string | No |  | client batch id |
+| `orderIds` | array | Yes |  | 6216559590087220004, 6216559590087220005 |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {}
+}
+```

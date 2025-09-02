@@ -1,0 +1,38 @@
+---
+id: cancel-orders
+title: Cancel Orders
+sidebar_label: Cancel Orders
+sidebar_position: 6
+---
+
+/future/trade/v1/order/cancel
+
+---
+
+### Parameters
+
+| Name    | Type    | Mandatory | Default | Description | Ranges |
+| ------- | ------- | --------- | ------- | ----------- | ------ |
+| orderId | integer | true      | N/A     | Order ID    |        |
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": "",  // Order ID
+  "returnCode": 0
+}`}
+</CodeBlock>

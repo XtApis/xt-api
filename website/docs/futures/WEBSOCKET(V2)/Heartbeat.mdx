@@ -1,0 +1,27 @@
+---
+id: Heartbeat
+title: Heartbeat
+sidebar_label: Heartbeat
+sidebar_position: 5
+---
+
+### Heartbeat
+
+Each link of the client needs to send a text "ping" periodically, and the server will reply to the text "pong". If the server does not receive a ping message from the client within 30 seconds, it will actively disconnect the link.
+
+### Python Example
+
+```python
+# Python code to send "ping" to the server
+import websocket
+
+ws = websocket.create_connection("wss://example.com/ws")
+ws.send("ping")
+
+Response Example
+{
+  "id": "123",
+  "code": 0,
+  "msg": "pong"
+}
+```

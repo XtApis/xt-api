@@ -1,0 +1,51 @@
+---
+id: spot_copy/_s_copy_trading_order/leaderconfigurationget
+title: Get leader account configuration
+sidebar_label: Get leader account configuration
+description: /v1/copy-trade-account/public/copy-trade/leader-detail
+---
+
+## 接口
+
+**GET** `/v1/copy-trade-account/public/copy-trade/leader-detail`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 请求参数
+
+| Name        | Type   | Mandatory | Default | Description       |
+| ----------- | ------ | --------- | ------- | ----------------- |
+| `accountId` | number | Yes       |         | leader account id |
+
+## 响应示例
+
+```json
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "avatar": "string", //avatar
+    "currentFollowNumber": 0, //current number of copy traders
+    "displayEquity": true, //display total assets or not
+    "displayQuantity": true, //display the purchase quantity or not
+    "fansNum": 0, //fans number
+    "followNumber": 0, //follow number
+    "label": [
+      //label
+      "string"
+    ],
+    "leadDays": 0, //time to become a lead
+    "leaderIntro": "string", //leader introduction
+    "level": 0, //current level
+    "levelId": 0, //current level id
+    "levelName": "string", //current level name
+    "maxFollowerSize": 0, //maximum number of copy traders
+    "nickName": "string", //nickname
+    "profitRate": 0, //profit sharing ratio.
+    "totalRights": 0 //total assets
+  }
+}
+```

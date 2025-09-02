@@ -1,0 +1,30 @@
+---
+id: Query_user_KYC_status
+title: Query user KYC status
+sidebar_label: Query user KYC status
+description: /v4/referal/invite/kyc/status
+---
+
+## 接口
+
+**GET** `/v4/referal/invite/kyc/status`
+
+## 请求参数
+
+| Name  | Type   | Mandatory | Default | Description |
+| ----- | ------ | --------- | ------- | ----------- |
+| `uid` | number | Yes       |         | User ID     |
+
+## 响应示例
+
+```json
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "userid": 123456789, //User ID
+    "status": 2 //KYC Status (0 - Not Verified, 1 - Basic Verification, 2 - Advanced Verification, 3 - Corporate Verification)
+  }
+}
+```

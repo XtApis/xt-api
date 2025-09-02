@@ -1,0 +1,38 @@
+---
+id: cancel-all-orders
+title: Cancel All Orders
+sidebar_label: Cancel All Orders
+sidebar_position: 8
+---
+
+/future/trade/v1/order/cancel-all
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true | N/A | Trading pair (cancel all trading pair orders if pass `""`) |  |
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}`}
+</CodeBlock>

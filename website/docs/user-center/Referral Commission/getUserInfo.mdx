@@ -1,0 +1,36 @@
+---
+id: Query_user_information
+title: Query user information
+sidebar_label: Query user information
+description: /v4/referal/invite/single/user/info
+---
+
+## 接口
+
+**GET** `/v4/referal/invite/single/user/info`
+
+## 请求参数
+
+| Name  | Type   | Mandatory | Default | Description |
+| ----- | ------ | --------- | ------- | ----------- |
+| `uid` | number | Yes       |         | User ID     |
+
+## 响应示例
+
+```json
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "uid": 123456789, //User ID
+    "registerTime": 1737095389000, //Registration Time
+    "countryCode": "86", //Country code
+    "mobile": "123****4567", //Phone number, desensitization
+    "email": "639***3@gmail.com", //Email address, desensitization
+    "riskControlStatus": 0, //Risk Control Status (0 - No Risk Control, 1 - Risk Controlled)
+    "kycStatus": 2, //KYC Status (0 - Not Verified, 1 - Basic Verification, 2 - Advanced Verification, 3 - Corporate Verification)
+    "registerInviteCode": 23456 //Registration Invitation Code
+  }
+}
+```

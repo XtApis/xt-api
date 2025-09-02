@@ -1,0 +1,45 @@
+---
+id: Batch_query_user_information
+title: Batch query user information
+sidebar_label: Batch query user information
+description: /v4/referal/invite/multi/user/info
+---
+
+## 接口
+
+**GET** `/v4/referal/invite/multi/user/info`
+
+## 请求参数
+
+| Name        | Type   | Mandatory | Default | Description           |
+| ----------- | ------ | --------- | ------- | --------------------- |
+| `uidList`   | array  | Yes       |         | User ID list          |
+| `fromId`    | number | No        |         | Starting ID           |
+| `direction` | string | No        | NEXT    | query direction       |
+| `limit`     | int    | No        | 10      | Limit number, max 100 |
+
+## 响应示例
+
+```json
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "totalCount": 1,
+    "pageCount": 20,
+    "items": [
+      {
+        "uid": 123456789, //User ID
+        "registerTime": 1737095389000, //Registration Time
+        "countryCode": "86", //Country code
+        "mobile": "123****4567", //Phone number, desensitization
+        "email": "639***3@gmail.com", //Email address, desensitization
+        "riskControlStatus": 0, //Risk Control Status (0 - No Risk Control, 1 - Risk Controlled)
+        "kycStatus": 2, //KYC Status (0 - Not Verified, 1 - Basic Verification, 2 - Advanced Verification, 3 - Corporate Verification)
+        "registerInviteCode": 23456 //Registration Invitation Code
+      }
+    ]
+  }
+}
+```

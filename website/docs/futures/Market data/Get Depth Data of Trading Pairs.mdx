@@ -1,0 +1,48 @@
+---
+id: get-depth-data-of-trading-pairs
+title: Get Depth Data of Trading Pairs
+sidebar_label: Get Depth Data of Trading Pairs
+sidebar_position: 10
+---
+
+/future/market/v1/public/q/depth
+
+#### **Limit Flow Rules**
+
+10/s/ip
+
+<br />> Note：This method does not require a signature.
+
+### Parameters
+
+| Name   | Type    | Mandatory | Default | Description           | Ranges |
+| ------ | ------- | --------- | ------- | --------------------- | ------ |
+| symbol | string  | true      | N/A     | Trading pair          |        |
+| level  | integer | true      | N/A     | Level (min:1, max:50) |        |
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getKLine() {
+    String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "a": [], // Buy
+    "b": [], // Sell
+    "s": "", // Trading pair
+    "t": 0,  // Time
+    "u": 0   // updateId
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

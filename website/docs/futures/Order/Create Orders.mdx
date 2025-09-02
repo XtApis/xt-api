@@ -1,0 +1,73 @@
+---
+id: create-orders
+title: Create Orders
+sidebar_label: Create Orders
+sidebar_position: 1
+---
+
+/future/trade/v1/order/create
+
+> Content-Type = `application/x-www-form-urlencoded` && `application/json` Note：This method does not require a signature.
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| clientOrderId | string | false | N/A | Client order ID |  |
+| symbol | string | true | - | Trading pair |  |
+| orderSide | string | true | N/A | Order side | BUY;SELL |
+| orderType | string | true | N/A | Order type | LIMIT;MARKET |
+| origQty | number | true | N/A | Quantity (Cont) |  |
+| price | number | false | N/A | Price |  |
+| timeInForce | string | false | GTC | Valid way | GTC;IOC;FOK;GTX |
+| triggerProfitPrice | number | false | N/A | Stop profit price |  |
+| triggerStopPrice | number | false | N/A | Stop loss price |  |
+| positionSide | string | true | N/A | Position side | LONG;SHORT |
+
+---
+
+### OrigQty Calculation Formula
+
+**Formula**
+
+**Explain**
+
+- `Truncate`: take the integer part
+- `Balance`: (walletBalance - openOrderMarginFrozen), api: `/future/user/v1/compat/balance/list`
+- `Percent`: user input, e.g. `0.2`
+- `Leverage`: leverage you want, e.g. `20`
+- `Mark_price`: current symbol mark price, e.g. `88888 (btc_usdt)`
+- `Contract_size`: contractSize, api: `/future/market/v1/public/symbol/detail`, contract multiplier (face value)
+
+**Example** truncate(10000 _ 0.2 _ 20 / 88888 / 0.0001) = 4500
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getKLine() {
+    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}`}
+</CodeBlock>

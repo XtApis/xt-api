@@ -1,0 +1,43 @@
+---
+id: Trade_record
+title: Trade record
+sidebar_label: Trade record
+sidebar_position: 8
+---
+
+### Trade Record
+
+**Request**
+
+Format: `trade@{symbol}`
+
+Example: `trade@btc_usdt`
+
+Rate: real
+
+---
+
+### Python Example
+
+```python
+import websocket
+
+# Open a WebSocket connection
+ws = websocket.create_connection("wss://fstream.xt.com/ws/market")
+ws.send('{"method":"SUBSCRIBE","params":["trade@btc_usdt"],"id":1}')
+
+
+
+
+{
+  "topic": "trade",
+  "event": "trade@btc_usdt",
+  "data": {
+    "s": "btc_index",  // Trading pair
+    "p": "50000",      // Price
+    "a": "0.1",        // Quantity
+    "m": "BID",        // Deal side: BID (Buy) or ASK (Sell)
+    "t": 123124124     // Timestamp
+  }
+}
+```

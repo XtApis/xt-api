@@ -1,0 +1,31 @@
+---
+id: get-trading-pair-currency
+title: Get Trading Pair Currency
+sidebar_label: Get Trading Pair Currency
+sidebar_position: 2
+---
+
+/future/market/v1/public/symbol/coins
+
+> Note：This method does not require a signature.
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getMarketConfig() {
+    String text = HttpUtil.get(URL + "/data/api/future/market/v1/getMarketConfig");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [],
+  "returnCode": 0
+}`}
+</CodeBlock>

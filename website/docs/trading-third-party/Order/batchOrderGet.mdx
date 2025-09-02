@@ -1,0 +1,53 @@
+---
+id: Get_batch
+title: Get batch
+sidebar_label: Get batch
+description: /spot/v4/batch-order
+---
+
+## 接口
+
+**GET** `/spot/v4/batch-order`
+
+reponse field information, refer to the Get single interface
+
+## 请求参数
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `orderIds` | string | Yes |  | order Ids eg: 6216559590087220004, 6216559590087220004 |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "symbol": "BTC_USDT",
+      "orderId": "6216559590087220004",
+      "clientOrderId": "16559590087220001",
+      "baseCurrency": "string",
+      "quoteCurrency": "string",
+      "side": "BUY",
+      "type": "LIMIT",
+      "timeInForce": "GTC",
+      "price": "40000",
+      "origQty": "2",
+      "origQuoteQty": "48000",
+      "executedQty": "1.2",
+      "leavingQty": "string",
+      "tradeBase": "2",
+      "tradeQuote": "48000",
+      "avgPrice": "42350",
+      "fee": "string",
+      "feeCurrency": "string",
+      "state": "NEW",
+      "time": 1655958915583,
+      "updatedTime": 1655958915583
+    }
+  ]
+}
+```

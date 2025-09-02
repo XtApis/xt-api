@@ -1,0 +1,44 @@
+---
+id: Get symbol list
+title: Get symbol list
+sidebar_label: Get symbol list
+sidebar_position: 1
+---
+
+### Description
+
+**GET** `/v4/public/lever/symbol`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "symbolId": 123, // Spot symbol id
+      "symbol": "btc_usdt", // Spot symbol
+      "buyCurrencyId": 123, // Buy currency id
+      "buyCurrency": "btc", // Buy currency
+      "sellCurrencyId": 234, // Sell currency id
+      "sellCurrency": "usdt", // Sell currency
+      "maxLoanAmountBuy": "", // The maximum amount of buy currency that can be borrowed
+      "maxLoanAmountSell": "", // The maximum amount of sell currency that can be borrowed
+      "maxLeverage": "", // Maximum loan multiple
+      "dailyInterestRate": "", // Daily interest rate
+      "liquidationRate": "", // Liquidation risk rate
+      "tipsRate": "" // Reminder coefficient
+    }
+  ]
+}
+```

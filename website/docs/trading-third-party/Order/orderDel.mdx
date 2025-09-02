@@ -1,0 +1,29 @@
+---
+id: Cancell_order
+title: Cancell order
+sidebar_label: Cancell order
+description: /spot/v4/order/{orderId}
+---
+
+## 接口
+
+**DELETE** `/spot/v4/order/{orderId}`
+
+## 请求参数
+
+| Name      | Type   | Mandatory | Default | Description |
+| --------- | ------ | --------- | ------- | ----------- |
+| `orderId` | number | Yes       |         |             |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "cancelId": "6216559590087220004"
+  }
+}
+```

@@ -1,0 +1,31 @@
+---
+id: Query_user_balance
+title: Query user balance
+sidebar_label: Query user balance
+description: /v4/referal/invite/user/balance
+---
+
+## 接口
+
+**GET** `/v4/referal/invite/user/balance`
+
+## 请求参数
+
+| Name  | Type   | Mandatory | Default | Description |
+| ----- | ------ | --------- | ------- | ----------- |
+| `uid` | number | Yes       |         | User ID     |
+
+## 响应示例
+
+```json
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "userId": 123456789, //User ID
+    "role": "PARTNER", //User role
+    "balance": 123456 //balance amount
+  }
+}
+```

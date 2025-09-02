@@ -1,0 +1,40 @@
+---
+id: Adjust Leverage
+title: Adjust Leverage
+sidebar_label: Adjust Leverage
+sidebar_position: 9
+---
+
+### Description
+
+**POST** `/future/user/v1/position/adjust-leverage`
+
+**Parameters**
+
+| Name         | Type    | Mandatory | Default | Description                 |
+| ------------ | ------- | --------- | ------- | --------------------------- |
+| symbol       | string  | Yes       | N/A     | Trading pair                |
+| positionSide | string  | Yes       | N/A     | Position side (LONG, SHORT) |
+| leverage     | integer | Yes       | N/A     | Leverage                    |
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```

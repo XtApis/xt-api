@@ -1,0 +1,40 @@
+---
+id: get-ask-bid-market-information-for-all-trading-pairs
+title: Get Ask Bid Market Information for All Trading Pairs
+sidebar_label: Get Ask Bid Market Information for All Trading Pairs
+sidebar_position: 19.5
+---
+
+/future/market/v1/public/q/ticker/books
+
+> Note：This method does not require a signature.
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getTickerBokk() {
+    String text = HttpUtil.get(URL + "/data/api//future/market/v1/public/q/ticker/books?symbol=btc_usdt");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "ap": "", // ask price
+      "aq": "", // ask amount
+      "bp": "", // bid price
+      "bq": "", // bid amount
+      "s": "",  // Trading pair
+      "t": 0    // Time
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

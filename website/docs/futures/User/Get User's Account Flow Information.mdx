@@ -1,0 +1,59 @@
+---
+id: Get User's Account Flow Information
+title: Get User's Account Flow Information
+sidebar_label: Get User's Account Flow Information
+sidebar_position: 5
+---
+
+### Description
+
+**GET** `/future/user/v1/balance/bills`
+
+**Parameters**
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| symbol | string | Yes | N/A | Trading pairs (queries all if not passed) |
+| direction | string | No | NEXT | Direction (PREV: Previous page; NEXT: Next page) |
+| id | integer | No | N/A | Record ID |
+| limit | integer | No | 10 | Limit |
+| startTime | integer | No | N/A | Start time |
+| endTime | integer | No | N/A | End time |
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // Is there a next page
+    "hasPrev": false, // Is there a previous page
+    "items": [
+      // Datasheets
+      {
+        "afterAmount": 0, // Balance after change
+        "amount": 0, // Quantity
+        "coin": "", // Currency
+        "createdTime": 0, // Time
+        "id": 0, // ID
+        "side": "", // ADD: transfer in; SUB: transfer out
+        "symbol": "", // Trading pair
+        "type": "" // EXCHANGE: transfer; CLOSE_POSITION: Offset PnL; TAKE_OVER: position takeover; QIANG_PING_MANAGER: Liquidation management fee; FUND: Fund fee; FEE: Fee (open position, liquidation, forced liquidation); ADL: Auto-deleveraging; MERGE: Position merge
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```

@@ -1,0 +1,38 @@
+---
+id: Get ADL Information
+title: Get ADL Information
+sidebar_label: Get ADL Information
+sidebar_position: 13
+---
+
+### Description
+
+**GET** `/future/user/v1/position/adl`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "longQuantile": 0, //long position adl
+      "shortQuantile": 0, //Short position adl
+      "symbol": "" //Trading pair
+    }
+  ],
+  "returnCode": 0
+}
+```

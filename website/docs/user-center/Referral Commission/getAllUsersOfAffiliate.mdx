@@ -1,0 +1,42 @@
+---
+id: Get_All_Users_of_Affiliate
+title: Get All Users of Affiliate
+sidebar_label: Get All Users of Affiliate
+description: /v4/referal/invite/users
+---
+
+## 接口
+
+**GET** `/v4/referal/invite/users`
+
+## 请求参数
+
+| Name        | Type   | Mandatory | Default | Description           |
+| ----------- | ------ | --------- | ------- | --------------------- |
+| `startTime` | number | No        |         | start time            |
+| `endTime`   | number | No        |         | end time              |
+| `fromId`    | number | No        |         | Starting ID           |
+| `direction` | string | No        | NEXT    | query direction       |
+| `limit`     | int    | No        | 10      | Limit number, max 100 |
+
+## 响应示例
+
+```json
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "id": 123,
+        "regTime": 1721962593000, //Registration time
+        "role": "PARTNER", //User roles: CHANNEL/PARTNER/DIRECTOR
+        "userId": 123456789 //User ID
+      }
+    ]
+  }
+}
+```

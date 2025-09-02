@@ -1,0 +1,42 @@
+---
+id: Query_User_Commissions
+title: Query User Commissions
+sidebar_label: Query User Commissions
+description: /v4/referal/invite/commissions
+---
+
+## 接口
+
+**GET** `/v4/referal/invite/commissions`
+
+## 请求参数
+
+| Name  | Type   | Mandatory | Default | Description |
+| ----- | ------ | --------- | ------- | ----------- |
+| `uid` | number | Yes       |         | user ID     |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "exchangeUid": 6224154788385, // User's exchange UID
+      "commissionDate": "2025-04-18", // Commission date
+      "commission": 0.318247047, // Commission amount
+      "commissionCurrency": "USDT", // Commission currency, default is USDT
+      "commissionType": "trade", // Commission type
+      "commissionRate": 0.9, // Commission rate
+      "tradingPair": "ETH_USDT", // Trading pair
+      "tradeType": "futures", // Trade type
+      "tradeVolume": 982.2441, // Trade volume
+      "fee": 0.35360783, // Fee
+      "createdAt": "2025-04-18 00:00:00", // creation time
+      "commissionTimestamp": 1744934400000 // Commission timestamp
+    }
+  ]
+}
+```

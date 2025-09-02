@@ -1,0 +1,31 @@
+---
+id: Cancel_AllTrigger_Orders
+title: Cancel All Trigger Orders
+sidebar_label: Cancel All Trigger Orders
+sidebar_position: 3
+---
+
+## 接口描述
+
+`POST /future/trade/v1/entrust/cancel-all`
+
+#### **Limit Flow Rules**
+
+200/s/apikey
+
+## 参数
+
+| 参数名 | 类型   | 是否必填 | 默认值 | 描述         |
+| ------ | ------ | -------- | ------ | ------------ |
+| symbol | string | true     | N/A    | Trading Pair |
+
+## 响应示例
+
+```json
+{
+  "error": {"code": "", "msg": ""},
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}
+```

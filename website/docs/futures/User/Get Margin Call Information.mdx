@@ -1,0 +1,45 @@
+---
+id: Get Margin Call Information
+title: Get Margin Call Information
+sidebar_label: Get Margin Call Information
+sidebar_position: 18
+---
+
+### Description
+
+**GET** `/future/user/v1/position/break-list`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Response
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "breakPrice": 0, //Margin call price. 0 means no margin call
+      "calMarkPrice": 0, //Mark price
+      "contractType": "", //Futures type: PERPETUAL;PREDICT
+      "entryPrice": 0, //Open position average price
+      "isolatedMargin": 0, //Isolated Margin
+      "leverage": 0, //Leverage
+      "positionSide": "", //Position side:LONG;SHORT
+      "positionSize": 0, //Position quantity (Cont)
+      "positionType": "", //Position type:CROSSED;ISOLATED
+      "symbol": "" //Symbol
+    }
+  ],
+  "returnCode": 0
+}
+```

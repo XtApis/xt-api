@@ -1,0 +1,46 @@
+---
+id: queryaccountlist
+title: Query account list（applicable to  master and sub account）
+sidebar_label: Query account list（applicable to  master and sub account）
+description: /v4/user/account
+---
+
+## 接口
+
+**GET** `/v4/user/account`
+
+## 请求参数
+
+| Name          | Type    | Mandatory | Default | Description   |
+| ------------- | ------- | --------- | ------- | ------------- |
+| `accountId`   | string  | No        |         | account id    |
+| `accountName` | string  | No        |         | account name  |
+| `level`       | integer | No        |         | account level |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "1352123154436", //account id
+      "accountName": "master1", //account name
+      "userId": 1352123154435, //user id
+      "level": 1, //account level: 1-master account; 2-sub account
+      "createTime": "2022-04-19 02:02:42", //account creation time
+      "updateTime": "2022-04-19 02:02:42" //account update time
+    },
+    {
+      "id": "1626456841938669570", //account id
+      "accountName": "first1", //account name
+      "userId": 1352123154436, //user id
+      "level": 2, //account level: 1-master account; 2-sub account
+      "createTime": "2023-02-17 05:41:43", //account creation time
+      "updateTime": "2023-02-17 05:41:43" //account update time
+    }
+  ]
+}
+```

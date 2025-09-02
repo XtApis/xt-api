@@ -1,0 +1,38 @@
+---
+id: batch-cancel-orders
+title: Batch Cancel Orders
+sidebar_label: Batch Cancel Orders
+sidebar_position: 7
+---
+
+/future/trade/v1/order/cancel-batch
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| orderIds | string | true | N/A | Order IDs (comma-separated) |  |
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}`}
+</CodeBlock>

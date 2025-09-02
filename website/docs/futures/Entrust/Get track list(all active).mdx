@@ -1,0 +1,71 @@
+---
+id: getTrackList
+title: Get track list (all active)
+sidebar_label: Get track list (all active)
+sidebar_position: 16
+---
+
+### Description
+
+**GET** `/future/trade/v1/entrust/track-list`
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Parameters
+
+| Name      | Type    | Mandatory | Default | Description               |
+| --------- | ------- | --------- | ------- | ------------------------- |
+| page      | integer | false     | 1       | Page                      |
+| size      | integer | false     | 10      | Quantity of a single page |
+| endTime   | integer | false     | N/A     | End time                  |
+| startTime | integer | false     | N/A     | Start time                |
+| symbol    | string  | false     | N/A     | Symbol                    |
+
+### Example Code
+
+```java
+public void getTrackDetail() {
+    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/entrust/track-list");
+    System.out.println(text);
+}
+###Example Code
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "activationPrice": 0,      // Activation price
+        "avgPrice": 0,             // Average price
+        "callback": "",            // Callback range configuration: PROPORTION or FIXED
+        "callbackVal": 0,          // Callback value
+        "configActivation": false, // Whether to configure activation price
+        "createdTime": 0,          // Create time
+        "currentPrice": 0,         // Real-time price, compared with activation and order price
+        "desc": "",                // Description
+        "executedQty": 0,          // Actual transaction quantity
+        "orderSide": "",           // Order side
+        "ordinary": true,          // Ordinary
+        "origQty": 0,              // Quantity (Cont)
+        "positionSide": "",        // Position side
+        "price": 0,                // Order price
+        "state": "",               // Order state: NOT_ACTIVATION; NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; DELEGATION_FAILED
+        "stopPrice": 0,            // Trigger price
+        "symbol": "",              // Symbol
+        "trackId": 0,              // Track id
+        "triggerPriceType": "",    // Trigger price type
+        "updatedTime": 0           // Update time
+      }
+    ],
+    "page": 1,                     // Page
+    "ps": 10,                      // Page size
+    "total": 20                    // Total
+  },
+  "returnCode": 0
+}
+```

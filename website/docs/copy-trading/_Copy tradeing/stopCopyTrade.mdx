@@ -1,0 +1,31 @@
+---
+id: spot_copy/_s_copy_trading_order/stopcopytrade
+title: Stop copy trading
+sidebar_label: Stop copy trading
+description: /v1/copy-trade-account/copy-trade/cancel-follow
+---
+
+## 接口
+
+**POST** `/v1/copy-trade-account/copy-trade/cancel-follow`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 请求参数
+
+| Name              | Type   | Mandatory | Default | Description       |
+| ----------------- | ------ | --------- | ------- | ----------------- |
+| `leaderAccountId` | number | Yes       |         | leader account id |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```
