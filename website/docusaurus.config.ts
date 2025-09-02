@@ -11,7 +11,7 @@ import rehypeKatex from 'rehype-katex';
 import configTabs from './src/remark/configTabs';
 
 import versions from './versions.json';
-import VersionsArchived from './versionsArchived.json';
+// import VersionsArchived from './versionsArchived.json';
 import {
   dogfoodingPluginInstances,
   dogfoodingThemeInstances,
@@ -34,10 +34,12 @@ import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
 import type {Options as IdealImageOptions} from '@docusaurus/plugin-ideal-image';
 import type {Options as ClientRedirectsOptions} from '@docusaurus/plugin-client-redirects';
 
-const ArchivedVersionsDropdownItems = Object.entries(VersionsArchived).splice(
-  0,
-  5,
-);
+// const ArchivedVersionsDropdownItems = Object.entries(
+//   VersionsArchived
+// ).splice(
+//   0,
+//   5,
+// );
 
 function isPrerelease(version: string) {
   return (
@@ -519,7 +521,9 @@ export default async function createConfigAsync(): Promise<Config> {
             showLastUpdateTime: showLastUpdate,
             remarkPlugins: [[npm2yarn, {sync: true}], remarkMath, configTabs],
             rehypePlugins: [rehypeKatex],
-            disableVersioning: isVersioningDisabled,
+            // disableVersioning: isVersioningDisabled,
+            disableVersioning: true,
+
             lastVersion: 'current',
 
             onlyIncludeVersions: ['current'],
@@ -618,11 +622,11 @@ export default async function createConfigAsync(): Promise<Config> {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      announcementBar: {
-        id: `announcementBar-v${announcedVersion}`,
-        // content: `⭐️ If you like Docusaurus, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/docusaurus">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://x.com/docusaurus">X ${TwitterSvg}</a>`,
-        content: `🎉️ <b><a target="_blank" href="https://docusaurus.io/blog/releases/${announcedVersion}">Docusaurus v${announcedVersion}</a> is out!</b> 🥳️`,
-      },
+      // announcementBar: {
+      //   id: `announcementBar-v${announcedVersion}`,
+      //   // content: `⭐️ If you like Docusaurus, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/docusaurus">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://x.com/docusaurus">X ${TwitterSvg}</a>`,
+      //   content: ``,
+      // },
       prism: {
         additionalLanguages: [
           'java',
@@ -671,7 +675,7 @@ export default async function createConfigAsync(): Promise<Config> {
         logo: {
           alt: '',
           src: 'img/docusaurus.svg',
-          srcDark: 'img/docusaurus_keytar.svg',
+          srcDark: 'img/docusaurus.svg',
           width: 32,
           height: 32,
         },
@@ -763,40 +767,40 @@ export default async function createConfigAsync(): Promise<Config> {
             content: '😉',
           },
           // Right
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownActiveClassDisabled: true,
-            dropdownItemsAfter: [
-              {
-                type: 'html',
-                value: '<hr class="dropdown-separator">',
-              },
-              {
-                type: 'html',
-                className: 'dropdown-archived-versions',
-                value: '<b>Archived versions</b>',
-              },
-              ...ArchivedVersionsDropdownItems.map(
-                ([versionName, versionUrl]) => ({
-                  label: versionName,
-                  href: versionUrl,
-                }),
-              ),
-              {
-                href: 'https://v1.docusaurus.io',
-                label: '1.x.x',
-              },
-              {
-                type: 'html',
-                value: '<hr class="dropdown-separator">',
-              },
-              {
-                to: '/versions',
-                label: 'All versions',
-              },
-            ],
-          },
+          // {
+          //   type: 'docsVersionDropdown',
+          //   position: 'right',
+          //   dropdownActiveClassDisabled: true,
+          //   dropdownItemsAfter: [
+          //     {
+          //       type: 'html',
+          //       value: '<hr class="dropdown-separator">',
+          //     },
+          //     {
+          //       type: 'html',
+          //       className: 'dropdown-archived-versions',
+          //       value: '<b>Archived versions</b>',
+          //     },
+          //     ...ArchivedVersionsDropdownItems.map(
+          //       ([versionName, versionUrl]) => ({
+          //         label: versionName,
+          //         href: versionUrl,
+          //       }),
+          //     ),
+          //     {
+          //       href: 'https://v1.docusaurus.io',
+          //       label: '1.x.x',
+          //     },
+          //     {
+          //       type: 'html',
+          //       value: '<hr class="dropdown-separator">',
+          //     },
+          //     {
+          //       to: '/versions',
+          //       label: 'All versions',
+          //     },
+          //   ],
+          // },
           {
             type: 'localeDropdown',
             position: 'right',
@@ -827,110 +831,115 @@ export default async function createConfigAsync(): Promise<Config> {
           Preset.ThemeConfig['navbar']
         >['items'],
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Learn',
-            items: [
-              {
-                label: 'Introduction',
-                to: 'docs',
-              },
-              {
-                label: 'Installation',
-                to: 'docs/installation',
-              },
-              {
-                label: 'Migration from v1 to v2',
-                to: 'docs/migration',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Feature Requests',
-                to: '/feature-requests',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Help',
-                to: '/community/support',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: 'blog',
-              },
-              {
-                label: 'Changelog',
-                to: '/changelog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
-              {
-                html: `
-                <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
-                  <img src="/img/footer/badge-netlify.svg" alt="Deploys by Netlify" width="114" height="51" />
-                </a>
-              `,
-              },
-              {
-                html: `
-                <a href="https://argos-ci.com" target="_blank" rel="noreferrer noopener" aria-label="Covered by Argos">
-                  <img src="/img/footer/badge-argos.svg" alt="Covered by Argos" width="133" height="20" />
-                </a>
-              `,
-              },
-            ],
-          },
-          {
-            title: 'Legal',
-            className: 'footer-column-legal',
-            // Don't remove the privacy and terms, it's a legal requirement.
-            items: [
-              {
-                label: 'Privacy',
-                className: 'footer-item-privacy',
-                href: 'https://opensource.facebook.com/legal/privacy/',
-              },
-              {
-                label: 'Terms',
-                href: 'https://opensource.facebook.com/legal/terms/',
-              },
-              {
-                label: 'Cookie Policy',
-                href: 'https://opensource.facebook.com/legal/cookie-policy/',
-              },
-            ],
-          },
-        ],
-        logo: {
-          alt: 'Meta Open Source Logo',
-          src: '/img/meta_opensource_logo_negative.svg',
-          href: 'https://opensource.fb.com',
-        },
-        copyright: `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc. Built with Docusaurus.`,
-      },
+      // footer: {
+      //   style: 'dark',
+      //   links: [
+      //     {
+      //       title: 'Learn',
+      //       items: [
+      //         {
+      //           label: 'Introduction',
+      //           to: 'docs',
+      //         },
+      //         {
+      //           label: 'Installation',
+      //           to: 'docs/installation',
+      //         },
+      //         {
+      //           label: 'Migration from v1 to v2',
+      //           to: 'docs/migration',
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Community',
+      //       items: [
+      //         {
+      //           label: 'Stack Overflow',
+      //           href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+      //         },
+      //         {
+      //           label: 'Feature Requests',
+      //           to: '/feature-requests',
+      //         },
+      //         {
+      //           label: 'Discord',
+      //           href: 'https://discordapp.com/invite/docusaurus',
+      //         },
+      //         {
+      //           label: 'Help',
+      //           to: '/community/support',
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'More',
+      //       items: [
+      //         {
+      //           label: 'Blog',
+      //           to: 'blog',
+      //         },
+      //         {
+      //           label: 'Changelog',
+      //           to: '/changelog',
+      //         },
+      //         {
+      //           label: 'GitHub',
+      //           href: 'https://github.com/facebook/docusaurus',
+      //         },
+      //         {
+      //           label: 'X',
+      //           href: 'https://x.com/docusaurus',
+      //         },
+      //         {
+      //           html: `
+      //           <a href="https://www.netlify.com"
+      //              target="_blank" rel="noreferrer noopener"
+      //              aria-label="Deploys by Netlify">
+      //             <img src="/img/footer/badge-netlify.svg" alt="Deploys by Netlify" width="114" height="51" />
+      //           </a>
+      //         `,
+      //         },
+      //         {
+      //           html: `
+      //           <a href="https://argos-ci.com"
+      //              target="_blank" rel="noreferrer noopener"
+      //              aria-label="Covered by Argos">
+      //             <img src="/img/footer/badge-argos.svg" alt="Covered by Argos" width="133" height="20" />
+      //           </a>
+      //         `,
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Legal',
+      //       className: 'footer-column-legal',
+      //       // Don't remove the privacy and terms, it's a legal requirement.
+      //       items: [
+      //         {
+      //           label: 'Privacy',
+      //           className: 'footer-item-privacy',
+      //           href: 'https://opensource.facebook.com/legal/privacy/',
+      //         },
+      //         {
+      //           label: 'Terms',
+      //           href: 'https://opensource.facebook.com/legal/terms/',
+      //         },
+      //         {
+      //           label: 'Cookie Policy',
+      //           href: 'https://opensource.facebook.com/legal/cookie-policy/',
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   logo: {
+      //     alt: 'Meta Open Source Logo',
+      //     src: '/img/meta_opensource_logo_negative.svg',
+      //     href: 'https://opensource.fb.com',
+      //   },
+      //   copyright: `Copyright © ${new Date().getFullYear()} Meta Platforms,
+      //              Inc. Built with Docusaurus.`,
+      // },
     } satisfies Preset.ThemeConfig,
   } satisfies Config;
 }
