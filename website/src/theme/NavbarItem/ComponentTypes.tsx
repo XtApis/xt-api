@@ -1,14 +1,16 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * Navbar Item Component Types
+ * 扩展默认的导航栏组件类型映射，避免覆盖内置类型
  */
 
-import ComponentTypes from '@theme-original/NavbarItem/ComponentTypes';
-import CustomDogfoodNavbarItem from '@site/src/components/NavbarItems/CustomDogfoodNavbarItem';
+import LocalSearchNavbarItem from './LocalSearchNavbarItem';
+import CustomDogfoodNavbarItem from '../../components/NavbarItems/CustomDogfoodNavbarItem';
+import SimpleSearchNavbarItem from '../../components/SimpleSearch/SimpleSearchNavbarItem';
+import OriginalComponentTypes from '@theme-original/NavbarItem/ComponentTypes';
 
 export default {
-  ...ComponentTypes,
+  ...OriginalComponentTypes,
+  'custom-LocalSearchNavbarItem': LocalSearchNavbarItem,
   'custom-dogfood-navbar-item': CustomDogfoodNavbarItem,
+  'custom-SimpleSearchNavbarItem': SimpleSearchNavbarItem,
 };
