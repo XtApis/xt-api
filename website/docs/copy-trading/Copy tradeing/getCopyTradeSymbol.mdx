@@ -1,0 +1,30 @@
+---
+id: getcopytradesymbol
+title: Get copy trade symbols
+sidebar_label: Get copy trade symbols
+description: /v1/copy-trade-market/public/copy-trade/symbol
+---
+
+## 接口
+
+**GET** `/v1/copy-trade-market/public/copy-trade/symbol`
+
+#### **Limit Flow Rules**
+
+2/s/apikey
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "symbolId": 1, //symbol id
+      "symbol": "btc_usdt" //symbol
+    }
+  ]
+}
+```

@@ -1,0 +1,39 @@
+---
+id: followcopytrade
+title: Follow copy trading
+sidebar_label: Follow copy trading
+description: /v1/copy-trade-account/copy-trade/follow
+---
+
+## 接口
+
+**POST** `/v1/copy-trade-account/copy-trade/follow`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 请求参数
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `leaderAccountId` | number | Yes |  | leader account id |
+| `followType` | string | Yes |  | follow type |
+| `followVal` | number | Yes |  | follow fund value or rate value |
+| `followLoss` | number | No |  | follow loss |
+| `followLossOperate` | string | Yes |  | follow loss operate |
+| `triggerStopRate` | number | No |  | single stop loss rate |
+| `triggerProfitRate` | number | No |  | single take profit rate |
+| `autoFollowSymbol` | bool | Yes |  | auto follow symbol or not |
+| `symbols` | string | Yes |  | copy trade symbols. e.g. xt_usdt,btc_usdt |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

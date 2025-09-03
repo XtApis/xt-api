@@ -1,0 +1,57 @@
+---
+id: leadincomerateget
+title: Get leader daily cumulative income chart
+sidebar_label: Get leader daily cumulative income chart
+description: /v1/copy-trade-balance/public/copy-trade/leader-income-rate
+---
+
+## 接口
+
+**GET** `/v1/copy-trade-balance/public/copy-trade/leader-income-rate`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 请求参数
+
+| Name        | Type   | Mandatory | Default | Description       |
+| ----------- | ------ | --------- | ------- | ----------------- |
+| `accountId` | number | Yes       |         | leader account id |
+| `days`      | number | No        | 7       | query days        |
+
+## 响应示例
+
+```json
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "incomeRate": [
+      //income rate
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ],
+    "totalIncome": [
+      //total income
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ],
+    "totalIncomeRate": [
+      //total income rate
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ]
+  }
+}
+```

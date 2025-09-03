@@ -1,0 +1,50 @@
+---
+id: leadcurrentleadorderget
+title: Get lead trader current lead order
+sidebar_label: Get lead trader current lead order
+description: /v1/copy-trade-order/public/copy-trade/order/leader-order-page
+---
+
+## 接口
+
+**GET** `/v1/copy-trade-order/public/copy-trade/order/leader-order-page`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 请求参数
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `leaderAccountId` | number | Yes |  | leader account id |
+| `symbol` | string | No |  | trading pair eg:btc_usdt. if null, defaults to all |
+| `type` | number | Yes |  | type |
+
+## 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "string", //id
+      "orderId": "string", //order id
+      "symbol": "string", //symbol
+      "buySize": 0, //buy size
+      "buyTime": 0, //buy time
+      "buyPrice": 0, //buy price
+      "sellSize": 0, //sell size
+      "sellTime": 0, //sell time
+      "sellPrice": 0, //sell price
+      "profit": 0, //profit
+      "profitRate": 0, //profit rate
+      "triggerProfitPrice": 0, //take profit price
+      "triggerStopPrice": 0, //stop Loss Price
+      "followCount": 0 //follow count
+    }
+  ]
+}
+```

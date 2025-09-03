@@ -1,0 +1,58 @@
+---
+id: Get balance by symbol
+title: Get balance by symbol
+sidebar_label: Get balance by symbol
+sidebar_position: 1
+---
+
+### Description
+
+`/v4/lever/balance`
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description             | Ranges |
+| ------ | ------ | --------- | ------- | ----------------------- | ------ |
+| symbol | string | Yes       | –       | Symbol, e.g. `BTC_USDT` | –      |
+
+---
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": {
+    "btcLoanAmount": 0, // Convert BTC loan assets
+    "btcNetAmount": 0, // Convert BTC net assets
+    "symbol": "string", // Symbol
+    "symbolId": 0, // Symbol ID
+    "usdtLoanAmount": 0, // Convert USDT loan assets
+    "usdtNetAmount": 0, // Convert USDT net assets
+    "base": {
+      "availableAmount": "string", // Available amount
+      "capitalAmount": "string", // Capital amount
+      "currency": "string", // Currency
+      "currencyId": 0, // Currency ID
+      "frozenAmount": "string", // Frozen amount
+      "interestAmount": "string", // Interest amount outstanding
+      "loanAmount": "string", // Loan amount
+      "totalAmount": "string", // Total amount
+      "updatedTime": 0 // Update time
+    },
+    "quote": {
+      "availableAmount": "string", // Available amount
+      "capitalAmount": "string", // Capital amount
+      "currency": "string", // Currency
+      "currencyId": 0, // Currency ID
+      "frozenAmount": "string", // Frozen amount
+      "interestAmount": "string", // Interest amount outstanding
+      "loanAmount": "string", // Loan amount
+      "totalAmount": "string", // Total amount
+      "updatedTime": 0 // Update time
+    }
+  }
+}
+```

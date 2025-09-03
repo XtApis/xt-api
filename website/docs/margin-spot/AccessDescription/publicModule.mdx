@@ -1,39 +1,27 @@
 ---
-title: Public module
-position_number: 10
-parameters:
-  - name:
-content:
-content_markdown: >-
-  #### **<span id="interestSource">Interest source</span>**
-  
-  
-    | Interest source | Description |
-    | --- | --- |
-    | FIX_JOB | Daily scheduled tasks. |
-    | USER | User loan. |
-  
-  #### **<span id="repayType">Repay type</span>**
-  
-    | Repay type | Description |
-    | --- | --- |
-    | MANUAL | Manual loan repayment. |
-    | SYSTEM | System Liquidation. |
-  
-  #### **<span id="marginOrderType">Order type</span>**
-  
-    | Order type | Description |
-    | --- | --- |
-    | LOAN | Loan. |
-    | REPAY | Repayment |
-
-
-left_code_blocks:
-  - code_block:
-    title:
-    language:
-    right_code_blocks:
-  - code_block:
-    title:
-    language:
+id: frequency-limiting-rules
+title: Frequency Limiting Rules
+sidebar_label: Frequency Limiting Rules
+sidebar_position: 3
 ---
+
+### Overview
+
+Some interfaces will have limited flow control (the corresponding interface will have a limited flow description). The flow limit is mainly divided into **gateway flow limit** and **WAF flow limit**.
+
+If the interface request triggers the gateway flow limit, **429** will be returned, indicating that the access frequency exceeds the limit, and the **IP or apiKey will be blocked**.
+
+---
+
+### Gateway Flow Limiting Types
+
+- **IP Flow Limiting** Example: `100/s/ip` → The limit is 100 requests per second for each IP.
+
+- **apiKey Flow Limiting** Example: `50/s/apiKey` → The limit is 50 requests per second for each API Key.
+
+---
+
+### Notes
+
+- If you exceed these limits, requests will be rejected and further access may be temporarily blocked.
+- It is recommended to implement **retry logic with backoff** in your client to avoid continuous 429 errors.

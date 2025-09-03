@@ -1,0 +1,50 @@
+---
+id: Get interest list
+title: Get interest list
+sidebar_label: Get interest list
+sidebar_position: 4
+---
+
+### Description
+
+`/v4/lever/interest`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | No | – | Trading pair symbol | – |
+| startTime | long | Yes | – | Start time | – |
+| endTime | long | Yes | – | End time | – |
+| fromId | long | No | – | Page starting ID | – |
+| direction | string | Yes | – | Page direction (`NEXT` / `PREV`) | NEXT;PREV |
+| limit | int | No | 20 | Page limit | – |
+
+---
+
+### Response
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": {
+    "hasNext": true, // Whether has next page
+    "hasPrev": true, // Whether has previous page
+    "items": [
+      {
+        "id": "string", // ID
+        "amount": 0, // Amount
+        "currency": "string", // Currency
+        "currencyId": 0, // Currency ID
+        "symbol": "string", // Symbol
+        "symbolId": 0, // Symbol ID
+        "dailyInterestRate": 0, // Daily interest rate
+        "source": "FIX_JOB", // Source, FIX_JOB / USER
+        "createTime": 0 // Create time
+      }
+    ]
+  }
+}
+```

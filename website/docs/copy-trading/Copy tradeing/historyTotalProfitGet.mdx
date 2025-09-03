@@ -1,0 +1,43 @@
+---
+id: historytotalprofitget
+title: Get historical total profit sharing
+sidebar_label: Get historical total profit sharing
+description: /v1/copy-trade-balance/copy-trade/share-profit/his
+---
+
+## 接口
+
+**GET** `/v1/copy-trade-balance/copy-trade/share-profit/his`
+
+#### **Limit Flow Rules**
+
+2/s/ip
+
+## 请求参数
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `direction` | string | No | NEXT | query direction |
+| `limit` | number | No | 10 | number of pages |
+| `id` | object | No |  | start ID，e.g. 6216559590087220004 |
+
+## 响应示例
+
+```json
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "amount": 0, //profit sharing amount
+        "id": "string", //the id used for pagination query
+        "time": 0 //profit sharing time
+      }
+    ]
+  }
+}
+```
