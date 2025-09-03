@@ -291,15 +291,6 @@ export default async function createConfigAsync(): Promise<Config> {
     ],
     themes: ['live-codeblock', ...dogfoodingThemeInstances],
     plugins: [
-      [
-        './src/plugins/local-search/index.ts',
-        {
-          docsDir: 'docs',
-          indexFile: 'search-index.json',
-          maxResults: 20,
-          minSearchLength: 2,
-        },
-      ],
       function disableExpensiveBundlerOptimizationPlugin() {
         return {
           name: 'disable-expensive-bundler-optimizations',
@@ -656,19 +647,37 @@ export default async function createConfigAsync(): Promise<Config> {
       },
       image: 'img/docusaurus-social-card.jpg',
       // metadata: [{name: 'twitter:card', content: 'summary'}],
-      // 注释掉 Algolia 搜索，使用本地搜索
-      // algolia: {
-      //   appId: 'X1Z85QJPUV',
-      //   apiKey: 'bf7211c161e8205da2f933a02534105a',
-      //   indexName: 'docusaurus-2',
-      //   replaceSearchResultPathname:
-      //     isDev || isDeployPreview
-      //       ? {
-      //           from: /^\/docs\/next/g.source,
-      //           to: '/docs',
-      //         }
-      //       : undefined,
-      // },
+      algolia: {
+        appId: 'GHKOVREISY',
+        apiKey: 'a93fbf3ab1a21a9096793fda3bf8faa9',
+        indexName: 'xt_api_docs',
+        contextualSearch: false,
+        searchParameters: {
+          facetFilters: [], // 清空默认的过滤器
+        },
+        searchPagePath: 'search',
+        // 过滤搜索结果，只显示指定目录的内容
+        transformItems: (items: unknown[]) => {
+          const allowedPaths = [
+            '/docs/changelog',
+            '/docs/copy-trading',
+            '/docs/futures',
+            '/docs/futures-copy',
+            '/docs/index_overview',
+            '/docs/margin-spot',
+            '/docs/migration',
+            '/docs/spot',
+            '/docs/trading-third-party',
+            '/docs/user-center'
+          ];
+          
+          return items.filter((item: unknown) => {
+            // 检查URL是否以允许的路径之一开头
+            return allowedPaths.some(allowedPath => 
+              (item as {url: string}).url.startsWith(allowedPath));
+          });
+        },
+      } as unknown,
       navbar: {
         hideOnScroll: true,
         title: '',
@@ -812,10 +821,7 @@ export default async function createConfigAsync(): Promise<Config> {
               },
             ],
           },
-          {
-            type: 'custom-SimpleSearchNavbarItem',
-            position: 'right',
-          },
+
           {
             href: 'https://github.com/facebook/docusaurus',
             position: 'right',
@@ -893,7 +899,8 @@ export default async function createConfigAsync(): Promise<Config> {
       //           <a href="https://www.netlify.com"
       //              target="_blank" rel="noreferrer noopener"
       //              aria-label="Deploys by Netlify">
-      //             <img src="/img/footer/badge-netlify.svg" alt="Deploys by Netlify" width="114" height="51" />
+      //             <img src="/img/footer/badge-netlify.svg" 
+      //                  alt="Deploys by Netlify" width="114" height="51" />
       //           </a>
       //         `,
       //         },
@@ -902,7 +909,8 @@ export default async function createConfigAsync(): Promise<Config> {
       //           <a href="https://argos-ci.com"
       //              target="_blank" rel="noreferrer noopener"
       //              aria-label="Covered by Argos">
-      //             <img src="/img/footer/badge-argos.svg" alt="Covered by Argos" width="133" height="20" />
+      //             <img src="/img/footer/badge-argos.svg" 
+      //                  alt="Covered by Argos" width="133" height="20" />
       //           </a>
       //         `,
       //         },

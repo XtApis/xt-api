@@ -19,6 +19,8 @@
   /* Use a darker color to ensure contrast, ideally we don't need important */
   --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
   --ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
+  /* 自定义侧边栏箭头图标 */
+  --ifm-menu-link-sublist-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"></polyline></svg>');
 }
 
 html[data-theme='dark'] {
@@ -241,3 +243,48 @@ html[data-navbar='false'] {
 html[data-red-border] div#__docusaurus {
   border: red solid thick;
 }
+
+/* 自定义侧边栏箭头图标 - 合并到现有的:root中 */
+/* 将箭头图标变量添加到文件开头的:root选择器中 */
+
+/* 自定义箭头样式和大小 - 按特异性排序 */
+.menu__link--sublist:after,
+.menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50%/12px 12px no-repeat !important;
+  background-size: 12px 12px !important;
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  transform: rotate(90deg);
+}
+
+/* 收起状态的箭头 - 更高特异性 */
+.menu__list-item--collapsed .menu__link--sublist:after,
+.menu__list-item--collapsed .menu__caret:before {
+  transform: rotate(0deg);
+}
+
+/* 其他特定位置的箭头样式 */
+.menu__link--sublist-caret:after,
+.theme-doc-sidebar-item-category .menu__caret:before,
+.navbar-sidebar .menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50%/12px 12px no-repeat !important;
+  background-size: 12px 12px !important;
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+}
+
+/* 移动端侧边栏箭头 */
+@media (max-width: 996px) {
+  .navbar-sidebar .menu__caret:before,
+  .navbar-sidebar .menu__link--sublist:after {
+    background: var(--ifm-menu-link-sublist-icon) 50%/12px 12px no-repeat !important;
+    background-size: 12px 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 12px !important;
+  }
+}
+
+

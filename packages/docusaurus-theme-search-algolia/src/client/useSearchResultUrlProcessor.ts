@@ -35,19 +35,38 @@ export function useSearchResultUrlProcessor(): (url: string) => string {
 
   return useCallback(
     (url: string) => {
-      const parsedURL = new URL(url);
-
-      // Algolia contains an external domain => navigate to URL
-      if (isRegexpStringMatch(externalUrlRegex, parsedURL.href)) {
-        return url;
+      // Handle relative URLs that don't have a protocol/host
+      if (url.startsWith('/') || !url.includes('://')) {
+        // This is already a relative URL, process it directly
+        const relativeUrl = url.includes('#') ? url : `${url}`;
+        return withBaseUrl(
+          replacePathname(relativeUrl, replaceSearchResultPathname),
+        );
       }
 
-      // Otherwise => transform to relative URL for SPA navigation
-      const relativeUrl = `${parsedURL.pathname + parsedURL.hash}`;
+      // Handle absolute URLs
+      try {
+        const parsedURL = new URL(url);
 
-      return withBaseUrl(
-        replacePathname(relativeUrl, replaceSearchResultPathname),
-      );
+        // Algolia contains an external domain => navigate to URL
+        if (isRegexpStringMatch(externalUrlRegex, parsedURL.href)) {
+          return url;
+        }
+
+        // Otherwise => transform to relative URL for SPA navigation
+        const relativeUrl = `${parsedURL.pathname + parsedURL.hash}`;
+
+        return withBaseUrl(
+          replacePathname(relativeUrl, replaceSearchResultPathname),
+        );
+      } catch (error) {
+        // If URL parsing fails, treat it as a relative URL
+        console.warn('Failed to parse search result URL:', url, error);
+        const relativeUrl = url.includes('#') ? url : `${url}`;
+        return withBaseUrl(
+          replacePathname(relativeUrl, replaceSearchResultPathname),
+        );
+      }
     },
     [withBaseUrl, externalUrlRegex, replaceSearchResultPathname],
   );

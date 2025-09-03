@@ -34,7 +34,8 @@
     "netlify:crowdin:downloadTranslationsFailSafe": "yarn netlify:crowdin:wait && (yarn --cwd .. crowdin:download:website || echo 'Crowdin translation download failure (only internal PRs have access to the Crowdin env token)')",
     "netlify:crowdin:uploadSources": "yarn --cwd .. crowdin:upload:website",
     "netlify:test": "yarn netlify:build:deployPreview && npx --package netlify-cli netlify dev -- --debug",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "algolia:index": "node scripts/index-to-algolia.js"
   },
   "dependencies": {
     "@crowdin/cli": "^3.13.0",
@@ -53,6 +54,7 @@
     "@docusaurus/theme-mermaid": "3.8.1",
     "@docusaurus/utils": "3.8.1",
     "@docusaurus/utils-common": "3.8.1",
+    "algoliasearch": "^5.37.0",
     "clsx": "^2.0.0",
     "color": "^4.2.3",
     "fs-extra": "^11.1.1",
