@@ -1,0 +1,40 @@
+---
+id: QueryRecentTransactions
+title: Query the list of recent transactions
+sidebar_label: Query the list of recent transactions
+sidebar_position: 6
+---
+
+**Type:** GET  
+**Description:** `/v4/public/trade/recent`
+
+### Parameters
+
+| name   | type   | mandatory | default | description  | ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      |         | trading pair |        |
+| limit  | number | false     | 200     |              | 1~1000 |
+
+#### **Limit Flow Rules**
+
+10/s/ip
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "i": 0,
+      "t": 0,
+      "p": "string",
+      "q": "string",
+      "v": "string",
+      "b": true
+    }
+  ]
+}
+```

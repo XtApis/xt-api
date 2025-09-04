@@ -1,0 +1,31 @@
+---
+id: CancelOrder
+title: Cancell order
+sidebar_label: Cancell order
+sidebar_position: 3
+---
+
+**Type:** DELETE **Description:** `/v4/order/{orderId}`
+
+### Parameters
+
+| name    | type   | mandatory | default | description | ranges |
+| ------- | ------ | --------- | ------- | ----------- | ------ |
+| orderId | number | true      |         |             |        |
+
+#### **Limit Flow Rules**
+
+N/A
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "cancelId": "6216559590087220004"
+  }
+}
+```

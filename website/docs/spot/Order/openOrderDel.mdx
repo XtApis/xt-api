@@ -1,0 +1,33 @@
+---
+id: CancelOpenOrder
+title: Cancel the current pending order
+sidebar_label: Cancel the current pending order
+sidebar_position: 9
+---
+
+**Type:** DELETE **Description:** `/v4/open-order`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false |  | Trading pair, if not filled in, represents all |  |
+| bizType | string | true |  | SPOT, LEVER |  |
+| side | string | false |  | BUY, SELL |  |
+
+#### **Limit Flow Rules**
+
+10/s/apikey
+
+**Note:** The parameters should be placed in the request body in the form of JSON.
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {}
+}
+```

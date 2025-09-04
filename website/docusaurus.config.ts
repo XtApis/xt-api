@@ -704,7 +704,7 @@ export default async function createConfigAsync(): Promise<Config> {
               {
                 type: 'doc',
                 docId: 'index_overview/overview',
-                label: 'index',
+                label: 'Index',
               },
               {
                 type: 'doc',

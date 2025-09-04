@@ -1,0 +1,41 @@
+---
+id: QueryHistoricalTransactions
+title: Query historical transaction list
+sidebar_label: Query historical transaction list
+sidebar_position: 7
+---
+
+**Type:** GET **Description:** `/v4/public/trade/history`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true |  | trading pair |  |
+| limit | number | false | 200 |  | 1~1000 |
+| direction | string | true |  | query direction | PREV - previous page, NEXT - next page |
+| fromId | number | false |  | Start ID, e.g. 6216559590087220004 |  |
+
+#### **Limit Flow Rules**
+
+10/s/ip
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "i": 0,
+      "t": 0,
+      "p": "string",
+      "q": "string",
+      "v": "string",
+      "b": true
+    }
+  ]
+}
+```

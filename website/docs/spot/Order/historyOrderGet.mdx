@@ -1,0 +1,50 @@
+---
+id: QueryHistoricalOrders
+title: Query historical orders
+sidebar_label: Query historical orders
+sidebar_position: 10
+---
+
+**Type:** GET **Description:** `/v4/history-order`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false |  | Trading pair, if not filled in, represents all |  |
+| bizType | string | false |  | SPOT, LEVER |  |
+| side | string | false |  | BUY, SELL |  |
+| type | string | false |  | LIMIT, MARKET |  |
+| state | string | false |  | order state: PARTIALLY_FILLED, FILLED, CANCELED, REJECTED, EXPIRED |  |
+| fromId | number | false |  | start id |  |
+| direction | string | false |  | query direction: PREV, NEXT |  |
+| limit | number | false | 20 | Limit number, max 100 |  |
+| startTime | number | false |  | eg: 1657682804112 |  |
+| endTime | number | false |  |  |  |
+| hiddenCanceled | bool | false |  |  |  |
+
+#### **Limit Flow Rules**
+
+10/s/apikey
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [
+    {}
+  ],
+  "result": {
+    "hasPrev": true,
+    "hasNext": true,
+    "items": [
+      {
+        "symbol": "BTC_USDT",
+        "orderId": "6216559590087220004",
+        "clientOrderId": "16559590087220001",
+        "baseCurrency": "string",
+        "quoteCurrency": "string",
+        "side": "
+```
