@@ -1,0 +1,55 @@
+---
+id: OrderChange
+title: Change of order
+sidebar_label: Change of order
+sidebar_position: 7
+---
+
+**Type:** Websocket Push **Description:** Order change notification
+
+### Parameters
+
+| name | type | mandatory | default | description |
+| --- | --- | --- | --- | --- |
+| – | – | false | N/A | No parameters required, subscribe to the **order** topic to receive updates |
+
+### Notes
+
+- This push notification is triggered when an **order status** changes.
+- Subscription format: `order`
+- Possible order states (`st`):
+  - `NEW` — New order created
+  - `PARTIALLY_FILLED` — Partially filled
+  - `FILLED` — Fully filled
+  - `CANCELED` — Order canceled
+  - `REJECTED` — Order rejected
+  - `EXPIRED` — Order expired
+- Useful for tracking real-time order creation, updates, executions, and cancellations.
+
+### Push Example
+
+```json title="Push"
+{
+  "topic": "order",
+  "event": "order",
+  "data": {
+    "s": "btc_usdt", // Symbol
+    "bc": "btc", // Base currency
+    "qc": "usdt", // Quotation currency
+    "t": 1656043204763, // Happened time (ms)
+    "ct": 1656043204663, // Create time (ms)
+    "i": "6216559590087220004", // Order ID
+    "ci": "test123", // Client order ID
+    "st": "PARTIALLY_FILLED", // State (NEW/PARTIALLY_FILLED/FILLED/CANCELED/REJECTED/EXPIRED)
+    "sd": "BUY", // Side (BUY/SELL)
+    "tp": "LIMIT", // Type (LIMIT/MARKET)
+    "oq": "4", // Original quantity
+    "oqq": 48000, // Original quotation quantity
+    "eq": "2", // Executed quantity
+    "lq": "2", // Remaining quantity
+    "p": "4000", // Price
+    "ap": "30000", // Average price
+    "f": "0.002" // Fee
+  }
+}
+```

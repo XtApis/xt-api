@@ -713,7 +713,7 @@ export default async function createConfigAsync(): Promise<Config> {
               },
               {
                 type: 'doc',
-                docId: 'futures/AccessDescription/apiDemo',
+                docId: 'futures/AccessDescription/RestApi',
                 label: 'Futures',
               },
               {

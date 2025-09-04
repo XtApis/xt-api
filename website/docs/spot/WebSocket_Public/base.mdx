@@ -1,0 +1,31 @@
+---
+id: wss-general
+title: General WSS information
+sidebar_label: General WSS info
+sidebar_position: 1
+---
+
+### Base Address
+
+`wss://stream.xt.com/public`
+
+---
+
+### Request Headers
+
+````http
+Sec-WebSocket-Extensions: permessage-deflate
+import CodeBlock from '@theme/CodeBlock';
+
+<div className="row"> <div className="col col--6"> <CodeBlock language="python" title="Python"> {`# Minimal Python example (websocket-client) # pip install websocket-client import websocket
+
+url = "wss://stream.xt.com/public"
+headers = ["Sec-WebSocket-Extensions: permessage-deflate"]
+
+ws = websocket.WebSocket()
+ws.connect(url, header=headers)
+print("Connected to XT public WSS")`}
+</CodeBlock>
+
+</div> <div className="col col--6"> <CodeBlock language="json" title="Response"> {`{ "rc": 0, "mc": "SUCCESS", "ma": [], "result": {} }`} </CodeBlock> </div> </div> ```
+````
