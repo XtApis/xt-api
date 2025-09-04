@@ -5,4 +5,18 @@ sidebar_label: Frequency Limiting Rules
 sidebar_position: 3
 ---
 
-Get assets **3 times per second**, other methods **10 times per second for each single user**, **1000 times per minute for each single IP**. If exceeding the request limits, the account will be **locked for 10 minutes**.
+Some interfaces will have limited flow control (the corresponding interface will have a limited flow description).  
+The flow limit is mainly divided into **gateway flow limit** and **WAF flow limit**.
+
+If the interface request triggers the gateway flow limit, **429** will be returned,  
+indicating that the access frequency exceeds the limit, and the **IP** or **apiKey** will be blocked.
+
+Gateway flow limiting is divided into:
+
+- **IP flow limiting**
+- **apiKey flow limiting**
+
+**Example descriptions**:
+
+- IP flow limit: `100/s/ip` → indicates the limit of the number of requests **per second per IP** for this interface.
+- apiKey flow limit: `50/s/apiKey` → indicates the limit of the number of requests **per second per apiKey** for this interface.
