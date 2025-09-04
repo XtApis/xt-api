@@ -135,7 +135,8 @@ const baseUrl = process.env.BASE_URL ?? '/';
 // https://docusaurus-i18n-staging.netlify.app/
 const isI18nStaging = process.env.I18N_STAGING === 'true';
 
-// const isVersioningDisabled = !!process.env.DISABLE_VERSIONING || isI18nStaging;
+// const isVersioningDisabled = !!process.env.DISABLE_VERSIONING ||
+//   isI18nStaging;
 
 const isRsdoctor = process.env.RSDOCTOR === 'true';
 
@@ -206,7 +207,10 @@ export default async function createConfigAsync(): Promise<Config> {
       },
     ],
     scripts: [
-      // 移除不存在的脚本文件引用
+      {
+        src: '/js/product-dropdown.js',
+        async: true,
+      },
     ],
     i18n: {
       defaultLocale,
@@ -287,6 +291,7 @@ export default async function createConfigAsync(): Promise<Config> {
     ],
     themes: ['live-codeblock', ...dogfoodingThemeInstances],
     plugins: [
+      './src/plugins/custom-navbar-items/index.ts',
       function disableExpensiveBundlerOptimizationPlugin() {
         return {
           name: 'disable-expensive-bundler-optimizations',
@@ -649,29 +654,7 @@ export default async function createConfigAsync(): Promise<Config> {
           facetFilters: [], // 清空默认的过滤器
         },
         searchPagePath: 'search',
-        // 过滤搜索结果，只显示指定目录的内容
-        transformItems: (items: unknown[]) => {
-          const allowedPaths = [
-            '/docs/changelog',
-            '/docs/copy-trading',
-            '/docs/futures',
-            '/docs/futures-copy',
-            '/docs/index_overview',
-            '/docs/margin-spot',
-            '/docs/migration',
-            '/docs/spot',
-            '/docs/trading-third-party',
-            '/docs/user-center',
-          ];
-
-          return items.filter((item: unknown) => {
-            // 检查URL是否以允许的路径之一开头
-            return allowedPaths.some((allowedPath) =>
-              (item as {url: string}).url.startsWith(allowedPath),
-            );
-          });
-        },
-      } as unknown,
+      },
       navbar: {
         hideOnScroll: true,
         title: '',
@@ -688,78 +671,12 @@ export default async function createConfigAsync(): Promise<Config> {
             position: 'left',
             label: 'Product',
             items: [
-              // {
-              //   type: 'doc',
-              //   docId: 'introduction',
-              //   label: 'Docs',
-              // },
-              // {to: '/index-page', label: 'Index'},
               {
-                type: 'doc',
-                docId: 'index_overview/overview',
-                label: 'index',
+                type: 'html',
+                value:
+                  '<div style="padding: 15px; width: 100%;"><div style="display: flex; gap: 20px;"><div style="width: 180px; background: #f5f5f5; padding: 15px; border-radius: 8px;"><h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">Categories</h4><div style="display: flex; flex-direction: column; gap: 6px;"><button onmouseover="showCategory(\'Trading\')" style="padding: 8px 12px; border: none; background: #007bff; color: white; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-size: 14px;">Trading</button><button onmouseover="showCategory(\'Institutional\')" style="padding: 8px 12px; border: none; background: #6c757d; color: white; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-size: 14px;">Institutional</button><button onmouseover="showCategory(\'Resources\')" style="padding: 8px 12px; border: none; background: #6c757d; color: white; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-size: 14px;">Resources</button></div></div><div style="flex: 1;"><h3 id="categoryTitle" style="margin: 0 0 8px 0; font-size: 18px;">Trading</h3><p id="categoryDesc" style="margin: 0 0 15px 0; color: #666; font-size: 14px;">Explore our trading APIs</p><div id="productsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;"><a href="/docs/spot/AccessDescription/RestApi" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Spot Trading</div><div style="font-size: 12px; color: #666;">Spot Trading APIs</div></a><a href="/docs/futures/AccessDescription/apiDemo" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Futures Trading</div><div style="font-size: 12px; color: #666;">Futures Trading APIs</div></a><a href="/docs/margin-spot/AccessDescription/RestApi" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Margin Trading</div><div style="font-size: 12px; color: #666;">Margin Trading APIs</div></a><a href="/docs/copy-trading/Access Description/RestApi" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Copy Trading</div><div style="font-size: 12px; color: #666;">Copy Trading API</div></a><a href="/docs/futures-copy/AccessDescription/RestApi" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Futures Copy</div><div style="font-size: 12px; color: #666;">Futures Copy API</div></a></div></div></div></div>',
               },
-              {
-                type: 'doc',
-                docId: 'spot/AccessDescription/RestApi',
-                label: 'Spot',
-              },
-              {
-                type: 'doc',
-                docId: 'futures/AccessDescription/apiDemo',
-                label: 'Futures',
-              },
-              {
-                type: 'doc',
-                docId: 'margin-spot/AccessDescription/RestApi',
-                label: 'Margin',
-              },
-              {
-                type: 'doc',
-                docId: 'copy-trading/Access Description/RestApi',
-                label: 'Copy Trading',
-              },
-              {
-                type: 'doc',
-                docId: 'futures-copy/AccessDescription/RestApi',
-                label: 'Futures Copy',
-              },
-              {
-                type: 'doc',
-                docId: 'trading-third-party/AccessDescription/RestAPI',
-                label: 'Trading Third Party',
-              },
-              {
-                type: 'doc',
-                docId: 'user-center/AccessDescription/RestAPI',
-                label: 'User Center',
-              },
-              {
-                type: 'doc',
-                docId: 'changelog/index',
-                label: 'Changelog',
-              },
-              // {
-              //   type: 'docSidebar',
-              //   sidebarId: 'api',
-              //   label: 'API',
-              // },
-              // {to: 'blog', label: 'Blog'},
-              // {to: 'showcase', label: 'Showcase'},
-              // {
-              //   to: '/community/support',
-              //   label: 'Community',
-              //   activeBaseRegex: `/community/`,
-              // },
-              // This item links to a draft doc: only displayed in dev
-              // {
-              //   type: 'doc',
-              //   docId: 'index',
-              //   label: 'Tests',
-              //   docsPluginId: 'docs-tests',
-              // },
-              // isDev && {to: '/__docusaurus/debug', label: 'Debug'},
-            ].filter(Boolean),
+            ],
           },
           // Custom item for dogfooding: only displayed in /tests/ routes
           {
