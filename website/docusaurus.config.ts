@@ -773,41 +773,11 @@ export default async function createConfigAsync(): Promise<Config> {
             type: 'custom-dogfood-navbar-item',
             content: '😉',
           },
-          // Right
-          // {
-          //   type: 'docsVersionDropdown',
-          //   position: 'right',
-          //   dropdownActiveClassDisabled: true,
-          //   dropdownItemsAfter: [
-          //     {
-          //       type: 'html',
-          //       value: '<hr class="dropdown-separator">',
-          //     },
-          //     {
-          //       type: 'html',
-          //       className: 'dropdown-archived-versions',
-          //       value: '<b>Archived versions</b>',
-          //     },
-          //     ...ArchivedVersionsDropdownItems.map(
-          //       ([versionName, versionUrl]) => ({
-          //         label: versionName,
-          //         href: versionUrl,
-          //       }),
-          //     ),
-          //     {
-          //       href: 'https://v1.docusaurus.io',
-          //       label: '1.x.x',
-          //     },
-          //     {
-          //       type: 'html',
-          //       value: '<hr class="dropdown-separator">',
-          //     },
-          //     {
-          //       to: '/versions',
-          //       label: 'All versions',
-          //     },
-          //   ],
-          // },
+          // Right side items
+          {
+            type: 'search',
+            position: 'right',
+          },
           {
             type: 'localeDropdown',
             position: 'right',
