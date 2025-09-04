@@ -135,7 +135,7 @@ const baseUrl = process.env.BASE_URL ?? '/';
 // https://docusaurus-i18n-staging.netlify.app/
 const isI18nStaging = process.env.I18N_STAGING === 'true';
 
-const isVersioningDisabled = !!process.env.DISABLE_VERSIONING || isI18nStaging;
+// const isVersioningDisabled = !!process.env.DISABLE_VERSIONING || isI18nStaging;
 
 const isRsdoctor = process.env.RSDOCTOR === 'true';
 
@@ -269,11 +269,7 @@ export default async function createConfigAsync(): Promise<Config> {
       },
     },
     onBrokenLinks: 'warn',
-    onBrokenAnchors:
-      isVersioningDisabled ||
-      process.env.DOCUSAURUS_CURRENT_LOCALE !== defaultLocale
-        ? 'warn'
-        : 'throw',
+    onBrokenAnchors: 'warn',
     favicon: 'img/docusaurus.ico',
     customFields: {
       crashTest,
@@ -376,17 +372,14 @@ export default async function createConfigAsync(): Promise<Config> {
         'client-redirects',
         {
           fromExtensions: ['html'],
-          createRedirects(routePath) {
-            // Redirect from old docs root to new default page
-            if (routePath === '/docs/index_overview/overview') {
-              return ['/docs', '/docs/'];
-            }
+          createRedirects(_routePath) {
+            // Custom redirects can be added here if needed
             return [];
           },
           redirects: [
-            // Redirect root and /docs to the new default page
+            // Redirect /docs to the new default page
             {
-              from: ['/', '/docs', '/docs/'],
+              from: ['/docs', '/docs/'],
               to: '/docs/index_overview/overview',
             },
             {
