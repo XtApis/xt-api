@@ -1,0 +1,89 @@
+---
+id: GetFollowerPositionHistory
+title: Get Follower Position History
+sidebar_label: Get Follower Position History
+sidebar_position: 35
+---
+
+### Endpoint
+
+`GET /future/copytrade/user/v1/copy-trade/follower-position-history`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| leaderAccountId | number | Yes | - | Leader accountId | - |
+| symbol | string | No | - | Symbol | - |
+| direction | string | No | - | Direction | NEXT, PREV |
+| limit | number | No | - | Page size | 10 |
+| id | number | No | - | ID | - |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "",
+  "error": null,
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "orderId": 0, // Order ID
+        "clientOrderId": "", // Custom order ID
+        "symbol": "", // Trading pair
+        "orderType": "", // Order type
+        "orderSide": "", // Buy/Sell direction
+        "positionSide": "", // Position direction
+        "positionType": "", // Position type
+        "timeInForce": "", // Validity type
+        "closePosition": false, // Conditional close all positions
+        "price": 0.0, // Order price
+        "origQty": 0.0, // Quantity (contracts)
+        "openSize": 0.0, // Open position quantity
+        "closeSize": 0.0, // Close position quantity
+        "avgPrice": 0.0, // Average transaction price
+        "closePrice": 0.0, // Close position price
+        "executedQty": 0.0, // Executed quantity (contracts)
+        "marginFrozen": 0.0, // Margin occupied
+        "remark": "", // Remark
+        "sourceId": 0, // Associated trader order ID
+        "sourceType": "", // Source type
+        "forceClose": false, // Forced liquidation order
+        "leverage": 0, // Leverage at order (0 means historical data, no leverage stored)
+        "openPrice": 0.0, // Open position price, calculated from close avg price
+        "closeProfit": 0.0, // Close position profit and loss
+        "realizedPnl": 0.0, // Realized profit and loss
+        "state": "", // Order status: NEW, PARTIALLY_FILLED, PARTIALLY_CANCELED, FILLED, CANCELED, REJECTED, EXPIRED
+        "createdTime": 0, // Creation time
+        "updatedTime": 0, // Update time
+        "isProfit": false, // Whether triggered take profit/stop loss
+        "triggerPriceType": "", // Trigger price type: INDEX_PRICE, MARK_PRICE, LATEST_PRICE
+        "triggerProfitPrice": 0.0, // Take profit trigger price
+        "profitDelegateOrderType": "", // Take profit delegate order type: LIMIT, MARKET
+        "profitDelegateTimeInForce": "", // Take profit delegate validity type: GTC, FOK, IOC, GTX
+        "profitDelegatePrice": 0.0, // Take profit delegate order price
+        "triggerStopPrice": 0.0, // Stop loss trigger price
+        "stopDelegateOrderType": "", // Stop loss delegate order type: LIMIT, MARKET
+        "stopDelegateTimeInForce": "", // Stop loss delegate validity type: GTC, FOK, IOC, GTX
+        "stopDelegatePrice": 0.0, // Stop loss delegate order price
+        "claimAmount": 0.0, // Compensation amount
+        "claimCurrency": "", // Compensation currency
+        "couponId": 0 // Compensation coupon ID
+      }
+    ]
+  }
+}
+```

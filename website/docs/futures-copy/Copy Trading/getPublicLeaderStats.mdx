@@ -1,0 +1,55 @@
+---
+id: PublicGetLeaderStatistics
+title: Public Get Leader Statistics
+sidebar_label: Public Get Leader Statistics
+sidebar_position: 25
+---
+
+### Endpoint
+
+`GET /future/copytrade/public/user/v1/public/copy-trade/leader-stats`
+
+---
+
+### Parameters
+
+| Name      | Type   | Mandatory | Default | Description      | Ranges |
+| --------- | ------ | --------- | ------- | ---------------- | ------ |
+| accountId | number | Yes       | -       | Leader accountId | -      |
+| days      | number | No        | -       | Days             | -      |
+
+---
+
+### Limit Flow Rules
+
+2/s/ip
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "recentRate": 0, // Current rate
+    "totalEarnings": 0, // Total earnings
+    "maxRetraction": 0, // Max retraction
+    "followersEarnings": 0, // Followers' earnings
+    "winRate": 0, // Win rate
+    "totalTransactions": 0, // Total transactions
+    "profitCount": 0, // Profit count
+    "lossCount": 0, // Loss count
+    "avgProfitAmount": 0, // Average profit amount
+    "avgLossAmount": 0, // Average loss amount
+    "pnlRate": 0, // Profit/loss rate
+    "avgHoldTime": 0, // Average hold time
+    "weeklyTradeFrequency": 0, // Weekly trade frequency
+    "followerMargin": 0, // Follower total margin
+    "tradeDays": 0, // Total trade days
+    "lastTradeTime": 0 // Last trade time
+  }
+}
+```

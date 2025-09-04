@@ -1,0 +1,60 @@
+---
+id: GetLeverageList
+title: Get Leverage List
+sidebar_label: Get Leverage List
+sidebar_position: 31
+---
+
+### Endpoint
+
+`GET /future/copytrade/order/v1/position/list`
+
+---
+
+### Parameters
+
+| Name                  | Type   | Mandatory | Default | Description  | Ranges |
+| --------------------- | ------ | --------- | ------- | ------------ | ------ |
+| symbol                | string | No        | -       | Trading pair | -      |
+| welfareAccountVersion | string | No        | -       | Version      | -      |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": [
+    {
+      "symbol": "string", // Symbol
+      "positionType": "string", // Position type: CROSSED, ISOLATED
+      "positionSide": "string", // Position direction
+      "contractType": "string", // Contract type: PERPETUAL, PREDICT
+      "positionSize": 0, // Position size
+      "closeOrderSize": 0, // Close order size
+      "availableCloseSize": 0, // Available close size
+      "entryPrice": 0, // Entry price
+      "openOrderSize": 0, // Open order size
+      "isolatedMargin": 0, // Isolated margin
+      "openOrderMarginFrozen": 0, // Frozen margin for open orders
+      "realizedProfit": 0, // Realized profit/loss
+      "autoMargin": false, // Whether auto add margin
+      "leverage": 0, // Leverage
+      "profitId": 0, // Take profit/stop loss ID
+      "triggerPriceType": 0, // Trigger price type: 1 Index price, 2 Mark price, 3 Deal price
+      "triggerProfitPrice": 0, // Take profit trigger price
+      "triggerStopPrice": 0, // Stop loss trigger price
+      "welfareAccount": false // Whether welfare account
+    }
+  ]
+}
+```

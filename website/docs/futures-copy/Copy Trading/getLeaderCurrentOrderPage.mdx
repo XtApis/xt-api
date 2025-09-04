@@ -1,0 +1,69 @@
+---
+id: GetLeaderCurrentOrderPage
+title: Get Leader Current Order Page
+sidebar_label: Get Leader Current Order Page
+sidebar_position: 1
+---
+
+### Endpoint
+
+`GET /future/copytrade/order/v1/copy-trade/leader-order-page`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| type | number | Yes | - | Type: 1 (detail), 2 (total) | 1, 2 |
+| symbol | string | No | - | Trading symbol | - |
+| direction | string | No | - | Pagination direction | NEXT, PREV |
+| limit | number | No | - | Page size | 10 |
+| id | number | No | - | Record ID | - |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": [
+    {
+      "symbolName": "string", // Symbol
+      "positionType": "string", // Position type: CROSSED; ISOLATED
+      "positionSide": "string", // Direction: LONG; SHORT
+      "openLeverage": 5, // Leverage
+      "id": 0, // ID
+      "orderId": 0, // Order ID
+      "trackNo": 0, // Track No
+      "openTime": 0, // Open time
+      "closeTime": 0, // Close time
+      "entryPrice": 0, // Position price
+      "openPrice": 0, // Open price
+      "closePrice": 0, // Close price
+      "profitRate": 0, // Profit rate
+      "openMargin": 0, // Open margin
+      "realizedPnl": 0, // Realized PnL
+      "fee": 0, // Fee
+      "openSize": 0, // Open quantity
+      "closeSize": 0, // Close quantity
+      "positionSize": 0, // Position quantity
+      "closeOrderSize": 0, // Close order quantity
+      "availableCloseSize": 0, // Available close quantity
+      "triggerProfitPrice": 0, // Trigger profit price
+      "triggerStopPrice": 0, // Stop loss trigger price
+      "triggerPriceType": "string", // Trigger price type: LATEST_PRICE, MARK_PRICE
+      "followOrderCount": 0 // Number of follow orders
+    }
+  ]
+}
+```

@@ -1,0 +1,44 @@
+---
+id: PublicGetLeadersPrefer
+title: Public Get Leader's Prefer
+sidebar_label: Public Get Leader's Prefer
+sidebar_position: 26
+---
+
+### Endpoint
+
+`GET /future/copytrade/public/user/v1/public/copy-trade/leader-symbol-prefer`
+
+---
+
+### Parameters
+
+| Name       | Type   | Mandatory | Default | Description      | Ranges |
+| ---------- | ------ | --------- | ------- | ---------------- | ------ |
+| accountId  | number | Yes       | -       | Leader accountId | -      |
+| recentDays | number | No        | -       | Days             | -      |
+
+---
+
+### Limit Flow Rules
+
+2/s/ip
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "index": 0, // Index ranking
+    "symbol": "string", // Symbol
+    "count": 0, // Trading count
+    "percentage": 0, // Percentage
+    "pnl": 0 // Profit and loss
+  }
+}
+```

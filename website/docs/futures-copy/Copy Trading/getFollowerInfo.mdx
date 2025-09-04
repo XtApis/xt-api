@@ -1,0 +1,49 @@
+---
+id: GetFollowerInfo
+title: Get Follower Info
+sidebar_label: Get Follower Info
+sidebar_position: 28
+---
+
+### Endpoint
+
+`GET /future/copytrade/user/v1/copy-trade/leader-relation`
+
+---
+
+### Parameters
+
+| Name            | Type   | Mandatory | Default | Description       | Ranges |
+| --------------- | ------ | --------- | ------- | ----------------- | ------ |
+| leaderAccountId | number | Yes       | -       | Leader account ID | -      |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "leaderAccountId": 0, // Leader accountId
+    "symbols": "string", // Symbol
+    "followLoss": 0, // Follow loss
+    "followLossOperate": "enum", // Operation: MARKET_SELL, LEADER_CLOSE, MANUAL_PROCESS
+    "triggerProfitRate": 0, // Trigger profit rate
+    "triggerStopRate": 0, // Trigger stop rate
+    "cancel": true, // Is cancel (true = canceled, false = uncanceled)
+    "followDirection": "string", // Direction: FORWARD, REVERSE
+    "followType": "string", // Follow type: FUND, RATE, MARGIN_RATE
+    "followVal": 0, // Follow value
+    "autoFollowSymbol": true // Auto follow newly added symbol (true/false)
+  }
+}
+```

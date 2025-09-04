@@ -1,0 +1,49 @@
+---
+id: ChooseLeader
+title: Choose Leader
+sidebar_label: Choose Leader
+sidebar_position: 15
+---
+
+### Endpoint
+
+`POST /future/copytrade/user/v1/copy-trade/choose-leader`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| leaderAccountId | number | Yes | - | Leader account ID | - |
+| symbols | string | Yes | - | Symbol | - |
+| followType | string | Yes | - | Follow type | FUND, RATE, MARGIN_RATE |
+| followVal | number | No | - | Follow value | - |
+| triggerProfitRate | number | No | - | Profit rate | - |
+| triggerStopRate | number | No | - | Stop rate | - |
+| followDirection | string | No | - | Direction | FORWARD, REVERSE |
+| followLoss | number | No | - | Follow loss | - |
+| autoFollowSymbol | boolean | No | - | Is auto follow symbol | true, false |
+| followLossOperate | enum | No | - | Follow loss operation | MARKET_SELL, LEADER_CLOSE, MANUAL_PROCESS |
+| syncPosition | boolean | No | - | Auto copy new future market (smart copy) | true, false |
+| followMode | enum | No | - | Follow-up mode | CUSTOM (custom follow-up), AUTO (intelligent follow-up) |
+| transferFromBizType | enum | Yes | - | Transfer from SPOT or FUTURES_U (future) | SPOT, FUTURES_U |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=success, false=fail
+}
+```

@@ -668,13 +668,14 @@ export default async function createConfigAsync(): Promise<Config> {
             '/docs/migration',
             '/docs/spot',
             '/docs/trading-third-party',
-            '/docs/user-center'
+            '/docs/user-center',
           ];
-          
+
           return items.filter((item: unknown) => {
             // 检查URL是否以允许的路径之一开头
-            return allowedPaths.some(allowedPath => 
-              (item as {url: string}).url.startsWith(allowedPath));
+            return allowedPaths.some((allowedPath) =>
+              (item as {url: string}).url.startsWith(allowedPath),
+            );
           });
         },
       } as unknown,
@@ -707,7 +708,7 @@ export default async function createConfigAsync(): Promise<Config> {
               },
               {
                 type: 'doc',
-                docId: 'spot/index',
+                docId: 'spot/AccessDescription/RestApi',
                 label: 'Spot',
               },
               {
@@ -727,7 +728,7 @@ export default async function createConfigAsync(): Promise<Config> {
               },
               {
                 type: 'doc',
-                docId: 'futures-copy/index',
+                docId: 'futures-copy/AccessDescription/RestApi',
                 label: 'Futures Copy',
               },
               {
@@ -899,7 +900,7 @@ export default async function createConfigAsync(): Promise<Config> {
       //           <a href="https://www.netlify.com"
       //              target="_blank" rel="noreferrer noopener"
       //              aria-label="Deploys by Netlify">
-      //             <img src="/img/footer/badge-netlify.svg" 
+      //             <img src="/img/footer/badge-netlify.svg"
       //                  alt="Deploys by Netlify" width="114" height="51" />
       //           </a>
       //         `,
@@ -909,7 +910,7 @@ export default async function createConfigAsync(): Promise<Config> {
       //           <a href="https://argos-ci.com"
       //              target="_blank" rel="noreferrer noopener"
       //              aria-label="Covered by Argos">
-      //             <img src="/img/footer/badge-argos.svg" 
+      //             <img src="/img/footer/badge-argos.svg"
       //                  alt="Covered by Argos" width="133" height="20" />
       //           </a>
       //         `,

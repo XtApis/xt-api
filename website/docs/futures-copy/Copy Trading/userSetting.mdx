@@ -1,0 +1,51 @@
+---
+id: GetUserSetting
+title: Get User Setting
+sidebar_label: Get User Setting
+sidebar_position: 9
+---
+
+### Endpoint
+
+`GET /future/copytrade/user/v1/copy-trade/user-settings`
+
+---
+
+### Parameters
+
+_None_
+
+---
+
+### Limit Flow Rules
+
+10/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "id": 0, // ID
+    "intro": "string", // Intro
+    "followCapitalMin": 0, // Minimum margin
+    "labelIds": 0, // Label ID
+    "label": [
+      // Labels
+      {
+        "id": 0, // ID
+        "label": "string" // Remark
+      }
+    ],
+    "autoUnfollow": true, // Auto cancel follow
+    "displayEquity": true, // Display total amount
+    "displayPosition": true, // Display position
+    "openLeader": false // Is leader trading open
+  }
+}
+```
