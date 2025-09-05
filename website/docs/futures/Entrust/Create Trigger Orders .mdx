@@ -1,29 +1,43 @@
 ---
-id: create_Trigger_Orders
+id: CreateTriggerOrders
 title: Create Trigger Orders
 sidebar_label: Create Trigger Orders
 sidebar_position: 1
 ---
 
-## 接口描述
+**Type:** POST
 
-`POST /future/trade/v1/entrust/create`
+**Description:** `/future/trade/v1/entrust/create-plan`
 
-#### **Limit Flow Rules**
+**Remark:** Content-Type = application/x-www-form-urlencoded && application/json
+
+### Limit Flow Rules
 
 200/s/apikey
 
-## 参数
+### Parameters
 
-| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
-| ------ | ---- | -------- | ------ | ---- |
-| ...    | ...  | ...      | ...    | ...  |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| clientOrderId | string | false | N/A | Client order ID |  |
+| symbol | string | true |  | Trading pair |  |
+| orderSide | string | true | N/A | Order side: BUY; SELL | BUY;SELL |
+| entrustType | string | true | N/A | Order type: TAKE_PROFIT (Take Profit Limit Order); STOP (Stop Limit Order); TAKE_PROFIT_MARKET (Take Profit Market Order); STOP_MARKET (Stop Loss Market Order) | TAKE_PROFIT;STOP;TAKE_PROFIT_MARKET;STOP_MARKET |
+| origQty | number | true | N/A | Quantity (Cont) |  |
+| price | number | false | N/A | Price |  |
+| stopPrice | number | true | N/A | Trigger price |  |
+| timeInForce | string | true | N/A | Valid way: GTC; IOC; FOK; GTX. Market orders only support IOC | GTC;IOC;FOK;GTX |
+| triggerPriceType | string | true | N/A | Trigger price type: INDEX_PRICE (Index price); MARK_PRICE (Mark price); LATEST_PRICE (latest price) | INDEX_PRICE;MARK_PRICE;LATEST_PRICE |
+| positionSide | string | true | N/A | Position side: LONG; SHORT | LONG;SHORT |
 
-## 响应示例
+### Request Example
 
-```json
+```json title="Response"
 {
-  "error": {"code": "", "msg": ""},
+  "error": {
+    "code": "",
+    "msg": ""
+  },
   "msgInfo": "",
   "result": {},
   "returnCode": 0

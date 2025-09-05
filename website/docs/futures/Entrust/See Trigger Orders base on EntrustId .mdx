@@ -1,25 +1,50 @@
 ---
-id: see_Trigger_Orders_ById
+id: SeeTriggerOrdersByEntrustId
 title: See Trigger Orders base on EntrustId
 sidebar_label: See Trigger Orders base on EntrustId
 sidebar_position: 5
 ---
 
-## 接口描述
+**Type:** GET
 
-`GET /future/trade/v1/entrust/detail`
+**Description:** `/future/trade/v1/entrust/plan-detail`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 200/s/apikey
 
-## 响应示例
+### Parameters
 
-```json
+| Name      | Type    | Mandatory | Default | Description | Ranges |
+| --------- | ------- | --------- | ------- | ----------- | ------ |
+| entrustId | integer | true      | N/A     | Order ID    |        |
+
+### Response Example
+
+```json title="Response"
 {
-  "error": {"code": "", "msg": ""},
+  "error": {
+    "code": "",
+    "msg": ""
+  },
   "msgInfo": "",
-  "result": {"entrustId": ""},
+  "result": {
+    "closePosition": false, // Whether triggered to close all
+    "createdTime": 0, // Create time
+    "entrustId": 0, // Order ID
+    "entrustType": "", // Order type
+    "marketOrderLevel": 0, // Best market price
+    "orderSide": "", // Order side
+    "ordinary": true,
+    "origQty": 0, // Quantity (Cont)
+    "positionSide": "", // Position side
+    "price": 0, // Order price
+    "state": "", // Order state: NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY
+    "stopPrice": 0, // Trigger price
+    "symbol": "", // Trading pair
+    "timeInForce": "", // Time in force
+    "triggerPriceType": "" // Trigger price type
+  },
   "returnCode": 0
 }
 ```

@@ -1,25 +1,63 @@
 ---
-id: see_Trigger_Orders_History
+id: SeeTriggerOrdersHistory
 title: See Trigger Orders History
 sidebar_label: See Trigger Orders History
 sidebar_position: 6
 ---
 
-## 接口描述
+**Type:** GET
 
-`GET /future/trade/v1/entrust/history`
+**Description:** `/future/trade/v1/entrust/plan-list-history`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 200/s/apikey
 
-## 响应示例
+### Parameters
 
-```json
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true | N/A | Trading pairs (queries all trading pairs if not passed) |  |
+| direction | string | false | NEXT | Direction (PREV: Previous page; NEXT: Next page) | PREV;NEXT |
+| id | integer | false | N/A | ID |  |
+| limit | integer | false | 10 | Limit |  |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+
+### Response Example
+
+```json title="Response"
 {
-  "error": {"code": "", "msg": ""},
+  "error": {
+    "code": "",
+    "msg": ""
+  },
   "msgInfo": "",
-  "result": {"items": []},
+  "result": {
+    "hasNext": false, // Is there a next page
+    "hasPrev": false, // Is there a previous page
+    "items": [
+      // Datasheets
+      {
+        "clientOrderId": "", // Client order ID
+        "closePosition": false, // Whether triggered to close all
+        "createdTime": 0, // Create time
+        "entrustId": 0, // Order ID
+        "entrustType": "", // Order type
+        "marketOrderLevel": 0, // Best market price
+        "orderSide": "", // Order side
+        "ordinary": true,
+        "origQty": 0, // Quantity (Cont)
+        "positionSide": "", // Position side
+        "price": 0, // Order price
+        "state": "", // Order state: NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED
+        "stopPrice": 0, // Trigger price
+        "symbol": "", // Trading pair
+        "timeInForce": "", // Valid way
+        "triggerPriceType": "" // Trigger price type
+      }
+    ]
+  },
   "returnCode": 0
 }
 ```

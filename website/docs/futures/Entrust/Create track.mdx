@@ -1,41 +1,41 @@
 ---
-id: create_Track
-title: Create track
-sidebar_label: Create track
+id: CreateTrack
+title: Create Track
+sidebar_label: Create Track
 sidebar_position: 13
 ---
 
-## 接口描述
+**Type:** POST
 
-`POST /future/trade/v1/entrust/create-track`
+**Description:** `/future/trade/v1/entrust/create-track`
 
-Content-Type = `application/x-www-form-urlencoded`
+**Remark:** Content-Type = application/x-www-form-urlencoded
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 200/s/apikey
 
-## 请求参数
+### Parameters
 
-| 名称 | 类型 | 必填 | 默认值 | 描述 |
-| --- | --- | --- | --- | --- |
-| callback | string | true | N/A | Callback range configuration |
-| callbackVal | number | true | N/A | Callback value (greater than 0) |
-| orderSide | string | true | N/A | Order side (`BUY` / `SELL`) |
-| origQty | number | true | N/A | Original quantity (count) |
-| positionSide | string | true | N/A | Position side (`BOTH` / `LONG` / `SHORT`) |
-| positionType | string | true | N/A | Position type (`CROSSED` / `ISOLATED`) |
-| symbol | string | true | N/A | Trading pair |
-| triggerPriceType | string | true | N/A | Trigger price type (`INDEX_PRICE` / `MARK_PRICE` / `LATEST_PRICE`) |
-| activationPrice | number | false | N/A | Activation price |
-| clientMedia | string | false | N/A | Client media |
-| clientMediaChannel | string | false | N/A | Client media channel |
-| clientOrderId | string | false | N/A | Client order ID |
-| expireTime | integer | false | N/A | Expire time |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| callback | string | true | N/A | Callback range configuration | FIXED;PROPORTION |
+| callbackVal | number | true | N/A | Callback value | Greater than 0 |
+| orderSide | string | true | N/A | Order side | BUY;SELL |
+| origQty | number | true | N/A | Original quantity (count) |  |
+| positionSide | string | true | N/A | Position side | BOTH;LONG;SHORT |
+| positionType | string | true | N/A | Position type | CROSSED;ISOLATED |
+| symbol | string | true | N/A | Trading pair |  |
+| triggerPriceType | string | true | N/A | Trigger price type | INDEX_PRICE;MARK_PRICE;LATEST_PRICE |
+| activationPrice | number | false | N/A | Activation price |  |
+| clientMedia | string | false | N/A | Client media |  |
+| clientMediaChannel | string | false | N/A | Client media channel |  |
+| clientOrderId | string | false | N/A | Client order id |  |
+| expireTime | integer | false | N/A | Expiration time |  |
 
-## 示例代码
+### Request Example
 
-```
+```json title="Response"
 {
   "error": {
     "code": "",

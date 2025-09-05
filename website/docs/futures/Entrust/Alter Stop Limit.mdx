@@ -1,31 +1,31 @@
 ---
-id: alter_Stop_Limit
+id: AlterStopLimit
 title: Alter Stop Limit
 sidebar_label: Alter Stop Limit
 sidebar_position: 12
 ---
 
-## 接口描述
+**Type:** POST
 
-`POST /future/trade/v1/entrust/update-profit-stop`
+**Description:** `/future/trade/v1/entrust/update-profit-stop`
 
-Content-Type = `application/x-www-form-urlencoded` && `application/json`
+**Remark:** Content-Type = application/x-www-form-urlencoded && application/json
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 200/s/apikey
 
-## 请求参数
+### Parameters
 
-| 名称               | 类型    | 必填  | 默认值 | 描述             |
-| ------------------ | ------- | ----- | ------ | ---------------- |
-| profitId           | integer | true  | N/A    | Stop limit ID    |
-| triggerProfitPrice | number  | false | N/A    | TP trigger price |
-| triggerStopPrice   | number  | false | N/A    | SL trigger price |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| profitId | integer | true | N/A | Stop limit ID |  |
+| triggerProfitPrice | number | false | N/A | TP trigger price |  |
+| triggerStopPrice | number | false | N/A | SL trigger price |  |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "error": {
     "code": "",

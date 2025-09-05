@@ -1,15 +1,13 @@
 ---
-id: cancel_Single_Track
-title: Cancel single track
-sidebar_label: Cancel single track
-sidebar_position: 14
+id: SeeStopLimit
+title: See Stop Limit
+sidebar_label: See Stop Limit
+sidebar_position: 10
 ---
 
-### Description
+**Type:** GET
 
-**POST** `/future/trade/v1/entrust/cancel-track`
-
-Content-Type = `application/x-www-form-urlencoded`
+**Description:** `/future/trade/v1/entrust/profit-list`
 
 ### Limit Flow Rules
 
@@ -17,20 +15,51 @@ Content-Type = `application/x-www-form-urlencoded`
 
 ### Parameters
 
-| Name    | Type    | Mandatory | Default | Description |
-| ------- | ------- | --------- | ------- | ----------- |
-| trackId | integer | true      | N/A     | Track id    |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true | N/A | Trading pairs (queries all trading pairs if not passed) |  |
+| page | integer | false | 1 | Page |  |
+| size | integer | false | 10 | Quantity of a single page |  |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+| state | string | true | N/A | Order state: NOT_TRIGGERED (new order); TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY | NOT_TRIGGERED;TRIGGERING;TRIGGERED;USER_REVOCATION;PLATFORM_REVOCATION;EXPIRED;UNFINISHED;HISTORY |
 
-### Example Code
+### Response Example
 
-```
+```json title="Response"
 {
   "error": {
     "code": "",
     "msg": ""
   },
   "msgInfo": "",
-  "result": {},
+  "result": {
+    "items": [
+      {
+        "createdTime": 0, // Time
+        "entryPrice": 0, // Open position average price
+        "executedQty": 0, // Actual transaction
+        "isolatedMargin": 0, // Isolated Margin
+        "origQty": 0, // Quantity (Cont)
+        "positionSide": "", // Position side
+        "positionSize": 0, // Position quantity (Cont)
+        "profitId": 0, // Order ID
+        "state": "", // Order state: NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED
+        "symbol": "", // Trading pair
+        "triggerProfitPrice": 0, // Take profit price
+        "triggerStopPrice": 0, // Stop loss price
+        "profitDelegateOrderType": "LIMIT", // Take profit order type: LIMIT; MARKET
+        "profitDelegatePrice": 0, // Take profit delegate price
+        "profitDelegateTimeInForce": "GTC", // Take profit order time in force: GTC, FOK, IOC, GTX
+        "stopDelegateOrderType": "LIMIT", // Stop loss order type: LIMIT; MARKET
+        "stopDelegatePrice": 0, // Stop loss delegate price
+        "stopDelegateTimeInForce": "GTC" // Stop loss order time in force: GTC, FOK, IOC, GTX
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
   "returnCode": 0
 }
 ```

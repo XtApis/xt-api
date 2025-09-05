@@ -1,31 +1,31 @@
 ---
-id: cancel_Trigger_Orders
+id: CancelTriggerOrders
 title: Cancel Trigger Orders
 sidebar_label: Cancel Trigger Orders
 sidebar_position: 2
 ---
 
-## 接口描述
+**Type:** POST
 
-`POST /future/trade/v1/entrust/cancel`
+**Description:** `/future/trade/v1/entrust/cancel-plan`
 
-#### **Limit Flow Rules**
+**Remark:** Content-Type = application/x-www-form-urlencoded && application/json
+
+### Limit Flow Rules
 
 200/s/apikey
 
-## 参数
+### Parameters
 
-| 参数名    | 类型   | 是否必填 | 默认值 | 描述             |
-| --------- | ------ | -------- | ------ | ---------------- |
-| entrustId | string | true     | N/A    | Trigger Order ID |
+| Name      | Type    | Mandatory | Default | Description      | Ranges |
+| --------- | ------- | --------- | ------- | ---------------- | ------ |
+| entrustId | integer | true      | N/A     | Trigger order ID |        |
 
-## 响应示例
+### Request Example
 
-```json
-{
-  "error": {"code": "", "msg": ""},
-  "msgInfo": "",
-  "result": true,
-  "returnCode": 0
+```java title="Java"
+public void getKLine() {
+    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
+    System.out.println(text);
 }
 ```

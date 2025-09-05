@@ -1,32 +1,27 @@
 ---
-id: see_Stop_Limit_Profit_Detail
+id: SeeStopLimitByProfitId
 title: See Stop Limit base on ProfitId
 sidebar_label: See Stop Limit base on ProfitId
 sidebar_position: 11
 ---
 
-## 接口描述
+**Type:** GET
 
-`GET /future/trade/v1/entrust/profit-detail`
+**Description:** `/future/trade/v1/entrust/profit-detail`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 200/s/apikey
 
-## 请求参数
+### Parameters
 
-| 名称     | 类型    | 必填 | 默认值 | 描述          |
-| -------- | ------- | ---- | ------ | ------------- |
-| profitId | integer | true | N/A    | Stop limit ID |
+| Name     | Type    | Mandatory | Default | Description   | Ranges |
+| -------- | ------- | --------- | ------- | ------------- | ------ |
+| profitId | integer | true      | N/A     | Stop limit ID |        |
 
-## 示例代码
+### Response Example
 
-```java
-public void getMarketConfig() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getMarketConfig");
-    System.out.println(text);
-}
-
+```json title="Response"
 {
   "error": {
     "code": "",
@@ -34,18 +29,18 @@ public void getMarketConfig() {
   },
   "msgInfo": "",
   "result": {
-    "createdTime": 0,
-    "entryPrice": 0,
-    "executedQty": 0,
-    "isolatedMargin": 0,
-    "origQty": 0,
-    "positionSide": "",
-    "positionSize": 0,
-    "profitId": 0,
-    "state": "",
-    "symbol": "",
-    "triggerProfitPrice": 0,
-    "triggerStopPrice": 0
+    "createdTime": 0, // Time
+    "entryPrice": 0, // Open position average price
+    "executedQty": 0, // Actual transaction
+    "isolatedMargin": 0, // Isolated Margin
+    "origQty": 0, // Quantity (Cont)
+    "positionSide": "", // Position side
+    "positionSize": 0, // Position quantity (Cont)
+    "profitId": 0, // Order ID
+    "state": "", // Order state: NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED
+    "symbol": "", // Trading pair
+    "triggerProfitPrice": 0, // Stop profit price
+    "triggerStopPrice": 0 // Stop loss price
   },
   "returnCode": 0
 }

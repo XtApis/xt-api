@@ -1,23 +1,34 @@
 ---
-id: cancel_All_Stop_Limit
+id: CancelAllStopLimit
 title: Cancel All Stop Limit
 sidebar_label: Cancel All Stop Limit
 sidebar_position: 9
 ---
 
-## 接口描述
+**Type:** POST
 
-`POST /future/trade/v1/stop/cancel-all`
+**Description:** `/future/trade/v1/entrust/cancel-all-profit-stop`
 
-#### **Limit Flow Rules**
+**Remark:** Content-Type = application/x-www-form-urlencoded && application/json
+
+### Limit Flow Rules
 
 200/s/apikey
 
-## 响应示例
+### Parameters
 
-```json
+| Name   | Type   | Mandatory | Default | Description                 | Ranges |
+| ------ | ------ | --------- | ------- | --------------------------- | ------ |
+| symbol | string | true      | N/A     | Trading pair, e.g. btc_usdt |        |
+
+### Response Example
+
+```json title="Response"
 {
-  "error": {"code": "", "msg": ""},
+  "error": {
+    "code": "",
+    "msg": ""
+  },
   "msgInfo": "",
   "result": true,
   "returnCode": 0

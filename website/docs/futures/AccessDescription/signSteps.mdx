@@ -34,7 +34,7 @@ Request data：
 }
 ```
 
-1、Data
+### 1. Data
 
 path: Concatenate all values in the order in path. The restful path in the form of `/test/{var1}/{var2}/` will be spliced according to the actual parameters filled in, for example: /sign/test/bb/aa
 
@@ -54,13 +54,13 @@ Example of Path:
 
           The above concatenated value is recorded as path
 
-Example 1: All parameters sent via query string
+#### Example 1. All parameters sent via query string
 
             symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
 
             The above concatenate value is recorded as query
 
-Example 2: All parameters send X-www-form-urlencoded request body string via the request body
+#### Example 2.All parameters send X-www-form-urlencoded request body string via the request body
 
 Request body string of json
 
@@ -74,7 +74,7 @@ Request body string of www-form-urlencoded
 
             The above concatenate value is recorded as body
 
-Example 3: Mix to use query string and request body (form and json format)
+#### Example 3.Mix to use query string and request body (form and json format)
 
 queryString: symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC 上述拼接值记作 query
 
@@ -90,9 +90,11 @@ requestBody: `{"quantity":2,"price":39000}` The above concatenate value is recor
 
             query with data, body with data:Y=#path#query#body
 
-2:Request header X=”validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-timestamp=1641446237201”
+### 2. Request header
 
-3:Obtain Signature
+X=”validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-timestamp=1641446237201”
+
+### 3. Obtain Signature
 
 Finally, record the string that needs to be encrypted as sign=XY
 
@@ -101,13 +103,3 @@ Finally, encrypt the final concatenated value according to the following method 
 signature=org.apache.commons.codec.digest.HmacUtils.hmacSha256Hex(secretkey, sign);
 
 Put the generated signature in the request header, with validate-signature as the key and singature as the value.
-
-## 请求参数
-
-| 名称   | 类型 | 必填 | 默认值 | 说明 | 范围 |
-| ------ | ---- | ---- | ------ | ---- | ---- |
-| `None` |      | 否   |        |      |      |
-
-## 示例请求
-
-## 更多示例

@@ -1,25 +1,63 @@
 ---
-id: see_Trigger_Orders
+id: SeeTriggerOrders
 title: See Trigger Orders
 sidebar_label: See Trigger Orders
 sidebar_position: 4
 ---
 
-## 接口描述
+**Type:** GET
 
-`GET /future/trade/v1/entrust/list`
+**Description:** `/future/trade/v1/entrust/plan-list`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 200/s/apikey
 
-## 响应示例
+### Parameters
 
-```json
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true | N/A | Trading pairs (queries all trading pairs if not passed) |  |
+| page | integer | false | 1 | Page |  |
+| size | integer | false | 10 | Quantity of a single page |  |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+| state | string | true | N/A | Order status: NOT_TRIGGERED (new order); TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY | NOT_TRIGGERED;TRIGGERING;TRIGGERED;USER_REVOCATION;PLATFORM_REVOCATION;EXPIRED;UNFINISHED;HISTORY |
+
+### Response Example
+
+```json title="Response"
 {
-  "error": {"code": "", "msg": ""},
+  "error": {
+    "code": "",
+    "msg": ""
+  },
   "msgInfo": "",
-  "result": {"items": []},
+  "result": {
+    "items": [
+      {
+        "clientOrderId": "", // Client order ID
+        "closePosition": false, // Whether triggered to close all
+        "createdTime": 0, // Create time
+        "entrustId": 0, // Order ID
+        "entrustType": "", // Order type
+        "marketOrderLevel": 0, // Best market price
+        "orderSide": "", // Order side
+        "ordinary": true,
+        "origQty": 0, // Quantity (Cont)
+        "positionSide": "", // Position side
+        "price": 0, // Order price
+        "state": "", // Order state: NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY
+        "stopPrice": 0, // Trigger price
+        "symbol": "", // Trading pair
+        "timeInForce": "", // Valid way
+        "triggerPriceType": "" // Trigger price type
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
   "returnCode": 0
 }
 ```

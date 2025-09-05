@@ -1,25 +1,42 @@
 ---
-id: create_Stop_Limit
+id: CreateStopLimit
 title: Create Stop Limit
 sidebar_label: Create Stop Limit
 sidebar_position: 7
 ---
 
-## 接口描述
+**Type:** POST
 
-`POST /future/trade/v1/stop/create`
+**Description:** `/future/trade/v1/entrust/create-profit`
 
-#### **Limit Flow Rules**
+**Remark:** Content-Type = application/x-www-form-urlencoded && application/json
+
+### Limit Flow Rules
 
 200/s/apikey
 
-## 响应示例
+### Parameters
 
-```json
-{
-  "error": {"code": "", "msg": ""},
-  "msgInfo": "",
-  "result": {},
-  "returnCode": 0
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false | N/A | Trading pair |  |
+| origQty | integer | true |  | Quantity (Cont) |  |
+| triggerProfitPrice | integer | true |  | TP trigger price |  |
+| triggerStopPrice | integer | true |  | SL trigger price |  |
+| expireTime | integer | true |  | Expiration time |  |
+| positionSide | string | true |  | Position side | LONG;SHORT |
+| profitDelegateOrderType | string | true |  | Take profit order type | LIMIT, MARKET |
+| profitDelegateTimeInForce | string | true |  | Take profit order time in force | GTC, FOK, IOC, GTX |
+| profitDelegatePrice | number | false |  | Take profit order price |  |
+| stopDelegateOrderType | string | true |  | Stop loss order type | LIMIT, MARKET |
+| stopDelegateTimeInForce | string | true |  | Stop loss order time in force | GTC, FOK, IOC, GTX |
+| stopDelegatePrice | number | false |  | Stop loss order price |  |
+
+### Request Example
+
+```java title="Java"
+public void getKLine() {
+    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
+    System.out.println(text);
 }
 ```

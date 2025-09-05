@@ -1,13 +1,13 @@
 ---
-id: getSingleTrackDetail
+id: GetSingleTrackDetail
 title: Get single track detail
 sidebar_label: Get single track detail
 sidebar_position: 15
 ---
 
-### Description
+**Type:** GET
 
-**GET** `/future/trade/v1/entrust/track-detail`
+**Description:** `/future/trade/v1/entrust/track-detail`
 
 ### Limit Flow Rules
 
@@ -15,19 +15,13 @@ sidebar_position: 15
 
 ### Parameters
 
-| Name    | Type    | Mandatory | Default | Description |
-| ------- | ------- | --------- | ------- | ----------- |
-| trackId | integer | true      | N/A     | Track id    |
+| Name    | Type    | Mandatory | Default | Description | Ranges |
+| ------- | ------- | --------- | ------- | ----------- | ------ |
+| trackId | integer | true      | N/A     | Track ID    |        |
 
-### Example Code
+### Response Example
 
-```java
-public void getTrackDetail() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/entrust/track-detail");
-    System.out.println(text);
-}
-
-###c Response Example
+```json title="Response"
 {
   "error": {
     "code": "",
@@ -35,26 +29,26 @@ public void getTrackDetail() {
   },
   "msgInfo": "",
   "result": {
-    "activationPrice": 0,      // Activation price
-    "avgPrice": 0,             // Average price
-    "callback": "",            // Callback range configuration 1:PROPORTION 2:FIXED
-    "callbackVal": 0,          // Callback value
+    "activationPrice": 0, // Activation price
+    "avgPrice": 0, // Average price
+    "callback": "", // Callback range configuration 1: PROPORTION 2: FIXED
+    "callbackVal": 0, // Callback value
     "configActivation": false, // Whether to configure activation price
-    "createdTime": 0,          // Create time
-    "currentPrice": 0,         // Real-time price, compared with activation price and order price, to determine activation direction
-    "desc": "",                // Description
-    "executedQty": 0,          // Actual transaction quantity
-    "orderSide": "",           // Order side
-    "ordinary": true,          // Ordinary
-    "origQty": 0,              // Quantity (Cont)
-    "positionSide": "",        // Position side
-    "price": 0,                // Order price
-    "state": "",               // Order state: NOT_ACTIVATION; NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; DELEGATION_FAILED
-    "stopPrice": 0,            // Trigger price
-    "symbol": "",              // Symbol
-    "trackId": 0,              // Track id
-    "triggerPriceType": "",    // Trigger price type
-    "updatedTime": 0           // Update time
+    "createdTime": 0, // Create time
+    "currentPrice": 0, // Real-time price
+    "desc": "", // Description
+    "executedQty": 0, // Actual transaction quantity
+    "orderSide": "", // Order side
+    "ordinary": true, //
+    "origQty": 0, // Quantity (Cont)
+    "positionSide": "", // Position side
+    "price": 0, // Order price
+    "state": "", // Order state: NOT_ACTIVATION; NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; DELEGATION_FAILED
+    "stopPrice": 0, // Trigger price
+    "symbol": "", // Symbol
+    "trackId": 0, // Track ID
+    "triggerPriceType": "", // Trigger price type
+    "updatedTime": 0 // Update time
   },
   "returnCode": 0
 }
