@@ -1,0 +1,38 @@
+---
+id: CollectTradingPair
+title: Collect Trading Pair
+sidebar_label: Collect Trading Pair
+position_number: 14
+type: post
+description: /future/user/v1/user/collection/add
+---
+
+**Type:** POST
+
+**Description:** `/future/user/v1/user/collection/add`
+
+> **Remark:** `Content-Type = application/x-www-form-urlencoded` **or** `application/json`
+
+#### Limit Flow Rules
+
+200/s/apikey
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      | N/A     | Trading pair | —      |
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}
+```
