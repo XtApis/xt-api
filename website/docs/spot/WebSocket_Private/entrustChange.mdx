@@ -1,0 +1,35 @@
+---
+id: EntrustChange
+title: Change of entrust
+sidebar_label: Change of entrust
+sidebar_position: 6
+---
+
+**Type:** Websocket Push **Description:** Entrust (trigger order) change notification
+
+### Parameters
+
+| name | type | mandatory | default | description |
+| --- | --- | --- | --- | --- |
+| – | – | false | N/A | No parameters required, subscribe to the **trigger** topic to receive updates |
+
+### Notes
+
+- This push notification is triggered when a **trigger/entrust order** changes.
+- Subscription format: `trigger`
+- Useful for tracking creation, updates, and state changes of trigger orders.
+
+### Push Example
+
+```json title="Push"
+{
+  "topic": "trigger",
+  "event": "trigger",
+  "data": {
+    "s": "btc_usdt", // Symbol
+    "t": 1656043204763, // Event time (ms)
+    "i": "6216559590087220004", // Trigger ID
+    "st": "NEW" // State (e.g. NEW, FILLED, CANCELED)
+  }
+}
+```

@@ -1,0 +1,40 @@
+---
+id: BalanceChange
+title: Change of balance
+sidebar_label: Change of balance
+sidebar_position: 5
+---
+
+**Type:** Websocket Push  
+**Description:** Balance change notification
+
+### Parameters
+
+| name | type | mandatory | default | description |
+| --- | --- | --- | --- | --- |
+| – | – | false | N/A | No parameters required, subscribe to the **balance** topic to receive updates |
+
+### Notes
+
+- This push notification is triggered when a user's account balance changes.
+- Subscription format: `balance`
+- Supports both **SPOT** and **LEVER** business types.
+- Useful for tracking real-time balance changes after trades, deposits, withdrawals, or transfers.
+
+### Push Example
+
+```json title="Push"
+{
+  "topic": "balance",
+  "event": "balance",
+  "data": {
+    "a": "123", // Account ID
+    "t": 1656043204763, // Event time (ms)
+    "c": "btc", // Currency
+    "b": "123", // Total spot balance
+    "f": "11", // Frozen amount
+    "z": "SPOT", // BizType [SPOT, LEVER]
+    "s": "btc_usdt" // Symbol
+  }
+}
+```

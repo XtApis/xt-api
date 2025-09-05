@@ -1,43 +1,41 @@
 ---
-id: Get_Deposit_and_Trading_Data_of_Users
-title: Get Deposit & Trading Data of Users
-sidebar_label: Get Deposit &  Trading Data of Users
-description: /v4/referal/invite/user/data
+id: GetDepositTradingDataOfUsers
+title: Get Deposit & Trading Data Of Users
+sidebar_label: Get Deposit & Trading Data Of Users
+sidebar_position: 2
 ---
 
-## 接口
+**Type:** GET **Description:** `/v4/referal/invite/user/data`
 
-**GET** `/v4/referal/invite/user/data`
+### Parameters
 
-## 请求参数
+| Name      | Type   | Mandatory | Default | Description     | Ranges |
+| --------- | ------ | --------- | ------- | --------------- | ------ |
+| startTime | number | false     |         | Start time      |        |
+| endTime   | number | false     |         | End time        |        |
+| uid       | number | true      |         | Queried user ID |        |
 
-| Name        | Type   | Mandatory | Default | Description     |
-| ----------- | ------ | --------- | ------- | --------------- |
-| `startTime` | number | No        |         | start time      |
-| `endTime`   | number | No        |         | end time        |
-| `uid`       | number | Yes       |         | Queried user ID |
+### Response Example
 
-## 响应示例
-
-```json
+```json title="Response"
 {
   "ma": [],
   "mc": "SUCCESS",
   "rc": 0,
   "result": {
-    "userId": 123456789, //User ID
-    "role": "PARTNER", //User role
-    "deposit": true, //Deposit status
+    "userId": 123456789,
+    "role": "PARTNER",
+    "deposit": true,
     "depositDetails": [
       {
-        "amount": 100, //Deposit amount
-        "amountU": 100, //Deposit amount (converted to USDT)
-        "currency": "USDT", //Deposit currency
-        "timestamp": 1721962593000 //Deposit time
+        "amount": 100,
+        "amountU": 100,
+        "currency": "USDT",
+        "timestamp": 1721962593000
       }
     ],
-    "trade": true, //Trade status
-    "tradeAmount": 1000.1234 //Trading volume (converted to USDT)
+    "trade": true,
+    "tradeAmount": 1000.1234
   }
 }
 ```

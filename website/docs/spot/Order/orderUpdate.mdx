@@ -1,0 +1,34 @@
+---
+id: UpdateOrderLimit
+title: Update Order(Limit)
+sidebar_label: Update Order(Limit)
+sidebar_position: 5
+---
+
+**Type:** put **Description:** `/v4/order/{orderId}`
+
+### Parameters
+
+| name     | type   | mandatory | default | description | ranges |
+| -------- | ------ | --------- | ------- | ----------- | ------ |
+| orderId  | number | true      |         | order ID    |        |
+| price    | number | true      |         | Price       |        |
+| quantity | number | true      |         | Quantity    |        |
+
+#### **Limit Flow Rules**
+
+50/s/apikey
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "orderId": "6216559590087220004", //order id
+    "modifyId": "407329711723834560" //modify id
+  }
+}
+```

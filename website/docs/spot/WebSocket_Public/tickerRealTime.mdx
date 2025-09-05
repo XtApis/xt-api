@@ -1,0 +1,33 @@
+---
+id: Ticker
+title: ticker
+sidebar_label: ticker
+sidebar_position: 11
+---
+
+### Request
+
+- **format:** `ticker@{symbol}`
+- **example:** `ticker@btc_usdt`
+- **rate:** 1000ms
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "ticker",
+  "event": "ticker@btc_usdt",
+  "data": {
+    "s": "btc_usdt",
+    "t": 1657586700119,
+    "cv": "-200",
+    "cr": "-0.02",
+    "o": "30000",
+    "c": "39000",
+    "h": "38000",
+    "l": "40000",
+    "q": "4",
+    "v": "150000"
+  }
+}
+```

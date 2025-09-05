@@ -1,0 +1,43 @@
+---
+id: GetCurrencyInfo
+title: Get currency information
+sidebar_label: Get currency information
+sidebar_position: 1
+---
+
+**Type:** GET **Description:** `/v4/public/currencies`
+
+### Parameters
+
+| name | type | mandatory | default | description            | ranges |
+| ---- | ---- | --------- | ------- | ---------------------- | ------ |
+| –    | –    | false     | N/A     | No parameters required | –      |
+
+### Notes
+
+This endpoint retrieves information of all supported currencies.
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": 11, // currency id
+      "currency": "usdt", // currency name
+      "fullName": "usdt", // currency full name
+      "logo": null, // currency logo
+      "cmcLink": null, // cmc link
+      "weight": 100,
+      "maxPrecision": 6,
+      "depositStatus": 1, // Recharge status (0=close, 1=open)
+      "withdrawStatus": 1, // Withdrawal status (0=close, 1=open)
+      "convertEnabled": 1, // Small asset exchange switch [0=close, 1=open]
+      "transferEnabled": 1 // Swipe switch [0=close, 1=open]
+    }
+  ]
+}
+```

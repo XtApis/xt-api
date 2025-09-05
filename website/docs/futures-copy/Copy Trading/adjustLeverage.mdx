@@ -1,48 +1,39 @@
 ---
-title: adjust leverage
-position_number: 32
-type: post
-description: /future/copytrade/order/v1/position/adjust-leverage
-parameters:
-  - name: symbol
-    type: string
-    mandatory: true
-    default:
-    description: symbol
-    ranges:
-  - name: leverage
-    type: number
-    mandatory: true
-    default:
-    description: leverage
-    ranges:
-  - name: positionSide
-    type: enum
-    mandatory: false
-    default:
-    description: direction
-    ranges: LONG,SHORT,BOTH
-
-content_markdown: >-
-  #### **Limit Flow Rules**
-  
-  2/s/apikey
-
-left_code_blocks:
-  - code_block:
-    title: Java
-    language: java
-  - code_block:
-    title: Python
-    language: python
-right_code_blocks:
-  - code_block: |-
-      {
-      "returnCode": 0,
-      "msgInfo": "success",
-      "error": null,
-      "result": Boolean //true=success false=fail
-      }
-    title: Response
-    language: json
+id: AdjustLeverage
+title: Adjust Leverage
+sidebar_label: Adjust Leverage
+sidebar_position: 32
 ---
+
+### Endpoint
+
+`POST /future/copytrade/order/v1/position/adjust-leverage`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | Yes | - | Symbol | - |
+| leverage | number | Yes | - | Leverage | - |
+| positionSide | enum | No | - | Direction | LONG, SHORT, BOTH |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=success, false=fail
+}
+```

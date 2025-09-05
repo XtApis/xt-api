@@ -1,62 +1,66 @@
 ---
-id: Query_agent_commission_data
-title: Query agent commission data
-sidebar_label: Query agent commission data
-description: /v4/referal/invite/agent/rebate/data
+id: QueryAgentCommissionData
+title: Query Agent Commission Data
+sidebar_label: Query Agent Commission Data
+sidebar_position: 7
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v4/referal/invite/agent/rebate/data`
+**Description:** `/v4/referal/invite/agent/rebate/data`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| startTime | number | false |  | Commission deposit start time |  |
+| endTime | number | false |  | Commission deposit end time |  |
+| inviteCode | string | false |  | Registration invitation code |  |
+| type | number | true |  | Commission type | 1-spot, 2-future |
+| fromId | number | false |  | Starting ID |  |
+| direction | string | false | NEXT | Query direction | PREV, NEXT |
+| limit | int | false | 10 | Limit number, max 100 | `1 <= limit <= 100` |
+
+---
 
 #### **Remark**
 
-Only supports querying data for the past three months
+Only supports querying data for the past three months.
 
-## 请求参数
+---
 
-| Name         | Type   | Mandatory | Default | Description                   |
-| ------------ | ------ | --------- | ------- | ----------------------------- |
-| `startTime`  | number | No        |         | Commission deposit start time |
-| `endTime`    | number | No        |         | Commission deposit end time   |
-| `inviteCode` | string | No        |         | Registration invitation code  |
-| `type`       | number | Yes       |         | Commission type               |
-| `fromId`     | number | No        |         | Starting ID                   |
-| `direction`  | string | No        | NEXT    | query direction               |
-| `limit`      | int    | No        | 10      | Limit number, max 100         |
+### Response Example
 
-## 响应示例
-
-```json
+```json title="Response"
 {
   "ma": [],
   "mc": "SUCCESS",
   "rc": 0,
   "result": {
-     "totalCount": 1,
-     "pageCount": 20,
-     "items": [
-        {
-            "id": 1,                            //ID
-            "uid": 123,                         //User ID
-            "spotRebateRate": 0.1,              //Spot commission ratio
-            "futuresRebateRate": 0.2,           //Future commission ratio
-            "amountCurrency": 666,              //Currency amount
-            "commission": 23,                   //Commission amount
-            "currency": "usdt"                  //Commission currency
-            "date": "2025-01-22T09:57:01.601Z", //Transaction date
-            "makerAmount": 32,                  //Maker amount
-            "rate": 2,                          //Commission rate
-            "sourceType": 1,                    //Commission source type. 1 - Direct customer, 2 - Sub-agent
-            "state": 1,                         //Commission state 0 - Normal, 1 - Abnormal
-            "symbol": "btc_usdt",               //Symbol
-            "takerAmount": 23,                  //Taker amount
-            "totalCommissionUsdtAmount": 123,   //Total commission
-            "totalTradeUsdtAmount": 2222,       //Total trading volume
-            "type": 1,                          //Commission type. 1-spot 2-future
-            "usdtAmount": 243253                //USDT amount
-        }
-     ]
+    "totalCount": 1,
+    "pageCount": 20,
+    "items": [
+      {
+        "id": 1,
+        "uid": 123,
+        "spotRebateRate": 0.1,
+        "futuresRebateRate": 0.2,
+        "amountCurrency": 666,
+        "commission": 23,
+        "currency": "usdt",
+        "date": "2025-01-22T09:57:01.601Z",
+        "makerAmount": 32,
+        "rate": 2,
+        "sourceType": 1,
+        "state": 1,
+        "symbol": "btc_usdt",
+        "takerAmount": 23,
+        "totalCommissionUsdtAmount": 123,
+        "totalTradeUsdtAmount": 2222,
+        "type": 1,
+        "usdtAmount": 243253
+      }
+    ]
   }
 }
 ```

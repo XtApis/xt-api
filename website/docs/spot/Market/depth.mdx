@@ -1,0 +1,39 @@
+---
+id: GetDepthData
+title: Get depth data
+sidebar_label: Get depth data
+sidebar_position: 4
+---
+
+**Type:** GET **Description:** `/v4/public/depth`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true |  | trading pair eg:btc_usdt |  |
+| limit | number | false | 100 | minimum number of queries is 100 | 1~500 |
+
+#### **Limit Flow Rules**
+
+10/s/ip
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "timestamp": 1662445330524,
+    "lastUpdateId": 137333589606963580,
+    "bids": [
+      ["200.0000", "0.996000"],
+      ["100.0000", "0.001000"],
+      ["20.0000", "10.000000"]
+    ],
+    "asks": []
+  }
+}
+```

@@ -1,27 +1,29 @@
 ---
-id: Check_If_The_User_Is_Invited
+id: CheckIfTheUserIsInvited
 title: Check If The User Is Invited
 sidebar_label: Check If The User Is Invited
-description: /v4/referal/invite/check
+sidebar_position: 8
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v4/referal/invite/check`
+**Description:** `/v4/referal/invite/check`
 
-## 请求参数
+### Parameters
 
-| Name  | Type   | Mandatory | Default | Description |
-| ----- | ------ | --------- | ------- | ----------- |
-| `uid` | number | Yes       |         | user ID     |
+| Name | Type   | Mandatory | Default | Description | Ranges |
+| ---- | ------ | --------- | ------- | ----------- | ------ |
+| uid  | number | true      |         | User ID     |        |
 
-## 响应示例
+---
 
-```json
+### Response Example
+
+```json title="Response"
 {
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
-  "result": false //is invited
+  "result": false
 }
 ```

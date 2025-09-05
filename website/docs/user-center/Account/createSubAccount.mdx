@@ -1,23 +1,25 @@
 ---
-id: createsubaccount
-title: create a sub-account
-sidebar_label: create a sub-account
-description: /v4/user/account
+id: CreateSubAccount
+title: Create a sub-account
+sidebar_label: Create a sub-account
+sidebar_position: 2
 ---
 
-## 接口
+**Type:** POST
 
-**POST** `/v4/user/account`
+**Description:** `/v4/user/account`
 
-## 请求参数
+### Parameters
 
-| Name          | Type   | Mandatory | Default | Description      |
-| ------------- | ------ | --------- | ------- | ---------------- |
-| `accountName` | string | Yes       |         | sub-account name |
+| Name        | Type   | Mandatory | Default | Description      | Ranges |
+| ----------- | ------ | --------- | ------- | ---------------- | ------ |
+| accountName | string | true      | -       | Sub-account name | -      |
 
-## 响应示例
+---
 
-```json
+### Response Example
+
+```json title="Response"
 {
   "rc": 0,
   "mc": "SUCCESS",
