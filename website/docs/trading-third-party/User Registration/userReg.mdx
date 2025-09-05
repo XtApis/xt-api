@@ -1,35 +1,44 @@
 ---
-id: User_Registration
+id: UserRegistration
 title: User Registration
 sidebar_label: User Registration
+sidebar_position: 1
 ---
 
-### User Registration
+If you do not have an XT account, please register in advance.
 
-If you do not have an XT account, please register in advance at the following address: [Register](<http(s)://{URL}/{language}/accounts/register?client_id={clientId}>)
+**Register Address:**
 
-#### Parameters:
+```
+http(s)://{URL}/{language}/accounts/register?client_id={clientId}
+```
 
-1. **URL** The domain name of the XT authorization page. The official environment is: `www.xt.com`
+### Parameters
 
-2. **language** The language for the authorization page. The currently supported languages are as follows:
+1. **URL** The domain name of the XT authorization page.
 
-   - en: English
-   - ja: Japanese
-   - hi: Hindi
-   - id: Indonesian
-   - ru: Russian
-   - es: Spanish
-   - tr: Turkish
-   - zh-HK: Traditional Chinese
-   - zh-CN: Simplified Chinese
-   - vi: Vietnamese
-   - th: Thai
+   - Official environment: `www.xt.com`
 
-3. **clientId** The unique identification of the organization. Please apply to XT.COM in advance.
+2. **language** Authorization page language. Currently supported values:
 
-**For Example:**
+   - `en`: English
+   - `ja`: Japanese
+   - `hi`: Hindi
+   - `id`: Indonesian
+   - `ru`: Russian
+   - `es`: Spanish
+   - `tr`: Turkish
+   - `zh-HK`: Traditional Chinese
+   - `zh-CN`: Simplified Chinese
+   - `vi`: Vietnamese
+   - `th`: Thai
 
-[http://www.xt.com/en/accounts/register?client_id=DDJ7BLK49YUCL97S](http://www.xt.com/en/accounts/register?client_id=DDJ7BLK49YUCL97S)
+3. **clientId** The unique identification of the organization (please apply to XT.COM in advance).
 
-Users registered through this URL will belong to the institution: **DDJ7BLK49YUCL97S**
+### Example
+
+```text
+http://www.xt.com/en/accounts/register?client_id=DDJ7BLK49YUCL97S
+```
+
+Users registered through this URL will belong to the institution: `DDJ7BLK49YUCL97S

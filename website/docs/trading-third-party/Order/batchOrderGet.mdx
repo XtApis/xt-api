@@ -1,25 +1,27 @@
 ---
-id: Get_batch
-title: Get batch
-sidebar_label: Get batch
-description: /spot/v4/batch-order
+id: GetBatchOrders
+title: Get Batch Orders
+sidebar_label: Get Batch Orders
+sidebar_position: 4
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/spot/v4/batch-order`
+**Description:** `/spot/v4/batch-order`
 
-reponse field information, refer to the Get single interface
+### Parameters
 
-## 请求参数
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| orderIds | string | true |  | Order IDs, e.g. `6216559590087220004, 6216559590087220005` |  |
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `orderIds` | string | Yes |  | order Ids eg: 6216559590087220004, 6216559590087220004 |
+### Notes
 
-## 响应示例
+Response field information is the same as **Get Single Order**.
 
-```json
+### Response Example
+
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

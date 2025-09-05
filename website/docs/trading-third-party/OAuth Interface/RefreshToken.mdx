@@ -1,0 +1,38 @@
+---
+id: RefreshToken
+title: Refresh Token
+sidebar_label: Refresh Token
+sidebar_position: 2
+---
+
+**Type:** GET
+
+**Description:** `/public/uaa/oauth2/token?client_id={client_id}&client_secret=${client_secret}&grant_type={grant_type}&refresh_token={refresh_token}`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| client_id | string | true |  | Institutional identity | Please apply to XT.COM |
+| client_secret | string | true |  | Institutional Secret Key | Please apply to XT.COM |
+| grant_type | string | true |  | Authorization type, fixed value | refresh_token |
+| refresh_token | string | true |  | The refresh_token field returned when applying for token |  |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "user_id": "12345678",
+    "access_token": "eyJhbGciOiJSUzI1NiJ9....", // Token used to access the authorization interface
+    "refresh_token": "eyJhbGciOiJSUzI1NiJ9....", // Token used to refresh the access token
+    "expires_in": 15551999, // The number of milliseconds before the access_token expires
+    "refresh_expires_in": 18143999, // The number of milliseconds before refresh_token expires
+    "client_id": "35LF2FSLHX5IRQA4", // Institutional identity
+    "scope": "userinfo" // Authorized scope
+  }
+}
+```

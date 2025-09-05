@@ -1,35 +1,38 @@
 ---
 id: Query_historical_orders
-title: Query historical orders
-sidebar_label: Query historical orders
+title: Query Historical Orders
+sidebar_label: Query Historical Orders
+sidebar_position: 9
 description: /spot/v4/history-order
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/spot/v4/history-order`
+**Description:** `/spot/v4/history-order`
 
-#### **Limit Flow Rules**
+#### Limit Flow Rules
 
 10/s/apikey
 
-## 请求参数
+### Parameters
 
 | Name | Type | Mandatory | Default | Description |
 | --- | --- | --- | --- | --- |
 | `symbol` | string | No |  | Trading pair, if not filled in, represents all |
 | `bizType` | string | No |  | SPOT, LEVER |
-| `side` | string | No |  | BUY,SELL |
+| `side` | string | No |  | BUY, SELL |
 | `type` | string | No |  | LIMIT, MARKET |
-| `direction` | string | No |  | query direction:PREV, NEXT |
+| `state` | string | No |  | Order [state](#orderStatus), PARTIALLY_FILLED, FILLED, CANCELED, REJECTED, EXPIRED |
+| `fromId` | number | No |  | Start ID |
+| `direction` | string | No |  | Query direction: PREV, NEXT |
 | `limit` | number | No | 20 | Limit number, max 100 |
-| `startTime` | number | No |  | eg:1657682804112 |
-| `endTime` | number | No |  |  |
-| `hiddenCanceled` | bool | No |  |  |
+| `startTime` | number | No |  | Example: 1657682804112 |
+| `endTime` | number | No |  | End time |
+| `hiddenCanceled` | boolean | No |  | Whether to hide canceled orders |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
@@ -38,7 +41,6 @@ description: /spot/v4/history-order
     "hasPrev": true,
     "hasNext": true,
     "items": [
-      //For field information, refer to the Get single interface
       {
         "symbol": "BTC_USDT",
         "orderId": "6216559590087220004",

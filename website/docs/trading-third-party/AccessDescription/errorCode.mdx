@@ -1,24 +1,35 @@
 ---
-id: Error_Code
+id: ErrorCode
 title: Error Code
 sidebar_label: Error Code
+sidebar_position: 9
 ---
+
+### HTTP Status
 
 | httpStatus | description |
 | --- | --- |
 | 200 | The request is successful, please check the rc and mc sections further |
-| 404 | interface does not exist |
+| 404 | Interface does not exist |
 | 429 | The request is too frequent, please control the request rate according to the speed limit requirement |
 | 500 | Service exception |
 | 502 | Gateway exception |
 | 503 | Service unavailable, please try again later |
 
-| rc  | return Code      |
+---
+
+### Return Code (rc)
+
+| rc  | description      |
 | --- | ---------------- |
 | 0   | business success |
 | 1   | business failure |
 
-| mc       | message code                               |
+---
+
+### Message Code (mc)
+
+| mc       | description                                |
 | -------- | ------------------------------------------ |
 | SUCCESS  | success                                    |
 | FAILURE  | fail                                       |
@@ -33,11 +44,5 @@ sidebar_label: Error Code
 | AUTH_102 | ApiKey is not activated                    |
 | AUTH_103 | Signature error                            |
 | AUTH_104 | Unbound IP request                         |
-| AUTH_105 | outdated message                           |
+| AUTH_105 | Outdated message                           |
 | AUTH_106 | Exceeded apikey permission                 |
-
-## 请求参数
-
-| Name   | Type | Mandatory | Default | Description |
-| ------ | ---- | --------- | ------- | ----------- |
-| `None` |      | No        |         |             |

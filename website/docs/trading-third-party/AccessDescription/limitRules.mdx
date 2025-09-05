@@ -1,13 +1,12 @@
 ---
-id: Frequency_Limiting_Rules
+id: FrequencyLimitingRules
 title: Frequency Limiting Rules
 sidebar_label: Frequency Limiting Rules
+sidebar_position: 3
 ---
 
-Get assets 3 times per second, other methods 10 times per second for each single user, 1000 times per minute for each single IP, exceeding the requested times, account will be locked for 10 minutes.
+### Rules
 
-## 请求参数
-
-| Name   | Type | Mandatory | Default | Description |
-| ------ | ---- | --------- | ------- | ----------- |
-| `None` |      | No        |         |             |
+- Get assets: **3 times per second per user**
+- Other methods: **10 times per second per user**
+- Limit: **1000 times per minute per IP**

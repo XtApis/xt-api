@@ -1,35 +1,35 @@
 ---
-id: Query_the_current_pending_order
-title: Query the current pending order
-sidebar_label: Query the current pending order
+id: QueryCurrentPendingOrder
+title: Query the Current Pending Order
+sidebar_label: Query the Current Pending Order
+sidebar_position: 7
 description: /spot/v4/open-order
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/spot/v4/open-order`
+**Description:** `/spot/v4/open-order`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 10/s/apikey
 
-## 请求参数
+### Parameters
 
 | Name | Type | Mandatory | Default | Description |
 | --- | --- | --- | --- | --- |
 | `symbol` | string | No |  | Trading pair, if not filled in, represents all |
 | `bizType` | string | No |  | SPOT, LEVER |
-| `side` | string | No |  | BUY,SELL |
+| `side` | string | No |  | BUY, SELL |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
   "ma": [{}],
   "result": [
-    //For field information, refer to the Get single interface
     {
       "symbol": "BTC_USDT",
       "orderId": "6216559590087220004",

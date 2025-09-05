@@ -1,27 +1,27 @@
 ---
-id: bGet_a_list_of_currency_assets
+id: GetListOfCurrencyAssets
 title: Get a list of currency assets
 sidebar_label: Get a list of currency assets
-description: /spot/v4/balances
+sidebar_position: 3
 ---
 
-## 接口
+**Type:** GET **Description:** `/spot/v4/balances`
 
-**GET** `/spot/v4/balances`
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| currencies | string | false |  | List of currencies, comma separated, eg: usdt,btc |  |
+
+### Notes
 
 #### **Limit Flow Rules**
 
 10/s/apikey
 
-## 请求参数
+### Response Example
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `currencies` | string | No |  | List of currencies, comma separated,eg: usdt,btc |
-
-## 响应示例
-
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

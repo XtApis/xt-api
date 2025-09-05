@@ -1,36 +1,30 @@
 ---
-id: GetSingleCurrencyAsset
-title: Get a single currency asset
-sidebar_label: Get a single currency asset
-sidebar_position: 2
+id: FrequencyLimitingRules
+title: Frequency Limiting Rules
+sidebar_label: Frequency Limiting Rules
+sidebar_position: 3
 ---
 
-**Type:** GET **Description:** `/v4/balance`
+**Description:** Frequency limiting rules for API requests.
 
-### Parameters
+### Rules
 
-| name | type | mandatory | default | description | ranges |
-| --- | --- | --- | --- | --- | --- |
-| currency | string | true | N/A | Currency symbol (e.g. usdt) |  |
+- Get assets: **3 times per second per user**
+- Other methods: **10 times per second per user**
+- Limit: **1000 times per minute per IP**
 
-### Notes
-
-This endpoint retrieves the asset information of a specified currency.
+If the request frequency exceeds the limit, the account will be **locked for 10 minutes**.
 
 ### Response Example
 
 ```json title="Response"
 {
-  "rc": 0,
-  "mc": "string",
-  "ma": [{}],
+  "rc": 429,
+  "mc": "Too Many Requests",
+  "ma": [],
   "result": {
-    "currency": "usdt",
-    "currencyId": 0,
-    "frozenAmount": 0,
-    "availableAmount": 0,
-    "totalAmount": 0,
-    "convertBtcAmount": 0 // Converted BTC amount
+    "locked": true,
+    "lockDuration": "10m"
   }
 }
 ```

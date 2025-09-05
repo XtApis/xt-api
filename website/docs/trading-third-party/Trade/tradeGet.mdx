@@ -1,32 +1,33 @@
 ---
-id: Query_trade
-title: Query trade
-sidebar_label: Query trade
+id: QueryTrade
+title: Query Trade
+sidebar_label: Query Trade
+sidebar_position: 1
 description: /spot/v4/trade
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/spot/v4/trade`
+**Description:** `/spot/v4/trade`
 
-## 请求参数
+### Parameters
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `symbol` | string | No |  | Trading pair, if not filled in, represents all |
-| `bizType` | string | No |  | SPOT, LEVER |
-| `orderSide` | string | No |  | BUY,SELL |
-| `orderType` | string | No |  | LIMIT, MARKET |
-| `orderId` | number | No |  |  |
-| `fromId` | number | No |  | start id |
-| `direction` | string | No |  | query direction:PREV, NEXT |
-| `limit` | number | No | 20 | Limit number, max 100 |
-| `startTime` | number | No |  | start time eg:1657682804112 |
-| `endTime` | number | No |  |  |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | No |  | Trading pair, if not filled in, represents all |  |
+| `bizType` | string | No |  | SPOT, LEVER |  |
+| `orderSide` | string | No |  | BUY, SELL |  |
+| `orderType` | string | No |  | LIMIT, MARKET |  |
+| `orderId` | number | No |  |  |  |
+| `fromId` | number | No |  | Start ID |  |
+| `direction` | string | No |  | Query direction: PREV, NEXT |  |
+| `limit` | number | No | 20 | Limit number, max 100 |  |
+| `startTime` | number | No |  | Start time e.g. 1657682804112 |  |
+| `endTime` | number | No |  |  |  |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
@@ -45,12 +46,12 @@ description: /spot/v4/trade
         "time": 1655958915583,
         "price": "40000",
         "quantity": "1.2",
-        "quoteQty": "48000", //amount
+        "quoteQty": "48000", // amount
         "baseCurrency": "BTC",
         "quoteCurrency": "USDT",
         "fee": "0.5",
         "feeCurrency": "USDT",
-        "takerMaker": "taker" //takerMaker
+        "takerMaker": "taker" // taker or maker
       }
     ]
   }

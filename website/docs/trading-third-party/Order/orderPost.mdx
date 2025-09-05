@@ -1,39 +1,41 @@
 ---
-id: Submit_order
-title: Submit order
-sidebar_label: Submit order
+id: SubmitOrder
+title: Submit Order
+sidebar_label: Submit Order
+sidebar_position: 2
 description: /spot/v4/order
 ---
 
-## 接口
+**Type:** POST
 
-**POST** `/spot/v4/order`
+**Description:** `/spot/v4/order`
 
-#### **Remark**
+### Remark
 
-Create a BUY order based on market price, quantity must be null, quoteQty required; Create a SELL order based on market price, quoteQty must be null, quantity required.
+- Create a **BUY order** based on market price → `quantity` must be `null`, `quoteQty` is **required**.
+- Create a **SELL order** based on market price → `quoteQty` must be `null`, `quantity` is **required**.
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 20/s/apikey
 
-## 请求参数
+### Parameters
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `symbol` | string | Yes |  |  |
-| `clientOrderId` | string | No |  | Pattern: ^[a-zA-Z0-9_] |
-| `side` | string | Yes |  | BUY,SELL |
-| `type` | string | Yes |  | order type:LIMIT,MARKET |
-| `timeInForce` | string | Yes |  | effective way:GTC, FOK, IOC, GTX |
-| `bizType` | string | Yes |  | SPOT, LEVER |
-| `price` | number | No |  | price. Required if it is the LIMIT price; blank if it is the MARKET price |
-| `quantity` | number | No |  | quantity. Required if it is the LIMIT price or the order is placed at the market price by quantity |
-| `quoteQty` | number | No |  | amount. Required if it is the LIMIT price or the order is the market price when placing an order by amount |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | Yes |  | Trading pair |  |
+| `clientOrderId` | string | No |  | Pattern: `^[a-zA-Z0-9_]{4,32}$` |  |
+| `side` | string | Yes |  | BUY, SELL |  |
+| `type` | string | Yes |  | Order type: LIMIT, MARKET |  |
+| `timeInForce` | string | Yes |  | Effective way: GTC, FOK, IOC, GTX |  |
+| `bizType` | string | Yes |  | SPOT, LEVER |  |
+| `price` | number | No |  | Price. Required if LIMIT; empty if MARKET |  |
+| `quantity` | number | No |  | Quantity. Required if LIMIT or market order by quantity |  |
+| `quoteQty` | number | No |  | Amount. Required if LIMIT or market order by amount |  |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

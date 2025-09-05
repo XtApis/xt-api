@@ -1,29 +1,32 @@
 ---
-id: Cancel_the_current_pending_order
-title: Cancel the current pending order
-sidebar_label: Cancel the current pending order
+id: CancelCurrentPendingOrder
+title: Cancel the Current Pending Order
+sidebar_label: Cancel the Current Pending Order
+sidebar_position: 8
 description: /spot/v4/open-order
 ---
 
-## 接口
+**Type:** DELETE
 
-**DELETE** `/spot/v4/open-order`
+**Description:** `/spot/v4/open-order`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
-10/s/apikey Note: The parameters should be placed in the request body in the form of json
+10/s/apikey
 
-## 请求参数
+> **Note:** The parameters should be placed in the request body in the form of JSON.
+
+### Parameters
 
 | Name | Type | Mandatory | Default | Description |
 | --- | --- | --- | --- | --- |
 | `symbol` | string | Yes |  | Trading pair, if not filled in, represents all |
 | `bizType` | string | Yes |  | SPOT, LEVER |
-| `side` | string | Yes |  | BUY,SELL |
+| `side` | string | Yes |  | BUY, SELL |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

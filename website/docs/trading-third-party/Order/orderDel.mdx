@@ -1,23 +1,28 @@
 ---
-id: Cancell_order
-title: Cancell order
-sidebar_label: Cancell order
+id: CancelOrder
+title: Cancel Order
+sidebar_label: Cancel Order
+sidebar_position: 3
 description: /spot/v4/order/{orderId}
 ---
 
-## 接口
+**Type:** DELETE
 
-**DELETE** `/spot/v4/order/{orderId}`
+**Description:** `/spot/v4/order/{orderId}`
 
-## 请求参数
+### Limit Flow Rules
+
+10/s/apikey
+
+### Parameters
 
 | Name      | Type   | Mandatory | Default | Description |
 | --------- | ------ | --------- | ------- | ----------- |
-| `orderId` | number | Yes       |         |             |
+| `orderId` | number | Yes       |         | Order ID    |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

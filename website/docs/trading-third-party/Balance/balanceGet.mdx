@@ -1,23 +1,21 @@
 ---
-id: Get_a_single_currency_asset
+id: GetSingleCurrencyAsset
 title: Get a single currency asset
 sidebar_label: Get a single currency asset
-description: /spot/v4/balance
+sidebar_position: 2
 ---
 
-## 接口
+**Type:** GET **Description:** `/spot/v4/balance`
 
-**GET** `/spot/v4/balance`
+### Parameters
 
-## 请求参数
+| name     | type   | mandatory | default | description | ranges |
+| -------- | ------ | --------- | ------- | ----------- | ------ |
+| currency | string | true      |         | eg: usdt    |        |
 
-| Name       | Type   | Mandatory | Default | Description |
-| ---------- | ------ | --------- | ------- | ----------- |
-| `currency` | string | Yes       |         | eg:usdt     |
+### Response Example
 
-## 响应示例
-
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
