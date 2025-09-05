@@ -1,45 +1,47 @@
 ---
-id: queryaccountlist
-title: Query account list（applicable to  master and sub account）
-sidebar_label: Query account list（applicable to  master and sub account）
-description: /v4/user/account
+id: QueryAccountList
+title: Query account list（applicable to master and sub account）
+sidebar_label: Query account list（applicable to master and sub account）
+sidebar_position: 1
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v4/user/account`
+**Description:** `/v4/user/account`
 
-## 请求参数
+### Parameters
 
-| Name          | Type    | Mandatory | Default | Description   |
-| ------------- | ------- | --------- | ------- | ------------- |
-| `accountId`   | string  | No        |         | account id    |
-| `accountName` | string  | No        |         | account name  |
-| `level`       | integer | No        |         | account level |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| accountId | string | false | - | account id | - |
+| accountName | string | false | - | account name | - |
+| level | integer | false | - | account level | 1: master account; 2: sub account |
 
-## 响应示例
+---
 
-```json
+### Response Example
+
+```json title="Response"
 {
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [{}],
   "result": [
     {
-      "id": "1352123154436", //account id
-      "accountName": "master1", //account name
-      "userId": 1352123154435, //user id
-      "level": 1, //account level: 1-master account; 2-sub account
-      "createTime": "2022-04-19 02:02:42", //account creation time
-      "updateTime": "2022-04-19 02:02:42" //account update time
+      "id": "1352123154436",
+      "accountName": "master1",
+      "userId": 1352123154435,
+      "level": 1,
+      "createTime": "2022-04-19 02:02:42",
+      "updateTime": "2022-04-19 02:02:42"
     },
     {
-      "id": "1626456841938669570", //account id
-      "accountName": "first1", //account name
-      "userId": 1352123154436, //user id
-      "level": 2, //account level: 1-master account; 2-sub account
-      "createTime": "2023-02-17 05:41:43", //account creation time
-      "updateTime": "2023-02-17 05:41:43" //account update time
+      "id": "1626456841938669570",
+      "accountName": "first1",
+      "userId": 1352123154436,
+      "level": 2,
+      "createTime": "2023-02-17 05:41:43",
+      "updateTime": "2023-02-17 05:41:43"
     }
   ]
 }

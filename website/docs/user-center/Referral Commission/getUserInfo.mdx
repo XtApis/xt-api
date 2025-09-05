@@ -1,36 +1,38 @@
 ---
-id: Query_user_information
-title: Query user information
-sidebar_label: Query user information
-description: /v4/referal/invite/single/user/info
+id: QueryUserInformation
+title: Query User Information
+sidebar_label: Query User Information
+sidebar_position: 4
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v4/referal/invite/single/user/info`
+**Description:** `/v4/referal/invite/single/user/info`
 
-## 请求参数
+### Parameters
 
-| Name  | Type   | Mandatory | Default | Description |
-| ----- | ------ | --------- | ------- | ----------- |
-| `uid` | number | Yes       |         | User ID     |
+| Name | Type   | Mandatory | Default | Description |
+| ---- | ------ | --------- | ------- | ----------- |
+| uid  | number | true      |         | User ID     |
 
-## 响应示例
+---
 
-```json
+### Response Example
+
+```json title="Response"
 {
   "ma": [],
   "mc": "SUCCESS",
   "rc": 0,
   "result": {
-    "uid": 123456789, //User ID
-    "registerTime": 1737095389000, //Registration Time
-    "countryCode": "86", //Country code
-    "mobile": "123****4567", //Phone number, desensitization
-    "email": "639***3@gmail.com", //Email address, desensitization
-    "riskControlStatus": 0, //Risk Control Status (0 - No Risk Control, 1 - Risk Controlled)
-    "kycStatus": 2, //KYC Status (0 - Not Verified, 1 - Basic Verification, 2 - Advanced Verification, 3 - Corporate Verification)
-    "registerInviteCode": 23456 //Registration Invitation Code
+    "uid": 123456789,
+    "registerTime": 1737095389000,
+    "countryCode": "86",
+    "mobile": "123****4567",
+    "email": "639***3@gmail.com",
+    "riskControlStatus": 0,
+    "kycStatus": 2,
+    "registerInviteCode": 23456
   }
 }
 ```

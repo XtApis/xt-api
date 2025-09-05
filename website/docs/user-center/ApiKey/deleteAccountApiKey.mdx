@@ -1,27 +1,29 @@
 ---
-id: Delete_user_account_apiKey
-title: Delete user account apiKey
-sidebar_label: Delete user account apiKey
-description: /v4/user/account/api-key/{apikeyId}
+id: DeleteUserAccountApiKey
+title: Delete User Account ApiKey
+sidebar_label: Delete User Account ApiKey
+sidebar_position: 4
 ---
 
-## 接口
+**Type:** DELETE
 
-**DELETE** `/v4/user/account/api-key/{apikeyId}`
+**Description:**`/v4/user/account/api-key/{apikeyId}`
 
-## 请求参数
+### Parameters
 
-| Name       | Type   | Mandatory | Default | Description |
-| ---------- | ------ | --------- | ------- | ----------- |
-| `apikeyId` | string | Yes       |         | apiKey id   |
+| Name     | Type   | Mandatory | Default | Description | Ranges |
+| -------- | ------ | --------- | ------- | ----------- | ------ |
+| apikeyId | string | true      | -       | ApiKey id   | -      |
 
-## 响应示例
+---
 
-```json
+### Response Example
+
+```json title="Response"
 {
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [{}],
-  "result": true //true: success; false/null: unsuccess
+  "result": true // true: success; false/null: unsuccess
 }
 ```

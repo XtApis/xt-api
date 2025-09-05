@@ -1,41 +1,41 @@
 ---
-id: Query_User_Commissions
+id: QueryUserCommissions
 title: Query User Commissions
 sidebar_label: Query User Commissions
-description: /v4/referal/invite/commissions
+sidebar_position: 9
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v4/referal/invite/commissions`
+**Description:** `/v4/referal/invite/commissions`
 
-## 请求参数
+### Parameters
 
-| Name  | Type   | Mandatory | Default | Description |
-| ----- | ------ | --------- | ------- | ----------- |
-| `uid` | number | Yes       |         | user ID     |
+| Name | Type   | Mandatory | Default | Description | Ranges |
+| ---- | ------ | --------- | ------- | ----------- | ------ |
+| uid  | number | true      |         | User ID     |        |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
   "result": [
     {
-      "exchangeUid": 6224154788385, // User's exchange UID
-      "commissionDate": "2025-04-18", // Commission date
-      "commission": 0.318247047, // Commission amount
-      "commissionCurrency": "USDT", // Commission currency, default is USDT
-      "commissionType": "trade", // Commission type
-      "commissionRate": 0.9, // Commission rate
-      "tradingPair": "ETH_USDT", // Trading pair
-      "tradeType": "futures", // Trade type
-      "tradeVolume": 982.2441, // Trade volume
-      "fee": 0.35360783, // Fee
-      "createdAt": "2025-04-18 00:00:00", // creation time
-      "commissionTimestamp": 1744934400000 // Commission timestamp
+      "exchangeUid": 6224154788385,
+      "commissionDate": "2025-04-18",
+      "commission": 0.318247047,
+      "commissionCurrency": "USDT",
+      "commissionType": "trade",
+      "commissionRate": 0.9,
+      "tradingPair": "ETH_USDT",
+      "tradeType": "futures",
+      "tradeVolume": 982.2441,
+      "fee": 0.35360783,
+      "createdAt": "2025-04-18 00:00:00",
+      "commissionTimestamp": 1744934400000
     }
   ]
 }
