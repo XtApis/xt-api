@@ -291,7 +291,6 @@ export default async function createConfigAsync(): Promise<Config> {
     ],
     themes: ['live-codeblock', ...dogfoodingThemeInstances],
     plugins: [
-      './src/plugins/custom-navbar-items/index.ts',
       function disableExpensiveBundlerOptimizationPlugin() {
         return {
           name: 'disable-expensive-bundler-optimizations',
