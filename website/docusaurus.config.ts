@@ -417,67 +417,68 @@ export default async function createConfigAsync(): Promise<Config> {
           disableInDev: true,
         } satisfies IdealImageOptions,
       ],
-      [
-        'pwa',
-        {
-          // debug: isDeployPreview,
-          offlineModeActivationStrategies: [
-            'appInstalled',
-            'standalone',
-            'queryString',
-          ],
-          // swRegister: false,
-          swCustom: require.resolve('./src/sw.js'), // TODO make it possible to use relative path
-          pwaHead: [
-            {
-              tagName: 'link',
-              rel: 'icon',
-              href: 'img/docusaurus.png',
-            },
-            {
-              tagName: 'link',
-              rel: 'manifest',
-              href: 'manifest.json',
-            },
-            {
-              tagName: 'meta',
-              name: 'theme-color',
-              content: 'rgb(37, 194, 160)',
-            },
-            {
-              tagName: 'meta',
-              name: 'apple-mobile-web-app-capable',
-              content: 'yes',
-            },
-            {
-              tagName: 'meta',
-              name: 'apple-mobile-web-app-status-bar-style',
-              content: '#000',
-            },
-            {
-              tagName: 'link',
-              rel: 'apple-touch-icon',
-              href: 'img/docusaurus.png',
-            },
-            {
-              tagName: 'link',
-              rel: 'mask-icon',
-              href: 'img/docusaurus.png',
-              color: 'rgb(62, 204, 94)',
-            },
-            {
-              tagName: 'meta',
-              name: 'msapplication-TileImage',
-              content: 'img/docusaurus.png',
-            },
-            {
-              tagName: 'meta',
-              name: 'msapplication-TileColor',
-              content: '#000',
-            },
-          ],
-        },
-      ],
+      // PWA plugin temporarily disabled due to missing PwaReloadPopup component
+      // [
+      //   'pwa',
+      //   {
+      //     // debug: isDeployPreview,
+      //     offlineModeActivationStrategies: [
+      //       'appInstalled',
+      //       'standalone',
+      //       'queryString',
+      //     ],
+      //     // swRegister: false,
+      //     swCustom: require.resolve('./src/sw.js'), // TODO make it possible to use relative path
+      //     pwaHead: [
+      //       {
+      //         tagName: 'link',
+      //         rel: 'icon',
+      //         href: 'img/docusaurus.png',
+      //       },
+      //       {
+      //         tagName: 'link',
+      //         rel: 'manifest',
+      //         href: 'manifest.json',
+      //       },
+      //       {
+      //         tagName: 'meta',
+      //         name: 'theme-color',
+      //         content: 'rgb(37, 194, 160)',
+      //       },
+      //       {
+      //         tagName: 'meta',
+      //         name: 'apple-mobile-web-app-capable',
+      //         content: 'yes',
+      //       },
+      //       {
+      //         tagName: 'meta',
+      //         name: 'apple-mobile-web-app-status-bar-style',
+      //         content: '#000',
+      //       },
+      //       {
+      //         tagName: 'link',
+      //         rel: 'apple-touch-icon',
+      //         href: 'img/docusaurus.png',
+      //       },
+      //       {
+      //         tagName: 'link',
+      //         rel: 'mask-icon',
+      //         href: 'img/docusaurus.png',
+      //         color: 'rgb(62, 204, 94)',
+      //       },
+      //       {
+      //         tagName: 'meta',
+      //         name: 'msapplication-TileImage',
+      //         content: 'img/docusaurus.png',
+      //       },
+      //       {
+      //         tagName: 'meta',
+      //         name: 'msapplication-TileColor',
+      //         content: '#000',
+      //       },
+      //     ],
+      //   },
+      // ],
       '@docusaurus/theme-mermaid',
       './src/plugins/featureRequests/FeatureRequestsPlugin.js',
       ...dogfoodingPluginInstances,
@@ -673,10 +674,11 @@ export default async function createConfigAsync(): Promise<Config> {
               {
                 type: 'html',
                 value:
-                  '<div style="padding: 15px; width: 100%;"><div style="display: flex; gap: 20px;"><div style="width: 180px; background: #f5f5f5; padding: 15px; border-radius: 8px;"><h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">Categories</h4><div style="display: flex; flex-direction: column; gap: 6px;"><button onmouseover="showCategory(\'Trading\')" style="padding: 8px 12px; border: none; background: #007bff; color: white; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-size: 14px;">Trading</button><button onmouseover="showCategory(\'Institutional\')" style="padding: 8px 12px; border: none; background: #6c757d; color: white; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-size: 14px;">Institutional</button><button onmouseover="showCategory(\'Resources\')" style="padding: 8px 12px; border: none; background: #6c757d; color: white; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-size: 14px;">Resources</button></div></div><div style="flex: 1;"><h3 id="categoryTitle" style="margin: 0 0 8px 0; font-size: 18px;">Trading</h3><p id="categoryDesc" style="margin: 0 0 15px 0; color: #666; font-size: 14px;">Explore our trading APIs</p><div id="productsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;"><a href="/docs/spot/AccessDescription/RestApi" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Spot Trading</div><div style="font-size: 12px; color: #666;">Spot Trading APIs</div></a><a href="/docs/futures/AccessDescription/apiDemo" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Futures Trading</div><div style="font-size: 12px; color: #666;">Futures Trading APIs</div></a><a href="/docs/margin-spot/AccessDescription/RestApi" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Margin Trading</div><div style="font-size: 12px; color: #666;">Margin Trading APIs</div></a><a href="/docs/copy-trading/Access Description/RestApi" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Copy Trading</div><div style="font-size: 12px; color: #666;">Copy Trading API</div></a><a href="/docs/futures-copy/AccessDescription/RestApi" style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #333; transition: all 0.2s;" onmouseover="this.style.background=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.background=\'#f8f9fa\'; this.style.color=\'#333\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px;">Futures Copy</div><div style="font-size: 12px; color: #666;">Futures Copy API</div></a></div></div></div></div>',
+                  '<div style="padding: 0; width: 100%; background: white; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"><div style="display: flex; min-height: 480px;"><div style="width: 200px; background: #f9fafb; border-right: 1px solid #e5e7eb; padding: 0;"><div style="padding: 20px 0;"><div style="padding: 12px 20px; background: #f3f4f6; border-right: 3px solid #3b82f6; font-weight: 600; font-size: 16px; color: #1f2937;">All Products</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'Index\')" data-category="Index">Index</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'spot\')" data-category="spot">Spot Trading</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'futures\')" data-category="futures">Futures Trading</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'marginSpot\')" data-category="marginSpot">Margin Trading</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'copyTrading\')" data-category="copyTrading">Copy Trading</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'futuresCopy\')" data-category="futuresCopy">Futures Copy</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'tradingThirdParty\')" data-category="tradingThirdParty">Trading Third Party</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'userCenter\')" data-category="userCenter">User Center</div></div></div><div style="flex: 1; padding: 32px; background: white;"><div style="margin-bottom: 24px;"><h2 id="categoryTitle" style="margin: 0 0 8px 0; font-size: 24px; font-weight: 600; color: #1f2937;">All Products</h2><p id="categoryDesc" style="margin: 0; color: #6b7280; font-size: 14px;">Comprehensive API solutions for all your trading needs</p></div><div id="productsGrid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;"><a href="/docs/index_overview/overview" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Index</div><div style="font-size: 12px; color: #6b7280;">Index APIs</div></a><a href="/docs/index_overview/index_overview_resource" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">API Resources and Support</div><div style="font-size: 12px; color: #6b7280;">API Resources and Support</div></a><a href="/docs/spot/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Spot Trading</div><div style="font-size: 12px; color: #6b7280;">Spot Trading APIs</div></a><a href="/docs/futures/AccessDescription/apiDemo" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Futures Trading</div><div style="font-size: 12px; color: #6b7280;">Futures Trading APIs</div></a><a href="/docs/margin-spot/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Margin Trading</div><div style="font-size: 12px; color: #6b7280;">Margin Trading APIs</div></a><a href="/docs/copy-trading/Access Description/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Copy Trading</div><div style="font-size: 12px; color: #6b7280;">Copy Trading API</div></a><a href="/docs/futures-copy/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Futures Copy</div><div style="font-size: 12px; color: #6b7280;">Futures Copy API</div></a><a href="/docs/trading-third-party/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Trading Third Party</div><div style="font-size: 12px; color: #6b7280;">Trading Third Party API</div></a><a href="/docs/user-center/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">User Center</div><div style="font-size: 12px; color: #6b7280;">User Center API</div></a><a href="/docs/spot/Balance/GetCurrencyInfo" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Balance</div><div style="font-size: 12px; color: #6b7280;">Balance APIs</div></a><a href="/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Deposit&Withdrawal</div><div style="font-size: 12px; color: #6b7280;">Deposit&Withdrawal APIs</div></a><a href="/docs/spot/Market/GetServerTime" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Market</div><div style="font-size: 12px; color: #6b7280;">Market APIs</div></a><a href="/docs/spot/Order/PlaceOrder" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Order</div><div style="font-size: 12px; color: #6b7280;">Order APIs</div></a><a href="/docs/spot/Trade/GetTradeHistory" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Trade</div><div style="font-size: 12px; color: #6b7280;">Trade APIs</div></a><a href="/docs/spot/Transfer/InternalTransfer" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Transfer</div><div style="font-size: 12px; color: #6b7280;">Transfer APIs</div></a><a href="/docs/spot/WebSocket_Private/RequestMessageFormat" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">WebSocket Private</div><div style="font-size: 12px; color: #6b7280;">WebSocket Private APIs</div></a><a href="/docs/spot/WebSocket_Public/subscribeParam" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">WebSocket Public</div><div style="font-size: 12px; color: #6b7280;">WebSocket Public APIs</div></a><a href="/docs/futures/WEBSOCKET(V2)/Request message format" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Futures WebSocket</div><div style="font-size: 12px; color: #6b7280;">Futures WebSocket APIs</div></a><a href="/docs/margin-spot/Balance/GetMarginAccount" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Margin Balance</div><div style="font-size: 12px; color: #6b7280;">Margin Balance APIs</div></a><a href="/docs/copy-trading/Account/GetAccountInfo" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Copy Account</div><div style="font-size: 12px; color: #6b7280;">Copy Account APIs</div></a></div></div></div></div>',
               },
             ],
           },
+
           // Custom item for dogfooding: only displayed in /tests/ routes
           {
             type: 'custom-dogfood-navbar-item',

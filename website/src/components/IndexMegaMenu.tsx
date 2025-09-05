@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 function IndexMegaMenu(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('overview');
+  const [activeCategory, setActiveCategory] = useState('Index');
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,59 +27,259 @@ function IndexMegaMenu(): JSX.Element {
 
   const categories = [
     {
-      key: 'overview',
-      label: 'Overview',
+      key: 'Index',
+      label: 'Index',
       icon: '📖',
-      description: 'Get started with XT API',
+      description: 'Explore our index APIs',
       color: '#007bff',
       items: [
         {
-          href: '/index-page',
-          label: 'Overview',
-          description: 'Main documentation hub and quick start guide',
+          href: '/docs/index_overview/overview',
+          label: 'Index',
+          description: 'Index APIs',
         },
         {
-          href: '/index/quick-start',
-          label: 'Quick Start',
-          description: '5-step setup guide to get you started',
+          href: '/docs/index_overview/index_overview_resource',
+          label: 'API Resources and Support',
+          description: 'API Resources and Support',
         },
       ],
     },
     {
-      key: 'api',
-      label: 'API Reference',
-      icon: '📚',
-      description: 'Complete API documentation',
+      key: 'spot',
+      label: 'Spot',
+      icon: '💰',
+      description: 'Spot Trading APIs',
       color: '#28a745',
       items: [
         {
-          href: '/index/api-reference',
-          label: 'API Reference',
-          description: 'All endpoints, parameters and responses',
+          href: '/docs/spot/AccessDescription/RestApi',
+          label: 'AccessDescription',
+          description: 'AccessDescription APIs',
         },
         {
-          href: '/index/examples',
-          label: 'Examples',
-          description: 'Code samples in Python, JavaScript, Java',
+          href: '/docs/spot/Balance/GetCurrencyInfo',
+          label: 'Balance',
+          description: 'Balance APIs',
+        },
+        {
+          href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies',
+          label: 'Deposit&Withdrawal',
+          description: 'Deposit&Withdrawal APIs',
+        },
+        {
+          href: '/docs/spot/Market/GetServerTime',
+          label: 'Market',
+          description: 'Market APIs',
+        },
+        {
+          href: '/docs/spot/Order/GetSingleOrder',
+          label: 'Order',
+          description: 'Order APIs',
+        },
+        {
+          href: '/docs/spot/Trade/QueryTrade',
+          label: 'Trade',
+          description: 'Trade APIs',
+        },
+        {
+          href: '/docs/spot/Transfer/TransferBetweenUserSystems',
+          label: 'Transfer',
+          description: 'Transfer APIs',
+        },
+        {
+          href: '/docs/spot/WebSocket_Private/RequestMessageFormat',
+          label: 'WebSocket_Private',
+          description: 'WebSocket_Private APIs',
+        },
+        {
+          href: '/docs/spot/WebSocket_Public/wss-general',
+          label: 'WebSocket_Public',
+          description: 'WebSocket_Public APIs',
         },
       ],
     },
     {
-      key: 'development',
-      label: 'Development',
-      icon: '🔧',
-      description: 'Tools and libraries',
+      key: 'futures',
+      label: 'Futures',
+      icon: '📈',
+      description: 'Futures Trading APIs',
       color: '#ffc107',
       items: [
         {
-          href: '/index/sdks',
-          label: 'SDKs & Libraries',
-          description: 'Official SDKs for popular programming languages',
+          href: '/docs/futures/AccessDescription/apiDemo',
+          label: 'AccessDescription',
+          description: 'AccessDescription APIs',
         },
         {
-          href: '/index/faq',
-          label: 'FAQ',
-          description: 'Common questions and troubleshooting',
+          href: '/docs/futures/Entrust/GetEntrust',
+          label: 'Entrust',
+          description: 'Entrust APIs',
+        },
+        {
+          href: '/docs/futures/Market data/GetServerTime',
+          label: 'Market Data',
+          description: 'Market Data APIs',
+        },
+        {
+          href: '/docs/futures/Order/Create Orders',
+          label: 'Order',
+          description: 'Order APIs',
+        },
+        {
+          href: '/docs/futures/PythonPackage/PythonPackage',
+          label: 'Python Package',
+          description: 'Python Package APIs',
+        },
+        {
+          href: '/docs/futures/Quote collection/GetDepthInfo',
+          label: 'Quote Collection',
+          description: 'Quote Collection APIs',
+        },
+        {
+          href: '/docs/futures/User/GetUserInfo',
+          label: 'User',
+          description: 'User APIs',
+        },
+        {
+          href: '/docs/futures/WEBSOCKET(V2)/Request message format',
+          label: 'WebSocket V2',
+          description: 'WebSocket V2 APIs',
+        },
+      ],
+    },
+    {
+      key: 'marginSpot',
+      label: 'Margin Spot',
+      icon: '⚖️',
+      description: 'Margin Spot Trading APIs',
+      color: '#17a2b8',
+      items: [
+        {
+          href: '/docs/margin-spot/AccessDescription/RestApi',
+          label: 'AccessDescription',
+          description: 'AccessDescription APIs',
+        },
+        {
+          href: '/docs/margin-spot/Balance/GetBalance',
+          label: 'Balance',
+          description: 'Balance APIs',
+        },
+        {
+          href: '/docs/margin-spot/Market/GetServerTime',
+          label: 'Market',
+          description: 'Market APIs',
+        },
+      ],
+    },
+    {
+      key: 'copyTrading',
+      label: 'Copy Trading',
+      icon: '👥',
+      description: 'Copy Trading APIs',
+      color: '#6f42c1',
+      items: [
+        {
+          href: '/docs/copy-trading/Access Description/RestApi',
+          label: 'Access Description',
+          description: 'Access Description APIs',
+        },
+        {
+          href: '/docs/copy-trading/Copy tradeing/ChooseLeader',
+          label: 'Copy Trading',
+          description: 'Copy Trading APIs',
+        },
+      ],
+    },
+    {
+      key: 'futuresCopy',
+      label: 'Futures Copy',
+      icon: '🔄',
+      description: 'Futures Copy Trading APIs',
+      color: '#e83e8c',
+      items: [
+        {
+          href: '/docs/futures-copy/AccessDescription/RestApi',
+          label: 'AccessDescription',
+          description: 'AccessDescription APIs',
+        },
+        {
+          href: '/docs/futures-copy/Copy Trading/ChooseLeader',
+          label: 'Copy Trading',
+          description: 'Copy Trading APIs',
+        },
+        {
+          href: '/docs/futures-copy/installation',
+          label: 'Installation',
+          description: 'Installation Guide',
+        },
+      ],
+    },
+    {
+      key: 'tradingThirdParty',
+      label: 'Trading Third Party',
+      icon: '🔗',
+      description: 'Third Party Integration APIs',
+      color: '#fd7e14',
+      items: [
+        {
+          href: '/docs/trading-third-party/AccessDescription/RestAPI',
+          label: 'AccessDescription',
+          description: 'AccessDescription APIs',
+        },
+        {
+          href: '/docs/trading-third-party/Balance/GetBalance',
+          label: 'Balance',
+          description: 'Balance APIs',
+        },
+        {
+          href: '/docs/trading-third-party/OAuth Interface/OAuth',
+          label: 'OAuth Interface',
+          description: 'OAuth Interface APIs',
+        },
+        {
+          href: '/docs/trading-third-party/Order/CreateOrder',
+          label: 'Order',
+          description: 'Order APIs',
+        },
+        {
+          href: '/docs/trading-third-party/Trade/QueryTrade',
+          label: 'Trade',
+          description: 'Trade APIs',
+        },
+        {
+          href: '/docs/trading-third-party/User Registration/User_Registration',
+          label: 'User Registration',
+          description: 'User Registration APIs',
+        },
+      ],
+    },
+    {
+      key: 'userCenter',
+      label: 'User Center',
+      icon: '👤',
+      description: 'User Management APIs',
+      color: '#20c997',
+      items: [
+        {
+          href: '/docs/user-center/AccessDescription/RestAPI',
+          label: 'AccessDescription',
+          description: 'AccessDescription APIs',
+        },
+        {
+          href: '/docs/user-center/Account/GetAccountInfo',
+          label: 'Account',
+          description: 'Account APIs',
+        },
+        {
+          href: '/docs/user-center/ApiKey/CreateApiKey',
+          label: 'ApiKey',
+          description: 'ApiKey APIs',
+        },
+        {
+          href: '/docs/user-center/Referral Commission/GetReferralInfo',
+          label: 'Referral Commission',
+          description: 'Referral Commission APIs',
         },
       ],
     },

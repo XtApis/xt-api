@@ -539,7 +539,7 @@ body {
   position: fixed !important;
   top: 60px !important;
   z-index: 1000 !important;
-  max-height: 400px !important;
+  max-height: 500px !important;
   overflow-y: auto !important;
   transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
   opacity: 0;
