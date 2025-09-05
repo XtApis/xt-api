@@ -16,7 +16,7 @@ sidebar_position: 2
 ### Notes
 
 - Request messages are used to **subscribe** or **unsubscribe** from WebSocket topics.
-- Parameter format: {topic}@{arg},{arg},…
+- Parameter format: \{topic\}@\{arg\},\{arg\},…
 - `listenKey` must be applied via the **/v4/ws-token** endpoint.
 - `id` is a custom request identifier for matching responses.
 
@@ -26,10 +26,10 @@ sidebar_position: 2
 {
 "method": "subscribe",
 "params": [
-  "{topic}@{arg},{arg}",   // Event subscription
-  "{topic}@{arg}"
+  "\{topic\}@\{arg\},\{arg\}",   // Event subscription
+  "\{topic\}@\{arg\}"
 ],
 "listenKey": "512312356123123123", // Listener key from /v4/ws-token
-"id": "{id}"
+"id": "\{id\}"
 }
 ```

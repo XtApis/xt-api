@@ -17,18 +17,18 @@ Below is the format for subscribing and unsubscribing to WebSocket messages.
 {
     "method": "subscribe",
     "params": [
-        "{topic}@{arg},{arg}",
-        "{topic}@{arg}"
+        "\{topic\}@\{arg\},\{arg\}",
+        "\{topic\}@\{arg\}"
     ],
-    "id": "{id}"    // Call back ID
+    "id": "\{id\}"    // Call back ID
 }
 Unsubscribe Message
 {
     "method": "unsubscribe",
     "params": [
-        "{topic}@{arg},{arg}"
+        "\{topic\}@\{arg\},\{arg\}"
     ],
-    "id": "{id}"   // Call back ID
+    "id": "\{id\}"   // Call back ID
 }
 Response
 {
