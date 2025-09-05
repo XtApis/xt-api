@@ -1,27 +1,38 @@
 ---
-id: Create order
-title: Create order
-sidebar_label: Create order
+id: CreateOrder
+title: Create Order
+sidebar_label: Create Order
 sidebar_position: 2
 ---
 
-### Description
+**Type:** POST
 
-`/v4/lever/order`
-
----
+**Description:** `/v4/lever/order`
 
 ### Parameters
 
 | Name | Type | Mandatory | Default | Description | Ranges |
 | --- | --- | --- | --- | --- | --- |
-| marketName | string | Yes | – | Trading pair, e.g. `BTC_USDT` | – |
-| coinName | string | Yes | – | Coin name (lowercase), e.g. `btc` | – |
-| amount | number | Yes | – | Example: `8000` | – |
-| type | string | Yes | – | [Order type](#marginOrderType), LOAN/REPAY | – |
-| media | string | No | – | Media, e.g. `btok` | – |
-| mediaChannel | string | No | – | Media channel | – |
+| MarketName | String | Yes | - | Trading pair, e.g. `BTC_USDT` | - |
+| CoinName | String | Yes | - | Coin name, lowercase. e.g. `btc` | - |
+| Amount | Number | Yes | - | Amount, e.g. `8000` | - |
+| Type | String | Yes | - | [Order Type](#marginOrderType), supports: `LOAN` / `REPAY` | - |
+| Media | String | No | - | Media source, e.g. `btok` | - |
+| MediaChannel | String | No | - | Media channel | - |
 
----
+### Notes
 
-### Limit Flow Rules
+#### **Limit Flow Rules**
+
+30/s/apikey
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {}
+}
+```

@@ -1,27 +1,27 @@
 ---
-id: stopcopytrade
-title: Stop copy trading
-sidebar_label: Stop copy trading
-description: /v1/copy-trade-account/copy-trade/cancel-follow
+id: StopCopyTrading
+title: Stop Copy Trading
+sidebar_label: Stop Copy Trading
+position_number: 24
 ---
 
-## 接口
+**Type:** POST
 
-**POST** `/v1/copy-trade-account/copy-trade/cancel-follow`
+**Description:** `/v1/copy-trade-account/copy-trade/cancel-follow`
 
-#### **Limit Flow Rules**
+#### Limit Flow Rules
 
 2/s/ip
 
-## 请求参数
+### Parameters
 
 | Name              | Type   | Mandatory | Default | Description       |
 | ----------------- | ------ | --------- | ------- | ----------------- |
-| `leaderAccountId` | number | Yes       |         | leader account id |
+| `leaderAccountId` | number | Yes       |         | Leader account id |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

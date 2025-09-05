@@ -1,30 +1,30 @@
 ---
-id: stoplosstakeprofit
-title: Set stop-loss or stop-profit for lead or copy order
-sidebar_label: Set stop-loss or stop-profit for lead or copy order
-description: /v1/copy-trade-order/copy-trade/order/stop-profit-loss
+id: SetStopLossOrStopProfit
+title: Set Stop-Loss or Stop-Profit for Lead or Copy Order
+sidebar_label: Set Stop-Loss/Profit
+position_number: 5
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v1/copy-trade-order/copy-trade/order/stop-profit-loss`
+**Description:** `/v1/copy-trade-order/copy-trade/order/stop-profit-loss`
 
-#### **Limit Flow Rules**
+#### Limit Flow Rules
 
 2/s/apikey
 
-## 请求参数
+### Parameters
 
 | Name | Type | Mandatory | Default | Description |
 | --- | --- | --- | --- | --- |
-| `symbol` | string | Yes |  | symbol |
-| `leaderOrderId` | number | Yes |  | For copy order, need leaderOrderId; for lead order, need orderId |
-| `triggerProfitPrice` | number | No |  | trigger profit price |
-| `triggerStopPrice` | number | No |  | trigger stop price |
+| symbol | string | true | - | Trading pair symbol |
+| leaderOrderId | number | true | - | For copy order, need `leaderOrderId`; for lead order, need `orderId` |
+| triggerProfitPrice | number | false | - | Trigger profit price |
+| triggerStopPrice | number | false | - | Trigger stop price |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

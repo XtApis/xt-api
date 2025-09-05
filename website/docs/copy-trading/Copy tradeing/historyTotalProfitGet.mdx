@@ -1,29 +1,29 @@
 ---
-id: historytotalprofitget
-title: Get historical total profit sharing
-sidebar_label: Get historical total profit sharing
-description: /v1/copy-trade-balance/copy-trade/share-profit/his
+id: GetHistoricalTotalProfitSharing
+title: Get Historical Total Profit Sharing
+sidebar_label: Get Historical Total Profit Sharing
+sidebar_position: 14
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v1/copy-trade-balance/copy-trade/share-profit/his`
+**Description:** `/v1/copy-trade-balance/copy-trade/share-profit/his`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 2/s/ip
 
-## 请求参数
+### Parameters
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `direction` | string | No | NEXT | query direction |
-| `limit` | number | No | 10 | number of pages |
-| `id` | object | No |  | start ID，e.g. 6216559590087220004 |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| direction | string | No | NEXT | Query direction | PREV - previous, NEXT - next |
+| limit | number | No | 10 | Number of pages | 1-100 |
+| id | object | No |  | Start ID, e.g. `6216559590087220004` |  |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "ma": [{}],
   "mc": "string",
@@ -33,9 +33,9 @@ description: /v1/copy-trade-balance/copy-trade/share-profit/his
     "hasPrev": true,
     "items": [
       {
-        "amount": 0, //profit sharing amount
-        "id": "string", //the id used for pagination query
-        "time": 0 //profit sharing time
+        "amount": 0, // profit sharing amount
+        "id": "string", // the id used for pagination query
+        "time": 0 // profit sharing time
       }
     ]
   }

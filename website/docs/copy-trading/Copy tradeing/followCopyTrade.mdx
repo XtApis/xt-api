@@ -1,35 +1,35 @@
 ---
-id: followcopytrade
-title: Follow copy trading
-sidebar_label: Follow copy trading
-description: /v1/copy-trade-account/copy-trade/follow
+id: FollowCopyTrading
+title: Follow Copy Trading
+sidebar_label: Follow Copy Trading
+sidebar_position: 23
 ---
 
-## 接口
+**Type:** POST
 
-**POST** `/v1/copy-trade-account/copy-trade/follow`
+**Description:** `/v1/copy-trade-account/copy-trade/follow`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 2/s/ip
 
-## 请求参数
+### Parameters
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `leaderAccountId` | number | Yes |  | leader account id |
-| `followType` | string | Yes |  | follow type |
-| `followVal` | number | Yes |  | follow fund value or rate value |
-| `followLoss` | number | No |  | follow loss |
-| `followLossOperate` | string | Yes |  | follow loss operate |
-| `triggerStopRate` | number | No |  | single stop loss rate |
-| `triggerProfitRate` | number | No |  | single take profit rate |
-| `autoFollowSymbol` | bool | Yes |  | auto follow symbol or not |
-| `symbols` | string | Yes |  | copy trade symbols. e.g. xt_usdt,btc_usdt |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| leaderAccountId | number | true |  | Leader account id |  |
+| followType | string | true |  | Follow type | <a href="#followType">follow type</a>, FUND;RATE |
+| followVal | number | true |  | Follow fund value or rate value |  |
+| followLoss | number | false |  | Follow loss |  |
+| followLossOperate | string | true |  | Follow loss operate | <a href="#followLossOperate">follow loss operate</a>, MARKET_SELL;LEADER_CLOSE;MANUAL_PROCESS |
+| triggerStopRate | number | false |  | Single stop loss rate |  |
+| triggerProfitRate | number | false |  | Single take profit rate |  |
+| autoFollowSymbol | bool | true |  | Auto follow symbol or not |  |
+| symbols | string | true |  | Copy trade symbols. | e.g. xt_usdt,btc_usdt |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

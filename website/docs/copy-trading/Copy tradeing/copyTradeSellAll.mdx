@@ -1,28 +1,28 @@
 ---
-id: copytradesellall
-title: Sell all lead order
-sidebar_label: Sell all lead order
-description: /v1/copy-trade-order/copy-trade/order/sell-all
+id: SellAllLeadOrder
+title: Sell All Lead Order
+sidebar_label: Sell All Lead Order
+sidebar_position: 7
 ---
 
-## 接口
+**Type:** POST
 
-**POST** `/v1/copy-trade-order/copy-trade/order/sell-all`
+**Description:** `/v1/copy-trade-order/copy-trade/order/sell-all`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 50/s/apikey
 
-## 请求参数
+### Parameters
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `leaderOrder` | bool | Yes |  | true：sell all lead order; false：sell all copy order |
-| `symbol` | string | No |  | symbol |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| leaderOrder | bool | true |  | true: sell all lead order; false: sell all copy order |  |
+| symbol | string | false |  | Symbol |  |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

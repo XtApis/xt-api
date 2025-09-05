@@ -1,30 +1,32 @@
 ---
-id: Get repay list
-title: Get repay list
-sidebar_label: Get repay list
+id: GetRepayList
+title: Get Repay List
+sidebar_label: Get Repay List
 sidebar_position: 3
 ---
 
-### Description
+**Type:** GET
 
-`/v4/lever/repay`
-
-### Parameters
-
-| Name | Type | Mandatory | Default | Description | Ranges |
-| --- | --- | --- | --- | --- | --- |
-| symbol | string | No | – | Trading pair symbol | – |
-| startTime | long | Yes | – | Start time | – |
-| endTime | long | No | – | End time | – |
-| fromId | long | No | – | Page starting ID | – |
-| direction | string | Yes | – | Page direction (`NEXT` / `PREV`) | NEXT;PREV |
-| limit | int | No | 20 | Page limit | – |
+**Description:** `/v4/lever/repay`
 
 ---
 
-### Response
+### Parameters
 
-```json
+| Name      | Type   | Mandatory | Default | Description    | Ranges      |
+| --------- | ------ | --------- | ------- | -------------- | ----------- |
+| Symbol    | String | No        | -       | Trading pair   | -           |
+| StartTime | Long   | Yes       | -       | Start time     | -           |
+| EndTime   | Long   | No        | -       | End time       | -           |
+| FromId    | Long   | No        | -       | Page start ID  | -           |
+| Direction | String | Yes       | -       | Page direction | NEXT / PREV |
+| Limit     | Int    | No        | 20      | Page limit     | Default 20  |
+
+---
+
+### Response Example
+
+```json title="Response"
 {
   "rc": 0,
   "mc": "SUCCESS",
@@ -34,15 +36,15 @@ sidebar_position: 3
     "hasPrev": true, // Whether has previous page
     "items": [
       {
-        "id": "string", // ID
-        "amount": 0, // Amount
+        "id": "string", // Repay record ID
+        "amount": 0, // Repay amount
         "currency": "string", // Currency
         "currencyId": 0, // Currency ID
-        "symbol": "string", // Symbol
+        "symbol": "string", // Trading pair symbol
         "symbolId": 0, // Symbol ID
         "interestAmount": 0, // Interest amount
-        "type": "MANUAL", // Type: MANUAL / SYSTEM
-        "createTime": 0 // Create time
+        "type": "MANUAL", // Repay type: MANUAL / SYSTEM
+        "createTime": 0 // Create time (timestamp)
       }
     ]
   }

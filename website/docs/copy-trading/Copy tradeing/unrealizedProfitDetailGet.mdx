@@ -1,29 +1,29 @@
 ---
-id: unrealizedprofitdetailget
-title: Get unrealized profit sharing detail
-sidebar_label: Get unrealized profit sharing detail
-description: /v1/copy-trade-balance/copy-trade/share-profit/expected-detail
+id: GetUnrealizedProfitSharingDetail
+title: Get Unrealized Profit Sharing Detail
+sidebar_label: Unrealized Profit Sharing
+position_number: 17
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v1/copy-trade-balance/copy-trade/share-profit/expected-detail`
+**Description:** `/v1/copy-trade-balance/copy-trade/share-profit/expected-detail`
 
-#### **Limit Flow Rules**
+#### Limit Flow Rules
 
 2/s/ip
 
-## 请求参数
+### Parameters
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `direction` | string | No | NEXT | query direction |
-| `limit` | number | No | 10 | number of pages |
-| `id` | object | No |  | start ID，e.g. 6216559590087220004 |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| direction | string | false | NEXT | Query direction | PREV - previous, NEXT - next |
+| limit | number | false | 10 | Number of pages | 1-100 |
+| id | object | false | - | Start ID, e.g. `6216559590087220004` | - |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "ma": [{}],
   "mc": "string",
@@ -33,10 +33,10 @@ description: /v1/copy-trade-balance/copy-trade/share-profit/expected-detail
     "hasPrev": true,
     "items": [
       {
-        "amount": 0, //profit sharing amount.
-        "avatar": "string", //avatar of copy trader.
-        "id": 0, //the id used for pagination query.
-        "name": "string" //nickname of copy trader.
+        "amount": 0, // profit sharing amount
+        "avatar": "string", // avatar of copy trader
+        "id": 0, // the id used for pagination query
+        "name": "string" // nickname of copy trader
       }
     ]
   }

@@ -1,21 +1,16 @@
 ---
-id: limitrules
+id: FrequencyLimitingRules
 title: Frequency Limiting Rules
 sidebar_label: Frequency Limiting Rules
+sidebar_position: 3
 ---
 
-Some interfaces will have limited flow control (the corresponding interface will have a limited flow description). The flow limit is mainly divided into gateway flow limit and WAF flow limit.
+Some interfaces will have limited flow control (the corresponding interface will have a limited flow description). The flow limit is mainly divided into **gateway flow limit** and **WAF flow limit**.
 
-If the interface request triggers the gateway flow limit, 429 will be returned, indicating that the access frequency exceeds the limit, and the IP or apiKey will be blocked.
+If the interface request triggers the gateway flow limit, **429** will be returned, indicating that the access frequency exceeds the limit, and the **IP** or **apiKey** will be blocked.
 
-Gateway flow limiting is divided into IP and apiKey flow limiting.
+### Gateway flow limiting types
 
-Example description of IP flow limit: 100/s/ip, indicating the limit of the number of requests per second for this interface per IP.
+- **IP flow limit** Example: `100/s/ip` → The limit of the number of requests **per second per IP** for this interface.
 
-apiKey current limit example description: 50/s/apiKey, indicating the limit of the number of requests per second for the interface per apiKey.
-
-## 请求参数
-
-| Name   | Type | Mandatory | Default | Description |
-| ------ | ---- | --------- | ------- | ----------- |
-| `None` |      | No        |         |             |
+- **apiKey flow limit** Example: `50/s/apiKey` → The limit of the number of requests **per second per apiKey** for this interface.

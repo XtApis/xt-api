@@ -1,28 +1,28 @@
 ---
-id: currentleadorderget
-title: Get current lead order
-sidebar_label: Get current lead order
-description: /v1/copy-trade-order/copy-trade/order/cur-leader-order
+id: GetCurrentLeaderOrder
+title: Get Current Leader Order
+sidebar_label: Get Current Leader Order
+sidebar_position: 1
 ---
 
-## 接口
+**Type:** GET
 
-**GET** `/v1/copy-trade-order/copy-trade/order/cur-leader-order`
+**Description:** `/v1/copy-trade-order/copy-trade/order/cur-leader-order`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 2/s/apikey
 
-## 请求参数
+### Parameters
 
-| Name | Type | Mandatory | Default | Description |
-| --- | --- | --- | --- | --- |
-| `symbol` | string | No |  | Trading pair, if not filled in, represents all |
-| `type` | number | No | 2 | <a href="#leaderOrderRequestType">Leader order request type</a>, 1,detail; 2,summarize |
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false |  | Trading pair, if not filled in, represents all |  |
+| type | number | false | 2 | <a href="#leaderOrderRequestType">Leader order request type</a>, 1=detail, 2=summarize |  |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
@@ -30,19 +30,19 @@ description: /v1/copy-trade-order/copy-trade/order/cur-leader-order
   "result": [
     {
       "id": "string",
-      "orderId": "string", //order id
-      "symbol": "string", //symbol
-      "buySize": 0, //buy quantity
-      "buyTime": 0, //buy time
-      "buyPrice": 0, //buy price
-      "sellSize": 0, //sell quantity
-      "sellTime": 0, //sell time
-      "sellPrice": 0, //sell price
-      "profit": 0, //profit
-      "profitRate": 0, //profit rate
-      "triggerProfitPrice": 0, //trigger profit price
-      "triggerStopPrice": 0, //trigger stop price
-      "followCount": 0 //number of followers
+      "orderId": "string", // order id
+      "symbol": "string", // symbol
+      "buySize": 0, // buy quantity
+      "buyTime": 0, // buy time
+      "buyPrice": 0, // buy price
+      "sellSize": 0, // sell quantity
+      "sellTime": 0, // sell time
+      "sellPrice": 0, // sell price
+      "profit": 0, // profit
+      "profitRate": 0, // profit rate
+      "triggerProfitPrice": 0, // trigger profit price
+      "triggerStopPrice": 0, // trigger stop price
+      "followCount": 0 // number of followers
     }
   ]
 }

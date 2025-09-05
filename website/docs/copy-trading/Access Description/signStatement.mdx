@@ -1,29 +1,44 @@
 ---
-id: Signstatement
+id: SignatureInstructions
 title: Signature Instructions
 sidebar_label: Signature Instructions
+sidebar_position: 4
 ---
 
-Since XT needs to provide some open interfaces for third-party platforms，therefore, the issue of data security needs to be considered. Such as whether the data has been tampered with, whether the data is outdated, whether the data can be submitted repeatedly, and the access frequency of the interface, and whether data has been tampered with is the most important issue.
+Since XT needs to provide some open interfaces for third-party platforms, the issue of **data security** must be considered. For example:
 
-1. Please apply for appkey and secretkey in the user center first, each user's appkey and secretkey are different.
+- Whether the data has been tampered with
+- Whether the data is outdated
+- Whether the data can be submitted repeatedly
+- Whether the interface access frequency is exceeded
 
-2. Add timestamp, its value should be the unix timestamp (milliseconds) of the time when the request is sent, and the time of the data is calculated based on this value.
+Among these, **whether the data has been tampered with is the most important**.
 
-3. Add signature, its value is obtained by a certain rule of signature algorithm.
+### Rules
 
-4. Add recvwindow (defining the valid time of the request), the valid time is currently relatively simple and uniformly fixed at a certain value.
+1. **AppKey & SecretKey** Please apply for `appkey` and `secretkey` in the user center first. Each user's `appkey` and `secretkey` are different.
 
-When a request is received by the server, the timestamp in the request is checked to ensure it falls between 2 to 60 seconds. Any request with a timestamp older than 5,000 milliseconds is considered invalid. The time window value can be set using the optional parameter: "recvWindow". Additionally, if the server determines that the client's timestamp is more than one second ahead of the server, the request will also be invalid. Online conditions are not always 100% reliable in terms of the timeliness of trades, resulting in varying levels of latency between your local program and the XT server. This is why we provide the "recvWindow" parameter - if you engage in high-frequency trading and require stricter transaction timeliness, you can adjust the "recvWindow" parameter to better meet your needs.
+2. **Timestamp** Its value should be the Unix timestamp (milliseconds) when the request is sent. The data validity is calculated based on this value.
 
-Recvwindow longer than 5 seconds is not recommended.
+3. **Signature** Add `signature`, its value is obtained by a certain rule of the signature algorithm.
 
-5、Added algorithm (signature method/algorithm), the user calculates the signature according to the protocol of the hash, and HmacSHA256 is recommended. For those protocols that are supported, see the table below.
+4. **RecvWindow** Defines the valid time of the request.
 
-    HmacMD5、HmacSHA1、HmacSHA224、HmacSHA256(recommended)、HmacSHA384、HmacSHA512
+   - The server checks whether the timestamp falls between **2s and 60s**.
+   - Requests older than **5000ms** are invalid.
+   - If the client timestamp is **>1s ahead** of the server time, the request is invalid.
+   - Longer than **5s is not recommended**.
+   - You can adjust `recvWindow` for high-frequency trading.
 
-## 请求参数
+5. **Algorithms** The signature is calculated using a **hash protocol**. Recommended: **HmacSHA256**. Supported: `HmacMD5`, `HmacSHA1`, `HmacSHA224`, `HmacSHA256`, `HmacSHA384`, `HmacSHA512`.
 
-| Name   | Type | Mandatory | Default | Description |
-| ------ | ---- | --------- | ------- | ----------- |
-| `None` |      | No        |         |             |
+### Signature Parameters
+
+| Name | Mandatory | Example | Description |
+| --- | --- | --- | --- |
+| `validate-appkey` | Yes | dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83 | User’s AppKey |
+| `validate-timestamp` | Yes | 1641446237201 | Unix timestamp (ms) |
+| `validate-signature` | Yes | 0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d | Generated signature |
+| `validate-recvwindow` | Yes | 5000 (millisecond) | Request valid time window |
+| `validate-algorithms` | Yes | HmacSHA256 | Supported: HmacMD5, HmacSHA1, HmacSHA224, HmacSHA256, HmacSHA384, HmacSHA512 |
+| `validate-signversion` | No | 1.0 | Reserved, signature version number |

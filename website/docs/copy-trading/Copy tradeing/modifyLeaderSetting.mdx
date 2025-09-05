@@ -1,32 +1,32 @@
 ---
-id: modifyleadersetting
-title: Modify leader setting
-sidebar_label: Modify leader setting
-description: /v1/copy-trade-account/copy-trade/leader-settings
+id: ModifyLeaderSetting
+title: Modify Leader Setting
+sidebar_label: Modify Leader Setting
+position_number: 13
 ---
 
-## 接口
+**Type:** POST
 
-**POST** `/v1/copy-trade-account/copy-trade/leader-settings`
+**Description:** `/v1/copy-trade-account/copy-trade/leader-settings`
 
-#### **Limit Flow Rules**
+#### Limit Flow Rules
 
 2/s/ip
 
-## 请求参数
+### Parameters
 
 | Name | Type | Mandatory | Default | Description |
 | --- | --- | --- | --- | --- |
 | `leaderIntro` | string | No |  | Leader introduction |
-| `labelIds` | string | No |  | Label ids, separated by commas, e.g. 1,2,3,4 |
+| `labelIds` | string | No |  | Label ids, separated by commas, e.g. `1,2,3,4` |
 | `displayEquity` | bool | No |  | Display total assets or not |
 | `displayQuantity` | bool | No |  | Display buy quantity or not |
-| `symbols` | string | Yes |  | Selected copy trade symbols, e.g. btc_usdt,eth_usdt |
+| `symbols` | string | Yes |  | Selected copy trade symbols, e.g. `btc_usdt,eth_usdt` |
 | `openLeader` | bool | No |  | Open leader or not |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "ma": [{}],
   "mc": "string",

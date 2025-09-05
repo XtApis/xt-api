@@ -1,28 +1,28 @@
 ---
-id: copytradeclose
-title: Close copy order
-sidebar_label: Close copy order
-description: /v1/copy-trade-order/copy-trade/order/close
+id: CloseCopyOrder
+title: Close Copy Order
+sidebar_label: Close Copy Order
+sidebar_position: 8
 ---
 
-## 接口
+**Type:** POST
 
-**POST** `/v1/copy-trade-order/copy-trade/order/close`
+**Description:** `/v1/copy-trade-order/copy-trade/order/close`
 
-#### **Limit Flow Rules**
+### Limit Flow Rules
 
 50/s/apikey
 
-## 请求参数
+### Parameters
 
-| Name            | Type   | Mandatory | Default | Description     |
-| --------------- | ------ | --------- | ------- | --------------- |
-| `leaderOrderId` | number | Yes       |         | leader order id |
-| `symbol`        | string | Yes       |         | symbol          |
+| Name          | Type   | Mandatory | Default | Description     | Ranges |
+| ------------- | ------ | --------- | ------- | --------------- | ------ |
+| leaderOrderId | number | true      |         | Leader order id |        |
+| symbol        | string | true      |         | Symbol          |        |
 
-## 响应示例
+### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",

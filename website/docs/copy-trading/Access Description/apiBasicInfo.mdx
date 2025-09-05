@@ -1,21 +1,19 @@
 ---
-id: interface
-title: Basic information of the interface
-sidebar_label: Basic information of the interface
+id: BasicInformationOfTheInterface
+title: Basic Information of the Interface
+sidebar_label: Basic Information of the Interface
+sidebar_position: 2
 ---
 
 Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.
 
-GET request parameters are placed in query Params, POST request parameters are placed in request body
+- **GET** request parameters are placed in **query params**
+- **POST** request parameters are placed in **request body**
 
-Please set the request header information to：Content-Type=application/json
+Please set the request header to:
 
-For requests that start other than /public, the request message needs to be signed
+```http
+Content-Type: application/json
+```
 
-## 请求参数
-
-| Name   | Type | Mandatory | Default | Description |
-| ------ | ---- | --------- | ------- | ----------- |
-| `None` |      | No        |         |             |
-
-## 响应示例
+For requests that do not start with `/public`, the request message must be **signed**.
