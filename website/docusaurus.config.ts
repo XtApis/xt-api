@@ -25,8 +25,8 @@ import ConfigLocalized from './docusaurus.config.localized.json';
 import PrismLight from './src/utils/prismLight';
 import PrismDark from './src/utils/prismDark';
 
-import type {Config, DocusaurusConfig} from '@docusaurus/types';
-
+// import type {Config, DocusaurusConfig} from '@docusaurus/types';
+import type {Config as DocusaurusConfig} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
 import type {Options as BlogOptions} from '@docusaurus/plugin-content-blog';
@@ -595,6 +595,17 @@ export default async function createConfigAsync(): Promise<Config> {
         } satisfies Preset.Options,
       ],
     ],
+
+    // ✅ 翻译配置文件
+    i18n: {
+      defaultLocale: 'en',
+      locales: ['en', 'zh-Hans', 'ja'],
+      localeConfigs: {
+        en: {label: 'English'},
+        'zh-Hans': {label: '简体中文'},
+        ja: {label: '日本語'},
+      },
+    },
 
     themeConfig: {
       liveCodeBlock: {
