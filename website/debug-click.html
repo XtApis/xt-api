@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Debug Click</title>
+  </head>
+  <body>
+    <h1>Debug All Products Click</h1>
+    <div
+      id="test-div"
+      style="
+        padding: 12px 20px;
+        background: #f3f4f6;
+        font-weight: 600;
+        font-size: 16px;
+        color: #1f2937;
+        cursor: pointer;
+        border: 2px solid red;
+      ">
+      All Products
+    </div>
+
+    <script>
+      console.log('Script loaded');
+
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOMContentLoaded fired');
+
+        setTimeout(() => {
+          console.log('Timeout fired');
+
+          // Test both selectors
+          const selector1 = document.querySelector(
+            'div[style*="All Products"]',
+          );
+          console.log('Selector 1 result:', selector1);
+
+          const selector2 = document.querySelector('#test-div');
+          console.log('Selector 2 result:', selector2);
+
+          const allDivs = document.querySelectorAll('div');
+          console.log('All divs count:', allDivs.length);
+
+          allDivs.forEach((div, index) => {
+            if (div.textContent && div.textContent.trim() === 'All Products') {
+              console.log('Found by text content at index', index, ':', div);
+              div.addEventListener('click', function () {
+                console.log('All Products clicked!');
+                alert('All Products clicked!');
+              });
+            }
+          });
+
+          // Also try the ID selector
+          const testDiv = document.getElementById('test-div');
+          if (testDiv) {
+            testDiv.addEventListener('click', function () {
+              console.log('Test div clicked!');
+              alert('Test div clicked!');
+            });
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

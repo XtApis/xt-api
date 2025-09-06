@@ -443,6 +443,57 @@ document.addEventListener('DOMContentLoaded', () => {
 // must be defined outside DOMContentLoaded
 window.showCategory = function showCategory(category) {
   const productData = {
+    AllProducts: {
+      title: 'All Products',
+      description: 'Comprehensive API solutions for all your trading needs',
+      products: [
+        {
+          title: 'Index',
+          description: 'Index APIs',
+          href: '/docs/index_overview/overview',
+        },
+        {
+          title: 'API Resources and Support',
+          description: 'API Resources and Support',
+          href: '/docs/index_overview/index_overview_resource',
+        },
+        {
+          title: 'Spot Trading',
+          description: 'Spot Trading APIs',
+          href: '/docs/spot/AccessDescription/RestApi',
+        },
+        {
+          title: 'Futures Trading',
+          description: 'Futures Trading APIs',
+          href: '/docs/futures/AccessDescription/apiDemo',
+        },
+        {
+          title: 'Margin Trading',
+          description: 'Margin Trading APIs',
+          href: '/docs/margin-spot/AccessDescription/RestApi',
+        },
+        {
+          title: 'Copy Trading',
+          description: 'Copy Trading API',
+          href: '/docs/copy-trading/Access Description/RestApi',
+        },
+        {
+          title: 'Futures Copy',
+          description: 'Futures Copy API',
+          href: '/docs/futures-copy/AccessDescription/RestApi',
+        },
+        {
+          title: 'Trading Third Party',
+          description: 'Trading Third Party API',
+          href: '/docs/trading-third-party/AccessDescription/RestApi',
+        },
+        {
+          title: 'User Center',
+          description: 'User Center API',
+          href: '/docs/user-center/AccessDescription/RestApi',
+        },
+      ],
+    },
     Index: {
       title: 'Index',
       description: 'Explore our index APIs',
@@ -776,10 +827,49 @@ window.showCategory = function showCategory(category) {
     allButtons = document.querySelectorAll('div[onclick^="showCategory"]');
   }
 
+  // Also clear the "All Products" static element
+  let allProductsElement = document.getElementById('all-products-nav');
+  if (!allProductsElement) {
+    // Fallback to old method
+    allProductsElement = document.querySelector('div[style*="All Products"]');
+    if (!allProductsElement) {
+      const allDivs = document.querySelectorAll('div');
+      allDivs.forEach((div) => {
+        if (div.textContent && div.textContent.trim() === 'All Products') {
+          allProductsElement = div;
+        }
+      });
+    }
+  }
+  if (allProductsElement) {
+    allProductsElement.style.backgroundColor = 'transparent';
+    allProductsElement.style.borderRight = 'none';
+    allProductsElement.style.color = '#6b7280';
+  }
+
+  // Also clear the right content area highlights
+  // Clear all links that might have been highlighted
+  const allLinks = document.querySelectorAll('a');
+  allLinks.forEach((link) => {
+    // Only clear links that have our custom styling
+    if (
+      link.style.backgroundColor === 'rgb(243, 244, 246)' ||
+      link.style.borderRight === '3px solid rgb(59, 130, 246)'
+    ) {
+      link.style.backgroundColor = 'transparent';
+      link.style.borderRight = 'none';
+      link.style.color = 'inherit';
+      link.style.padding = '';
+      link.style.borderRadius = '';
+    }
+  });
+
   allButtons.forEach((btn) => {
     btn.style.backgroundColor = 'transparent';
     btn.style.color = '#6b7280';
     btn.style.borderRight = 'none';
+    // 确保清除所有可能的选中状态
+    btn.classList.remove('active');
   });
 
   // Find and highlight the active button
@@ -796,16 +886,113 @@ window.showCategory = function showCategory(category) {
   }
 
   if (activeButton) {
-    activeButton.style.backgroundColor = '#f3f4f6';
-    activeButton.style.color = '#1f2937';
-    activeButton.style.borderRight = '3px solid #3b82f6';
+    // Special case: when AllProducts is selected, highlight "All Products"
+    console.log('Category is AllProducts:', category === 'AllProducts');
+    if (category === 'AllProducts') {
+      console.log('Processing AllProducts selection...');
+      let allProductsElementById = document.getElementById('all-products-nav');
+      if (!allProductsElementById) {
+        // Fallback to old method
+        allProductsElementById = document.querySelector(
+          'div[style*="All Products"]',
+        );
+        if (!allProductsElementById) {
+          const allDivs = document.querySelectorAll('div');
+          allDivs.forEach((div) => {
+            if (div.textContent && div.textContent.trim() === 'All Products') {
+              allProductsElementById = div;
+            }
+          });
+        }
+      }
+      if (allProductsElementById) {
+        allProductsElementById.style.backgroundColor = '#f3f4f6';
+        allProductsElementById.style.borderRight = '3px solid #3b82f6';
+        allProductsElementById.style.color = '#1f2937';
+      }
+
+      // Also highlight the "Index" item in the right content area
+      console.log('Looking for right content Index link...');
+      const rightContentIndex = document.getElementById('index-content-link');
+      console.log('rightContentIndex by ID:', rightContentIndex);
+
+      if (rightContentIndex) {
+        console.log('Found right content Index link by ID:', rightContentIndex);
+        rightContentIndex.style.backgroundColor = '#f3f4f6';
+        rightContentIndex.style.borderRight = '3px solid #3b82f6';
+        rightContentIndex.style.color = '#1f2937';
+        rightContentIndex.style.padding = '8px 12px';
+        rightContentIndex.style.borderRadius = '4px';
+        console.log('Applied styles to right content Index link');
+      } else {
+        console.log(
+          'Right content Index link not found by ID, trying fallback...',
+        );
+        // Fallback method
+        const allLinksFallback = document.querySelectorAll('a');
+        console.log('Total links found for fallback:', allLinksFallback.length);
+        allLinksFallback.forEach((link, index) => {
+          const linkText = link.textContent ? link.textContent.trim() : '';
+          console.log(`Link ${index}: "${linkText}" -> ${link.href}`);
+          if (linkText === 'Index' && link.href) {
+            console.log('Found Index link by fallback:', link);
+            link.style.backgroundColor = '#f3f4f6';
+            link.style.borderRight = '3px solid #3b82f6';
+            link.style.color = '#1f2937';
+            link.style.padding = '8px 12px';
+            link.style.borderRadius = '4px';
+            console.log('Applied styles to fallback Index link');
+          }
+        });
+      }
+    } else {
+      // For other categories, highlight the specific button
+      activeButton.style.backgroundColor = '#f3f4f6';
+      activeButton.style.color = '#1f2937';
+      activeButton.style.borderRight = '3px solid #3b82f6';
+    }
   }
 };
 
 // Add event listeners for category buttons after DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOMContentLoaded fired');
   // Wait a bit for the navbar to be rendered
   setTimeout(() => {
+    console.log('Timeout fired, looking for All Products element...');
+    console.log('Current page URL:', window.location.href);
+    console.log('Document body:', document.body);
+    // Add click event to "All Products" element
+    let allProductsElement = document.getElementById('all-products-nav');
+    if (!allProductsElement) {
+      console.log(
+        'All Products element not found by ID, trying alternative selector...',
+      );
+      // Try alternative selector
+      allProductsElement = document.querySelector('div[style*="All Products"]');
+      if (!allProductsElement) {
+        const allDivs = document.querySelectorAll('div');
+        allDivs.forEach((div) => {
+          if (div.textContent && div.textContent.trim() === 'All Products') {
+            allProductsElement = div;
+          }
+        });
+      }
+    }
+
+    if (allProductsElement) {
+      console.log('Found All Products element:', allProductsElement);
+      allProductsElement.style.cursor = 'pointer';
+      allProductsElement.addEventListener('click', () => {
+        console.log('All Products clicked!');
+        window.showCategory('AllProducts');
+      });
+    } else {
+      console.log('All Products element not found at all!');
+    }
+
+    // Initialize with AllProducts category to ensure only one button is selected
+    window.showCategory('AllProducts');
     const categoryButtons = document.querySelectorAll('div[data-category]');
     console.log('Found category buttons:', categoryButtons.length);
 
@@ -832,13 +1019,10 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.style.backgroundColor = 'transparent';
             btn.style.color = '#6b7280';
             btn.style.borderRight = 'none';
+            btn.classList.remove('active');
           });
 
-          // Set active state for clicked button
-          this.style.backgroundColor = '#f3f4f6';
-          this.style.color = '#1f2937';
-          this.style.borderRight = '3px solid #3b82f6';
-
+          // Call showCategory which will handle all button states
           window.showCategory(category);
         });
       });
@@ -856,13 +1040,10 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.style.backgroundColor = 'transparent';
             btn.style.color = '#6b7280';
             btn.style.borderRight = 'none';
+            btn.classList.remove('active');
           });
 
-          // Set active state for clicked button
-          this.style.backgroundColor = '#f3f4f6';
-          this.style.color = '#1f2937';
-          this.style.borderRight = '3px solid #3b82f6';
-
+          // Call showCategory which will handle all button states
           window.showCategory(category);
         });
       });

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Selector</title>
+  </head>
+  <body>
+    <div
+      style="
+        padding: 12px 20px;
+        background: #f3f4f6;
+        font-weight: 600;
+        font-size: 16px;
+        color: #1f2937;
+      ">
+      All Products
+    </div>
+
+    <script>
+      // Test the selectors
+      console.log('Testing selectors...');
+
+      const selector1 = document.querySelector('div[style*="All Products"]');
+      console.log('Selector 1 result:', selector1);
+
+      const allDivs = document.querySelectorAll('div');
+      console.log('All divs:', allDivs.length);
+
+      allDivs.forEach((div, index) => {
+        if (div.textContent && div.textContent.trim() === 'All Products') {
+          console.log('Found by text content at index', index, ':', div);
+        }
+      });
+    </script>
+  </body>
+</html>
