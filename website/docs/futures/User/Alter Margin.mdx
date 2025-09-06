@@ -5,9 +5,9 @@ sidebar_label: Alter Margin
 sidebar_position: 10
 ---
 
-### Description
+**Type** POST
 
-**POST** `/future/user/v1/position/margin`
+**Description:** `/future/user/v1/position/margin`
 
 **Parameters**
 
@@ -18,17 +18,13 @@ sidebar_position: 10
 | positionSide | string | No | N/A | Position side (LONG, SHORT) |
 | type | string | No | N/A | Adjust direction (ADD: add isolated margin, SUB: reduce isolated margin) |
 
----
-
 ### Limit Flow Rules
 
 200/s/apikey
 
----
+### Response Example
 
-### Response
-
-```json
+```json title="Response"
 {
   "error": {
     "code": "",

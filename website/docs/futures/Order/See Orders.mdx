@@ -5,9 +5,9 @@ sidebar_label: See Orders
 sidebar_position: 5
 ---
 
-/future/trade/v1/order/list
+**Type:** POST
 
----
+**Description:** `/future/trade/v1/order/list`
 
 ### Parameters
 
@@ -21,22 +21,13 @@ sidebar_position: 5
 | state | string | false | NEW | Order state: `NEW` (New order, unfilled); `PARTIALLY_FILLED` (Partial deal); `PARTIALLY_CANCELED` (Partial revocation); `FILLED` (Filled); `CANCELED` (Cancelled); `REJECTED` (Order failed); `EXPIRED` (Expired); `UNFINISHED` (Unfinished); `HISTORY` (History) | PREV; NEXT |
 | symbol | string | false | N/A | Trading pair |  |
 
----
-
 ### Limit Flow Rules
 
 200/s/apikey
 
----
+### Response Example
 
 import CodeBlock from '@theme/CodeBlock';
-
-<CodeBlock language="java" title="Java">
-  {`public void getMarketConfig() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getMarketConfig");
-    System.out.println(text);
-}`}
-</CodeBlock>
 
 <CodeBlock language="json" title="Response">
   {`{

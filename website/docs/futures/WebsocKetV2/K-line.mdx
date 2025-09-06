@@ -1,0 +1,38 @@
+---
+id: Kline
+title: K-line
+sidebar_label: K-line
+sidebar_position: 8
+---
+
+### Request Format
+
+```
+kline@{symbol},{interval}
+```
+
+- **interval options**: `1m`, `3m`, `5m`, `15m`, `30m`, `1h`, `2h`, `4h`, `6h`, `8h`, `12h`, `1d`, `3d`, `1w`, `1M`
+- **example**: `kline@btc_usdt,5m`
+- **rate**: 1000ms
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "kline",
+  "event": "kline@btc_usdt,5m",
+  "data": {
+    "s": "btc_index", // trading pair
+    "o": "49000", // opening price
+    "c": "50000", // closing price
+    "h": "0.1", // highest price
+    "l": "0.1", // lowest price
+    "a": "0.1", // volume
+    "v": "0.1", // turnover
+    "ch": "0.21", // quote change
+    "t": 123124124 // timestamp
+  }
+}
+```

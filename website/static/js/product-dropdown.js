@@ -82,17 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'AccessDescription',
           description: 'AccessDescription APIs',
-          href: '/docs/futures/AccessDescription/apiDemo',
+          href: '/docs/futures/AccessDescription/RestApi',
         },
         {
           title: 'Entrust',
           description: 'Entrust APIs',
-          href: '/docs/futures/Entrust/GetEntrust',
+          href: '/docs/futures/Entrust/CreateTriggerOrders',
         },
         {
           title: 'Market Data',
           description: 'Market Data APIs',
-          href: '/docs/futures/Market data/GetServerTime',
+          href: '/docs/futures/MarketData/GetClientIp',
         },
         {
           title: 'Order',
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Futures Trading',
           description: 'Futures Trading APIs',
-          href: '/docs/futures/AccessDescription/apiDemo',
+          href: '/docs/futures/AccessDescription/RestApi',
         },
         {
           title: 'Margin Trading',
@@ -517,17 +517,17 @@ window.showCategory = function showCategory(category) {
         {
           title: 'AccessDescription',
           description: 'AccessDescription APIs',
-          href: '/docs/futures/AccessDescription/apiDemo',
+          href: '/docs/futures/AccessDescription/RestApi',
         },
         {
           title: 'Entrust',
           description: 'Entrust APIs',
-          href: '/docs/futures/Entrust/GetEntrust',
+          href: '/docs/futures/Entrust/CreateTriggerOrders',
         },
         {
           title: 'Market Data',
           description: 'Market Data APIs',
-          href: '/docs/futures/Market data/GetServerTime',
+          href: '/docs/futures/MarketData/GetClientIp',
         },
         {
           title: 'Order',
@@ -688,7 +688,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Futures Trading',
           description: 'Futures Trading APIs',
-          href: '/docs/futures/AccessDescription/apiDemo',
+          href: '/docs/futures/AccessDescription/RestApi',
         },
         {
           title: 'Margin Trading',

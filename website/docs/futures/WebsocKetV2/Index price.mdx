@@ -1,0 +1,31 @@
+---
+id: IndexPrice
+title: Index price
+sidebar_label: Index price
+sidebar_position: 14
+---
+
+### Request Format
+
+```
+index_price@{symbol}
+```
+
+- **example**: `index_price@btc_usdt`
+- **rate**: 1000ms
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "index_price",
+  "event": "index_price@btc_usdt",
+  "data": {
+    "s": "btc_usdt", // trading pair
+    "p": "50000", // price
+    "t": 123124124 // timestamp
+  }
+}
+```

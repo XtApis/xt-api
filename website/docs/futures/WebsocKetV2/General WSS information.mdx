@@ -1,0 +1,49 @@
+---
+id: General_WSS_information
+title: General WSS information
+sidebar_label: General WSS information
+sidebar_position: 1
+---
+
+### Description
+
+General WebSocket information for connecting to **XT WebSocket services**.
+
+---
+
+### Base Address
+
+**wss://fstream.xt.com/ws/user**
+
+---
+
+### Request Headers
+
+The request header of the compression extension protocol must be added:
+
+```http
+Sec-Websocket-Extensions: permessage-deflate
+```
+
+---
+
+### Subscription Steps
+
+**Step 1:** Call the interface `/v1/user/listen-key` to obtain the **listenKey**.
+
+**Step 2:** When subscribing to user-related WebSocket events, send:
+
+```json
+{
+  "method": "SUBSCRIBE",
+  "params": ["order@{listenKey obtained in the previous step}"],
+  "id": "test1"
+}
+```
+
+---
+
+### Notes
+
+- If you receive **`invalid_listen_key`**, it means the listenKey is expired or invalid. 👉 Re-request a new listenKey through the interface.
+- User-related data will be pushed **after subscription is successful**.

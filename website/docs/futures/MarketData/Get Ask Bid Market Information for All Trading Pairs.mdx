@@ -1,0 +1,39 @@
+---
+id: get-ask-bid-market-information-for-all-trading-pairs
+title: Get Ask Bid Market Information for All Trading Pairs
+sidebar_label: Get Ask Bid Market Information for All Trading Pairs
+sidebar_position: 19.5
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/ticker/books`
+
+#### Note：
+
+This method does not require a signature.
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "ap": "", // ask price
+      "aq": "", // ask amount
+      "bp": "", // bid price
+      "bq": "", // bid amount
+      "s": "",  // Trading pair
+      "t": 0    // Time
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

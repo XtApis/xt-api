@@ -5,9 +5,13 @@ sidebar_label: Cancel All Orders
 sidebar_position: 8
 ---
 
-/future/trade/v1/order/cancel-all
+**Type:** POST
 
----
+**Description:** `/future/trade/v1/order/cancel-all`
+
+### Limit Flow Rules
+
+200/s/apikey
 
 ### Parameters
 
@@ -15,13 +19,7 @@ sidebar_position: 8
 | --- | --- | --- | --- | --- | --- |
 | symbol | string | true | N/A | Trading pair (cancel all trading pair orders if pass `""`) |  |
 
----
-
-### Limit Flow Rules
-
-200/s/apikey
-
----
+### Response Example
 
 import CodeBlock from '@theme/CodeBlock';
 

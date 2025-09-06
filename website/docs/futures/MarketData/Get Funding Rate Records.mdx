@@ -1,0 +1,51 @@
+---
+id: get-funding-rate-records
+title: Get Funding Rate Records
+sidebar_label: Get Funding Rate Records
+sidebar_position: 19
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/funding-rate-record`
+
+#### Note：
+
+This method does not require a signature.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false | N/A | Trading pair |  |
+| direction | string | false | NEXT | Direction (PREV: Previous page; NEXT: Next page) | PREV;NEXT |
+| id | integer | false | N/A | id |  |
+| limit | integer | false | 10 | Limit |  |
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // Is there a next page
+    "hasPrev": false, // Is there a previous page
+    "items": [        // Datasheets
+      {
+        "collectionInternal": 0, // Billing Cycle (second)
+        "createdTime": 0,        // Time
+        "fundingRate": 0,        // Latest funding rate
+        "id": 0,                 // id
+        "symbol": ""             // Trading pair
+      }
+    ]
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

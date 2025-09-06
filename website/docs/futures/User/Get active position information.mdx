@@ -5,9 +5,9 @@ sidebar_label: Get active position information
 sidebar_position: 7
 ---
 
-### Description
+**Type** GET
 
-**GET** `/future/user/v1/position`
+**Description:** `/future/user/v1/position`
 
 **Parameters**
 
@@ -15,17 +15,13 @@ sidebar_position: 7
 | --- | --- | --- | --- | --- |
 | symbol | string | No | N/A | Trading pairs (queries position information for all trading pairs when not provided) |
 
----
-
 ### Limit Flow Rules
 
 200/s/apikey
 
----
+### Response Example
 
-### Response
-
-```json
+```json title="Response"
 {
   "error": {
     "args": [],

@@ -1,0 +1,45 @@
+---
+id: get-latest-transaction-information-of-trading-pairs
+title: Get Latest Transaction Information of Trading Pairs
+sidebar_label: Get Latest Transaction Information of Trading Pairs
+sidebar_position: 9
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/deal`
+
+#### Note：
+
+This method does not require a signature.
+
+### Parameters
+
+| Name   | Type    | Mandatory | Default | Description  | Ranges |
+| ------ | ------- | --------- | ------- | ------------ | ------ |
+| symbol | string  | true      | N/A     | Trading pair |        |
+| num    | integer | false     | 50      | Quantity     |        |
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": 0,  // Volume
+      "m": "", // Order side
+      "p": 0,  // Price
+      "s": "", // Trading pair
+      "t": 0   // Time
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

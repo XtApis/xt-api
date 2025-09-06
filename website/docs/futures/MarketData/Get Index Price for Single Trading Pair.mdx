@@ -1,0 +1,40 @@
+---
+id: get-index-price-for-single-trading-pair
+title: Get Index Price for Single Trading Pair
+sidebar_label: Get Index Price for Single Trading Pair
+sidebar_position: 11
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/symbol-index-price`
+
+#### Note：
+
+This method does not require a signature.
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      | N/A     | Trading pair |        |
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "p": 0,  // Price
+    "s": "", // Trading pair
+    "t": 0   // Time
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

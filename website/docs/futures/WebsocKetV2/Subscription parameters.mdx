@@ -1,0 +1,42 @@
+---
+id: SubscriptionParameters
+title: Subscription parameters
+sidebar_label: Subscription parameters
+sidebar_position: 6
+---
+
+### Format
+
+```
+{topic}@{listenKey},...
+```
+
+- `topic` examples: `order`, `trade`, `balance`, `position`, `notify`
+- `listenKey` is obtained via `/v1/user/listen-key`
+- Multiple subscriptions can be added in one request, separated by commas
+
+---
+
+### Examples
+
+**Subscribe (multiple topics)**
+
+```json title="Subscribe"
+{
+  "method": "SUBSCRIBE",
+  "params": ["order@{listenKey}", "trade@{listenKey}", "balance@{listenKey}"],
+  "id": "sub-1"
+}
+```
+
+**Unsubscribe (single topic)**
+
+```json title="Unsubscribe"
+{
+  "method": "UNSUBSCRIBE",
+  "params": ["position@{listenKey}"],
+  "id": "unsub-1"
+}
+```
+
+> Note: Replace `{listenKey}` with the actual value. If you receive `invalid_listen_key`, please request a new listenKey.

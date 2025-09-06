@@ -5,9 +5,9 @@ sidebar_label: Adjust Leverage
 sidebar_position: 9
 ---
 
-### Description
+**Type** POST
 
-**POST** `/future/user/v1/position/adjust-leverage`
+**Description:** `/future/user/v1/position/adjust-leverage`
 
 **Parameters**
 
@@ -17,17 +17,13 @@ sidebar_position: 9
 | positionSide | string  | Yes       | N/A     | Position side (LONG, SHORT) |
 | leverage     | integer | Yes       | N/A     | Leverage                    |
 
----
-
 ### Limit Flow Rules
 
 200/s/apikey
 
----
+### Response Example
 
-### Response
-
-```json
+```json title="Response"
 {
   "error": {
     "code": "",

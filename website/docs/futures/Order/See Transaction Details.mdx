@@ -5,11 +5,9 @@ sidebar_label: See Transaction Details
 sidebar_position: 1.2
 ---
 
-/future/trade/v1/order/trade-list
+**Type:** POST
 
-> Note：This method does not require a signature.
-
----
+**Description:** `/future/trade/v1/order/trade-list`
 
 ### Parameters
 
@@ -22,22 +20,13 @@ sidebar_position: 1.2
 | startTime | integer | false | N/A | Start time |  |
 | endTime | integer | false | N/A | End time |  |
 
----
-
 ### Limit Flow Rules
 
 200/s/apikey
 
----
+### Response Example
 
 import CodeBlock from '@theme/CodeBlock';
-
-<CodeBlock language="java" title="Java">
-  {`public void getMarketConfig() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getMarketConfig");
-    System.out.println(text);
-}`}
-</CodeBlock>
 
 <CodeBlock language="json" title="Response">
   {`{

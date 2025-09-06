@@ -5,11 +5,11 @@ sidebar_label: Update Orders
 sidebar_position: 2
 ---
 
-/future/trade/v1/order/update
+**Type:** POST
 
-> Content-Type = `application/x-www-form-urlencoded && application/json` Note：This method does not require a signature.
+**Description:** `/future/trade/v1/order/update`
 
----
+> Content-Type = `application/x-www-form-urlencoded && application/json`
 
 ### Parameters
 
@@ -29,22 +29,13 @@ sidebar_position: 2
 | stopDelegatePrice | number | false | N/A | Stop-Loss order price |  |
 | followUpOrder | boolean | false | N/A | If true, indicates chase order |  |
 
----
-
 ### Limit Flow Rules
 
 200/s/apikey
 
----
+### Response Example
 
 import CodeBlock from '@theme/CodeBlock';
-
-<CodeBlock language="java" title="Java">
-  {`public void getKLine() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
-    System.out.println(text);
-}`}
-</CodeBlock>
 
 <CodeBlock language="json" title="Response">
   {`{

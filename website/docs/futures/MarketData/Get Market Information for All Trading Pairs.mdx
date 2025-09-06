@@ -1,0 +1,42 @@
+---
+id: get-market-information-for-all-trading-pairs
+title: Get Market Information for All Trading Pairs
+sidebar_label: Get Market Information for All Trading Pairs
+sidebar_position: 8
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/tickers`
+
+#### Note：
+
+This method does not require a signature.
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": "", // 24h volume
+      "c": "", // Latest price
+      "h": "", // Highest price in 24 hours
+      "l": "", // Lowest price in 24 hours
+      "o": "", // The first transaction price 24 hours ago
+      "r": "", // 24h Price Fluctuation Limit
+      "s": "", // Trading pair
+      "t": 0,  // Time
+      "v": ""  // 24h turnover
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

@@ -1,0 +1,36 @@
+---
+id: get-index-price-for-all-trading-pairs
+title: Get Index Price for All Trading Pairs
+sidebar_label: Get Index Price for All Trading Pairs
+sidebar_position: 12
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/index-price`
+
+#### Note：
+
+This method does not require a signature.
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "p": 0,  // Price
+      "s": "", // Trading pair
+      "t": 0   // Time
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

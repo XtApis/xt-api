@@ -5,11 +5,11 @@ sidebar_label: Create Orders
 sidebar_position: 1
 ---
 
-/future/trade/v1/order/create
+**Type:** POST
+
+**Description:** `/future/trade/v1/order/create`
 
 > Content-Type = `application/x-www-form-urlencoded` && `application/json` Note：This method does not require a signature.
-
----
 
 ### Parameters
 
@@ -25,8 +25,6 @@ sidebar_position: 1
 | triggerProfitPrice | number | false | N/A | Stop profit price |  |
 | triggerStopPrice | number | false | N/A | Stop loss price |  |
 | positionSide | string | true | N/A | Position side | LONG;SHORT |
-
----
 
 ### OrigQty Calculation Formula
 
@@ -49,16 +47,9 @@ sidebar_position: 1
 
 200/s/apikey
 
----
+### Response Example
 
 import CodeBlock from '@theme/CodeBlock';
-
-<CodeBlock language="java" title="Java">
-  {`public void getKLine() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
-    System.out.println(text);
-}`}
-</CodeBlock>
 
 <CodeBlock language="json" title="Response">
   {`{

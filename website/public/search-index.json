@@ -21289,13 +21289,7 @@
     "title": "Untitled",
     "description": "",
     "content": "",
-    "keywords": [
-      "untitled",
-      "futures",
-      "user",
-      "close all",
-      "mdx"
-    ],
+    "keywords": ["untitled", "futures", "user", "close all", "mdx"],
     "url": "/docs/futures/User/Close All",
     "path": "futures/User/Close All.mdx",
     "type": "futures",
@@ -21306,13 +21300,7 @@
     "title": "Untitled",
     "description": "",
     "content": "",
-    "keywords": [
-      "untitled",
-      "futures",
-      "user",
-      "collect trading pair",
-      "mdx"
-    ],
+    "keywords": ["untitled", "futures", "user", "collect trading pair", "mdx"],
     "url": "/docs/futures/User/Collect Trading Pair",
     "path": "futures/User/Collect Trading Pair.mdx",
     "type": "futures",
@@ -33803,14 +33791,7 @@
     "title": "Untitled",
     "description": "",
     "content": "=",
-    "keywords": [
-      "untitled",
-      "margin",
-      "spot",
-      "market",
-      "symbol",
-      "mdx"
-    ],
+    "keywords": ["untitled", "margin", "spot", "market", "symbol", "mdx"],
     "url": "/docs/margin-spot/Market/symbol",
     "path": "margin-spot/Market/symbol.mdx",
     "type": "spot",
@@ -40556,13 +40537,7 @@
     "title": "Untitled",
     "description": "",
     "content": "",
-    "keywords": [
-      "untitled",
-      "trading",
-      "third",
-      "party",
-      "mdx"
-    ],
+    "keywords": ["untitled", "trading", "third", "party", "mdx"],
     "url": "/docs/trading-third-party",
     "path": "trading-third-party.mdx",
     "type": "trading-third-party",

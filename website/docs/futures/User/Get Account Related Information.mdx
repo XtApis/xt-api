@@ -1,5 +1,5 @@
 ---
-id: Get history track list(inactive)
+id: Get history track list
 title: Get history track list(inactive)
 sidebar_label: Get history track list(inactive)
 sidebar_position: 1.8
@@ -24,10 +24,9 @@ sidebar_position: 1.8
 
 200/s/apikey
 
-### Example (Java)
+### Response Example
 
-```
-Response
+```json title="Response"
 {
   "error": {
     "code": "",
@@ -35,30 +34,30 @@ Response
   },
   "msgInfo": "",
   "result": {
-    "hasNext": true,               // Is there a next page
-    "hasPre": true,                // Is there a previous page
+    "hasNext": true, // Is there a next page
+    "hasPre": true, // Is there a previous page
     "items": [
       {
-        "activationPrice": 0,      // Activation price
-        "avgPrice": 0,             // Average price
-        "callback": "",            // Callback range configuration 1: PROPORTION 2: FIXED
-        "callbackVal": 0,          // Callback value
+        "activationPrice": 0, // Activation price
+        "avgPrice": 0, // Average price
+        "callback": "", // Callback range configuration 1: PROPORTION 2: FIXED
+        "callbackVal": 0, // Callback value
         "configActivation": false, // Whether to configure activation price
-        "createdTime": 0,          // Create time
-        "currentPrice": 0,         // Real-time price, compared with the activation price and order price
-        "desc": "",                // Description
-        "executedQty": 0,          // Actual transaction quantity
-        "orderSide": "",           // Order side
+        "createdTime": 0, // Create time
+        "currentPrice": 0, // Real-time price, compared with the activation price and order price
+        "desc": "", // Description
+        "executedQty": 0, // Actual transaction quantity
+        "orderSide": "", // Order side
         "ordinary": true,
-        "origQty": 0,              // Quantity (Cont)
-        "positionSide": "",        // Position side
-        "price": 0,                // Order price
-        "state": "",               // Order state: NOT_ACTIVATION, NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED, DELEGATION_FAILED
-        "stopPrice": 0,            // Trigger price
-        "symbol": "",              // Symbol
-        "trackId": 0,              // Track id
-        "triggerPriceType": "",    // Trigger price type
-        "updatedTime": 0           // Update time
+        "origQty": 0, // Quantity (Cont)
+        "positionSide": "", // Position side
+        "price": 0, // Order price
+        "state": "", // Order state: NOT_ACTIVATION, NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED, DELEGATION_FAILED
+        "stopPrice": 0, // Trigger price
+        "symbol": "", // Symbol
+        "trackId": 0, // Track id
+        "triggerPriceType": "", // Trigger price type
+        "updatedTime": 0 // Update time
       }
     ]
   },

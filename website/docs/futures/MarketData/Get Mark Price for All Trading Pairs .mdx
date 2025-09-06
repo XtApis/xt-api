@@ -1,0 +1,42 @@
+---
+id: get-mark-price-for-all-trading-pairs
+title: Get Mark Price for All Trading Pairs
+sidebar_label: Get Mark Price for All Trading Pairs
+sidebar_position: 14
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/mark-price`
+
+#### Note：
+
+This method does not require a signature.
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | false     | N/A     | Trading pair |        |
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "p": 0,  // Price
+      "s": "", // Trading pair
+      "t": 0   // Time
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

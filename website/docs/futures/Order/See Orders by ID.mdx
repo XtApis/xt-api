@@ -5,9 +5,9 @@ sidebar_label: See Orders by ID
 sidebar_position: 4
 ---
 
-/future/trade/v1/order/detail
+**Type:** POST
 
----
+**Description:** `/future/trade/v1/order/detail`
 
 ### Parameters
 
@@ -15,22 +15,13 @@ sidebar_position: 4
 | ------- | ------- | --------- | ------- | ----------- | ------ |
 | orderId | integer | true      | N/A     | Order ID    |        |
 
----
-
 ### Limit Flow Rules
 
 200/s/apikey
 
----
+### Response Example
 
 import CodeBlock from '@theme/CodeBlock';
-
-<CodeBlock language="java" title="Java">
-  {`public void getMarketConfig() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getMarketConfig");
-    System.out.println(text);
-}`}
-</CodeBlock>
 
 <CodeBlock language="json" title="Response">
   {`{

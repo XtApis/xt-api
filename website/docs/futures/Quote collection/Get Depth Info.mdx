@@ -5,9 +5,15 @@ sidebar_label: Get Depth Info
 sidebar_position: 2
 ---
 
-/future/market/v1/public/cg/orderbook
+**Type:** GET
 
-> Content-Type = application/x-www-form-urlencoded Note：This method does not require a signature.
+**Description:** `/future/market/v1/public/cg/orderbook`
+
+> Content-Type = application/x-www-form-urlencoded
+
+### Note：
+
+This method does not require a signature.
 
 ### Parameters
 
@@ -16,14 +22,9 @@ sidebar_position: 2
 | symbol | string | true      | N/A     | Trading pair, e.g. BTC-USDT |        |
 | level  | int    | false     | 50      | Depth level                 | 1-200  |
 
-import CodeBlock from '@theme/CodeBlock';
+### Response Example
 
-<CodeBlock language="java" title="Java">
-  {`public void getMarketConfig() {
-    String text = HttpUtil.get(URL + "/data/api/future/market/v1/public/cg/orderbook");
-    System.out.println(text);
-}`}
-</CodeBlock>
+import CodeBlock from '@theme/CodeBlock';
 
 <CodeBlock language="json" title="Response">
   {`{

@@ -1,16 +1,17 @@
 ---
-id: get-contract-account-assets
+id: GetContractAccountAssets
 title: Get Contract Account Assets
+sidebar_label: Get Contract Account Assets
 sidebar_position: 1
-description: /future/user/v1/compat/balance/list
-slug: /futures/account/assets
 ---
+
+**Type** GET
+
+**Description:** /future/user/v1/compat/balance/list
 
 #### **Limit Flow Rules**
 
 200/s/apikey
-
----
 
 ### Parameters
 
@@ -18,13 +19,9 @@ slug: /futures/account/assets
 | -------------- | ------ | --------- | ------- | ----------- |
 | queryAccountId | string | false     | N/A     | Account ID  |
 
----
+### Response Example
 
-### Request Example
-
-```
-
-Response
+```json title="Response"
 {
   "error": {
     "code": "",

@@ -1,0 +1,31 @@
+---
+id: FundRate
+title: Fund rate
+sidebar_label: Fund rate
+sidebar_position: 18
+---
+
+### Request Format
+
+```
+fund_rate@{symbol}
+```
+
+- **example**: `fund_rate@btc_usdt`
+- **rate**: 60s
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "fund_rate",
+  "event": "fund_rate@btc_usdt",
+  "data": {
+    "s": "btc_usdt", // Trading pair
+    "r": "0.01", // Fund fee
+    "t": 123124124 // timestamp
+  }
+}
+```
