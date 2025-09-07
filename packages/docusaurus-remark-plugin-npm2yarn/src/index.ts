@@ -5,11 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import npmToYarn from 'npm-to-yarn';
 import type {Code, Literal} from 'mdast';
 import type {MdxJsxFlowElement, MdxJsxAttribute} from 'mdast-util-mdx';
 import type {Node, Parent} from 'unist';
 import type {Transformer, Plugin} from 'unified';
+
+// Dynamic import for ESM modules
+const npmToYarn = require('npm-to-yarn');
 
 type KnownConverter = 'yarn' | 'pnpm' | 'bun';
 
@@ -208,5 +210,4 @@ const plugin: Plugin<[PluginOptions?]> = (options = {}): Transformer => {
 
 // To continue supporting `require('npm2yarn')` without the `.default` ㄟ(▔,▔)ㄏ
 // TODO change to export default after migrating to ESM
-// @ts-expect-error: Docusaurus v4: remove
-export = plugin;
+export default plugin;

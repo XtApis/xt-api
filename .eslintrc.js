@@ -401,7 +401,7 @@ module.exports = {
     //       '-',
     //       '—',
     //       '×',
-    //       '​', // zwj: &#8203;
+    //       '', // zwj: &#8203;
     //       '@',
     //       'WebContainers',
     //       'Twitter',
@@ -534,6 +534,7 @@ module.exports = {
       ],
       rules: {
         'import/no-extraneous-dependencies': OFF,
+        'no-restricted-properties': OFF, // 允许同步文件系统方法
       },
     },
     {

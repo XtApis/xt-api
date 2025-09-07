@@ -3,7 +3,9 @@
   "compilerOptions": {
     "noEmit": false,
     "sourceMap": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "module": "ESNext",
+    "moduleResolution": "Node"
   },
   "include": ["src"],
   "exclude": ["**/__tests__/**"]
