@@ -214,6 +214,7 @@ export default async function createConfigAsync(): Promise<Config> {
     ],
     i18n: {
       defaultLocale,
+
       locales: (() => {
         if (isDeployPreview || isBranchDeploy) {
           // Deploy preview and branch deploys: keep them fast!
@@ -223,13 +224,9 @@ export default async function createConfigAsync(): Promise<Config> {
           // Staging locales: https://docusaurus-i18n-staging.netlify.app/
           return [defaultLocale, 'ja'];
         }
-        // Production locales - 统一使用 zh-Hans
-        return [defaultLocale, 'zh-Hans'];
+        // Production locales
+        return [defaultLocale, 'fr', 'pt-BR', 'ko', 'zh-CN'];
       })(),
-      localeConfigs: {
-        en: {label: 'English'},
-        'zh-Hans': {label: '简体中文'},
-      },
     },
     markdown: {
       format: 'detect',
@@ -500,8 +497,6 @@ export default async function createConfigAsync(): Promise<Config> {
             // routeBasePath: '/',
             path: 'docs',
             sidebarPath: 'sidebars.ts',
-            // Enable i18n for docs
-            id: 'default',
             // sidebarCollapsible: false,
             // sidebarCollapsed: true,
             editUrl: ({locale, docPath}) => {
@@ -606,7 +601,15 @@ export default async function createConfigAsync(): Promise<Config> {
       ],
     ],
 
-    // ✅ 翻译配置文件已合并到上面的 i18n 配置中
+    // ✅ 翻译配置文件 - 只支持中英文
+    i18n: {
+      defaultLocale: 'en',
+      locales: ['en', 'zh-Hans'],
+      localeConfigs: {
+        en: {label: 'English'},
+        'zh-Hans': {label: '简体中文'},
+      },
+    },
 
     themeConfig: {
       liveCodeBlock: {

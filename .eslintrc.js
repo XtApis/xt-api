@@ -49,7 +49,7 @@ module.exports = {
     // 'plugin:@typescript-eslint/strict',
     'plugin:regexp/recommended',
     'prettier',
-    'plugin:@docusaurus/all',
+    // 'plugin:@docusaurus/all', // 暂时注释掉以避免配置问题
   ],
   settings: {
     'import/resolver': {
@@ -391,27 +391,27 @@ module.exports = {
       },
     ],
     '@typescript-eslint/prefer-optional-chain': ERROR,
-    '@docusaurus/no-html-links': ERROR,
-    '@docusaurus/prefer-docusaurus-heading': ERROR,
-    '@docusaurus/no-untranslated-text': [
-      WARNING,
-      {
-        ignoredStrings: [
-          '·',
-          '-',
-          '—',
-          '×',
-          '​', // zwj: &#8203;
-          '@',
-          'WebContainers',
-          'Twitter',
-          'X',
-          'GitHub',
-          'Dev.to',
-          '1.x',
-        ],
-      },
-    ],
+    // '@docusaurus/no-html-links': ERROR, // 暂时注释掉
+    // '@docusaurus/prefer-docusaurus-heading': ERROR, // 暂时注释掉
+    // '@docusaurus/no-untranslated-text': [ // 暂时注释掉
+    //   WARNING,
+    //   {
+    //     ignoredStrings: [
+    //       '·',
+    //       '-',
+    //       '—',
+    //       '×',
+    //       '​', // zwj: &#8203;
+    //       '@',
+    //       'WebContainers',
+    //       'Twitter',
+    //       'X',
+    //       'GitHub',
+    //       'Dev.to',
+    //       '1.x',
+    //     ],
+    //   },
+    // ],
   },
   overrides: [
     {

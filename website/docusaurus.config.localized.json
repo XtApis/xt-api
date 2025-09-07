@@ -1,10 +1,12 @@
 {
   "tagline": {
     "en": "Build optimized websites quickly, focus on your content",
-    "fr": "Construisez rapidement des sites web optimisés, concentrez-vous sur votre contenu"
+    "fr": "Construisez rapidement des sites web optimisés, concentrez-vous sur votre contenu",
+    "zh-Hans": "快速构建优化的网站，专注于您的内容"
   },
   "remarkRehypeOptions_footnotes": {
     "en": "Footnotes",
-    "fr": "Notes de bas de page"
+    "fr": "Notes de bas de page",
+    "zh-Hans": "脚注"
   }
 }
