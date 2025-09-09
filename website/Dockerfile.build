@@ -1,0 +1,27 @@
+FROM node:18-alpine
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制 package 文件
+COPY package*.json ./
+COPY yarn.lock ./
+
+# 安装依赖
+RUN yarn install --frozen-lockfile
+
+# 复制源代码
+COPY . .
+
+# 设置环境变量
+ENV NODE_OPTIONS="--max-old-space-size=8192"
+ENV DOCUSAURUS_SLOWER=true
+
+# 构建项目
+RUN yarn build
+
+# 暴露端口
+EXPOSE 3000
+
+# 启动命令
+CMD ["yarn", "serve"]

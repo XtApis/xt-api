@@ -24,7 +24,7 @@ import ConfigLocalized from './docusaurus.config.localized.json';
 import PrismLight from './src/utils/prismLight';
 import PrismDark from './src/utils/prismDark';
 
-import type {Config, DocusaurusConfig} from '@docusaurus/types';
+import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
 import type {Options as BlogOptions} from '@docusaurus/plugin-content-blog';
@@ -106,8 +106,8 @@ if (isSlower) {
   console.log('🐢 Using slower Docusaurus build');
 }
 
-const router = process.env
-  .DOCUSAURUS_ROUTER as DocusaurusConfig['future']['experimental_router'];
+// const router = process.env
+//   .DOCUSAURUS_ROUTER as DocusaurusConfig['future']['experimental_router'];
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -175,25 +175,14 @@ export default async function createConfigAsync(): Promise<Config> {
     baseUrlIssueBanner: true,
     url: 'https://docusaurus.io',
     future: {
-      v4: !isSlower, // Not accurate, but good enough
-      experimental_faster: isSlower
-        ? false
-        : {
-            // Verbose object: easier to independently test single attributes
-            swcJsLoader: true,
-            swcJsMinimizer: true,
-            swcHtmlMinimizer: true,
-            lightningCssMinimizer: true,
-            mdxCrossCompilerCache: true,
-            rspackBundler: true,
-            rspackPersistentCache: true,
-            ssgWorkerThreads: true,
-          },
+      v4: false, // 禁用 v4 功能
+      experimental_faster: false, // 完全禁用实验性优化以减少内存使用
       experimental_storage: {
-        namespace: true,
+        namespace: false, // 禁用存储命名空间
       },
-      experimental_router: router,
+      experimental_router: 'browser', // 使用浏览器路由
     },
+    // 移除有问题的 webpack 配置
     // Dogfood both settings:
     // - force trailing slashes for deploy previews
     // - avoid trailing slashes in prod
@@ -221,7 +210,7 @@ export default async function createConfigAsync(): Promise<Config> {
           // Staging locales: https://docusaurus-i18n-staging.netlify.app/
           return [defaultLocale, 'ja'];
         }
-        // Production locales - 支持中英文
+        // Production locales - 支持中英文，使用内存优化策略
         return [defaultLocale, 'zh-Hans'];
       })(),
       path: 'i18n',
@@ -677,7 +666,7 @@ export default async function createConfigAsync(): Promise<Config> {
         searchParameters: {
           facetFilters: [], // 清空默认的过滤器
         },
-        searchPagePath: 'search',
+        searchPagePath: false,
       },
       navbar: {
         hideOnScroll: true,
