@@ -49,6 +49,20 @@ translations = {
     'title: Frequency limiting rules': 'title: 频率限制规则',
     'sidebar_label: Frequency limiting rules': 'sidebar_label: 频率限制规则',
     
+    # Deposit&Withdrawal相关翻译
+    'title: Get information of currencies (available for deposit and withdraw)': 'title: 获取支持的货币信息（可用于充值和提现）',
+    'sidebar_label: Get supported currencies': 'sidebar_label: 获取支持的货币',
+    'title: Get deposit address': 'title: 获取充值地址',
+    'sidebar_label: Get deposit address': 'sidebar_label: 获取充值地址',
+    'title: Get deposit history': 'title: 获取充值历史',
+    'sidebar_label: Get deposit history': 'sidebar_label: 获取充值历史',
+    'title: Withdraw': 'title: 提现',
+    'sidebar_label: Withdraw': 'sidebar_label: 提现',
+    'title: Get withdrawal history': 'title: 获取提现历史',
+    'sidebar_label: Get withdrawal history': 'sidebar_label: 获取提现历史',
+    'title: Get withdrawal detail': 'title: 获取提现详情',
+    'sidebar_label: Get withdrawal detail': 'sidebar_label: 获取提现详情',
+    
     # 通用内容翻译
     '**Type:**': '**类型:**',
     '**Description:**': '**描述:**',
@@ -179,6 +193,22 @@ translations = {
     'pair with a reasonable `validate-recvwindow` to tolerate network jitter': '与合理的`validate-recvwindow`配对以容忍网络抖动',
     'When body is JSON, use the **exact raw JSON string** for signing': '当请求体是JSON时，使用**确切的原始JSON字符串**进行签名',
     'don\'t reorder keys or prettify': '不要重新排序键或美化',
+    
+    # Deposit&Withdrawal相关翻译
+    'The `currency` and `chain` fields in the response are required inputs for other **deposit/withdrawal APIs**.': '响应中的`currency`和`chain`字段是其他**充值/提现API**的必需输入。',
+    'Each currency includes its supported transfer networks, deposit/withdrawal status, and fee details.': '每种货币都包含其支持的转账网络、充值/提现状态和费用详情。',
+    'Currency': '货币',
+    'Supported Transfer Network': '支持的转账网络',
+    'Deposit supported': '支持充值',
+    'Withdrawal supported': '支持提现',
+    'Future Address (if applicable)': '未来地址（如适用）',
+    'Minimum deposit amount': '最小充值金额',
+    'Deposit fee rate (percentage)': '充值费率（百分比）',
+    'Deposit confirmation block count': '充值确认区块数',
+    'Minimum withdrawal amount': '最小提现金额',
+    'Withdrawal amount precision': '提现金额精度',
+    'Withdrawal fee': '提现手续费',
+    'Withdrawal fee currency': '提现手续费币种',
     
     # 其他常见翻译
     'Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.': '由于延迟高、稳定性差等原因，不建议通过代理访问API。',
@@ -318,7 +348,11 @@ def protect_json_fields(content):
         'fullName', 'currencyId', 'frozenAmount', 'availableAmount', 
         'totalAmount', 'convertBtcAmount', 'totalBtcAmount', 'assets',
         'depositStatus', 'withdrawStatus', 'convertEnabled', 'transferEnabled',
-        'maxPrecision', 'weight', 'cmcLink', 'logo', 'currency', 'id'
+        'maxPrecision', 'weight', 'cmcLink', 'logo', 'currency', 'id',
+        'supportChains', 'depositEnabled', 'withdrawEnabled', 'contract',
+        'depositMinAmount', 'depositFeeRate', 'depositConfirmations',
+        'withdrawMinAmount', 'withdrawPrecision', 'withdrawFeeAmount',
+        'withdrawFeeCurrency', 'chain'
     ]
     
     # 如果字段名被翻译了，恢复它们
