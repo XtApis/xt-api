@@ -102,8 +102,10 @@ translations = {
     # Order相关翻译
     'title: Place order': 'title: 下单',
     'sidebar_label: Place order': 'sidebar_label: 下单',
-    'title: Get single order': 'title: 获取单个订单',
-    'sidebar_label: Get single order': 'sidebar_label: 获取单个订单',
+            'title: Get single order': 'title: 获取单个订单',
+            'sidebar_label: Get single order': 'sidebar_label: 获取单个订单',
+            'title: Get single': 'title: 获取单个订单',
+            'sidebar_label: Get single': 'sidebar_label: 获取单个订单',
     'title: Get open orders': 'title: 获取开放订单',
     'sidebar_label: Get open orders': 'sidebar_label: 获取开放订单',
     'title: Cancel order': 'title: 取消订单',
@@ -448,7 +450,7 @@ def protect_json_fields(content):
         'supportChains', 'depositEnabled', 'withdrawEnabled', 'contract',
         'depositMinAmount', 'depositFeeRate', 'depositConfirmations',
         'withdrawMinAmount', 'withdrawPrecision', 'withdrawFeeAmount',
-        'withdrawFeeCurrency', 'chain'
+        'withdrawFeeCurrency', 'chain', 'baseCurrency', 'quoteCurrency', 'feeCurrency'
     ]
     
     # 如果字段名被翻译了，恢复它们
