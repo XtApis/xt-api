@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+自定义路径翻译脚本
+使用方法: python3 translate_custom.py <目标路径>
+例如: python3 translate_custom.py spot/AccessDescription
+"""
+
+import os
+import sys
+import re
+from pathlib import Path
+
+# 扩展的翻译映射表
+translations = {
+    # 标题翻译
+    'title: REST API': 'title: REST API',
+    'sidebar_label: REST API': 'sidebar_label: REST API',
+    'title: Basic Information of the Interface': 'title: 接口基本信息',
+    'sidebar_label: Basic Information of the Interface': 'sidebar_label: 接口基本信息',
+    'title: Frequency Limiting Rules': 'title: 频率限制规则',
+    'sidebar_label: Frequency Limiting Rules': 'sidebar_label: 频率限制规则',
+    'title: Signature Instructions': 'title: 签名说明',
+    'sidebar_label: Signature Instructions': 'sidebar_label: 签名说明',
+    'title: API Key Application Steps': 'title: API密钥申请步骤',
+    'sidebar_label: API Key Application Steps': 'sidebar_label: API密钥申请步骤',
+    'title: API Code Library': 'title: API代码库',
+    'sidebar_label: API Code Library': 'sidebar_label: API代码库',
+    'title: Response Format': 'title: 响应格式',
+    'sidebar_label: Response Format': 'sidebar_label: 响应格式',
+    'title: Response Code': 'title: 响应代码',
+    'sidebar_label: Response Code': 'sidebar_label: 响应代码',
+    'title: Public module': 'title: 公共模块',
+    'sidebar_label: Public module': 'sidebar_label: 公共模块',
+    'title: FAQ': 'title: 常见问题',
+    'sidebar_label: FAQ': 'sidebar_label: 常见问题',
+    'title: Contact us': 'title: 联系我们',
+    'sidebar_label: Contact us': 'sidebar_label: 联系我们',
+    
+    # 常见内容翻译
+    'Description': '描述',
+    'Steps': '步骤',
+    'Example Parameters': '示例参数',
+    'Name': '名称',
+    'Mandatory': '必填',
+    'Example': '示例',
+    'Description': '描述',
+    'Production environment:': '生产环境：',
+    'Java Connector': 'Java连接器',
+    'SDKs for Each Language': '各语言SDK',
+    'Sample Requests': '示例请求',
+    'You can find sample request information for each interface here': '您可以在这里找到每个接口的示例请求信息',
+    
+    # API相关翻译
+    'API Key': 'API密钥',
+    'API Key Application': 'API密钥申请',
+    'API Code Library': 'API代码库',
+    'Some interfaces may require the user\'s **API Key**.': '某些接口可能需要用户的**API密钥**。',
+    'How to create an API Key': '如何创建API密钥',
+    'please refer to the official documentation': '请参考官方文档',
+    'A lightweight Java codebase that provides methods allowing users to directly call the API.': '一个轻量级的Java代码库，提供允许用户直接调用API的方法。',
+    
+    # 频率限制相关
+    'Some interfaces will have limited flow control': '某些接口会有流控限制',
+    'The flow limit is mainly divided into': '流控主要分为',
+    'gateway flow limit': '网关流控',
+    'WAF flow limit': 'WAF流控',
+    'If the interface request triggers the gateway flow limit': '如果接口请求触发网关流控',
+    'will be returned': '会返回',
+    'indicating that the access frequency exceeds the limit': '表示访问频率超限',
+    'will be blocked': '会被封禁',
+    'Gateway flow limiting is divided into': '网关流控分为',
+    'IP flow limiting': 'IP流控',
+    'apiKey flow limiting': 'apiKey流控',
+    'Example descriptions': '示例说明',
+    'indicates the limit of the number of requests': '表示该接口的请求次数限制',
+    'per second per IP': '每秒每IP',
+    'per second per apiKey': '每秒每apiKey',
+    
+    # 签名相关
+    'Since XT needs to provide some open interfaces for third-party platforms': '由于XT需要为第三方平台提供一些开放接口',
+    'the issue of **data security** needs to be considered': '需要考虑**数据安全**问题',
+    'Such as': '如',
+    'Whether the data has been tampered with': '数据是否被篡改',
+    'Whether the data is outdated': '数据是否过期',
+    'Whether the data can be submitted repeatedly': '数据是否可以重复提交',
+    'The access frequency of the interface': '接口的访问频率',
+    'Among these, **whether data has been tampered with is the most important issue**': '其中，**数据是否被篡改是最重要的问题**',
+    'Apply for `appkey` and `secretkey` in the user center first': '先在用户中心申请`appkey`和`secretkey`',
+    'each user\'s keys are different': '每个用户的密钥都不同',
+    'Add `timestamp`': '添加`timestamp`',
+    'Its value should be the **unix timestamp (milliseconds)** of the time when the request is sent': '其值应为发送请求时的**unix时间戳（毫秒）**',
+    'The time of the data is calculated based on this value': '数据的时间基于此值计算',
+    'Add `signature`': '添加`signature`',
+    'its value is obtained by the signature algorithm rule': '其值通过签名算法规则获得',
+    'Add `recvwindow`': '添加`recvwindow`',
+    'defines the valid time of the request': '定义请求的有效时间',
+    'Valid time is fixed at a certain value': '有效时间固定为某个值',
+    'When a request is received, the server checks if': '当收到请求时，服务器检查',
+    'Any request older than **5000 ms** is invalid': '任何超过**5000毫秒**的请求都无效',
+    'If the client\'s timestamp is more than **1 second ahead of server time**, the request is invalid': '如果客户端的时间戳比服务器时间提前超过**1秒**，请求无效',
+    'Note': '注意',
+    'Online conditions are not always 100% reliable': '在线条件并不总是100%可靠',
+    'That\'s why we provide the `recvWindow` parameter': '这就是我们提供`recvWindow`参数的原因',
+    'For high-frequency trading, adjust `recvWindow` to meet timeliness needs': '对于高频交易，调整`recvWindow`以满足时效性需求',
+    'RecvWindow longer than **5 seconds** is **not recommended**': '不建议使用超过**5秒**的RecvWindow',
+    'Add `algorithms`': '添加`algorithms`',
+    'signature method': '签名方法',
+    'Recommended': '推荐',
+    'Supported algorithms': '支持的算法',
+    'Reserved, signed version number': '保留，签名版本号',
+    'Default': '默认',
+    'millisecond': '毫秒',
+    
+    # 其他常见翻译
+    'Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.': '由于延迟高、稳定性差等原因，不建议通过代理访问API。',
+    'GET request parameters are placed in **query Params**, POST request parameters are placed in **request body**.': 'GET请求参数放在**query Params**中，POST请求参数放在**request body**中。',
+    'Please set the request header information to:': '请设置请求头信息为：',
+    'For requests that start other than `/public`, the request message needs to be **signed**.': '对于不以`/public`开头的请求，请求消息需要进行**签名**。',
+}
+
+def translate_content(content):
+    """翻译内容"""
+    for en, zh in translations.items():
+        content = content.replace(en, zh)
+    return content
+
+def translate_mdx_file(file_path):
+    """翻译单个MDX文件"""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # 翻译内容
+        translated_content = translate_content(content)
+        
+        # 写回文件
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(translated_content)
+        
+        print(f"✅ 已翻译: {file_path}")
+        return True
+    except Exception as e:
+        print(f"❌ 翻译失败: {file_path} - {e}")
+        return False
+
+def main():
+    """主函数"""
+    if len(sys.argv) != 2:
+        print("使用方法: python3 translate_custom.py <目标路径>")
+        print("例如: python3 translate_custom.py spot/AccessDescription")
+        print("例如: python3 translate_custom.py spot")
+        print("例如: python3 translate_custom.py futures")
+        return
+    
+    target_path = sys.argv[1]
+    
+    # 中文文档目录路径
+    zh_docs_dir = Path("/Users/king/Downloads/xt-api-main 2/website/i18n/zh-Hans/docusaurus-plugin-content-docs/current")
+    target_dir = zh_docs_dir / target_path
+    
+    if not target_dir.exists():
+        print(f"❌ 目录不存在: {target_dir}")
+        return
+    
+    # 统计信息
+    total_files = 0
+    success_files = 0
+    
+    # 遍历指定路径下的所有MDX文件
+    for mdx_file in target_dir.rglob("*.mdx"):
+        total_files += 1
+        if translate_mdx_file(mdx_file):
+            success_files += 1
+    
+    print(f"\n📊 翻译完成统计:")
+    print(f"   目标路径: {target_path}")
+    print(f"   总文件数: {total_files}")
+    print(f"   成功翻译: {success_files}")
+    print(f"   失败文件: {total_files - success_files}")
+
+if __name__ == "__main__":
+    main()
