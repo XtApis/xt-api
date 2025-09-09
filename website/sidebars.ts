@@ -7,6 +7,9 @@
 
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
+// 检查当前语言环境（暂时未使用，保留以备将来使用）
+// const isChinese = process.env.DOCUSAURUS_CURRENT_LOCALE === 'zh-Hans';
+
 const sidebars: SidebarsConfig = {
   docs: [
     'introduction',
