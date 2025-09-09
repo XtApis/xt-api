@@ -63,6 +63,18 @@ translations = {
     'title: Get withdrawal detail': 'title: 获取提现详情',
     'sidebar_label: Get withdrawal detail': 'sidebar_label: 获取提现详情',
     
+    # 更多Deposit&Withdrawal标题翻译
+    'title: Get the deposit address': 'title: 获取充值地址',
+    'sidebar_label: Get the deposit address': 'sidebar_label: 获取充值地址',
+    'title: Get deposit history': 'title: 获取充值历史',
+    'sidebar_label: Get deposit history': 'sidebar_label: 获取充值历史',
+    'title: Withdraw': 'title: 提现',
+    'sidebar_label: Withdraw': 'sidebar_label: 提现',
+    'title: Get withdrawal history': 'title: 获取提现历史',
+    'sidebar_label: Get withdrawal history': 'sidebar_label: 获取提现历史',
+    'title: Get withdrawal detail': 'title: 获取提现详情',
+    'sidebar_label: Get withdrawal detail': 'sidebar_label: 获取提现详情',
+    
     # 通用内容翻译
     '**Type:**': '**类型:**',
     '**Description:**': '**描述:**',
@@ -210,6 +222,16 @@ translations = {
     'Withdrawal fee': '提现手续费',
     'Withdrawal fee currency': '提现手续费币种',
     
+    # 更多参数和描述翻译
+    'Network for deposit': '充值网络',
+    'Currency name': '货币名称',
+    '货币 name': '货币名称',
+    'This endpoint retrieves the deposit address for a specified currency on a given chain.': '此接口获取指定货币在给定链上的充值地址。',
+    'Some currencies may require a **memo/tag** in addition to the address.': '某些货币可能需要在地址之外提供**备注/标签**。',
+    'Always confirm the network matches the currency to avoid loss of funds.': '始终确认网络与货币匹配，以避免资金损失。',
+    'Wallet address': '钱包地址',
+    'Memo/Tag if required, otherwise empty': '如需要备注/标签，否则为空',
+    
     # 其他常见翻译
     'Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.': '由于延迟高、稳定性差等原因，不建议通过代理访问API。',
     'GET request parameters are placed in **query Params**, POST request parameters are placed in **request body**.': 'GET请求参数放在**query Params**中，POST请求参数放在**request body**中。',
@@ -248,6 +270,14 @@ def translate_title_and_sidebar(content):
         (r'title: Public module', 'title: 公共模块'),
         (r'title: FAQ', 'title: 常见问题'),
         (r'title: Contact us', 'title: 联系我们'),
+        # Deposit&Withdrawal相关
+        (r'title: Get the deposit address', 'title: 获取充值地址'),
+        (r'title: Get deposit address', 'title: 获取充值地址'),
+        (r'title: Get deposit history', 'title: 获取充值历史'),
+        (r'title: Withdraw', 'title: 提现'),
+        (r'title: Get withdrawal history', 'title: 获取提现历史'),
+        (r'title: Get withdrawal detail', 'title: 获取提现详情'),
+        (r'title: Get information of currencies \(available for deposit and withdraw\)', 'title: 获取支持的货币信息（可用于充值和提现）'),
     ]
     
     # 翻译sidebar_label字段
@@ -268,6 +298,14 @@ def translate_title_and_sidebar(content):
         (r'sidebar_label: Public module', 'sidebar_label: 公共模块'),
         (r'sidebar_label: FAQ', 'sidebar_label: 常见问题'),
         (r'sidebar_label: Contact us', 'sidebar_label: 联系我们'),
+        # Deposit&Withdrawal相关
+        (r'sidebar_label: Get the deposit address', 'sidebar_label: 获取充值地址'),
+        (r'sidebar_label: Get deposit address', 'sidebar_label: 获取充值地址'),
+        (r'sidebar_label: Get deposit history', 'sidebar_label: 获取充值历史'),
+        (r'sidebar_label: Withdraw', 'sidebar_label: 提现'),
+        (r'sidebar_label: Get withdrawal history', 'sidebar_label: 获取提现历史'),
+        (r'sidebar_label: Get withdrawal detail', 'sidebar_label: 获取提现详情'),
+        (r'sidebar_label: Get supported currencies', 'sidebar_label: 获取支持的货币'),
     ]
     
     # 应用标题翻译
