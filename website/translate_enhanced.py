@@ -24,6 +24,8 @@ translations = {
     'sidebar_label: Signature Instructions': 'sidebar_label: 签名说明',
     'title: Signature generation': 'title: 签名生成',
     'sidebar_label: Signature generation': 'sidebar_label: 签名生成',
+    'title: Signature Statement': 'title: 签名声明',
+    'sidebar_label: Signature Statement': 'sidebar_label: 签名声明',
     'title: API Key Application Steps': 'title: API密钥申请步骤',
     'sidebar_label: API Key Application Steps': 'sidebar_label: API密钥申请步骤',
     'title: API Code Library': 'title: API代码库',
@@ -38,6 +40,389 @@ translations = {
     'sidebar_label: FAQ': 'sidebar_label: 常见问题',
     'title: Contact us': 'title: 联系我们',
     'sidebar_label: Contact us': 'sidebar_label: 联系我们',
+    
+    # 签名相关翻译
+    'Signature Rules': '签名规则',
+    'AppKey & SecretKey': 'AppKey 和 SecretKey',
+    'Timestamp': '时间戳',
+    'Signature': '签名',
+    'RecvWindow': '接收窗口',
+    'Signature Algorithms': '签名算法',
+    'Required Signature Parameters': '必需的签名参数',
+    'Name': '名称',
+    'Mandatory': '必需',
+    'Example': '示例',
+    'Description': '描述',
+    'API密钥': 'API密钥',
+    '时间戳': '时间戳',
+    '签名': '签名',
+    '接收窗口': '接收窗口',
+    '毫秒s': '毫秒',
+    '默认': '默认值',
+    'HmacSHA256': 'HmacSHA256',
+    'HmacMD5': 'HmacMD5',
+    'HmacSHA1': 'HmacSHA1',
+    'HmacSHA224': 'HmacSHA224',
+    'HmacSHA384': 'HmacSHA384',
+    'HmacSHA512': 'HmacSHA512',
+    
+    # 修复混合语言问题
+    'id: 签名Statement': 'id: SignatureStatement',
+    'Distributed offline': '离线分发',
+    'Different calls should use different': '不同的调用应使用不同的',
+    'Add a timestamp in': '添加时间戳，单位为',
+    'of the request time': '请求时间',
+    'The validity of the request is calculated based on this value': '请求的有效性基于此值计算',
+    'All request data must be signed': '所有请求数据必须签名',
+    'The validity period is set by': '有效期由',
+    'is not recommended': '不推荐',
+    'This mechanism handles': '此机制处理',
+    'and helps ensure timeliness in high-frequency trading': '并有助于确保高频交易的及时性',
+    'are calculated with HSC-based protocols': '使用基于HSC的协议计算',
+    'Supported': '支持',
+    'If the timestamp is more than': '如果时间戳超过',
+    'older than server time, the request is invalid': '比服务器时间早，请求无效',
+    'If the client timestamp is more than': '如果客户端时间戳超过',
+    'ahead of the server, the request is also rejected': '比服务器早，请求也会被拒绝',
+    'seconds': '秒',
+    'maximum': '最大',
+    'network jitter': '网络抖动',
+    
+    # API 相关翻译
+    'title: Get client ip': 'title: 获取客户端IP',
+    'sidebar_label: Get client ip': 'sidebar_label: 获取客户端IP',
+    'Get client ip': '获取客户端IP',
+    
+    # Entrust 相关标题翻译
+    'title: Create Trigger Orders': 'title: 创建触发订单',
+    'sidebar_label: Create Trigger Orders': 'sidebar_label: 创建触发订单',
+    'Create Trigger Orders': '创建触发订单',
+    
+    'title: Cancel Trigger Orders': 'title: 取消触发订单',
+    'sidebar_label: Cancel Trigger Orders': 'sidebar_label: 取消触发订单',
+    'Cancel Trigger Orders': '取消触发订单',
+    
+    'title: Cancel All Trigger Orders': 'title: 取消所有触发订单',
+    'sidebar_label: Cancel All Trigger Orders': 'sidebar_label: 取消所有触发订单',
+    'Cancel All Trigger Orders': '取消所有触发订单',
+    
+    'title: See Trigger Orders': 'title: 查看触发订单',
+    'sidebar_label: See Trigger Orders': 'sidebar_label: 查看触发订单',
+    'See Trigger Orders': '查看触发订单',
+    
+    'title: See Trigger Orders base on EntrustId': 'title: 根据委托ID查看触发订单',
+    'sidebar_label: See Trigger Orders base on EntrustId': 'sidebar_label: 根据委托ID查看触发订单',
+    'See Trigger Orders base on EntrustId': '根据委托ID查看触发订单',
+    
+    'title: See Trigger Orders History': 'title: 查看触发订单历史',
+    'sidebar_label: See Trigger Orders History': 'sidebar_label: 查看触发订单历史',
+    'See Trigger Orders History': '查看触发订单历史',
+    
+    'title: Create Stop Limit': 'title: 创建止损限价',
+    'sidebar_label: Create Stop Limit': 'sidebar_label: 创建止损限价',
+    'Create Stop Limit': '创建止损限价',
+    
+    'title: Cancel Stop Limit': 'title: 取消止损限价',
+    'sidebar_label: Cancel Stop Limit': 'sidebar_label: 取消止损限价',
+    'Cancel Stop Limit': '取消止损限价',
+    
+    'title: Cancel All Stop Limit': 'title: 取消所有止损限价',
+    'sidebar_label: Cancel All Stop Limit': 'sidebar_label: 取消所有止损限价',
+    'Cancel All Stop Limit': '取消所有止损限价',
+    
+    'title: See Stop Limit': 'title: 查看止损限价',
+    'sidebar_label: See Stop Limit': 'sidebar_label: 查看止损限价',
+    'See Stop Limit': '查看止损限价',
+    
+    'title: See Stop Limit base on ProfitId': 'title: 根据利润ID查看止损限价',
+    'sidebar_label: See Stop Limit base on ProfitId': 'sidebar_label: 根据利润ID查看止损限价',
+    'See Stop Limit base on ProfitId': '根据利润ID查看止损限价',
+    
+    'title: Alter Stop Limit': 'title: 修改止损限价',
+    'sidebar_label: Alter Stop Limit': 'sidebar_label: 修改止损限价',
+    'Alter Stop Limit': '修改止损限价',
+    
+    'title: Create Track': 'title: 创建跟踪',
+    'sidebar_label: Create Track': 'sidebar_label: 创建跟踪',
+    'Create Track': '创建跟踪',
+    
+    'title: Cancel single track': 'title: 取消单个跟踪',
+    'sidebar_label: Cancel single track': 'sidebar_label: 取消单个跟踪',
+    'Cancel single track': '取消单个跟踪',
+    
+    'title: Get track list (all active)': 'title: 获取跟踪列表（所有活跃）',
+    'sidebar_label: Get track list (all active)': 'sidebar_label: 获取跟踪列表（所有活跃）',
+    'Get track list (all active)': '获取跟踪列表（所有活跃）',
+    
+    'title: Cancel all track': 'title: 取消所有跟踪',
+    'sidebar_label: Cancel all track': 'sidebar_label: 取消所有跟踪',
+    'Cancel all track': '取消所有跟踪',
+    
+    'title: Get history track list (inactive)': 'title: 获取历史跟踪列表（非活跃）',
+    'sidebar_label: Get history track list (inactive)': 'sidebar_label: 获取历史跟踪列表（非活跃）',
+    'Get history track list (inactive)': '获取历史跟踪列表（非活跃）',
+    
+    'title: Get single order track detail': 'title: 获取单个订单跟踪详情',
+    'sidebar_label: Get single order track detail': 'sidebar_label: 获取单个订单跟踪详情',
+    'Get single order track detail': '获取单个订单跟踪详情',
+    
+    # Order 相关标题翻译
+    'title: Create Orders': 'title: 创建订单',
+    'sidebar_label: Create Orders': 'sidebar_label: 创建订单',
+    'Create Orders': '创建订单',
+    
+    'title: See Order History': 'title: 查看订单历史',
+    'sidebar_label: See Order History': 'sidebar_label: 查看订单历史',
+    'See Order History': '查看订单历史',
+    
+    'title: See Transaction Details': 'title: 查看交易详情',
+    'sidebar_label: See Transaction Details': 'sidebar_label: 查看交易详情',
+    'See Transaction Details': '查看交易详情',
+    
+    'title: Update Orders': 'title: 更新订单',
+    'sidebar_label: Update Orders': 'sidebar_label: 更新订单',
+    'Update Orders': '更新订单',
+    
+    'title: Bulk Orders': 'title: 批量订单',
+    'sidebar_label: Bulk Orders': 'sidebar_label: 批量订单',
+    'Bulk Orders': '批量订单',
+    
+    'title: See Orders by ID': 'title: 根据ID查看订单',
+    'sidebar_label: See Orders by ID': 'sidebar_label: 根据ID查看订单',
+    'See Orders by ID': '根据ID查看订单',
+    
+    'title: See Orders': 'title: 查看订单',
+    'sidebar_label: See Orders': 'sidebar_label: 查看订单',
+    'See Orders': '查看订单',
+    
+    'title: Cancel Orders': 'title: 取消订单',
+    'sidebar_label: Cancel Orders': 'sidebar_label: 取消订单',
+    'Cancel Orders': '取消订单',
+    
+    'title: Batch Cancel Orders': 'title: 批量取消订单',
+    'sidebar_label: Batch Cancel Orders': 'sidebar_label: 批量取消订单',
+    'Batch Cancel Orders': '批量取消订单',
+    
+    'title: Cancel All Orders': 'title: 取消所有订单',
+    'sidebar_label: Cancel All Orders': 'sidebar_label: 取消所有订单',
+    'Cancel All Orders': '取消所有订单',
+    
+    # 导航标题翻译
+    'AccessDescription': '访问描述',
+    'Entrust': '委托',
+    'MarketData': '行情数据',
+    'Order': '订单',
+    'PythonPackage': 'Python包',
+    'Python Package': 'Python包',
+    'Quote collection': '行情集合',
+    'User': '用户',
+    'UserWebsocket': '用户WebSocket',
+    'WebsocketV2': 'WebSocket V2',
+    
+    # Python Package 相关翻译
+    'title: Python Package': 'title: Python包',
+    'sidebar_label: Python Package': 'sidebar_label: Python包',
+    'Official Python3 API connector for XT.COM\'s HTTP APIs': 'XT.COM HTTP API的官方Python3连接器',
+    'You can find the official Python3 API connector for XT.COM\'s HTTP APIs at the following link:': '您可以在以下链接找到XT.COM HTTP API的官方Python3连接器：',
+    'PyPI Project: pyxt': 'PyPI项目: pyxt',
+    '示例 Code': '示例代码',
+    'You can add your Python example code here': '您可以在此处添加Python示例代码',
+    '示例 usage of the pyxt connector': 'pyxt连接器的使用示例',
+    
+    # margin-spot 相关翻译
+    'title: RestApi': 'title: REST API',
+    'sidebar_label: RestApi': 'sidebar_label: REST API',
+    'RestApi': 'REST API',
+    'description: RestApi': 'description: REST API',
+    'id: REST API': 'id: RestApi',  # 保持ID不变，只翻译显示内容
+    
+    # 修复其他被错误翻译的ID
+    'id: 接口基本信息': 'id: apiBasicInfo',
+    'id: 频率限制规则': 'id: limitRules', 
+    'id: 签名说明': 'id: signStatement',
+    'id: 签名生成': 'id: signSteps',
+    'id: API密钥申请步骤': 'id: applyApi',
+    'id: API代码库': 'id: apiDemo',
+    'id: 响应格式': 'id: returnFormat',
+    'id: 错误代码': 'id: errorCode',
+    'id: 公共模块': 'id: publicModule',
+    'id: 常见问题': 'id: FAQ',
+    'id: 联系我们': 'id: contactUs',
+    'id: Create 订单': 'id: CreateOrder',
+    'id: 获取交易对信息': 'id: getSymbolInfo',
+    'id: 获取借贷列表': 'id: getLoanList',
+    'id: 还款': 'id: repay',
+    'id: 利息': 'id: interest',
+    'id: 按交易对获取余额': 'id: GetBalanceBySymbol',
+    'id: Create订单': 'id: CreateOrder',
+    'id: 获取交易对信息': 'id: getSymbolInfo',
+    
+    # futures模块ID修复
+    'id: 请求Message格式': 'id: RequestMessageFormat',
+    'id: 响应_message_format': 'id: ResponseMessageFormat', 
+    'id: 响应Message格式': 'id: ResponseMessageFormat',
+    'id: 心跳': 'id: Heartbeat',
+    'id: _futures_documentation_signsteps': 'id: signSteps',
+    'id: futures_documentation_apiBasicInfo': 'id: apiBasicInfo',
+    'id: Return格式': 'id: returnFormat',
+    
+    # spot模块ID修复
+    'id: 响应Message格式': 'id: responseFormat',
+    'id: 心跳': 'id: heartBeat',
+    
+    'title: Basic information of the interface': 'title: 接口基本信息',
+    'sidebar_label: Basic information of the interface': 'sidebar_label: 接口基本信息',
+    'Basic information of the interface': '接口基本信息',
+    
+    'title: Frequency Limiting Rules': 'title: 频率限制规则',
+    'sidebar_label: Frequency Limiting Rules': 'sidebar_label: 频率限制规则',
+    'Frequency Limiting Rules': '频率限制规则',
+    
+    'title: Signature Instructions': 'title: 签名说明',
+    'sidebar_label: Signature Instructions': 'sidebar_label: 签名说明',
+    'Signature Instructions': '签名说明',
+    
+    'title: Signature Generation': 'title: 签名生成',
+    'sidebar_label: Signature Generation': 'sidebar_label: 签名生成',
+    'Signature Generation': '签名生成',
+    
+    'title: API Key Application Steps': 'title: API密钥申请步骤',
+    'sidebar_label: API Key Application Steps': 'sidebar_label: API密钥申请步骤',
+    'API Key Application Steps': 'API密钥申请步骤',
+    
+    'title: API Code Library': 'title: API代码库',
+    'sidebar_label: API Code Library': 'sidebar_label: API代码库',
+    'API Code Library': 'API代码库',
+    
+    'title: Response Format': 'title: 响应格式',
+    'sidebar_label: Response Format': 'sidebar_label: 响应格式',
+    'Response Format': '响应格式',
+    
+    'title: Error Code': 'title: 错误代码',
+    'sidebar_label: Error Code': 'sidebar_label: 错误代码',
+    'Error Code': '错误代码',
+    
+    'title: Public Module': 'title: 公共模块',
+    'sidebar_label: Public Module': 'sidebar_label: 公共模块',
+    'Public Module': '公共模块',
+    
+    'title: FAQ': 'title: 常见问题',
+    'sidebar_label: FAQ': 'sidebar_label: 常见问题',
+    'FAQ': '常见问题',
+    
+    'title: Contact Us': 'title: 联系我们',
+    'sidebar_label: Contact Us': 'sidebar_label: 联系我们',
+    'Contact Us': '联系我们',
+    
+    # 其他常见翻译
+    'Production environment': '生产环境',
+    'Edit this page': '编辑此页',
+    'Last updated on': '最后更新于',
+    'Next': '下一页',
+    'Previous': '上一页',
+    
+    # MarketData 相关标题翻译
+    'title: Get Configuration Information for Listed And Tradeable Symbols': 'title: 获取已上市和可交易符号的配置信息',
+    'sidebar_label: Get Configuration Information for Listed And Tradeable Symbols': 'sidebar_label: 获取已上市和可交易符号的配置信息',
+    'Get Configuration Information for Listed And Tradeable Symbols': '获取已上市和可交易符号的配置信息',
+    
+    'title: Get Mark Price for All Trading Pairs': 'title: 获取所有交易对的标记价格',
+    'sidebar_label: Get Mark Price for All Trading Pairs': 'sidebar_label: 获取所有交易对的标记价格',
+    'Get Mark Price for All Trading Pairs': '获取所有交易对的标记价格',
+    
+    'title: Get Mark Price for Single Trading Pair': 'title: 获取单个交易对的标记价格',
+    'sidebar_label: Get Mark Price for Single Trading Pair': 'sidebar_label: 获取单个交易对的标记价格',
+    'Get Mark Price for Single Trading Pair': '获取单个交易对的标记价格',
+    
+    'title: Get Index Price for All Trading Pairs': 'title: 获取所有交易对的指数价格',
+    'sidebar_label: Get Index Price for All Trading Pairs': 'sidebar_label: 获取所有交易对的指数价格',
+    'Get Index Price for All Trading Pairs': '获取所有交易对的指数价格',
+    
+    'title: Get Index Price for Single Trading Pair': 'title: 获取单个交易对的指数价格',
+    'sidebar_label: Get Index Price for Single Trading Pair': 'sidebar_label: 获取单个交易对的指数价格',
+    'Get Index Price for Single Trading Pair': '获取单个交易对的指数价格',
+    
+    'title: Get Trading Pair Currency': 'title: 获取交易对货币',
+    'sidebar_label: Get Trading Pair Currency': 'sidebar_label: 获取交易对货币',
+    'Get Trading Pair Currency': '获取交易对货币',
+    
+    'title: Get Trading Pair Information of Kline': 'title: 获取交易对K线信息',
+    'sidebar_label: Get Trading Pair Information of Kline': 'sidebar_label: 获取交易对K线信息',
+    'Get Trading Pair Information of Kline': '获取交易对K线信息',
+    
+    'title: Get Depth Data of Trading Pairs': 'title: 获取交易对深度数据',
+    'sidebar_label: Get Depth Data of Trading Pairs': 'sidebar_label: 获取交易对深度数据',
+    'Get Depth Data of Trading Pairs': '获取交易对深度数据',
+    
+    'title: Get Latest Transaction Information of Trading Pairs': 'title: 获取交易对最新交易信息',
+    'sidebar_label: Get Latest Transaction Information of Trading Pairs': 'sidebar_label: 获取交易对最新交易信息',
+    'Get Latest Transaction Information of Trading Pairs': '获取交易对最新交易信息',
+    
+    'title: Get Market Information for All Trading Pairs': 'title: 获取所有交易对的市场信息',
+    'sidebar_label: Get Market Information for All Trading Pairs': 'sidebar_label: 获取所有交易对的市场信息',
+    'Get Market Information for All Trading Pairs': '获取所有交易对的市场信息',
+    
+    'title: Get Market Information for Specific Trading Pair': 'title: 获取特定交易对的市场信息',
+    'sidebar_label: Get Market Information for Specific Trading Pair': 'sidebar_label: 获取特定交易对的市场信息',
+    'Get Market Information for Specific Trading Pair': '获取特定交易对的市场信息',
+    
+    'title: Get Aggregated Market Information for All Trading Pairs': 'title: 获取所有交易对的聚合市场信息',
+    'sidebar_label: Get Aggregated Market Information for All Trading Pairs': 'sidebar_label: 获取所有交易对的聚合市场信息',
+    'Get Aggregated Market Information for All Trading Pairs': '获取所有交易对的聚合市场信息',
+    
+    'title: Get Aggregated Market Information for Specific Trading Pair': 'title: 获取特定交易对的聚合市场信息',
+    'sidebar_label: Get Aggregated Market Information for Specific Trading Pair': 'sidebar_label: 获取特定交易对的聚合市场信息',
+    'Get Aggregated Market Information for Specific Trading Pair': '获取特定交易对的聚合市场信息',
+    
+    'title: Get Ask Bid Market Information for All Trading Pairs': 'title: 获取所有交易对的买卖盘市场信息',
+    'sidebar_label: Get Ask Bid Market Information for All Trading Pairs': 'sidebar_label: 获取所有交易对的买卖盘市场信息',
+    'Get Ask Bid Market Information for All Trading Pairs': '获取所有交易对的买卖盘市场信息',
+    
+    'title: Get Ask Bid Market Information for Specific Trading Pair': 'title: 获取特定交易对的买卖盘市场信息',
+    'sidebar_label: Get Ask Bid Market Information for Specific Trading Pair': 'sidebar_label: 获取特定交易对的买卖盘市场信息',
+    'Get Ask Bid Market Information for Specific Trading Pair': '获取特定交易对的买卖盘市场信息',
+    
+    'title: Get Trading Pair Risk Fund Balance': 'title: 获取交易对风险基金余额',
+    'sidebar_label: Get Trading Pair Risk Fund Balance': 'sidebar_label: 获取交易对风险基金余额',
+    'Get Trading Pair Risk Fund Balance': '获取交易对风险基金余额',
+    
+    'title: Get Funding Rate Information': 'title: 获取资金费率信息',
+    'sidebar_label: Get Funding Rate Information': 'sidebar_label: 获取资金费率信息',
+    'Get Funding Rate Information': '获取资金费率信息',
+    
+    'title: Get Funding Rate Records': 'title: 获取资金费率记录',
+    'sidebar_label: Get Funding Rate Records': 'sidebar_label: 获取资金费率记录',
+    'Get Funding Rate Records': '获取资金费率记录',
+    
+    'title: See Leverage Stratification of Single Trading Pair': 'title: 查看单个交易对的杠杆分层',
+    'sidebar_label: See Leverage Stratification of Single Trading Pair': 'sidebar_label: 查看单个交易对的杠杆分层',
+    'See Leverage Stratification of Single Trading Pair': '查看单个交易对的杠杆分层',
+    
+    'title: Get the open position of a trading pair': 'title: 获取交易对的未平仓头寸',
+    'sidebar_label: Get the open position of a trading pair': 'sidebar_label: 获取交易对的未平仓头寸',
+    'Get the open position of a trading pair': '获取交易对的未平仓头寸',
+    
+    'title: Get Configuration Information for Single Trading Pair': 'title: 获取单个交易对的配置信息',
+    'sidebar_label: Get Configuration Information for Single Trading Pair': 'sidebar_label: 获取单个交易对的配置信息',
+    'Get Configuration Information for Single Trading Pair': '获取单个交易对的配置信息',
+    'Type:': '类型:',
+    'Description:': '描述:',
+    'Note:': '注意:',
+    'Parameters': '参数',
+    'This method does not require a signature': '此方法不需要签名',
+    'Name': '名称',
+    'Type': '类型',
+    'Mandatory': '必需',
+    'Default': '默认值',
+    'Description': '描述',
+    'Ranges': '范围',
+    'false': '否',
+    'true': '是',
+    'number': '数字',
+    'string': '字符串',
+    'boolean': '布尔值',
+    'array': '数组',
+    'object': '对象',
     
     # Balance相关翻译
     'title: Get currency information': 'title: 获取货币信息',

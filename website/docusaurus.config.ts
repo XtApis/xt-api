@@ -25,6 +25,9 @@ import PrismLight from './src/utils/prismLight';
 import PrismDark from './src/utils/prismDark';
 
 import type {Config} from '@docusaurus/types';
+
+// 导入中文配置
+// import zhHansConfig from './docusaurus.config.zh-Hans';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
 import type {Options as BlogOptions} from '@docusaurus/plugin-content-blog';
@@ -131,7 +134,7 @@ const baseUrl = process.env.BASE_URL ?? '/';
 // Special deployment for staging locales until they get enough translations
 // https://app.netlify.com/sites/docusaurus-i18n-staging
 // https://docusaurus-i18n-staging.netlify.app/
-const isI18nStaging = process.env.I18N_STAGING === 'true';
+// const isI18nStaging = process.env.I18N_STAGING === 'true';
 
 // const isVersioningDisabled = !!process.env.DISABLE_VERSIONING ||
 //   isI18nStaging;
@@ -200,19 +203,8 @@ export default async function createConfigAsync(): Promise<Config> {
       },
     ],
     i18n: {
-      defaultLocale,
-      locales: (() => {
-        if (isDeployPreview || isBranchDeploy) {
-          // Deploy preview and branch deploys: keep them fast!
-          return [defaultLocale];
-        }
-        if (isI18nStaging) {
-          // Staging locales: https://docusaurus-i18n-staging.netlify.app/
-          return [defaultLocale, 'ja'];
-        }
-        // Production locales - 支持中英文，使用内存优化策略
-        return [defaultLocale, 'zh-Hans'];
-      })(),
+      defaultLocale: 'en',
+      locales: ['en', 'zh-Hans'],
       path: 'i18n',
       localeConfigs: {
         en: {
@@ -686,8 +678,173 @@ export default async function createConfigAsync(): Promise<Config> {
             items: [
               {
                 type: 'html',
-                value:
-                  '<div style="padding: 0; width: 100%; background: white;   min-width:90vw; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"><div style="display: flex; min-height: 400px; max-height: 80vh; overflow-y: auto;"><div style="width: 200px; background: #f9fafb; border-right: 1px solid #e5e7eb; padding: 0;"><div style="padding: 20px 0;"><div id="all-products-nav" style="padding: 12px 20px; background: #f3f4f6; cursor: pointer; font-weight: 600; font-size: 16px; color: #1f2937;" onclick="showCategory(\'AllProducts\')">All Products</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'Index\')" data-category="Index">Index</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'spot\')" data-category="spot">Spot Trading</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'futures\')" data-category="futures">Futures Trading</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'marginSpot\')" data-category="marginSpot">Margin Trading</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'copyTrading\')" data-category="copyTrading">Copy Trading</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'futuresCopy\')" data-category="futuresCopy">Futures Copy</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'tradingThirdParty\')" data-category="tradingThirdParty">Trading Third Party</div><div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover="this.style.backgroundColor=\'#f3f4f6\'; this.style.color=\'#1f2937\';" onmouseout="this.style.backgroundColor=\'transparent\'; this.style.color=\'#6b7280\';" onclick="showCategory(\'userCenter\')" data-category="userCenter">User Center</div></div></div><div style="flex: 1; padding: 32px; background: white;"><div style="margin-bottom: 24px;"><h2 id="categoryTitle" style="margin: 0 0 8px 0; font-size: 24px; font-weight: 600; color: #1f2937;">All Products</h2><p id="categoryDesc" style="margin: 0; color: #6b7280; font-size: 14px;">Comprehensive API solutions for all your trading needs</p></div><div id="productsGrid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;"><a id="index-content-link" href="/docs/index_overview/overview" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Index</div><div style="font-size: 12px; color: #6b7280;">Index APIs</div></a><a href="/docs/index_overview/index_overview_resource" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">API Resources and Support</div><div style="font-size: 12px; color: #6b7280;">API Resources and Support</div></a><a href="/docs/spot/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Spot Trading</div><div style="font-size: 12px; color: #6b7280;">Spot Trading APIs</div></a><a href="/docs/futures/AccessDescription/apiDemo" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Futures Trading</div><div style="font-size: 12px; color: #6b7280;">Futures Trading APIs</div></a><a href="/docs/margin-spot/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Margin Trading</div><div style="font-size: 12px; color: #6b7280;">Margin Trading APIs</div></a><a href="/docs/copy-trading/Access Description/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Copy Trading</div><div style="font-size: 12px; color: #6b7280;">Copy Trading API</div></a><a href="/docs/futures-copy/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Futures Copy</div><div style="font-size: 12px; color: #6b7280;">Futures Copy API</div></a><a href="/docs/trading-third-party/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Trading Third Party</div><div style="font-size: 12px; color: #6b7280;">Trading Third Party API</div></a><a href="/docs/user-center/AccessDescription/RestApi" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">User Center</div><div style="font-size: 12px; color: #6b7280;">User Center API</div></a><a href="/docs/spot/Balance/GetCurrencyInfo" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Balance</div><div style="font-size: 12px; color: #6b7280;">Balance APIs</div></a><a href="/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Deposit&Withdrawal</div><div style="font-size: 12px; color: #6b7280;">Deposit&Withdrawal APIs</div></a><a href="/docs/spot/Market/GetServerTime" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Market</div><div style="font-size: 12px; color: #6b7280;">Market APIs</div></a><a href="/docs/spot/Order/PlaceOrder" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Order</div><div style="font-size: 12px; color: #6b7280;">Order APIs</div></a><a href="/docs/spot/Trade/GetTradeHistory" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Trade</div><div style="font-size: 12px; color: #6b7280;">Trade APIs</div></a><a href="/docs/spot/Transfer/InternalTransfer" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Transfer</div><div style="font-size: 12px; color: #6b7280;">Transfer APIs</div></a><a href="/docs/spot/WebSocket_Private/RequestMessageFormat" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">WebSocket Private</div><div style="font-size: 12px; color: #6b7280;">WebSocket Private APIs</div></a><a href="/docs/spot/WebSocket_Public/subscribeParam" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">WebSocket Public</div><div style="font-size: 12px; color: #6b7280;">WebSocket Public APIs</div></a><a href="/docs/futures/WEBSOCKET(V2)/Request message format" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Futures WebSocket</div><div style="font-size: 12px; color: #6b7280;">Futures WebSocket APIs</div></a><a href="/docs/margin-spot/Balance/GetMarginAccount" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Margin Balance</div><div style="font-size: 12px; color: #6b7280;">Margin Balance APIs</div></a><a href="/docs/copy-trading/Account/GetAccountInfo" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'0.7\';" onmouseout="this.style.opacity=\'1\';"><div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">Copy Account</div><div style="font-size: 12px; color: #6b7280;">Copy Account APIs</div></a></div></div></div></div>',
+                value: `
+                  <div style="display: flex; width: 100%; min-width: 800px; background: white; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <!-- 左侧分类导航 -->
+                    <div style="width: 200px; background: #f8fafc; border-right: 1px solid #e2e8f0; padding: 20px 0;">
+                      <div style="padding: 0 20px;">
+                        <div style="padding: 8px 12px; margin-bottom: 4px; background: #e2e8f0; border-radius: 4px; font-weight: 600; color: #1f2937;" data-i18n="item.label.All Products">All Products</div>
+                        <div style="padding: 8px 12px; margin-bottom: 4px; color: #6b7280; cursor: pointer; border-radius: 4px; transition: background-color 0.2s;" data-i18n="item.label.Financial Trading">Financial Trading</div>
+                        <div style="padding: 8px 12px; margin-bottom: 4px; color: #6b7280; cursor: pointer; border-radius: 4px; transition: background-color 0.2s;" data-i18n="item.label.VIP Institutional">VIP & Institutional</div>
+                        <div style="padding: 8px 12px; margin-bottom: 4px; color: #6b7280; cursor: pointer; border-radius: 4px; transition: background-color 0.2s;" data-i18n="item.label.Investment Service">Investment & Service</div>
+                        <div style="padding: 8px 12px; margin-bottom: 4px; color: #6b7280; cursor: pointer; border-radius: 4px; transition: background-color 0.2s;" data-i18n="item.label.Web3 Wallet">Web3 Wallet</div>
+                        <div style="padding: 8px 12px; margin-bottom: 4px; color: #6b7280; cursor: pointer; border-radius: 4px; transition: background-color 0.2s;" data-i18n="item.label.Dev Tools">Dev Tools</div>
+                      </div>
+                    </div>
+                    
+                    <!-- 右侧详细产品链接 -->
+                    <div style="flex: 1; padding: 20px;">
+                      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                        <!-- 第一列 -->
+                        <div>
+                          <h3 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Spot Trading">Spot Trading</h3>
+                          <a href="/docs/spot/AccessDescription/RestApi" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Spot Trading APIs">Spot Trading APIs</a>
+                          
+                          <h3 style="margin: 20px 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Copy Trading">Copy Trading</h3>
+                          <a href="/docs/copy-trading/Access Description/RestApi" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Copy Trading API">Copy Trading API</a>
+                          
+                          <h3 style="margin: 20px 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Index">Index</h3>
+                          <a href="/docs/index_overview/overview" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Index APIs">Index APIs</a>
+                          <a href="/docs/index_overview/index_overview_resource" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.API Resources and Support">API Resources and Support</a>
+                        </div>
+                        
+                        <!-- 第二列 -->
+                        <div>
+                          <h3 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Futures Trading">Futures Trading</h3>
+                          <a href="/docs/futures/AccessDescription/apiDemo" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Futures Trading APIs">Futures Trading APIs</a>
+                          
+                          <h3 style="margin: 20px 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Margin Trading">Margin Trading</h3>
+                          <a href="/docs/margin-spot/AccessDescription/RestApi" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Margin Trading APIs">Margin Trading APIs</a>
+                          
+                          <h3 style="margin: 20px 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Convert">Convert</h3>
+                          <a href="#" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Convert API">Convert API</a>
+                        </div>
+                        
+                        <!-- 第三列 -->
+                        <div>
+                          <h3 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Algo Trading">Algo Trading</h3>
+                          <a href="#" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Algo Trading APIs">Algo Trading APIs</a>
+                          
+                          <h3 style="margin: 20px 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Staking">Staking</h3>
+                          <a href="#" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Staking API">Staking API</a>
+                          
+                          <h3 style="margin: 20px 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Mining">Mining</h3>
+                          <a href="#" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Mining API">Mining API</a>
+                        </div>
+                        
+                        <!-- 第四列 -->
+                        <div>
+                          <h3 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.User Center">User Center</h3>
+                          <a href="/docs/user-center/AccessDescription/RestApi" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.User Center API">User Center API</a>
+                          
+                          <h3 style="margin: 20px 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Web3">Web3</h3>
+                          <a href="#" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Web3 Wallet">Web3 Wallet</a>
+                          <a href="#" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Web3 DApp">Web3 DApp</a>
+                          
+                          <h3 style="margin: 20px 0 12px 0; font-size: 16px; font-weight: 600; color: #1f2937;" data-i18n="item.label.Dev Tools">Dev Tools</h3>
+                          <a href="#" style="display: block; padding: 6px 0; color: #6b7280; text-decoration: none; font-size: 14px;" data-i18n="item.label.Open Platform">Open Platform</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <script>
+                    // 动态翻译函数
+                    function updateDropdownTranslations() {
+                      const locale = document.documentElement.lang || 'en';
+                      
+                      const translations = {
+                        'en': {
+                          'item.label.All Products': 'All Products',
+                          'item.label.Financial Trading': 'Financial Trading',
+                          'item.label.VIP Institutional': 'VIP & Institutional',
+                          'item.label.Investment Service': 'Investment & Service',
+                          'item.label.Web3 Wallet': 'Web3 Wallet',
+                          'item.label.Dev Tools': 'Dev Tools',
+                          'item.label.Spot Trading': 'Spot Trading',
+                          'item.label.Futures Trading': 'Futures Trading',
+                          'item.label.Margin Trading': 'Margin Trading',
+                          'item.label.Copy Trading': 'Copy Trading',
+                          'item.label.Algo Trading': 'Algo Trading',
+                          'item.label.Index': 'Index',
+                          'item.label.Convert': 'Convert',
+                          'item.label.Staking': 'Staking',
+                          'item.label.Mining': 'Mining',
+                          'item.label.User Center': 'User Center',
+                          'item.label.Web3': 'Web3',
+                          'item.label.Spot Trading APIs': 'Spot Trading APIs',
+                          'item.label.Futures Trading APIs': 'Futures Trading APIs',
+                          'item.label.Margin Trading APIs': 'Margin Trading APIs',
+                          'item.label.Copy Trading API': 'Copy Trading API',
+                          'item.label.Algo Trading APIs': 'Algo Trading APIs',
+                          'item.label.Index APIs': 'Index APIs',
+                          'item.label.API Resources and Support': 'API Resources and Support',
+                          'item.label.Convert API': 'Convert API',
+                          'item.label.Staking API': 'Staking API',
+                          'item.label.Mining API': 'Mining API',
+                          'item.label.User Center API': 'User Center API',
+                          'item.label.Web3 Wallet': 'Web3 Wallet',
+                          'item.label.Web3 DApp': 'Web3 DApp',
+                          'item.label.Open Platform': 'Open Platform'
+                        },
+                        'zh-Hans': {
+                          'item.label.All Products': '所有产品',
+                          'item.label.Financial Trading': '金融交易',
+                          'item.label.VIP Institutional': 'VIP 机构',
+                          'item.label.Investment Service': '投资服务',
+                          'item.label.Web3 Wallet': 'Web3 钱包',
+                          'item.label.Dev Tools': '开发工具',
+                          'item.label.Spot Trading': '现货交易',
+                          'item.label.Futures Trading': '期货交易',
+                          'item.label.Margin Trading': '杠杆交易',
+                          'item.label.Copy Trading': '跟单交易',
+                          'item.label.Algo Trading': '算法交易',
+                          'item.label.Index': '指数',
+                          'item.label.Convert': '兑换',
+                          'item.label.Staking': '质押',
+                          'item.label.Mining': '挖矿',
+                          'item.label.User Center': '用户中心',
+                          'item.label.Web3': 'Web3',
+                          'item.label.Spot Trading APIs': '现货交易 API',
+                          'item.label.Futures Trading APIs': '期货交易 API',
+                          'item.label.Margin Trading APIs': '杠杆交易 API',
+                          'item.label.Copy Trading API': '跟单交易 API',
+                          'item.label.Algo Trading APIs': '算法交易 API',
+                          'item.label.Index APIs': '指数 API',
+                          'item.label.API Resources and Support': 'API 资源和支持',
+                          'item.label.Convert API': '兑换 API',
+                          'item.label.Staking API': '质押 API',
+                          'item.label.Mining API': '挖矿 API',
+                          'item.label.User Center API': '用户中心 API',
+                          'item.label.Web3 Wallet': 'Web3 钱包',
+                          'item.label.Web3 DApp': 'Web3 DApp',
+                          'item.label.Open Platform': '开放平台'
+                        }
+                      };
+                      
+                      const currentTranslations = translations[locale] || translations['en'];
+                      
+                      document.querySelectorAll('[data-i18n]').forEach(element => {
+                        const key = element.getAttribute('data-i18n');
+                        if (currentTranslations[key]) {
+                          element.textContent = currentTranslations[key];
+                        }
+                      });
+                    }
+                    
+                    // 页面加载时更新翻译
+                    document.addEventListener('DOMContentLoaded', updateDropdownTranslations);
+                    
+                    // 监听语言切换
+                    const observer = new MutationObserver(function(mutations) {
+                      mutations.forEach(function(mutation) {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+                          updateDropdownTranslations();
+                        }
+                      });
+                    });
+                    observer.observe(document.documentElement, { attributes: true });
+                  </script>
+                `,
               },
             ],
           },

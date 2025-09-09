@@ -1,5 +1,7 @@
 {
-  "*.{js,jsx,ts,tsx,mjs}": ["eslint --fix"],
+  "*.{js,jsx,ts,tsx,mjs}": [
+    "eslint --fix --ignore-pattern 'build-separate.js' --ignore-pattern 'optimize-*.js'"
+  ],
   "*.css": ["stylelint --allow-empty-input --fix"],
   "*": ["prettier --ignore-unknown --write"]
 }
