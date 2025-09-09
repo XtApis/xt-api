@@ -28,7 +28,17 @@ description: /spot/v4/history-order
 | `limit` | number | No | 20 | Limit number, max 100 |
 | `startTime` | number | No |  | Example: 1657682804112 |
 | `endTime` | number | No |  | End time |
-| `hiddenCanceled` | boolean | No |  | Whether to hide canceled orders |
+
+#### orderStatus
+
+| Status           | Description |
+| ---------------- | ----------- | --- | --- | ------------------------------- |
+| PARTIALLY_FILLED | 部分成交    |
+| FILLED           | 完全成交    |
+| CANCELED         | 已取消      |
+| REJECTED         | 已拒绝      |
+| EXPIRED          | 已过期      |
+| `hiddenCanceled` | boolean     | No  |     | Whether to hide canceled orders |
 
 ### Response Example
 

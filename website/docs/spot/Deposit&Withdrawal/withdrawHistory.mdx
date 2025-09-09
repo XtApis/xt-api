@@ -20,6 +20,19 @@ sidebar_position: 6
 | startTime | long | false | N/A | Query range start boundary (timestamp in ms) |  |
 | endTime | long | false | N/A | Query range end boundary (timestamp in ms) |  |
 
+#### depositWithdrawStatus
+
+| Status        | Description |
+| ------------- | ----------- |
+| SUBMIT        | 已提交      |
+| REVIEW        | 审核中      |
+| AUDITED       | 已审核      |
+| AUDITED_AGAIN | 重新审核    |
+| PENDING       | 处理中      |
+| SUCCESS       | 成功        |
+| FAIL          | 失败        |
+| CANCEL        | 已取消      |
+
 ### Notes
 
 - Supports pagination using `fromId` + `direction`.

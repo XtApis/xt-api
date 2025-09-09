@@ -15,7 +15,6 @@ import versions from './versions.json';
 import {
   dogfoodingPluginInstances,
   dogfoodingThemeInstances,
-  dogfoodingRedirects,
   dogfoodingTransformFrontMatter,
   isArgosBuild,
 } from './_dogfooding/dogfooding.config';
@@ -25,14 +24,13 @@ import ConfigLocalized from './docusaurus.config.localized.json';
 import PrismLight from './src/utils/prismLight';
 import PrismDark from './src/utils/prismDark';
 
-// import type {Config, DocusaurusConfig} from '@docusaurus/types';
-import type {Config as DocusaurusConfig} from '@docusaurus/types';
+import type {Config, DocusaurusConfig} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
 import type {Options as BlogOptions} from '@docusaurus/plugin-content-blog';
 import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
 import type {Options as IdealImageOptions} from '@docusaurus/plugin-ideal-image';
-import type {Options as ClientRedirectsOptions} from '@docusaurus/plugin-client-redirects';
+// import type {Options as ClientRedirectsOptions} from '@docusaurus/plugin-client-redirects';
 
 // const ArchivedVersionsDropdownItems = Object.entries(
 //   VersionsArchived
@@ -376,40 +374,41 @@ export default async function createConfigAsync(): Promise<Config> {
           showLastUpdateTime: showLastUpdate,
         } satisfies DocsOptions,
       ],
-      !process.env.DOCUSAURUS_SKIP_BUNDLING && [
-        'client-redirects',
-        {
-          fromExtensions: ['html'],
-          createRedirects(_routePath) {
-            // Custom redirects can be added here if needed
-            return [];
-          },
-          redirects: [
-            // Redirect /docs to the new default page
-            {
-              from: ['/docs', '/docs/'],
-              to: '/docs/index_overview/overview',
-            },
-            {
-              from: ['/docs/support', '/docs/next/support'],
-              to: '/community/support',
-            },
-            {
-              from: ['/docs/team', '/docs/next/team'],
-              to: '/community/team',
-            },
-            {
-              from: ['/docs/resources', '/docs/next/resources'],
-              to: '/community/resources',
-            },
-            {
-              from: '/docs/api/misc/docusaurus-init',
-              to: '/docs/api/misc/create-docusaurus',
-            },
-            ...dogfoodingRedirects,
-          ],
-        } satisfies ClientRedirectsOptions,
-      ],
+      // Temporarily disabled client-redirects to fix build issues
+      // !process.env.DOCUSAURUS_SKIP_BUNDLING && [
+      //   'client-redirects',
+      //   {
+      //     fromExtensions: ['html'],
+      //     createRedirects(_routePath) {
+      //       // Custom redirects can be added here if needed
+      //       return [];
+      //     },
+      //     redirects: [
+      //       // Redirect /docs to the new default page
+      //       {
+      //         from: ['/docs', '/docs/'],
+      //         to: '/docs/index_overview/overview',
+      //       },
+      //       {
+      //         from: ['/docs/support', '/docs/next/support'],
+      //         to: '/community/support',
+      //       },
+      //       {
+      //         from: ['/docs/team', '/docs/next/team'],
+      //         to: '/community/team',
+      //       },
+      //       {
+      //         from: ['/docs/resources', '/docs/next/resources'],
+      //         to: '/community/resources',
+      //       },
+      //       {
+      //         from: '/docs/api/misc/docusaurus-init',
+      //         to: '/docs/api/misc/create-docusaurus',
+      //       },
+      //       ...dogfoodingRedirects,
+      //     ],
+      //   } satisfies ClientRedirectsOptions,
+      // ],
       [
         'ideal-image',
         {
@@ -600,16 +599,6 @@ export default async function createConfigAsync(): Promise<Config> {
         } satisfies Preset.Options,
       ],
     ],
-
-    // ✅ 翻译配置文件 - 只支持中英文
-    i18n: {
-      defaultLocale: 'en',
-      locales: ['en', 'zh-Hans'],
-      localeConfigs: {
-        en: {label: 'English'},
-        'zh-Hans': {label: '简体中文'},
-      },
-    },
 
     themeConfig: {
       liveCodeBlock: {

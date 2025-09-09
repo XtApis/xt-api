@@ -18,6 +18,15 @@ sidebar_position: 1
 | symbol | string | false | N/A | Transfer symbol (must be lowercase). Required if one of the transfer-in or transfer-out accounts is **leverage** |  |
 | amount | bigDecimal | true | N/A | Transfer amount |  |
 
+#### bizType
+
+| Value    | Description |
+| -------- | ----------- |
+| spot     | 现货账户    |
+| leverage | 杠杆账户    |
+| futures  | 期货账户    |
+| margin   | 保证金账户  |
+
 ### Notes
 
 This endpoint allows fund transfers between **different business systems** under the same user.
