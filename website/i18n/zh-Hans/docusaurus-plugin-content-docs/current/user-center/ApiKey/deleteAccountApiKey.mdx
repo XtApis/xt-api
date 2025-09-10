@@ -1,0 +1,29 @@
+---
+id: DeleteUserAccountApiKey
+title: Delete User Account ApiKey
+sidebar_label: Delete User Account ApiKey
+sidebar_position: 4
+---
+
+**Type:** DELETE
+
+**Description:**`/v4/user/account/api-key/{apikeyId}`
+
+### Parameters
+
+| Name     | Type   | Mandatory | Default | Description | Ranges |
+| -------- | ------ | --------- | ------- | ----------- | ------ |
+| apikeyId | string | true      | -       | ApiKey id   | -      |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": true // true: success; false/null: unsuccess
+}
+```

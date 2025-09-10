@@ -1,0 +1,45 @@
+---
+id: CreateTrigger订单s
+title: 创建触发订单
+sidebar_label: 创建触发订单
+sidebar_position: 1
+---
+
+**类型:** POST
+
+**描述:** `/future/trade/v1/entrust/create-plan`
+
+**Remark:** Content-类型 = application/x-www-form-urlencoded && application/json
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### 参数
+
+| 名称 | 类型 | 必需 | 默认值值值值值值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| client订单Id | 字符串 | 否 | N/A | Client order ID |  |
+| symbol | 字符串 | 是 |  | Trading pair |  |
+| orderSide | 字符串 | 是 | N/A | 订单 side: BUY; SELL | BUY;SELL |
+| entrust类型 | 字符串 | 是 | N/A | 订单 类型: TAKE_PROFIT (Take Profit Limit 订单); STOP (Stop Limit 订单); TAKE_PROFIT_MARKET (Take Profit Market 订单); STOP_MARKET (Stop Loss Market 订单) | TAKE_PROFIT;STOP;TAKE_PROFIT_MARKET;STOP_MARKET |
+| origQty | 数字 | 是 | N/A | Quantity (Cont) |  |
+| price | 数字 | 否 | N/A | Price |  |
+| stopPrice | 数字 | 是 | N/A | Trigger price |  |
+| timeInForce | 字符串 | 是 | N/A | Valid way: GTC; IOC; FOK; GTX. Market orders only support IOC | GTC;IOC;FOK;GTX |
+| triggerPrice类型 | 字符串 | 是 | N/A | Trigger price 类型: INDEX_PRICE (指数价格); MARK_PRICE (标记价格); LATEST_PRICE (latest price) | INDEX_PRICE;MARK_PRICE;LATEST_PRICE |
+| positionSide | 字符串 | 是 | N/A | Position side: LONG; SHORT | LONG;SHORT |
+
+### 请求 示例
+
+```json title="响应"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```

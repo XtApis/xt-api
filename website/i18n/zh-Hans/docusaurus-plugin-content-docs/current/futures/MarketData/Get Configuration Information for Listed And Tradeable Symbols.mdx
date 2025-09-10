@@ -1,0 +1,88 @@
+---
+id: get-configuration-information-for-listed-and-tradeable-symbols
+title: 获取已上市和可交易符号的配置信息
+sidebar_label: 获取已上市和可交易符号的配置信息
+sidebar_position: 4
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v3/public/symbol/list`
+
+#### 注意：
+
+此方法不需要签名.
+
+### 响应 示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="响应">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "baseCoin": "",      //Target Assets
+      "baseCoinDisplayPrecision": 0,  //Displayed target currency precision
+      "cnDesc": "",  //Chinese 描述 of the contract
+      "cn名称": "",  //Contract Chinese 名称
+      "cnRemark": "",  //Contract Remarks (Chinese)
+      "contractSize": 0,  //Contract multiplier(face value)
+      "contract类型": "",  //Contract 类型, perpetual, delivery
+      "deliveryCompletion": 否,
+      "deliveryDate": 0,
+      "deliveryPrice": 0,
+      "depthPrecisionMerge": 0,
+      "enDesc": "",
+      "en名称": "",
+      "enRemark": "",
+      "initLeverage": 0,
+      "initPosition类型": "",
+      "isDisplay": 否,
+      "isOpenApi": 否,
+      "labels": [],
+      "liquidationFee": 0,
+      "makerFee": 0,
+      "marketTakeBound": 0,
+      "max委托s": 0,
+      "maxNotional": 0,
+      "maxOpen订单s": 0,
+      "maxPrice": 0,
+      "minNotional": 0,
+      "minPrice": 0,
+      "minQty": 0,
+      "minStepPrice": 0,
+      "multiplierDown": 0,
+      "multiplierUp": 0,
+      "onboardDate": 0,
+      "pair": "",
+      "plates": [],
+      "predictEventParam": "",
+      "predictEventSort": "",
+      "predictEvent类型": "",
+      "pricePrecision": 0,
+      "product类型": "",
+      "quantityPrecision": 0,     // Deprecated
+      "quoteCoin": "",
+      "quoteCoinDisplayPrecision": 0,
+      "quoteCoinPrecision": 0,
+      "baseCoinPrecision": 0,
+      "state": 0,
+      "support委托类型": "",
+      "support订单类型": "",
+      "supportPosition类型": "",
+      "supportTimeInForce": "",
+      "symbol": "",
+      "symbolGroupId": 0,
+      "takerFee": 0,
+      "tradeSwitch": 否,
+      "underlying类型": ""
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

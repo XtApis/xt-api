@@ -1,0 +1,55 @@
+---
+id: OrderChange
+title: 订单变化
+sidebar_label: 订单变化
+sidebar_position: 7
+---
+
+**类型:** Websocket Push **描述:** 订单变化通知
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- |
+| – | – | false | N/A | 无需参数, 订阅 **order** 主题以接收更新 |
+
+### 注意事项
+
+- 当**订单状态**发生变化时触发此推送通知。
+- 订阅格式：`order`
+- 可能的订单状态（`st`）：
+  - `NEW` — 新订单已创建
+  - `PARTIALLY_FILLED` — 部分成交
+  - `FILLED` — 完全成交
+  - `CANCELED` — 订单已取消
+  - `REJECTED` — 订单被拒绝
+  - `EXPIRED` — 订单已过期
+- 用于跟踪实时订单创建、更新、执行和取消。
+
+### Push 示例
+
+```json title="Push"
+{
+  "topic": "order",
+  "event": "order",
+  "data": {
+    "s": "btc_usdt", // 交易对
+    "bc": "btc", // 基础货币
+    "qc": "usdt", // 计价货币
+    "t": 1656043204763, // 发生时间（毫秒）
+    "ct": 1656043204663, // 创建时间（毫秒）
+    "i": "6216559590087220004", // 订单ID
+    "ci": "test123", // 客户端订单ID
+    "st": "PARTIALLY_FILLED", // 状态（NEW/PARTIALLY_FILLED/FILLED/CANCELED/REJECTED/EXPIRED）
+    "sd": "BUY", // 方向（BUY/SELL）
+    "tp": "LIMIT", // 类型（LIMIT/MARKET）
+    "oq": "4", // 原始数量
+    "oqq": 48000, // 原始计价数量
+    "eq": "2", // 已执行数量
+    "lq": "2", // 剩余数量
+    "p": "4000", // 价格
+    "ap": "30000", // 平均价格
+    "f": "0.002" // 手续费
+  }
+}
+```

@@ -1,0 +1,40 @@
+---
+id: QueryRecentTransactions
+title: 查询最近交易列表
+sidebar_label: 查询最近交易列表
+sidebar_position: 6
+---
+
+**类型:** GET  
+**描述:** `/v4/public/trade/recent`
+
+### 参数
+
+| name   | type   | mandatory | default | description  | ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | 字符串 | 是      |         | trading pair |        |
+| limit  | 数字 | 否     | 200     |              | 1~1000 |
+
+#### **Limit Flow Rules**
+
+10/s/ip
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "字符串",
+  "ma": [{}],
+  "result": [
+    {
+      "i": 0,
+      "t": 0,
+      "p": "字符串",
+      "q": "字符串",
+      "v": "字符串",
+      "b": 是
+    }
+  ]
+}
+```

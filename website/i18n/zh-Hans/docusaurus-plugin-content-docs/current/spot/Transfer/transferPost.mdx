@@ -1,0 +1,46 @@
+---
+id: TransferBetween用户Systems
+title: 用户业务系统间转账
+sidebar_label: 用户业务系统间转账
+sidebar_position: 1
+---
+
+**类型:** POST **描述:** `/v4/balance/transfer`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值值值值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| bizId | 字符串 | 是 | N/A | 幂等处理的唯一ID | 最大长度：128 |
+| from | enum | 是 | N/A | 资金转出账户 | [biz类型枚举](#biz类型) |
+| to | enum | 是 | N/A | 资金转入账户 | [biz类型枚举](#biz类型) |
+| currency | 字符串 | 是 | N/A | 货币名称, must be lowercase (e.g. `usdt`, `btc`) |  |
+| symbol | 字符串 | 否 | N/A | 转账交易对（必须小写）。如果转入或转出账户之一是**杠杆**账户，则必填 |  |
+| amount | bigDecimal | 是 | N/A | 转账金额 |  |
+
+#### biz类型
+
+| Value | 描述 |
+| --- | --- |
+| spot | 现货账户 |
+| leverage | 杠杆账户 |
+| futures | 期货账户 |
+| margin | 保证金账户 |
+
+### 注意事项
+
+此接口允许同一用户下**不同业务系统**之间的资金转账。
+
+- `bizId` 确保幂等处理，建议存储用于对账。
+- 如果涉及杠杆账户，必须提供 `symbol`。
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": 123456 // 返回的转账唯一ID，建议存储用于对账
+}
+```

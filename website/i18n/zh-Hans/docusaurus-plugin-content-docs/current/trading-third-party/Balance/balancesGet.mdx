@@ -1,0 +1,43 @@
+---
+id: GetListOfCurrencyAssets
+title: Get a list of currency assets
+sidebar_label: Get a list of currency assets
+sidebar_position: 3
+---
+
+**Type:** GET **Description:** `/spot/v4/balances`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| currencies | string | false |  | List of currencies, comma separated, eg: usdt,btc |  |
+
+### Notes
+
+#### **Limit Flow Rules**
+
+10/s/apikey
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "totalBtcAmount": 0,
+    "assets": [
+      {
+        "currency": "string",
+        "currencyId": 0,
+        "frozenAmount": 0,
+        "availableAmount": 0,
+        "totalAmount": 0,
+        "convertBtcAmount": 0
+      }
+    ]
+  }
+}
+```

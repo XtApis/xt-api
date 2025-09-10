@@ -1,0 +1,34 @@
+---
+id: Update订单Limit
+title: 更新订单（限价）
+sidebar_label: 更新订单（限价）
+sidebar_position: 5
+---
+
+**类型:** put **描述:** `/v4/order/{orderId}`
+
+### 参数
+
+| 名称     | 类型   | 必填 | 默认值值值值 | 描述 | 范围 |
+| -------- | ------ | --------- | ------- | ----------- | ------ |
+| orderId  | 数字 | 是      |         | order ID    |        |
+| price    | 数字 | 是      |         | Price       |        |
+| quantity | 数字 | 是      |         | Quantity    |        |
+
+#### **Limit Flow Rules**
+
+50/s/apikey
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "字符串",
+  "ma": [{}],
+  "result": {
+    "orderId": "6216559590087220004", //order id
+    "modifyId": "407329711723834560" //modify id
+  }
+}
+```

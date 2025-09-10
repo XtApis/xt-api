@@ -1,0 +1,42 @@
+---
+id: Subscription参数
+title: 订阅参数
+sidebar_label: 订阅参数
+sidebar_position: 6
+---
+
+### 格式
+
+```
+{topic}@{listenKey},...
+```
+
+- `topic` examples: `order`, `trade`, `balance`, `position`, `notify`
+- `listenKey` is obtained via `/v1/user/listen-key`
+- Multiple subscriptions can be added in one request, separated by commas
+
+---
+
+### 示例s
+
+**Subscribe (multiple topics)**
+
+```json title="Subscribe"
+{
+  "方法": "SUBSCRIBE",
+  "params": ["order@{listenKey}", "trade@{listenKey}", "balance@{listenKey}"],
+  "id": "sub-1"
+}
+```
+
+**Unsubscribe (single topic)**
+
+```json title="Unsubscribe"
+{
+  "方法": "UNSUBSCRIBE",
+  "params": ["position@{listenKey}"],
+  "id": "unsub-1"
+}
+```
+
+> 注意: Replace `{listenKey}` with the actual value. If you receive `invalid_listen_key`, please request a new listenKey.

@@ -1,0 +1,158 @@
+{
+  "title": {
+    "message": "XT API"
+  },
+  "item.label.Product": {
+    "message": "Product"
+  },
+  "item.label.Index": {
+    "message": "Index"
+  },
+  "item.label.Spot Trading": {
+    "message": "Spot Trading"
+  },
+  "item.label.Futures Trading": {
+    "message": "Futures Trading"
+  },
+  "item.label.Margin Trading": {
+    "message": "Margin Trading"
+  },
+  "item.label.Copy Trading": {
+    "message": "Copy Trading"
+  },
+  "item.label.Futures Copy": {
+    "message": "Futures Copy"
+  },
+  "item.label.Trading Third Party": {
+    "message": "Trading Third Party"
+  },
+  "item.label.User Center": {
+    "message": "User Center"
+  },
+  "item.label.Balance": {
+    "message": "Balance"
+  },
+  "item.label.Deposit&Withdrawal": {
+    "message": "Deposit&Withdrawal"
+  },
+  "item.label.Market": {
+    "message": "Market"
+  },
+  "item.label.Order": {
+    "message": "Order"
+  },
+  "item.label.Trade": {
+    "message": "Trade"
+  },
+  "item.label.Transfer": {
+    "message": "Transfer"
+  },
+  "item.label.WebSocket Private": {
+    "message": "WebSocket Private"
+  },
+  "item.label.WebSocket Public": {
+    "message": "WebSocket Public"
+  },
+  "item.label.Futures WebSocket": {
+    "message": "Futures WebSocket"
+  },
+  "item.label.Margin Balance": {
+    "message": "Margin Balance"
+  },
+  "item.label.Copy Account": {
+    "message": "Copy Account"
+  },
+  "item.label.搜索": {
+    "message": "Search"
+  },
+  "item.label.语言": {
+    "message": "Language"
+  },
+  "item.label.帮助翻译": {
+    "message": "Help Us Translate"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub"
+  },
+  "item.label.Index APIs": {
+    "message": "Index APIs"
+  },
+  "item.label.API Resources and Support": {
+    "message": "API Resources and Support"
+  },
+  "item.label.Spot Trading APIs": {
+    "message": "Spot Trading APIs"
+  },
+  "item.label.Futures Trading APIs": {
+    "message": "Futures Trading APIs"
+  },
+  "item.label.Margin Trading APIs": {
+    "message": "Margin Trading APIs"
+  },
+  "item.label.Copy Trading API": {
+    "message": "Copy Trading API"
+  },
+  "item.label.Futures Copy API": {
+    "message": "Futures Copy API"
+  },
+  "item.label.Trading Third Party API": {
+    "message": "Trading Third Party API"
+  },
+  "item.label.User Center API": {
+    "message": "User Center API"
+  },
+  "item.label.Comprehensive API solutions for all your trading needs": {
+    "message": "Comprehensive API solutions for all your trading needs"
+  },
+  "item.label.All Products": {
+    "message": "All Products"
+  },
+  "item.label.Financial Trading": {
+    "message": "Financial Trading"
+  },
+  "item.label.VIP Institutional": {
+    "message": "VIP & Institutional"
+  },
+  "item.label.Investment Service": {
+    "message": "Investment & Service"
+  },
+  "item.label.Web3 Wallet": {
+    "message": "Web3 Wallet"
+  },
+  "item.label.Dev Tools": {
+    "message": "Dev Tools"
+  },
+  "item.label.Algo Trading": {
+    "message": "Algo Trading"
+  },
+  "item.label.Convert": {
+    "message": "Convert"
+  },
+  "item.label.Staking": {
+    "message": "Staking"
+  },
+  "item.label.Mining": {
+    "message": "Mining"
+  },
+  "item.label.Web3": {
+    "message": "Web3"
+  },
+  "item.label.Algo Trading APIs": {
+    "message": "Algo Trading APIs"
+  },
+  "item.label.Convert API": {
+    "message": "Convert API"
+  },
+  "item.label.Staking API": {
+    "message": "Staking API"
+  },
+  "item.label.Mining API": {
+    "message": "Mining API"
+  },
+  "item.label.Web3 DApp": {
+    "message": "Web3 DApp"
+  },
+  "item.label.Open Platform": {
+    "message": "Open Platform"
+  }
+}

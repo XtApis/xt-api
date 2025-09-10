@@ -1,0 +1,47 @@
+---
+id: GetMyLeadTrades
+title: Get My Lead Trades
+sidebar_label: Get My Lead Trades
+sidebar_position: 21
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-account/copy-trade/my-leaders`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `type` | number | Yes |  | The type of lead trade. <a href="#leaderTypeCn">Leader type</a>, 1: current lead trades; 2: historical lead trades |
+| `direction` | string | No | NEXT | Query direction. PREV - previous page, NEXT - next page |
+| `limit` | number | No | 10 | Number of pages (1-100) |
+| `id` | object | No |  | Start ID, e.g. `6216559590087220004` |
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "accountId": 0, // account id
+        "avatar": "string", // avatar
+        "followMargin": 0, // follow amount
+        "followProfit": 0, // follow profit
+        "id": 0, // the id used for pagination query
+        "leaderName": "string" // nickname of lead trader
+      }
+    ]
+  }
+}
+```

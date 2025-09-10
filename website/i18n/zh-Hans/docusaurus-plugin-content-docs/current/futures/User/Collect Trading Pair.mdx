@@ -1,0 +1,36 @@
+---
+id: CollectTradingPair
+title: Collect Trading Pair
+sidebar_label: Collect Trading Pair
+position_数字: 14
+---
+
+**类型:** POST
+
+**描述:** `/future/user/v1/user/collection/add`
+
+> **Remark:** `Content-类型 = application/x-www-form-urlencoded` **or** `application/json`
+
+#### Limit Flow Rules
+
+200/s/apikey
+
+### 参数
+
+| 名称   | 类型   | 必需 | 默认值值 | 描述  | 范围 |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | 字符串 | 是      | N/A     | Trading pair | —      |
+
+### 响应 示例
+
+```json title="响应"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": 是,
+  "returnCode": 0
+}
+```

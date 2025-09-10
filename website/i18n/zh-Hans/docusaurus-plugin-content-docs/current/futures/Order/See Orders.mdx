@@ -1,0 +1,70 @@
+---
+id: see-orders
+title: 查看订单
+sidebar_label: 查看订单
+sidebar_position: 5
+---
+
+**类型:** POST
+
+**描述:** `/future/trade/v1/order/list`
+
+### 参数
+
+| 名称 | 类型 | 必需 | 默认值值值值值值值值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| client订单Id | 字符串 | 否 | N/A | Client order ID |  |
+| page | integer | 否 | 1 | Page |  |
+| size | integer | 否 | 10 | Quantity of a single page |  |
+| startTime | integer | 否 | N/A | Start time |  |
+| endTime | integer | 否 | N/A | End time |  |
+| state | 字符串 | 否 | NEW | 订单 state: `NEW` (New order, unfilled); `PARTIALLY_FILLED` (Partial deal); `PARTIALLY_CANCELED` (Partial revocation); `FILLED` (Filled); `CANCELED` (Cancelled); `REJECTED` (订单 failed); `EXPIRED` (Expired); `UNFINISHED` (Unfinished); `HISTORY` (History) | PREV; NEXT |
+| symbol | 字符串 | 否 | N/A | Trading pair |  |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### 响应 示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="响应">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "client订单Id": "",        // 客户端订单ID
+        "avgPrice": 0,              // 平均价格
+        "closePosition": 否,     // Whether to close all when order condition is triggered
+        "closeProfit": 0,           // Offset profit and loss
+        "createdTime": 0,           // Create time
+        "executedQty": 0,           // Volume (Cont)
+        "forceClose": 否,        // Is it a liquidation order
+        "marginFrozen": 0,          // Occupied margin
+        "orderId": 0,               // 订单ID
+        "orderSide": "",            // 订单 side
+        "order类型": "",            // 订单 类型
+        "origQty": 0,               // 数量 (Cont)
+        "positionSide": "",         // Position side
+        "price": 0,                 // 订单 price
+        "sourceId": 0,              // Triggering conditions ID
+        "state": "",                // 订单 state
+        "symbol": "",               // Trading pair
+        "timeInForce": "",          // Valid 类型
+        "triggerProfitPrice": 0,    // TP trigger price
+        "triggerStopPrice": 0       // SL trigger price
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

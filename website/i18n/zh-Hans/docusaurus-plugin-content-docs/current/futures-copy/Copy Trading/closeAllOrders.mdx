@@ -1,0 +1,38 @@
+---
+id: CloseAllOrders
+title: Close All Orders
+sidebar_label: Close All Orders
+sidebar_position: 11
+---
+
+**Type:** POST
+
+**Description:** `/future/copytrade/order/v1/copy-trade/close-all`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | No | - | Trading pair | - |
+| closeLongShortType | string | No | - | Direction | LONG, SHORT, BOTH |
+
+---
+
+### Limit Flow Rules
+
+5/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=success, false=fail
+}
+```

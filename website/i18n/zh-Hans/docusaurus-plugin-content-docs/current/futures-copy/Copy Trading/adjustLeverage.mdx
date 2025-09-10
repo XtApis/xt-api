@@ -1,0 +1,39 @@
+---
+id: AdjustLeverage
+title: Adjust Leverage
+sidebar_label: Adjust Leverage
+sidebar_position: 32
+---
+
+**Type:** POST
+
+**Description:** `/future/copytrade/order/v1/position/adjust-leverage`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | Yes | - | Symbol | - |
+| leverage | number | Yes | - | Leverage | - |
+| positionSide | enum | No | - | Direction | LONG, SHORT, BOTH |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=success, false=fail
+}
+```

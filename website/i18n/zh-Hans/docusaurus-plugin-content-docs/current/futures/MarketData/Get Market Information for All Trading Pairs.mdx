@@ -1,0 +1,42 @@
+---
+id: get-market-information-for-all-trading-pairs
+title: 获取所有交易对的市场信息
+sidebar_label: 获取所有交易对的市场信息
+sidebar_position: 8
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/行情s`
+
+#### 注意：
+
+此方法不需要签名.
+
+### 响应 示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="响应">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": "", // 24h volume
+      "c": "", // Latest price
+      "h": "", // Highest price in 24 hours
+      "l": "", // Lowest price in 24 hours
+      "o": "", // The first transaction price 24 hours ago
+      "r": "", // 24h Price Fluctuation Limit
+      "s": "", // Trading pair
+      "t": 0,  // Time
+      "v": ""  // 24h turnover
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

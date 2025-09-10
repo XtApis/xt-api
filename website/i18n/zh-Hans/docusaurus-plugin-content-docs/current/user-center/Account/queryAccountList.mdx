@@ -1,0 +1,48 @@
+---
+id: QueryAccountList
+title: Query account list（applicable to master and sub account）
+sidebar_label: Query account list（applicable to master and sub account）
+sidebar_position: 1
+---
+
+**Type:** GET
+
+**Description:** `/v4/user/account`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| accountId | string | false | - | account id | - |
+| accountName | string | false | - | account name | - |
+| level | integer | false | - | account level | 1: master account; 2: sub account |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "1352123154436",
+      "accountName": "master1",
+      "userId": 1352123154435,
+      "level": 1,
+      "createTime": "2022-04-19 02:02:42",
+      "updateTime": "2022-04-19 02:02:42"
+    },
+    {
+      "id": "1626456841938669570",
+      "accountName": "first1",
+      "userId": 1352123154436,
+      "level": 2,
+      "createTime": "2023-02-17 05:41:43",
+      "updateTime": "2023-02-17 05:41:43"
+    }
+  ]
+}
+```

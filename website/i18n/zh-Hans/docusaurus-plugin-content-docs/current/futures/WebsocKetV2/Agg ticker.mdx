@@ -1,0 +1,41 @@
+---
+id: AggTicker
+title: 聚合行情
+sidebar_label: 聚合行情
+sidebar_position: 12
+---
+
+### 请求 格式
+
+```
+agg_行情@{symbol}
+```
+
+- **example**: `agg_行情@btc_usdt`
+- **rate**: 1000ms
+
+---
+
+### 响应 示例
+
+```json title="响应"
+{
+  "topic": "agg_行情",
+  "event": "agg_行情@btc_usdt",
+  "data": {
+    "s": "btc_index", // trading pair
+    "o": "49000", // opening price
+    "c": "50000", // closing price
+    "h": "0.1", // highest price
+    "l": "0.1", // lowest price
+    "a": "0.1", // volume
+    "v": "0.1", // turnover
+    "ch": "0.21", // quote change
+    "i": "0.21", // index price
+    "m": "0.21", // mark price
+    "bp": "0.21", // bid price
+    "ap": "0.21", // ask price
+    "t": 123124124 // timestamp
+  }
+}
+```

@@ -1,0 +1,222 @@
+{
+  "version.label": {
+    "message": "Canary 🚧",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category Getting Started in sidebar docs"
+  },
+  "sidebar.docs.category.Guides": {
+    "message": "Guides",
+    "description": "The label for category Guides in sidebar docs"
+  },
+  "sidebar.docs.category.Guides.link.generated-index.title": {
+    "message": "Docusaurus Guides",
+    "description": "The generated-index page title for category Guides in sidebar docs"
+  },
+  "sidebar.docs.category.Guides.link.generated-index.description": {
+    "message": "Let's learn about the most important Docusaurus concepts!",
+    "description": "The generated-index page description for category Guides in sidebar docs"
+  },
+  "sidebar.docs.category.Docs": {
+    "message": "Docs",
+    "description": "The label for category Docs in sidebar docs"
+  },
+  "sidebar.docs.category.Sidebar": {
+    "message": "Sidebar",
+    "description": "The label for category Sidebar in sidebar docs"
+  },
+  "sidebar.docs.category.Markdown Features": {
+    "message": "Markdown Features",
+    "description": "The label for category Markdown Features in sidebar docs"
+  },
+  "sidebar.docs.category.Internationalization": {
+    "message": "Internationalization",
+    "description": "The label for category Internationalization in sidebar docs"
+  },
+  "sidebar.docs.category.Advanced Guides": {
+    "message": "Advanced Guides",
+    "description": "The label for category Advanced Guides in sidebar docs"
+  },
+  "sidebar.docs.category.Upgrading": {
+    "message": "Upgrading",
+    "description": "The label for category Upgrading in sidebar docs"
+  },
+  "sidebar.docs.category.To Docusaurus v2": {
+    "message": "To Docusaurus v2",
+    "description": "The label for category To Docusaurus v2 in sidebar docs"
+  },
+  "sidebar.docs.doc.Tutorial": {
+    "message": "Tutorial",
+    "description": "The label for the doc item Tutorial in sidebar docs, linking to the doc i18n/tutorial"
+  },
+  "sidebar.docs.doc.Using Git": {
+    "message": "Using Git",
+    "description": "The label for the doc item Using Git in sidebar docs, linking to the doc i18n/git"
+  },
+  "sidebar.docs.doc.Using Crowdin": {
+    "message": "Using Crowdin",
+    "description": "The label for the doc item Using Crowdin in sidebar docs, linking to the doc i18n/crowdin"
+  },
+  "sidebar.spot.category.AccessDescription": {
+    "message": "AccessDescription",
+    "description": "The label for category AccessDescription in sidebar spot"
+  },
+  "sidebar.spot.category.Balance": {
+    "message": "Balance",
+    "description": "The label for category Balance in sidebar spot"
+  },
+  "sidebar.spot.category.Deposit&Withdrawal": {
+    "message": "Deposit&Withdrawal",
+    "description": "The label for category Deposit&Withdrawal in sidebar spot"
+  },
+  "sidebar.spot.category.Market": {
+    "message": "Market",
+    "description": "The label for category Market in sidebar spot"
+  },
+  "sidebar.spot.category.Order": {
+    "message": "Order",
+    "description": "The label for category Order in sidebar spot"
+  },
+  "sidebar.spot.category.Trade": {
+    "message": "Trade",
+    "description": "The label for category Trade in sidebar spot"
+  },
+  "sidebar.spot.category.Transfer": {
+    "message": "Transfer",
+    "description": "The label for category Transfer in sidebar spot"
+  },
+  "sidebar.spot.category.WebSocket_Private": {
+    "message": "WebSocket_Private",
+    "description": "The label for category WebSocket_Private in sidebar spot"
+  },
+  "sidebar.spot.category.WebSocket_Public": {
+    "message": "WebSocket_Public",
+    "description": "The label for category WebSocket_Public in sidebar spot"
+  },
+  "sidebar.futures.category.AccessDescription": {
+    "message": "AccessDescription",
+    "description": "The label for category AccessDescription in sidebar futures"
+  },
+  "sidebar.futures.category.Entrust": {
+    "message": "Entrust",
+    "description": "The label for category Entrust in sidebar futures"
+  },
+  "sidebar.futures.category.MarketData": {
+    "message": "MarketData",
+    "description": "The label for category MarketData in sidebar futures"
+  },
+  "sidebar.futures.category.Order": {
+    "message": "Order",
+    "description": "The label for category Order in sidebar futures"
+  },
+  "sidebar.futures.category.PythonPackage": {
+    "message": "PythonPackage",
+    "description": "The label for category PythonPackage in sidebar futures"
+  },
+  "sidebar.futures.category.Quote collection": {
+    "message": "Quote collection",
+    "description": "The label for category Quote collection in sidebar futures"
+  },
+  "sidebar.futures.category.User": {
+    "message": "User",
+    "description": "The label for category User in sidebar futures"
+  },
+  "sidebar.futures.category.UserWebsocket": {
+    "message": "UserWebsocket",
+    "description": "The label for category UserWebsocket in sidebar futures"
+  },
+  "sidebar.futures.category.WebsocKetV2": {
+    "message": "WebsocKetV2",
+    "description": "The label for category WebsocKetV2 in sidebar futures"
+  },
+  "sidebar.margin-spot.category.AccessDescription": {
+    "message": "AccessDescription",
+    "description": "The label for category AccessDescription in sidebar margin-spot"
+  },
+  "sidebar.margin-spot.category.Balance": {
+    "message": "Balance",
+    "description": "The label for category Balance in sidebar margin-spot"
+  },
+  "sidebar.margin-spot.category.Market": {
+    "message": "Market",
+    "description": "The label for category Market in sidebar margin-spot"
+  },
+  "sidebar.copy-trading.category.Access Description": {
+    "message": "Access Description",
+    "description": "The label for category Access Description in sidebar copy-trading"
+  },
+  "sidebar.copy-trading.category.Copy tradeing": {
+    "message": "Copy tradeing",
+    "description": "The label for category Copy tradeing in sidebar copy-trading"
+  },
+  "sidebar.futures-copy.category.AccessDescription": {
+    "message": "AccessDescription",
+    "description": "The label for category AccessDescription in sidebar futures-copy"
+  },
+  "sidebar.futures-copy.category.Copy Trading": {
+    "message": "Copy Trading",
+    "description": "The label for category Copy Trading in sidebar futures-copy"
+  },
+  "sidebar.trading-third-party.category.AccessDescription": {
+    "message": "AccessDescription",
+    "description": "The label for category AccessDescription in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.Balance": {
+    "message": "Balance",
+    "description": "The label for category Balance in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.OAuth Interface": {
+    "message": "OAuth Interface",
+    "description": "The label for category OAuth Interface in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.Order": {
+    "message": "Order",
+    "description": "The label for category Order in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.Trade": {
+    "message": "Trade",
+    "description": "The label for category Trade in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.User Registration": {
+    "message": "User Registration",
+    "description": "The label for category User Registration in sidebar trading-third-party"
+  },
+  "sidebar.user-center.category.AccessDescription": {
+    "message": "AccessDescription",
+    "description": "The label for category AccessDescription in sidebar user-center"
+  },
+  "sidebar.user-center.category.Account": {
+    "message": "Account",
+    "description": "The label for category Account in sidebar user-center"
+  },
+  "sidebar.user-center.category.ApiKey": {
+    "message": "ApiKey",
+    "description": "The label for category ApiKey in sidebar user-center"
+  },
+  "sidebar.user-center.category.Referral Commission": {
+    "message": "Referral Commission",
+    "description": "The label for category Referral Commission in sidebar user-center"
+  },
+  "sidebar.api.category.Plugin method references": {
+    "message": "Plugin method references",
+    "description": "The label for category Plugin method references in sidebar api"
+  },
+  "sidebar.api.category.Plugins": {
+    "message": "Plugins",
+    "description": "The label for category Plugins in sidebar api"
+  },
+  "sidebar.api.category.Themes": {
+    "message": "Themes",
+    "description": "The label for category Themes in sidebar api"
+  },
+  "sidebar.api.category.Miscellaneous": {
+    "message": "Miscellaneous",
+    "description": "The label for category Miscellaneous in sidebar api"
+  },
+  "sidebar.api.category.📦 eslint-plugin": {
+    "message": "📦 eslint-plugin",
+    "description": "The label for category 📦 eslint-plugin in sidebar api"
+  }
+}

@@ -1,0 +1,32 @@
+---
+id: FrequencyLimitingRules
+title: 频率限制规则
+sidebar_label: 频率限制规则
+sidebar_position: 3
+---
+
+**类型:** GET
+
+**描述:** Frequency limiting rules for API requests.
+
+### Rules
+
+- Get assets: **3 times per second per user**
+- Other 方法s: **10 times per second per user**
+- Limit: **1000 times per minute per IP**
+
+If the request frequency exceeds the limit, the account will be **locked for 10 minutes**.
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 429,
+  "mc": "Too Many Requests",
+  "ma": [],
+  "result": {
+    "locked": true,
+    "lockDuration": "10m"
+  }
+}
+```

@@ -1,0 +1,34 @@
+---
+id: Message
+title: Message
+sidebar_label: Message
+sidebar_position: 11
+---
+
+### Subscribe / Unsubscribe
+
+```json title="Subscribe/Unsubscribe"
+{
+  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{notify}@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### 响应 示例
+
+```json title="响应"
+{
+  "topic": "notify",
+  "event": "notify",
+  "data": {
+    "symbol": "btc_usdt",
+    "position类型": "ISOLATED",
+    "positionSide": "LONG",
+    "positionSize": "123", // Position quantity
+    "notify类型": "WARN" // Notification 类型: WARN (warning, about to be levelled), PARTIAL (partial liquidation), LIQUIDATION (liquidation), ADL (auto-deleveraging)
+  }
+}
+```

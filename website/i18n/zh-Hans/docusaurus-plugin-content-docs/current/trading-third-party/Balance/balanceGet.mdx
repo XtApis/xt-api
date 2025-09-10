@@ -1,0 +1,34 @@
+---
+id: GetSingleCurrencyAsset
+title: Get a single currency asset
+sidebar_label: Get a single currency asset
+sidebar_position: 2
+---
+
+**Type:** GET
+
+**Description:** `/spot/v4/balance`
+
+### Parameters
+
+| name     | type   | mandatory | default | description | ranges |
+| -------- | ------ | --------- | ------- | ----------- | ------ |
+| currency | string | true      |         | eg: usdt    |        |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "currency": "usdt",
+    "currencyId": 0,
+    "frozenAmount": 0,
+    "availableAmount": 0,
+    "totalAmount": 0,
+    "convertBtcAmount": 0 //Converted BTC amount
+  }
+}
+```

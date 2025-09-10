@@ -1,0 +1,28 @@
+---
+id: ResponseMessageFormat
+title: 响应消息格式
+sidebar_label: 响应消息格式
+sidebar_position: 3
+---
+
+### 格式
+
+```json title="格式"
+{
+  "id": "{id}", // callback ID
+  "code": 1, // result: 0 = success; 1 = fail; 2 = listenKey invalid
+  "msg": ""
+}
+```
+
+---
+
+### 响应 示例s
+
+```json title="Success"
+{"id": "123", "code": 0, "msg": "success"}
+```
+
+```json title="Token Invalid"
+{"id": "123", "code": 401, "msg": "token expire"}
+```

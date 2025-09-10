@@ -1,0 +1,27 @@
+---
+id: ResponseMessageFormat
+title: 响应消息格式
+sidebar_label: 响应消息格式
+sidebar_position: 3
+---
+
+### 响应 Message 格式
+
+This section outlines the response message format when interacting with WebSocket APIs.
+
+### 响应 格式
+
+```javascript
+{
+    "id": "{id}",   // Call back ID
+    "code": 1,      // Result 0=success; 1=fail; 2=listenKey invalid
+    "msg": ""
+}
+响应 示例 (Success)
+
+{
+  "id": "123",
+  "code": 0,
+  "msg": "success"
+}
+```

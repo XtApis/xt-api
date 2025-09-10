@@ -1,0 +1,46 @@
+---
+id: 用户订单
+title: 用户 订单
+sidebar_label: 用户 订单
+sidebar_position: 10
+---
+
+### Subscribe / Unsubscribe
+
+```json title="Subscribe/Unsubscribe"
+{
+  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{order}@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### 响应 示例
+
+```json title="响应"
+{
+  "topic": "order",
+  "event": "order@123456",
+  "data": {
+    "symbol": "btc_usdt", // Trading pair
+    "orderId": "1234", // 订单ID
+    "origQty": "34244", // 原始数量
+    "avgPrice": "123", // 平均价格
+    "price": "1111", // 订单 price
+    "executedQty": "34244", // 已执行数量 (Cont)
+    "orderSide": "BUY", // BUY or SELL
+    "timeInForce": "IOC", // Valid way
+    "positionSide": "LONG", // LONG or SHORT
+    "保证金账户Frozen": "123", // Occupied 保证金账户
+    "source类型": "默认值值", // DEFAULT: normal order; ENTRUST: plan commission; PROFIT: Take Profit and Stop Loss
+    "类型": "ORDER", // 类型
+    "state": "FILLED", // 订单 state: NEW, PARTIALLY_FILLED, PARTIALLY_CANCELED, FILLED, CANCELED, REJECTED, EXPIRED
+    "createdTime": 1731231231, // Create time
+    "杠杆账户": 20, // Leverage
+    "position类型": "ISOLATED", // Position 类型: CROSSED, ISOLATED
+    "order类型": "MARKET" // 订单 类型: LIMIT, MARKET
+  }
+}
+```

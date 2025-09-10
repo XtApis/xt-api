@@ -1,0 +1,41 @@
+---
+id: Withdraw
+title: 提现
+sidebar_label: 提现
+sidebar_position: 4
+---
+
+**类型:** POST **描述:** `/v4/withdraw`
+
+### 参数
+
+> 📌 注意: The parameters are placed in the **request 请求体** in JSON format.
+
+| 名称 | 类型 | 必填 | 默认值值值值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| currency | 字符串 | 是 | N/A | 货币名称, from **Get supported currencies for deposit/withdrawal** API |  |
+| chain | 字符串 | 否 | N/A | Transfer network 名称, from **Get supported currencies for deposit/withdrawal** API |  |
+| client订单Id | 字符串 | 否 | N/A | Custom client ID, regex: `^[a-zA-Z0-9_]{4,32}$` |  |
+| amount | 数字 | 是 | N/A | Withdrawal amount (including fee) |  |
+| address | 字符串 | 否 | N/A | Withdrawal address |  |
+| memo | 字符串 | 否 | N/A | Memo/Tag (required for some chains such as EOS) |  |
+| toAccountId | 数字 | 否 | N/A | Receiving user ID |  |
+
+### 注意事项
+
+- 参数 must be placed in the 请求体 as JSON.
+- 限流规则: **1 request/second per apikey**.
+- For EOS-like chains, `memo` must be provided.
+- The returned `id` can be used to 查询参数 withdrawal history later.
+
+### 请求 示例
+
+```json title="请求"
+{
+  "currency": "zb",
+  "chain": "Ethereum",
+  "amount": 1000,
+  "address": "0xfa3abfa50eb2006f5be7831658b17aca240d8526",
+  "memo": ""
+}
+```

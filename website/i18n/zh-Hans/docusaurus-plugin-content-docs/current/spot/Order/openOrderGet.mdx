@@ -1,0 +1,75 @@
+---
+title: 查询当前挂单
+position_数字: 8
+类型: get
+描述: /v4/open-order
+parameters:
+  - 名称: symbol
+    类型: 字符串
+    必填: 否
+    默认值值值值:
+    描述: Trading pair, if not filled in, represents all
+    范围:
+  - 名称: biz类型
+    类型: 字符串
+    必填: 否
+    默认值值值值:
+    描述: '现货, 杠杆'
+    范围:
+  - 名称: side
+    类型: 字符串
+    必填: 否
+    默认值值值值:
+    描述: BUY,SELL
+    范围:
+content_markdown: >-
+  #### **Limit Flow Rules**
+  
+  10/s/apikey
+
+
+left_code_blocks:
+  - code_block:
+    title: Java
+    language: java
+  - code_block:
+    title: Python
+    language: python
+right_code_blocks:
+  - code_block: |-
+      {
+        "rc": 0,
+        "mc": "字符串",
+        "ma": [
+          {}
+        ],
+        "result": [      //For field information, refer to the 获取单个订单 interface
+          {
+            "symbol": "BTC_USDT",
+            "orderId": "6216559590087220004",
+            "client订单Id": "16559590087220001",
+            "base货币": "字符串",
+            "quote货币": "字符串",
+            "side": "BUY",
+            "类型": "LIMIT",
+            "timeInForce": "GTC",
+            "price": "40000",
+            "origQty": "2",
+            "origQuoteQty": "48000",
+            "executedQty": "1.2",
+            "leavingQty": "字符串",
+            "trade基础": "2",
+            "tradeQuote": "48000",
+            "avgPrice": "42350",
+            "fee": "字符串",
+            "fee货币": "字符串",
+            "state": "NEW",
+            "time": 1655958915583,
+            "ip": "127.0.0.1",
+            "updatedTime": 1655958915583
+          }
+        ]
+      }
+    title: 响应
+    language: json
+---

@@ -1,0 +1,45 @@
+---
+id: get-latest-transaction-information-of-trading-pairs
+title: 获取交易对最新交易信息
+sidebar_label: 获取交易对最新交易信息
+sidebar_position: 9
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/deal`
+
+#### 注意：
+
+此方法不需要签名.
+
+### 参数
+
+| 名称   | 类型    | 必需 | 默认值值值值 | 描述  | 范围 |
+| ------ | ------- | --------- | ------- | ------------ | ------ |
+| symbol | 字符串  | 是      | N/A     | Trading pair |        |
+| num    | integer | 否     | 50      | Quantity     |        |
+
+### 响应 示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="响应">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": 0,  // Volume
+      "m": "", // 订单 side
+      "p": 0,  // 价格
+      "s": "", // Trading pair
+      "t": 0   // Time
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>

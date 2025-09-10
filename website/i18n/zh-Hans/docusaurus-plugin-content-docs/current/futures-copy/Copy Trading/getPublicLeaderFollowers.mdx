@@ -1,0 +1,48 @@
+---
+id: PublicGetLeadersFollowers
+title: Public Get Leader's Followers
+sidebar_label: Public Get Leader's Followers
+sidebar_position: 28
+---
+
+**Type:** GET
+
+**Description:** `/future/copytrade/public/user/v1/public/copy-trade/leader-follower-page`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| type | number | No | - | Type (1:detail, 2:total) | 1, 2 |
+| symbol | string | No | - | Trading pair symbol | - |
+| leaderAccountId | number | Yes | - | Leader account ID | - |
+| direction | string | No | - | Query direction | NEXT, PREV |
+| limit | number | No | - | Page size | 10 |
+| id | number | No | - | Page ID | - |
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": [
+    {
+      "accountId": 0, // Leader accountId
+      "followerName": "string", // Follower nickname
+      "avatar": "string", // Avatar
+      "id": 0, // ID
+      "pageId": 0, // Page ID
+      "followMarginU": 0, // Follower total margin
+      "followProfitU": 0, // Follower total profit
+      "followProfitRate": 0, // Follower profit rate
+      "days": 0 // Days
+    }
+  ]
+}
+```

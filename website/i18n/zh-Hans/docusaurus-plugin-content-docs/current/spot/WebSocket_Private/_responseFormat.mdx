@@ -1,0 +1,29 @@
+---
+id: ResponseMessageFormat
+title: 响应消息格式
+sidebar_label: 响应消息格式
+sidebar_position: 3
+---
+
+**类型:** Websocket Info **描述:** WebSocket响应消息的标准格式
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 |
+| ---- | ---- | --------- | ------- | ---------------------- |
+| –    | –    | false     | N/A     | 无需参数 |
+
+### 注意事项
+
+- 响应消息用于确认WebSocket请求的处理结果。
+- 包含回调ID、结果代码和消息内容。
+
+### 响应示例
+
+```json title="Response"
+{
+    "id": "{id}", // 回调ID
+    "code": 1,     // 结果 0=成功;1=失败;2=listenKey无效
+    "msg": ""
+}
+```

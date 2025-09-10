@@ -1,0 +1,85 @@
+---
+title: BTCsn deposit or withdraw history
+position_数字: 8
+类型: get
+描述: /v4/nft/order/history
+parameters:
+  - 名称: '类型'
+    类型: 数字
+    必填: 否
+    默认值值值值: 2
+    描述: 类型,1-deposit;2-withdraw
+    ranges:
+  - 名称: 'status'
+    类型: 数字
+    必填: 否
+    默认值值值值:
+    描述: status,0-submit;1-under review;2-reviewed;3-completed;4-reject;5-cancel
+    ranges:
+  - 名称: 'currency'
+    类型: 字符串
+    必填: 否
+    默认值值值值:
+    描述: currency
+    ranges:
+  - 名称: 'startTime'
+    类型: 数字
+    必填: 否
+    默认值值值值:
+    描述: start time (timestamp)
+    ranges:
+  - 名称: 'endTime'
+    类型: 数字
+    必填: 否
+    默认值值值值:
+    描述: end time (timestamp)
+    ranges:
+  - 名称: 'page'
+    类型: 数字
+    必填: 否
+    默认值值值值:
+    描述: page index
+    ranges:
+  - 名称: 'size'
+    类型: 数字
+    必填: 否
+    默认值值值值:
+    描述: page size
+    ranges:
+content_markdown: |-
+
+left_code_blocks:
+  - code_block:
+    title: Java
+    language: java
+  - code_block:
+    title: Python
+    language: python
+right_code_blocks:
+  - code_block: |-
+      {
+          "rc": 0,
+          "mc": "SUCCESS",
+          "ma": [],
+          "result": {   
+             items:[
+                {
+                    id: 123,
+                    类型: 2,
+                    currencyId: 2280,
+                    currency名称: "btcsn",
+                    amount: 0.01,
+                    fee: 0.7511888,
+                    fee货币Id: 11, 
+                    fee货币名称: "usdt",
+                    serial: 123,
+                    status: 3,
+                    password: 123456,
+                    createTime: 1730967448000
+                }
+             ]
+          }
+      }
+    title: 响应
+    language: json
+---

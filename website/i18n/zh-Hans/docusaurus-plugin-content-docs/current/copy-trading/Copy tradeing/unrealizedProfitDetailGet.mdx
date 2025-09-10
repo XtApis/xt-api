@@ -1,0 +1,44 @@
+---
+id: GetUnrealizedProfitSharingDetail
+title: Get Unrealized Profit Sharing Detail
+sidebar_label: Unrealized Profit Sharing
+position_number: 17
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-balance/copy-trade/share-profit/expected-detail`
+
+#### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| direction | string | false | NEXT | Query direction | PREV - previous, NEXT - next |
+| limit | number | false | 10 | Number of pages | 1-100 |
+| id | object | false | - | Start ID, e.g. `6216559590087220004` | - |
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "amount": 0, // profit sharing amount
+        "avatar": "string", // avatar of copy trader
+        "id": 0, // the id used for pagination query
+        "name": "string" // nickname of copy trader
+      }
+    ]
+  }
+}
+```

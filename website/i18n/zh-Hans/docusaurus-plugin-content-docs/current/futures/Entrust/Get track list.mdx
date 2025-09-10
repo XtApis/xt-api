@@ -1,0 +1,71 @@
+---
+id: getTrackList
+title: 获取跟踪列表（所有活跃）
+sidebar_label: 获取跟踪列表（所有活跃）
+sidebar_position: 16
+---
+
+**类型:** POST
+
+**描述:** `/future/trade/v1/entrust/track-list`
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### 参数
+
+| 名称      | 类型    | 必需 | 默认值值值值值值 | 描述               |
+| --------- | ------- | --------- | ------- | ------------------------- |
+| page      | integer | 否     | 1       | Page                      |
+| size      | integer | 否     | 10      | Quantity of a single page |
+| endTime   | integer | 否     | N/A     | End time                  |
+| startTime | integer | 否     | N/A     | Start time                |
+| symbol    | 字符串  | 否     | N/A     | Symbol                    |
+
+### 示例代码
+
+```java
+public void getTrackDetail() {
+    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/entrust/track-list");
+    System.out.println(text);
+}
+###示例代码
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "activationPrice": 0,      // Activation price
+        "avgPrice": 0,             // 平均价格
+        "callback": "",            // Callback range configuration: PROPORTION or FIXED
+        "callbackVal": 0,          // Callback value
+        "configActivation": 否, // Whether to configure activation price
+        "createdTime": 0,          // Create time
+        "currentPrice": 0,         // Real-time price, compared with activation and order price
+        "desc": "",                // 描述
+        "executedQty": 0,          // Actual transaction quantity
+        "orderSide": "",           // 订单 side
+        "ordinary": 是,          // Ordinary
+        "origQty": 0,              // 数量 (Cont)
+        "positionSide": "",        // Position side
+        "price": 0,                // 订单 price
+        "state": "",               // 订单 state: NOT_ACTIVATION; NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; DELEGATION_FAILED
+        "stopPrice": 0,            // Trigger price
+        "symbol": "",              // 交易对
+        "trackId": 0,              // Track id
+        "triggerPrice类型": "",    // Trigger price 类型
+        "updatedTime": 0           // Update time
+      }
+    ],
+    "page": 1,                     // Page
+    "ps": 10,                      // Page size
+    "total": 20                    // Total
+  },
+  "returnCode": 0
+}
+```

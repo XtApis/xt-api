@@ -1,0 +1,44 @@
+---
+id: signatureInstructions
+title: 签名说明
+sidebar_label: 签名说明
+sidebar_position: 4
+---
+
+由于XT需要为第三方平台提供一些开放接口, it requires considering data security issues, such as whether the data has been tampered with, whether the data is outdated, whether the data can be submitted repeatedly, and the access frequency of the interface. Among these, whether the data has been tampered with is the most important issue.
+
+1. Please apply for **appkey** and **secretkey** in the user center first, each user's appkey and secretkey are different.
+
+2. Add **timestamp**, its value should be the unix timestamp (milli秒) of the time when the request is sent, and the time of the data is calculated based on this value.
+
+3. Add **signature**, its value is obtained by a certain rule of signature algorithm.
+
+4. Add **recvwindow** (defining the valid time of the request). The valid time is currently relatively simple and uniformly fixed at a certain value.
+
+   - When a request is received by the server, the timestamp in the request is checked to ensure it falls between 2 to 60 秒.
+   - Any request with a timestamp older than **5000 milli秒** is considered invalid.
+   - The time window value can be set using the optional parameter: `recvWindow`.
+   - If the server determines that the client’s timestamp is more than one second ahead of the server, the request will also be invalid.
+   - 在线条件并不总是100%可靠 in terms of the timeliness of trades, resulting in varying levels of latency between your local program and the XT server. This is why we provide the `recvWindow` parameter — if you engage in high-frequency trading and require stricter transaction timeliness, you can adjust the `recvWindow` parameter to better meet your needs.
+
+   ⚠️ **接收窗口 longer than 5 秒 不推荐.**
+
+5. Add **algorithm** (签名方法/algorithm). The user calculates the signature according to the protocol of the hash, and **HmacSHA256** is recommended. 支持 algorithms are listed below:
+
+   - HmacMD5
+   - HmacSHA1
+   - HmacSHA224
+   - HmacSHA256 (recommended)
+   - HmacSHA384
+   - HmacSHA512
+
+### 示例 参数
+
+| 名称 | 必需 | 示例 | 描述 |
+| --- | --- | --- | --- |
+| validate-appkey | 是 | dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83 | - |
+| validate-timestamp | 是 | 1641446237201 | - |
+| validate-signature | 是 | 0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d | - |
+| validate-recvwindow | 是 | 5000 (毫秒) | - |
+| validate-algorithms | 是 | HmacSHA256 | HmacMD5、HmacSHA1、HmacSHA224、HmacSHA256、HmacSHA384、HmacSHA512. 默认值值: HmacSHA256 |
+| validate-signversion | 否 | 1.0 | Reserved, signed version 数字 |

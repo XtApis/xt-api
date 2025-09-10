@@ -1,0 +1,40 @@
+---
+id: BalanceChange
+title: 余额变化
+sidebar_label: 余额变化
+sidebar_position: 5
+---
+
+**类型:** Websocket Push  
+**描述:** 余额变化通知
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- |
+| – | – | false | N/A | 无需参数, 订阅 **balance** 主题以接收更新 |
+
+### 注意事项
+
+- 当用户账户余额发生变化时触发此推送通知。
+- 订阅格式：`balance`
+- 支持 **SPOT** 和 **LEVER** 业务类型。
+- 用于跟踪交易、充值、提现或转账后的实时余额变化。
+
+### Push 示例
+
+```json title="Push"
+{
+  "topic": "balance",
+  "event": "balance",
+  "data": {
+    "a": "123", // 账户ID
+    "t": 1656043204763, // 事件时间（毫秒）
+    "c": "btc", // 货币
+    "b": "123", // 总现货余额
+    "f": "11", // 冻结金额
+    "z": "SPOT", // 业务类型 [SPOT, LEVER]
+    "s": "btc_usdt" // 交易对
+  }
+}
+```

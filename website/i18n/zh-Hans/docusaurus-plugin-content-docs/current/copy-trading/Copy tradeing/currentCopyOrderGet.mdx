@@ -1,0 +1,51 @@
+---
+id: GetCurrentCopyOrder
+title: Get Current Copy Order
+sidebar_label: Get Current Copy Order
+sidebar_position: 2
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-order/copy-trade/order/cur-follower-order`
+
+### Limit Flow Rules
+
+2/s/apikey
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false |  | Trading pair, if not filled in, represents all |  |
+| type | number | false | 2 | <a href="#leaderOrderRequestType">Leader order request type</a>, 1=detail, 2=summarize |  |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "string",
+      "orderId": "string", // order id
+      "symbol": "string", // symbol
+      "buySize": 0, // buy quantity
+      "buyTime": 0, // buy time
+      "buyPrice": 0, // buy price
+      "sellSize": 0, // sell quantity
+      "sellTime": 0, // sell time
+      "sellPrice": 0, // sell price
+      "profit": 0, // profit
+      "profitRate": 0, // profit rate
+      "triggerProfitPrice": 0, // trigger profit price
+      "triggerStopPrice": 0, // trigger stop price
+      "leaderOrderId": "string", // leader order id
+      "leaderNickname": "string", // leader nick name
+      "leaderAvatar": "string" // leader avatar
+    }
+  ]
+}
+```

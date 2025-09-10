@@ -1,0 +1,36 @@
+---
+id: SignatureStatement
+title: 签名声明
+sidebar_label: 签名声明
+sidebar_position: 4
+---
+
+Since XT provides open interfaces for third-party platforms, **data security** must be ensured — such as preventing data tampering, avoiding outdated data, stopping repeated submissions, and controlling request frequency. Among these, verifying whether the data has been tampered with is the most critical.
+
+### 签名规则
+
+1. **AppKey 和 SecretKey** 离线分发. 不同的调用应使用不同的 `appkey` and `secretkey`.
+
+2. **时间戳** 添加时间戳，单位为 **毫秒 (Unix timestamp)** 请求时间. 请求的有效性基于此值计算.
+
+3. **签名** 所有请求数据必须签名.
+
+4. **接收窗口** 有效期由 `recvWindow`. 默认值值值值值值 is **5 秒**, 最大 **60 秒**.
+
+   - 如果时间戳超过 **5000ms older** than server time, the request is invalid.
+   - 如果客户端时间戳超过 **1 second ahead** of the server, the request is also rejected.
+   - 接收窗口 **> 5 秒 不推荐**. 此机制处理 **网络抖动** 并有助于确保高频交易的及时性.
+
+5. **签名 Algorithms** 签名s 使用基于HSC的协议计算. 默认值值值值值值: **HmacSHA256** 支持: `HmacMD5`, `HmacSHA1`, `HmacSHA224`, `HmacSHA256`, `HmacSHA384`, `HmacSHA512`
+
+### Required 签名 参数
+
+| 名称 | 必需 | 示例 | 描述 |
+| --- | --- | --- | --- |
+| validate-appkey | 是 | `dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83` | API密钥 |
+| validate-timestamp | 是 | `1641446237201` | Unix timestamp (ms) |
+| validate-signature | 是 | `0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d` | Generated signature |
+| validate-recvwindow | 否 | `5000` (ms) | Time window for validity |
+| validate-algorithms | 否 | `HmacSHA256` | 默认值值值值值值 `HmacSHA256` |
+| api-version | 否 | `1.0` | Reserved, API version 数字 |
+| validate-signversion | 否 | `1.0` | Reserved, signature version |

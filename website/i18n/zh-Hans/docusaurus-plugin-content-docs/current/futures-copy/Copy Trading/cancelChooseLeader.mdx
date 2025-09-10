@@ -1,0 +1,39 @@
+---
+id: CancelFollowLeader
+title: Cancel Follow Leader
+sidebar_label: Cancel Follow Leader
+sidebar_position: 16
+---
+
+**Type:** POST
+
+**Description:**
+
+`/future/copytrade/user/v1/copy-trade/cancel-choose-leader`
+
+---
+
+### Parameters
+
+| Name            | Type   | Mandatory | Default | Description      | Ranges |
+| --------------- | ------ | --------- | ------- | ---------------- | ------ |
+| leaderAccountId | number | Yes       | -       | Leader accountId | -      |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=success, false=fail
+}
+```

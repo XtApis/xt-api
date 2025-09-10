@@ -1,0 +1,34 @@
+---
+id: RequestMessageFormat
+title: 请求消息格式
+sidebar_label: 请求消息格式
+sidebar_position: 2
+---
+
+### Subscribe / Unsubscribe
+
+```json title="Subscribe/Unsubscribe"
+{
+  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": [
+    "{order}@{listenKey}",
+    "{trade}@{listenKey}",
+    "{balance}@{listenKey}",
+    "{position}@{listenKey}",
+    "{notify}@{listenKey}"
+  ],
+  "id": "{id}" // user defined
+}
+```
+
+---
+
+### 示例: Subscribe
+
+```json title="Subscribe 示例"
+{
+  "方法": "SUBSCRIBE",
+  "params": ["order@A246C3DF8EE532DC75007BC5D86698541678596355681"],
+  "id": "test1"
+}
+```

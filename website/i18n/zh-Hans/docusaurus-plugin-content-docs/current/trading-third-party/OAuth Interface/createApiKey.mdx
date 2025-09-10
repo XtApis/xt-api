@@ -1,0 +1,29 @@
+---
+id: CreateApiKey
+title: Create apiKey
+sidebar_label: Create apiKey
+sidebar_position: 3
+---
+
+**Type:** POST
+
+**Description:** `/user/account/api-key`
+
+### Parameters
+
+_None_
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": {
+    "userId": 12345678, // user id
+    "accessKey": "99258227-f053-46a2-9b10-66c155eb705c", // encryption key
+    "secretKey": "4b1839e11bf7a1c6de5f078bd9f4b6e0850da3cf" // encryption string
+  }
+}
+```

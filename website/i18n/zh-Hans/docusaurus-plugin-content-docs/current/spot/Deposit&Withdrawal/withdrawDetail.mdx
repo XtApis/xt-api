@@ -1,0 +1,46 @@
+---
+id: WithdrawDetail
+title: 提现 Detail
+sidebar_label: 提现 Detail
+sidebar_position: 5
+---
+
+**类型:** GET **描述:** `/v4/withdraw`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值值值值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| recordId | 字符串 | 否 | N/A | Withdrawal record ID, obtained from the **Withdraw** endpoint. 推荐 to use this first. |  |
+| client订单Id | 字符串 | 否 | N/A | Custom client ID |  |
+
+### 注意事项
+
+- 限流规则: **1 request/second per apikey**.
+- Use `recordId` if available, otherwise `client订单Id`.
+- This endpoint retrieves the detailed information of a specific withdrawal record.
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "id": 100, // Withdrawal record ID
+    "client订单Id": 10, // Client ID
+    "类型": 0, // 类型: CHAIN_TRANSFER - Blockchain withdrawal, INTERNAL_TRANSFER - Internal withdrawal
+    "currency": "btc", // 货币
+    "address": "xxxxx", // Withdrawal address
+    "status": "REVIEW", // Withdrawal status (see Deposit/Withdraw status reference)
+    "amount": 0.1, // Withdrawal amount
+    "fee": 0.0001, // 提现手续费
+    "chain": "Tron", // Transfer network
+    "memo": "yyyyy", // Memo/Tag if applicable
+    "confirmations": 2, // Number of block confirmations
+    "transactionId": "490267492", // Transaction hash
+    "createdTime": 1737093343000 // Withdrawal application time (ms)
+  }
+}
+```

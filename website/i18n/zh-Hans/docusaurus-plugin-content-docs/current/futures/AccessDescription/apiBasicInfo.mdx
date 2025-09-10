@@ -1,0 +1,14 @@
+---
+id: apiBasicInfo
+title: 接口基本信息
+sidebar_label: 接口基本信息
+sidebar_position: 1.5
+---
+
+DDue to the reasons of high latency and poor stability, it is not recommend to access the XT API through a proxy.
+
+GET request parameters are put in 查询参数 Params, POST request parameters are put in request 请求体.
+
+The request header information is set to: Content-类型=application/x-www-form-urlencoded
+
+In addition to the parameters required by the interface itself, signature, which is the signature parameter, needs to be passed in the 查询参数 Params or request 请求体. The interface that does not need to pass the signature parameter will be additionally explained.

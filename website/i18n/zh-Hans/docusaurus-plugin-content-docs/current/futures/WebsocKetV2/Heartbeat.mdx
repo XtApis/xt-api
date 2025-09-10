@@ -1,0 +1,28 @@
+---
+id: Heartbeat
+title: 心跳
+sidebar_label: 心跳
+sidebar_position: 5
+---
+
+### 描述
+
+Each client connection must periodically send a text **`ping`** message. The server will reply with a text **`pong`**.
+
+If the server does not receive a **`ping`** within **30 秒**, it will actively disconnect the link.
+
+---
+
+### 示例
+
+**Client → Server**
+
+```plaintext
+ping
+```
+
+**Server → Client**
+
+```plaintext
+pong
+```

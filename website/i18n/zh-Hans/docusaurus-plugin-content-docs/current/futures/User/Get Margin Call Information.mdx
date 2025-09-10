@@ -1,0 +1,41 @@
+---
+id: Get Margin Call Information
+title: Get Margin Call Information
+sidebar_label: Get Margin Call Information
+sidebar_position: 18
+---
+
+**类型** GET
+
+**描述:** `/future/user/v1/position/break-list`
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### 响应 示例
+
+```json title="响应"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "breakPrice": 0, //Margin call price. 0 means no 保证金账户 call
+      "calMarkPrice": 0, //标记价格
+      "contract类型": "", //Futures 类型: PERPETUAL;PREDICT
+      "entryPrice": 0, //Open position average price
+      "isolatedMargin": 0, //Isolated Margin
+      "杠杆账户": 0, //Leverage
+      "positionSide": "", //Position side:LONG;SHORT
+      "positionSize": 0, //Position quantity (Cont)
+      "position类型": "", //Position 类型:CROSSED;ISOLATED
+      "symbol": "" // 交易对
+    }
+  ],
+  "returnCode": 0
+}
+```

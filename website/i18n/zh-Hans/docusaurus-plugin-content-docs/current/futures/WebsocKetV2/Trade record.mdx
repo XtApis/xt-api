@@ -1,0 +1,33 @@
+---
+id: TradeRecord
+title: 交易记录
+sidebar_label: 交易记录
+sidebar_position: 8
+---
+
+### 请求 格式
+
+```
+trade@{symbol}
+```
+
+- **example**: `trade@btc_usdt`
+- **rate**: 实时-time
+
+---
+
+### 响应 示例
+
+```json title="响应"
+{
+  "topic": "trade",
+  "event": "trade@btc_usdt",
+  "data": {
+    "s": "btc_index", // trading pair
+    "p": "50000", // price
+    "a": "0.1", // quantity
+    "m": "BID", // deal side: BID = Buy, ASK = Sell
+    "t": 123124124 // timestamp
+  }
+}
+```

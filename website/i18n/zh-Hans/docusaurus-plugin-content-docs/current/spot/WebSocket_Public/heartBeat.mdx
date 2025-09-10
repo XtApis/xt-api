@@ -1,0 +1,17 @@
+---
+id: heartBeat
+title: 心跳
+sidebar_label: 心跳
+sidebar_position: 5
+---
+
+### 描述
+
+Each link of the client needs to send a text `"ping"` periodically, and the server will reply with `"pong"`.  
+If the server does not receive a ping message from the client within 1 minute, it will actively disconnect the link.
+
+### 响应示例
+
+```json title="Response"
+"pong"
+```

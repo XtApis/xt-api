@@ -1,0 +1,171 @@
+---
+title: Signature Generation
+position_number: 5
+---
+
+## Signature Generation
+
+Take `https://sapi.xt.com/v4/order` as an example.
+
+The following is an example **appKey** and **secretKey** for placing an order using a call interface implemented by `echo openssl` and `curl` tools in the Linux bash environment (for demonstration purposes only):
+
+```
+appKey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+secretKey: bc6630d0231fda5cd98794f52c4998659beda290
+```
+
+### Header part data
+
+```
+validate-algorithms: HmacSHA256
+validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+validate-recvwindow: 5000
+validate-timestamp: 1641446237201
+validate-signature: 2b5eb11e18796d12d88f13dc27dbbd02c2cc51ff7059765ed9821957d82bb4d9
+```
+
+### Request data
+
+```json
+{
+  "type": "LIMIT",
+  "timeInForce": "GTC",
+  "side": "BUY",
+  "symbol": "btc_usdt",
+  "price": "39000",
+  "quantity": "2"
+}
+```
+
+---
+
+## 1. Data Part
+
+- **method**: UpperCase method. e.g. GET, POST, DELETE, PUT
+- **path**: Concatenate all values in the order in path. Example: `/sign/test/bb/aa`
+- **query**: Sort all `key=value` according to the lexicographical order of the key. Example: `userName=dfdfdf&password=ggg`
+- **body**:
+  - **JSON**: Directly by JSON string without conversion or sorting.
+  - **x-www-form-urlencoded**: Sort all `key=values` lexicographically. Example: `userName=dfdfdf&password=ggg`
+  - **form-data**: Not supported.
+
+If multiple data forms exist, re-splicing is performed in the order of `path`, `query`, `body`.
+
+#### Method example
+
+```
+POST
+```
+
+#### Path example
+
+```
+/v4/order
+```
+
+#### Query example
+
+```
+symbol=btc_usdt
+```
+
+#### Body examples
+
+- x-www-form-urlencoded:
+
+```
+symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
+```
+
+- JSON:
+
+```json
+{
+  "symbol": "btc_usdt",
+  "side": "BUY",
+  "type": "LIMIT",
+  "timeInForce": "GTC",
+  "quantity": 2,
+  "price": 39000
+}
+```
+
+#### Mixed query + body example
+
+- Query:
+
+```
+symbol=btc_usdt&side=BUY&type=LIMIT
+```
+
+- Body:
+
+```json
+{"symbol": "btc_usdt", "side": "BUY", "type": "LIMIT"}
+```
+
+Final concatenated value is:
+
+```
+Y=#method#path#query#body
+```
+
+Notice:
+
+- Query has data, body none → `Y=#method#path#query`
+- Query none, body has data → `Y=#method#path#body`
+- Query + body → `Y=#method#path#query#body`
+
+---
+
+## 2. Request Header Part
+
+After the keys are in ascending alphabetical order, join them with `&` to form `X`. Example:
+
+```
+validate-algorithms=HmacSHA256&validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-recvwindow=5000&validate-timestamp=1641446237201
+```
+
+---
+
+## 3. Generate Signature
+
+The string to be encrypted is recorded as:
+
+```
+original = XY
+```
+
+Encrypt using:
+
+```java
+signature = org.apache.commons.codec.digest.HmacUtils.hmacSha256Hex(secretkey, original);
+```
+
+Put the generated signature in the request header: `validate-signature: <signature>`
+
+---
+
+## 4. Example
+
+### Sample of original signature message
+
+```
+validate-algorithms=HmacSHA256&validate-appkey=2063495b-85ec-41b3-a810-be84ceb78751&validate-recvwindow=60000&validate-timestamp=1666026215729#POST#/v4/order#{"symbol":"XT_USDT","side":"BUY","type":"LIMIT","timeInForce":"GTC","bizType":"SPOT","price":3,"quantity":2}
+```
+
+### Sample request message
+
+```bash
+curl --location --request POST 'https://sapi.xt.com/v4/order' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-appkey: 10c172ca-d791-4da5-91cd-e74d202dac96' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-timestamp: 1666026215729' \
+--header 'validate-signature: 4cb36e820f50d2e353e5e0a182dc4a955b1c26efcb4b513d81eec31dd36072ba' \
+--data-raw '{"symbol":"XT_USDT","side":"BUY","type":"LIMIT","timeInForce":"GTC","bizType":"SPOT","price":3,"quantity":2}'
+```
+
+**Important:** Always check Content-Type, signature original message, and request message formats carefully.

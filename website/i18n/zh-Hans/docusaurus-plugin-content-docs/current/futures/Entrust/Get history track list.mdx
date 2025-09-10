@@ -1,0 +1,66 @@
+---
+id: GetHistoryTrackListInactive
+title: 获取历史跟踪列表（非活跃）
+sidebar_label: 获取历史跟踪列表（非活跃）
+sidebar_position: 19
+---
+
+**类型:** GET
+
+**描述:** `/future/trade/v1/entrust/track-list-history`
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### 参数
+
+| 名称 | 类型 | 必需 | 默认值值值值值值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| direction | 字符串 | 否 | NEXT | Direction (PREV: Previous page; NEXT: Next page) | PREV;NEXT |
+| limit | integer | 否 | 10 | Limit |  |
+| id | integer | 否 | N/A |  |  |
+| endTime | integer | 否 | N/A | End time |  |
+| startTime | integer | 否 | N/A | Start time |  |
+| symbol | 字符串 | 否 | N/A | Symbol |  |
+
+### 响应 示例
+
+```json title="响应"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": 是, // Is there a next page
+    "hasPre": 是, // Is there a previous page
+    "items": [
+      {
+        "activationPrice": 0, // Activation price
+        "avgPrice": 0, // 平均价格
+        "callback": "", // Callback range configuration 1:PROPORTION 2:FIXED
+        "callbackVal": 0, // Callback value
+        "configActivation": 否, // Whether to configure activation price
+        "createdTime": 0, // Create time
+        "currentPrice": 0, // Real-time price
+        "desc": "", // 描述
+        "executedQty": 0, // Actual transaction quantity
+        "orderSide": "", // 订单 side
+        "ordinary": 是, //
+        "origQty": 0, // 数量 (Cont)
+        "positionSide": "", // Position side
+        "price": 0, // 订单 price
+        "state": "", // 订单 state: NOT_ACTIVATION; NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; DELEGATION_FAILED
+        "stopPrice": 0, // Trigger price
+        "symbol": "", // 交易对
+        "trackId": 0, // Track ID
+        "triggerPrice类型": "", // Trigger price 类型
+        "updatedTime": 0 // Update time
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```

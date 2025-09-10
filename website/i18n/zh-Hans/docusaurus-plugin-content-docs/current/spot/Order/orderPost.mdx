@@ -1,0 +1,46 @@
+---
+id: Submit订单
+title: 提交订单
+sidebar_label: 提交订单
+sidebar_position: 2
+---
+
+**类型:** post **描述:** `/v4/order`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值值值值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| symbol | 字符串 | 是 |  |  |  |
+| client订单Id | 字符串 | 否 |  | Pattern: ^[a-zA-Z0-9_]`{4,22}` |
+| $ |  |
+| side | 字符串 | 是 |  | "BUY,SELL" |  |
+| 类型 | 字符串 | 是 |  | "order 类型:LIMIT,MARKET" |  |
+| timeInForce | 字符串 | 是 |  | effective way:GTC, FOK, IOC, GTX |  |
+| biz类型 | 字符串 | 是 |  | "SPOT, LEVER" |  |
+| price | 数字 | 否 |  | price. Required if it is the LIMIT price; blank if it is the MARKET price |  |
+| quantity | 数字 | 否 |  | quantity. Required if it is the LIMIT price or the order is placed at the market price by quantity |  |
+| quoteQty | 数字 | 否 |  | amount. Required if it is the LIMIT price or the order is the market price when placing an order by amount |  |
+| nftId | 字符串 | 否 |  | nft id |  |
+
+#### Remark
+
+Create a BUY order based on market price, quantity must be null, quoteQty required. Create a SELL order based on market price, quoteQty must be null, quantity required.
+
+#### Limit Flow Rules
+
+20/s/apikey
+
+### 响应示例
+
+```json
+{
+  "rc": 0,
+  "mc": "字符串",
+  "ma": [{}],
+  "result": {
+    "orderId": "6216559590087220004",
+    "ip": "127.0.0.1"
+  }
+}
+```

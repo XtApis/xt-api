@@ -1,0 +1,40 @@
+---
+id: Get symbol list
+title: Get symbol list
+sidebar_label: Get symbol list
+sidebar_position: 1
+---
+
+**类型** GET
+
+**描述:** `/v4/public/lever/symbol`
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### 响应 示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "symbolId": 123, // Spot symbol id
+      "symbol": "btc_usdt", // Spot symbol
+      "buy货币Id": 123, // Buy currency id
+      "buy货币": "btc", // Buy currency
+      "sell货币Id": 234, // Sell currency id
+      "sell货币": "usdt", // Sell currency
+      "maxLoanAmountBuy": "", // The 最大 amount of buy currency that can be borrowed
+      "maxLoanAmountSell": "", // The 最大 amount of sell currency that can be borrowed
+      "maxLeverage": "", // Maximum loan multiple
+      "dailyInterestRate": "", // Daily interest rate
+      "liquidationRate": "", // Liquidation risk rate
+      "tipsRate": "" // Reminder coefficient
+    }
+  ]
+}
+```

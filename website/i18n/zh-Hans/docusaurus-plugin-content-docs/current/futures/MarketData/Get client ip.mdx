@@ -1,0 +1,35 @@
+---
+id: GetClientIp
+title: 获取客户端IP
+sidebar_label: 获取客户端IP
+sidebar_position: 1
+---
+
+**类型:** GET
+
+**描述:** `/future/public/client`
+
+#### 注意：
+
+此方法不需要签名.
+
+### 参数
+
+| 名称 | 类型   | 必需 | 默认值值值值 | 描述 | 范围 |
+| ---- | ------ | --------- | ------- | ----------- | ------ |
+|      | 数字 | 否     |         |             |        |
+
+### 响应 示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="响应">
+  {`{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "ip": "192.168.1.1"
+  }
+}`}
+</CodeBlock>

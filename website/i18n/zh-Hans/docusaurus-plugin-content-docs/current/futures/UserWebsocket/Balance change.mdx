@@ -1,0 +1,35 @@
+---
+id: BalanceChange
+title: Balance change
+sidebar_label: Balance change
+sidebar_position: 7
+---
+
+### Subscribe / Unsubscribe
+
+```json title="Subscribe/Unsubscribe"
+{
+  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{balance}@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### 响应 示例
+
+```json title="响应"
+{
+  "topic": "balance",
+  "event": "balance@123456",
+  "data": {
+    "coin": "usdt",
+    "underlying类型": 1, // 1: Coin-M, 2: USDT-M
+    "walletBalance": "123", // Balance
+    "open订单MarginFrozen": "123", // Frozen order
+    "isolatedMargin": "213", // Isolated Margin
+    "crossedMargin": "0" // Crossed Margin
+  }
+}
+```

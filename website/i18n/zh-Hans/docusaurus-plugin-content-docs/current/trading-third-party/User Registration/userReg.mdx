@@ -1,0 +1,44 @@
+---
+id: UserRegistration
+title: User Registration
+sidebar_label: User Registration
+sidebar_position: 1
+---
+
+If you do not have an XT account, please register in advance.
+
+**Register Address:**
+
+```
+http(s)://{URL}/{language}/accounts/register?client_id={clientId}
+```
+
+### Parameters
+
+1. **URL** The domain name of the XT authorization page.
+
+   - Official environment: `www.xt.com`
+
+2. **language** Authorization page language. Currently supported values:
+
+   - `en`: English
+   - `ja`: Japanese
+   - `hi`: Hindi
+   - `id`: Indonesian
+   - `ru`: Russian
+   - `es`: Spanish
+   - `tr`: Turkish
+   - `zh-HK`: Traditional Chinese
+   - `zh-CN`: Simplified Chinese
+   - `vi`: Vietnamese
+   - `th`: Thai
+
+3. **clientId** The unique identification of the organization (please apply to XT.COM in advance).
+
+### Example
+
+```text
+http://www.xt.com/en/accounts/register?client_id=DDJ7BLK49YUCL97S
+```
+
+Users registered through this URL will belong to the institution: `DDJ7BLK49YUCL97S

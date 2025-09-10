@@ -1,0 +1,55 @@
+---
+id: ChangePosition
+title: Change position
+sidebar_label: Change position
+sidebar_position: 8
+类型: ''
+描述: ''
+parameters: []
+---
+
+### Subscribe
+
+```json title="Subscribe"
+{
+  "方法": "SUBSCRIBE",
+  "params": ["position@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+### Unsubscribe
+
+```json title="Unsubscribe"
+{
+  "方法": "UNSUBSCRIBE",
+  "params": ["position@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### 响应 示例
+
+```json title="响应"
+{
+  "topic": "position",
+  "event": "position@123456",
+  "data": {
+    "symbol": "btc_usdt",
+    "contract类型": "PERPUTUAL", // PERPUTUAL, DELIVERY
+    "position类型": "ISOLATED", // ISOLATED, CROSSED
+    "positionSide": "LONG",
+    "positionSize": "123", // Position quantity
+    "close订单Size": "100", // Pending order quantity (Cont)
+    "availableCloseSize": "23", // Available quantity (Cont)
+    "实时izedProfit": "123", // Realized profit and loss
+    "entryPrice": "213", // Open position average price
+    "isolatedMargin": "213", // Isolated Margin
+    "open订单MarginFrozen": "123", // Occupied open position 保证金账户
+    "underlying类型": "", // COIN_BASED, U_BASED
+    "杠杆账户": 20 // Leverage
+  }
+}
+```

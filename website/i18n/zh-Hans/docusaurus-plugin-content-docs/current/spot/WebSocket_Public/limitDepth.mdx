@@ -1,0 +1,34 @@
+---
+id: LimitedDepth
+title: 限制深度
+sidebar_label: 限制深度
+sidebar_position: 9
+---
+
+### 请求
+
+- **格式:** `depth@{symbol},{levels}`
+- **级别:** 5, 10, 20, 50
+- **示例:** `depth@btc_usdt,20`
+- **频率:** 1000ms
+
+### 响应示例
+
+```json title="响应"
+{
+  "topic": "depth",
+  "event": "depth@btc_usdt,20",
+  "data": {
+    "s": "btc_usdt",
+    "i": 1657699200000,
+    "a": [
+      ["34000", "1.2"],
+      ["34001", "2.3"]
+    ],
+    "b": [
+      ["32000", "0.2"],
+      ["31000", "0.5"]
+    ]
+  }
+}
+```

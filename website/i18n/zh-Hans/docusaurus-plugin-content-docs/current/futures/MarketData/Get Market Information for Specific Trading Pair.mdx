@@ -1,0 +1,46 @@
+---
+id: get-market-information-for-specific-trading-pair
+title: 获取特定交易对的市场信息
+sidebar_label: 获取特定交易对的市场信息
+sidebar_position: 7
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/行情`
+
+#### 注意：
+
+此方法不需要签名.
+
+### 参数
+
+| 名称   | 类型   | 必需 | 默认值值值值 | 描述  | 范围 |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | 字符串 | 是      | N/A     | Trading pair |        |
+
+### 响应 示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="响应">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "a": "", // 24h volume
+    "c": "", // Latest price
+    "h": "", // Highest price in 24 hours
+    "l": "", // Lowest price in 24 hours
+    "o": "", // The first transaction price 24 hours ago
+    "r": "", // 24h Price Fluctuation Limit
+    "s": "", // Trading pair
+    "t": 0,  // Time
+    "v": ""  // 24h turnover
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

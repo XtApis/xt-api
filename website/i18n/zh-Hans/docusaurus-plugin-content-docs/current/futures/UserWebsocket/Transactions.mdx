@@ -1,0 +1,40 @@
+---
+id: Transactions
+title: Transactions
+sidebar_label: Transactions
+sidebar_position: 9
+---
+
+### Subscribe / Unsubscribe
+
+```json title="Subscribe/Unsubscribe"
+{
+  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{trade}@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### 响应 示例
+
+```json title="响应"
+{
+  "topic": "trade",
+  "event": "trade@123456",
+  "data": {
+    "orderId": "12312312", // 订单ID
+    "client订单Id": "123456", // 客户端订单ID
+    "price": "34244", // 价格
+    "quantity": "123", // 数量
+    "保证金账户Unfrozen": "123", // 数量 of unfrozen 保证金账户
+    "timestamp": 1731231231, // 时间戳
+    "symbol": "btc_usdt", // 交易对
+    "orderSide": "BUY", // 订单 side
+    "positionSide": "LONG", // Position side
+    "isMaker": 是, // Is maker or not (是=maker, 否=taker)
+    "fee": 0.0002 // 手续费
+  }
+}
+```

@@ -1,0 +1,47 @@
+---
+id: BatchQueryUserInformation
+title: Batch Query User Information
+sidebar_label: Batch Query User Information
+sidebar_position: 5
+---
+
+**Type:** GET
+
+**Description:**`/v4/referal/invite/multi/user/info`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| uidList | array | true |  | User ID list |  |
+| fromId | number | false |  | Starting ID |  |
+| direction | string | false | NEXT | query direction | PREV, NEXT |
+| limit | int | false | 10 | Limit number, max 100 | `1<=limit<=100` |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "totalCount": 1,
+    "pageCount": 20,
+    "items": [
+      {
+        "uid": 123456789,
+        "registerTime": 1737095389000,
+        "countryCode": "86",
+        "mobile": "123****4567",
+        "email": "639***3@gmail.com",
+        "riskControlStatus": 0,
+        "kycStatus": 2,
+        "registerInviteCode": 23456
+      }
+    ]
+  }
+}
+```

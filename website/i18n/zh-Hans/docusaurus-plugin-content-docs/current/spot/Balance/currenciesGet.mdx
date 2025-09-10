@@ -1,0 +1,45 @@
+---
+id: Get货币Info
+title: 获取货币信息
+sidebar_label: 获取货币信息
+sidebar_position: 1
+---
+
+**类型:** GET
+
+**描述:** `/v4/public/currencies`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述            | 范围 |
+| ---- | ---- | --------- | ------- | ---------------------- | ------ |
+| –    | –    | false     | N/A     | 无需参数 | –      |
+
+### 注意事项
+
+此接口获取所有支持的货币信息。
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": 11, // 货币ID
+      "currency": "usdt", // 货币名称
+      "fullName": "usdt", // 货币全名
+      "logo": null, // 货币图标
+      "cmcLink": null, // CMC链接
+      "weight": 100,
+      "maxPrecision": 6,
+      "depositStatus": 1, // 充值状态 (0=关闭, 1=开启)
+      "withdrawStatus": 1, // 提现状态 (0=关闭, 1=开启)
+      "convertEnabled": 1, // 小额资产兑换开关 [0=关闭, 1=开启]
+      "transferEnabled": 1 // 划转开关 [0=关闭, 1=开启)
+    }
+  ]
+}
+```

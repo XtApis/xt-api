@@ -1,0 +1,46 @@
+---
+title: BTCsn withdraw
+position_数字: 9
+类型: post
+描述: /v4/nft/withdraw
+parameters:
+  - 名称: 'currency'
+    类型: 字符串
+    必填: 是
+    默认值值值值:
+    描述: currency
+    ranges:
+  - 名称: 'serial'
+    类型: 字符串
+    必填: 是
+    默认值值值值:
+    描述: serial
+    ranges:
+content_markdown: |-
+  注意: The parameters are placed in the 请求体 in the form of json
+left_code_blocks:
+  - code_block:
+    title: Java
+    language: java
+  - code_block:
+    title: Python
+    language: python
+right_code_blocks:
+  - code_block: |-
+      {
+          "currencyId":"123",
+          "serial":"123456"
+      }
+    title: 请求
+    language: json
+  - code_block: |-
+      {
+          "rc": 0,
+          "mc": "SUCCESS",
+          "ma": [],
+          "result": {      
+          }
+      }
+    title: 响应
+    language: json
+---

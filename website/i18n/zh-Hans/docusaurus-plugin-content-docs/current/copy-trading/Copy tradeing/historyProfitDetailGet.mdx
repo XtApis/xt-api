@@ -1,0 +1,45 @@
+---
+id: GetHistoricalProfitSharingDetail
+title: Get Historical Profit Sharing Detail
+sidebar_label: Get Historical Profit Sharing Detail
+sidebar_position: 15
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-balance/copy-trade/share-profit/his-detail`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| time | number | Yes |  | Profit sharing time. e.g. `1717545600000` |  |
+| direction | string | No | NEXT | Query direction | PREV - previous, NEXT - next |
+| limit | number | No | 10 | Number of pages | 1-100 |
+| id | object | No |  | Start ID, e.g. `6216559590087220004` |  |
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "amount": 0, // profit sharing amount
+        "avatar": "string", // avatar of copy trader
+        "id": 0, // the id used for pagination query
+        "name": "string" // nickname of copy trader
+      }
+    ]
+  }
+}
+```

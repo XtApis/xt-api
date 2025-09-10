@@ -40,9 +40,10 @@ CrowdinTranslations_*.zip
 
 website/.cpu-prof
 
-website/i18n/**/*
+# website/i18n/**/*
 #!website/i18n/fr
 #!website/i18n/fr/**/*
+# 允许提交翻译文件，这样其他人拉取代码后不需要运行翻译脚本
 
 .netlify
 

@@ -1,0 +1,65 @@
+---
+id: SeeStopLimit
+title: 查看止损限价
+sidebar_label: 查看止损限价
+sidebar_position: 10
+---
+
+**类型:** GET
+
+**描述:** `/future/trade/v1/entrust/profit-list`
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### 参数
+
+| 名称 | 类型 | 必需 | 默认值值值值值值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| symbol | 字符串 | 是 | N/A | Trading pairs (queries all trading pairs if not passed) |  |
+| page | integer | 否 | 1 | Page |  |
+| size | integer | 否 | 10 | Quantity of a single page |  |
+| startTime | integer | 否 | N/A | Start time |  |
+| endTime | integer | 否 | N/A | End time |  |
+| state | 字符串 | 是 | N/A | 订单 state: NOT_TRIGGERED (new order); TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY | NOT_TRIGGERED;TRIGGERING;TRIGGERED;USER_REVOCATION;PLATFORM_REVOCATION;EXPIRED;UNFINISHED;HISTORY |
+
+### 响应 示例
+
+```json title="响应"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "createdTime": 0, // Time
+        "entryPrice": 0, // Open position average price
+        "executedQty": 0, // Actual transaction
+        "isolatedMargin": 0, // Isolated Margin
+        "origQty": 0, // 数量 (Cont)
+        "positionSide": "", // Position side
+        "positionSize": 0, // Position quantity (Cont)
+        "profitId": 0, // 订单ID
+        "state": "", // 订单 state: NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED
+        "symbol": "", // Trading pair
+        "triggerProfitPrice": 0, // Take profit price
+        "triggerStopPrice": 0, // Stop loss price
+        "profitDelegate订单类型": "LIMIT", // Take profit order 类型: LIMIT; MARKET
+        "profitDelegatePrice": 0, // Take profit delegate price
+        "profitDelegateTimeInForce": "GTC", // Take profit order time in force: GTC, FOK, IOC, GTX
+        "stopDelegate订单类型": "LIMIT", // Stop loss order 类型: LIMIT; MARKET
+        "stopDelegatePrice": 0, // Stop loss delegate price
+        "stopDelegateTimeInForce": "GTC" // Stop loss order time in force: GTC, FOK, IOC, GTX
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}
+```

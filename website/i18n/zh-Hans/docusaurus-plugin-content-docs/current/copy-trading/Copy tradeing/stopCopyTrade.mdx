@@ -1,0 +1,31 @@
+---
+id: StopCopyTrading
+title: Stop Copy Trading
+sidebar_label: Stop Copy Trading
+position_number: 24
+---
+
+**Type:** POST
+
+**Description:** `/v1/copy-trade-account/copy-trade/cancel-follow`
+
+#### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name              | Type   | Mandatory | Default | Description       |
+| ----------------- | ------ | --------- | ------- | ----------------- |
+| `leaderAccountId` | number | Yes       |         | Leader account id |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

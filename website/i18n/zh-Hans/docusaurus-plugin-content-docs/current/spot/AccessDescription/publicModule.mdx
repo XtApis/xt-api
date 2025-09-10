@@ -1,0 +1,76 @@
+---
+id: PublicModule
+title: 公共模块
+sidebar_label: 公共模块
+sidebar_position: 10
+---
+
+### Order state
+
+| State | 描述 |
+| --- | --- |
+| NEW | The order has been accepted by the engine. |
+| PARTIALLY_FILLED | A part of the order has been filled. |
+| FILLED | The order has been completed. |
+| CANCELED | The order has been canceled by the user. |
+| REJECTED | The order was not accepted by the engine and not processed. |
+| EXPIRED | The order has expired (e.g. Order canceled due to timeout or canceled due to premium) |
+
+---
+
+### Order type
+
+| Type   | 描述        |
+| ------ | ------------------ |
+| LIMIT  | Limit price order  |
+| MARKET | Market price order |
+
+---
+
+### Symbol state
+
+| State    | 描述                  |
+| -------- | ---------------------------- |
+| ONLINE   | The symbol is online         |
+| OFFLINE  | The symbol is offline        |
+| DELISTED | The symbol has been delisted |
+
+---
+
+### Time in force
+
+This sets how long an order will be active before expiration.
+
+| TimeInForces | 描述 |
+| --- | --- |
+| GTC | It remains valid until the transaction is concluded. |
+| IOC | Cancel the part that cannot be transacted immediately (taking orders) |
+| FOK | Cancellation if all transactions cannot be completed immediately |
+| GTX | Only pending orders, the triggering of transaction conditions will be cancelled immediately |
+
+---
+
+### Deposit/Withdraw status
+
+| Status        | 描述                                                  |
+| ------------- | ------------------------------------------------------------ |
+| SUBMIT        | The withdrawal amount is not frozen.                         |
+| REVIEW        | The withdrawal amount has been frozen and is pending review. |
+| AUDITED       | The withdraw has been reviewed and is ready to on-chaining.  |
+| AUDITED_AGAIN | Reexamine                                                    |
+| PENDING       | The deposit or withdraw is already on-chaining.              |
+| SUCCESS       | The deposit or withdraw is success.                          |
+| FAIL          | The deposit or withdraw failed.                              |
+| CANCEL        | The deposit or withdraw has been canceled by the user.       |
+
+---
+
+### BizType
+
+| Status    | 描述            |
+| --------- | ---------------------- |
+| SPOT      | Spot account           |
+| LEVER     | Leverage account       |
+| FINANCE   | Financial account      |
+| FUTURES_U | USDT-M futures account |
+| FUTURES_C | COIN-M futures account |

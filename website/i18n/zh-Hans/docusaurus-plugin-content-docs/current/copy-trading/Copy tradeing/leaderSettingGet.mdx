@@ -1,0 +1,50 @@
+---
+id: GetLeaderSetting
+title: Get Leader Setting
+sidebar_label: Get Leader Setting
+sidebar_position: 12
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-account/copy-trade/leader-settings`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+_No parameters required._
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "displayEquity": true, // Display total assets or not
+    "displayQuantity": true, // Display buy quantity or not
+    "labelIds": "string", // Label ids, separated by commas
+    "leaderIntro": "string", // Leader introduction
+    "leaderSymbol": [
+      // Selected copy trade symbols
+      "btc_usdt"
+    ],
+    "openLeader": true, // Open leader or not
+    "symbolConfig": [
+      // All copy trade symbols
+      "btc_usdt"
+    ],
+    "tagsConfig": [
+      // Tag config, label list
+      {
+        "id": 0,
+        "label": "string"
+      }
+    ]
+  }
+}
+```

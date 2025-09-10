@@ -1,0 +1,37 @@
+---
+id: PublicGetLeaderDayIncome
+title: Public Get Leader Day Income
+sidebar_label: Public Get Leader Day Income
+sidebar_position: 23
+---
+
+**Type:** GET
+
+**Description:** `/future/copytrade/public/user/v1/public/copy-trade/leader-day-income`
+
+### Parameters
+
+| Name      | Type   | Mandatory | Default | Description      | Ranges |
+| --------- | ------ | --------- | ------- | ---------------- | ------ |
+| accountId | number | Yes       | -       | Leader accountId | -      |
+| days      | number | No        | -       | Days             | -      |
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": [
+    {
+      "amount": 0, // Income amount
+      "time": 0 // Timestamp
+    }
+  ]
+}
+```

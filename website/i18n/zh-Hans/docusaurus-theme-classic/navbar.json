@@ -1,0 +1,158 @@
+{
+  "title": {
+    "message": "XT API"
+  },
+  "item.label.Product": {
+    "message": "所有产品"
+  },
+  "item.label.Index": {
+    "message": "指数"
+  },
+  "item.label.Spot Trading": {
+    "message": "现货交易"
+  },
+  "item.label.Futures Trading": {
+    "message": "期货交易"
+  },
+  "item.label.Margin Trading": {
+    "message": "杠杆交易"
+  },
+  "item.label.Copy Trading": {
+    "message": "跟单交易"
+  },
+  "item.label.Futures Copy": {
+    "message": "期货跟单"
+  },
+  "item.label.Trading Third Party": {
+    "message": "第三方交易"
+  },
+  "item.label.User Center": {
+    "message": "用户中心"
+  },
+  "item.label.Balance": {
+    "message": "余额"
+  },
+  "item.label.Deposit&Withdrawal": {
+    "message": "充提"
+  },
+  "item.label.Market": {
+    "message": "市场"
+  },
+  "item.label.Order": {
+    "message": "订单"
+  },
+  "item.label.Trade": {
+    "message": "交易"
+  },
+  "item.label.Transfer": {
+    "message": "转账"
+  },
+  "item.label.WebSocket Private": {
+    "message": "WebSocket 私有"
+  },
+  "item.label.WebSocket Public": {
+    "message": "WebSocket 公共"
+  },
+  "item.label.Futures WebSocket": {
+    "message": "期货 WebSocket"
+  },
+  "item.label.Margin Balance": {
+    "message": "杠杆余额"
+  },
+  "item.label.Copy Account": {
+    "message": "跟单账户"
+  },
+  "item.label.Search": {
+    "message": "搜索"
+  },
+  "item.label.Language": {
+    "message": "语言"
+  },
+  "item.label.Help Us Translate": {
+    "message": "帮助翻译"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub"
+  },
+  "item.label.Index APIs": {
+    "message": "指数 API"
+  },
+  "item.label.API Resources and Support": {
+    "message": "API 资源和支持"
+  },
+  "item.label.Spot Trading APIs": {
+    "message": "现货交易 API"
+  },
+  "item.label.Futures Trading APIs": {
+    "message": "期货交易 API"
+  },
+  "item.label.Margin Trading APIs": {
+    "message": "杠杆交易 API"
+  },
+  "item.label.Copy Trading API": {
+    "message": "跟单交易 API"
+  },
+  "item.label.Futures Copy API": {
+    "message": "期货跟单 API"
+  },
+  "item.label.Trading Third Party API": {
+    "message": "第三方交易 API"
+  },
+  "item.label.User Center API": {
+    "message": "用户中心 API"
+  },
+  "item.label.Comprehensive API solutions for all your trading needs": {
+    "message": "为您的所有交易需求提供全面的 API 解决方案"
+  },
+  "item.label.All Products": {
+    "message": "所有产品"
+  },
+  "item.label.Financial Trading": {
+    "message": "金融交易"
+  },
+  "item.label.VIP Institutional": {
+    "message": "VIP 机构"
+  },
+  "item.label.Investment Service": {
+    "message": "投资服务"
+  },
+  "item.label.Web3 Wallet": {
+    "message": "Web3 钱包"
+  },
+  "item.label.Dev Tools": {
+    "message": "开发工具"
+  },
+  "item.label.Algo Trading": {
+    "message": "算法交易"
+  },
+  "item.label.Convert": {
+    "message": "兑换"
+  },
+  "item.label.Staking": {
+    "message": "质押"
+  },
+  "item.label.Mining": {
+    "message": "挖矿"
+  },
+  "item.label.Web3": {
+    "message": "Web3"
+  },
+  "item.label.Algo Trading APIs": {
+    "message": "算法交易 API"
+  },
+  "item.label.Convert API": {
+    "message": "兑换 API"
+  },
+  "item.label.Staking API": {
+    "message": "质押 API"
+  },
+  "item.label.Mining API": {
+    "message": "挖矿 API"
+  },
+  "item.label.Web3 DApp": {
+    "message": "Web3 DApp"
+  },
+  "item.label.Open Platform": {
+    "message": "开放平台"
+  }
+}

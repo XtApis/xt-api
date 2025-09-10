@@ -1,0 +1,47 @@
+---
+id: Get 用户's Step Rate
+title: Get 用户's Step Rate
+sidebar_label: Get 用户's Step Rate
+sidebar_position: 8
+---
+
+**类型** GET
+
+**描述:** `/future/user/v1/user/step-rate`
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### 响应 示例
+
+```json title="响应"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "success",
+  "result": {
+    "special类型": 否, // Is special account
+    "vipPro类型": 是, // Is professional rate
+    "stepRatePro名称": "VIP_PRO_1", // Professional rate 名称
+    "discountLevel": 2, // Discount level
+    "makerFee": "0.0015", // Maker fee rate
+    "takerFee": "0.0025", // Taker fee rate
+    "levelReturnDay": 30, // Current level retention days
+    "totalTradeVolume": "1250000.50", // Trading volume in the past 29 days + today (updated every 10 minutes)
+    "u基础dTotalTradeVolume": "850000.75", // USDT-保证金账户ed trading volume in the past 29 days + today
+    "coin基础dTotalTradeVolume": "400000.25", // Coin-保证金账户ed trading volume in the past 29 days + today
+    "walletBalance": "50000.00", // Account equity (USDT, updated every 10 minutes): wallet balance + un实时ized profit and loss
+    "notProfit": "1250.50", // Position un实时ized profit and loss (USDT, updated every 10 minutes)
+    "nextLvTradeVolume": "1500000.00", // Next level trading volume
+    "lackTradeVolume": "250000.50", // Trading volume needed for next level
+    "nextLvWalletBalance": "75000.00", // Next level wallet balance
+    "lackWalletBalance": "25000.00", // Wallet balance needed for next level
+    "nextLvMakerFee": "0.0010", // Next level maker fee rate
+    "nextLvTakerFee": "0.0020" // Next level taker fee rate
+  },
+  "returnCode": 0
+}
+```

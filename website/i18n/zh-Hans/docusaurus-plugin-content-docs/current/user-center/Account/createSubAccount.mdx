@@ -1,0 +1,29 @@
+---
+id: CreateSubAccount
+title: Create a sub-account
+sidebar_label: Create a sub-account
+sidebar_position: 2
+---
+
+**Type:** POST
+
+**Description:** `/v4/user/account`
+
+### Parameters
+
+| Name        | Type   | Mandatory | Default | Description      | Ranges |
+| ----------- | ------ | --------- | ------- | ---------------- | ------ |
+| accountName | string | true      | -       | Sub-account name | -      |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": true //true: success; false/null: unsuccess
+}
+```

@@ -1,0 +1,18 @@
+---
+id: BasicInformationOfTheInterface
+title: 接口基本信息
+sidebar_label: 接口基本信息
+sidebar_position: 2
+---
+
+### 描述
+
+由于延迟高、稳定性差等原因，不建议通过代理访问API。
+
+GET请求参数放在**查询参数 Params**中，POST请求参数放在**request 请求体**中。
+
+请设置请求头信息为：
+
+Content-Type=application/json
+
+对于不以`/public`开头的请求，请求消息需要进行**签名**。

@@ -1,0 +1,43 @@
+---
+id: General_WSS_information
+title: 通用WSS信息
+sidebar_label: 通用WSS信息
+sidebar_position: 1
+---
+
+### 基础地址
+
+**wss://fstream.xt.com/ws/user**
+
+---
+
+### 请求 Headers
+
+The request header of the compression extension protocol must be added:
+
+```http
+Sec-Websocket-Extensions: permessage-deflate
+```
+
+---
+
+### Subscription Steps
+
+**Step 1:** Call the interface `/v1/user/listen-key` to obtain the **listenKey**.
+
+**Step 2:** When subscribing to user-related WebSocket events, send:
+
+```json
+{
+  "方法": "SUBSCRIBE",
+  "params": ["order@{listenKey obtained in the previous step}"],
+  "id": "test1"
+}
+```
+
+---
+
+### 注意事项
+
+- If you receive **`invalid_listen_key`**, it means the listenKey is expired or invalid. 👉 Re-request a new listenKey through the interface.
+- 用户-related data will be pushed **after subscription is successful**.
