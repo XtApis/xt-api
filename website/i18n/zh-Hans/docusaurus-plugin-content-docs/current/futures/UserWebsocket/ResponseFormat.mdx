@@ -9,20 +9,20 @@ sidebar_position: 3
 
 ```json title="格式"
 {
-  "id": "{id}", // callback ID
-  "code": 1, // result: 0 = success; 1 = fail; 2 = listenKey invalid
+  "id": "{id}", // 回调 ID
+  "code": 1, // 结果：0 = 成功；1 = 失败；2 = listenKey 无效
   "msg": ""
 }
 ```
 
 ---
 
-### 响应 示例s
+### 响应示例
 
-```json title="Success"
+```json title="成功"
 {"id": "123", "code": 0, "msg": "success"}
 ```
 
-```json title="Token Invalid"
+```json title="令牌无效"
 {"id": "123", "code": 401, "msg": "token expire"}
 ```

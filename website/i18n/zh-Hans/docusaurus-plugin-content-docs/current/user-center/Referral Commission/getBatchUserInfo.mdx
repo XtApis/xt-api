@@ -1,28 +1,28 @@
 ---
 id: BatchQueryUserInformation
-title: Batch Query User Information
-sidebar_label: Batch Query User Information
+title: 批量查询用户信息
+sidebar_label: 批量查询用户信息
 sidebar_position: 5
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:**`/v4/referal/invite/multi/user/info`
+**描述:**`/v4/referal/invite/multi/user/info`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| uidList | array | true |  | User ID list |  |
-| fromId | number | false |  | Starting ID |  |
-| direction | string | false | NEXT | query direction | PREV, NEXT |
-| limit | int | false | 10 | Limit number, max 100 | `1<=limit<=100` |
+| uidList | array | true |  | 用户ID列表 |  |
+| fromId | number | false |  | 起始ID |  |
+| direction | string | false | NEXT | 查询方向 | PREV, NEXT |
+| limit | int | false | 10 | 数量限制，最大100 | `1<=limit<=100` |
 
 ---
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "ma": [],
   "mc": "SUCCESS",

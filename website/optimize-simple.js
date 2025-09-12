@@ -76,9 +76,9 @@ const path = require('path');
  */
 
 const DOCS_DIR =
-  'i18n/zh-Hans/docusaurus-plugin-content-docs/current/spot/WebSocket_Public';
+  'i18n/zh-Hans/docusaurus-plugin-content-docs/current/spot/WebSocket Public';
 const OUTPUT_DIR =
-  'i18n/zh-Hans/docusaurus-plugin-content-docs/current/spot/WebSocket_Public/optimized';
+  'i18n/zh-Hans/docusaurus-plugin-content-docs/current/spot/WebSocket Public/optimized';
 
 // 确保输出目录存在
 if (!fs.existsSync(OUTPUT_DIR)) {

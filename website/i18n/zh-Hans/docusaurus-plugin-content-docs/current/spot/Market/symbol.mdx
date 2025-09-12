@@ -9,24 +9,24 @@ sidebar_position: 3
 
 ### 参数
 
-| 名称 | 类型 | 必填 | 默认值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| symbol | 字符串 | 否 | - | trading pair eg:btc_usdt |  |
-| symbols | 数组 | 否 | - | collection of trading pairs. priority is higher than symbol. eg: btc_usdt,eth_usdt |  |
-| version | 字符串 | 否 | - | version 数字, if request version equals response version, list will not be returned (reduce IO). eg: 2e14d2cd5czcb2c2af2c1db6 |  |
+| symbol | string | false | - | 交易对 例如：btc_usdt |  |
+| symbols | array | false | - | 交易对集合，优先级高于 symbol。例如：btc_usdt,eth_usdt |  |
+| version | string | false | - | 版本号，如果请求版本等于响应版本，将不返回列表（减少 IO）。例如：2e14d2cd5czcb2c2af2c1db6 |  |
 
-### Limit Flow Rules
+### 限流规则
 
-1. Single symbol: `10/s/ip`
-2. Multiple symbols: `10/s/ip`
+1. 单个交易对：`10次/秒/IP`
+2. 多个交易对：`10次/秒/IP`
 
-### FILTER
+### 过滤器
 
-#### PRICE FILTER
+#### 价格过滤器
 
-- `min`: minimum price allowed
-- `max`: 最大 price allowed
-- `tickSize`: step interval → `price = minPrice + (integer * tickSize)`
+- `min`：允许的最小价格
+- `max`：允许的最大价格
+- `tickSize`：步进间隔 → `price = minPrice + (整数 * tickSize)`
 
 ```text
 price >= min
@@ -34,11 +34,11 @@ price <= max
 (price - minPrice) % tickSize == 0
 ```
 
-#### QUANTITY FILTER
+#### 数量过滤器
 
-- `min`: minimum allowed
-- `max`: 最大 allowed
-- `tickSize`: step interval
+- `min`：允许的最小值
+- `max`：允许的最大值
+- `tickSize`：步进间隔
 
 ```text
 quantity >= min
@@ -46,36 +46,36 @@ quantity <= max
 (quantity - minQuantity) % tickSize == 0
 ```
 
-#### QUOTE_QTY FILTER
+#### 报价数量过滤器
 
-- If `min` is null → no restriction
-- LIMIT orders → `price * quantity >= min`
-- MARKET BUY orders → `quoteQty >= min`
+- 如果 `min` 为 null → 无限制
+- 限价单 → `price * quantity >= min`
+- 市价买单 → `quoteQty >= min`
 
-#### PROTECTION_LIMIT FILTER
+#### 限价保护过滤器
 
-- `buyMaxDeviation`, `buyPriceLimitCoefficient`, `sellMaxDeviation`, `sellPriceLimitCoefficient`
-
-```text
-Buy:  price >= latestPrice - latestPrice * buyMaxDeviation
-      price <= latestPrice + latestPrice * buyPriceLimitCoefficient
-
-Sell: price <= latestPrice + latestPrice * sellMaxDeviation
-      price >= latestPrice - latestPrice * sellPriceLimitCoefficient
-```
-
-#### PROTECTION_MARKET FILTER
-
-- `maxDeviation`: 最大 deviation
+- `buyMaxDeviation`、`buyPriceLimitCoefficient`、`sellMaxDeviation`、`sellPriceLimitCoefficient`
 
 ```text
-Buy:  latestPrice + latestPrice * maxDeviation >= sellBestPrice
-Sell: latestPrice - latestPrice * maxDeviation <= buyBestPrice
+买入：price >= latestPrice - latestPrice * buyMaxDeviation
+     price <= latestPrice + latestPrice * buyPriceLimitCoefficient
+
+卖出：price <= latestPrice + latestPrice * sellMaxDeviation
+     price >= latestPrice - latestPrice * sellPriceLimitCoefficient
 ```
 
-#### PROTECTION_ONLINE FILTER
+#### 市价保护过滤器
 
-- `maxPriceMultiple`, `durationSeconds`
+- `maxDeviation`：最大偏差
+
+```text
+买入：latestPrice + latestPrice * maxDeviation >= sellBestPrice
+卖出：latestPrice - latestPrice * maxDeviation <= buyBestPrice
+```
+
+#### 上线保护过滤器
+
+- `maxPriceMultiple`、`durationSeconds`
 
 ```text
 price <= openPrice * maxPriceMultiple
@@ -96,22 +96,22 @@ price <= openPrice * maxPriceMultiple
         "id": 614,
         "symbol": "btc_usdt",
         "state": "ONLINE",
-        "tradingEnabled": 是,
-        "openapiEnabled": 是,
+        "tradingEnabled": true,
+        "openapiEnabled": true,
         "nextStateTime": null,
         "nextState": null,
         "depthMergePrecision": 5,
-        "base货币": "btc",
-        "base货币Precision": 5,
-        "base货币Id": 2,
-        "quote货币": "usdt",
-        "quote货币Precision": 6,
-        "quote货币Id": 11,
+        "baseCurrency": "btc",
+        "baseCurrencyPrecision": 5,
+        "baseCurrencyId": 2,
+        "quoteCurrency": "usdt",
+        "quoteCurrencyPrecision": 6,
+        "quoteCurrencyId": 11,
         "pricePrecision": 4,
         "quantityPrecision": 6,
         "takerFeeRate": 0.001,
         "makerFeeRate": 0.002,
-        "order类型s": ["LIMIT", "MARKET"],
+        "orderTypes": ["LIMIT", "MARKET"],
         "timeInForces": ["GTC", "FOK", "IOC", "GTX"],
         "displayWeight": 1,
         "displayLevel": "FULL",

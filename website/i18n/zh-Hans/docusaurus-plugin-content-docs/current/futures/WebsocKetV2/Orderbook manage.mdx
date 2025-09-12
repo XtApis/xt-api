@@ -1,36 +1,36 @@
 ---
-id: 订单bookManage
+id: OrderbookManage
 title: 订单簿管理
 sidebar_label: 订单簿管理
 sidebar_position: 7
 ---
 
-### How to Manage a Local 订单 Book Correctly
+### 如何正确管理本地订单簿
 
-1. Open a stream to: **`wss://fstream.xt.com/ws/market`**, subscribing to `depth_update@btc_usdt`.
+1. 建立连接：**`wss://fstream.xt.com/ws/market`**，订阅 `depth_update@btc_usdt`。
 
-2. Buffer the events you receive from the stream.
+2. 缓存从数据流接收到的事件。
 
-3. Get a depth snapshot from: **`https://fapi.xt.com/future/market/v1/public/depth?symbol=btc_usdt&level=500`**
+3. 获取深度快照：**`https://fapi.xt.com/future/market/v1/public/depth?symbol=btc_usdt&level=500`**
 
-4. Drop any event where **`u <= lastUpdateId`** in the snapshot.
+4. 丢弃快照中 **`u <= lastUpdateId`** 的任何事件。
 
-5. The first processed event should have **`fu <= lastUpdateId+1`** **AND** **`u >= lastUpdateId+1`**.
+5. 第一个处理的事件应满足 **`fu <= lastUpdateId+1`** **且** **`u >= lastUpdateId+1`**。
 
-6. While listening to the stream, each new event's **`fu`** should equal the previous event's **`u+1`**.
+6. 在监听数据流时，每个新事件的 **`fu`** 应等于前一个事件的 **`u+1`**。
 
-7. The data in each event is the **absolute quantity** for a price level.
+7. 每个事件中的数据是价格档位的**绝对数量**。
 
-8. If the quantity is **0**, remove the price level.
+8. 如果数量为 **0**，删除该价格档位。
 
-9. Receiving an event that removes a price level not present in your local order book **can happen and is normal**.
+9. 接收到删除本地订单簿中不存在的价格档位的事件**可能发生且是正常的**。
 
 ---
 
-### 注意
+### 注意事项
 
-Due to depth snapshots having a **limit on the 数字 of price levels**, a price level outside of the initial snapshot that doesn't have a quantity change will not have an update in the Diff Depth Stream.
+由于深度快照对价格档位数量有**限制**，初始快照之外且没有数量变化的价格档位不会在增量深度流中更新。
 
-Consequently, those price levels will not be visible in the local order book even when applying all updates from the Diff Depth Stream correctly, which may cause **slight differences** compared to the 实时 order book.
+因此，即使正确应用增量深度流的所有更新，这些价格档位也不会在本地订单簿中显示，可能导致与实际订单簿存在**细微差异**。
 
-However, for most use cases, the depth limit of **500** is sufficient to understand the market and trade effectively.
+但是，对于大多数使用场景，**500** 档深度限制足以理解市场并有效交易。

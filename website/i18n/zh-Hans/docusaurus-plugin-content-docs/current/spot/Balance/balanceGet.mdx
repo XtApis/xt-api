@@ -1,32 +1,40 @@
 ---
-id: FrequencyLimitingRules
-title: 频率限制规则
-sidebar_label: 频率限制规则
-sidebar_position: 3
+id: GetSingleCurrencyBalance
+title: 获取单个币种余额
+sidebar_label: 获取单个币种余额
+sidebar_position: 2
 ---
 
-**类型:** GET
+**类型：** GET
 
-**描述:** Frequency limiting rules for API requests.
+**描述：** `/v4/balance`
 
-### Rules
+### 参数
 
-- Get assets: **3 times per second per user**
-- Other 方法s: **10 times per second per user**
-- Limit: **1000 times per minute per IP**
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| currency | string | true | N/A | 币种名称（例如：usdt、btc） |  |
 
-If the request frequency exceeds the limit, the account will be **locked for 10 minutes**.
+### 注意事项
+
+限流规则：**3次/秒/用户**
+
+此接口用于获取现货账户中特定币种的余额信息。
 
 ### 响应示例
 
 ```json title="Response"
 {
-  "rc": 429,
-  "mc": "Too Many Requests",
-  "ma": [],
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
   "result": {
-    "locked": true,
-    "lockDuration": "10m"
+    "currency": "usdt",
+    "currencyId": 11,
+    "frozenAmount": 0,
+    "availableAmount": 1000.5,
+    "totalAmount": 1000.5,
+    "convertBtcAmount": 0.03
   }
 }
 ```

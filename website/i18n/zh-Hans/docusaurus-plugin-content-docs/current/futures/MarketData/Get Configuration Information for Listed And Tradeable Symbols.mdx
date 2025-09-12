@@ -1,7 +1,7 @@
 ---
 id: get-configuration-information-for-listed-and-tradeable-symbols
-title: 获取已上市和可交易符号的配置信息
-sidebar_label: 获取已上市和可交易符号的配置信息
+title: 获取已上市且可交易合约的配置信息
+sidebar_label: 获取已上市且可交易合约的配置信息
 sidebar_position: 4
 ---
 
@@ -11,13 +11,13 @@ sidebar_position: 4
 
 #### 注意：
 
-此方法不需要签名.
+此方法不需要签名。
 
-### 响应 示例
+### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
 
-<CodeBlock language="json" title="响应">
+<CodeBlock language="json" title="Response">
   {`{
   "error": {
     "code": "",
@@ -26,31 +26,31 @@ import CodeBlock from '@theme/CodeBlock';
   "msgInfo": "",
   "result": [
     {
-      "baseCoin": "",      //Target Assets
-      "baseCoinDisplayPrecision": 0,  //Displayed target currency precision
-      "cnDesc": "",  //Chinese 描述 of the contract
-      "cn名称": "",  //Contract Chinese 名称
-      "cnRemark": "",  //Contract Remarks (Chinese)
-      "contractSize": 0,  //Contract multiplier(face value)
-      "contract类型": "",  //Contract 类型, perpetual, delivery
-      "deliveryCompletion": 否,
+      "baseCoin": "",      // 基础资产
+      "baseCoinDisplayPrecision": 0,  // 显示的基础币种精度
+      "cnDesc": "",  // 合约中文描述
+      "cnName": "",  // 合约中文名称
+      "cnRemark": "",  // 合约备注（中文）
+      "contractSize": 0,  // 合约乘数（面值）
+      "contractType": "",  // 合约类型，永续、交割
+      "deliveryCompletion": false,
       "deliveryDate": 0,
       "deliveryPrice": 0,
       "depthPrecisionMerge": 0,
       "enDesc": "",
-      "en名称": "",
+      "enName": "",
       "enRemark": "",
       "initLeverage": 0,
-      "initPosition类型": "",
-      "isDisplay": 否,
-      "isOpenApi": 否,
+      "initPositionType": "",
+      "isDisplay": false,
+      "isOpenApi": false,
       "labels": [],
       "liquidationFee": 0,
       "makerFee": 0,
       "marketTakeBound": 0,
-      "max委托s": 0,
+      "maxEntrusts": 0,
       "maxNotional": 0,
-      "maxOpen订单s": 0,
+      "maxOpenOrders": 0,
       "maxPrice": 0,
       "minNotional": 0,
       "minPrice": 0,
@@ -63,24 +63,24 @@ import CodeBlock from '@theme/CodeBlock';
       "plates": [],
       "predictEventParam": "",
       "predictEventSort": "",
-      "predictEvent类型": "",
+      "predictEventType": "",
       "pricePrecision": 0,
-      "product类型": "",
-      "quantityPrecision": 0,     // Deprecated
+      "productType": "",
+      "quantityPrecision": 0,     // 已弃用
       "quoteCoin": "",
       "quoteCoinDisplayPrecision": 0,
       "quoteCoinPrecision": 0,
       "baseCoinPrecision": 0,
       "state": 0,
-      "support委托类型": "",
-      "support订单类型": "",
-      "supportPosition类型": "",
+      "supportEntrustType": "",
+      "supportOrderType": "",
+      "supportPositionType": "",
       "supportTimeInForce": "",
       "symbol": "",
       "symbolGroupId": 0,
       "takerFee": 0,
-      "tradeSwitch": 否,
-      "underlying类型": ""
+      "tradeSwitch": false,
+      "underlyingType": ""
     }
   ],
   "returnCode": 0

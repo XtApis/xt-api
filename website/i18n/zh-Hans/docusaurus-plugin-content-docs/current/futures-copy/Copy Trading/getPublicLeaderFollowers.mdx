@@ -1,30 +1,30 @@
 ---
 id: PublicGetLeadersFollowers
-title: Public Get Leader's Followers
-sidebar_label: Public Get Leader's Followers
+title: 公开获取带单员的跟单员
+sidebar_label: 公开获取带单员的跟单员
 sidebar_position: 28
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/public/user/v1/public/copy-trade/leader-follower-page`
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-follower-page`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| type | number | No | - | Type (1:detail, 2:total) | 1, 2 |
-| symbol | string | No | - | Trading pair symbol | - |
-| leaderAccountId | number | Yes | - | Leader account ID | - |
-| direction | string | No | - | Query direction | NEXT, PREV |
-| limit | number | No | - | Page size | 10 |
-| id | number | No | - | Page ID | - |
+| type | number | 否 | - | 类型 (1:详情, 2:汇总) | 1, 2 |
+| symbol | string | 否 | - | 交易对 | - |
+| leaderAccountId | number | 是 | - | 带单员账户ID | - |
+| direction | string | 否 | - | 查询方向 | NEXT, PREV |
+| limit | number | 否 | - | 页面大小 | 10 |
+| id | number | 否 | - | 页面ID | - |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/ip
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -33,15 +33,15 @@ sidebar_position: 28
   "error": null,
   "result": [
     {
-      "accountId": 0, // Leader accountId
-      "followerName": "string", // Follower nickname
-      "avatar": "string", // Avatar
+      "accountId": 0, // 带单员账户ID
+      "followerName": "string", // 跟单员昵称
+      "avatar": "string", // 头像
       "id": 0, // ID
-      "pageId": 0, // Page ID
-      "followMarginU": 0, // Follower total margin
-      "followProfitU": 0, // Follower total profit
-      "followProfitRate": 0, // Follower profit rate
-      "days": 0 // Days
+      "pageId": 0, // 页面ID
+      "followMarginU": 0, // 跟单员总保证金
+      "followProfitU": 0, // 跟单员总收益
+      "followProfitRate": 0, // 跟单员收益率
+      "days": 0 // 天数
     }
   ]
 }

@@ -230,11 +230,11 @@ translations = {
     '示例 usage of the pyxt connector': 'pyxt连接器的使用示例',
 
     # margin-spot 相关翻译
-    'title: RestApi': 'title: REST API',
-    'sidebar_label: RestApi': 'sidebar_label: REST API',
-    'RestApi': 'REST API',
-    'description: RestApi': 'description: REST API',
-    'id: REST API': 'id: RestApi',  # 保持ID不变，只翻译显示内容
+    'title: BasicInformationOfTheInterface': 'title: BasicInformationOfTheInterface',
+    'sidebar_label: BasicInformationOfTheInterface': 'sidebar_label: BasicInformationOfTheInterface',
+    'RBasicInformationOfTheInterface': 'BasicInformationOfTheInterface',
+    'description: BasicInformationOfTheInterface': 'description: REST API',
+    'id: REST API': 'id: BasicInformationOfTheInterface',  # 保持ID不变，只翻译显示内容
 
     # 修复其他被错误翻译的ID
     'id: 接口基本信息': 'id: apiBasicInfo',

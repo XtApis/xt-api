@@ -5,37 +5,37 @@ sidebar_label: 聚合行情
 sidebar_position: 12
 ---
 
-### 请求 格式
+### 请求格式
 
 ```
-agg_行情@{symbol}
+agg_ticker@{symbol}
 ```
 
-- **example**: `agg_行情@btc_usdt`
-- **rate**: 1000ms
+- **示例**：`agg_ticker@btc_usdt`
+- **推送频率**：1000ms
 
 ---
 
-### 响应 示例
+### 响应示例
 
 ```json title="响应"
 {
-  "topic": "agg_行情",
-  "event": "agg_行情@btc_usdt",
+  "topic": "agg_ticker",
+  "event": "agg_ticker@btc_usdt",
   "data": {
-    "s": "btc_index", // trading pair
-    "o": "49000", // opening price
-    "c": "50000", // closing price
-    "h": "0.1", // highest price
-    "l": "0.1", // lowest price
-    "a": "0.1", // volume
-    "v": "0.1", // turnover
-    "ch": "0.21", // quote change
-    "i": "0.21", // index price
-    "m": "0.21", // mark price
-    "bp": "0.21", // bid price
-    "ap": "0.21", // ask price
-    "t": 123124124 // timestamp
+    "s": "btc_index", // 交易对
+    "o": "49000", // 开盘价
+    "c": "50000", // 收盘价
+    "h": "0.1", // 最高价
+    "l": "0.1", // 最低价
+    "a": "0.1", // 成交量
+    "v": "0.1", // 成交额
+    "ch": "0.21", // 涨跌幅
+    "i": "0.21", // 指数价格
+    "m": "0.21", // 标记价格
+    "bp": "0.21", // 买一价
+    "ap": "0.21", // 卖一价
+    "t": 123124124 // 时间戳
   }
 }
 ```

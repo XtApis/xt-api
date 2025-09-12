@@ -1,26 +1,26 @@
 ---
 id: PublicGetLeaderDayIncome
-title: Public Get Leader Day Income
-sidebar_label: Public Get Leader Day Income
+title: 公开获取带单员日收益
+sidebar_label: 公开获取带单员日收益
 sidebar_position: 23
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/public/user/v1/public/copy-trade/leader-day-income`
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-day-income`
 
-### Parameters
+### 参数
 
-| Name      | Type   | Mandatory | Default | Description      | Ranges |
-| --------- | ------ | --------- | ------- | ---------------- | ------ |
-| accountId | number | Yes       | -       | Leader accountId | -      |
-| days      | number | No        | -       | Days             | -      |
+| 名称      | 类型   | 必填 | 默认值 | 描述         | 范围 |
+| --------- | ------ | ---- | ------ | ------------ | ---- |
+| accountId | number | 是   | -      | 带单员账户ID | -    |
+| days      | number | 否   | -      | 天数         | -    |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/ip
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -29,8 +29,8 @@ sidebar_position: 23
   "error": null,
   "result": [
     {
-      "amount": 0, // Income amount
-      "time": 0 // Timestamp
+      "amount": 0, // 收益金额
+      "time": 0 // 时间戳
     }
   ]
 }

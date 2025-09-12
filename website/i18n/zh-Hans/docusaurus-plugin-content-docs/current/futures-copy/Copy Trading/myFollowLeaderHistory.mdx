@@ -1,34 +1,34 @@
 ---
 id: GetMyHistoryLeaders
-title: Get My History Leaders
-sidebar_label: Get My History Leaders
+title: 获取我的历史带单员
+sidebar_label: 获取我的历史带单员
 sidebar_position: 18
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/user/v1/copy-trade/follower-leaders-page`
+**描述:** `/future/copytrade/user/v1/copy-trade/follower-leaders-page`
 
 ---
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| type | number | No | - | Type (1: current follow, 2: history) | 1, 2 |
-| direction | string | No | - | Direction | NEXT, PREV |
-| limit | number | No | - | Page size | 10 |
-| id | number | No | - | ID | - |
+| type | number | 否 | - | 类型 (1: 当前跟单, 2: 历史) | 1, 2 |
+| direction | string | 否 | - | 方向 | NEXT, PREV |
+| limit | number | 否 | - | 页面大小 | 10 |
+| id | number | 否 | - | ID | - |
 
 ---
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/apikey
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -40,15 +40,15 @@ sidebar_position: 18
     "hasNext": false,
     "items": [
       {
-        "leaderName": "string",     // leader nickname
-        "avatar": "string",         // avatar
-        "accountId": 0,             // leader accountId
-        "id": 0,                    // id
-        "level": 0,                 // level
-        "levelName": "string",      // level name
-        "followMarginU": 0,         // total follow margin
-        "followProfitU": 0,         // total follow profit
-        "cancel": Boolean           // status: false=following, true=canceled
+        "leaderName": "string",     // 带单员昵称
+        "avatar": "string",         // 头像
+        "accountId": 0,             // 带单员账户ID
+        "id": 0,                    // ID
+        "level": 0,                 // 等级
+        "levelName": "string",      // 等级名称
+        "followMarginU": 0,         // 总跟单保证金
+        "followProfitU": 0,         // 总跟单收益
+        "cancel": Boolean           // 状态: false=跟单中, true=已取消
       }
     ]
   }

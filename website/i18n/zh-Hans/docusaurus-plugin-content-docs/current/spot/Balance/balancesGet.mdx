@@ -1,23 +1,23 @@
 ---
-id: Get货币AssetsList
-title: 获取货币资产列表
-sidebar_label: 获取货币资产列表
+id: GetCurrencyAssetsList
+title: 获取币种资产列表
+sidebar_label: 获取币种资产列表
 sidebar_position: 3
 ---
 
-**类型:** GET
+**类型：** GET
 
-**描述:** `/v4/balances`
+**描述：** `/v4/balances`
 
 ### 参数
 
-| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| currencies | string | false | N/A | 货币列表，逗号分隔 (例如: usdt,btc) |  |
+| currencies | string | false | N/A | 币种列表，逗号分隔（例如：usdt,btc） |  |
 
 ### 注意事项
 
-限流规则: **10/s/apikey**
+限流规则：**10次/秒/API密钥**
 
 ### 响应示例
 

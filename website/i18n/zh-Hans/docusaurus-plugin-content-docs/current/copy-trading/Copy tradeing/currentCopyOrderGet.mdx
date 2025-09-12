@@ -1,28 +1,28 @@
 ---
 id: GetCurrentCopyOrder
-title: Get Current Copy Order
-sidebar_label: Get Current Copy Order
+title: 获取当前跟单订单
+sidebar_label: 获取当前跟单订单
 sidebar_position: 2
 ---
 
-**Type:** GET
+**请求类型:** GET
 
-**Description:** `/v1/copy-trade-order/copy-trade/order/cur-follower-order`
+**接口路径:** `/v1/copy-trade-order/copy-trade/order/cur-follower-order`
 
-### Limit Flow Rules
+### 限流规则
 
-2/s/apikey
+2次/秒/API密钥
 
-### Parameters
+### 请求参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| symbol | string | false |  | Trading pair, if not filled in, represents all |  |
-| type | number | false | 2 | <a href="#leaderOrderRequestType">Leader order request type</a>, 1=detail, 2=summarize |  |
+| symbol | string | 否 |  | 交易对，不填则代表全部 |  |
+| type | number | 否 | 2 | <a href="#leaderOrderRequestType">带单订单请求类型</a>，1=详细，2=汇总 |  |
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
   "mc": "string",
@@ -30,21 +30,21 @@ sidebar_position: 2
   "result": [
     {
       "id": "string",
-      "orderId": "string", // order id
-      "symbol": "string", // symbol
-      "buySize": 0, // buy quantity
-      "buyTime": 0, // buy time
-      "buyPrice": 0, // buy price
-      "sellSize": 0, // sell quantity
-      "sellTime": 0, // sell time
-      "sellPrice": 0, // sell price
-      "profit": 0, // profit
-      "profitRate": 0, // profit rate
-      "triggerProfitPrice": 0, // trigger profit price
-      "triggerStopPrice": 0, // trigger stop price
-      "leaderOrderId": "string", // leader order id
-      "leaderNickname": "string", // leader nick name
-      "leaderAvatar": "string" // leader avatar
+      "orderId": "string", // 订单ID
+      "symbol": "string", // 交易对
+      "buySize": 0, // 买入数量
+      "buyTime": 0, // 买入时间
+      "buyPrice": 0, // 买入价格
+      "sellSize": 0, // 卖出数量
+      "sellTime": 0, // 卖出时间
+      "sellPrice": 0, // 卖出价格
+      "profit": 0, // 盈亏
+      "profitRate": 0, // 盈亏率
+      "triggerProfitPrice": 0, // 触发止盈价格
+      "triggerStopPrice": 0, // 触发止损价格
+      "leaderOrderId": "string", // 带单订单ID
+      "leaderNickname": "string", // 带单者昵称
+      "leaderAvatar": "string" // 带单者头像
     }
   ]
 }

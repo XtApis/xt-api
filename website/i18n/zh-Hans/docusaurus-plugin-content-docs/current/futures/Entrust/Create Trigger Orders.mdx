@@ -1,0 +1,45 @@
+---
+id: CreateTriggerOrders
+title: 创建触发订单
+sidebar_label: 创建触发订单
+sidebar_position: 1
+---
+
+**类型:** POST
+
+**描述:** `/future/trade/v1/entrust/create-plan`
+
+**备注:** Content-Type = application/x-www-form-urlencoded && application/json
+
+### 限流规则
+
+200/s/apikey
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| clientOrderId | string | false | N/A | 客户端订单ID |  |
+| symbol | string | true |  | 交易对 |  |
+| orderSide | string | true | N/A | 订单方向：BUY（买入）；SELL（卖出） | BUY;SELL |
+| entrustType | string | true | N/A | 委托类型：TAKE_PROFIT（止盈限价单）；STOP（止损限价单）；TAKE_PROFIT_MARKET（止盈市价单）；STOP_MARKET（止损市价单） | TAKE_PROFIT;STOP;TAKE_PROFIT_MARKET;STOP_MARKET |
+| origQty | number | true | N/A | 数量（张） |  |
+| price | number | false | N/A | 价格 |  |
+| stopPrice | number | true | N/A | 触发价格 |  |
+| timeInForce | string | true | N/A | 有效方式：GTC；IOC；FOK；GTX。市价单仅支持IOC | GTC;IOC;FOK;GTX |
+| triggerPriceType | string | true | N/A | 触发价格类型：INDEX_PRICE（指数价格）；MARK_PRICE（标记价格）；LATEST_PRICE（最新价格） | INDEX_PRICE;MARK_PRICE;LATEST_PRICE |
+| positionSide | string | true | N/A | 持仓方向：LONG（多头）；SHORT（空头） | LONG;SHORT |
+
+### 请求示例
+
+```json title="响应"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```

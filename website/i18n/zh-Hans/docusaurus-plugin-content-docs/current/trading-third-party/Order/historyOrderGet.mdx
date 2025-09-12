@@ -1,62 +1,52 @@
 ---
 id: Query_historical_orders
-title: Query Historical 订单s
-sidebar_label: Query Historical 订单s
+title: 查询历史订单
+sidebar_label: 查询历史订单
 sidebar_position: 9
 description: /spot/v4/history-order
 ---
 
 **类型:** GET
 
-**描述:** `/spot/v4/history-order`
+**接口:** `/spot/v4/history-order`
 
-#### Limit Flow Rules
+#### 限流规则
 
-10/s/apikey
+10次/秒/apikey
 
 ### 参数
 
-| 名称 | 类型 | 必需 | 默认值值 | 描述 |
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
-| `symbol` | 字符串 | No |  | Trading pair, if not filled in, represents all |
-| `biz类型` | 字符串 | No |  | SPOT, LEVER |
-| `side` | 字符串 | No |  | BUY, SELL |
-| `type` | 字符串 | No |  | LIMIT, MARKET |
-| `state` | 字符串 | No |  | 订单 [state](#orderStatus), PARTIALLY_FILLED, FILLED, CANCELED, REJECTED, EXPIRED |
-| `fromId` | 数字 | No |  | Start ID |
-| `direction` | 字符串 | No |  | Query direction: PREV, NEXT |
-| `limit` | 数字 | No | 20 | Limit 数字, max 100 |
-| `startTime` | 数字 | No |  | 示例: 1657682804112 |
-| `endTime` | 数字 | No |  | End time |
-
-#### orderStatus
-
-| Status | 描述 |
-| --- | --- |
-| PARTIALLY_FILLED | 部分成交 |
-| FILLED | 完全成交 |
-| CANCELED | 已取消 |
-| REJECTED | 已拒绝 |
-| EXPIRED | 已过期 |
-| `hiddenCanceled` | 布尔值 | No |  | Whether to hide canceled orders |
+| `symbol` | string | 否 |  | 交易对，如不填写则代表全部 |
+| `bizType` | string | 否 |  | SPOT（现货）, LEVER（杠杆） |
+| `side` | string | 否 |  | BUY（买入）, SELL（卖出） |
+| `type` | string | 否 |  | LIMIT（限价）, MARKET（市价） |
+| `state` | string | 否 |  | 订单[状态](#orderStatus)，PARTIALLY_FILLED（部分成交）, FILLED（完全成交）, CANCELED（已取消）, REJECTED（已拒绝）, EXPIRED（已过期） |
+| `fromId` | number | 否 |  | 起始ID |
+| `direction` | string | 否 |  | 查询方向：PREV（向前）, NEXT（向后） |
+| `limit` | number | 否 | 20 | 限制条数，最大100 |
+| `startTime` | number | 否 |  | 开始时间，例如：1657682804112 |
+| `endTime` | number | 否 |  | 结束时间 |
+| `hiddenCanceled` | boolean | 否 |  | 是否隐藏已取消订单 |
 
 ### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
-  "mc": "字符串",
+  "mc": "string",
   "ma": [{}],
   "result": {
-    "hasPrev": 是,
-    "hasNext": 是,
+    "hasPrev": true,
+    "hasNext": true,
     "items": [
       {
         "symbol": "BTC_USDT",
         "orderId": "6216559590087220004",
-        "client订单Id": "16559590087220001",
-        "base货币": "字符串",
-        "quote货币": "字符串",
+        "clientOrderId": "16559590087220001",
+        "baseCurrency": "string",
+        "quoteCurrency": "string",
         "side": "BUY",
         "type": "LIMIT",
         "timeInForce": "GTC",
@@ -64,12 +54,12 @@ description: /spot/v4/history-order
         "origQty": "2",
         "origQuoteQty": "48000",
         "executedQty": "1.2",
-        "leavingQty": "字符串",
+        "leavingQty": "string",
         "tradeBase": "2",
         "tradeQuote": "48000",
         "avgPrice": "42350",
-        "fee": "字符串",
-        "fee货币": "字符串",
+        "fee": "string",
+        "feeCurrency": "string",
         "state": "NEW",
         "time": 1655958915583,
         "updatedTime": 1655958915583

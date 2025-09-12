@@ -1,7 +1,7 @@
 ---
 id: bulk-orders
-title: 批量订单
-sidebar_label: 批量订单
+title: 批量下单
+sidebar_label: 批量下单
 sidebar_position: 3
 ---
 
@@ -9,14 +9,14 @@ sidebar_position: 3
 
 **描述:** `/future/trade/v2/order/create-batch`
 
-> Content-类型 = `application/x-www-form-urlencoded && application/json`
+> Content-Type = `application/x-www-form-urlencoded && application/json`
 
-### Limit Flow Rules
+### 限流规则
 
 200/s/apikey
 
 ### 参数
 
-| 名称 | 类型   | 必需 | 默认值值值值值值值值 | 描述                   | 范围 |
+| 名称 | 类型   | 必填 | 默认值 | 描述                   | 范围 |
 | ---- | ------ | --------- | ------- | ----------------------------- | ------ |
-| list | 字符串 | 是      | N/A     | List collection of order data |        |
+| list | string | true      | N/A     | 订单数据列表集合 |        |

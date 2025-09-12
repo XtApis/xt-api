@@ -1,7 +1,7 @@
 ---
 id: QueryRecentTransactions
-title: 查询最近交易列表
-sidebar_label: 查询最近交易列表
+title: 查询最近成交列表
+sidebar_label: 查询最近成交列表
 sidebar_position: 6
 ---
 
@@ -10,30 +10,30 @@ sidebar_position: 6
 
 ### 参数
 
-| name   | type   | mandatory | default | description  | ranges |
-| ------ | ------ | --------- | ------- | ------------ | ------ |
-| symbol | 字符串 | 是      |         | trading pair |        |
-| limit  | 数字 | 否     | 200     |              | 1~1000 |
+| 名称   | 类型   | 是否必需 | 默认值 | 描述   | 取值范围 |
+| ------ | ------ | -------- | ------ | ------ | -------- |
+| symbol | string | true     |        | 交易对 |          |
+| limit  | number | false    | 200    |        | 1~1000   |
 
-#### **Limit Flow Rules**
+#### **限流规则**
 
-10/s/ip
+10次/秒/IP
 
 ### 响应示例
 
 ```json title="Response"
 {
   "rc": 0,
-  "mc": "字符串",
+  "mc": "string",
   "ma": [{}],
   "result": [
     {
       "i": 0,
       "t": 0,
-      "p": "字符串",
-      "q": "字符串",
-      "v": "字符串",
-      "b": 是
+      "p": "string",
+      "q": "string",
+      "v": "string",
+      "b": true
     }
   ]
 }

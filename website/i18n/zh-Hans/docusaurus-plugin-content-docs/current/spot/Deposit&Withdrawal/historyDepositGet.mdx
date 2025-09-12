@@ -1,7 +1,7 @@
 ---
 id: GetDepositHistory
-title: Get history records of deposit
-sidebar_label: 获取充值历史
+title: 获取充币历史记录
+sidebar_label: 获取充币历史
 sidebar_position: 3
 ---
 
@@ -9,48 +9,48 @@ sidebar_position: 3
 
 ### 参数
 
-| 名称 | 类型 | 必填 | 默认值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| currency | 字符串 | 是 | N/A | 货币名称, from **Get supported currencies for deposit/withdrawal** API |  |
-| chain | 字符串 | 是 | N/A | Transfer network, from **Get supported currencies for deposit/withdrawal** API |  |
-| status | 字符串 | 否 | N/A | Deposit status | SUBMIT, REVIEW, AUDITED, PENDING, SUCCESS, FAIL, CANCEL |
-| fromId | long | 否 | N/A | Start ID (e.g. `6216559590087220004`) |  |
-| direction | 字符串 | 否 | NEXT | Query direction | PREV, NEXT |
-| limit | int | 否 | 10 | Limit 数字, max 200 | 1 ≤ limit ≤ 200 |
-| startTime | long | 否 | N/A | Start time for filtering deposit list (timestamp in ms) |  |
-| endTime | long | 否 | N/A | End time for filtering deposit list (timestamp in ms) |  |
+| currency | string | 是 | N/A | 币种名称，来自**获取充提币支持币种**接口 |  |
+| chain | string | 是 | N/A | 转账网络，来自**获取充提币支持币种**接口 |  |
+| status | string | 否 | N/A | 充币状态 | SUBMIT, REVIEW, AUDITED, PENDING, SUCCESS, FAIL, CANCEL |
+| fromId | long | 否 | N/A | 起始ID（例如：`6216559590087220004`） |  |
+| direction | string | 否 | NEXT | 查询方向 | PREV, NEXT |
+| limit | int | 否 | 10 | 限制数量，最大200 | 1 ≤ limit ≤ 200 |
+| startTime | long | 否 | N/A | 筛选充币列表的起始时间（毫秒时间戳） |  |
+| endTime | long | 否 | N/A | 筛选充币列表的结束时间（毫秒时间戳） |  |
 
 ### 注意事项
 
-This endpoint retrieves the historical deposit records of a user.
+此接口用于获取用户的历史充币记录。
 
-- Supports pagination using `fromId` and `direction`.
-- Status values reference: [depositWithdrawStatus](#depositWithdrawStatus).
-- Some currencies require **memo/tag** to be filled when depositing.
+- 支持使用 `fromId` 和 `direction` 进行分页。
+- 状态值参考：[depositWithdrawStatus](#depositWithdrawStatus)。
+- 某些币种充币时需要填写 **memo/tag**。
 
 ### 响应示例
 
 ```json title="响应"
 {
   "rc": 0,
-  "mc": "字符串",
+  "mc": "string",
   "ma": [{}],
   "result": {
-    "hasPrev": 是, // Is there a previous page
-    "hasNext": 是, // Is there a next page
+    "hasPrev": true, // 是否有上一页
+    "hasNext": true, // 是否有下一页
     "items": [
       {
-        "id": 169669597, // Unique ID of the deposit record
-        "currency": "xlm2", // 货币名称
-        "chain": "XLM", // Transfer network
+        "id": 169669597, // 充币记录唯一ID
+        "currency": "xlm2", // 币种名称
+        "chain": "XLM", // 转账网络
         "memo": "441824256", // Memo/Tag
-        "status": "SUCCESS", // Deposit status
-        "amount": "0.1", // Deposit amount
-        "confirmations": 12, // Number of block confirmations
-        "transactionId": "28dd15b5c119e00886517f129e5e1f8283f0286b277bcd3cd1f95f7fd4a1f7fc", // Transaction hash
-        "address": "GBY6UIYEYLAAXRQXVO7X5I4BSSCS54EAHTUILXWMW6ONPM3PNEA3LWEC", // Target address
-        "fromAddr": "GBTISB3JK65DG6LEEYYFW33RMMDHBQ65AEUPE5VDBTCLYYFS533FTG6Q", // From address
-        "createdTime": 1667260957000 // Time of deposit record (ms)
+        "status": "SUCCESS", // 充币状态
+        "amount": "0.1", // 充币数量
+        "confirmations": 12, // 区块确认数
+        "transactionId": "28dd15b5c119e00886517f129e5e1f8283f0286b277bcd3cd1f95f7fd4a1f7fc", // 交易哈希
+        "address": "GBY6UIYEYLAAXRQXVO7X5I4BSSCS54EAHTUILXWMW6ONPM3PNEA3LWEC", // 目标地址
+        "fromAddr": "GBTISB3JK65DG6LEEYYFW33RMMDHBQ65AEUPE5VDBTCLYYFS533FTG6Q", // 来源地址
+        "createdTime": 1667260957000 // 充币记录时间（毫秒）
       }
     ]
   }

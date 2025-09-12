@@ -1,25 +1,25 @@
 ---
 id: PublicGetLeaderInfo
-title: Public Get Leader Info
-sidebar_label: Public Get Leader Info
+title: 公开获取带单员信息
+sidebar_label: 公开获取带单员信息
 sidebar_position: 27
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/public/user/v1/public/copy-trade/leader-detail-v2`
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-detail-v2`
 
-### Parameters
+### 参数
 
-| Name      | Type   | Mandatory | Default | Description      | Ranges |
+| 名称      | 类型   | 必填 | 默认值 | 描述      | 范围 |
 | --------- | ------ | --------- | ------- | ---------------- | ------ |
-| accountId | number | Yes       | -       | Leader accountId | -      |
+| accountId | number | 是       | -       | 带单员账户ID | -      |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/ip
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -27,22 +27,22 @@ sidebar_position: 27
   "msgInfo": "success",
   "error": null,
   "result": {
-    "nickName": "string", // Nickname
-    "avatar": "string", // Avatar
-    "intro": "string", // Introduction
-    "leadDays": 0, // Lead days (start time)
-    "levelId": 0, // Leader level ID
-    "level": 0, // Leader level
-    "levelName": "string", // Leader level name
-    "label": ["string"], // Labels
-    "followNumber": 0, // Total follower count
-    "currentFollowNumber": 0, // Current active follower count
-    "maxFollowerSize": 0, // Max allowed followers
-    "profitRate": 0, // Leader profit rate
-    "platformProfitRate": 0, // Platform profit rate
-    "totalRights": 0, // Total rights / equity
-    "displayEquity": true, // Whether to display equity
-    "displayPosition": false // Whether to display positions
+    "nickName": "string", // 昵称
+    "avatar": "string", // 头像
+    "intro": "string", // 简介
+    "leadDays": 0, // 带单天数（开始时间）
+    "levelId": 0, // 带单员等级ID
+    "level": 0, // 带单员等级
+    "levelName": "string", // 带单员等级名称
+    "label": ["string"], // 标签
+    "followNumber": 0, // 累计跟单人数
+    "currentFollowNumber": 0, // 当前跟单人数
+    "maxFollowerSize": 0, // 最大允许跟单人数
+    "profitRate": 0, // 带单员收益率
+    "platformProfitRate": 0, // 平台收益率
+    "totalRights": 0, // 总权益
+    "displayEquity": true, // 是否显示权益
+    "displayPosition": false // 是否显示仓位
   }
 }
 ```

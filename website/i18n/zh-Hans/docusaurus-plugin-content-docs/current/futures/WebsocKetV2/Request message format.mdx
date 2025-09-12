@@ -5,11 +5,11 @@ sidebar_label: 请求消息格式
 sidebar_position: 2
 ---
 
-### Subscribe / Unsubscribe
+### 订阅 / 取消订阅
 
-```json title="Subscribe/Unsubscribe"
+```json title="订阅/取消订阅"
 {
-  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
   "params": [
     "{order}@{listenKey}",
     "{trade}@{listenKey}",
@@ -17,15 +17,15 @@ sidebar_position: 2
     "{position}@{listenKey}",
     "{notify}@{listenKey}"
   ],
-  "id": "{id}" // user defined
+  "id": "{id}" // 用户自定义
 }
 ```
 
-### 示例: Subscribe
+### 示例：订阅
 
-```json title="Subscribe 示例"
+```json title="订阅示例"
 {
-  "方法": "SUBSCRIBE",
+  "method": "SUBSCRIBE",
   "params": ["order@A246C3DF8EE532DC75007BC5D86698541678596355681"],
   "id": "test1"
 }

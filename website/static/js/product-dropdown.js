@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
           href: '/docs/spot/Transfer/TransferBetweenUserSystems',
         },
         {
-          title: 'WebSocket_Private',
-          description: 'WebSocket_Private APIs',
-          href: '/docs/spot/WebSocket_Private/RequestMessageFormat',
+          title: 'WebSocket Private',
+          description: 'WebSocket Private APIs',
+          href: '/docs/spot/WebSocket Private/RequestMessageFormat',
         },
         {
-          title: 'WebSocket_Public',
-          description: 'WebSocket_Public APIs',
-          href: '/docs/spot/WebSocket_Public/wss-general',
+          title: 'WebSocket Public',
+          description: 'WebSocket Public APIs',
+          href: '/docs/spot/WebSocket Public/wss-general',
         },
       ],
     },
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Access Description',
           description: 'Access Description APIs',
-          href: '/docs/copy-trading/Access Description/RestApi',
+          href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Copy Trading',
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Copy Trading',
           description: 'Copy Trading API',
-          href: '/docs/copy-trading/Access Description/RestApi',
+          href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Futures Copy',
@@ -545,14 +545,14 @@ window.showCategory = function showCategory(category) {
           href: '/docs/spot/Transfer/TransferBetweenUserSystems',
         },
         {
-          title: 'WebSocket_Private',
-          description: 'WebSocket_Private APIs',
-          href: '/docs/spot/WebSocket_Private/RequestMessageFormat',
+          title: 'WebSocket Private',
+          description: 'WebSocket Private APIs',
+          href: '/docs/spot/WebSocket Private/RequestMessageFormat',
         },
         {
-          title: 'WebSocket_Public',
-          description: 'WebSocket_Public APIs',
-          href: '/docs/spot/WebSocket_Public/wss-general',
+          title: 'WebSocket Public',
+          description: 'WebSocket Public APIs',
+          href: '/docs/spot/WebSocket Public/wss-general',
         },
       ],
     },
@@ -630,7 +630,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Access Description',
           description: 'Access Description APIs',
-          href: '/docs/copy-trading/Access Description/RestApi',
+          href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Copy Trading',
@@ -744,7 +744,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Copy Trading',
           description: 'Copy Trading API',
-          href: '/docs/copy-trading/Access Description/RestApi',
+          href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Futures Copy',

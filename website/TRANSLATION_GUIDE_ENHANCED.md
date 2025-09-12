@@ -54,7 +54,7 @@ python3 translate_enhanced.py "spot/Deposit&Withdrawal"  # 使用引号包围包
 ```bash
 # ✅ 正确用法
 python3 translate_enhanced.py "spot/Deposit&Withdrawal"
-python3 translate_enhanced.py "spot/WebSocket_Private"
+python3 translate_enhanced.py "spot/WebSocket Private"
 
 # ❌ 错误用法（会被shell解释为命令）
 python3 translate_enhanced.py spot/Deposit&Withdrawal

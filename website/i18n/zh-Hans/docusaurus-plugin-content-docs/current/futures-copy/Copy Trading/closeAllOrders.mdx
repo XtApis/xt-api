@@ -1,38 +1,38 @@
 ---
 id: CloseAllOrders
-title: Close All Orders
-sidebar_label: Close All Orders
+title: 平仓所有订单
+sidebar_label: 平仓所有订单
 sidebar_position: 11
 ---
 
-**Type:** POST
+**类型:** POST
 
-**Description:** `/future/copytrade/order/v1/copy-trade/close-all`
+**描述:** `/future/copytrade/order/v1/copy-trade/close-all`
 
 ---
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| symbol | string | No | - | Trading pair | - |
-| closeLongShortType | string | No | - | Direction | LONG, SHORT, BOTH |
+| symbol | string | 否 | - | 交易对 | - |
+| closeLongShortType | string | 否 | - | 平仓方向 | LONG, SHORT, BOTH |
 
 ---
 
-### Limit Flow Rules
+### 限流规则
 
 5/s/apikey
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json
 {
   "returnCode": 0,
   "msgInfo": "success",
   "error": null,
-  "result": true // true=success, false=fail
+  "result": true // true=成功, false=失败
 }
 ```

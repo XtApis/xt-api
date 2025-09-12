@@ -1,7 +1,7 @@
 ---
 id: QueryTrade
-title: Query trade
-sidebar_label: Query trade
+title: 查询成交记录
+sidebar_label: 查询成交记录
 sidebar_position: 1
 ---
 
@@ -9,26 +9,26 @@ sidebar_position: 1
 
 ### 参数
 
-| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| symbol | string | false | N/A | Trading pair, if not filled, represents all |  |
-| bizType | string | false | N/A | Business type: `SPOT`, `LEVER` |  |
-| orderSide | string | false | N/A | Order side: `BUY`, `SELL` |  |
-| orderType | string | false | N/A | Order type: `LIMIT`, `MARKET` |  |
-| orderId | number | false | N/A | Order ID |  |
-| fromId | number | false | N/A | Start ID |  |
-| direction | string | false | N/A | Query direction: `PREV`, `NEXT` |  |
-| limit | number | false | 20 | Limit number, max 100 |  |
-| startTime | number | false | N/A | Start time (e.g. `1657682804112`) |  |
-| endTime | number | false | N/A | End time |  |
+| symbol | string | 否 | N/A | 交易对，如不填写则代表所有 |  |
+| bizType | string | 否 | N/A | 业务类型：`SPOT`、`LEVER` |  |
+| orderSide | string | 否 | N/A | 订单方向：`BUY`、`SELL` |  |
+| orderType | string | 否 | N/A | 订单类型：`LIMIT`、`MARKET` |  |
+| orderId | number | 否 | N/A | 订单ID |  |
+| fromId | number | 否 | N/A | 起始ID |  |
+| direction | string | 否 | N/A | 查询方向：`PREV`、`NEXT` |  |
+| limit | number | 否 | 20 | 限制数量，最大100 |  |
+| startTime | number | 否 | N/A | 开始时间（例如：`1657682804112`） |  |
+| endTime | number | 否 | N/A | 结束时间 |  |
 
-### 注意事项
+### 说明
 
-This endpoint retrieves trade records. Supports filtering by trading pair, business type, side, order type, time range, and pagination.
+此接口用于查询成交记录。支持按交易对、业务类型、订单方向、订单类型、时间范围进行筛选，并支持分页查询。
 
 ### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
   "mc": "string",
@@ -38,28 +38,28 @@ This endpoint retrieves trade records. Supports filtering by trading pair, busin
     "hasNext": true,
     "items": [
       {
-        "symbol": "BTC_USDT", // Trading pair
-        "tradeId": "6316559590087222001", // Trade ID
-        "orderId": "6216559590087220004", // Order ID
-        "orderSide": "BUY", // Order direction
-        "orderType": "LIMIT", // Order type
-        "bizType": "SPOT", // Business type
-        "time": 1655958915583, // Trade time
-        "price": "40000", // Trade price
-        "quantity": "1.2", // Trade quantity
-        "quoteQty": "48000", // Trade amount
-        "base货币": "BTC", // Base currency
-        "quote货币": "USDT", // Quote currency
-        "takerMaker": "taker", // Taker/Maker
+        "symbol": "BTC_USDT", // 交易对
+        "tradeId": "6316559590087222001", // 成交ID
+        "orderId": "6216559590087220004", // 订单ID
+        "orderSide": "BUY", // 订单方向
+        "orderType": "LIMIT", // 订单类型
+        "bizType": "SPOT", // 业务类型
+        "time": 1655958915583, // 成交时间
+        "price": "40000", // 成交价格
+        "quantity": "1.2", // 成交数量
+        "quoteQty": "48000", // 成交金额
+        "baseCurrency": "BTC", // 基础币种
+        "quoteCurrency": "USDT", // 计价币种
+        "takerMaker": "taker", // 吃单方/挂单方
 
-        "deductType": "COUPON", // Fee deduction type: COUPON / PLATFORM_CURRENCY / null
-        "deductFee": "0.003", // Deducted fee amount if using coupon; otherwise null
+        "deductType": "COUPON", // 手续费抵扣类型：COUPON / PLATFORM_CURRENCY / null
+        "deductFee": "0.003", // 使用优惠券时的抵扣费用金额；否则为null
 
-        "fee": "0.5", // Fee amount (or platform currency amount if deducted)
-        "fee货币": "USDT", // Fee currency
+        "fee": "0.5", // 手续费金额（或使用平台币抵扣时的平台币数量）
+        "feeCurrency": "USDT", // 手续费币种
 
-        "couponAmount": "0.002", // Coupon amount if used; otherwise null
-        "coupon货币": "usdt" // Coupon currency if used; otherwise null
+        "couponAmount": "0.002", // 使用优惠券时的优惠券金额；否则为null
+        "couponCurrency": "usdt" // 使用优惠券时的优惠券币种；否则为null
       }
     ]
   }

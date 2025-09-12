@@ -1,39 +1,39 @@
 ---
 id: GetLeadTraderCurrencyPreferences
-title: Get Lead Trader Currency Preferences
-sidebar_label: Get Lead Trader Currency Preferences
+title: 获取带单者币种偏好
+sidebar_label: 获取带单者币种偏好
 sidebar_position: 27
 ---
 
-**Type:** GET
+**请求类型:** GET
 
-**Description:** `/v1/copy-trade-balance/public/copy-trade/leader-trading-prefer`
+**接口路径:** `/v1/copy-trade-balance/public/copy-trade/leader-trading-prefer`
 
-### Limit Flow Rules
+### 限流规则
 
-2/s/ip
+2次/秒/IP
 
-### Parameters
+### 请求参数
 
-| Name      | Type   | Mandatory | Default | Description       | Ranges        |
+| 参数名      | 类型   | 是否必填 | 默认值 | 描述       | 取值范围        |
 | --------- | ------ | --------- | ------- | ----------------- | ------------- |
-| accountId | number | Yes       |         | Leader account id |               |
-| days      | number | No        | 7       | Query days        | 7, 30, 90,180 |
+| accountId | number | 是       |         | 带单账户ID |               |
+| days      | number | 否        | 7       | 查询天数        | 7, 30, 90, 180 |
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "ma": [{}],
   "mc": "string",
   "rc": 0,
   "result": [
     {
-      "count": 0, // trade count
+      "count": 0, // 交易次数
       "index": 0,
-      "percentage": 0, // percentage
-      "pnl": 0, // trading Profit and Loss
-      "symbol": "string" // symbol, "others" return as others
+      "percentage": 0, // 百分比
+      "pnl": 0, // 交易盈亏
+      "symbol": "string" // 交易对，"others"表示其他
     }
   ]
 }

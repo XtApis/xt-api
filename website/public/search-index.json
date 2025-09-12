@@ -11711,8 +11711,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/copy-trading/Access Description/apiDemo",
-    "path": "copy-trading/Access Description/apiDemo.mdx",
+    "url": "/docs/copy-trading/Access Description/BasicInformationOfTheInterfaceo",
+    "path": "copy-trading/Access Description/BasicInformationOfTheInterface.mdx",
     "type": "copy-trading",
     "category": "copy-trading"
   },
@@ -16261,8 +16261,8 @@
       "demo",
       "None"
     ],
-    "url": "/docs/futures/Access Description/apiDemo",
-    "path": "futures/Access Description/apiDemo.mdx",
+    "url": "/docs/futures/Access Description/BasicInformationOfTheInterface",
+    "path": "futures/Access Description/BasicInformationOfTheInterface.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -32866,8 +32866,8 @@
       "Request",
       "Demo"
     ],
-    "url": "/docs/margin-spot/Access Description/apiDemo",
-    "path": "margin-spot/Access Description/apiDemo.mdx",
+    "url": "/docs/margin-spot/Access Description/BasicInformationOfTheInterface",
+    "path": "margin-spot/Access Description/BasicInformationOfTheInterface.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -39080,8 +39080,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/Access Description/apiDemo",
-    "path": "trading-third-party/Access Description/apiDemo.mdx",
+    "url": "/docs/trading-third-party/Access Description/BasicInformationOfTheInterface",
+    "path": "trading-third-party/Access Description/BasicInformationOfTheInterface.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },

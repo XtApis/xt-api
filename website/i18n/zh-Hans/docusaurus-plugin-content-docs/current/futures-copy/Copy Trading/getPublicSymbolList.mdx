@@ -1,25 +1,25 @@
 ---
 id: GetAvailableSymbolList
-title: Get available symbol list
-sidebar_label: Get available symbol list
+title: 获取可用交易对列表
+sidebar_label: 获取可用交易对列表
 sidebar_position: 19
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/public/user/v1/public/copy-trade/symbol-list`
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/symbol-list`
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/ip
 
-### Response Example
+### 响应示例
 
 ```json
 {
   "returnCode": 0,
   "msgInfo": "success",
   "error": null,
-  "result": ["string", "string"] // symbols
+  "result": ["string", "string"] // 交易对
 }
 ```

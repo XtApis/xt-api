@@ -1,41 +1,41 @@
 ---
 id: AddUpdateCancelProfitStopOrder
-title: Cancel Profit-Stop Order
-sidebar_label: Cancel Profit-Stop Order
+title: 取消止盈止损订单
+sidebar_label: 取消止盈止损订单
 sidebar_position: 10
 ---
 
-**Type:** POST
+**类型:** POST
 
-**Description:** `/future/copytrade/order/v1/copy-trade/update-profit-stop`
+**描述:** `/future/copytrade/order/v1/copy-trade/update-profit-stop`
 
 ---
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| trackNo | number | Yes | - | Track number | - |
-| triggerPriceType | string | Yes | - | Trigger price type | LATEST_PRICE, MARK_PRICE |
-| leaderOrder | boolean | Yes | - | Is leader order | true, false |
-| triggerProfitPrice | number | No | - | Trigger profit price | - |
-| triggerStopPrice | number | No | - | Trigger stop price | - |
+| trackNo | number | 是 | - | 跟踪号 | - |
+| triggerPriceType | string | 是 | - | 触发价格类型 | LATEST_PRICE, MARK_PRICE |
+| leaderOrder | boolean | 是 | - | 是否为带单员订单 | true, false |
+| triggerProfitPrice | number | 否 | - | 止盈触发价格 | - |
+| triggerStopPrice | number | 否 | - | 止损触发价格 | - |
 
 ---
 
-### Limit Flow Rules
+### 限流规则
 
 10/s/apikey
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json
 {
   "returnCode": 0,
   "msgInfo": "success",
   "error": null,
-  "result": true // true=success, false=fail
+  "result": true // true=成功, false=失败
 }
 ```

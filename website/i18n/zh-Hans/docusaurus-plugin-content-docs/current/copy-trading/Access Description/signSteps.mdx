@@ -1,20 +1,22 @@
 ---
-title: Signature Generation
-position_number: 5
+id: SignatureGeneration
+title: 签名生成
+sidebar_label: 签名生成
+sidebar_position: 5
 ---
 
-## Signature Generation
+## 签名生成
 
-Take `https://sapi.xt.com/v4/order` as an example.
+以 `https://sapi.xt.com/v4/order` 为例。
 
-The following is an example **appKey** and **secretKey** for placing an order using a call interface implemented by `echo openssl` and `curl` tools in the Linux bash environment (for demonstration purposes only):
+以下是在 Linux bash 环境中使用 `echo openssl` 和 `curl` 工具实现的下单调用接口的示例 **appKey** 和 **secretKey**（仅供演示）：
 
 ```
 appKey: 3976eb88-76d0-4f6e-a6b2-a57980770085
 secretKey: bc6630d0231fda5cd98794f52c4998659beda290
 ```
 
-### Header part data
+### Header 部分数据
 
 ```
 validate-algorithms: HmacSHA256
@@ -24,7 +26,7 @@ validate-timestamp: 1641446237201
 validate-signature: 2b5eb11e18796d12d88f13dc27dbbd02c2cc51ff7059765ed9821957d82bb4d9
 ```
 
-### Request data
+### 请求数据
 
 ```json
 {
@@ -39,45 +41,45 @@ validate-signature: 2b5eb11e18796d12d88f13dc27dbbd02c2cc51ff7059765ed9821957d82b
 
 ---
 
-## 1. Data Part
+## 1. 数据部分
 
-- **method**: UpperCase method. e.g. GET, POST, DELETE, PUT
-- **path**: Concatenate all values in the order in path. Example: `/sign/test/bb/aa`
-- **query**: Sort all `key=value` according to the lexicographical order of the key. Example: `userName=dfdfdf&password=ggg`
-- **body**:
-  - **JSON**: Directly by JSON string without conversion or sorting.
-  - **x-www-form-urlencoded**: Sort all `key=values` lexicographically. Example: `userName=dfdfdf&password=ggg`
-  - **form-data**: Not supported.
+- **method**：大写方法。例如 GET、POST、DELETE、PUT
+- **path**：按路径中的顺序连接所有值。示例：`/sign/test/bb/aa`
+- **query**：根据 key 的字典序对所有 `key=value` 进行排序。示例：`userName=dfdfdf&password=ggg`
+- **body**：
+  - **JSON**：直接使用 JSON 字符串，无需转换或排序。
+  - **x-www-form-urlencoded**：按字典序对所有 `key=values` 进行排序。示例：`userName=dfdfdf&password=ggg`
+  - **form-data**：不支持。
 
-If multiple data forms exist, re-splicing is performed in the order of `path`, `query`, `body`.
+如果存在多种数据形式，按 `path`、`query`、`body` 的顺序重新拼接。
 
-#### Method example
+#### Method 示例
 
 ```
 POST
 ```
 
-#### Path example
+#### Path 示例
 
 ```
 /v4/order
 ```
 
-#### Query example
+#### Query 示例
 
 ```
 symbol=btc_usdt
 ```
 
-#### Body examples
+#### Body 示例
 
-- x-www-form-urlencoded:
+- x-www-form-urlencoded：
 
 ```
 symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
 ```
 
-- JSON:
+- JSON：
 
 ```json
 {
@@ -90,37 +92,37 @@ symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
 }
 ```
 
-#### Mixed query + body example
+#### 混合 query + body 示例
 
-- Query:
+- Query：
 
 ```
 symbol=btc_usdt&side=BUY&type=LIMIT
 ```
 
-- Body:
+- Body：
 
 ```json
 {"symbol": "btc_usdt", "side": "BUY", "type": "LIMIT"}
 ```
 
-Final concatenated value is:
+最终拼接值为：
 
 ```
 Y=#method#path#query#body
 ```
 
-Notice:
+注意：
 
-- Query has data, body none → `Y=#method#path#query`
-- Query none, body has data → `Y=#method#path#body`
+- Query 有数据，body 无 → `Y=#method#path#query`
+- Query 无，body 有数据 → `Y=#method#path#body`
 - Query + body → `Y=#method#path#query#body`
 
 ---
 
-## 2. Request Header Part
+## 2. 请求 Header 部分
 
-After the keys are in ascending alphabetical order, join them with `&` to form `X`. Example:
+将 key 按字母升序排列后，用 `&` 连接形成 `X`。示例：
 
 ```
 validate-algorithms=HmacSHA256&validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-recvwindow=5000&validate-timestamp=1641446237201
@@ -128,33 +130,33 @@ validate-algorithms=HmacSHA256&validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770
 
 ---
 
-## 3. Generate Signature
+## 3. 生成签名
 
-The string to be encrypted is recorded as:
+待加密字符串记为：
 
 ```
 original = XY
 ```
 
-Encrypt using:
+使用以下方式加密：
 
 ```java
 signature = org.apache.commons.codec.digest.HmacUtils.hmacSha256Hex(secretkey, original);
 ```
 
-Put the generated signature in the request header: `validate-signature: <signature>`
+将生成的签名放入请求头：`validate-signature: <signature>`
 
 ---
 
-## 4. Example
+## 4. 示例
 
-### Sample of original signature message
+### 原始签名消息示例
 
 ```
 validate-algorithms=HmacSHA256&validate-appkey=2063495b-85ec-41b3-a810-be84ceb78751&validate-recvwindow=60000&validate-timestamp=1666026215729#POST#/v4/order#{"symbol":"XT_USDT","side":"BUY","type":"LIMIT","timeInForce":"GTC","bizType":"SPOT","price":3,"quantity":2}
 ```
 
-### Sample request message
+### 请求消息示例
 
 ```bash
 curl --location --request POST 'https://sapi.xt.com/v4/order' \
@@ -168,4 +170,4 @@ curl --location --request POST 'https://sapi.xt.com/v4/order' \
 --data-raw '{"symbol":"XT_USDT","side":"BUY","type":"LIMIT","timeInForce":"GTC","bizType":"SPOT","price":3,"quantity":2}'
 ```
 
-**Important:** Always check Content-Type, signature original message, and request message formats carefully.
+**重要提示：** 请务必仔细检查 Content-Type、签名原始消息和请求消息格式。

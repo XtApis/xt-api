@@ -1,7 +1,7 @@
 ---
 id: CreateStopLimit
-title: 创建止损限价
-sidebar_label: 创建止损限价
+title: 创建止盈止损
+sidebar_label: 创建止盈止损
 sidebar_position: 7
 ---
 
@@ -9,34 +9,34 @@ sidebar_position: 7
 
 **描述:** `/future/trade/v1/entrust/create-profit`
 
-**Remark:** Content-类型 = application/x-www-form-urlencoded && application/json
+**备注:** Content-Type = application/x-www-form-urlencoded && application/json
 
-### Limit Flow Rules
+### 限流规则
 
 200/s/apikey
 
 ### 参数
 
-| 名称 | 类型 | 必需 | 默认值值值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| symbol | 字符串 | 否 | N/A | Trading pair |  |
-| origQty | integer | 是 |  | Quantity (Cont) |  |
-| triggerProfitPrice | integer | 是 |  | TP trigger price |  |
-| triggerStopPrice | integer | 是 |  | SL trigger price |  |
-| expireTime | integer | 是 |  | Expiration time |  |
-| positionSide | 字符串 | 是 |  | Position side | LONG;SHORT |
-| profitDelegate订单类型 | 字符串 | 是 |  | Take profit order 类型 | LIMIT, MARKET |
-| profitDelegateTimeInForce | 字符串 | 是 |  | Take profit order time in force | GTC, FOK, IOC, GTX |
-| profitDelegatePrice | 数字 | 否 |  | Take profit order price |  |
-| stopDelegate订单类型 | 字符串 | 是 |  | Stop loss order 类型 | LIMIT, MARKET |
-| stopDelegateTimeInForce | 字符串 | 是 |  | Stop loss order time in force | GTC, FOK, IOC, GTX |
-| stopDelegatePrice | 数字 | 否 |  | Stop loss order price |  |
+| symbol | string | false | N/A | 交易对 |  |
+| origQty | integer | true |  | 数量（张） |  |
+| triggerProfitPrice | integer | true |  | 止盈触发价格 |  |
+| triggerStopPrice | integer | true |  | 止损触发价格 |  |
+| expireTime | integer | true |  | 过期时间 |  |
+| positionSide | string | true |  | 持仓方向 | LONG;SHORT |
+| profitDelegateOrderType | string | true |  | 止盈委托订单类型 | LIMIT, MARKET |
+| profitDelegateTimeInForce | string | true |  | 止盈委托订单有效期 | GTC, FOK, IOC, GTX |
+| profitDelegatePrice | number | false |  | 止盈委托价格 |  |
+| stopDelegateOrderType | string | true |  | 止损委托订单类型 | LIMIT, MARKET |
+| stopDelegateTimeInForce | string | true |  | 止损委托订单有效期 | GTC, FOK, IOC, GTX |
+| stopDelegatePrice | number | false |  | 止损委托价格 |  |
 
-### 请求 示例
+### 请求示例
 
 ```java title="Java"
 public void getKLine() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&类型=1min&since=0");
+    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
     System.out.println(text);
 }
 ```

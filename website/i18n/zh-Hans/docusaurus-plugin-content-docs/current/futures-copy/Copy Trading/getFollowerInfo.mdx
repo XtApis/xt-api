@@ -1,25 +1,25 @@
 ---
 id: GetFollowerInfo
-title: Get Follower Info
-sidebar_label: Get Follower Info
+title: 获取跟单员信息
+sidebar_label: 获取跟单员信息
 sidebar_position: 28
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/user/v1/copy-trade/leader-relation`
+**描述:** `/future/copytrade/user/v1/copy-trade/leader-relation`
 
-### Parameters
+### 参数
 
-| Name            | Type   | Mandatory | Default | Description       | Ranges |
-| --------------- | ------ | --------- | ------- | ----------------- | ------ |
-| leaderAccountId | number | Yes       | -       | Leader account ID | -      |
+| 名称            | 类型   | 必填 | 默认值 | 描述         | 范围 |
+| --------------- | ------ | ---- | ------ | ------------ | ---- |
+| leaderAccountId | number | 是   | -      | 带单员账户ID | -    |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/apikey
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -27,17 +27,17 @@ sidebar_position: 28
   "msgInfo": "success",
   "error": null,
   "result": {
-    "leaderAccountId": 0, // Leader accountId
-    "symbols": "string", // Symbol
-    "followLoss": 0, // Follow loss
-    "followLossOperate": "enum", // Operation: MARKET_SELL, LEADER_CLOSE, MANUAL_PROCESS
-    "triggerProfitRate": 0, // Trigger profit rate
-    "triggerStopRate": 0, // Trigger stop rate
-    "cancel": true, // Is cancel (true = canceled, false = uncanceled)
-    "followDirection": "string", // Direction: FORWARD, REVERSE
-    "followType": "string", // Follow type: FUND, RATE, MARGIN_RATE
-    "followVal": 0, // Follow value
-    "autoFollowSymbol": true // Auto follow newly added symbol (true/false)
+    "leaderAccountId": 0, // 带单员账户ID
+    "symbols": "string", // 交易对
+    "followLoss": 0, // 跟单亏损
+    "followLossOperate": "enum", // 操作: MARKET_SELL, LEADER_CLOSE, MANUAL_PROCESS
+    "triggerProfitRate": 0, // 止盈触发率
+    "triggerStopRate": 0, // 止损触发率
+    "cancel": true, // 是否取消 (true = 已取消, false = 未取消)
+    "followDirection": "string", // 方向: FORWARD, REVERSE
+    "followType": "string", // 跟单类型: FUND, RATE, MARGIN_RATE
+    "followVal": 0, // 跟单数值
+    "autoFollowSymbol": true // 自动跟随新增交易对 (true/false)
   }
 }
 ```

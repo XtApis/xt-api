@@ -1,29 +1,29 @@
 ---
 id: GetAllUsersOfAffiliate
-title: Get All Users of Affiliate
-sidebar_label: Get All Users of Affiliate
+title: 获取所有推荐用户
+sidebar_label: 获取所有推荐用户
 sidebar_position: 1
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/v4/referal/invite/users`
+**描述:** `/v4/referal/invite/users`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| startTime | number | false |  | start time |  |
-| endTime | number | false |  | end time |  |
-| fromId | number | false |  | Starting ID |  |
-| direction | string | false | NEXT | query direction | PREV, NEXT |
-| limit | int | false | 10 | Limit number, max 100 | `1<=limit<=100` |
+| startTime | number | false |  | 开始时间 |  |
+| endTime | number | false |  | 结束时间 |  |
+| fromId | number | false |  | 起始ID |  |
+| direction | string | false | NEXT | 查询方向 | PREV, NEXT |
+| limit | int | false | 10 | 数量限制，最大100 | `1<=limit<=100` |
 
 ---
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "ma": [],
   "mc": "SUCCESS",

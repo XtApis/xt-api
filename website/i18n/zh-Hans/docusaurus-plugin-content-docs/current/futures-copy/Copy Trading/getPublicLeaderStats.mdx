@@ -1,32 +1,32 @@
 ---
 id: PublicGetLeaderStatistics
-title: Public Get Leader Statistics
-sidebar_label: Public Get Leader Statistics
+title: 公开获取带单员统计数据
+sidebar_label: 公开获取带单员统计数据
 sidebar_position: 25
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/public/user/v1/public/copy-trade/leader-stats`
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-stats`
 
 ---
 
-### Parameters
+### 参数
 
-| Name      | Type   | Mandatory | Default | Description      | Ranges |
+| 名称      | 类型   | 必填 | 默认值 | 描述      | 范围 |
 | --------- | ------ | --------- | ------- | ---------------- | ------ |
-| accountId | number | Yes       | -       | Leader accountId | -      |
-| days      | number | No        | -       | Days             | -      |
+| accountId | number | 是       | -       | 带单员账户ID | -      |
+| days      | number | 否        | -       | 天数             | -      |
 
 ---
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/ip
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -34,22 +34,22 @@ sidebar_position: 25
   "msgInfo": "success",
   "error": null,
   "result": {
-    "recentRate": 0, // Current rate
-    "totalEarnings": 0, // Total earnings
-    "maxRetraction": 0, // Max retraction
-    "followersEarnings": 0, // Followers' earnings
-    "winRate": 0, // Win rate
-    "totalTransactions": 0, // Total transactions
-    "profitCount": 0, // Profit count
-    "lossCount": 0, // Loss count
-    "avgProfitAmount": 0, // Average profit amount
-    "avgLossAmount": 0, // Average loss amount
-    "pnlRate": 0, // Profit/loss rate
-    "avgHoldTime": 0, // Average hold time
-    "weeklyTradeFrequency": 0, // Weekly trade frequency
-    "followerMargin": 0, // Follower total margin
-    "tradeDays": 0, // Total trade days
-    "lastTradeTime": 0 // Last trade time
+    "recentRate": 0, // 当前收益率
+    "totalEarnings": 0, // 总收益
+    "maxRetraction": 0, // 最大回撤
+    "followersEarnings": 0, // 跟单者收益
+    "winRate": 0, // 胜率
+    "totalTransactions": 0, // 总交易次数
+    "profitCount": 0, // 盈利次数
+    "lossCount": 0, // 亏损次数
+    "avgProfitAmount": 0, // 平均盈利金额
+    "avgLossAmount": 0, // 平均亏损金额
+    "pnlRate": 0, // 盈亏比
+    "avgHoldTime": 0, // 平均持仓时间
+    "weeklyTradeFrequency": 0, // 每周交易频率
+    "followerMargin": 0, // 跟单者总保证金
+    "tradeDays": 0, // 交易天数
+    "lastTradeTime": 0 // 最后交易时间
   }
 }
 ```

@@ -1,25 +1,25 @@
 ---
 id: QueryUserApiKey
-title: Query User's ApiKey (Applicable to Master and Sub Account)
-sidebar_label: Query User's ApiKey
+title: 查询用户的 API 密钥（适用于主账户和子账户）
+sidebar_label: 查询用户的 API 密钥
 sidebar_position: 1
 ---
 
-**Type:** GET
+**类型：** GET
 
-**Description:** `/v4/user/account/api-key`
+**描述：** `/v4/user/account/api-key`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| userAccountId | string | false | - | Account id | - |
-| keyName | string | false | - | ApiKey name | - |
-| isLock | integer | false | - | ApiKey is locked or not | 0: not locked; 1: locked |
+| userAccountId | string | false | - | 账户 ID | - |
+| keyName | string | false | - | API 密钥名称 | - |
+| isLock | integer | false | - | API 密钥是否锁定 | 0: 未锁定；1: 已锁定 |
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json title="Response"
 {
@@ -29,18 +29,18 @@ sidebar_position: 1
   "result": [
     {
       "id": 1,
-      "userAccountId": "1352123154435", // account id
-      "userAccountLevel": 1, // 1-master account; 2-sub account
-      "userId": 1352123154435, // user id
-      "keyName": "abc", // apiKey name
-      "bindIps": "", // bind ip list
-      "accessKey": "b5e58714-2382-4e2f-8762-81b5ec9d363a", // encryption key
-      "secretKey": "17aef63c0cba308089fae03e2b13a4794bd2d411", // encryption string
-      "isLock": 0, // 0: not locked; 1: locked
-      "roleScopes": "QUERY_TRADE", // permissions code
-      "tags": null, // tags
-      "createTime": "2023-02-17 05:41:43", // create time
-      "updateTime": "2023-02-17 05:41:43" // update time
+      "userAccountId": "1352123154435", // 账户 ID
+      "userAccountLevel": 1, // 1-主账户；2-子账户
+      "userId": 1352123154435, // 用户 ID
+      "keyName": "abc", // API 密钥名称
+      "bindIps": "", // 绑定 IP 列表
+      "accessKey": "b5e58714-2382-4e2f-8762-81b5ec9d363a", // 加密密钥
+      "secretKey": "17aef63c0cba308089fae03e2b13a4794bd2d411", // 加密字符串
+      "isLock": 0, // 0: 未锁定；1: 已锁定
+      "roleScopes": "QUERY_TRADE", // 权限代码
+      "tags": null, // 标签
+      "createTime": "2023-02-17 05:41:43", // 创建时间
+      "updateTime": "2023-02-17 05:41:43" // 更新时间
     },
     {
       "id": 2,

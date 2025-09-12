@@ -1,25 +1,25 @@
 ---
 id: GetFollowerPosition
-title: Get Follower Position
-sidebar_label: Get Follower Position
+title: 获取跟单员持仓
+sidebar_label: 获取跟单员持仓
 sidebar_position: 34
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/user/v1/copy-trade/follower-position`
+**描述:** `/future/copytrade/user/v1/copy-trade/follower-position`
 
-### Parameters
+### 参数
 
-| Name            | Type   | Mandatory | Default | Description       | Ranges |
-| --------------- | ------ | --------- | ------- | ----------------- | ------ |
-| leaderAccountId | number | Yes       | -       | Leader account ID | -      |
+| 名称            | 类型   | 必填 | 默认值 | 描述         | 范围 |
+| --------------- | ------ | ---- | ------ | ------------ | ---- |
+| leaderAccountId | number | 是   | -      | 带单员账户ID | -    |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/apikey
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -28,43 +28,43 @@ sidebar_position: 34
   "error": null,
   "result": [
     {
-      "symbol": "", // Trading pair
-      "accountId": 0, // Copy trading account ID
-      "positionType": "", // Position type: CROSSED (cross margin), ISOLATED (isolated margin)
-      "positionSide": "", // Position direction
-      "contractType": "", // Contract type: PERPETUAL (perpetual contract), PREDICT (prediction contract)
-      "positionSize": 0.0, // Position size (contracts)
-      "closeOrderSize": 0.0, // Close order size (contracts)
-      "availableCloseSize": 0.0, // Available close size (contracts)
-      "entryPrice": 0.0, // Entry average price
-      "openOrderSize": 0.0, // Open order occupied
-      "isolatedMargin": 0.0, // Isolated margin
-      "openOrderMarginFrozen": 0.0, // Open order margin occupied
-      "realizedProfit": 0.0, // Realized profit and loss
-      "autoMargin": false, // Auto add margin
-      "leverage": 0, // Leverage
-      "profitId": 0, // Take profit/stop loss ID
-      "triggerPriceType": "", // Trigger price type: 1 Index price, 2 Mark price, 3 Latest price
-      "triggerProfitPrice": 0.0, // Take profit trigger price
-      "triggerStopPrice": 0.0, // Stop loss trigger price
+      "symbol": "", // 交易对
+      "accountId": 0, // 跟单账户ID
+      "positionType": "", // 仓位类型: CROSSED (全仓), ISOLATED (逐仓)
+      "positionSide": "", // 持仓方向
+      "contractType": "", // 合约类型: PERPETUAL (永续合约), PREDICT (预测合约)
+      "positionSize": 0.0, // 持仓数量（张）
+      "closeOrderSize": 0.0, // 平仓订单数量（张）
+      "availableCloseSize": 0.0, // 可平仓数量（张）
+      "entryPrice": 0.0, // 持仓均价
+      "openOrderSize": 0.0, // 开仓订单占用
+      "isolatedMargin": 0.0, // 逐仓保证金
+      "openOrderMarginFrozen": 0.0, // 开仓订单保证金占用
+      "realizedProfit": 0.0, // 已实现盈亏
+      "autoMargin": false, // 自动追加保证金
+      "leverage": 0, // 杠杆倍数
+      "profitId": 0, // 止盈止损ID
+      "triggerPriceType": "", // 触发价格类型: 1 指数价格, 2 标记价格, 3 最新价格
+      "triggerProfitPrice": 0.0, // 止盈触发价格
+      "triggerStopPrice": 0.0, // 止损触发价格
       "profitFixedLatest": {
-        // Latest partial position take profit/stop loss settings
+        // 最新部分仓位止盈止损设置
         "profitId": 0,
         "triggerPriceType": "",
         "triggerProfitPrice": 0.0,
         "triggerStopPrice": 0.0
       },
-      "profitFixedCount": 0, // Total number of partial position take profit/stop loss
-      "isWelfareAccount": false, // Is welfare account
-      "closeProfit": 0.0, // Close profit and loss
-      "totalFee": 0.0, // Fee
-      "totalFundFee": 0.0, // Funding fee
-      "reverseEntrustId": 0, // Reverse order ID
-      "reverseStopPrice": 0.0, // Reverse trigger price
-      "reverseTriggerPriceType": "", // Reverse trigger price type
-      "contractSize": 0.0, // Contract value
-      "markPrice": 0.0, // Mark price
-      "updatedTime": 0 // Update time
+      "profitFixedCount": 0, // 部分仓位止盈止损总数
+      "isWelfareAccount": false, // 是否为福利账户
+      "closeProfit": 0.0, // 平仓盈亏
+      "totalFee": 0.0, // 手续费
+      "totalFundFee": 0.0, // 资金费用
+      "reverseEntrustId": 0, // 反向订单ID
+      "reverseStopPrice": 0.0, // 反向触发价格
+      "reverseTriggerPriceType": "", // 反向触发价格类型
+      "contractSize": 0.0, // 合约价值
+      "markPrice": 0.0, // 标记价格
+      "updatedTime": 0 // 更新时间
     }
   ]
 }

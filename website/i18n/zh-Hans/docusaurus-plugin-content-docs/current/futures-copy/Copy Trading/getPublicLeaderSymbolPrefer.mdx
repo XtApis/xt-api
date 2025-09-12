@@ -1,26 +1,26 @@
 ---
 id: PublicGetLeadersPrefer
-title: Public Get Leader's Prefer
-sidebar_label: Public Get Leader's Prefer
+title: 公开获取带单员偏好
+sidebar_label: 公开获取带单员偏好
 sidebar_position: 26
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/public/user/v1/public/copy-trade/leader-symbol-prefer`
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-symbol-prefer`
 
-### Parameters
+### 参数
 
-| Name       | Type   | Mandatory | Default | Description      | Ranges |
+| 名称       | 类型   | 必填 | 默认值 | 描述      | 范围 |
 | ---------- | ------ | --------- | ------- | ---------------- | ------ |
-| accountId  | number | Yes       | -       | Leader accountId | -      |
-| recentDays | number | No        | -       | Days             | -      |
+| accountId  | number | 是       | -       | 带单员账户ID | -      |
+| recentDays | number | 否        | -       | 天数             | -      |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/ip
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -28,11 +28,11 @@ sidebar_position: 26
   "msgInfo": "success",
   "error": null,
   "result": {
-    "index": 0, // Index ranking
-    "symbol": "string", // Symbol
-    "count": 0, // Trading count
-    "percentage": 0, // Percentage
-    "pnl": 0 // Profit and loss
+    "index": 0, // 排名索引
+    "symbol": "string", // 交易对
+    "count": 0, // 交易次数
+    "percentage": 0, // 百分比
+    "pnl": 0 // 盈亏
   }
 }
 ```

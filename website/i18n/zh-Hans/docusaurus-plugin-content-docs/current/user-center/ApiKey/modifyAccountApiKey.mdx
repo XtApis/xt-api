@@ -1,28 +1,28 @@
 ---
 id: ModifyUserAccountApiKey
-title: Modify User Account ApiKey
-sidebar_label: Modify User Account ApiKey
+title: 修改用户账户 API 密钥
+sidebar_label: 修改用户账户 API 密钥
 sidebar_position: 3
 ---
 
-**Type:** PUT
+**类型：** PUT
 
-**Description:** `/v4/user/account/api-key`
+**描述：** `/v4/user/account/api-key`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| id | string | true | - | ApiKey id | - |
-| accessKey | string | true | - | Access key | - |
-| keyName | string | false | - | ApiKey name | - |
-| bindIps | string | false | - | Bind ip list, multiple can be separated by commas | - |
-| roleScopes | string | true | - | Permissions code | QUERY: query; TRADE: spot & margin trade; WITHDRAW: withdraw; LEVER_LOAN: margin pledged; FUTURE: future trade; TRANSFER: transfer |
-| tags | string | false | - | Tags | - |
+| id | string | true | - | API 密钥 ID | - |
+| accessKey | string | true | - | 访问密钥 | - |
+| keyName | string | false | - | API 密钥名称 | - |
+| bindIps | string | false | - | 绑定 IP 列表，多个 IP 用逗号分隔 | - |
+| roleScopes | string | true | - | 权限代码 | QUERY: 查询；TRADE: 现货和杠杆交易；WITHDRAW: 提现；LEVER_LOAN: 杠杆质押；FUTURE: 合约交易；TRANSFER: 划转 |
+| tags | string | false | - | 标签 | - |
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json title="Response"
 {
@@ -30,19 +30,19 @@ sidebar_position: 3
   "mc": "SUCCESS",
   "ma": [{}],
   "result": {
-    "id": 4564, // apiKey id
-    "userAccountId": "1626456841938669570", // account id
-    "userAccountLevel": 2, // account level: 1-master account; 2-sub account
-    "userId": 1352123154435, // user id
-    "keyName": "123aaa", // apiKey name
-    "bindIps": null, // bind ip list
-    "accessKey": "99258227-f053-46a2-9b10-66c155eb705c", // encryption key
-    "secretKey": "4b1839e11bf7a1c6de5f078bd9f4b6e0850da3cf", // encryption string
-    "isLock": 0, // 0: not locked; 1: locked
-    "roleScopes": "QUERY_TRADE", // permissions code
-    "tags": null, // tags
-    "createTime": "2023-02-20 07:39:56.768", // create time
-    "updateTime": "2023-02-20 07:39:56.768" // update time
+    "id": 4564, // API 密钥 ID
+    "userAccountId": "1626456841938669570", // 账户 ID
+    "userAccountLevel": 2, // 账户级别：1-主账户；2-子账户
+    "userId": 1352123154435, // 用户 ID
+    "keyName": "123aaa", // API 密钥名称
+    "bindIps": null, // 绑定 IP 列表
+    "accessKey": "99258227-f053-46a2-9b10-66c155eb705c", // 加密密钥
+    "secretKey": "4b1839e11bf7a1c6de5f078bd9f4b6e0850da3cf", // 加密字符串
+    "isLock": 0, // 0: 未锁定；1: 已锁定
+    "roleScopes": "QUERY_TRADE", // 权限代码
+    "tags": null, // 标签
+    "createTime": "2023-02-20 07:39:56.768", // 创建时间
+    "updateTime": "2023-02-20 07:39:56.768" // 更新时间
   }
 }
 ```

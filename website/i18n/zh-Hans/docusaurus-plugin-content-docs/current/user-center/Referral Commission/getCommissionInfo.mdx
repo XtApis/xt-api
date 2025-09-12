@@ -1,37 +1,37 @@
 ---
 id: QueryAgentCommissionData
-title: Query Agent Commission Data
-sidebar_label: Query Agent Commission Data
+title: 查询代理佣金数据
+sidebar_label: 查询代理佣金数据
 sidebar_position: 7
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/v4/referal/invite/agent/rebate/data`
+**描述:** `/v4/referal/invite/agent/rebate/data`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| startTime | number | false |  | Commission deposit start time |  |
-| endTime | number | false |  | Commission deposit end time |  |
-| inviteCode | string | false |  | Registration invitation code |  |
-| type | number | true |  | Commission type | 1-spot, 2-future |
-| fromId | number | false |  | Starting ID |  |
-| direction | string | false | NEXT | Query direction | PREV, NEXT |
-| limit | int | false | 10 | Limit number, max 100 | `1 <= limit <= 100` |
+| startTime | number | false |  | 佣金充值开始时间 |  |
+| endTime | number | false |  | 佣金充值结束时间 |  |
+| inviteCode | string | false |  | 注册邀请码 |  |
+| type | number | true |  | 佣金类型 | 1-现货, 2-合约 |
+| fromId | number | false |  | 起始ID |  |
+| direction | string | false | NEXT | 查询方向 | PREV, NEXT |
+| limit | int | false | 10 | 数量限制，最大100 | `1 <= limit <= 100` |
 
 ---
 
-#### **Remark**
+#### **备注**
 
-Only supports querying data for the past three months.
+仅支持查询过去三个月的数据。
 
 ---
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "ma": [],
   "mc": "SUCCESS",

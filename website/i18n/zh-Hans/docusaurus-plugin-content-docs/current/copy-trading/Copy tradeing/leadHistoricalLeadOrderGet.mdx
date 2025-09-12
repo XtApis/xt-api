@@ -1,51 +1,51 @@
 ---
 id: GetLeadTraderHistoricalLeadOrder
-title: Get Lead Trader Historical Lead Order
-sidebar_label: Get Lead Trader Historical Lead Order
+title: 获取带单者历史带单订单
+sidebar_label: 获取带单者历史带单订单
 sidebar_position: 29
 ---
 
-**Type:** GET
+**请求类型:** GET
 
-**Description:** `/v1/copy-trade-order/public/copy-trade/order/leader-order-history`
+**接口路径:** `/v1/copy-trade-order/public/copy-trade/order/leader-order-history`
 
-### Limit Flow Rules
+### 限流规则
 
-2/s/ip
+2次/秒/IP
 
-### Parameters
+### 请求参数
 
-| Name | Type | Mandatory | Default | Description |
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
-| `leaderAccountId` | number | Yes |  | Leader account id |
-| `symbol` | string | No |  | Trading pair, e.g. `btc_usdt`. If null, defaults to all |
-| `direction` | string | No | NEXT | Query direction. PREV - previous page, NEXT - next page |
-| `limit` | number | No | 10 | Number of pages (1-100) |
-| `id` | object | No |  | Start ID, e.g. `6216559590087220004` |
+| `leaderAccountId` | number | 是 |  | 带单账户ID |
+| `symbol` | string | 否 |  | 交易对，例如 `btc_usdt`。不填则查询全部 |
+| `direction` | string | 否 | NEXT | 查询方向。PREV - 上一页, NEXT - 下一页 |
+| `limit` | number | 否 | 10 | 每页数量 (1-100) |
+| `id` | object | 否 |  | 起始ID，例如 `6216559590087220004` |
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
   "mc": "string",
   "ma": [{}],
   "result": [
     {
-      "id": "string", // id
-      "orderId": "string", // order id
-      "symbol": "string", // symbol
-      "buySize": 0, // buy size
-      "buyTime": 0, // buy time
-      "buyPrice": 0, // buy price
-      "sellSize": 0, // sell size
-      "sellTime": 0, // sell time
-      "sellPrice": 0, // sell price
-      "profit": 0, // profit
-      "profitRate": 0, // profit rate
-      "triggerProfitPrice": 0, // take profit price
-      "triggerStopPrice": 0, // stop loss price
-      "followCount": 0 // follow count
+      "id": "string", // ID
+      "orderId": "string", // 订单ID
+      "symbol": "string", // 交易对
+      "buySize": 0, // 买入数量
+      "buyTime": 0, // 买入时间
+      "buyPrice": 0, // 买入价格
+      "sellSize": 0, // 卖出数量
+      "sellTime": 0, // 卖出时间
+      "sellPrice": 0, // 卖出价格
+      "profit": 0, // 盈亏
+      "profitRate": 0, // 盈亏率
+      "triggerProfitPrice": 0, // 止盈价格
+      "triggerStopPrice": 0, // 止损价格
+      "followCount": 0 // 跟单人数
     }
   ]
 }

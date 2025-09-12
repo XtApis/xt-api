@@ -9,35 +9,35 @@ sidebar_position: 2
 
 **描述:** `/future/trade/v1/order/update`
 
-> Content-类型 = `application/x-www-form-urlencoded && application/json`
+> Content-Type = `application/x-www-form-urlencoded && application/json`
 
 ### 参数
 
-| 名称 | 类型 | 必需 | 默认值值值值值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| orderId | 数字 | 是 |  | 订单 ID |  |
-| price | 数字 | 是 |  | Target price |  |
-| origQty | 数字 | 是 |  | Target quantity (cont) |  |
-| triggerProfitPrice | 数字 | 否 | N/A | Profit target price |  |
-| triggerStopPrice | 数字 | 否 | N/A | Stop-Loss price |  |
-| triggerPrice类型 | 字符串 | 否 | LATEST_PRICE | Trigger price 类型 | INDEX_PRICE; MARK_PRICE; LATEST_PRICE |
-| profitDelegate订单类型 | 字符串 | 否 | N/A | Take-Profit order 类型 | LIMIT; MARKET |
-| profitDelegateTimeInForce | 字符串 | 否 | N/A | Take-Profit order validity 方法 | GTC; IOC; FOK; GTX |
-| profitDelegatePrice | 数字 | 否 | N/A | Take-Profit order price |  |
-| stopDelegate订单类型 | 字符串 | 否 | N/A | Stop-Loss order 类型 | LIMIT; MARKET |
-| stopDelegateTimeInForce | 字符串 | 否 | N/A | Stop-Loss order validity 方法 | GTC; IOC; FOK; GTX |
-| stopDelegatePrice | 数字 | 否 | N/A | Stop-Loss order price |  |
-| followUp订单 | 布尔值 | 否 | N/A | If 是, indicates chase order |  |
+| orderId | number | true |  | 订单 ID |  |
+| price | number | true |  | 目标价格 |  |
+| origQty | number | true |  | 目标数量（张） |  |
+| triggerProfitPrice | number | false | N/A | 止盈目标价格 |  |
+| triggerStopPrice | number | false | N/A | 止损价格 |  |
+| triggerPriceType | string | false | LATEST_PRICE | 触发价格类型 | INDEX_PRICE; MARK_PRICE; LATEST_PRICE |
+| profitDelegateOrderType | string | false | N/A | 止盈订单类型 | LIMIT; MARKET |
+| profitDelegateTimeInForce | string | false | N/A | 止盈订单有效方式 | GTC; IOC; FOK; GTX |
+| profitDelegatePrice | number | false | N/A | 止盈订单价格 |  |
+| stopDelegateOrderType | string | false | N/A | 止损订单类型 | LIMIT; MARKET |
+| stopDelegateTimeInForce | string | false | N/A | 止损订单有效方式 | GTC; IOC; FOK; GTX |
+| stopDelegatePrice | number | false | N/A | 止损订单价格 |  |
+| followUpOrder | boolean | false | N/A | 如果为 true，表示追单 |  |
 
-### Limit Flow Rules
+### 限流规则
 
 200/s/apikey
 
-### 响应 示例
+### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
 
-<CodeBlock language="json" title="响应">
+<CodeBlock language="json" title="Response">
   {`{
   "error": {
     "code": "",

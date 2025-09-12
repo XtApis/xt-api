@@ -1,29 +1,29 @@
 ---
 id: GetMyCopyTraderList
-title: Get My Copy Trader List
-sidebar_label: Get My Copy Trader List
+title: 获取我的跟单者列表
+sidebar_label: 获取我的跟单者列表
 position_number: 30
 ---
 
-**Type:** GET
+**请求类型:** GET
 
-**Description:** `/v1/copy-trade-account/copy-trade/leader-followers`
+**接口路径:** `/v1/copy-trade-account/copy-trade/leader-followers`
 
-#### Limit Flow Rules
+#### 限流规则
 
-2/s/ip
+2次/秒/IP
 
-### Parameters
+### 请求参数
 
-| Name | Type | Mandatory | Default | Description |
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
-| `direction` | string | No | NEXT | Query direction: `PREV` - previous page, `NEXT` - next page |
-| `limit` | number | No | 10 | Number of pages (1–100) |
-| `id` | object | No |  | Start ID, e.g. `6216559590087220004` |
+| `direction` | string | 否 | NEXT | 查询方向: `PREV` - 上一页, `NEXT` - 下一页 |
+| `limit` | number | 否 | 10 | 每页数量 (1–100) |
+| `id` | object | 否 |  | 起始ID，例如 `6216559590087220004` |
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "ma": [{}],
   "mc": "string",
@@ -33,15 +33,15 @@ position_number: 30
     "hasPrev": true,
     "items": [
       {
-        "accountId": 0, // copy trader account id
-        "avatar": "string", // avatar of copy trader
-        "days": 0, // follow days
-        "followMargin": 0, // follow margin
-        "followProfit": 0, // follow profit
-        "followProfitRate": 0, // follow profit rate
-        "followerName": "string", // name of copy trader
-        "id": 0, // id
-        "pageId": 0 // the id used for pagination query
+        "accountId": 0, // 跟单者账户ID
+        "avatar": "string", // 跟单者头像
+        "days": 0, // 跟单天数
+        "followMargin": 0, // 跟单保证金
+        "followProfit": 0, // 跟单盈亏
+        "followProfitRate": 0, // 跟单盈亏率
+        "followerName": "string", // 跟单者名称
+        "id": 0, // ID
+        "pageId": 0 // 用于分页查询的ID
       }
     ]
   }

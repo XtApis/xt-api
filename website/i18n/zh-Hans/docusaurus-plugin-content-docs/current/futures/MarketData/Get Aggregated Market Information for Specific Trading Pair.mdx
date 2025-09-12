@@ -1,0 +1,57 @@
+---
+id: get-aggregated-market-information-for-specific-trading-pair
+title: 获取指定交易对的聚合行情信息
+sidebar_label: 获取指定交易对的聚合行情信息
+sidebar_position: 16
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/agg-ticker`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 参数
+
+| 名称   | 类型   | 是否必需 | 默认值 | 描述     | 范围 |
+| ------ | ------ | -------- | ------ | -------- | ---- |
+| symbol | string | 是       | N/A    | 交易对   |      |
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getKLine() {
+    String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "a": "",  // 24小时成交额
+    "ap": "", // 卖一价
+    "bp": "", // 买一价
+    "c": "",  // 最新价
+    "h": "",  // 24小时最高价
+    "i": "",  // 指数价格
+    "l": "",  // 24小时最低价
+    "m": "",  // 标记价格
+    "o": "",  // 24小时前第一笔成交价
+    "r": "",  // 24小时价格涨跌幅
+    "s": "",  // 交易对
+    "t": 0,   // 时间
+    "v": ""   // 24小时成交量
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

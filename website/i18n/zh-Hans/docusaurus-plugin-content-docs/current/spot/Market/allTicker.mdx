@@ -1,35 +1,35 @@
 ---
-title: 完整行情
-position_数字: 8
+title: 全量行情
+position_number: 8
 type: get
 description: /v4/public/ticker
 parameters:
   - name: symbol
-    type: 字符串
-    mandatory: 否
+    type: string
+    mandatory: false
     default:
-    description: trading pair  eg:btc_usdt
+    description: 交易对 例如：btc_usdt
     ranges:
   - name: symbols
-    type: 数组
-    mandatory: 否
+    type: array
+    mandatory: false
     default:
-    description: 'Collection of trading pairs. Priority is higher than symbol. eg: btc_usdt,eth_usdt'
+    description: '交易对集合，优先级高于 symbol。例如：btc_usdt,eth_usdt'
     ranges:
   - name: tags
-    type: 字符串
-    mandatory: 否
+    type: string
+    mandatory: false
     default:
-    description: 'Set of tags, separated by commas, currently only supports spot'
+    description: '标签集合，用逗号分隔，目前仅支持 spot'
     ranges:
 content_markdown: >-
-  #### **Limit Flow Rules**
+  #### **限流规则**
   
   
-  1\.single symbol：10/s/ip
+  1\.单个交易对：10次/秒/IP
   
   
-  2\.multiple symbols：10/s/ip
+  2\.多个交易对：10次/秒/IP
 
 
 left_code_blocks:
@@ -51,20 +51,20 @@ right_code_blocks:
           "ma": [],
           "result": [
                 {
-                  "s": "btc_usdt",        //symbol
-                  "t": 1662444879425,     //update time
-                  "cv": "0.00",           //change value
-                  "cr": "0.0000",         //change rate
-                  "o": "200.00",          //open
-                  "l": "200.00",          //low
-                  "h": "200.00",          //high
-                  "c": "200.00",          //close
-                  "q": "0.002",           //quantity
-                  "v": "0.40",            //volume
-                  "ap": null,             //asks price(sell one price)
-                  "aq": null,             //asks qty(sell one quantity)
-                  "bp": null,             //bids price(buy one price)
-                  "bq": null              //bids qty(buy one quantity)
+                  "s": "btc_usdt",        //交易对
+                  "t": 1662444879425,     //更新时间
+                  "cv": "0.00",           //涨跌额
+                  "cr": "0.0000",         //涨跌幅
+                  "o": "200.00",          //开盘价
+                  "l": "200.00",          //最低价
+                  "h": "200.00",          //最高价
+                  "c": "200.00",          //收盘价
+                  "q": "0.002",           //成交量
+                  "v": "0.40",            //成交额
+                  "ap": null,             //卖一价
+                  "aq": null,             //卖一量
+                  "bp": null,             //买一价
+                  "bq": null              //买一量
                   }
               ]
       }

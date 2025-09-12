@@ -800,7 +800,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Margin Trading APIs">Margin Trading APIs</div>
                         </a>
 
-                        <a href="/docs/copy-trading/Access Description/RestApi"
+                        <a href="/docs/copy-trading/Access Description/BasicInformationOfTheInterface"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -900,7 +900,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Transfer APIs">Transfer APIs</div>
                         </a>
 
-                        <a href="/docs/spot/WebSocket_Private/RequestMessageFormat"
+                        <a href="/docs/spot/WebSocket Private/RequestMessageFormat"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -910,7 +910,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.WebSocket Private APIs">WebSocket Private APIs</div>
                         </a>
 
-                        <a href="/docs/spot/WebSocket_Public/subscribeParam"
+                        <a href="/docs/spot/WebSocket Public/subscribeParam"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -968,7 +968,7 @@ export default async function createConfigAsync(): Promise<Config> {
        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/Access Description/BasicInformationOfTheInterface' },
         { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
         { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/RestApi' },
+        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
         { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' },
         { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface' },
         { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/Access Description/BasicInformationOfTheInterface' },
@@ -978,8 +978,8 @@ export default async function createConfigAsync(): Promise<Config> {
         { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/spot/Order/PlaceOrder' },
         { title: 'Trade', titleZh: '交易', subtitle: 'Trade APIs', subtitleZh: '交易 API', href: '/docs/spot/Trade/GetTradeHistory' },
         { title: 'Transfer', titleZh: '转账', subtitle: 'Transfer APIs', subtitleZh: '转账 API', href: '/docs/spot/Transfer/InternalTransfer' },
-        { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket_Private/RequestMessageFormat' },
-        { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket_Public/subscribeParam' },
+        { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket Private/RequestMessageFormat' },
+        { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' },
         { title: 'Futures WebSocket', titleZh: '期货 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '期货 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' },
         { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetMarginAccount' },
         { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
@@ -1007,8 +1007,8 @@ export default async function createConfigAsync(): Promise<Config> {
         { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/spot/Order/PlaceOrder' },
         { title: 'Trade', titleZh: '交易', subtitle: 'Trade APIs', subtitleZh: '交易 API', href: '/docs/spot/Trade/GetTradeHistory' },
         { title: 'Transfer', titleZh: '转账', subtitle: 'Transfer APIs', subtitleZh: '转账 API', href: '/docs/spot/Transfer/InternalTransfer' },
-        { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket_Private/RequestMessageFormat' },
-        { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket_Public/subscribeParam' }
+        { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket Private/RequestMessageFormat' },
+        { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' }
       ]
     },
     'futures': {
@@ -1037,7 +1037,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Copy trading and social trading APIs',
       descZh: '跟单交易和社交交易 API',
       products: [
-        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/RestApi' },
+        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
         { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
       ]
     },

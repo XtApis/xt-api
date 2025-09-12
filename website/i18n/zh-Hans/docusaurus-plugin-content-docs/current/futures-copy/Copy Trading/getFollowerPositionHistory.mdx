@@ -1,27 +1,27 @@
 ---
 id: GetFollowerPositionHistory
-title: Get follower position history
-sidebar_label: Get follower position history
+title: 获取跟单员持仓历史
+sidebar_label: 获取跟单员持仓历史
 sidebar_position: 36
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/user/v1/copy-trade/follower-balance-bill`
+**描述:** `/future/copytrade/user/v1/copy-trade/follower-balance-bill`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| leaderAccountId | number | Yes |  | leader accountId |  |
-| symbol | string | No |  | symbol |  |
-| direction | string | No |  | direction | NEXT, PREV |
-| limit | number | No |  | page size | 10 |
-| id | number | No |  | id |  |
+| leaderAccountId | number | 是 |  | 带单员账户ID |  |
+| symbol | string | 否 |  | 交易对 |  |
+| direction | string | 否 |  | 方向 | NEXT, PREV |
+| limit | number | 否 |  | 页面大小 | 10 |
+| id | number | 否 |  | ID |  |
 
-### Limit Flow Rules
+### 限流规则
 
-### Response
+### 响应
 
 ```json
 {
@@ -38,14 +38,14 @@ sidebar_position: 36
     "items": [
       {
         "id": 0,
-        "accountId": 0, // account id
-        "coin": "", // currency
-        "symbol": "", // trading pair
-        "type": "", // EXCHANGE transfer CLOSE_POSITION close profit/loss TAKE_OVER position takeover QIANG_PING_MANAGER forced liquidation management fee FUND funding fee FEE fee (open, close, forced liquidation) ADL auto-deleveraging TAKE_OVER position takeover MERGE position merge
-        "amount": 0.0, // quantity
-        "side": "", // ADD deposit SUB withdrawal
-        "afterAmount": 0.0, // balance after change
-        "createdTime": 0 // time
+        "accountId": 0, // 账户ID
+        "coin": "", // 币种
+        "symbol": "", // 交易对
+        "type": "", // EXCHANGE 划转 CLOSE_POSITION 平仓盈亏 TAKE_OVER 仓位接管 QIANG_PING_MANAGER 强平管理费 FUND 资金费用 FEE 手续费（开仓、平仓、强平）ADL 自动减仓 TAKE_OVER 仓位接管 MERGE 仓位合并
+        "amount": 0.0, // 数量
+        "side": "", // ADD 存入 SUB 提取
+        "afterAmount": 0.0, // 变动后余额
+        "createdTime": 0 // 时间
       }
     ]
   }

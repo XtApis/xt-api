@@ -1,21 +1,21 @@
 ---
 id: GetLeaderInfo
-title: Get Leader Info
-sidebar_label: Get Leader Info
+title: 获取带单员信息
+sidebar_label: 获取带单员信息
 sidebar_position: 7
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/user/v1/copy-trade/leader-detail`
+**描述:** `/future/copytrade/user/v1/copy-trade/leader-detail`
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/apikey
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -23,22 +23,22 @@ sidebar_position: 7
   "msgInfo": "success",
   "error": null,
   "result": {
-    "nickName": "string",           // nickName
-    "avatar": "string",             // avatar
-    "intro": "string",              // intro
-    "leadDays": 0,                  // begin time
-    "levelId": 0,                   // leader level id
-    "level": 0,                     // leader level
-    "levelName": "string",          // leader level name
-    "label": ["string"],            // labels
-    "followNumber": 0,              // leader's follower count
-    "currentFollowNumber": 0,       // leader's current follower count
-    "maxFollowerSize": 0,           // leader's max follower count
-    "profitRate": 0,                // leader profit rate
-    "platformProfitRate": 0,        // platform profit rate
-    "totalRights": 0,               // total amount
-    "displayEquity": Boolean,       // is display amount
-    "displayPosition": Boolean      // is display position
+    "nickName": "string",           // 昵称
+    "avatar": "string",             // 头像
+    "intro": "string",              // 简介
+    "leadDays": 0,                  // 开始时间
+    "levelId": 0,                   // 带单员等级ID
+    "level": 0,                     // 带单员等级
+    "levelName": "string",          // 带单员等级名称
+    "label": ["string"],            // 标签
+    "followNumber": 0,              // 带单员的跟单人数
+    "currentFollowNumber": 0,       // 带单员的当前跟单人数
+    "maxFollowerSize": 0,           // 带单员的最大跟单人数
+    "profitRate": 0,                // 带单员收益率
+    "platformProfitRate": 0,        // 平台收益率
+    "totalRights": 0,               // 总金额
+    "displayEquity": Boolean,       // 是否显示金额
+    "displayPosition": Boolean      // 是否显示仓位
   }
 }
 ```

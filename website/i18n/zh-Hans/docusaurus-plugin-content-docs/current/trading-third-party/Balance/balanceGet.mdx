@@ -1,23 +1,23 @@
 ---
 id: GetSingleCurrencyAsset
-title: Get a single currency asset
-sidebar_label: Get a single currency asset
+title: 获取单个币种资产
+sidebar_label: 获取单个币种资产
 sidebar_position: 2
 ---
 
-**Type:** GET
+**类型：** GET
 
-**Description:** `/spot/v4/balance`
+**描述：** `/spot/v4/balance`
 
-### Parameters
+### 参数
 
-| name     | type   | mandatory | default | description | ranges |
-| -------- | ------ | --------- | ------- | ----------- | ------ |
-| currency | string | true      |         | eg: usdt    |        |
+| 名称     | 类型   | 是否必需 | 默认值 | 描述        | 范围 |
+| -------- | ------ | -------- | ------ | ----------- | ---- |
+| currency | string | 是       |        | 例如：usdt  |      |
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
   "mc": "string",
@@ -28,7 +28,7 @@ sidebar_position: 2
     "frozenAmount": 0,
     "availableAmount": 0,
     "totalAmount": 0,
-    "convertBtcAmount": 0 //Converted BTC amount
+    "convertBtcAmount": 0 // 折合BTC数量
   }
 }
 ```

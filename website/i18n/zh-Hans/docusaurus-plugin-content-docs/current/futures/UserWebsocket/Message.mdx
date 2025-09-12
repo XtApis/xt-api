@@ -1,15 +1,15 @@
 ---
 id: Message
-title: Message
-sidebar_label: Message
+title: 消息
+sidebar_label: 消息
 sidebar_position: 11
 ---
 
-### Subscribe / Unsubscribe
+### 订阅 / 取消订阅
 
-```json title="Subscribe/Unsubscribe"
+```json title="订阅/取消订阅"
 {
-  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
   "params": ["{notify}@{listenKey}"],
   "id": "{id}"
 }
@@ -17,7 +17,7 @@ sidebar_position: 11
 
 ---
 
-### 响应 示例
+### 响应示例
 
 ```json title="响应"
 {
@@ -25,10 +25,10 @@ sidebar_position: 11
   "event": "notify",
   "data": {
     "symbol": "btc_usdt",
-    "position类型": "ISOLATED",
+    "positionType": "ISOLATED",
     "positionSide": "LONG",
-    "positionSize": "123", // Position quantity
-    "notify类型": "WARN" // Notification 类型: WARN (warning, about to be levelled), PARTIAL (partial liquidation), LIQUIDATION (liquidation), ADL (auto-deleveraging)
+    "positionSize": "123", // 仓位数量
+    "notifyType": "WARN" // 通知类型：WARN（警告，即将被强制平仓）、PARTIAL（部分强制平仓）、LIQUIDATION（强制平仓）、ADL（自动减仓）
   }
 }
 ```

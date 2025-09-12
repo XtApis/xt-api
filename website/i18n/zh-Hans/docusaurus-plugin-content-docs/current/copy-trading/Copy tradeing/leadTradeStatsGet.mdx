@@ -1,49 +1,49 @@
 ---
 id: GetLeadTraderStats
-title: Get Lead Trader Stats
-sidebar_label: Get Lead Trader Stats
+title: 获取带单者统计数据
+sidebar_label: 获取带单者统计数据
 sidebar_position: 25
 ---
 
-**Type:** GET
+**请求类型:** GET
 
-**Description:** `/v1/copy-trade-balance/public/copy-trade/leader-stats`
+**接口路径:** `/v1/copy-trade-balance/public/copy-trade/leader-stats`
 
-### Limit Flow Rules
+### 限流规则
 
-2/s/ip
+2次/秒/IP
 
-### Parameters
+### 请求参数
 
-| Name | Type | Mandatory | Default | Description |
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
-| `accountId` | number | Yes |  | Leader account id |
-| `days` | string | No | 7 | Query days. Options: `7, 30, 90, 180, all` |
+| `accountId` | number | 是 |  | 带单账户ID |
+| `days` | string | 否 | 7 | 查询天数。可选值: `7, 30, 90, 180, all` |
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "ma": [{}],
   "mc": "string",
   "rc": 0,
   "result": {
-    "avgHoldTime": 0, // average holding time (seconds)
-    "avgLossAmount": 0, // average loss amount
-    "avgProfitAmount": 0, // average profit amount
-    "followerMargin": 0, // follower margin
-    "followersEarnings": 0, // follower profit
-    "lastTradeTime": 0, // latest trading time
-    "lossCount": 0, // loss count
-    "maxRetraction": 0, // max retraction
-    "pnlRate": "string", // profit and loss ratio
-    "profitCount": 0, // profit count
-    "recentRate": 0, // yield rate
-    "totalEarnings": 0, // total revenue
-    "totalTransactions": 0, // total transactions
-    "tradeDays": 0, // trade days
-    "weeklyTradeFrequency": 0, // trading frequency (weekly)
-    "winRate": 0 // win rate
+    "avgHoldTime": 0, // 平均持仓时间（秒）
+    "avgLossAmount": 0, // 平均亏损金额
+    "avgProfitAmount": 0, // 平均盈利金额
+    "followerMargin": 0, // 跟单者保证金
+    "followersEarnings": 0, // 跟单者收益
+    "lastTradeTime": 0, // 最近交易时间
+    "lossCount": 0, // 亏损次数
+    "maxRetraction": 0, // 最大回撤
+    "pnlRate": "string", // 盈亏比
+    "profitCount": 0, // 盈利次数
+    "recentRate": 0, // 收益率
+    "totalEarnings": 0, // 总收益
+    "totalTransactions": 0, // 总交易笔数
+    "tradeDays": 0, // 交易天数
+    "weeklyTradeFrequency": 0, // 每周交易频率
+    "winRate": 0 // 胜率
   }
 }
 ```

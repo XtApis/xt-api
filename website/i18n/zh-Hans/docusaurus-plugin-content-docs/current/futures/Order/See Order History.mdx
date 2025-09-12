@@ -1,7 +1,7 @@
 ---
 id: see-order-history
-title: 查看订单历史
-sidebar_label: 查看订单历史
+title: 查看历史订单
+sidebar_label: 查看历史订单
 sidebar_position: 1.1
 ---
 
@@ -11,24 +11,24 @@ sidebar_position: 1.1
 
 ### 参数
 
-| 名称 | 类型 | 必需 | 默认值值值值值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| symbol | 字符串 | 是 | N/A | Trading pairs (queries all trading pairs if not passed) |  |
-| direction | 字符串 | 否 | NEXT | Direction | PREV;NEXT |
-| id | integer | 否 | N/A | id |  |
-| limit | integer | 否 | 10 | Limit |  |
-| startTime | integer | 否 | N/A | Start time |  |
-| endTime | integer | 否 | N/A | End time |  |
+| symbol | string | true | N/A | 交易对（不传则查询所有交易对） |  |
+| direction | string | false | NEXT | 方向 | PREV;NEXT |
+| id | integer | false | N/A | id |  |
+| limit | integer | false | 10 | 限制数量 |  |
+| startTime | integer | false | N/A | 开始时间 |  |
+| endTime | integer | false | N/A | 结束时间 |  |
 
-### Limit Flow Rules
+### 限流规则
 
 200/s/apikey
 
-### 响应 示例
+### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
 
-<CodeBlock language="json" title="响应">
+<CodeBlock language="json" title="Response">
   {`{
   "error": {
     "code": "",
@@ -36,30 +36,30 @@ import CodeBlock from '@theme/CodeBlock';
   },
   "msgInfo": "",
   "result": {
-    "hasNext": 否,   // Is there a next page
-    "hasPrev": 否,   // Is there a previous page
-    "items": [          // Datasheets
+    "hasNext": false,   // 是否有下一页
+    "hasPrev": false,   // 是否有上一页
+    "items": [          // 数据列表
       {
-        "client订单Id": "",       // 客户端订单ID
-        "avgPrice": 0,             // 平均价格
-        "closePosition": 否,    // Whether to close all when order condition is triggered
-        "closeProfit": 0,          // Offset profit and loss
-        "createdTime": 0,          // Create time
-        "executedQty": 0,          // Volume (Cont)
-        "forceClose": 否,       // Is it a liquidation order
-        "marginFrozen": 0,         // Occupied margin
-        "orderId": 0,              // 订单ID
-        "orderSide": "",           // 订单 side
-        "order类型": "",           // 订单 类型
-        "origQty": 0,              // 数量 (Cont)
-        "positionSide": "",        // Position side
-        "price": 0,                // 订单 price
-        "sourceId": 0,             // Triggering conditions ID
-        "state": "",               // 订单 state: NEW; PARTIALLY_FILLED; FILLED; CANCELED; REJECTED; EXPIRED
-        "symbol": "",              // Trading pair
-        "timeInForce": "",         // Valid 类型
-        "triggerProfitPrice": 0,   // TP trigger price
-        "triggerStopPrice": 0      // SL trigger price
+        "clientOrderId": "",       // 客户订单 ID
+        "avgPrice": 0,             // 成交均价
+        "closePosition": false,    // 订单条件触发时是否全部平仓
+        "closeProfit": 0,          // 平仓盈亏
+        "createdTime": 0,          // 创建时间
+        "executedQty": 0,          // 成交量（张）
+        "forceClose": false,       // 是否为强平订单
+        "marginFrozen": 0,         // 占用保证金
+        "orderId": 0,              // 订单 ID
+        "orderSide": "",           // 订单方向
+        "orderType": "",           // 订单类型
+        "origQty": 0,              // 数量（张）
+        "positionSide": "",        // 仓位方向
+        "price": 0,                // 订单价格
+        "sourceId": 0,             // 触发条件 ID
+        "state": "",               // 订单状态: NEW; PARTIALLY_FILLED; FILLED; CANCELED; REJECTED; EXPIRED
+        "symbol": "",              // 交易对
+        "timeInForce": "",         // 有效类型
+        "triggerProfitPrice": 0,   // 止盈触发价格
+        "triggerStopPrice": 0      // 止损触发价格
       }
     ]
   },

@@ -1,19 +1,25 @@
 ---
 id: BasicInformationOfTheInterface
-title: Basic Information of the Interface
-sidebar_label: Basic Information of the Interface
+title: 接口基本信息
+sidebar_label: 接口基本信息
 sidebar_position: 2
 ---
 
-Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.
+:::info **生产环境：**
 
-- **GET** request parameters are placed in **query params**
-- **POST** request parameters are placed in **request body**
+[https://sapi.xt.com](https://sapi.xt.com)
 
-Please set the request header to:
+:::
+
+由于延迟高、稳定性差等原因，不建议通过代理访问 API。
+
+- **GET** 请求参数放在 **query params** 中
+- **POST** 请求参数放在 **request body** 中
+
+请设置请求头为：
 
 ```http
 Content-Type: application/json
 ```
 
-For requests that do not start with `/public`, the request message must be **signed**.
+对于不以 `/public` 开头的请求，请求消息必须进行**签名**。

@@ -1,15 +1,15 @@
 ---
 id: BalanceChange
-title: Balance change
-sidebar_label: Balance change
+title: 余额变化
+sidebar_label: 余额变化
 sidebar_position: 7
 ---
 
-### Subscribe / Unsubscribe
+### 订阅 / 取消订阅
 
-```json title="Subscribe/Unsubscribe"
+```json title="订阅/取消订阅"
 {
-  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
   "params": ["{balance}@{listenKey}"],
   "id": "{id}"
 }
@@ -17,7 +17,7 @@ sidebar_position: 7
 
 ---
 
-### 响应 示例
+### 响应示例
 
 ```json title="响应"
 {
@@ -25,11 +25,11 @@ sidebar_position: 7
   "event": "balance@123456",
   "data": {
     "coin": "usdt",
-    "underlying类型": 1, // 1: Coin-M, 2: USDT-M
-    "walletBalance": "123", // Balance
-    "open订单MarginFrozen": "123", // Frozen order
-    "isolatedMargin": "213", // Isolated Margin
-    "crossedMargin": "0" // Crossed Margin
+    "underlyingType": 1, // 1: 币本位，2: USDT本位
+    "walletBalance": "123", // 余额
+    "openOrderMarginFrozen": "123", // 冻结订单
+    "isolatedMargin": "213", // 逐仓保证金
+    "crossedMargin": "0" // 全仓保证金
   }
 }
 ```

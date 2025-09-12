@@ -1,0 +1,40 @@
+---
+id: RequestMessageFormat
+title: 请求消息格式
+sidebar_label: 请求消息格式
+sidebar_position: 2
+---
+
+### 订阅
+
+```json title="订阅"
+{
+  "method": "subscribe",
+  "params": [
+    "{topic}@{arg},{arg}",
+    "{topic}@{arg}"
+  ],
+  "id": "{id}" // 回调 ID
+}
+```
+
+### 取消订阅
+
+```json title="取消订阅"
+{
+  "method": "unsubscribe",
+  "params": [
+    "{topic}@{arg},{arg}"
+  ],
+  "id": "{id}" // 回调 ID
+}
+```
+
+### 响应示例
+
+```json title="响应"
+{
+  "code": 0,
+  "msg": "success"
+}
+```

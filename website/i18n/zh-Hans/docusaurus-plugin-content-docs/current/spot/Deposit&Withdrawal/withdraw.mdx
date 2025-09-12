@@ -1,7 +1,7 @@
 ---
 id: Withdraw
-title: 提现
-sidebar_label: 提现
+title: 提币
+sidebar_label: 提币
 sidebar_position: 4
 ---
 
@@ -9,26 +9,26 @@ sidebar_position: 4
 
 ### 参数
 
-> 📌 注意: The parameters are placed in the **request 请求体** in JSON format.
+> 📌 注意：参数需以 JSON 格式放置在**请求体**中。
 
-| 名称 | 类型 | 必填 | 默认值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| currency | 字符串 | 是 | N/A | 货币名称, from **Get supported currencies for deposit/withdrawal** API |  |
-| chain | 字符串 | 否 | N/A | Transfer network 名称, from **Get supported currencies for deposit/withdrawal** API |  |
-| client订单Id | 字符串 | 否 | N/A | Custom client ID, regex: `^[a-zA-Z0-9_]{4,32}$` |  |
-| amount | 数字 | 是 | N/A | Withdrawal amount (including fee) |  |
-| address | 字符串 | 否 | N/A | Withdrawal address |  |
-| memo | 字符串 | 否 | N/A | Memo/Tag (required for some chains such as EOS) |  |
-| toAccountId | 数字 | 否 | N/A | Receiving user ID |  |
+| currency | string | 是 | N/A | 币种名称，来自**获取充提币支持币种**接口 |  |
+| chain | string | 否 | N/A | 转账网络名称，来自**获取充提币支持币种**接口 |  |
+| clientOrderId | string | 否 | N/A | 自定义客户端ID，正则表达式：`^[a-zA-Z0-9_]{4,32}$` |  |
+| amount | number | 是 | N/A | 提币数量（包含手续费） |  |
+| address | string | 否 | N/A | 提币地址 |  |
+| memo | string | 否 | N/A | Memo/Tag（某些链如EOS必需） |  |
+| toAccountId | number | 否 | N/A | 接收用户ID |  |
 
 ### 注意事项
 
-- 参数 must be placed in the 请求体 as JSON.
-- 限流规则: **1 request/second per apikey**.
-- For EOS-like chains, `memo` must be provided.
-- The returned `id` can be used to 查询参数 withdrawal history later.
+- 参数必须以 JSON 格式放置在请求体中。
+- 限流规则：**每个apikey每秒1次请求**。
+- 对于类EOS链，必须提供 `memo`。
+- 返回的 `id` 可用于后续查询提币历史。
 
-### 请求 示例
+### 请求示例
 
 ```json title="请求"
 {

@@ -1,7 +1,7 @@
 ---
 id: see-transaction-details
-title: 查看交易详情
-sidebar_label: 查看交易详情
+title: 查看成交明细
+sidebar_label: 查看成交明细
 sidebar_position: 1.2
 ---
 
@@ -11,24 +11,24 @@ sidebar_position: 1.2
 
 ### 参数
 
-| 名称 | 类型 | 必需 | 默认值值值值值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| orderId | integer | 否 | N/A | 订单 ID |  |
-| symbol | 字符串 | 否 | N/A | Trading pair |  |
-| page | integer | 否 | 1 | Page |  |
-| size | integer | 否 | 10 | Quantity of a single page |  |
-| startTime | integer | 否 | N/A | Start time |  |
-| endTime | integer | 否 | N/A | End time |  |
+| orderId | integer | false | N/A | 订单 ID |  |
+| symbol | string | false | N/A | 交易对 |  |
+| page | integer | false | 1 | 页码 |  |
+| size | integer | false | 10 | 单页数量 |  |
+| startTime | integer | false | N/A | 开始时间 |  |
+| endTime | integer | false | N/A | 结束时间 |  |
 
-### Limit Flow Rules
+### 限流规则
 
 200/s/apikey
 
-### 响应 示例
+### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
 
-<CodeBlock language="json" title="响应">
+<CodeBlock language="json" title="Response">
   {`{
   "error": {
     "code": "",
@@ -39,14 +39,14 @@ import CodeBlock from '@theme/CodeBlock';
     "items": [
       {
         "fee": 0,              // 手续费
-        "feeCoin": "",         // 货币 of fee
-        "orderId": 0,          // 订单ID
-        "execId": 0,           // 交易ID
+        "feeCoin": "",         // 手续费币种
+        "orderId": 0,          // 订单 ID
+        "execId": 0,           // 成交 ID
         "price": 0,            // 价格
-        "quantity": 0,         // Volume
-        "symbol": "",          // Trading pair
-        "timestamp": 0,        // Time
-        "takerMaker": "TAKER"  // taker or maker
+        "quantity": 0,         // 成交量
+        "symbol": "",          // 交易对
+        "timestamp": 0,        // 时间
+        "takerMaker": "TAKER"  // taker 或 maker
       }
     ],
     "page": 0,

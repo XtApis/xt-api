@@ -1,7 +1,7 @@
 ---
 id: CreateTrack
-title: 创建跟踪
-sidebar_label: 创建跟踪
+title: 创建跟踪单
+sidebar_label: 创建跟踪单
 sidebar_position: 13
 ---
 
@@ -9,31 +9,31 @@ sidebar_position: 13
 
 **描述:** `/future/trade/v1/entrust/create-track`
 
-**Remark:** Content-类型 = application/x-www-form-urlencoded
+**备注:** Content-Type = application/x-www-form-urlencoded
 
-### Limit Flow Rules
+### 限流规则
 
 200/s/apikey
 
 ### 参数
 
-| 名称 | 类型 | 必需 | 默认值值值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| callback | 字符串 | 是 | N/A | Callback range configuration | FIXED;PROPORTION |
-| callbackVal | 数字 | 是 | N/A | Callback value | Greater than 0 |
-| orderSide | 字符串 | 是 | N/A | 订单 side | BUY;SELL |
-| origQty | 数字 | 是 | N/A | Original quantity (count) |  |
-| positionSide | 字符串 | 是 | N/A | Position side | BOTH;LONG;SHORT |
-| position类型 | 字符串 | 是 | N/A | Position 类型 | CROSSED;ISOLATED |
-| symbol | 字符串 | 是 | N/A | Trading pair |  |
-| triggerPrice类型 | 字符串 | 是 | N/A | Trigger price 类型 | INDEX_PRICE;MARK_PRICE;LATEST_PRICE |
-| activationPrice | 数字 | 否 | N/A | Activation price |  |
-| clientMedia | 字符串 | 否 | N/A | Client media |  |
-| clientMediaChannel | 字符串 | 否 | N/A | Client media channel |  |
-| client订单Id | 字符串 | 否 | N/A | Client order id |  |
-| expireTime | integer | 否 | N/A | Expiration time |  |
+| callback | string | true | N/A | 回调幅度配置 | FIXED;PROPORTION |
+| callbackVal | number | true | N/A | 回调值 | 大于0 |
+| orderSide | string | true | N/A | 订单方向 | BUY;SELL |
+| origQty | number | true | N/A | 原始数量（张） |  |
+| positionSide | string | true | N/A | 持仓方向 | BOTH;LONG;SHORT |
+| positionType | string | true | N/A | 持仓类型 | CROSSED;ISOLATED |
+| symbol | string | true | N/A | 交易对 |  |
+| triggerPriceType | string | true | N/A | 触发价格类型 | INDEX_PRICE;MARK_PRICE;LATEST_PRICE |
+| activationPrice | number | false | N/A | 激活价格 |  |
+| clientMedia | string | false | N/A | 客户端媒介 |  |
+| clientMediaChannel | string | false | N/A | 客户端媒介渠道 |  |
+| clientOrderId | string | false | N/A | 客户端订单ID |  |
+| expireTime | integer | false | N/A | 过期时间 |  |
 
-### 请求 示例
+### 请求示例
 
 ```json title="响应"
 {

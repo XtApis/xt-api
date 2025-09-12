@@ -1,19 +1,19 @@
 ---
 id: Get symbol list
-title: Get symbol list
-sidebar_label: Get symbol list
+title: 获取交易对列表
+sidebar_label: 获取交易对列表
 sidebar_position: 1
 ---
 
 **类型** GET
 
-**描述:** `/v4/public/lever/symbol`
+**接口说明：** `/v4/public/lever/symbol`
 
-### Limit Flow Rules
+### 限流规则
 
-200/s/apikey
+200次/秒/apikey
 
-### 响应 示例
+### 响应示例
 
 ```json title="响应"
 {
@@ -22,18 +22,18 @@ sidebar_position: 1
   "ma": [],
   "result": [
     {
-      "symbolId": 123, // Spot symbol id
-      "symbol": "btc_usdt", // Spot symbol
-      "buy货币Id": 123, // Buy currency id
-      "buy货币": "btc", // Buy currency
-      "sell货币Id": 234, // Sell currency id
-      "sell货币": "usdt", // Sell currency
-      "maxLoanAmountBuy": "", // The 最大 amount of buy currency that can be borrowed
-      "maxLoanAmountSell": "", // The 最大 amount of sell currency that can be borrowed
-      "maxLeverage": "", // Maximum loan multiple
-      "dailyInterestRate": "", // Daily interest rate
-      "liquidationRate": "", // Liquidation risk rate
-      "tipsRate": "" // Reminder coefficient
+      "symbolId": 123, // 现货交易对ID
+      "symbol": "btc_usdt", // 现货交易对
+      "buyCurrencyId": 123, // 买入币种ID
+      "buyCurrency": "btc", // 买入币种
+      "sellCurrencyId": 234, // 卖出币种ID
+      "sellCurrency": "usdt", // 卖出币种
+      "maxLoanAmountBuy": "", // 买入币种最大可借额度
+      "maxLoanAmountSell": "", // 卖出币种最大可借额度
+      "maxLeverage": "", // 最大借贷倍数
+      "dailyInterestRate": "", // 日利率
+      "liquidationRate": "", // 爆仓风险率
+      "tipsRate": "" // 提醒系数
     }
   ]
 }

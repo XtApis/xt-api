@@ -1,39 +1,39 @@
 ---
 id: AdjustLeverage
-title: Adjust Leverage
-sidebar_label: Adjust Leverage
+title: 调整杠杆
+sidebar_label: 调整杠杆
 sidebar_position: 32
 ---
 
-**Type:** POST
+**类型:** POST
 
-**Description:** `/future/copytrade/order/v1/position/adjust-leverage`
+**描述:** `/future/copytrade/order/v1/position/adjust-leverage`
 
 ---
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| symbol | string | Yes | - | Symbol | - |
-| leverage | number | Yes | - | Leverage | - |
-| positionSide | enum | No | - | Direction | LONG, SHORT, BOTH |
+| symbol | string | 是 | - | 交易对 | - |
+| leverage | number | 是 | - | 杠杆倍数 | - |
+| positionSide | enum | 否 | - | 持仓方向 | LONG, SHORT, BOTH |
 
 ---
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/apikey
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json
 {
   "returnCode": 0,
   "msgInfo": "success",
   "error": null,
-  "result": true // true=success, false=fail
+  "result": true // true=成功, false=失败
 }
 ```

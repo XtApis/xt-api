@@ -1,7 +1,7 @@
 ---
 id: AlterStopLimit
-title: 修改止损限价
-sidebar_label: 修改止损限价
+title: 修改止盈止损
+sidebar_label: 修改止盈止损
 sidebar_position: 12
 ---
 
@@ -9,21 +9,21 @@ sidebar_position: 12
 
 **描述:** `/future/trade/v1/entrust/update-profit-stop`
 
-**Remark:** Content-类型 = application/x-www-form-urlencoded && application/json
+**备注:** Content-Type = application/x-www-form-urlencoded && application/json
 
-### Limit Flow Rules
+### 限流规则
 
 200/s/apikey
 
 ### 参数
 
-| 名称 | 类型 | 必需 | 默认值值值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| profitId | integer | 是 | N/A | Stop limit ID |  |
-| triggerProfitPrice | 数字 | 否 | N/A | TP trigger price |  |
-| triggerStopPrice | 数字 | 否 | N/A | SL trigger price |  |
+| profitId | integer | true | N/A | 止盈止损订单ID |  |
+| triggerProfitPrice | number | false | N/A | 止盈触发价格 |  |
+| triggerStopPrice | number | false | N/A | 止损触发价格 |  |
 
-### 响应 示例
+### 响应示例
 
 ```json title="响应"
 {

@@ -70,14 +70,14 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Transfer APIs',
         },
         {
-          href: '/docs/spot/WebSocket_Private/RequestMessageFormat',
-          label: 'WebSocket_Private',
-          description: 'WebSocket_Private APIs',
+          href: '/docs/spot/WebSocket Private/RequestMessageFormat',
+          label: 'WebSocket Private',
+          description: 'WebSocket Private APIs',
         },
         {
-          href: '/docs/spot/WebSocket_Public/wss-general',
-          label: 'WebSocket_Public',
-          description: 'WebSocket_Public APIs',
+          href: '/docs/spot/WebSocket Public/wss-general',
+          label: 'WebSocket Public',
+          description: 'WebSocket Public APIs',
         },
       ],
     },
@@ -162,7 +162,7 @@ function IndexMegaMenu(): JSX.Element {
       color: '#6f42c1',
       items: [
         {
-          href: '/docs/copy-trading/Access Description/RestApi',
+          href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface',
           label: 'Access Description',
           description: 'Access Description APIs',
         },

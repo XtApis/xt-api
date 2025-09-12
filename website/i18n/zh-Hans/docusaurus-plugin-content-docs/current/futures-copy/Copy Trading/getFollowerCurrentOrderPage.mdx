@@ -1,29 +1,29 @@
 ---
 id: GerCurrentOrderFollow
-title: Get Follower Current Order Page
-sidebar_label: Get Follower Current Order Page
+title: 获取跟单员当前订单分页
+sidebar_label: 获取跟单员当前订单分页
 sidebar_position: 13
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/order/v1/copy-trade/follower-order-page`
+**描述:** `/future/copytrade/order/v1/copy-trade/follower-order-page`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
-| type | number | No | - | Type: 1 (detail), 2 (total) | 1, 2 |
-| symbol | string | No | - | Trading symbol | - |
-| direction | string | No | - | Page direction | NEXT, PREV |
-| limit | number | No | - | Page size | 10 |
-| id | number | No | - | Record ID | - |
+| type | number | 否 | - | 类型: 1 (详情), 2 (汇总) | 1, 2 |
+| symbol | string | 否 | - | 交易对 | - |
+| direction | string | 否 | - | 分页方向 | NEXT, PREV |
+| limit | number | 否 | - | 页面大小 | 10 |
+| id | number | 否 | - | 记录ID | - |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/apikey
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -32,30 +32,30 @@ sidebar_position: 13
   "error": null,
   "result": [
     {
-      "symbolName": "string", // Symbol
-      "positionType": "string", // Position type: CROSSED, ISOLATED
-      "positionSide": "string", // Direction: LONG, SHORT
-      "openLeverage": 5, // Leverage
+      "symbolName": "string", // 交易对
+      "positionType": "string", // 仓位类型: CROSSED, ISOLATED
+      "positionSide": "string", // 方向: LONG, SHORT
+      "openLeverage": 5, // 杠杆倍数
       "id": 0, // ID
-      "orderId": 0, // Order ID
-      "trackNo": 0, // Track No
-      "openTime": 0, // Open time
-      "closeTime": 0, // Close time
-      "openPrice": 0, // Open price
-      "closePrice": 0, // Close price
-      "profitRate": 0, // Profit rate
-      "openMargin": 0, // Open margin
-      "realizedPnl": 0, // Realized profit and loss
-      "leaderNickname": "string", // Leader name
-      "openSize": 0, // Open quantity
-      "closeSize": 0, // Close quantity
-      "positionSize": 0, // Position quantity
-      "closeOrderSize": 0, // Close order quantity
-      "availableCloseSize": 0, // Available close quantity
-      "triggerProfitPrice": 0, // Take profit trigger price
-      "triggerStopPrice": 0, // Stop loss trigger price
-      "triggerPriceType": "string", // Trigger price type: LATEST_PRICE, MARK_PRICE
-      "avatar": "string" // Avatar
+      "orderId": 0, // 订单ID
+      "trackNo": 0, // 追踪号
+      "openTime": 0, // 开仓时间
+      "closeTime": 0, // 平仓时间
+      "openPrice": 0, // 开仓价格
+      "closePrice": 0, // 平仓价格
+      "profitRate": 0, // 收益率
+      "openMargin": 0, // 开仓保证金
+      "realizedPnl": 0, // 已实现盈亏
+      "leaderNickname": "string", // 带单员昵称
+      "openSize": 0, // 开仓数量
+      "closeSize": 0, // 平仓数量
+      "positionSize": 0, // 持仓数量
+      "closeOrderSize": 0, // 平仓订单数量
+      "availableCloseSize": 0, // 可平仓数量
+      "triggerProfitPrice": 0, // 止盈触发价格
+      "triggerStopPrice": 0, // 止损触发价格
+      "triggerPriceType": "string", // 触发价格类型: LATEST_PRICE, MARK_PRICE
+      "avatar": "string" // 头像
     }
   ]
 }

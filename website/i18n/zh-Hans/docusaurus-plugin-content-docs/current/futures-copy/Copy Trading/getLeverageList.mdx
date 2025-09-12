@@ -1,26 +1,26 @@
 ---
 id: GetLeverageList
-title: Get Leverage List
-sidebar_label: Get Leverage List
+title: 获取杠杆列表
+sidebar_label: 获取杠杆列表
 sidebar_position: 31
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/order/v1/position/list`
+**描述:** `/future/copytrade/order/v1/position/list`
 
-### Parameters
+### 参数
 
-| Name                  | Type   | Mandatory | Default | Description  | Ranges |
-| --------------------- | ------ | --------- | ------- | ------------ | ------ |
-| symbol                | string | No        | -       | Trading pair | -      |
-| welfareAccountVersion | string | No        | -       | Version      | -      |
+| 名称                  | 类型   | 必填 | 默认值 | 描述   | 范围 |
+| --------------------- | ------ | ---- | ------ | ------ | ---- |
+| symbol                | string | 否   | -      | 交易对 | -    |
+| welfareAccountVersion | string | 否   | -      | 版本   | -    |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/apikey
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -29,25 +29,25 @@ sidebar_position: 31
   "error": null,
   "result": [
     {
-      "symbol": "string", // Symbol
-      "positionType": "string", // Position type: CROSSED, ISOLATED
-      "positionSide": "string", // Position direction
-      "contractType": "string", // Contract type: PERPETUAL, PREDICT
-      "positionSize": 0, // Position size
-      "closeOrderSize": 0, // Close order size
-      "availableCloseSize": 0, // Available close size
-      "entryPrice": 0, // Entry price
-      "openOrderSize": 0, // Open order size
-      "isolatedMargin": 0, // Isolated margin
-      "openOrderMarginFrozen": 0, // Frozen margin for open orders
-      "realizedProfit": 0, // Realized profit/loss
-      "autoMargin": false, // Whether auto add margin
-      "leverage": 0, // Leverage
-      "profitId": 0, // Take profit/stop loss ID
-      "triggerPriceType": 0, // Trigger price type: 1 Index price, 2 Mark price, 3 Deal price
-      "triggerProfitPrice": 0, // Take profit trigger price
-      "triggerStopPrice": 0, // Stop loss trigger price
-      "welfareAccount": false // Whether welfare account
+      "symbol": "string", // 交易对
+      "positionType": "string", // 仓位类型: CROSSED, ISOLATED
+      "positionSide": "string", // 持仓方向
+      "contractType": "string", // 合约类型: PERPETUAL, PREDICT
+      "positionSize": 0, // 持仓数量
+      "closeOrderSize": 0, // 平仓订单数量
+      "availableCloseSize": 0, // 可平仓数量
+      "entryPrice": 0, // 持仓均价
+      "openOrderSize": 0, // 开仓订单数量
+      "isolatedMargin": 0, // 逐仓保证金
+      "openOrderMarginFrozen": 0, // 开仓订单冻结保证金
+      "realizedProfit": 0, // 已实现盈亏
+      "autoMargin": false, // 是否自动追加保证金
+      "leverage": 0, // 杠杆倍数
+      "profitId": 0, // 止盈止损ID
+      "triggerPriceType": 0, // 触发价格类型: 1 指数价格, 2 标记价格, 3 成交价格
+      "triggerProfitPrice": 0, // 止盈触发价格
+      "triggerStopPrice": 0, // 止损触发价格
+      "welfareAccount": false // 是否为福利账户
     }
   ]
 }

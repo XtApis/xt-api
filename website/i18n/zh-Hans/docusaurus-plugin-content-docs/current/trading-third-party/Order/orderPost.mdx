@@ -1,44 +1,44 @@
 ---
-id: Submit订单
-title: Submit 订单
-sidebar_label: Submit 订单
+id: SubmitOrder
+title: 提交订单
+sidebar_label: 提交订单
 sidebar_position: 2
 description: /spot/v4/order
 ---
 
 **类型:** POST
 
-**描述:** `/spot/v4/order`
+**接口:** `/spot/v4/order`
 
-### Remark
+### 备注
 
-- Create a **BUY order** based on market price → `quantity` must be `null`, `quoteQty` is **required**.
-- Create a **SELL order** based on market price → `quoteQty` must be `null`, `quantity` is **required**.
+- 创建基于市价的**买单** → `quantity` 必须为 `null`，`quoteQty` 为**必填项**。
+- 创建基于市价的**卖单** → `quoteQty` 必须为 `null`，`quantity` 为**必填项**。
 
-### Limit Flow Rules
+### 限流规则
 
-20/s/apikey
+20次/秒/apikey
 
 ### 参数
 
-| 名称 | 类型 | 必需 | 默认值值 | 描述 | 范围 |
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| `symbol` | 字符串 | Yes |  | Trading pair |  |
-| `client订单Id` | 字符串 | No |  | Pattern: `^[a-zA-Z0-9_]{4,32}$` |  |
-| `side` | 字符串 | Yes |  | BUY, SELL |  |
-| `type` | 字符串 | Yes |  | 订单 type: LIMIT, MARKET |  |
-| `timeInForce` | 字符串 | Yes |  | Effective way: GTC, FOK, IOC, GTX |  |
-| `biz类型` | 字符串 | Yes |  | SPOT, LEVER |  |
-| `price` | 数字 | No |  | Price. Required if LIMIT; empty if MARKET |  |
-| `quantity` | 数字 | No |  | Quantity. Required if LIMIT or market order by quantity |  |
-| `quoteQty` | 数字 | No |  | Amount. Required if LIMIT or market order by amount |  |
+| `symbol` | string | 是 |  | 交易对 |  |
+| `clientOrderId` | string | 否 |  | 正则模式：`^[a-zA-Z0-9_]{4,32}$` |  |
+| `side` | string | 是 |  | BUY（买入）, SELL（卖出） |  |
+| `type` | string | 是 |  | 订单类型：LIMIT（限价）, MARKET（市价） |  |
+| `timeInForce` | string | 是 |  | 有效方式：GTC, FOK, IOC, GTX |  |
+| `bizType` | string | 是 |  | SPOT（现货）, LEVER（杠杆） |  |
+| `price` | number | 否 |  | 价格。限价单必填；市价单留空 |  |
+| `quantity` | number | 否 |  | 数量。限价单或按数量市价单必填 |  |
+| `quoteQty` | number | 否 |  | 金额。限价单或按金额市价单必填 |  |
 
 ### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
-  "mc": "字符串",
+  "mc": "string",
   "ma": [{}],
   "result": {
     "orderId": "6216559590087220004"

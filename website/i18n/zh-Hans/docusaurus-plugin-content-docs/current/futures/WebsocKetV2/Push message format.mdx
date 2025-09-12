@@ -1,23 +1,23 @@
 ---
-id: PushMessage格式
+id: PushMessageFormat
 title: 推送消息格式
 sidebar_label: 推送消息格式
 sidebar_position: 4
 ---
 
-### Message 格式
+### 消息格式
 
 ```json title="格式"
 {
   "topic": "trade",
-  "event": "trade@btc_usdt", // title
+  "event": "trade@btc_usdt", // 标题
   "data": {}
 }
 ```
 
 ---
 
-### 示例: Transaction Record (Real-time Push Message)
+### 示例：成交记录（实时推送消息）
 
 ```json title="示例"
 {
@@ -29,7 +29,7 @@ sidebar_position: 4
     "t": 1655992403617,
     "p": "43000",
     "q": "0.21",
-    "b": 是
+    "b": true
   }
 }
 ```

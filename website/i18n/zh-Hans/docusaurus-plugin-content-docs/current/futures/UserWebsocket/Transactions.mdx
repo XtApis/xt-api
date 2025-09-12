@@ -1,15 +1,15 @@
 ---
 id: Transactions
-title: Transactions
-sidebar_label: Transactions
+title: 成交记录
+sidebar_label: 成交记录
 sidebar_position: 9
 ---
 
-### Subscribe / Unsubscribe
+### 订阅 / 取消订阅
 
-```json title="Subscribe/Unsubscribe"
+```json title="订阅/取消订阅"
 {
-  "方法": "SUBSCRIBE/UNSUBSCRIBE",
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
   "params": ["{trade}@{listenKey}"],
   "id": "{id}"
 }
@@ -17,7 +17,7 @@ sidebar_position: 9
 
 ---
 
-### 响应 示例
+### 响应示例
 
 ```json title="响应"
 {
@@ -25,15 +25,15 @@ sidebar_position: 9
   "event": "trade@123456",
   "data": {
     "orderId": "12312312", // 订单ID
-    "client订单Id": "123456", // 客户端订单ID
+    "clientOrderId": "123456", // 客户订单ID
     "price": "34244", // 价格
     "quantity": "123", // 数量
-    "保证金账户Unfrozen": "123", // 数量 of unfrozen 保证金账户
+    "marginUnfrozen": "123", // 解冻保证金数量
     "timestamp": 1731231231, // 时间戳
     "symbol": "btc_usdt", // 交易对
-    "orderSide": "BUY", // 订单 side
-    "positionSide": "LONG", // Position side
-    "isMaker": 是, // Is maker or not (是=maker, 否=taker)
+    "orderSide": "BUY", // 订单方向
+    "positionSide": "LONG", // 仓位方向
+    "isMaker": true, // 是否为挂单方（true=挂单方，false=吃单方）
     "fee": 0.0002 // 手续费
   }
 }

@@ -1,95 +1,95 @@
 ---
 id: ErrorCode
-title: Error Code
-sidebar_label: Error Code
+title: 错误代码
+sidebar_label: 错误代码
 sidebar_position: 9
 ---
 
-### HTTP Status Code
+### HTTP 状态码
 
-| httpStatus | description |
+| httpStatus | 描述 |
 | --- | --- |
-| 200 | The request is successful, please check the rc and mc sections further |
-| 404 | Interface does not exist |
-| 429 | The request is too frequent, please control the request rate according to the speed limit requirement |
-| 500 | Service exception |
-| 502 | Gateway exception |
-| 503 | Service unavailable, please try again later |
+| 200 | 请求成功，请进一步检查 rc 和 mc 部分 |
+| 404 | 接口不存在 |
+| 429 | 请求过于频繁，请根据速率限制要求控制请求频率 |
+| 500 | 服务异常 |
+| 502 | 网关异常 |
+| 503 | 服务不可用，请稍后重试 |
 
-### Return Code (rc)
+### 返回码 (rc)
 
-| rc  | description      |
+| rc  | 描述      |
 | --- | ---------------- |
-| 0   | Business success |
-| 1   | Business failure |
+| 0   | 业务成功 |
+| 1   | 业务失败 |
 
-### Message Code (mc)
+### 消息码 (mc)
 
-| mc | description |
+| mc | 描述 |
 | --- | --- |
-| SUCCESS | Success |
-| FAILURE | Fail |
-| AUTH_001 | Missing request header validate-appkey |
-| AUTH_002 | Missing request header validate-timestamp |
-| AUTH_003 | Missing request header validate-recvwindow |
-| AUTH_004 | Bad request header validate-recvwindow |
-| AUTH_005 | Missing request header validate-algorithms |
-| AUTH_006 | Bad request header validate-algorithms |
-| AUTH_007 | Missing request header validate-signature |
-| AUTH_101 | ApiKey does not exist |
-| AUTH_102 | ApiKey is not activated |
-| AUTH_103 | Signature error |
-| AUTH_104 | Unbound IP request |
-| AUTH_105 | Outdated message |
-| AUTH_106 | Exceeded apikey permission |
-| SYMBOL_001 | Symbol not exist |
-| SYMBOL_002 | Symbol offline |
-| SYMBOL_003 | Symbol suspend trading |
-| SYMBOL_004 | Symbol country disallow trading |
-| SYMBOL_005 | The symbol does not support trading via API |
-| ORDER_001 | Platform rejection |
-| ORDER_002 | Insufficient funds |
-| ORDER_003 | Trading pair suspended |
-| ORDER_004 | No transaction |
-| ORDER_005 | Order not exist |
-| ORDER_006 | Too many open orders |
-| ORDER_007 | The sub-account has no transaction authority |
-| ORDER_008 | The order price or quantity precision is abnormal |
-| ORDER_F0101 | Trigger Price Filter - Min |
-| ORDER_F0102 | Trigger Price Filter - Max |
-| ORDER_F0103 | Trigger Price Filter - Step Value |
-| ORDER_F0201 | Trigger Quantity Filter - Min |
-| ORDER_F0202 | Trigger Quantity Filter - Max |
-| ORDER_F0203 | Trigger Quantity Filter - Step Value |
-| ORDER_F0301 | Trigger QUOTE_QTY Filter - Min Value |
-| ORDER_F0401 | Trigger PROTECTION_ONLINE Filter or PROTECTION_LIMIT Filter |
-| ORDER_F0501 | Trigger PROTECTION_LIMIT Filter - Buy Max Deviation |
-| ORDER_F0502 | Trigger PROTECTION_LIMIT Filter - Sell Max Deviation |
-| ORDER_F0503 | Trigger PROTECTION_LIMIT Filter - Buy Limit Coefficient |
-| ORDER_F0504 | Trigger PROTECTION_LIMIT Filter - Sell Limit Coefficient |
-| ORDER_F0601 | Trigger PROTECTION_MARKET Filter |
-| COMMON_001 | The user does not exist |
-| COMMON_002 | System busy, please try it later |
-| COMMON_003 | Operation failed, please try it later |
-| CURRENCY_001 | Information of currency is abnormal |
-| GATEWAY_0001 | Trigger risk control |
-| GATEWAY_0002 | Trigger risk control |
-| GATEWAY_0003 | Trigger risk control |
-| GATEWAY_0004 | Trigger risk control |
-| COPY_TRADE_SPOT_000 | The system is busy, please try again later |
-| COPY_TRADE_SPOT_001 | You are already a leader |
-| COPY_TRADE_SPOT_002 | You already have a leader |
-| COPY_TRADE_SPOT_003 | You have already submitted your leader application |
-| COPY_TRADE_SPOT_004 | You have not completed real-name authentication or your authentication level does not meet the requirements |
-| COPY_TRADE_SPOT_005 | Your account total assets do not meet the application requirements |
-| COPY_TRADE_SPOT_006 | The leader does not exist |
-| COPY_TRADE_SPOT_007 | You have already submitted your leader application, follow order is not supported |
-| COPY_TRADE_SPOT_008 | The copy margin exceeds the limit |
-| COPY_TRADE_SPOT_009 | The copy order ratio exceeds the limit |
-| COPY_TRADE_SPOT_010 | The number of followers is full |
-| COPY_TRADE_SPOT_011 | Exceeded the maximum number of followers |
-| COPY_TRADE_SPOT_012 | The precision of the take-profit price is abnormal |
-| COPY_TRADE_SPOT_013 | The precision of the stop-loss price is abnormal |
-| COPY_TRADE_SPOT_014 | The take-profit trigger price must be greater than the latest transaction price |
-| COPY_TRADE_SPOT_015 | The stop-loss trigger price must be less than the latest transaction price |
-| COPY_TRADE_SPOT_016 | The leader has spot orders and is not allowed to cancel the termination |
+| SUCCESS | 成功 |
+| FAILURE | 失败 |
+| AUTH_001 | 缺少请求头 validate-appkey |
+| AUTH_002 | 缺少请求头 validate-timestamp |
+| AUTH_003 | 缺少请求头 validate-recvwindow |
+| AUTH_004 | 请求头 validate-recvwindow 错误 |
+| AUTH_005 | 缺少请求头 validate-algorithms |
+| AUTH_006 | 请求头 validate-algorithms 错误 |
+| AUTH_007 | 缺少请求头 validate-signature |
+| AUTH_101 | ApiKey 不存在 |
+| AUTH_102 | ApiKey 未激活 |
+| AUTH_103 | 签名错误 |
+| AUTH_104 | 未绑定 IP 请求 |
+| AUTH_105 | 消息已过期 |
+| AUTH_106 | 超出 apikey 权限 |
+| SYMBOL_001 | 交易对不存在 |
+| SYMBOL_002 | 交易对已下线 |
+| SYMBOL_003 | 交易对暂停交易 |
+| SYMBOL_004 | 交易对所在国家/地区不允许交易 |
+| SYMBOL_005 | 该交易对不支持通过 API 交易 |
+| ORDER_001 | 平台拒绝 |
+| ORDER_002 | 资金不足 |
+| ORDER_003 | 交易对暂停 |
+| ORDER_004 | 禁止交易 |
+| ORDER_005 | 订单不存在 |
+| ORDER_006 | 挂单数量过多 |
+| ORDER_007 | 子账户无交易权限 |
+| ORDER_008 | 订单价格或数量精度异常 |
+| ORDER_F0101 | 触发价格过滤器 - 最小值 |
+| ORDER_F0102 | 触发价格过滤器 - 最大值 |
+| ORDER_F0103 | 触发价格过滤器 - 步进值 |
+| ORDER_F0201 | 触发数量过滤器 - 最小值 |
+| ORDER_F0202 | 触发数量过滤器 - 最大值 |
+| ORDER_F0203 | 触发数量过滤器 - 步进值 |
+| ORDER_F0301 | 触发报价数量过滤器 - 最小值 |
+| ORDER_F0401 | 触发在线保护过滤器或限价保护过滤器 |
+| ORDER_F0501 | 触发限价保护过滤器 - 买入最大偏差 |
+| ORDER_F0502 | 触发限价保护过滤器 - 卖出最大偏差 |
+| ORDER_F0503 | 触发限价保护过滤器 - 买入限价系数 |
+| ORDER_F0504 | 触发限价保护过滤器 - 卖出限价系数 |
+| ORDER_F0601 | 触发市价保护过滤器 |
+| COMMON_001 | 用户不存在 |
+| COMMON_002 | 系统繁忙，请稍后再试 |
+| COMMON_003 | 操作失败，请稍后再试 |
+| CURRENCY_001 | 币种信息异常 |
+| GATEWAY_0001 | 触发风控 |
+| GATEWAY_0002 | 触发风控 |
+| GATEWAY_0003 | 触发风控 |
+| GATEWAY_0004 | 触发风控 |
+| COPY_TRADE_SPOT_000 | 系统繁忙，请稍后再试 |
+| COPY_TRADE_SPOT_001 | 您已经是交易员 |
+| COPY_TRADE_SPOT_002 | 您已经有交易员 |
+| COPY_TRADE_SPOT_003 | 您已经提交了交易员申请 |
+| COPY_TRADE_SPOT_004 | 您尚未完成实名认证或认证等级不符合要求 |
+| COPY_TRADE_SPOT_005 | 您的账户总资产不符合申请要求 |
+| COPY_TRADE_SPOT_006 | 交易员不存在 |
+| COPY_TRADE_SPOT_007 | 您已经提交了交易员申请，不支持跟单 |
+| COPY_TRADE_SPOT_008 | 跟单保证金超出限制 |
+| COPY_TRADE_SPOT_009 | 跟单比例超出限制 |
+| COPY_TRADE_SPOT_010 | 跟随者人数已满 |
+| COPY_TRADE_SPOT_011 | 超过最大跟随者数量 |
+| COPY_TRADE_SPOT_012 | 止盈价格精度异常 |
+| COPY_TRADE_SPOT_013 | 止损价格精度异常 |
+| COPY_TRADE_SPOT_014 | 止盈触发价格必须大于最新成交价 |
+| COPY_TRADE_SPOT_015 | 止损触发价格必须小于最新成交价 |
+| COPY_TRADE_SPOT_016 | 交易员有现货订单，不允许取消终止 |

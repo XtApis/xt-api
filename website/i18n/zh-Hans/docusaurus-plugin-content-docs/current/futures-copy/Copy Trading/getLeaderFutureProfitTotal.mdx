@@ -1,27 +1,27 @@
 ---
 id: GetLeaderFutureProfitTotal
-title: Get Leader Future Profit Total
-sidebar_label: Get Leader Future Profit Total
+title: 获取带单员合约盈利汇总
+sidebar_label: 获取带单员合约盈利汇总
 sidebar_position: 4
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/future/copytrade/user/v1/copy-trade/my-profit-history`
+**描述:** `/future/copytrade/user/v1/copy-trade/my-profit-history`
 
-### Parameters
+### 参数
 
-| Name      | Type   | Mandatory | Default | Description | Ranges     |
-| --------- | ------ | --------- | ------- | ----------- | ---------- |
-| direction | string | No        | -       | direction   | NEXT, PREV |
-| limit     | number | No        | -       | page size   | 10         |
-| id        | number | No        | -       | id          | -          |
+| 名称      | 类型   | 必填 | 默认值 | 描述     | 范围       |
+| --------- | ------ | ---- | ------ | -------- | ---------- |
+| direction | string | 否   | -      | 方向     | NEXT, PREV |
+| limit     | number | 否   | -      | 页面大小 | 10         |
+| id        | number | 否   | -      | ID       | -          |
 
-### Limit Flow Rules
+### 限流规则
 
 2/s/apikey
 
-### Response Example
+### 响应示例
 
 ```json
 {
@@ -33,12 +33,12 @@ sidebar_position: 4
     "hasNext": false,
     "items": [
       {
-        "avatar": "string", // avatar
-        "name": "string",   // leader name
-        "profit": 5,        // amount
-        "profitTime": "time", // time
-        "coin": 0,          // currency
-        "id":               // id
+        "avatar": "string", // 头像
+        "name": "string",   // 带单员昵称
+        "profit": 5,        // 金额
+        "profitTime": "time", // 时间
+        "coin": 0,          // 币种
+        "id":               // ID
       }
     ]
   }

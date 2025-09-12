@@ -685,13 +685,13 @@ body {
 }
 
 [data-locale='zh-Hans']
-  .categoryLinkLabel_O4bj[title='WebSocket_Private']::after {
+  .categoryLinkLabel_O4bj[title='WebSocket Private']::after {
   content: 'WebSocket私有';
   margin-left: 8px;
 }
 
 [data-locale='zh-Hans']
-  .categoryLinkLabel_O4bj[title='WebSocket_Public']::after {
+  .categoryLinkLabel_O4bj[title='WebSocket Public']::after {
   content: 'WebSocket公开';
   margin-left: 8px;
 }

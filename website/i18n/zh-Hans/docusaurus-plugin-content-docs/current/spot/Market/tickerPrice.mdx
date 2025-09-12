@@ -9,16 +9,16 @@ sidebar_position: 9
 
 ### 参数
 
-| 名称 | 类型 | 必填 | 默认值值值值 | 描述 | 范围 |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| symbol | 字符串 | 否 |  | trading pair eg:btc_usdt |  |
-| symbols | 数组 | 否 |  | Collection of trading pairs. Priority is higher than symbol. eg: btc_usdt,eth_usdt |  |
-| tags | 字符串 | 否 |  | Set of tags, separated by commas, currently only supports spot |  |
+| symbol | string | false |  | 交易对 例如：btc_usdt |  |
+| symbols | array | false |  | 交易对集合，优先级高于 symbol。例如：btc_usdt,eth_usdt |  |
+| tags | string | false |  | 标签集合，用逗号分隔，目前仅支持 spot |  |
 
-#### **Limit Flow Rules**
+#### **限流规则**
 
-1. single symbol: `10/s/ip`
-2. multiple symbols: `10/s/ip`
+1. 单个交易对：`10次/秒/IP`
+2. 多个交易对：`10次/秒/IP`
 
 ### 响应示例
 

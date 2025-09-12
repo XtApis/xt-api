@@ -1,26 +1,26 @@
 ---
 id: FAQ
-title: FAQ
-sidebar_label: FAQ
+title: 常见问题
+sidebar_label: 常见问题
 sidebar_position: 12
 ---
 
 ### AUTH_105
 
-The server verifies the request header parameters:
+服务器会验证请求头参数：
 
 - `validate-timestamp` (validTimeStamp)
 - `validate-recvwindow` (recvwindow)
 
-The following rules must be followed:
+必须遵循以下规则：
 
 ```
-dealTimeStamp (server time when the request is processed, in milliseconds) - validTimeStamp < recvwindow
+dealTimeStamp（服务器处理请求的时间，单位：毫秒） - validTimeStamp < recvwindow
 ```
 
-Otherwise, **AUTH_105** will be returned.
+否则，将返回 **AUTH_105**。
 
-#### How to avoid this error?
+#### 如何避免此错误？
 
-- `validate-timestamp` is recommended to use the time when the request is sent, measured in **milliseconds**.
-- `validate-recvwindow` should be set slightly larger to allow for network jitter.
+- `validate-timestamp` 建议使用发送请求时的时间，单位为**毫秒**。
+- `validate-recvwindow` 应设置稍大一些，以应对网络抖动。

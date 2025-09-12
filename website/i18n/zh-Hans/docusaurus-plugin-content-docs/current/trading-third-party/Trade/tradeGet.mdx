@@ -1,33 +1,33 @@
 ---
 id: QueryTrade
-title: Query Trade
-sidebar_label: Query Trade
+title: 查询成交记录
+sidebar_label: 查询成交记录
 sidebar_position: 1
 description: /spot/v4/trade
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/spot/v4/trade`
+**描述:** `/spot/v4/trade`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| `symbol` | string | No |  | Trading pair, if not filled in, represents all |  |
-| `bizType` | string | No |  | SPOT, LEVER |  |
-| `orderSide` | string | No |  | BUY, SELL |  |
-| `orderType` | string | No |  | LIMIT, MARKET |  |
-| `orderId` | number | No |  |  |  |
-| `fromId` | number | No |  | Start ID |  |
-| `direction` | string | No |  | Query direction: PREV, NEXT |  |
-| `limit` | number | No | 20 | Limit number, max 100 |  |
-| `startTime` | number | No |  | Start time e.g. 1657682804112 |  |
-| `endTime` | number | No |  |  |  |
+| `symbol` | string | 否 |  | 交易对，如不填写则代表全部 |  |
+| `bizType` | string | 否 |  | SPOT, LEVER |  |
+| `orderSide` | string | 否 |  | BUY, SELL |  |
+| `orderType` | string | 否 |  | LIMIT, MARKET |  |
+| `orderId` | number | 否 |  |  |  |
+| `fromId` | number | 否 |  | 起始 ID |  |
+| `direction` | string | 否 |  | 查询方向：PREV, NEXT |  |
+| `limit` | number | 否 | 20 | 限制数量，最大 100 |  |
+| `startTime` | number | 否 |  | 开始时间，例如：1657682804112 |  |
+| `endTime` | number | 否 |  |  |  |
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
   "mc": "string",
@@ -46,12 +46,12 @@ description: /spot/v4/trade
         "time": 1655958915583,
         "price": "40000",
         "quantity": "1.2",
-        "quoteQty": "48000", // amount
+        "quoteQty": "48000", // 成交金额
         "baseCurrency": "BTC",
         "quoteCurrency": "USDT",
         "fee": "0.5",
         "feeCurrency": "USDT",
-        "takerMaker": "taker" // taker or maker
+        "takerMaker": "taker" // taker 或 maker
       }
     ]
   }

@@ -1,27 +1,27 @@
 ---
 id: CreateUserAccountApiKey
-title: Create User Account ApiKey
-sidebar_label: Create User Account ApiKey
+title: 创建用户账户 API 密钥
+sidebar_label: 创建用户账户 API 密钥
 sidebar_position: 2
 ---
 
-**Type:** POST
+**类型：** POST
 
-**Description:** `/v4/user/account/api-key`
+**描述：** `/v4/user/account/api-key`
 
-### Parameters
+### 参数
 
-| Name | Type | Mandatory | Default | Description | Ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| userAccountId | string | true | - | Account id | - |
-| keyName | string | true | - | ApiKey name | - |
-| bindIps | string | false | - | Bind ip list, multiple can be separated by commas | - |
-| roleScopes | string | true | - | Permissions code | QUERY: query is enabled; TRADE: spot and margin trade is enabled; WITHDRAW: withdraw is enabled; LEVER_LOAN: margin pledged is enabled; FUTURE: future trade is enabled; TRANSFER: transfer is enabled |
-| tags | string | false | - | Tags | - |
+| userAccountId | string | true | - | 账户 ID | - |
+| keyName | string | true | - | API 密钥名称 | - |
+| bindIps | string | false | - | 绑定 IP 列表，多个 IP 用逗号分隔 | - |
+| roleScopes | string | true | - | 权限代码 | QUERY: 启用查询权限；TRADE: 启用现货和杠杆交易权限；WITHDRAW: 启用提现权限；LEVER_LOAN: 启用杠杆质押权限；FUTURE: 启用合约交易权限；TRANSFER: 启用划转权限 |
+| tags | string | false | - | 标签 | - |
 
 ---
 
-### Response Example
+### 响应示例
 
 ```json title="Response"
 {

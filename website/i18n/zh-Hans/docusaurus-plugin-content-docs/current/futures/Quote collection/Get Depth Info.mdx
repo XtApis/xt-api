@@ -1,7 +1,7 @@
 ---
 id: get-depth-info
-title: Get Depth Info
-sidebar_label: Get Depth Info
+title: 获取深度信息
+sidebar_label: 获取深度信息
 sidebar_position: 2
 ---
 
@@ -11,24 +11,24 @@ sidebar_position: 2
 
 > Content-Type = application/x-www-form-urlencoded
 
-### Note：
+### 注意事项：
 
-This method does not require a signature.
+此接口无需签名认证。
 
-### Parameters
+### 请求参数
 
-| Name   | Type   | Mandatory | Default | Description                 | Ranges |
-| ------ | ------ | --------- | ------- | --------------------------- | ------ |
-| symbol | string | true      | N/A     | Trading pair, e.g. BTC-USDT |        |
-| level  | int    | false     | 50      | Depth level                 | 1-200  |
+| 参数名 | 类型   | 是否必填 | 默认值 | 描述                    | 取值范围 |
+| ------ | ------ | -------- | ------ | ----------------------- | -------- |
+| symbol | string | 是       | 无     | 交易对，如 BTC-USDT     |          |
+| level  | int    | 否       | 50     | 深度档位                | 1-200    |
 
-### 响应 Example
+### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
 
-<CodeBlock language="json" title="响应">
+<CodeBlock language="json" title="Response">
   {`{
-  "行情_id": "BTC-USDT",
+  "ticker_id": "BTC-USDT",
   "timestamp": 1698668957638,
   "bids": [
     ["34794.6", "97164"],

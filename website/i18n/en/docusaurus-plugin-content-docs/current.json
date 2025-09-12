@@ -87,13 +87,13 @@
     "message": "Transfer",
     "description": "The label for category Transfer in sidebar spot"
   },
-  "sidebar.spot.category.WebSocket_Private": {
-    "message": "WebSocket_Private",
-    "description": "The label for category WebSocket_Private in sidebar spot"
+  "sidebar.spot.category.WebSocket Private": {
+    "message": "WebSocket Private",
+    "description": "The label for category WebSocket Private in sidebar spot"
   },
-  "sidebar.spot.category.WebSocket_Public": {
-    "message": "WebSocket_Public",
-    "description": "The label for category WebSocket_Public in sidebar spot"
+  "sidebar.spot.category.WebSocket Public": {
+    "message": "WebSocket Public",
+    "description": "The label for category WebSocket Public in sidebar spot"
   },
   "sidebar.futures.category.Access Description": {
     "message": "Access Description",

@@ -1,43 +1,43 @@
 ---
 id: PublicModule
-title: Public Module
-sidebar_label: Public Module
+title: 公共模块
+sidebar_label: 公共模块
 sidebar_position: 10
 ---
 
-#### **<span id="leaderOrderRequestType">Leader Order Request Type</span>**
+#### **<span id="leaderOrderRequestType">交易员订单请求类型</span>**
 
-| Type | Description                      |
+| 类型 | 描述                      |
 | ---- | -------------------------------- |
-| 1    | Query order details.             |
-| 2    | Query order summary information. |
+| 1    | 查询订单详情             |
+| 2    | 查询订单汇总信息 |
 
-#### **<span id="copyTradeUserStatus">Copy Trade User Status</span>**
+#### **<span id="copyTradeUserStatus">跟单用户状态</span>**
 
-| User Status | Description         |
+| 用户状态 | 描述         |
 | ----------- | ------------------- |
-| LEADER      | Copy trade leader   |
-| FOLLOWER    | Copy trade follower |
-| NONE        | None                |
+| LEADER      | 跟单交易员   |
+| FOLLOWER    | 跟单跟随者 |
+| NONE        | 无                |
 
-#### **<span id="leaderType">Leader Type</span>**
+#### **<span id="leaderType">交易员类型</span>**
 
-| Type | Description    |
+| 类型 | 描述    |
 | ---- | -------------- |
-| 1    | Current follow |
-| 2    | History follow |
+| 1    | 当前跟随 |
+| 2    | 历史跟随 |
 
-#### **<span id="followType">Copy Trade Follow Type</span>**
+#### **<span id="followType">跟单类型</span>**
 
-| Follow Type | Description                             |
+| 跟单类型 | 描述                             |
 | ----------- | --------------------------------------- |
-| FUND        | Copy trading according to fixed amount. |
-| RATE        | Copy trading according to fund ratio.   |
+| FUND        | 按固定金额跟单 |
+| RATE        | 按资金比例跟单   |
 
-#### **<span id="followLossOperate">Copy Stop Loss Position Processing</span>**
+#### **<span id="followLossOperate">跟单止损仓位处理</span>**
 
-| FollowLossOperate | Description                             |
+| 止损操作 | 描述                             |
 | ----------------- | --------------------------------------- |
-| MARKET_SELL       | Immediately settle at market price      |
-| LEADER_CLOSE      | Follow the leader to close the position |
-| MANUAL_PROCESS    | Manual processing                       |
+| MARKET_SELL       | 立即按市价结算      |
+| LEADER_CLOSE      | 跟随交易员平仓 |
+| MANUAL_PROCESS    | 手动处理                       |

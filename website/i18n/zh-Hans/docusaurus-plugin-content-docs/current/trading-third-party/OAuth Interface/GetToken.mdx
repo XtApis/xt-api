@@ -1,38 +1,38 @@
 ---
 id: ApplyToken
-title: Apply Token
-sidebar_label: Apply Token
+title: 申请令牌
+sidebar_label: 申请令牌
 sidebar_position: 1
 ---
 
-**Type:** GET
+**类型:** GET
 
-**Description:** `/public/uaa/oauth2/token?client_id={client_id}&client_secret=${client_secret}&grant_type={grant_type}&code={code}`
+**描述:** `/public/uaa/oauth2/token?client_id={client_id}&client_secret=${client_secret}&grant_type={grant_type}&code={code}`
 
-### Parameters
+### 参数
 
-| name | type | mandatory | default | description | ranges |
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
-| client_id | string | true |  | Institutional identity | Please apply to XT.COM |
-| client_secret | string | true |  | Institutional Secret Key | Please apply to XT.COM |
-| grant_type | string | true |  | Authorization type, fixed value | authorization_code |
-| code | string | true |  | The user is redirected to the institution page after authorization. The code field will be carried in the URL |  |
+| client_id | string | 是 |  | 机构身份标识 | 请向 XT.COM 申请 |
+| client_secret | string | 是 |  | 机构密钥 | 请向 XT.COM 申请 |
+| grant_type | string | 是 |  | 授权类型，固定值 | authorization_code |
+| code | string | 是 |  | 用户授权后重定向至机构页面，URL 中会携带 code 字段 |  |
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
   "result": {
     "user_id": "12345678",
-    "access_token": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxIiwidXNlci1pZCI6MSwic2NvcGUiOiJ1c2VyaW5mbyIsImlzcyI6Inh0LmNvbSIsImV4cCI6MTY5MTU2MTA3NiwiY2xpZW50X2lkIjoiMzVMRjJGU0xIWDVJUlFBNCJ9.vkSTiFLcQuO0qJqdm21MfmoLKb38wwhsKPCJI3x1xmOxYouH5GtmcYglk0XRxPeOMVZ-6E6tM3HGn1yMQdqTgHOVeAbtLSBBIqyUh6y-8j_MF8GyBwcEaRK2hfWBNOHw06B-0jLO_mKEduUWZXYHjNiAN2jenbj7Ba6MX7rcENk", // Token used to access the authorization interface. Default validity: 1 day
-    "refresh_token": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxIiwidXNlci1pZCI6MSwic2NvcGUiOiJ1c2VyaW5mbyIsImlzcyI6Inh0LmNvbSIsImV4cCI6MTY5NDE1MzA3NiwiY2xpZW50X2lkIjoiMzVMRjJGU0xIWDVJUlFBNCJ9.UIeGGDiiybfEUEPFAteN3TtCxz5PyZxGDIULaNJjO3mCck7s28nRpXWSxONMGYMXG03XxJVUJs5WfdpNEmKUmmoQQuy-UOCuvV7zLdFmwUHd5e5tDMA7mgTCxbCeyxYE4L8Vr8StEEhxwWbDFxG_-2wdNEgEIvlgg9bI87Qcy9s", // Token used to refresh the access token. Default validity: 180 days
-    "expires_in": 15551999, // Milliseconds before access_token expires
-    "refresh_expires_in": 18143999, // Milliseconds before refresh_token expires
-    "client_id": "35LF2FSLHX5IRQA4", // Institutional identity
-    "scope": "userinfo" // Authorized scope
+    "access_token": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxIiwidXNlci1pZCI6MSwic2NvcGUiOiJ1c2VyaW5mbyIsImlzcyI6Inh0LmNvbSIsImV4cCI6MTY5MTU2MTA3NiwiY2xpZW50X2lkIjoiMzVMRjJGU0xIWDVJUlFBNCJ9.vkSTiFLcQuO0qJqdm21MfmoLKb38wwhsKPCJI3x1xmOxYouH5GtmcYglk0XRxPeOMVZ-6E6tM3HGn1yMQdqTgHOVeAbtLSBBIqyUh6y-8j_MF8GyBwcEaRK2hfWBNOHw06B-0jLO_mKEduUWZXYHjNiAN2jenbj7Ba6MX7rcENk", // 用于访问授权接口的令牌。默认有效期：1 天
+    "refresh_token": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxIiwidXNlci1pZCI6MSwic2NvcGUiOiJ1c2VyaW5mbyIsImlzcyI6Inh0LmNvbSIsImV4cCI6MTY5NDE1MzA3NiwiY2xpZW50X2lkIjoiMzVMRjJGU0xIWDVJUlFBNCJ9.UIeGGDiiybfEUEPFAteN3TtCxz5PyZxGDIULaNJjO3mCck7s28nRpXWSxONMGYMXG03XxJVUJs5WfdpNEmKUmmoQQuy-UOCuvV7zLdFmwUHd5e5tDMA7mgTCxbCeyxYE4L8Vr8StEEhxwWbDFxG_-2wdNEgEIvlgg9bI87Qcy9s", // 用于刷新访问令牌的令牌。默认有效期：180 天
+    "expires_in": 15551999, // access_token 过期前的毫秒数
+    "refresh_expires_in": 18143999, // refresh_token 过期前的毫秒数
+    "client_id": "35LF2FSLHX5IRQA4", // 机构身份标识
+    "scope": "userinfo" // 授权范围
   }
 }
 ```

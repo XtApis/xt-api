@@ -1,0 +1,105 @@
+---
+id: SignatureGeneration
+title: 获取签名
+sidebar_label: 获取签名
+sidebar_position: 5
+---
+
+示例：http://fapi.xt.com/api/v1/public/symbol/detail?symbol=btc_usdt
+
+以下是在 Linux bash 环境中使用 echo openssl 和 curl 工具调用接口下单的示例。Appkey、secret 仅用于演示目的：
+
+appKey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+
+secretKey: bc6630d0231fda5cd98794f52c4998659beda290
+
+Header 部分数据：
+
+validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+
+validate-timestamp: 1641446237201
+
+validate-algorithms: HmacSHA256
+
+请求数据：
+
+```
+{
+  type: 'LIMIT',
+  timeInForce: 'GTC',
+  side: 'BUY',
+  symbol: 'btc_usdt',
+  price: '39000',
+  quantity: '2'
+}
+```
+
+### 1. 数据
+
+path：按照 path 中的顺序连接所有值。形如 `/test/{var1}/{var2}/` 的 restful 路径将根据实际填入的参数进行拼接，例如：/sign/test/bb/aa
+
+query：按 key 的字典序排序，连接所有 key=value。示例：userName=dfdfdf&password=ggg
+
+body：Json：作为 JSON 字符串操作，不进行转换或排序。
+
+          x-www-form-urlencoded：按 key 的字典序排序，连接所有 key=value。示例：userName=dfdfdf&password=ggg　
+
+          form-data：不支持。
+
+如果有多种数据形式，按 path、query 和 body 的顺序重新连接，获得所有数据的连接值。
+
+Path 示例：
+
+          /future/api/v1/public/symbol/detail
+
+          上述连接值记作 path
+
+#### 示例 1. 所有参数通过 query string 发送
+
+            symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
+
+            上述连接值记作 query
+
+#### 示例 2. 所有参数通过请求体发送 X-www-form-urlencoded 请求体字符串
+
+json 请求体字符串
+
+            symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
+
+            上述连接值记作 body
+
+www-form-urlencoded 请求体字符串
+
+            `{"symbol" : "btc_usdt","side" : "BUY","type":"LIMIT","timeInForce":"GTC","quantity":2,"price":39000}`
+
+            上述连接值记作 body
+
+#### 示例 3. 混合使用 query string 和请求体（form 和 json 格式）
+
+queryString: symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC 上述拼接值记作 query
+
+requestBody: `{"quantity":2,"price":39000}` 上述连接值记作 body
+
+        整个数据的最终连接值是用 # 连接 path、query 和 body，形成 #path、#query 和 #body。最终连接值记作 Y=#path#query#body。
+
+        注意：
+
+            query 无数据，body 有数据：Y=#path#body
+
+            query 有数据，body 无数据：Y=#path#query
+
+            query 有数据，body 有数据：Y=#path#query#body
+
+### 2. 请求头
+
+X="validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-timestamp=1641446237201"
+
+### 3. 获取签名
+
+最后，将需要加密的字符串记作 sign=XY
+
+最后，根据以下方法对最终连接值进行加密以获得签名。
+
+signature=org.apache.commons.codec.digest.HmacUtils.hmacSha256Hex(secretkey, sign);
+
+将生成的签名放入请求头中，以 validate-signature 作为键，signature 作为值。

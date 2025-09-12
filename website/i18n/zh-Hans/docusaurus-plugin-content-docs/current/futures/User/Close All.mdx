@@ -1,19 +1,19 @@
 ---
 id: CloseAll
-title: Close All
-sidebar_label: Close All
-position_数字: 12
+title: 全部平仓
+sidebar_label: 全部平仓
+sidebar_position: 12
 ---
 
-**类型:** POST
+**类型：** POST
 
-**描述:** `/future/user/v1/position/close-all`
+**接口说明：** `/future/user/v1/position/close-all`
 
-#### Limit Flow Rules
+#### 限流规则
 
-200/s/apikey
+200次/秒/apikey
 
-### 响应 示例
+### 响应示例
 
 ```json title="响应"
 {
@@ -22,7 +22,7 @@ position_数字: 12
     "msg": ""
   },
   "msgInfo": "",
-  "result": 是,
+  "result": true,
   "returnCode": 0
 }
 ```

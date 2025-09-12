@@ -1,13 +1,13 @@
 ---
 id: General_WSS_information
-title: 通用WSS信息
-sidebar_label: 通用WSS信息
+title: WebSocket 基本信息
+sidebar_label: WebSocket 基本信息
 sidebar_position: 1
 ---
 
-### 描述
+### 说明
 
-General WebSocket information for connecting to **XT WebSocket services**.
+连接 **XT WebSocket 服务**的基本信息。
 
 ---
 
@@ -17,9 +17,9 @@ General WebSocket information for connecting to **XT WebSocket services**.
 
 ---
 
-### 请求 Headers
+### 请求头
 
-The request header of the compression extension protocol must be added:
+必须添加压缩扩展协议的请求头：
 
 ```http
 Sec-Websocket-Extensions: permessage-deflate
@@ -27,16 +27,16 @@ Sec-Websocket-Extensions: permessage-deflate
 
 ---
 
-### Subscription Steps
+### 订阅步骤
 
-**Step 1:** Call the interface `/v1/user/listen-key` to obtain the **listenKey**.
+**步骤 1：** 调用接口 `/v1/user/listen-key` 获取 **listenKey**。
 
-**Step 2:** When subscribing to user-related WebSocket events, send:
+**步骤 2：** 订阅用户相关的 WebSocket 事件时，发送：
 
 ```json
 {
-  "方法": "SUBSCRIBE",
-  "params": ["order@{listenKey obtained in the previous step}"],
+  "method": "SUBSCRIBE",
+  "params": ["order@{上一步获取的listenKey}"],
   "id": "test1"
 }
 ```
@@ -45,5 +45,5 @@ Sec-Websocket-Extensions: permessage-deflate
 
 ### 注意事项
 
-- If you receive **`invalid_listen_key`**, it means the listenKey is expired or invalid. 👉 Re-request a new listenKey through the interface.
-- 用户-related data will be pushed **after subscription is successful**.
+- 如果收到 **`invalid_listen_key`**，表示 listenKey 已过期或无效。👉 需要通过接口重新获取新的 listenKey。
+- 用户相关数据将在**订阅成功后**推送。

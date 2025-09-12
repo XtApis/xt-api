@@ -1,33 +1,33 @@
 ---
 id: GetCopyTradeSymbols
-title: Get Copy Trade Symbols
-sidebar_label: Get Copy Trade Symbols
+title: 获取跟单交易对
+sidebar_label: 获取跟单交易对
 sidebar_position: 10
 ---
 
-**Type:** GET
+**请求类型:** GET
 
-**Description:** `/v1/copy-trade-market/public/copy-trade/symbol`
+**接口路径:** `/v1/copy-trade-market/public/copy-trade/symbol`
 
-### Limit Flow Rules
+### 限流规则
 
-2/s/apikey
+2次/秒/API密钥
 
-### Parameters
+### 请求参数
 
-_None_
+_无_
 
-### Response Example
+### 响应示例
 
-```json title="Response"
+```json title="响应"
 {
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
   "result": [
     {
-      "symbolId": 1, // symbol id
-      "symbol": "btc_usdt" // symbol
+      "symbolId": 1, // 交易对ID
+      "symbol": "btc_usdt" // 交易对
     }
   ]
 }

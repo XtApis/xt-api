@@ -1,32 +1,32 @@
 ---
 id: CloseOrder
-title: Close Order
-sidebar_label: Close Order
+title: 平仓订单
+sidebar_label: 平仓订单
 sidebar_position: 12
 ---
 
-**Type:** POST
+**类型:** POST
 
-**Description:** `/future/copytrade/order/v1/copy-trade/close`
+**描述:** `/future/copytrade/order/v1/copy-trade/close`
 
-### Parameters
+### 参数
 
-| Name        | Type    | Mandatory | Default | Description       | Ranges     |
-| ----------- | ------- | --------- | ------- | ----------------- | ---------- |
-| trackNo     | number  | Yes       | -       | Track number      | -          |
-| leaderOrder | boolean | No        | -       | Is leader’s order | true,false |
+| 名称        | 类型    | 必填 | 默认值 | 描述           | 范围       |
+| ----------- | ------- | ---- | ------ | -------------- | ---------- |
+| trackNo     | number  | 是   | -      | 跟踪编号       | -          |
+| leaderOrder | boolean | 否   | -      | 是否为带单员订单 | true,false |
 
-### Limit Flow Rules
+### 限流规则
 
 5/s/apikey
 
-### Response Example
+### 响应示例
 
 ```json
 {
   "returnCode": 0,
   "msgInfo": "success",
   "error": null,
-  "result": true // true=success, false=fail
+  "result": true // true=成功, false=失败
 }
 ```

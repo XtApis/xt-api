@@ -1,30 +1,30 @@
 ---
 id: get_aggregated_market_information_for_all_trading_pairs
-title: 获取所有交易对的聚合市场信息
-sidebar_label: 获取所有交易对的聚合市场信息
+title: 获取所有交易对的聚合行情信息
+sidebar_label: 获取所有交易对的聚合行情信息
 sidebar_position: 17
 ---
 
 **类型:** GET
 
-**描述:** `/future/market/v1/public/q/agg-行情s`
+**描述:** `/future/market/v1/public/q/agg-tickers`
 
 #### 注意：
 
-此方法不需要签名.
+此方法不需要签名。
 
-### 响应 示例
+### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
 
 <CodeBlock language="java" title="Java">
   {`public void getKLine() {
-    String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&类型=1min&since=0");
+    String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
     System.out.println(text);
 }`}
 </CodeBlock>
 
-<CodeBlock language="json" title="响应">
+<CodeBlock language="json" title="Response">
   {`{
   "error": {
     "code": "",
@@ -33,19 +33,19 @@ import CodeBlock from '@theme/CodeBlock';
   "msgInfo": "",
   "result": [
     {
-      "a": "",  // 24h volume
-      "ap": "", // ask price
-      "bp": "", // bid price
-      "c": "",  // Latest price
-      "h": "",  // Highest price in 24 hours
-      "i": "",  // index price
-      "l": "",  // Lowest price in 24 hours
-      "m": "",  // mark price
-      "o": "",  // The first transaction price 24 hours ago
-      "r": "",  // 24h price fluctuation limit
-      "s": "",  // Trading pair
-      "t": 0,   // Time
-      "v": ""   // 24h Turnover
+      "a": "",  // 24小时成交额
+      "ap": "", // 卖一价
+      "bp": "", // 买一价
+      "c": "",  // 最新价
+      "h": "",  // 24小时最高价
+      "i": "",  // 指数价格
+      "l": "",  // 24小时最低价
+      "m": "",  // 标记价格
+      "o": "",  // 24小时前第一笔成交价
+      "r": "",  // 24小时价格涨跌幅
+      "s": "",  // 交易对
+      "t": 0,   // 时间
+      "v": ""   // 24小时成交量
     }
   ],
   "returnCode": 0
