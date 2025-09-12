@@ -3,7 +3,7 @@
 """
 增强版翻译脚本 - 完全自动化翻译
 使用方法: python3 translate_enhanced.py <目标路径>
-例如: python3 translate_enhanced.py spot/AccessDescription
+例如: python3 translate_enhanced.py spot/Access Description
 """
 
 import os
@@ -40,7 +40,7 @@ translations = {
     'sidebar_label: FAQ': 'sidebar_label: 常见问题',
     'title: Contact us': 'title: 联系我们',
     'sidebar_label: Contact us': 'sidebar_label: 联系我们',
-    
+
     # 签名相关翻译
     'Signature Rules': '签名规则',
     'AppKey & SecretKey': 'AppKey 和 SecretKey',
@@ -65,7 +65,7 @@ translations = {
     'HmacSHA224': 'HmacSHA224',
     'HmacSHA384': 'HmacSHA384',
     'HmacSHA512': 'HmacSHA512',
-    
+
     # 修复混合语言问题
     'id: 签名Statement': 'id: SignatureStatement',
     'Distributed offline': '离线分发',
@@ -87,128 +87,128 @@ translations = {
     'seconds': '秒',
     'maximum': '最大',
     'network jitter': '网络抖动',
-    
+
     # API 相关翻译
     'title: Get client ip': 'title: 获取客户端IP',
     'sidebar_label: Get client ip': 'sidebar_label: 获取客户端IP',
     'Get client ip': '获取客户端IP',
-    
+
     # Entrust 相关标题翻译
     'title: Create Trigger Orders': 'title: 创建触发订单',
     'sidebar_label: Create Trigger Orders': 'sidebar_label: 创建触发订单',
     'Create Trigger Orders': '创建触发订单',
-    
+
     'title: Cancel Trigger Orders': 'title: 取消触发订单',
     'sidebar_label: Cancel Trigger Orders': 'sidebar_label: 取消触发订单',
     'Cancel Trigger Orders': '取消触发订单',
-    
+
     'title: Cancel All Trigger Orders': 'title: 取消所有触发订单',
     'sidebar_label: Cancel All Trigger Orders': 'sidebar_label: 取消所有触发订单',
     'Cancel All Trigger Orders': '取消所有触发订单',
-    
+
     'title: See Trigger Orders': 'title: 查看触发订单',
     'sidebar_label: See Trigger Orders': 'sidebar_label: 查看触发订单',
     'See Trigger Orders': '查看触发订单',
-    
+
     'title: See Trigger Orders base on EntrustId': 'title: 根据委托ID查看触发订单',
     'sidebar_label: See Trigger Orders base on EntrustId': 'sidebar_label: 根据委托ID查看触发订单',
     'See Trigger Orders base on EntrustId': '根据委托ID查看触发订单',
-    
+
     'title: See Trigger Orders History': 'title: 查看触发订单历史',
     'sidebar_label: See Trigger Orders History': 'sidebar_label: 查看触发订单历史',
     'See Trigger Orders History': '查看触发订单历史',
-    
+
     'title: Create Stop Limit': 'title: 创建止损限价',
     'sidebar_label: Create Stop Limit': 'sidebar_label: 创建止损限价',
     'Create Stop Limit': '创建止损限价',
-    
+
     'title: Cancel Stop Limit': 'title: 取消止损限价',
     'sidebar_label: Cancel Stop Limit': 'sidebar_label: 取消止损限价',
     'Cancel Stop Limit': '取消止损限价',
-    
+
     'title: Cancel All Stop Limit': 'title: 取消所有止损限价',
     'sidebar_label: Cancel All Stop Limit': 'sidebar_label: 取消所有止损限价',
     'Cancel All Stop Limit': '取消所有止损限价',
-    
+
     'title: See Stop Limit': 'title: 查看止损限价',
     'sidebar_label: See Stop Limit': 'sidebar_label: 查看止损限价',
     'See Stop Limit': '查看止损限价',
-    
+
     'title: See Stop Limit base on ProfitId': 'title: 根据利润ID查看止损限价',
     'sidebar_label: See Stop Limit base on ProfitId': 'sidebar_label: 根据利润ID查看止损限价',
     'See Stop Limit base on ProfitId': '根据利润ID查看止损限价',
-    
+
     'title: Alter Stop Limit': 'title: 修改止损限价',
     'sidebar_label: Alter Stop Limit': 'sidebar_label: 修改止损限价',
     'Alter Stop Limit': '修改止损限价',
-    
+
     'title: Create Track': 'title: 创建跟踪',
     'sidebar_label: Create Track': 'sidebar_label: 创建跟踪',
     'Create Track': '创建跟踪',
-    
+
     'title: Cancel single track': 'title: 取消单个跟踪',
     'sidebar_label: Cancel single track': 'sidebar_label: 取消单个跟踪',
     'Cancel single track': '取消单个跟踪',
-    
+
     'title: Get track list (all active)': 'title: 获取跟踪列表（所有活跃）',
     'sidebar_label: Get track list (all active)': 'sidebar_label: 获取跟踪列表（所有活跃）',
     'Get track list (all active)': '获取跟踪列表（所有活跃）',
-    
+
     'title: Cancel all track': 'title: 取消所有跟踪',
     'sidebar_label: Cancel all track': 'sidebar_label: 取消所有跟踪',
     'Cancel all track': '取消所有跟踪',
-    
+
     'title: Get history track list (inactive)': 'title: 获取历史跟踪列表（非活跃）',
     'sidebar_label: Get history track list (inactive)': 'sidebar_label: 获取历史跟踪列表（非活跃）',
     'Get history track list (inactive)': '获取历史跟踪列表（非活跃）',
-    
+
     'title: Get single order track detail': 'title: 获取单个订单跟踪详情',
     'sidebar_label: Get single order track detail': 'sidebar_label: 获取单个订单跟踪详情',
     'Get single order track detail': '获取单个订单跟踪详情',
-    
+
     # Order 相关标题翻译
     'title: Create Orders': 'title: 创建订单',
     'sidebar_label: Create Orders': 'sidebar_label: 创建订单',
     'Create Orders': '创建订单',
-    
+
     'title: See Order History': 'title: 查看订单历史',
     'sidebar_label: See Order History': 'sidebar_label: 查看订单历史',
     'See Order History': '查看订单历史',
-    
+
     'title: See Transaction Details': 'title: 查看交易详情',
     'sidebar_label: See Transaction Details': 'sidebar_label: 查看交易详情',
     'See Transaction Details': '查看交易详情',
-    
+
     'title: Update Orders': 'title: 更新订单',
     'sidebar_label: Update Orders': 'sidebar_label: 更新订单',
     'Update Orders': '更新订单',
-    
+
     'title: Bulk Orders': 'title: 批量订单',
     'sidebar_label: Bulk Orders': 'sidebar_label: 批量订单',
     'Bulk Orders': '批量订单',
-    
+
     'title: See Orders by ID': 'title: 根据ID查看订单',
     'sidebar_label: See Orders by ID': 'sidebar_label: 根据ID查看订单',
     'See Orders by ID': '根据ID查看订单',
-    
+
     'title: See Orders': 'title: 查看订单',
     'sidebar_label: See Orders': 'sidebar_label: 查看订单',
     'See Orders': '查看订单',
-    
+
     'title: Cancel Orders': 'title: 取消订单',
     'sidebar_label: Cancel Orders': 'sidebar_label: 取消订单',
     'Cancel Orders': '取消订单',
-    
+
     'title: Batch Cancel Orders': 'title: 批量取消订单',
     'sidebar_label: Batch Cancel Orders': 'sidebar_label: 批量取消订单',
     'Batch Cancel Orders': '批量取消订单',
-    
+
     'title: Cancel All Orders': 'title: 取消所有订单',
     'sidebar_label: Cancel All Orders': 'sidebar_label: 取消所有订单',
     'Cancel All Orders': '取消所有订单',
-    
+
     # 导航标题翻译
-    'AccessDescription': '访问描述',
+    'Access Description': '访问描述',
     'Entrust': '委托',
     'MarketData': '行情数据',
     'Order': '订单',
@@ -218,7 +218,7 @@ translations = {
     'User': '用户',
     'UserWebsocket': '用户WebSocket',
     'WebsocketV2': 'WebSocket V2',
-    
+
     # Python Package 相关翻译
     'title: Python Package': 'title: Python包',
     'sidebar_label: Python Package': 'sidebar_label: Python包',
@@ -228,17 +228,17 @@ translations = {
     '示例 Code': '示例代码',
     'You can add your Python example code here': '您可以在此处添加Python示例代码',
     '示例 usage of the pyxt connector': 'pyxt连接器的使用示例',
-    
+
     # margin-spot 相关翻译
     'title: RestApi': 'title: REST API',
     'sidebar_label: RestApi': 'sidebar_label: REST API',
     'RestApi': 'REST API',
     'description: RestApi': 'description: REST API',
     'id: REST API': 'id: RestApi',  # 保持ID不变，只翻译显示内容
-    
+
     # 修复其他被错误翻译的ID
     'id: 接口基本信息': 'id: apiBasicInfo',
-    'id: 频率限制规则': 'id: limitRules', 
+    'id: 频率限制规则': 'id: limitRules',
     'id: 签名说明': 'id: signStatement',
     'id: 签名生成': 'id: signSteps',
     'id: API密钥申请步骤': 'id: applyApi',
@@ -256,152 +256,152 @@ translations = {
     'id: 按交易对获取余额': 'id: GetBalanceBySymbol',
     'id: Create订单': 'id: CreateOrder',
     'id: 获取交易对信息': 'id: getSymbolInfo',
-    
+
     # futures模块ID修复
     'id: 请求Message格式': 'id: RequestMessageFormat',
-    'id: 响应_message_format': 'id: ResponseMessageFormat', 
+    'id: 响应_message_format': 'id: ResponseMessageFormat',
     'id: 响应Message格式': 'id: ResponseMessageFormat',
     'id: 心跳': 'id: Heartbeat',
     'id: _futures_documentation_signsteps': 'id: signSteps',
     'id: futures_documentation_apiBasicInfo': 'id: apiBasicInfo',
     'id: Return格式': 'id: returnFormat',
-    
+
     # spot模块ID修复
     'id: 响应Message格式': 'id: responseFormat',
     'id: 心跳': 'id: heartBeat',
-    
+
     'title: Basic information of the interface': 'title: 接口基本信息',
     'sidebar_label: Basic information of the interface': 'sidebar_label: 接口基本信息',
     'Basic information of the interface': '接口基本信息',
-    
+
     'title: Frequency Limiting Rules': 'title: 频率限制规则',
     'sidebar_label: Frequency Limiting Rules': 'sidebar_label: 频率限制规则',
     'Frequency Limiting Rules': '频率限制规则',
-    
+
     'title: Signature Instructions': 'title: 签名说明',
     'sidebar_label: Signature Instructions': 'sidebar_label: 签名说明',
     'Signature Instructions': '签名说明',
-    
+
     'title: Signature Generation': 'title: 签名生成',
     'sidebar_label: Signature Generation': 'sidebar_label: 签名生成',
     'Signature Generation': '签名生成',
-    
+
     'title: API Key Application Steps': 'title: API密钥申请步骤',
     'sidebar_label: API Key Application Steps': 'sidebar_label: API密钥申请步骤',
     'API Key Application Steps': 'API密钥申请步骤',
-    
+
     'title: API Code Library': 'title: API代码库',
     'sidebar_label: API Code Library': 'sidebar_label: API代码库',
     'API Code Library': 'API代码库',
-    
+
     'title: Response Format': 'title: 响应格式',
     'sidebar_label: Response Format': 'sidebar_label: 响应格式',
     'Response Format': '响应格式',
-    
+
     'title: Error Code': 'title: 错误代码',
     'sidebar_label: Error Code': 'sidebar_label: 错误代码',
     'Error Code': '错误代码',
-    
+
     'title: Public Module': 'title: 公共模块',
     'sidebar_label: Public Module': 'sidebar_label: 公共模块',
     'Public Module': '公共模块',
-    
+
     'title: FAQ': 'title: 常见问题',
     'sidebar_label: FAQ': 'sidebar_label: 常见问题',
     'FAQ': '常见问题',
-    
+
     'title: Contact Us': 'title: 联系我们',
     'sidebar_label: Contact Us': 'sidebar_label: 联系我们',
     'Contact Us': '联系我们',
-    
+
     # 其他常见翻译
     'Production environment': '生产环境',
     'Edit this page': '编辑此页',
     'Last updated on': '最后更新于',
     'Next': '下一页',
     'Previous': '上一页',
-    
+
     # MarketData 相关标题翻译
     'title: Get Configuration Information for Listed And Tradeable Symbols': 'title: 获取已上市和可交易符号的配置信息',
     'sidebar_label: Get Configuration Information for Listed And Tradeable Symbols': 'sidebar_label: 获取已上市和可交易符号的配置信息',
     'Get Configuration Information for Listed And Tradeable Symbols': '获取已上市和可交易符号的配置信息',
-    
+
     'title: Get Mark Price for All Trading Pairs': 'title: 获取所有交易对的标记价格',
     'sidebar_label: Get Mark Price for All Trading Pairs': 'sidebar_label: 获取所有交易对的标记价格',
     'Get Mark Price for All Trading Pairs': '获取所有交易对的标记价格',
-    
+
     'title: Get Mark Price for Single Trading Pair': 'title: 获取单个交易对的标记价格',
     'sidebar_label: Get Mark Price for Single Trading Pair': 'sidebar_label: 获取单个交易对的标记价格',
     'Get Mark Price for Single Trading Pair': '获取单个交易对的标记价格',
-    
+
     'title: Get Index Price for All Trading Pairs': 'title: 获取所有交易对的指数价格',
     'sidebar_label: Get Index Price for All Trading Pairs': 'sidebar_label: 获取所有交易对的指数价格',
     'Get Index Price for All Trading Pairs': '获取所有交易对的指数价格',
-    
+
     'title: Get Index Price for Single Trading Pair': 'title: 获取单个交易对的指数价格',
     'sidebar_label: Get Index Price for Single Trading Pair': 'sidebar_label: 获取单个交易对的指数价格',
     'Get Index Price for Single Trading Pair': '获取单个交易对的指数价格',
-    
+
     'title: Get Trading Pair Currency': 'title: 获取交易对货币',
     'sidebar_label: Get Trading Pair Currency': 'sidebar_label: 获取交易对货币',
     'Get Trading Pair Currency': '获取交易对货币',
-    
+
     'title: Get Trading Pair Information of Kline': 'title: 获取交易对K线信息',
     'sidebar_label: Get Trading Pair Information of Kline': 'sidebar_label: 获取交易对K线信息',
     'Get Trading Pair Information of Kline': '获取交易对K线信息',
-    
+
     'title: Get Depth Data of Trading Pairs': 'title: 获取交易对深度数据',
     'sidebar_label: Get Depth Data of Trading Pairs': 'sidebar_label: 获取交易对深度数据',
     'Get Depth Data of Trading Pairs': '获取交易对深度数据',
-    
+
     'title: Get Latest Transaction Information of Trading Pairs': 'title: 获取交易对最新交易信息',
     'sidebar_label: Get Latest Transaction Information of Trading Pairs': 'sidebar_label: 获取交易对最新交易信息',
     'Get Latest Transaction Information of Trading Pairs': '获取交易对最新交易信息',
-    
+
     'title: Get Market Information for All Trading Pairs': 'title: 获取所有交易对的市场信息',
     'sidebar_label: Get Market Information for All Trading Pairs': 'sidebar_label: 获取所有交易对的市场信息',
     'Get Market Information for All Trading Pairs': '获取所有交易对的市场信息',
-    
+
     'title: Get Market Information for Specific Trading Pair': 'title: 获取特定交易对的市场信息',
     'sidebar_label: Get Market Information for Specific Trading Pair': 'sidebar_label: 获取特定交易对的市场信息',
     'Get Market Information for Specific Trading Pair': '获取特定交易对的市场信息',
-    
+
     'title: Get Aggregated Market Information for All Trading Pairs': 'title: 获取所有交易对的聚合市场信息',
     'sidebar_label: Get Aggregated Market Information for All Trading Pairs': 'sidebar_label: 获取所有交易对的聚合市场信息',
     'Get Aggregated Market Information for All Trading Pairs': '获取所有交易对的聚合市场信息',
-    
+
     'title: Get Aggregated Market Information for Specific Trading Pair': 'title: 获取特定交易对的聚合市场信息',
     'sidebar_label: Get Aggregated Market Information for Specific Trading Pair': 'sidebar_label: 获取特定交易对的聚合市场信息',
     'Get Aggregated Market Information for Specific Trading Pair': '获取特定交易对的聚合市场信息',
-    
+
     'title: Get Ask Bid Market Information for All Trading Pairs': 'title: 获取所有交易对的买卖盘市场信息',
     'sidebar_label: Get Ask Bid Market Information for All Trading Pairs': 'sidebar_label: 获取所有交易对的买卖盘市场信息',
     'Get Ask Bid Market Information for All Trading Pairs': '获取所有交易对的买卖盘市场信息',
-    
+
     'title: Get Ask Bid Market Information for Specific Trading Pair': 'title: 获取特定交易对的买卖盘市场信息',
     'sidebar_label: Get Ask Bid Market Information for Specific Trading Pair': 'sidebar_label: 获取特定交易对的买卖盘市场信息',
     'Get Ask Bid Market Information for Specific Trading Pair': '获取特定交易对的买卖盘市场信息',
-    
+
     'title: Get Trading Pair Risk Fund Balance': 'title: 获取交易对风险基金余额',
     'sidebar_label: Get Trading Pair Risk Fund Balance': 'sidebar_label: 获取交易对风险基金余额',
     'Get Trading Pair Risk Fund Balance': '获取交易对风险基金余额',
-    
+
     'title: Get Funding Rate Information': 'title: 获取资金费率信息',
     'sidebar_label: Get Funding Rate Information': 'sidebar_label: 获取资金费率信息',
     'Get Funding Rate Information': '获取资金费率信息',
-    
+
     'title: Get Funding Rate Records': 'title: 获取资金费率记录',
     'sidebar_label: Get Funding Rate Records': 'sidebar_label: 获取资金费率记录',
     'Get Funding Rate Records': '获取资金费率记录',
-    
+
     'title: See Leverage Stratification of Single Trading Pair': 'title: 查看单个交易对的杠杆分层',
     'sidebar_label: See Leverage Stratification of Single Trading Pair': 'sidebar_label: 查看单个交易对的杠杆分层',
     'See Leverage Stratification of Single Trading Pair': '查看单个交易对的杠杆分层',
-    
+
     'title: Get the open position of a trading pair': 'title: 获取交易对的未平仓头寸',
     'sidebar_label: Get the open position of a trading pair': 'sidebar_label: 获取交易对的未平仓头寸',
     'Get the open position of a trading pair': '获取交易对的未平仓头寸',
-    
+
     'title: Get Configuration Information for Single Trading Pair': 'title: 获取单个交易对的配置信息',
     'sidebar_label: Get Configuration Information for Single Trading Pair': 'sidebar_label: 获取单个交易对的配置信息',
     'Get Configuration Information for Single Trading Pair': '获取单个交易对的配置信息',
@@ -423,7 +423,7 @@ translations = {
     'boolean': '布尔值',
     'array': '数组',
     'object': '对象',
-    
+
     # Balance相关翻译
     'title: Get currency information': 'title: 获取货币信息',
     'sidebar_label: Get currency information': 'sidebar_label: 获取货币信息',
@@ -433,7 +433,7 @@ translations = {
     'sidebar_label: Get account balance': 'sidebar_label: 获取账户余额',
     'title: Frequency limiting rules': 'title: 频率限制规则',
     'sidebar_label: Frequency limiting rules': 'sidebar_label: 频率限制规则',
-    
+
     # Deposit&Withdrawal相关翻译
     'title: Get information of currencies (available for deposit and withdraw)': 'title: 获取支持的货币信息（可用于充值和提现）',
     'sidebar_label: Get supported currencies': 'sidebar_label: 获取支持的货币',
@@ -447,7 +447,7 @@ translations = {
     'sidebar_label: Get withdrawal history': 'sidebar_label: 获取提现历史',
     'title: Get withdrawal detail': 'title: 获取提现详情',
     'sidebar_label: Get withdrawal detail': 'sidebar_label: 获取提现详情',
-    
+
     # 更多Deposit&Withdrawal标题翻译
     'title: Get the deposit address': 'title: 获取充值地址',
     'sidebar_label: Get the deposit address': 'sidebar_label: 获取充值地址',
@@ -459,7 +459,7 @@ translations = {
     'sidebar_label: Get withdrawal history': 'sidebar_label: 获取提现历史',
     'title: Get withdrawal detail': 'title: 获取提现详情',
     'sidebar_label: Get withdrawal detail': 'sidebar_label: 获取提现详情',
-    
+
     # Market相关翻译
     'title: Get server time': 'title: 获取服务器时间',
     'sidebar_label: Get server time': 'sidebar_label: 获取服务器时间',
@@ -483,7 +483,7 @@ translations = {
     'sidebar_label: Get 24h statistics ticker': 'sidebar_label: 获取24小时统计行情',
     'title: Full ticker': 'title: 完整行情',
     'sidebar_label: Full ticker': 'sidebar_label: 完整行情',
-    
+
     # Order相关翻译
     'title: Place order': 'title: 下单',
     'sidebar_label: Place order': 'sidebar_label: 下单',
@@ -505,13 +505,13 @@ translations = {
     'sidebar_label: Batch cancel order': 'sidebar_label: 批量取消订单',
     'title: Update order': 'title: 更新订单',
     'sidebar_label: Update order': 'sidebar_label: 更新订单',
-    
+
     # Trade相关翻译
     'title: Query trade': 'title: 查询交易',
     'sidebar_label: Query trade': 'sidebar_label: 查询交易',
     'title: Get trade history': 'title: 获取交易历史',
     'sidebar_label: Get trade history': 'sidebar_label: 获取交易历史',
-    
+
     # Transfer相关翻译
     'title: Internal transfer': 'title: 内部转账',
     'sidebar_label: Internal transfer': 'sidebar_label: 内部转账',
@@ -519,7 +519,7 @@ translations = {
     'sidebar_label: Transfer between sub accounts': 'sidebar_label: 子账户间转账',
     'title: Transfer between user systems': 'title: 用户系统间转账',
     'sidebar_label: Transfer between user systems': 'sidebar_label: 用户系统间转账',
-    
+
     # 通用内容翻译
     '**Type:**': '**类型:**',
     '**Description:**': '**描述:**',
@@ -530,13 +530,13 @@ translations = {
     '### Response 示例': '### 响应示例',
     '### 注意s': '### 注意事项',
     '### 注意s': '### 注意事项',
-    
+
     # 表格标题翻译
     '| name | type | mandatory | default | description | ranges |': '| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |',
     '| name | type | mandatory | default | description            | ranges |': '| 名称 | 类型 | 必填 | 默认值 | 描述            | 范围 |',
     '| --- | --- | --- | --- | --- | --- |': '| --- | --- | --- | --- | --- | --- |',
     '| --- | --- | --------- | ------- | ---------------------- | ------ |': '| --- | --- | --------- | ------- | ---------------------- | ------ |',
-    
+
     # 参数描述翻译
     'No parameters required': '无需参数',
     'List of currencies, comma separated (e.g. usdt,btc)': '货币列表，逗号分隔 (例如: usdt,btc)',
@@ -544,7 +544,7 @@ translations = {
     'This endpoint retrieves information of all supported currencies.': '此接口获取所有支持的货币信息。',
     'This endpoint retrieves the user\'s account balance information.': '此接口获取用户的账户余额信息。',
     'This endpoint retrieves a list of currency assets.': '此接口获取货币资产列表。',
-    
+
     # API相关翻译
     'API Key': 'API密钥',
     'API Key Application': 'API密钥申请',
@@ -553,7 +553,7 @@ translations = {
     'How to create an API Key': '如何创建API密钥',
     'please refer to the official documentation': '请参考官方文档',
     'A lightweight Java codebase that provides methods allowing users to directly call the API.': '一个轻量级的Java代码库，提供允许用户直接调用API的方法。',
-    
+
     # 频率限制相关
     'Some interfaces will have limited flow control': '某些接口会有流控限制',
     'The flow limit is mainly divided into': '流控主要分为',
@@ -570,7 +570,7 @@ translations = {
     'indicates the limit of the number of requests': '表示该接口的请求次数限制',
     'per second per IP': '每秒每IP',
     'per second per apiKey': '每秒每apiKey',
-    
+
     # 签名相关
     'Since XT needs to provide some open interfaces for third-party platforms': '由于XT需要为第三方平台提供一些开放接口',
     'the issue of **data security** needs to be considered': '需要考虑**数据安全**问题',
@@ -605,7 +605,7 @@ translations = {
     'Reserved, signed version number': '保留，签名版本号',
     'Default': '默认',
     'millisecond': '毫秒',
-    
+
     # 签名生成相关翻译
     'Take `https://sapi.xt.com/v4/order` as an example.': '以`https://sapi.xt.com/v4/order`为例。',
     'The following **appKey/secret** are **for demo only**': '以下**appKey/secret**仅用于演示',
@@ -650,7 +650,7 @@ translations = {
     'pair with a reasonable `validate-recvwindow` to tolerate network jitter': '与合理的`validate-recvwindow`配对以容忍网络抖动',
     'When body is JSON, use the **exact raw JSON string** for signing': '当请求体是JSON时，使用**确切的原始JSON字符串**进行签名',
     'don\'t reorder keys or prettify': '不要重新排序键或美化',
-    
+
     # Deposit&Withdrawal相关翻译
     'The `currency` and `chain` fields in the response are required inputs for other **deposit/withdrawal APIs**.': '响应中的`currency`和`chain`字段是其他**充值/提现API**的必需输入。',
     'Each currency includes its supported transfer networks, deposit/withdrawal status, and fee details.': '每种货币都包含其支持的转账网络、充值/提现状态和费用详情。',
@@ -666,7 +666,7 @@ translations = {
     'Withdrawal amount precision': '提现金额精度',
     'Withdrawal fee': '提现手续费',
     'Withdrawal fee currency': '提现手续费币种',
-    
+
     # 更多参数和描述翻译
     'Network for deposit': '充值网络',
     'Currency name': '货币名称',
@@ -676,13 +676,13 @@ translations = {
     'Always confirm the network matches the currency to avoid loss of funds.': '始终确认网络与货币匹配，以避免资金损失。',
     'Wallet address': '钱包地址',
     'Memo/Tag if required, otherwise empty': '如需要备注/标签，否则为空',
-    
+
     # 其他常见翻译
     'Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.': '由于延迟高、稳定性差等原因，不建议通过代理访问API。',
     'GET request parameters are placed in **query Params**, POST request parameters are placed in **request body**.': 'GET请求参数放在**query Params**中，POST请求参数放在**request body**中。',
     'Please set the request header information to:': '请设置请求头信息为：',
     'For requests that start other than `/public`, the request message needs to be **signed**.': '对于不以`/public`开头的请求，请求消息需要进行**签名**。',
-    
+
     # 代码注释翻译
     '// currency id': '// 货币ID',
     '// currency name': '// 货币名称',
@@ -724,7 +724,7 @@ def translate_title_and_sidebar(content):
         (r'title: Get withdrawal detail', 'title: 获取提现详情'),
         (r'title: Get information of currencies \(available for deposit and withdraw\)', 'title: 获取支持的货币信息（可用于充值和提现）'),
     ]
-    
+
     # 翻译sidebar_label字段
     sidebar_patterns = [
         (r'sidebar_label: Get currency information', 'sidebar_label: 获取货币信息'),
@@ -752,31 +752,31 @@ def translate_title_and_sidebar(content):
         (r'sidebar_label: Get withdrawal detail', 'sidebar_label: 获取提现详情'),
         (r'sidebar_label: Get supported currencies', 'sidebar_label: 获取支持的货币'),
     ]
-    
+
     # 应用标题翻译
     for pattern, replacement in title_patterns:
         content = re.sub(pattern, replacement, content)
-    
+
     # 应用侧边栏翻译
     for pattern, replacement in sidebar_patterns:
         content = re.sub(pattern, replacement, content)
-    
+
     return content
 
 def translate_table_headers(content):
     """翻译表格标题"""
     # 翻译参数表格标题
-    content = re.sub(r'\| name \| type \| mandatory \| default \| description \| ranges \|', 
+    content = re.sub(r'\| name \| type \| mandatory \| default \| description \| ranges \|',
                      '| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |', content)
-    content = re.sub(r'\| name \| type \| mandatory \| default \| description\s+\| ranges \|', 
+    content = re.sub(r'\| name \| type \| mandatory \| default \| description\s+\| ranges \|',
                      '| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |', content)
-    
+
     # 翻译表格分隔符
-    content = re.sub(r'\| ---- \| ---- \| --------- \| ------- \| ---------------------- \| ------ \|', 
+    content = re.sub(r'\| ---- \| ---- \| --------- \| ------- \| ---------------------- \| ------ \|',
                      '| ---- | ---- | --------- | ------- | ---------------------- | ------ |', content)
-    content = re.sub(r'\| --- \| --- \| --- \| --- \| --- \| --- \|', 
+    content = re.sub(r'\| --- \| --- \| --- \| --- \| --- \| --- \|',
                      '| --- | --- | --- | --- | --- | --- |', content)
-    
+
     return content
 
 def translate_common_phrases(content):
@@ -788,21 +788,21 @@ def translate_common_phrases(content):
     content = re.sub(r'### Notes', '### 注意事项', content)
     content = re.sub(r'### Response Example', '### 响应示例', content)
     content = re.sub(r'### 注意s', '### 注意事项', content)
-    
+
     # 翻译参数描述
     content = re.sub(r'No parameters required', '无需参数', content)
-    content = re.sub(r'List of currencies, comma separated \(e\.g\. usdt,btc\)', 
+    content = re.sub(r'List of currencies, comma separated \(e\.g\. usdt,btc\)',
                      '货币列表，逗号分隔 (例如: usdt,btc)', content)
     content = re.sub(r'Limit flow rules:', '限流规则:', content)
-    
+
     # 翻译接口描述
-    content = re.sub(r'This endpoint retrieves information of all supported currencies\.', 
+    content = re.sub(r'This endpoint retrieves information of all supported currencies\.',
                      '此接口获取所有支持的货币信息。', content)
-    content = re.sub(r'This endpoint retrieves the user\'s account balance information\.', 
+    content = re.sub(r'This endpoint retrieves the user\'s account balance information\.',
                      '此接口获取用户的账户余额信息。', content)
-    content = re.sub(r'This endpoint retrieves a list of currency assets\.', 
+    content = re.sub(r'This endpoint retrieves a list of currency assets\.',
                      '此接口获取货币资产列表。', content)
-    
+
     return content
 
 def translate_code_comments(content):
@@ -818,17 +818,17 @@ def translate_code_comments(content):
         '// Small asset exchange switch [0=close, 1=open]': '// 小额资产兑换开关 [0=关闭, 1=开启]',
         '// Swipe switch [0=close, 1=open]': '// 划转开关 [0=关闭, 1=开启)',
     }
-    
+
     for en, zh in comment_translations.items():
         content = content.replace(en, zh)
-    
+
     return content
 
 def protect_json_fields(content):
     """保护JSON字段名不被翻译"""
     # 保护常见的JSON字段名
     json_fields = [
-        'fullName', 'currencyId', 'frozenAmount', 'availableAmount', 
+        'fullName', 'currencyId', 'frozenAmount', 'availableAmount',
         'totalAmount', 'convertBtcAmount', 'totalBtcAmount', 'assets',
         'depositStatus', 'withdrawStatus', 'convertEnabled', 'transferEnabled',
         'maxPrecision', 'weight', 'cmcLink', 'logo', 'currency', 'id',
@@ -837,36 +837,36 @@ def protect_json_fields(content):
         'withdrawMinAmount', 'withdrawPrecision', 'withdrawFeeAmount',
         'withdrawFeeCurrency', 'chain', 'baseCurrency', 'quoteCurrency', 'feeCurrency'
     ]
-    
+
     # 如果字段名被翻译了，恢复它们
     for field in json_fields:
         # 查找被翻译的字段名并恢复
         content = re.sub(rf'"{field}":', f'"{field}":', content)
         content = re.sub(rf'"{field}":', f'"{field}":', content)
-    
+
     return content
 
 def translate_content(content):
     """完整翻译内容"""
     # 1. 翻译标题和侧边栏
     content = translate_title_and_sidebar(content)
-    
+
     # 2. 翻译表格标题
     content = translate_table_headers(content)
-    
+
     # 3. 翻译常见短语
     content = translate_common_phrases(content)
-    
+
     # 4. 翻译代码注释
     content = translate_code_comments(content)
-    
+
     # 5. 应用通用翻译映射
     for en, zh in translations.items():
         content = content.replace(en, zh)
-    
+
     # 6. 保护JSON字段名不被翻译
     content = protect_json_fields(content)
-    
+
     return content
 
 def translate_mdx_file(file_path):
@@ -874,14 +874,14 @@ def translate_mdx_file(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
-        
+
         # 翻译内容
         translated_content = translate_content(content)
-        
+
         # 写回文件
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(translated_content)
-        
+
         print(f"✅ 已翻译: {file_path}")
         return True
     except Exception as e:
@@ -892,37 +892,37 @@ def main():
     """主函数"""
     if len(sys.argv) != 2:
         print("使用方法: python3 translate_enhanced.py <目标路径>")
-        print("例如: python3 translate_enhanced.py spot/AccessDescription")
+        print("例如: python3 translate_enhanced.py spot/Access Description")
         print("例如: python3 translate_enhanced.py spot")
         print("例如: python3 translate_enhanced.py futures")
         return
-    
+
     target_path = sys.argv[1]
-    
+
     # 中文文档目录路径
     zh_docs_dir = Path("/Users/king/Downloads/xt-api-main 2/website/i18n/zh-Hans/docusaurus-plugin-content-docs/current")
     target_dir = zh_docs_dir / target_path
-    
+
     if not target_dir.exists():
         print(f"❌ 目录不存在: {target_dir}")
         return
-    
+
     # 统计信息
     total_files = 0
     success_files = 0
-    
+
     # 遍历指定路径下的所有MDX文件
     for mdx_file in target_dir.rglob("*.mdx"):
         total_files += 1
         if translate_mdx_file(mdx_file):
             success_files += 1
-    
+
     print(f"\n📊 翻译完成统计:")
     print(f"   目标路径: {target_path}")
     print(f"   总文件数: {total_files}")
     print(f"   成功翻译: {success_files}")
     print(f"   失败文件: {total_files - success_files}")
-    
+
     if success_files > 0:
         print(f"\n🎉 翻译完成！请运行 'yarn build' 重新构建网站。")
 

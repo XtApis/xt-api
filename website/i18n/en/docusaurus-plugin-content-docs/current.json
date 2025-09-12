@@ -59,9 +59,9 @@
     "message": "Using Crowdin",
     "description": "The label for the doc item Using Crowdin in sidebar docs, linking to the doc i18n/crowdin"
   },
-  "sidebar.spot.category.AccessDescription": {
-    "message": "AccessDescription",
-    "description": "The label for category AccessDescription in sidebar spot"
+  "sidebar.spot.category.Access Description": {
+    "message": "Access Description",
+    "description": "The label for category Access Description in sidebar spot"
   },
   "sidebar.spot.category.Balance": {
     "message": "Balance",
@@ -95,9 +95,9 @@
     "message": "WebSocket_Public",
     "description": "The label for category WebSocket_Public in sidebar spot"
   },
-  "sidebar.futures.category.AccessDescription": {
-    "message": "AccessDescription",
-    "description": "The label for category AccessDescription in sidebar futures"
+  "sidebar.futures.category.Access Description": {
+    "message": "Access Description",
+    "description": "The label for category Access Description in sidebar futures"
   },
   "sidebar.futures.category.Entrust": {
     "message": "Entrust",
@@ -131,9 +131,9 @@
     "message": "WebsocKetV2",
     "description": "The label for category WebsocKetV2 in sidebar futures"
   },
-  "sidebar.margin-spot.category.AccessDescription": {
-    "message": "AccessDescription",
-    "description": "The label for category AccessDescription in sidebar margin-spot"
+  "sidebar.margin-spot.category.Access Description": {
+    "message": "Access Description",
+    "description": "The label for category Access Description in sidebar margin-spot"
   },
   "sidebar.margin-spot.category.Balance": {
     "message": "Balance",
@@ -151,17 +151,17 @@
     "message": "Copy tradeing",
     "description": "The label for category Copy tradeing in sidebar copy-trading"
   },
-  "sidebar.futures-copy.category.AccessDescription": {
-    "message": "AccessDescription",
-    "description": "The label for category AccessDescription in sidebar futures-copy"
+  "sidebar.futures-copy.category.Access Description": {
+    "message": "Access Description",
+    "description": "The label for category Access Description in sidebar futures-copy"
   },
   "sidebar.futures-copy.category.Copy Trading": {
     "message": "Copy Trading",
     "description": "The label for category Copy Trading in sidebar futures-copy"
   },
-  "sidebar.trading-third-party.category.AccessDescription": {
-    "message": "AccessDescription",
-    "description": "The label for category AccessDescription in sidebar trading-third-party"
+  "sidebar.trading-third-party.category.Access Description": {
+    "message": "Access Description",
+    "description": "The label for category Access Description in sidebar trading-third-party"
   },
   "sidebar.trading-third-party.category.Balance": {
     "message": "Balance",
@@ -183,9 +183,9 @@
     "message": "User Registration",
     "description": "The label for category User Registration in sidebar trading-third-party"
   },
-  "sidebar.user-center.category.AccessDescription": {
-    "message": "AccessDescription",
-    "description": "The label for category AccessDescription in sidebar user-center"
+  "sidebar.user-center.category.Access Description": {
+    "message": "Access Description",
+    "description": "The label for category Access Description in sidebar user-center"
   },
   "sidebar.user-center.category.Account": {
     "message": "Account",

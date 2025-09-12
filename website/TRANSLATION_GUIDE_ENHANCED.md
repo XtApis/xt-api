@@ -43,7 +43,7 @@ python3 translate_enhanced.py spot/Market
 python3 translate_enhanced.py spot/Order
 
 # 翻译特定子目录（注意特殊字符）
-python3 translate_enhanced.py spot/AccessDescription
+python3 translate_enhanced.py spot/Access Description
 python3 translate_enhanced.py "spot/Deposit&Withdrawal"  # 使用引号包围包含特殊字符的路径
 ```
 

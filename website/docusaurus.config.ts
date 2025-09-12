@@ -771,17 +771,9 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Index APIs">Index APIs</div>
                         </a>
 
-                        <a href="/docs/index_overview/index_overview_resource"
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
-                           onmouseover="this.style.opacity='0.7';"
-                           onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
-                               data-i18n="item.label.API Resources and Support">API Resources and Support</div>
-                          <div style="font-size: 12px; color: #6b7280;"
-                               data-i18n="item.label.API Resources and Support">API Resources and Support</div>
-                        </a>
 
-                        <a href="/docs/spot/AccessDescription/RestApi"
+
+                        <a href="/docs/spot/Access Description/BasicInformationOfTheInterface"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -791,7 +783,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Spot Trading APIs">Spot Trading APIs</div>
                         </a>
 
-                        <a href="/docs/futures/AccessDescription/ApiLibrary"
+                        <a href="/docs/futures/Access Description/ApiLibrary"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -801,7 +793,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Futures Trading APIs">Futures Trading APIs</div>
                         </a>
 
-                        <a href="/docs/margin-spot/AccessDescription/RestApi"
+                        <a href="/docs/margin-spot/Access Description/BasicInformationOfTheInterface"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -811,7 +803,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Margin Trading APIs">Margin Trading APIs</div>
                         </a>
 
-                        <a href="/docs/copy-trading/Access Description/RestApi"
+                        <a href="/docs/copy-trading/Access Description/BasicInformationOfTheInterface"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -821,7 +813,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Copy Trading API">Copy Trading API</div>
                         </a>
 
-                        <a href="/docs/futures-copy/AccessDescription/RestApi"
+                        <a href="/docs/futures-copy/Access Description/BasicInformationOfTheInterface"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -831,7 +823,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Futures Copy API">Futures Copy API</div>
                         </a>
 
-                        <a href="/docs/trading-third-party/AccessDescription/RestApi"
+                        <a href="/docs/trading-third-party/Access Description/BasicInformationOfTheInterface"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -841,7 +833,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Trading Third Party API">Trading Third Party API</div>
                         </a>
 
-                        <a href="/docs/user-center/AccessDescription/RestApi"
+                        <a href="/docs/user-center/Access Description/BasicInformationOfTheInterface"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -975,14 +967,13 @@ export default async function createConfigAsync(): Promise<Config> {
       descZh: '为您的所有交易需求提供全面的 API 解决方案',
       products: [
         { title: 'Index', titleZh: '指数', subtitle: 'Index APIs', subtitleZh: '指数 API', href: '/docs/index_overview/overview' },
-        { title: 'API Resources and Support', titleZh: 'API 资源和支持', subtitle: 'API Resources and Support', subtitleZh: 'API 资源和支持', href: '/docs/index_overview/index_overview_resource' },
-        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/AccessDescription/RestApi' },
-        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/AccessDescription/apiDemo' },
-        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/AccessDescription/RestApi' },
-        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/RestApi' },
-        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/AccessDescription/RestApi' },
-        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/AccessDescription/RestApi' },
-        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/AccessDescription/RestApi' },
+        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/Access Description/apiDemo' },
+        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface' },
+        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/Access Description/BasicInformationOfTheInterface' },
         { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencyInfo' },
         { title: 'Deposit&Withdrawal', titleZh: '充提', subtitle: 'Deposit&Withdrawal APIs', subtitleZh: '充提 API', href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies' },
         { title: 'Market', titleZh: '市场', subtitle: 'Market APIs', subtitleZh: '市场 API', href: '/docs/spot/Market/GetServerTime' },
@@ -1003,8 +994,7 @@ export default async function createConfigAsync(): Promise<Config> {
       descZh: '指数交易和市场数据 API',
       products: [
         { title: 'Index', titleZh: '指数', subtitle: 'Index APIs', subtitleZh: '指数 API', href: '/docs/index_overview/overview' },
-        { title: 'API Resources and Support', titleZh: 'API 资源和支持', subtitle: 'API Resources and Support', subtitleZh: 'API 资源和支持', href: '/docs/index_overview/index_overview_resource' }
-      ]
+     ]
     },
     'spot': {
       title: 'Spot Trading',
@@ -1012,7 +1002,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Spot trading APIs and market data',
       descZh: '现货交易 API 和市场数据',
       products: [
-        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/AccessDescription/RestApi' },
+        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/Access Description/BasicInformationOfTheInterface' },
         { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencyInfo' },
         { title: 'Deposit&Withdrawal', titleZh: '充提', subtitle: 'Deposit&Withdrawal APIs', subtitleZh: '充提 API', href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies' },
         { title: 'Market', titleZh: '市场', subtitle: 'Market APIs', subtitleZh: '市场 API', href: '/docs/spot/Market/GetServerTime' },
@@ -1029,7 +1019,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Futures trading APIs and derivatives',
       descZh: '期货交易 API 和衍生品',
       products: [
-        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/AccessDescription/apiDemo' },
+        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/Access Description/apiDemo' },
         { title: 'Futures WebSocket', titleZh: '期货 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '期货 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' }
       ]
     },
@@ -1039,7 +1029,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Margin trading and leverage APIs',
       descZh: '杠杆交易和杠杆 API',
       products: [
-        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/AccessDescription/RestApi' },
+        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
         { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetMarginAccount' }
       ]
     },
@@ -1049,7 +1039,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Copy trading and social trading APIs',
       descZh: '跟单交易和社交交易 API',
       products: [
-        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/RestApi' },
+        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
         { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
       ]
     },
@@ -1059,7 +1049,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Futures copy trading APIs',
       descZh: '期货跟单交易 API',
       products: [
-        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/AccessDescription/RestApi' }
+        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' }
       ]
     },
     'tradingThirdParty': {
@@ -1068,7 +1058,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Third party trading integration APIs',
       descZh: '第三方交易集成 API',
       products: [
-        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/AccessDescription/RestApi' }
+        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterfacei' }
       ]
     },
     'userCenter': {
@@ -1077,7 +1067,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'User management and account APIs',
       descZh: '用户管理和账户 API',
       products: [
-        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/AccessDescription/RestApi' }
+        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/Access Description/BasicInformationOfTheInterface' }
       ]
     }
   };
@@ -1182,7 +1172,6 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.Margin Balance': 'Margin Balance',
         'item.label.Copy Account': 'Copy Account',
         'item.label.Index APIs': 'Index APIs',
-        'item.label.API Resources and Support': 'API Resources and Support',
         'item.label.Spot Trading APIs': 'Spot Trading APIs',
         'item.label.Futures Trading APIs': 'Futures Trading APIs',
         'item.label.Margin Trading APIs': 'Margin Trading APIs',
@@ -1225,7 +1214,6 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.Margin Balance': '杠杆余额',
         'item.label.Copy Account': '跟单账户',
         'item.label.Index APIs': '指数 API',
-        'item.label.API Resources and Support': 'API 资源和支持',
         'item.label.Spot Trading APIs': '现货交易 API',
         'item.label.Futures Trading APIs': '期货交易 API',
         'item.label.Margin Trading APIs': '杠杆交易 API',

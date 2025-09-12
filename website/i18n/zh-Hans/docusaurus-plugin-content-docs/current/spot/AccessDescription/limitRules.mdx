@@ -1,22 +1,20 @@
 ---
 id: FrequencyLimitingRules
-title: 频率限制规则
-sidebar_label: 频率限制规则
+title: Frequency Limiting Rules
+sidebar_label: Frequency Limiting Rules
 sidebar_position: 3
 ---
 
-某些接口会有流控限制（对应接口会有流控描述）。  
-流控主要分为**网关流控**和**WAF流控**。
+Some interfaces will have limited flow control (the corresponding interface will have a limited flow description). The flow limit is mainly divided into **gateway flow limit** and **WAF flow limit**.
 
-如果接口请求触发网关流控，会返回**429**，  
-表示访问频率超限，**IP**或**apiKey**会被封禁。
+If the interface request triggers the gateway flow limit, **429** will be returned, indicating that the access frequency exceeds the limit, and the **IP** or **apiKey** will be blocked.
 
-网关流控分为：
+### Gateway Flow Limiting
 
-- **IP流控**
-- **apiKey流控**
+- **IP flow limiting**
+- **apiKey flow limiting**
 
-**示例说明**：
+### Example Descriptions
 
-- IP流控：`100/s/ip` → 表示该接口**每秒每IP**的请求次数限制。
-- apiKey流控：`50/s/apiKey` → 表示该接口**每秒每apiKey**的请求次数限制。
+- IP flow limit: `100/s/ip` → indicates the limit of the number of requests **per second per IP** for this interface.
+- apiKey flow limit: `50/s/apiKey` → indicates the limit of the number of requests **per second per apiKey** for this interface.

@@ -10,16 +10,17 @@ sidebar_position: 2
 
 [https://sapi.xt.com](https://sapi.xt.com)
 
+:::
+
+
+### Description
 
 Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.
 
-- **GET** request parameters are placed in **query params**
-- **POST** request parameters are placed in **request body**
+GET request parameters are placed in **query Params**, POST request parameters are placed in **request body**.
 
-Please set the request header to:
+Please set the request header information to:
 
-```http
-Content-Type: application/json
-```
+Content-Type=application/json
 
-For requests that do not start with `/public`, the request message must be **signed**.
+For requests that start other than `/public`, the request message needs to be **signed**.

@@ -648,7 +648,7 @@ body {
 
 /* 侧边栏分类标题翻译 */
 [data-locale='zh-Hans']
-  .categoryLinkLabel_O4bj[title='AccessDescription']::after {
+  .categoryLinkLabel_O4bj[title='Access Description']::after {
   content: '访问描述';
   margin-left: 8px;
 }

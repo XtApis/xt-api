@@ -10,7 +10,7 @@ set -e
 if [ $# -eq 0 ]; then
     echo "❌ 错误: 请提供要翻译的路径"
     echo "使用方法: $0 <目标路径>"
-    echo "例如: $0 futures/AccessDescription"
+    echo "例如: $0 futures/Access Description"
     exit 1
 fi
 
@@ -47,7 +47,7 @@ if [ $? -eq 0 ]; then
     echo "📁 翻译后的文件位置:"
     echo "   - 英文: docs/$TARGET_PATH/"
     echo "   - 中文: i18n/zh-Hans/docusaurus-plugin-content-docs/current/$TARGET_PATH/"
-    
+
     # 显示翻译统计
     echo ""
     echo "📊 翻译统计:"
@@ -55,7 +55,7 @@ if [ $? -eq 0 ]; then
     ZH_FILES=$(find "i18n/zh-Hans/docusaurus-plugin-content-docs/current/$TARGET_PATH" -name "*.mdx" -o -name "*.md" 2>/dev/null | wc -l)
     echo "   - 英文文件: $EN_FILES 个"
     echo "   - 中文文件: $ZH_FILES 个"
-    
+
     echo ""
     echo "🎉 翻译成功完成！"
 else

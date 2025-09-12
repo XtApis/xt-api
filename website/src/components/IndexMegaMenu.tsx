@@ -26,25 +26,7 @@ function IndexMegaMenu(): JSX.Element {
   }, []);
 
   const categories = [
-    {
-      key: 'Index',
-      label: 'Index',
-      icon: '📖',
-      description: 'Explore our index APIs',
-      color: '#007bff',
-      items: [
-        {
-          href: '/docs/index_overview/overview',
-          label: 'Index',
-          description: 'Index APIs',
-        },
-        {
-          href: '/docs/index_overview/index_overview_resource',
-          label: 'API Resources and Support',
-          description: 'API Resources and Support',
-        },
-      ],
-    },
+
     {
       key: 'spot',
       label: 'Spot',
@@ -53,9 +35,9 @@ function IndexMegaMenu(): JSX.Element {
       color: '#28a745',
       items: [
         {
-          href: '/docs/spot/AccessDescription/RestApi',
-          label: 'AccessDescription',
-          description: 'AccessDescription APIs',
+          href: '/docs/spot/Access Description/BasicInformationOfTheInterface',
+          label: 'Access Description',
+          description: 'Access Description APIs',
         },
         {
           href: '/docs/spot/Balance/GetCurrencyInfo',
@@ -107,9 +89,9 @@ function IndexMegaMenu(): JSX.Element {
       color: '#ffc107',
       items: [
         {
-          href: '/docs/futures/AccessDescription/RestApi',
-          label: 'AccessDescription',
-          description: 'AccessDescription APIs',
+          href: '/docs/futures/Access Description/BasicInformationOfTheInterface',
+          label: 'Access Description',
+          description: 'Access Description APIs',
         },
         {
           href: '/docs/futures/Entrust/CreateTriggerOrders',
@@ -156,9 +138,9 @@ function IndexMegaMenu(): JSX.Element {
       color: '#17a2b8',
       items: [
         {
-          href: '/docs/margin-spot/AccessDescription/RestApi',
-          label: 'AccessDescription',
-          description: 'AccessDescription APIs',
+          href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface',
+          label: 'Access Description',
+          description: 'Access Description APIs',
         },
         {
           href: '/docs/margin-spot/Balance/GetBalance',
@@ -199,9 +181,9 @@ function IndexMegaMenu(): JSX.Element {
       color: '#e83e8c',
       items: [
         {
-          href: '/docs/futures-copy/AccessDescription/RestApi',
-          label: 'AccessDescription',
-          description: 'AccessDescription APIs',
+          href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface',
+          label: 'Access Description',
+          description: 'Access Description APIs',
         },
         {
           href: '/docs/futures-copy/Copy Trading/ChooseLeader',
@@ -223,9 +205,9 @@ function IndexMegaMenu(): JSX.Element {
       color: '#fd7e14',
       items: [
         {
-          href: '/docs/trading-third-party/AccessDescription/RestAPI',
-          label: 'AccessDescription',
-          description: 'AccessDescription APIs',
+          href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface',
+          label: 'Access Description',
+          description: 'Access Description APIs',
         },
         {
           href: '/docs/trading-third-party/Balance/GetBalance',
@@ -262,9 +244,9 @@ function IndexMegaMenu(): JSX.Element {
       color: '#20c997',
       items: [
         {
-          href: '/docs/user-center/AccessDescription/RestAPI',
-          label: 'AccessDescription',
-          description: 'AccessDescription APIs',
+          href: '/docs/user-center/Access Description/BasicInformationOfTheInterface',
+          label: 'Access Description',
+          description: 'Access Description APIs',
         },
         {
           href: '/docs/user-center/Account/GetAccountInfo',

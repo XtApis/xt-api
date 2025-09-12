@@ -1,28 +1,28 @@
 ---
 id: signature-generation
-title: Signature Generation
-sidebar_label: Signature Generation
+title: 签名生成
+sidebar_label: 签名生成
 sidebar_position: 5
 ---
 
-### Example
+### 示例
 
-Take `https://sapi.xt.com/v4/order` as an example.
+以 `https://sapi.xt.com/v4/order` 为例。
 
-Below is an **example appKey** and **secretKey** (for demonstration only, using echo/openssl/curl in Linux bash):
+以下是**示例 appKey** 和 **secretKey**（仅用于演示，在 Linux bash 中使用 echo/openssl/curl）：
 
 - **appKey**: `3976eb88-76d0-4f6e-a6b2-a57980770085`
 - **secretKey**: `bc6630d0231fda5cd98794f52c4998659beda290`
 
 ---
 
-### Header Example
+### 请求头示例
 
 validate-algorithms: HmacSHA256 validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085 validate-recvwindow: 5000 validate-timestamp: 1641446237201 validate-signature: 2b5eb11e18796d12d88f13dc27dbbd02c2cc51ff7059765ed9821957d82bb4d9
 
 ---
 
-### Request Data Example
+### 请求数据示例
 
 ```json
 {

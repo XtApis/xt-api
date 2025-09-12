@@ -9,7 +9,7 @@ echo "🚀 开始全面翻译所有文档..."
 
 # 定义所有需要翻译的路径
 PATHS=(
-    "futures/AccessDescription"
+    "futures/Access Description"
     "futures/MarketData"
     "futures/Order"
     "futures/User"

@@ -15,8 +15,8 @@ python3 translate_custom.py <目标路径>
 #### 示例
 
 ```bash
-# 翻译spot/AccessDescription目录下的所有文件
-python3 translate_custom.py spot/AccessDescription
+# 翻译spot/Access Description目录下的所有文件
+python3 translate_custom.py spot/Access Description
 
 # 翻译整个spot目录下的所有文件
 python3 translate_custom.py spot

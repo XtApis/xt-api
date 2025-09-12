@@ -16148,8 +16148,8 @@
       "BAAPI",
       "None"
     ],
-    "url": "/docs/futures/AccessDescription/2applyApi",
-    "path": "futures/AccessDescription/2applyApi.mdx",
+    "url": "/docs/futures/Access Description/2applyApi",
+    "path": "futures/Access Description/2applyApi.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -16218,8 +16218,8 @@
       "additionally",
       "explained"
     ],
-    "url": "/docs/futures/AccessDescription/apiBasicInfo",
-    "path": "futures/AccessDescription/apiBasicInfo.mdx",
+    "url": "/docs/futures/Access Description/apiBasicInfo",
+    "path": "futures/Access Description/apiBasicInfo.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -16261,8 +16261,8 @@
       "demo",
       "None"
     ],
-    "url": "/docs/futures/AccessDescription/apiDemo",
-    "path": "futures/AccessDescription/apiDemo.mdx",
+    "url": "/docs/futures/Access Description/apiDemo",
+    "path": "futures/Access Description/apiDemo.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -16287,8 +16287,8 @@
       "expired",
       "None"
     ],
-    "url": "/docs/futures/AccessDescription/errorCode",
-    "path": "futures/AccessDescription/errorCode.mdx",
+    "url": "/docs/futures/Access Description/errorCode",
+    "path": "futures/Access Description/errorCode.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -16325,8 +16325,8 @@
       "locked",
       "minutes"
     ],
-    "url": "/docs/futures/AccessDescription/limitRules",
-    "path": "futures/AccessDescription/limitRules.mdx",
+    "url": "/docs/futures/Access Description/limitRules",
+    "path": "futures/Access Description/limitRules.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -16351,8 +16351,8 @@
       "Coin",
       "None"
     ],
-    "url": "/docs/futures/AccessDescription/restApi",
-    "path": "futures/AccessDescription/restApi.mdx",
+    "url": "/docs/futures/Access Description/restApi",
+    "path": "futures/Access Description/restApi.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -16384,8 +16384,8 @@
       "error",
       "null"
     ],
-    "url": "/docs/futures/AccessDescription/returnFormat",
-    "path": "futures/AccessDescription/returnFormat.mdx",
+    "url": "/docs/futures/Access Description/returnFormat",
+    "path": "futures/Access Description/returnFormat.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -16554,8 +16554,8 @@
       "below",
       "None"
     ],
-    "url": "/docs/futures/AccessDescription/signStatement",
-    "path": "futures/AccessDescription/signStatement.mdx",
+    "url": "/docs/futures/Access Description/signStatement",
+    "path": "futures/Access Description/signStatement.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -16716,8 +16716,8 @@
       "singature",
       "None"
     ],
-    "url": "/docs/futures/AccessDescription/signSteps",
-    "path": "futures/AccessDescription/signSteps.mdx",
+    "url": "/docs/futures/Access Description/signSteps",
+    "path": "futures/Access Description/signSteps.mdx",
     "type": "futures",
     "category": "futures"
   },
@@ -32771,8 +32771,8 @@
       "must",
       "followed"
     ],
-    "url": "/docs/margin-spot/AccessDescription/FAQ",
-    "path": "margin-spot/AccessDescription/FAQ.mdx",
+    "url": "/docs/margin-spot/Access Description/FAQ",
+    "path": "margin-spot/Access Description/FAQ.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -32822,8 +32822,8 @@
       "set",
       "header"
     ],
-    "url": "/docs/margin-spot/AccessDescription/apiBasicInfo",
-    "path": "margin-spot/AccessDescription/apiBasicInfo.mdx",
+    "url": "/docs/margin-spot/Access Description/apiBasicInfo",
+    "path": "margin-spot/Access Description/apiBasicInfo.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -32866,8 +32866,8 @@
       "Request",
       "Demo"
     ],
-    "url": "/docs/margin-spot/AccessDescription/apiDemo",
-    "path": "margin-spot/AccessDescription/apiDemo.mdx",
+    "url": "/docs/margin-spot/Access Description/apiDemo",
+    "path": "margin-spot/Access Description/apiDemo.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -32911,8 +32911,8 @@
       "_blank",
       "here"
     ],
-    "url": "/docs/margin-spot/AccessDescription/applyApi",
-    "path": "margin-spot/AccessDescription/applyApi.mdx",
+    "url": "/docs/margin-spot/Access Description/applyApi",
+    "path": "margin-spot/Access Description/applyApi.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -32930,8 +32930,8 @@
       "contactus",
       "mdx"
     ],
-    "url": "/docs/margin-spot/AccessDescription/contactUs",
-    "path": "margin-spot/AccessDescription/contactUs.mdx",
+    "url": "/docs/margin-spot/Access Description/contactUs",
+    "path": "margin-spot/Access Description/contactUs.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -33085,8 +33085,8 @@
       "GATEWAY_0003",
       "GATEWAY_0004"
     ],
-    "url": "/docs/margin-spot/AccessDescription/errorCode",
-    "path": "margin-spot/AccessDescription/errorCode.mdx",
+    "url": "/docs/margin-spot/Access Description/errorCode",
+    "path": "margin-spot/Access Description/errorCode.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -33105,8 +33105,8 @@
       "limitrules",
       "mdx"
     ],
-    "url": "/docs/margin-spot/AccessDescription/limitRules",
-    "path": "margin-spot/AccessDescription/limitRules.mdx",
+    "url": "/docs/margin-spot/Access Description/limitRules",
+    "path": "margin-spot/Access Description/limitRules.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -33187,8 +33187,8 @@
       "continuous",
       "errors"
     ],
-    "url": "/docs/margin-spot/AccessDescription/publicModule",
-    "path": "margin-spot/AccessDescription/publicModule.mdx",
+    "url": "/docs/margin-spot/Access Description/publicModule",
+    "path": "margin-spot/Access Description/publicModule.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -33210,8 +33210,8 @@
       "https",
       "com"
     ],
-    "url": "/docs/margin-spot/AccessDescription/restApi",
-    "path": "margin-spot/AccessDescription/restApi.mdx",
+    "url": "/docs/margin-spot/Access Description/BasicInformationOfTheInterface",
+    "path": "margin-spot/Access Description/BasicInformationOfTheInterface.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -33229,8 +33229,8 @@
       "returnformat",
       "mdx"
     ],
-    "url": "/docs/margin-spot/AccessDescription/returnFormat",
-    "path": "margin-spot/AccessDescription/returnFormat.mdx",
+    "url": "/docs/margin-spot/Access Description/returnFormat",
+    "path": "margin-spot/Access Description/returnFormat.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -33378,8 +33378,8 @@
       "version",
       "number"
     ],
-    "url": "/docs/margin-spot/AccessDescription/signStatement",
-    "path": "margin-spot/AccessDescription/signStatement.mdx",
+    "url": "/docs/margin-spot/Access Description/signStatement",
+    "path": "margin-spot/Access Description/signStatement.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -33440,8 +33440,8 @@
       "price",
       "quantity"
     ],
-    "url": "/docs/margin-spot/AccessDescription/signSteps",
-    "path": "margin-spot/AccessDescription/signSteps.mdx",
+    "url": "/docs/margin-spot/Access Description/signSteps",
+    "path": "margin-spot/Access Description/signSteps.mdx",
     "type": "spot",
     "category": "margin-spot"
   },
@@ -38949,8 +38949,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/RestApi",
-    "path": "trading-third-party/AccessDescription/RestApi.mdx",
+    "url": "/docs/trading-third-party/Access Description/BasicInformationOfTheInterface",
+    "path": "trading-third-party/Access Description/BasicInformationOfTheInterface.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39026,8 +39026,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/apiBasicInfo",
-    "path": "trading-third-party/AccessDescription/apiBasicInfo.mdx",
+    "url": "/docs/trading-third-party/Access Description/apiBasicInfo",
+    "path": "trading-third-party/Access Description/apiBasicInfo.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39080,8 +39080,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/apiDemo",
-    "path": "trading-third-party/AccessDescription/apiDemo.mdx",
+    "url": "/docs/trading-third-party/Access Description/apiDemo",
+    "path": "trading-third-party/Access Description/apiDemo.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39124,8 +39124,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/applyApi",
-    "path": "trading-third-party/AccessDescription/applyApi.mdx",
+    "url": "/docs/trading-third-party/Access Description/applyApi",
+    "path": "trading-third-party/Access Description/applyApi.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39168,8 +39168,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/authStatement",
-    "path": "trading-third-party/AccessDescription/authStatement.mdx",
+    "url": "/docs/trading-third-party/Access Description/authStatement",
+    "path": "trading-third-party/Access Description/authStatement.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39263,8 +39263,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/errorCode",
-    "path": "trading-third-party/AccessDescription/errorCode.mdx",
+    "url": "/docs/trading-third-party/Access Description/errorCode",
+    "path": "trading-third-party/Access Description/errorCode.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39309,8 +39309,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/limitRules",
-    "path": "trading-third-party/AccessDescription/limitRules.mdx",
+    "url": "/docs/trading-third-party/Access Description/limitRules",
+    "path": "trading-third-party/Access Description/limitRules.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39348,8 +39348,8 @@
       "error",
       "null"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/returnFormat",
-    "path": "trading-third-party/AccessDescription/returnFormat.mdx",
+    "url": "/docs/trading-third-party/Access Description/returnFormat",
+    "path": "trading-third-party/Access Description/returnFormat.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39522,8 +39522,8 @@
       "Description",
       "None"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/signStatement",
-    "path": "trading-third-party/AccessDescription/signStatement.mdx",
+    "url": "/docs/trading-third-party/Access Description/signStatement",
+    "path": "trading-third-party/Access Description/signStatement.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -39586,8 +39586,8 @@
       "algorithms",
       "HmacSHA256"
     ],
-    "url": "/docs/trading-third-party/AccessDescription/signSteps",
-    "path": "trading-third-party/AccessDescription/signSteps.mdx",
+    "url": "/docs/trading-third-party/Access Description/signSteps",
+    "path": "trading-third-party/Access Description/signSteps.mdx",
     "type": "trading-third-party",
     "category": "trading-third-party"
   },
@@ -40771,8 +40771,8 @@
       "https",
       "com"
     ],
-    "url": "/docs/user-center/AccessDescription/RestApi",
-    "path": "user-center/AccessDescription/RestApi.mdx",
+    "url": "/docs/user-center/Access Description/BasicInformationOfTheInterface",
+    "path": "user-center/Access Description/BasicInformationOfTheInterface.mdx",
     "type": "user-center",
     "category": "user-center"
   },

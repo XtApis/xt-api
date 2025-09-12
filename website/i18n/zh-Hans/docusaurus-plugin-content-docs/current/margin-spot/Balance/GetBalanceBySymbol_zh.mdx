@@ -1,0 +1,56 @@
+---
+id: GetBalanceBySymbol
+title: 按交易对获取余额
+sidebar_label: 按交易对获取余额
+sidebar_position: 2
+---
+
+**类型：** GET
+
+**描述：** `/v4/lever/balance`
+
+### 参数
+
+| 名称   | 类型   | 必需 | 默认值 | 描述                    | 范围 |
+| ------ | ------ | ---- | ------ | ----------------------- | ---- |
+| symbol | string | true | -      | 交易对，例如 `BTC_USDT` | -    |
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": {
+    "btcLoanAmount": 0, // 换算 BTC 借款资产
+    "btcNetAmount": 0, // 换算 BTC 净资产
+    "symbol": "string", // 交易对
+    "symbolId": 0, // 交易对 ID
+    "usdtLoanAmount": 0, // 换算 USDT 借款资产
+    "usdtNetAmount": 0, // 换算 USDT 净资产
+    "base": {
+      "availableAmount": "string", // 可用金额
+      "capitalAmount": "string", // 本金金额
+      "currency": "string", // 币种
+      "currencyId": 0, // 币种 ID
+      "frozenAmount": "string", // 冻结金额
+      "interestAmount": "string", // 未还利息金额
+      "loanAmount": "string", // 借款金额
+      "totalAmount": "string", // 总金额
+      "updatedTime": 0 // 更新时间
+    },
+    "quote": {
+      "availableAmount": "string", // 可用金额
+      "capitalAmount": "string", // 本金金额
+      "currency": "string", // 币种
+      "currencyId": 0, // 币种 ID
+      "frozenAmount": "string", // 冻结金额
+      "interestAmount": "string", // 未还利息金额
+      "loanAmount": "string", // 借款金额
+      "totalAmount": "string", // 总金额
+      "updatedTime": 0 // 更新时间
+    }
+  }
+}
+```

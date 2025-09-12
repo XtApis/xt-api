@@ -683,287 +683,277 @@ export default async function createConfigAsync(): Promise<Config> {
                     <!-- 左侧分类导航 -->
                     <div style="width: 200px; background: #f9fafb; border-right: 1px solid #e5e7eb; padding: 0;">
                       <div style="padding: 20px 0;">
-                        <div id="all-products-nav" 
-                             style="padding: 12px 20px; background: #f3f4f6; cursor: pointer; font-weight: 600; font-size: 16px; color: #1f2937;" 
-                             onclick="showCategory('AllProducts')" 
+                        <div id="all-products-nav"
+                             style="padding: 12px 20px; background: #f3f4f6; cursor: pointer; font-weight: 600; font-size: 16px; color: #1f2937;"
+                             onclick="showCategory('AllProducts')"
                              data-i18n="item.label.All Products">All Products</div>
-                        
-                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" 
-                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';" 
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';" 
-                             onclick="showCategory('Index')" 
-                             data-category="Index" 
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('Index')"
+                             data-category="Index"
                              data-i18n="item.label.Index">Index</div>
-                        
-                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" 
-                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';" 
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';" 
-                             onclick="showCategory('spot')" 
-                             data-category="spot" 
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('spot')"
+                             data-category="spot"
                              data-i18n="item.label.Spot Trading">Spot Trading</div>
-                        
-                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" 
-                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';" 
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';" 
-                             onclick="showCategory('futures')" 
-                             data-category="futures" 
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('futures')"
+                             data-category="futures"
                              data-i18n="item.label.Futures Trading">Futures Trading</div>
-                        
-                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" 
-                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';" 
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';" 
-                             onclick="showCategory('marginSpot')" 
-                             data-category="marginSpot" 
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('marginSpot')"
+                             data-category="marginSpot"
                              data-i18n="item.label.Margin Trading">Margin Trading</div>
-                        
-                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" 
-                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';" 
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';" 
-                             onclick="showCategory('copyTrading')" 
-                             data-category="copyTrading" 
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('copyTrading')"
+                             data-category="copyTrading"
                              data-i18n="item.label.Copy Trading">Copy Trading</div>
-                        
-                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" 
-                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';" 
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';" 
-                             onclick="showCategory('futuresCopy')" 
-                             data-category="futuresCopy" 
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('futuresCopy')"
+                             data-category="futuresCopy"
                              data-i18n="item.label.Futures Copy">Futures Copy</div>
-                        
-                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" 
-                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';" 
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';" 
-                             onclick="showCategory('tradingThirdParty')" 
-                             data-category="tradingThirdParty" 
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('tradingThirdParty')"
+                             data-category="tradingThirdParty"
                              data-i18n="item.label.Trading Third Party">Trading Third Party</div>
-                        
-                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" 
-                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';" 
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';" 
-                             onclick="showCategory('userCenter')" 
-                             data-category="userCenter" 
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('userCenter')"
+                             data-category="userCenter"
                              data-i18n="item.label.User Center">User Center</div>
                       </div>
                     </div>
-                    
+
                     <!-- 右侧内容区域 -->
                     <div style="flex: 1; padding: 32px; background: white;">
                       <div style="margin-bottom: 24px;">
-                        <h2 id="categoryTitle" 
-                            style="margin: 0 0 8px 0; font-size: 24px; font-weight: 600; color: #1f2937;" 
+                        <h2 id="categoryTitle"
+                            style="margin: 0 0 8px 0; font-size: 24px; font-weight: 600; color: #1f2937;"
                             data-i18n="item.label.All Products">All Products</h2>
-                        <p id="categoryDesc" 
-                           style="margin: 0; color: #6b7280; font-size: 14px;" 
+                        <p id="categoryDesc"
+                           style="margin: 0; color: #6b7280; font-size: 14px;"
                            data-i18n="item.label.Comprehensive API solutions for all your trading needs">Comprehensive API solutions for all your trading needs</p>
                       </div>
-                      
+
                       <div id="productsGrid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;">
                         <!-- 产品链接 -->
-                        <a id="index-content-link" 
-                           href="/docs/index_overview/overview" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+                        <a id="index-content-link"
+                           href="/docs/index_overview/overview"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Index">Index</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Index APIs">Index APIs</div>
                         </a>
-                        
-                        <a href="/docs/index_overview/index_overview_resource" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/Access Description/BasicInformationOfTheInterface"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
-                               data-i18n="item.label.API Resources and Support">API Resources and Support</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
-                               data-i18n="item.label.API Resources and Support">API Resources and Support</div>
-                        </a>
-                        
-                        <a href="/docs/spot/AccessDescription/RestApi" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
-                           onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Spot Trading">Spot Trading</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Spot Trading APIs">Spot Trading APIs</div>
                         </a>
-                        
-                        <a href="/docs/futures/AccessDescription/apiDemo" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/futures/Access Description/BasicInformationOfTheInterface"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Futures Trading">Futures Trading</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Futures Trading APIs">Futures Trading APIs</div>
                         </a>
-                        
-                        <a href="/docs/margin-spot/AccessDescription/RestApi" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/margin-spot/Access Description/BasicInformationOfTheInterface"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Margin Trading">Margin Trading</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Margin Trading APIs">Margin Trading APIs</div>
                         </a>
-                        
-                        <a href="/docs/copy-trading/Access Description/RestApi" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/copy-trading/Access Description/RestApi"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Copy Trading">Copy Trading</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Copy Trading API">Copy Trading API</div>
                         </a>
-                        
-                        <a href="/docs/futures-copy/AccessDescription/RestApi" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/futures-copy/Access Description/BasicInformationOfTheInterface"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Futures Copy">Futures Copy</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Futures Copy API">Futures Copy API</div>
                         </a>
-                        
-                        <a href="/docs/trading-third-party/AccessDescription/RestApi" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/trading-third-party/Access Description/BasicInformationOfTheInterface"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Trading Third Party">Trading Third Party</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Trading Third Party API">Trading Third Party API</div>
                         </a>
-                        
-                        <a href="/docs/user-center/AccessDescription/RestApi" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/user-center/Access Description/BasicInformationOfTheInterface"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.User Center">User Center</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.User Center API">User Center API</div>
                         </a>
-                        
-                        <a href="/docs/spot/Balance/GetCurrencyInfo" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/Balance/GetCurrencyInfo"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Balance">Balance</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Balance APIs">Balance APIs</div>
                         </a>
-                        
-                        <a href="/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Deposit&Withdrawal">Deposit&Withdrawal</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Deposit&Withdrawal APIs">Deposit&Withdrawal APIs</div>
                         </a>
-                        
-                        <a href="/docs/spot/Market/GetServerTime" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/Market/GetServerTime"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Market">Market</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Market APIs">Market APIs</div>
                         </a>
-                        
-                        <a href="/docs/spot/Order/PlaceOrder" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/Order/PlaceOrder"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Order">Order</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Order APIs">Order APIs</div>
                         </a>
-                        
-                        <a href="/docs/spot/Trade/GetTradeHistory" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/Trade/GetTradeHistory"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Trade">Trade</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Trade APIs">Trade APIs</div>
                         </a>
-                        
-                        <a href="/docs/spot/Transfer/InternalTransfer" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/Transfer/InternalTransfer"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Transfer">Transfer</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Transfer APIs">Transfer APIs</div>
                         </a>
-                        
-                        <a href="/docs/spot/WebSocket_Private/RequestMessageFormat" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/WebSocket_Private/RequestMessageFormat"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.WebSocket Private">WebSocket Private</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.WebSocket Private APIs">WebSocket Private APIs</div>
                         </a>
-                        
-                        <a href="/docs/spot/WebSocket_Public/subscribeParam" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/spot/WebSocket_Public/subscribeParam"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.WebSocket Public">WebSocket Public</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.WebSocket Public APIs">WebSocket Public APIs</div>
                         </a>
-                        
-                        <a href="/docs/futures/WEBSOCKET(V2)/Request message format" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/futures/WEBSOCKET(V2)/Request message format"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Futures WebSocket">Futures WebSocket</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Futures WebSocket APIs">Futures WebSocket APIs</div>
                         </a>
-                        
-                        <a href="/docs/margin-spot/Balance/GetMarginAccount" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/margin-spot/Balance/GetMarginAccount"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Margin Balance">Margin Balance</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Margin Balance APIs">Margin Balance APIs</div>
                         </a>
-                        
-                        <a href="/docs/copy-trading/Account/GetAccountInfo" 
-                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-                           onmouseover="this.style.opacity='0.7';" 
+
+                        <a href="/docs/copy-trading/Account/GetAccountInfo"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
-                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" 
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
                                data-i18n="item.label.Copy Account">Copy Account</div>
-                          <div style="font-size: 12px; color: #6b7280;" 
+                          <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Copy Account APIs">Copy Account APIs</div>
                         </a>
                       </div>
                     </div>
                   </div>
                 </div>
-                
+
 
                 <script>
   // 产品分类数据
@@ -975,14 +965,13 @@ export default async function createConfigAsync(): Promise<Config> {
       descZh: '为您的所有交易需求提供全面的 API 解决方案',
       products: [
         { title: 'Index', titleZh: '指数', subtitle: 'Index APIs', subtitleZh: '指数 API', href: '/docs/index_overview/overview' },
-        { title: 'API Resources and Support', titleZh: 'API 资源和支持', subtitle: 'API Resources and Support', subtitleZh: 'API 资源和支持', href: '/docs/index_overview/index_overview_resource' },
-        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/AccessDescription/RestApi' },
-        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/AccessDescription/apiDemo' },
-        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/AccessDescription/RestApi' },
+       { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
         { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/RestApi' },
-        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/AccessDescription/RestApi' },
-        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/AccessDescription/RestApi' },
-        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/AccessDescription/RestApi' },
+        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface' },
+        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/Access Description/BasicInformationOfTheInterface' },
         { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencyInfo' },
         { title: 'Deposit&Withdrawal', titleZh: '充提', subtitle: 'Deposit&Withdrawal APIs', subtitleZh: '充提 API', href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies' },
         { title: 'Market', titleZh: '市场', subtitle: 'Market APIs', subtitleZh: '市场 API', href: '/docs/spot/Market/GetServerTime' },
@@ -1003,7 +992,6 @@ export default async function createConfigAsync(): Promise<Config> {
       descZh: '指数交易和市场数据 API',
       products: [
         { title: 'Index', titleZh: '指数', subtitle: 'Index APIs', subtitleZh: '指数 API', href: '/docs/index_overview/overview' },
-        { title: 'API Resources and Support', titleZh: 'API 资源和支持', subtitle: 'API Resources and Support', subtitleZh: 'API 资源和支持', href: '/docs/index_overview/index_overview_resource' }
       ]
     },
     'spot': {
@@ -1011,8 +999,8 @@ export default async function createConfigAsync(): Promise<Config> {
       titleZh: '现货交易',
       desc: 'Spot trading APIs and market data',
       descZh: '现货交易 API 和市场数据',
-      products: [
-        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/AccessDescription/RestApi' },
+      products: [Access Description/BasicInformationOfTheInterface
+        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/' },
         { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencyInfo' },
         { title: 'Deposit&Withdrawal', titleZh: '充提', subtitle: 'Deposit&Withdrawal APIs', subtitleZh: '充提 API', href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies' },
         { title: 'Market', titleZh: '市场', subtitle: 'Market APIs', subtitleZh: '市场 API', href: '/docs/spot/Market/GetServerTime' },
@@ -1029,7 +1017,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Futures trading APIs and derivatives',
       descZh: '期货交易 API 和衍生品',
       products: [
-        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/AccessDescription/apiDemo' },
+        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
         { title: 'Futures WebSocket', titleZh: '期货 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '期货 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' }
       ]
     },
@@ -1039,7 +1027,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Margin trading and leverage APIs',
       descZh: '杠杆交易和杠杆 API',
       products: [
-        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/AccessDescription/RestApi' },
+        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
         { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetMarginAccount' }
       ]
     },
@@ -1059,7 +1047,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Futures copy trading APIs',
       descZh: '期货跟单交易 API',
       products: [
-        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/AccessDescription/RestApi' }
+        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' }
       ]
     },
     'tradingThirdParty': {
@@ -1067,8 +1055,8 @@ export default async function createConfigAsync(): Promise<Config> {
       titleZh: '第三方交易',
       desc: 'Third party trading integration APIs',
       descZh: '第三方交易集成 API',
-      products: [
-        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/AccessDescription/RestApi' }
+      products: [Access Description/BasicInformationOfTheInterface
+        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/' }
       ]
     },
     'userCenter': {
@@ -1077,7 +1065,7 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'User management and account APIs',
       descZh: '用户管理和账户 API',
       products: [
-        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/AccessDescription/RestApi' }
+        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/Access Description/BasicInformationOfTheInterface' }
       ]
     }
   };
@@ -1085,7 +1073,7 @@ export default async function createConfigAsync(): Promise<Config> {
   // 显示分类内容的函数
   function showCategory(categoryKey) {
     console.log('🔄 Showing category:', categoryKey);
-    
+
     const category = categoryData[categoryKey];
     if (!category) {
       console.error('❌ Category not found:', categoryKey);
@@ -1094,15 +1082,15 @@ export default async function createConfigAsync(): Promise<Config> {
 
     const locale = document.documentElement.lang || 'en';
     const isZh = locale === 'zh-Hans';
-    
+
     // 更新标题和描述
     const titleElement = document.getElementById('categoryTitle');
     const descElement = document.getElementById('categoryDesc');
-    
+
     if (titleElement) {
       titleElement.textContent = isZh ? category.titleZh : category.title;
     }
-    
+
     if (descElement) {
       descElement.textContent = isZh ? category.descZh : category.desc;
     }
@@ -1114,18 +1102,18 @@ export default async function createConfigAsync(): Promise<Config> {
       category.products.forEach(product => {
         const title = isZh ? product.titleZh : product.title;
         const subtitle = isZh ? product.subtitleZh : product.subtitle;
-        
+
         html += \`
-          <a href="\${product.href}" 
-             style="text-decoration: none; color: inherit; transition: opacity 0.2s;" 
-             onmouseover="this.style.opacity='0.7';" 
+          <a href="\${product.href}"
+             style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+             onmouseover="this.style.opacity='0.7';"
              onmouseout="this.style.opacity='1';">
             <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">\${title}</div>
             <div style="font-size: 12px; color: #6b7280;">\${subtitle}</div>
           </a>
         \`;
       });
-      
+
       productsGrid.innerHTML = html;
     }
 
@@ -1149,7 +1137,7 @@ export default async function createConfigAsync(): Promise<Config> {
   function updateDropdownTranslations() {
     const locale = document.documentElement.lang || 'en';
     console.log('🔄 Updating translations for locale:', locale);
-    
+
     const translations = {
       'en': {
         'item.label.All Products': 'All Products',
@@ -1173,7 +1161,6 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.Margin Balance': 'Margin Balance',
         'item.label.Copy Account': 'Copy Account',
         'item.label.Index APIs': 'Index APIs',
-        'item.label.API Resources and Support': 'API Resources and Support',
         'item.label.Spot Trading APIs': 'Spot Trading APIs',
         'item.label.Futures Trading APIs': 'Futures Trading APIs',
         'item.label.Margin Trading APIs': 'Margin Trading APIs',
@@ -1216,7 +1203,6 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.Margin Balance': '杠杆余额',
         'item.label.Copy Account': '跟单账户',
         'item.label.Index APIs': '指数 API',
-        'item.label.API Resources and Support': 'API 资源和支持',
         'item.label.Spot Trading APIs': '现货交易 API',
         'item.label.Futures Trading APIs': '期货交易 API',
         'item.label.Margin Trading APIs': '杠杆交易 API',
@@ -1238,13 +1224,13 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.Comprehensive API solutions for all your trading needs': '为您的所有交易需求提供全面的 API 解决方案'
       }
     };
-    
+
     const currentTranslations = translations[locale] || translations['en'];
-    
+
     // 查找所有带有 data-i18n 属性的元素
     const elements = document.querySelectorAll('[data-i18n]');
     console.log('🔍 Found elements to translate:', elements.length);
-    
+
     let translatedCount = 0;
     elements.forEach(element => {
       const key = element.getAttribute('data-i18n');
@@ -1259,12 +1245,12 @@ export default async function createConfigAsync(): Promise<Config> {
     });
     console.log('📊 Total translated elements:', translatedCount);
   }
-  
+
   // 使用 MutationObserver 监听 DOM 变化
   function setupDropdownObserver() {
     const observer = new MutationObserver(function(mutations) {
       let shouldUpdate = false;
-      
+
       mutations.forEach(function(mutation) {
         // 检查是否有新节点添加
         if (mutation.type === 'childList') {
@@ -1272,7 +1258,7 @@ export default async function createConfigAsync(): Promise<Config> {
             if (node.nodeType === 1) { // Element node
               // 检查是否包含菜单相关的元素
               if (node.querySelector && (
-                node.querySelector('[data-i18n]') || 
+                node.querySelector('[data-i18n]') ||
                 node.id === 'all-products-nav' ||
                 node.classList.contains('navbar__item--dropdown') ||
                 node.querySelector('#productsGrid')
@@ -1282,7 +1268,7 @@ export default async function createConfigAsync(): Promise<Config> {
             }
           });
         }
-        
+
         // 检查属性变化（如显示/隐藏）
         if (mutation.type === 'attributes') {
           const target = mutation.target;
@@ -1294,13 +1280,13 @@ export default async function createConfigAsync(): Promise<Config> {
           }
         }
       });
-      
+
       if (shouldUpdate) {
         console.log('🔄 DOM changed, updating translations...');
         setTimeout(updateDropdownTranslations, 100);
       }
     });
-    
+
     // 开始观察
     observer.observe(document.body, {
       childList: true,
@@ -1308,13 +1294,13 @@ export default async function createConfigAsync(): Promise<Config> {
       attributes: true,
       attributeFilter: ['class', 'style']
     });
-    
+
     console.log('👀 Dropdown observer setup complete');
   }
-  
+
   // 立即执行一次翻译
   updateDropdownTranslations();
-  
+
   // 页面加载完成后设置监听器
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
@@ -1327,12 +1313,12 @@ export default async function createConfigAsync(): Promise<Config> {
     updateDropdownTranslations();
     setupDropdownObserver();
   }
-  
+
   // 延迟执行，确保所有元素都已渲染
   setTimeout(updateDropdownTranslations, 100);
   setTimeout(updateDropdownTranslations, 500);
   setTimeout(updateDropdownTranslations, 1000);
-  
+
   // 监听语言切换
   const langObserver = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
@@ -1343,13 +1329,13 @@ export default async function createConfigAsync(): Promise<Config> {
     });
   });
   langObserver.observe(document.documentElement, { attributes: true });
-  
+
   // 监听窗口焦点事件（用户切换标签页回来时）
   window.addEventListener('focus', function() {
     console.log('👁️ Window focused, checking translations');
     setTimeout(updateDropdownTranslations, 100);
   });
-  
+
   // 监听鼠标进入菜单区域
   document.addEventListener('mouseover', function(event) {
     const dropdown = event.target.closest('.navbar__item--dropdown');

@@ -3,7 +3,7 @@
 """
 自定义路径翻译脚本
 使用方法: python3 translate_custom.py <目标路径>
-例如: python3 translate_custom.py spot/AccessDescription
+例如: python3 translate_custom.py spot/Access Description
 """
 
 import os
@@ -38,7 +38,7 @@ translations = {
     'sidebar_label: FAQ': 'sidebar_label: 常见问题',
     'title: Contact us': 'title: 联系我们',
     'sidebar_label: Contact us': 'sidebar_label: 联系我们',
-    
+
     # 常见内容翻译
     'Description': '描述',
     'Steps': '步骤',
@@ -52,7 +52,7 @@ translations = {
     'SDKs for Each Language': '各语言SDK',
     'Sample Requests': '示例请求',
     'You can find sample request information for each interface here': '您可以在这里找到每个接口的示例请求信息',
-    
+
     # API相关翻译
     'API Key': 'API密钥',
     'API Key Application': 'API密钥申请',
@@ -61,7 +61,7 @@ translations = {
     'How to create an API Key': '如何创建API密钥',
     'please refer to the official documentation': '请参考官方文档',
     'A lightweight Java codebase that provides methods allowing users to directly call the API.': '一个轻量级的Java代码库，提供允许用户直接调用API的方法。',
-    
+
     # 频率限制相关
     'Some interfaces will have limited flow control': '某些接口会有流控限制',
     'The flow limit is mainly divided into': '流控主要分为',
@@ -78,7 +78,7 @@ translations = {
     'indicates the limit of the number of requests': '表示该接口的请求次数限制',
     'per second per IP': '每秒每IP',
     'per second per apiKey': '每秒每apiKey',
-    
+
     # 签名相关
     'Since XT needs to provide some open interfaces for third-party platforms': '由于XT需要为第三方平台提供一些开放接口',
     'the issue of **data security** needs to be considered': '需要考虑**数据安全**问题',
@@ -113,7 +113,7 @@ translations = {
     'Reserved, signed version number': '保留，签名版本号',
     'Default': '默认',
     'millisecond': '毫秒',
-    
+
     # 签名生成相关翻译
     'Take `https://sapi.xt.com/v4/order` as an example.': '以`https://sapi.xt.com/v4/order`为例。',
     'The following **appKey/secret** are **for demo only**': '以下**appKey/secret**仅用于演示',
@@ -158,7 +158,7 @@ translations = {
     'pair with a reasonable `validate-recvwindow` to tolerate network jitter': '与合理的`validate-recvwindow`配对以容忍网络抖动',
     'When body is JSON, use the **exact raw JSON string** for signing': '当请求体是JSON时，使用**确切的原始JSON字符串**进行签名',
     'don\'t reorder keys or prettify': '不要重新排序键或美化',
-    
+
     # 其他常见翻译
     'Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.': '由于延迟高、稳定性差等原因，不建议通过代理访问API。',
     'GET request parameters are placed in **query Params**, POST request parameters are placed in **request body**.': 'GET请求参数放在**query Params**中，POST请求参数放在**request body**中。',
@@ -177,14 +177,14 @@ def translate_mdx_file(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
-        
+
         # 翻译内容
         translated_content = translate_content(content)
-        
+
         # 写回文件
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(translated_content)
-        
+
         print(f"✅ 已翻译: {file_path}")
         return True
     except Exception as e:
@@ -195,31 +195,31 @@ def main():
     """主函数"""
     if len(sys.argv) != 2:
         print("使用方法: python3 translate_custom.py <目标路径>")
-        print("例如: python3 translate_custom.py spot/AccessDescription")
+        print("例如: python3 translate_custom.py spot/Access Description")
         print("例如: python3 translate_custom.py spot")
         print("例如: python3 translate_custom.py futures")
         return
-    
+
     target_path = sys.argv[1]
-    
+
     # 中文文档目录路径
     zh_docs_dir = Path("/Users/king/Downloads/xt-api-main 2/website/i18n/zh-Hans/docusaurus-plugin-content-docs/current")
     target_dir = zh_docs_dir / target_path
-    
+
     if not target_dir.exists():
         print(f"❌ 目录不存在: {target_dir}")
         return
-    
+
     # 统计信息
     total_files = 0
     success_files = 0
-    
+
     # 遍历指定路径下的所有MDX文件
     for mdx_file in target_dir.rglob("*.mdx"):
         total_files += 1
         if translate_mdx_file(mdx_file):
             success_files += 1
-    
+
     print(f"\n📊 翻译完成统计:")
     print(f"   目标路径: {target_path}")
     print(f"   总文件数: {total_files}")

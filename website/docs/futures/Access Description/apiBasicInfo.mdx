@@ -1,0 +1,23 @@
+---
+id: BasicInformationOfTheInterface
+title: Basic Information of the Interface
+sidebar_label: Basic Information of the Interface
+sidebar_position: 1.5
+---
+
+:::info
+
+**USDT-M:** [https://fapi.xt.com](https://fapi.xt.com)
+
+**Coin-M:** [https://dapi.xt.com](https://dapi.xt.com)
+:::
+
+
+
+DDue to the reasons of high latency and poor stability, it is not recommend to access the XT API through a proxy.
+
+GET request parameters are put in query Params, POST request parameters are put in request body.
+
+The request header information is set to: Content-Type=application/x-www-form-urlencoded
+
+In addition to the parameters required by the interface itself, signature, which is the signature parameter, needs to be passed in the query Params or request body. The interface that does not need to pass the signature parameter will be additionally explained.

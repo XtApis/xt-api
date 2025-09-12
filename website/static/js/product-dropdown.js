@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
           description: 'Index APIs',
           href: '/docs/index_overview/overview',
         },
-        {
-          title: 'API Resources and Support',
-          description: 'API Resources and Support',
-          href: '/docs/index_overview/index_overview_resource',
-        },
+       // {
+        //  title: 'API Resources and Support',
+        //  description: 'API Resources and Support',
+        //  href: '/docs/index_overview/index_overview_resource',
+       // },
       ],
     },
     spot: {
@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'spot',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/spot/AccessDescription/RestApi',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Balance',
@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Futures Trading APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/futures/AccessDescription/RestApi',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/futures/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Entrust',
@@ -126,9 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Margin Spot Trading APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/margin-spot/AccessDescription/RestApi',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Balance',
@@ -163,9 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Futures Copy Trading APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/futures-copy/AccessDescription/RestApi',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Copy Trading',
@@ -184,9 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Third Party Integration APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/trading-third-party/AccessDescription/RestAPI',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Balance',
@@ -220,9 +220,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'User Management APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/user-center/AccessDescription/RestAPI',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/user-center/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Account',
@@ -249,17 +249,17 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Spot Trading',
           description: 'Spot Trading APIs',
-          href: '/docs/spot/AccessDescription/RestApi',
+          href: '/docs/spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Futures Trading',
           description: 'Futures Trading APIs',
-          href: '/docs/futures/AccessDescription/RestApi',
+          href: '/docs/futures/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Margin Trading',
           description: 'Margin Trading APIs',
-          href: '/docs/margin-spot/AccessDescription/RestApi',
+          href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Copy Trading',
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Futures Copy',
           description: 'Futures Copy API',
-          href: '/docs/futures-copy/AccessDescription/RestApi',
+          href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface',
         },
       ],
     },
@@ -280,12 +280,12 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Trading Third Party',
           description: 'Third Party Integration',
-          href: '/docs/trading-third-party/AccessDescription/RestAPI',
+          href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'User Center',
           description: 'User Management APIs',
-          href: '/docs/user-center/AccessDescription/RestAPI',
+          href: '/docs/user-center/Access Description/BasicInformationOfTheInterface',
         },
       ],
     },
@@ -452,45 +452,45 @@ window.showCategory = function showCategory(category) {
           description: 'Index APIs',
           href: '/docs/index_overview/overview',
         },
-        {
-          title: 'API Resources and Support',
-          description: 'API Resources and Support',
-          href: '/docs/index_overview/index_overview_resource',
-        },
+        // {
+        //   title: 'API Resources and Support',
+        //   description: 'API Resources and Support',
+        //   href: '/docs/index_overview/index_overview_resource',
+        // },
         {
           title: 'Spot Trading',
           description: 'Spot Trading APIs',
-          href: '/docs/spot/AccessDescription/RestApi',
+          href: '/docs/spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Futures Trading',
           description: 'Futures Trading APIs',
-          href: '/docs/futures/AccessDescription/apiDemo',
+          href: '/docs/futures/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Margin Trading',
           description: 'Margin Trading APIs',
-          href: '/docs/margin-spot/AccessDescription/RestApi',
+          href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Copy Trading',
           description: 'Copy Trading API',
-          href: '/docs/copy-trading/Access Description/RestApi',
+          href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Futures Copy',
           description: 'Futures Copy API',
-          href: '/docs/futures-copy/AccessDescription/RestApi',
+          href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Trading Third Party',
           description: 'Trading Third Party API',
-          href: '/docs/trading-third-party/AccessDescription/RestApi',
+          href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'User Center',
           description: 'User Center API',
-          href: '/docs/user-center/AccessDescription/RestApi',
+          href: '/docs/user-center/AAccess Description/BasicInformationOfTheInterface',
         },
       ],
     },
@@ -503,11 +503,6 @@ window.showCategory = function showCategory(category) {
           description: 'Index APIs',
           href: '/docs/index_overview/overview',
         },
-        {
-          title: 'API Resources and Support',
-          description: 'API Resources and Support',
-          href: '/docs/index_overview/index_overview_resource',
-        },
       ],
     },
     spot: {
@@ -515,9 +510,9 @@ window.showCategory = function showCategory(category) {
       description: 'Spot Trading APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/spot/AccessDescription/RestApi',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Balance',
@@ -566,9 +561,9 @@ window.showCategory = function showCategory(category) {
       description: 'Futures Trading APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/futures/AccessDescription/RestApi',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/futures/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Entrust',
@@ -612,9 +607,9 @@ window.showCategory = function showCategory(category) {
       description: 'Margin Spot Trading APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/margin-spot/AccessDescription/RestApi',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Balance',
@@ -649,9 +644,9 @@ window.showCategory = function showCategory(category) {
       description: 'Futures Copy Trading APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/futures-copy/AccessDescription/RestApi',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Copy Trading',
@@ -670,9 +665,9 @@ window.showCategory = function showCategory(category) {
       description: 'Third Party Integration APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/trading-third-party/AccessDescription/RestAPI',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Balance',
@@ -706,9 +701,9 @@ window.showCategory = function showCategory(category) {
       description: 'User Management APIs',
       products: [
         {
-          title: 'AccessDescription',
-          description: 'AccessDescription APIs',
-          href: '/docs/user-center/AccessDescription/RestAPI',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/user-center/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Account',
@@ -734,17 +729,17 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Spot Trading',
           description: 'Spot Trading APIs',
-          href: '/docs/spot/AccessDescription/RestApi',
+          href: '/docs/spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Futures Trading',
           description: 'Futures Trading APIs',
-          href: '/docs/futures/AccessDescription/RestApi',
+          href: '/docs/futures/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Margin Trading',
           description: 'Margin Trading APIs',
-          href: '/docs/margin-spot/AccessDescription/RestApi',
+          href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'Copy Trading',
@@ -754,7 +749,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Futures Copy',
           description: 'Futures Copy API',
-          href: '/docs/futures-copy/AccessDescription/RestApi',
+          href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface',
         },
       ],
     },
@@ -765,12 +760,12 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Trading Third Party',
           description: 'Third Party Integration',
-          href: '/docs/trading-third-party/AccessDescription/RestAPI',
+          href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface',
         },
         {
           title: 'User Center',
           description: 'User Management APIs',
-          href: '/docs/user-center/AccessDescription/RestAPI',
+          href: '/docs/user-center/Access Description/BasicInformationOfTheInterface',
         },
       ],
     },
