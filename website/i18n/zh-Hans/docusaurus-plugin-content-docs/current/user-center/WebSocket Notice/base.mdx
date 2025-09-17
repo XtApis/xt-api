@@ -1,0 +1,44 @@
+---
+id: GeneralWssInformationCN
+title: 通用 WSS 信息
+sidebar_label: 通用 WSS 信息
+sidebar_position: 1
+---
+
+### 基础地址
+`wss://stream.xt.com/notice`
+
+---
+
+### 请求头
+
+WebSocket 连接必须包含压缩扩展协议请求头：
+
+```text
+Sec-Websocket-Extensions: permessage-deflate
+```
+
+---
+
+### 示例
+
+#### Python
+```python
+# 示例: 使用 websocket-client 进行连接
+from websocket import create_connection
+
+ws = create_connection(
+    "wss://stream.xt.com/notice",
+    header=["Sec-Websocket-Extensions: permessage-deflate"]
+)
+
+print("已连接至 XT WebSocket 服务器。")
+```
+
+#### 响应
+```json
+{
+  "event": "subscribe",
+  "channel": "notice",
+  "status": "success"
+}

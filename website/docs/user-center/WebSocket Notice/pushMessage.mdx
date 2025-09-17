@@ -1,0 +1,34 @@
+---
+id: PushMessageFormat
+title: Push Message Format
+sidebar_label: Push Message Format
+sidebar_position: 4
+---
+
+### Format
+```javascript
+{
+    "topic": "trade",
+    "event": "trade@btc_usdt",    // title
+    "data": { }
+}
+```
+
+---
+
+### Example of Transaction Record (Real-Time Push Message)
+```json
+{
+    "topic": "trade",
+    "event": "trade@btc_usdt",
+    "data": {
+        "s": "btc_usdt",           // symbol
+        "i": 6316559590087222000,  // tradeId
+        "t": 1655992403617,        // time
+        "oi": 6616559590087222666, // orderId
+        "p": "43000",              // price
+        "q": "0.21",               // quantity
+        "v": "9030",                // quoteQty
+        "b": true                   // whether is buyerMaker or not
+    }
+}

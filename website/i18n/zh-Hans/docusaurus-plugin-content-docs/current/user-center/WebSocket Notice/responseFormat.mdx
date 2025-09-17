@@ -1,0 +1,44 @@
+s下面是**可一键复制**的中文 MDX（仅使用 Docusaurus 安全文段：id、title、sidebar\_label、sidebar\_position）。
+
+```mdx
+---
+id: ResponseMessageFormatCN
+title: 响应消息格式
+sidebar_label: 响应消息格式
+sidebar_position: 3
+---
+
+**类型：** WEBSOCKET
+
+**描述：** WebSocket API 对请求进行确认或错误返回时的响应消息结构。
+
+### 参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 说明 | 取值范围 |
+| ---- | ---- | -------- | ------ | ---- | -------- |
+| id   | string | 否 | - | 回显客户端回调 ID，用于请求/响应关联。 | - |
+| code | integer | 是 | - | 结果码。`0` = 成功；非 `0` 为异常。 | 0=success；1=fail；2=listenKey invalid；401=token expire |
+| msg  | string | 否 | "" | 附加提示或错误信息。 | - |
+
+---
+
+### 响应格式
+
+~~~javascript title="format"
+{
+  "id": "{id}",   // 回调ID
+  "code": 1,       // 结果：0=success；1=fail；2=listenKey invalid
+  "msg": ""
+}
+~~~
+
+### 响应示例
+
+~~~json title="响应-成功"
+{"id":"123", "code": 0, "msg": "success"}
+~~~
+
+~~~json title="响应-令牌过期"
+{"id":"123", "code": 401, "msg": "token expire"}
+~~~
+```
