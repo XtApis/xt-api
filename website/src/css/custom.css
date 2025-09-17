@@ -9,9 +9,9 @@
 
 :root {
   /*
-  See css var + hsl color palette technique:
-  https://blog.maximeheckel.com/posts/the-power-of-composition-with-css-variables/
-   */
+   See css var + hsl color palette technique:
+ https://blog.maximeheckel.com/posts/the-power-of-composition-with-css-variables/
+    */
   --site-primary-hue-saturation: 167 68%;
   --site-primary-hue-saturation-light: 167 56%; /* do we really need this extra one? */
   --site-color-feedback-background: #f0f8ff;
@@ -29,9 +29,9 @@ html[data-theme='dark'] {
 }
 
 /*
- * This selector will be dynamically replaced by the color generator. Don't put
- * other properties here.
- */
+  * This selector will be dynamically replaced by the color generator. Don't put
+  * other properties here.
+  */
 [data-theme='light'] {
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
   --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 26%);
@@ -48,9 +48,9 @@ html[data-theme='dark'] {
 }
 
 /*
- * This selector will be dynamically replaced by the color generator. Don't put
- * other properties here.
- */
+  * This selector will be dynamically replaced by the color generator. Don't put
+  * other properties here.
+  */
 [data-theme='dark'] {
   --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 45%);
   --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 41%);
@@ -149,13 +149,13 @@ html[data-theme='dark'] {
   font-size: 20px;
 
   /*
-  --site-announcement-bar-stripe-color1: hsl(
-    var(--site-primary-hue-saturation) 85%
-  );
-  --site-announcement-bar-stripe-color2: hsl(
-    var(--site-primary-hue-saturation) 95%
-  );
-   */
+   --site-announcement-bar-stripe-color1: hsl(
+     var(--site-primary-hue-saturation) 85%
+   );
+   --site-announcement-bar-stripe-color2: hsl(
+     var(--site-primary-hue-saturation) 95%
+   );
+    */
   --site-announcement-bar-stripe-color1: #e8d7ff;
   --site-announcement-bar-stripe-color2: #ffe9d1;
 
@@ -578,17 +578,17 @@ body {
 
 /* Keep menu visible when hovering over it - 暂时注释掉以避免CSS特异性问题 */
 /* .dropdown__menu:hover {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-} */
+   display: block !important;
+   opacity: 1 !important;
+   visibility: visible !important;
+ } */
 
 /* Show menu on hover - 暂时注释掉以避免CSS特异性问题 */
 /* .dropdown--hoverable:hover .dropdown__menu {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-} */
+   display: block !important;
+   opacity: 1 !important;
+   visibility: visible !important;
+ } */
 
 /* Ensure all links inside are clickable */
 .dropdown__menu a,
@@ -599,19 +599,19 @@ body {
 
 /* 确保多语言下拉菜单保持原始宽度 - 暂时注释掉以避免CSS特异性问题 */
 /* .navbar__item--dropdown:has(.navbar__link[href*="locale"]) .dropdown__menu,
-.navbar__item--dropdown:has(.navbar__link[href*="language"]) .dropdown__menu,
-.navbar__item--dropdown:has(.navbar__link[href*="中文"]) .dropdown__menu,
-.navbar__item--dropdown:has(.navbar__link[href*="English"]) .dropdown__menu,
-.navbar__item--dropdown:has(.navbar__link[href*="日本語"]) .dropdown__menu,
-.navbar__item--dropdown:has(.navbar__link[href*="文A"]) .dropdown__menu {
-  width: auto !important;
-  max-width: none !important;
-  min-width: auto !important;
-  left: auto !important;
-  right: auto !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-} */
+ .navbar__item--dropdown:has(.navbar__link[href*="language"]) .dropdown__menu,
+ .navbar__item--dropdown:has(.navbar__link[href*="中文"]) .dropdown__menu,
+ .navbar__item--dropdown:has(.navbar__link[href*="English"]) .dropdown__menu,
+ .navbar__item--dropdown:has(.navbar__link[href*="日本語"]) .dropdown__menu,
+ .navbar__item--dropdown:has(.navbar__link[href*="文A"]) .dropdown__menu {
+   width: auto !important;
+   max-width: none !important;
+   min-width: auto !important;
+   left: auto !important;
+   right: auto !important;
+   margin-left: auto !important;
+   margin-right: auto !important;
+ } */
 
 /* 多语言下拉菜单悬停时显示 */
 .navbar__item--dropdown:has(.navbar__link[href*='locale']):hover
@@ -646,9 +646,38 @@ body {
   display: none !important;
 }
 
+/* 侧边栏文字大小调整 */
+.menu__link {
+  font-size: 13px !important; /* 调整侧边栏链接文字大小 */
+}
+
+.menu__link--sublist {
+  font-size: 13px !important; /* 调整可展开的侧边栏项目文字大小 */
+}
+
+.theme-doc-sidebar-item-category .menu__link {
+  font-size: 13px !important; /* 调整侧边栏分类标题文字大小 */
+  font-weight: 600 !important; /* 让分类标题更粗一些 */
+}
+
+.theme-doc-sidebar-item-link .menu__link {
+  font-size: 13px !important; /* 调整侧边栏文档链接文字大小 */
+}
+
+/* 移动端侧边栏文字大小 */
+@media (max-width: 996px) {
+  .navbar-sidebar .menu__link {
+    font-size: 16px !important; /* 移动端侧边栏文字稍大一些 */
+  }
+
+  .navbar-sidebar .theme-doc-sidebar-item-category .menu__link {
+    font-size: 17px !important;
+  }
+}
+
 /* 侧边栏分类标题翻译 */
 [data-locale='zh-Hans']
-  .categoryLinkLabel_O4bj[title='Access Description']::after {
+  .categoryLinkLabel_O4bj[title='AccessDescription']::after {
   content: '访问描述';
   margin-left: 8px;
 }
@@ -685,13 +714,13 @@ body {
 }
 
 [data-locale='zh-Hans']
-  .categoryLinkLabel_O4bj[title='WebSocket Private']::after {
+  .categoryLinkLabel_O4bj[title='WebSocket_Private']::after {
   content: 'WebSocket私有';
   margin-left: 8px;
 }
 
 [data-locale='zh-Hans']
-  .categoryLinkLabel_O4bj[title='WebSocket Public']::after {
+  .categoryLinkLabel_O4bj[title='WebSocket_Public']::after {
   content: 'WebSocket公开';
   margin-left: 8px;
 }
