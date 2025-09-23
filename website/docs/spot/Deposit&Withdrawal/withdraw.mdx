@@ -5,32 +5,41 @@ sidebar_label: Withdraw
 sidebar_position: 4
 ---
 
-**Type:** POST **Description:** `/v4/withdraw`
+### Description
+
+**POST** `/v4/withdraw`
+
+---
+
+### Note
+
+- The parameters are placed in the **body** in JSON format.
+
+---
+
+### Limit Rule
+
+- 1/s/apikey
+
+---
 
 ### Parameters
 
-> 📌 Note: The parameters are placed in the **request body** in JSON format.
-
-| name | type | mandatory | default | description | ranges |
+| Name | Type | Mandatory | Default | Description | Ranges |
 | --- | --- | --- | --- | --- | --- |
-| currency | string | true | N/A | Currency name, from **Get supported currencies for deposit/withdrawal** API |  |
-| chain | string | false | N/A | Transfer network name, from **Get supported currencies for deposit/withdrawal** API |  |
-| clientOrderId | string | false | N/A | Custom client ID, regex: `^[a-zA-Z0-9_]{4,32}$` |  |
-| amount | number | true | N/A | Withdrawal amount (including fee) |  |
-| address | string | false | N/A | Withdrawal address |  |
-| memo | string | false | N/A | Memo/Tag (required for some chains such as EOS) |  |
-| toAccountId | number | false | N/A | Receiving user ID |  |
+| currency | string | Yes | — | Currency name, obtained from `Get supported currencies for deposit/withdraw` |  |
+| chain | string | No | — | Transfer network, obtained from `Get supported currencies for deposit/withdraw` |  |
+| clientOrderId | string | No | — | Custom Client ID, RegEx: `^[a-zA-Z0-9_]{4,32}$` |  |
+| amount | number | Yes | — | Withdrawal amount, including fees |  |
+| address | string | No | — | Withdrawal address |  |
+| memo | string | No | — | Memo, required for EOS-like chains |  |
+| toAccountId | number | No | — | Receiving user ID |  |
 
-### Notes
-
-- Parameters must be placed in the body as JSON.
-- Limit flow rules: **1 request/second per apikey**.
-- For EOS-like chains, `memo` must be provided.
-- The returned `id` can be used to query withdrawal history later.
+---
 
 ### Request Example
 
-```json title="Request"
+```json
 {
   "currency": "zb",
   "chain": "Ethereum",

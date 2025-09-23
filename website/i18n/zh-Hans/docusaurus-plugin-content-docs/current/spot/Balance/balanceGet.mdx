@@ -1,40 +1,38 @@
 ---
-id: GetSingleCurrencyBalance
-title: 获取单个币种余额
-sidebar_label: 获取单个币种余额
+id: GetSingleCurrencyAsset
+title: 获取单一币种资产
+sidebar_label: 获取单一币种资产
 sidebar_position: 2
 ---
 
-**类型：** GET
+### 描述
+**GET** `/v4/balance`
 
-**描述：** `/v4/balance`
+---
 
-### 参数
+### 请求参数
 
-| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 范围 |
-| --- | --- | --- | --- | --- | --- |
-| currency | string | true | N/A | 币种名称（例如：usdt、btc） |  |
+| 参数名     | 类型   | 必填 | 默认值 | 描述   | 取值范围 |
+|------------|--------|------|--------|--------|----------|
+| currency   | string | 是   | N/A    | 币种，例如：usdt |  |
 
-### 注意事项
+---
 
-限流规则：**3次/秒/用户**
+### 返回示例
 
-此接口用于获取现货账户中特定币种的余额信息。
-
-### 响应示例
-
-```json title="Response"
+```json
 {
   "rc": 0,
   "mc": "string",
-  "ma": [{}],
+  "ma": [
+    {}
+  ],
   "result": {
-    "currency": "usdt",
-    "currencyId": 11,
-    "frozenAmount": 0,
-    "availableAmount": 1000.5,
-    "totalAmount": 1000.5,
-    "convertBtcAmount": 0.03
+    "currency": "usdt",          // 币种
+    "currencyId": 0,             // 币种ID
+    "frozenAmount": 0,           // 冻结数量
+    "availableAmount": 0,        // 可用数量
+    "totalAmount": 0,            // 总数量
+    "convertBtcAmount": 0        // 折合BTC数量
   }
 }
-```

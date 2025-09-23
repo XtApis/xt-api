@@ -5,32 +5,38 @@ sidebar_label: 提币
 sidebar_position: 4
 ---
 
-**类型:** POST **描述:** `/v4/withdraw`
+### 接口说明
+**POST** `/v4/withdraw`
 
-### 参数
-
-> 📌 注意：参数需以 JSON 格式放置在**请求体**中。
-
-| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
-| --- | --- | --- | --- | --- | --- |
-| currency | string | 是 | N/A | 币种名称，来自**获取充提币支持币种**接口 |  |
-| chain | string | 否 | N/A | 转账网络名称，来自**获取充提币支持币种**接口 |  |
-| clientOrderId | string | 否 | N/A | 自定义客户端ID，正则表达式：`^[a-zA-Z0-9_]{4,32}$` |  |
-| amount | number | 是 | N/A | 提币数量（包含手续费） |  |
-| address | string | 否 | N/A | 提币地址 |  |
-| memo | string | 否 | N/A | Memo/Tag（某些链如EOS必需） |  |
-| toAccountId | number | 否 | N/A | 接收用户ID |  |
+---
 
 ### 注意事项
+- 参数需以 **JSON** 格式放在 **body** 中。
 
-- 参数必须以 JSON 格式放置在请求体中。
-- 限流规则：**每个apikey每秒1次请求**。
-- 对于类EOS链，必须提供 `memo`。
-- 返回的 `id` 可用于后续查询提币历史。
+---
+
+### 限流规则
+- 1次/秒/apikey
+
+---
+
+### 请求参数
+
+| 参数名        | 类型   | 是否必填 | 默认值 | 描述                                                                 | 取值范围 |
+|---------------|--------|----------|--------|----------------------------------------------------------------------|----------|
+| currency      | string | 是       | —      | 币种名称，可通过 `获取支持充提的币种信息` 接口获取                     |          |
+| chain         | string | 否       | —      | 转账网络，可通过 `获取支持充提的币种信息` 接口获取                     |          |
+| clientOrderId | string | 否       | —      | 自定义订单号，正则：`^[a-zA-Z0-9_]{4,32}$`                           |          |
+| amount        | number | 是       | —      | 提币数量（包含手续费）                                               |          |
+| address       | string | 否       | —      | 提币地址                                                             |          |
+| memo          | string | 否       | —      | 备注，部分链（如 EOS）必须填写                                        |          |
+| toAccountId   | number | 否       | —      | 接收用户 ID                                                          |          |
+
+---
 
 ### 请求示例
 
-```json title="请求"
+```json
 {
   "currency": "zb",
   "chain": "Ethereum",
@@ -38,4 +44,3 @@ sidebar_position: 4
   "address": "0xfa3abfa50eb2006f5be7831658b17aca240d8526",
   "memo": ""
 }
-```

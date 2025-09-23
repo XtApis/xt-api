@@ -1,27 +1,33 @@
 ---
-id: GetCurrencyAssetsList
+id: GetBalances
 title: Get a list of currency assets
 sidebar_label: Get a list of currency assets
 sidebar_position: 3
 ---
 
-**Type:** GET
+### Description
 
-**Description:** `/v4/balances`
+**GET** `/v4/balances`
+
+---
+
+### Limit Rule
+
+- 10 requests/second/apikey
+
+---
 
 ### Parameters
 
-| name | type | mandatory | default | description | ranges |
+| Name | Type | Mandatory | Default | Description | Ranges |
 | --- | --- | --- | --- | --- | --- |
-| currencies | string | false | N/A | List of currencies, comma separated (e.g. usdt,btc) |  |
+| currencies | string | No | N/A | List of currencies, comma separated, e.g. `usdt,btc` |  |
 
-### Notes
-
-Limit flow rules: **10/s/apikey**
+---
 
 ### Response Example
 
-```json title="Response"
+```json
 {
   "rc": 0,
   "mc": "string",
@@ -30,12 +36,12 @@ Limit flow rules: **10/s/apikey**
     "totalBtcAmount": 0,
     "assets": [
       {
-        "currency": "string",
-        "currencyId": 0,
-        "frozenAmount": 0,
-        "availableAmount": 0,
-        "totalAmount": 0,
-        "convertBtcAmount": 0
+        "currency": "string", // currency
+        "currencyId": 0, // currency ID
+        "frozenAmount": 0, // frozen amount
+        "availableAmount": 0, // available amount
+        "totalAmount": 0, // total amount
+        "convertBtcAmount": 0 // converted BTC amount
       }
     ]
   }

@@ -930,7 +930,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Futures WebSocket APIs">Futures WebSocket APIs</div>
                         </a>
 
-                        <a href="/docs/margin-spot/Balance/GetMarginAccount"
+                        <a href="/docs/margin-spot/Balance/GetBalanceBySymbolt"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -981,7 +981,7 @@ export default async function createConfigAsync(): Promise<Config> {
         { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket Private/RequestMessageFormat' },
         { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' },
         { title: 'Futures WebSocket', titleZh: '期货 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '期货 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' },
-        { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetMarginAccount' },
+        { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetBalanceBySymbol' },
         { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
       ]
     },
@@ -1028,7 +1028,7 @@ export default async function createConfigAsync(): Promise<Config> {
       descZh: '杠杆交易和杠杆 API',
       products: [
         { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetMarginAccount' }
+        { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: ''/docs/margin-spot/Balance/GetBalanceBySymbol'  }
       ]
     },
     'copyTrading': {

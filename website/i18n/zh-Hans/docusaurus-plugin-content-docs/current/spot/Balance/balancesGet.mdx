@@ -1,27 +1,31 @@
 ---
-id: GetCurrencyAssetsList
+id: GetBalances
 title: 获取币种资产列表
 sidebar_label: 获取币种资产列表
 sidebar_position: 3
 ---
 
-**类型：** GET
+### 描述
+**GET** `/v4/balances`
 
-**描述：** `/v4/balances`
+---
 
-### 参数
+### 限流规则
+- 10次/秒/apikey
 
-| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 范围 |
-| --- | --- | --- | --- | --- | --- |
-| currencies | string | false | N/A | 币种列表，逗号分隔（例如：usdt,btc） |  |
+---
 
-### 注意事项
+### 请求参数
 
-限流规则：**10次/秒/API密钥**
+| 参数名      | 类型   | 是否必填 | 默认值 | 描述                               | 取值范围 |
+|-------------|--------|----------|--------|------------------------------------|----------|
+| currencies  | string | 否       | N/A    | 币种列表，逗号分隔，例如：usdt,btc |          |
 
-### 响应示例
+---
 
-```json title="Response"
+### 返回示例
+
+```json
 {
   "rc": 0,
   "mc": "string",
@@ -30,14 +34,13 @@ sidebar_position: 3
     "totalBtcAmount": 0,
     "assets": [
       {
-        "currency": "string",
-        "currencyId": 0,
-        "frozenAmount": 0,
-        "availableAmount": 0,
-        "totalAmount": 0,
-        "convertBtcAmount": 0
+        "currency": "string",        // 币种
+        "currencyId": 0,             // 币种ID
+        "frozenAmount": 0,           // 冻结数量
+        "availableAmount": 0,        // 可用数量
+        "totalAmount": 0,            // 总数量
+        "convertBtcAmount": 0        // 折算BTC数量
       }
     ]
   }
 }
-```

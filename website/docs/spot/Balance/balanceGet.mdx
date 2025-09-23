@@ -1,32 +1,56 @@
 ---
-id: FrequencyLimitingRules
-title: Frequency Limiting Rules
-sidebar_label: Frequency Limiting Rules
-sidebar_position: 3
+id: GetSingleCurrencyAsset
+title: Get a single currency asset
+sidebar_label: Get a single currency asset
+sidebar_position: 2
 ---
 
-**Type:** GET
+### Description
 
-**Description:** Frequency limiting rules for API requests.
+**GET** `/v4/balance`
 
-### Rules
+---
 
-- Get assets: **3 times per second per user**
-- Other methods: **10 times per second per user**
-- Limit: **1000 times per minute per IP**
+### Parameters
 
-If the request frequency exceeds the limit, the account will be **locked for 10 minutes**.
+| Name     | Type   | Mandatory | Default | Description   | Ranges |
+| -------- | ------ | --------- | ------- | ------------- | ------ |
+| currency | string | Yes       | N/A     | Example: usdt | -      |
+
+---
+
+### Code Example
+
+#### Java
+
+```java
+public String getBalance(){
+    // Your request logic here
+}
+```
+
+#### Python
+
+```python
+# Your request logic here
+```
+
+---
 
 ### Response Example
 
-```json title="Response"
+```json
 {
-  "rc": 429,
-  "mc": "Too Many Requests",
-  "ma": [],
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
   "result": {
-    "locked": true,
-    "lockDuration": "10m"
+    "currency": "usdt",
+    "currencyId": 0,
+    "frozenAmount": 0,
+    "availableAmount": 0,
+    "totalAmount": 0,
+    "convertBtcAmount": 0
   }
 }
 ```

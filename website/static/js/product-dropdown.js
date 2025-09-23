@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
           description: 'Index APIs',
           href: '/docs/index_overview/overview',
         },
-       // {
+        // {
         //  title: 'API Resources and Support',
         //  description: 'API Resources and Support',
         //  href: '/docs/index_overview/index_overview_resource',
-       // },
+        // },
       ],
     },
     spot: {
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Python Package',
           description: 'Python Package APIs',
-          href: '/docs/futures/PythonPackage/PythonPackage',
+          href: '/docs/futures/PythonPackage/Python Package',
         },
         {
           title: 'Quote Collection',
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Balance',
           description: 'Balance APIs',
-          href: '/docs/margin-spot/Balance/GetBalance',
+          href: '/docs/margin-spot/Balance/GetBalanceBySymbol',
         },
         {
           title: 'Market',
@@ -583,7 +583,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Python Package',
           description: 'Python Package APIs',
-          href: '/docs/futures/PythonPackage/PythonPackage',
+          href: '/docs/futures/PythonPackage/Python Package',
         },
         {
           title: 'Quote Collection',
@@ -614,7 +614,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Balance',
           description: 'Balance APIs',
-          href: '/docs/margin-spot/Balance/GetBalance',
+          href: '/docs/margin-spot/Balance/GetBalanceBySymbol',
         },
         {
           title: 'Market',
