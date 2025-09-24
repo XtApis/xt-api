@@ -201,6 +201,10 @@ export default async function createConfigAsync(): Promise<Config> {
         src: '/js/product-dropdown.js',
         async: true,
       },
+      {
+        src: '/js/product-dropdown-i18n.js',
+        async: true,
+      },
     ],
     i18n: {
       defaultLocale: 'en',
@@ -957,7 +961,8 @@ export default async function createConfigAsync(): Promise<Config> {
                   </div>
                 </div>
 
-<script>
+<!-- script moved to static file: /js/product-dropdown-i18n.js -->
+<!--
   // 产品分类数据
   const categoryData = {
     'AllProducts': {
@@ -1402,8 +1407,8 @@ export default async function createConfigAsync(): Promise<Config> {
       setTimeout(updateDropdownTranslations, 50);
     }
   });
-</script>
 
+-->
 
               `,
               },

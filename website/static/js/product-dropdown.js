@@ -326,15 +326,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (productsContent) {
       productsContent.innerHTML = categoryData.products
-        .map(
-          (product) => `
+        .map((product) => {
+          const titleKey = (product.title || '').replace(/&/g, '&amp;');
+          const descKey = (product.description || '').replace(/&/g, '&amp;');
+          return `
         <a href="${product.href}" class="product-item">
-          <div class="product-title">${product.title}</div>
-          <div class="product-description">${product.description}</div>
+          <div class="product-title" data-i18n="item.label.${titleKey}">${product.title}</div>
+          <div class="product-description" data-i18n="item.label.${descKey}">${product.description}</div>
         </a>
-      `,
-        )
+      `;
+        })
         .join('');
+      if (window.updateProductDropdownTranslations) {
+        setTimeout(window.updateProductDropdownTranslations, 50);
+      }
     }
   }
 
@@ -797,23 +802,47 @@ window.showCategory = function showCategory(category) {
   const productsGrid = document.getElementById('productsGrid');
 
   if (categoryTitle) {
-    categoryTitle.textContent = categoryData.title;
+    // Map internal category keys to i18n label keys
+    const labelMap = {
+      AllProducts: 'All Products',
+      Index: 'Index',
+      spot: 'Spot Trading',
+      futures: 'Futures Trading',
+      marginSpot: 'Margin Trading',
+      copyTrading: 'Copy Trading',
+      futuresCopy: 'Futures Copy',
+      tradingThirdParty: 'Trading Third Party',
+      userCenter: 'User Center',
+    };
+    const titleLabel = labelMap[category] || categoryData.title || '';
+    const titleKey = titleLabel.replace(/&/g, '&amp;');
+    categoryTitle.setAttribute('data-i18n', `item.label.${titleKey}`);
+    categoryTitle.textContent = titleLabel;
   }
-  if (categoryDesc) {
+  if (categoryDesc && categoryData.description) {
     categoryDesc.textContent = categoryData.description;
+  }
+
+  if (window.updateProductDropdownTranslations) {
+    setTimeout(window.updateProductDropdownTranslations, 50);
   }
 
   if (productsGrid) {
     productsGrid.innerHTML = categoryData.products
-      .map(
-        (product) => `
+      .map((product) => {
+        const titleKey = (product.title || '').replace(/&/g, '&amp;');
+        const descKey = (product.description || '').replace(/&/g, '&amp;');
+        return `
       <a href="${product.href}" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7';" onmouseout="this.style.opacity='1';">
-        <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">${product.title}</div>
-        <div style="font-size: 12px; color: #6b7280;">${product.description}</div>
+        <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.${titleKey}">${product.title}</div>
+        <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.${descKey}">${product.description}</div>
       </a>
-    `,
-      )
+    `;
+      })
       .join('');
+    if (window.updateProductDropdownTranslations) {
+      setTimeout(window.updateProductDropdownTranslations, 50);
+    }
   }
 
   // Update button states - try both selectors
