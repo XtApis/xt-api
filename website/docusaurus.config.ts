@@ -1611,7 +1611,7 @@ export default async function createConfigAsync(): Promise<Config> {
           },
 
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/XtApis/api',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
