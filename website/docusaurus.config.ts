@@ -665,8 +665,8 @@ export default async function createConfigAsync(): Promise<Config> {
         title: '',
         logo: {
           alt: '',
-          src: 'img/xtlogo.png',
-          srcDark: 'img/xtlogo.png',
+          src: 'img/xtlogo.png?v=2',
+          srcDark: 'img/xtlogo.png?v=2',
           width: 85,
           height: 36,
         },
@@ -1019,8 +1019,14 @@ export default async function createConfigAsync(): Promise<Config> {
       desc: 'Futures trading APIs and derivatives',
       descZh: '期货交易 API 和衍生品',
       products: [
-        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Futures WebSocket', titleZh: '期货 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '期货 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' }
+        { title: 'Access Description', titleZh: '访问描述', subtitle: 'Access Description APIs', subtitleZh: '访问描述 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Entrust', titleZh: '委托', subtitle: 'Entrust APIs', subtitleZh: '委托 API', href: '/docs/futures/Entrust/CreateTriggerOrders' },
+        { title: 'Market Data', titleZh: '市场数据', subtitle: 'Market Data APIs', subtitleZh: '市场数据 API', href: '/docs/futures/Market Data/get-client-ip' },
+        { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/futures/Order/create-orders' },
+        { title: 'Python Package', titleZh: 'Python 包', subtitle: 'Python Package APIs', subtitleZh: 'Python 包 API', href: '/docs/futures/Python Package/PythonPackage' },
+        { title: 'Quote Collection', titleZh: '行情收集', subtitle: 'Quote Collection APIs', subtitleZh: '行情收集 API', href: '/docs/futures/Quote collection/GetDepthInfo' },
+        { title: 'User', titleZh: '用户', subtitle: 'User APIs', subtitleZh: '用户 API', href: '/docs/futures/User/GetUserInfo' },
+        { title: 'WebSocket V2', titleZh: 'WebSocket V2', subtitle: 'WebSocket V2 APIs', subtitleZh: 'WebSocket V2 API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' }
       ]
     },
     'marginSpot': {
@@ -1113,19 +1119,28 @@ export default async function createConfigAsync(): Promise<Config> {
 
         console.log('�� Product:', product.title, '->', title, '|', product.subtitle, '->', subtitle);
 
+        // 转义特殊字符用于 data-i18n 属性
+        const titleKey = product.title.replace(/&/g, '&amp;');
+        const subtitleKey = product.subtitle.replace(/&/g, '&amp;');
+        
         html += \`
           <a href="\${product.href}"
              style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
              onmouseover="this.style.opacity='0.7';"
              onmouseout="this.style.opacity='1';">
-            <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;">\${title}</div>
-            <div style="font-size: 12px; color: #6b7280;">\${subtitle}</div>
+            <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.\${titleKey}">\${title}</div>
+            <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.\${subtitleKey}">\${subtitle}</div>
           </a>
         \`;
       });
 
       productsGrid.innerHTML = html;
       console.log('✅ Updated products grid with', category.products.length, 'products');
+      
+      // 立即更新翻译
+      setTimeout(() => {
+        updateDropdownTranslations();
+      }, 50);
     }
 
     // 更新左侧选中状态
@@ -1162,6 +1177,7 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.User Center': 'User Center',
         'item.label.Balance': 'Balance',
         'item.label.Deposit&Withdrawal': 'Deposit&Withdrawal',
+        'item.label.Deposit&amp;Withdrawal': 'Deposit&Withdrawal',
         'item.label.Market': 'Market',
         'item.label.Order': 'Order',
         'item.label.Trade': 'Trade',
@@ -1169,6 +1185,13 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.WebSocket Private': 'WebSocket Private',
         'item.label.WebSocket Public': 'WebSocket Public',
         'item.label.Futures WebSocket': 'Futures WebSocket',
+        'item.label.Access Description': 'Access Description',
+        'item.label.Entrust': 'Entrust',
+        'item.label.Market Data': 'Market Data',
+        'item.label.Python Package': 'Python Package',
+        'item.label.Quote Collection': 'Quote Collection',
+        'item.label.User': 'User',
+        'item.label.WebSocket V2': 'WebSocket V2',
         'item.label.Margin Balance': 'Margin Balance',
         'item.label.Copy Account': 'Copy Account',
         'item.label.Index APIs': 'Index APIs',
@@ -1181,6 +1204,7 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.User Center API': 'User Center API',
         'item.label.Balance APIs': 'Balance APIs',
         'item.label.Deposit&Withdrawal APIs': 'Deposit&Withdrawal APIs',
+        'item.label.Deposit&amp;Withdrawal APIs': 'Deposit&Withdrawal APIs',
         'item.label.Market APIs': 'Market APIs',
         'item.label.Order APIs': 'Order APIs',
         'item.label.Trade APIs': 'Trade APIs',
@@ -1188,6 +1212,13 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.WebSocket Private APIs': 'WebSocket Private APIs',
         'item.label.WebSocket Public APIs': 'WebSocket Public APIs',
         'item.label.Futures WebSocket APIs': 'Futures WebSocket APIs',
+        'item.label.Access Description APIs': 'Access Description APIs',
+        'item.label.Entrust APIs': 'Entrust APIs',
+        'item.label.Market Data APIs': 'Market Data APIs',
+        'item.label.Python Package APIs': 'Python Package APIs',
+        'item.label.Quote Collection APIs': 'Quote Collection APIs',
+        'item.label.User APIs': 'User APIs',
+        'item.label.WebSocket V2 APIs': 'WebSocket V2 APIs',
         'item.label.Margin Balance APIs': 'Margin Balance APIs',
         'item.label.Copy Account APIs': 'Copy Account APIs',
         'item.label.Comprehensive API solutions for all your trading needs': 'Comprehensive API solutions for all your trading needs'
@@ -1204,6 +1235,7 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.User Center': '用户中心',
         'item.label.Balance': '余额',
         'item.label.Deposit&Withdrawal': '充提',
+        'item.label.Deposit&amp;Withdrawal': '充提',
         'item.label.Market': '市场',
         'item.label.Order': '订单',
         'item.label.Trade': '交易',
@@ -1211,6 +1243,13 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.WebSocket Private': 'WebSocket 私有',
         'item.label.WebSocket Public': 'WebSocket 公共',
         'item.label.Futures WebSocket': '期货 WebSocket',
+        'item.label.Access Description': '访问描述',
+        'item.label.Entrust': '委托',
+        'item.label.Market Data': '市场数据',
+        'item.label.Python Package': 'Python 包',
+        'item.label.Quote Collection': '行情收集',
+        'item.label.User': '用户',
+        'item.label.WebSocket V2': 'WebSocket V2',
         'item.label.Margin Balance': '杠杆余额',
         'item.label.Copy Account': '跟单账户',
         'item.label.Index APIs': '指数 API',
@@ -1223,6 +1262,7 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.User Center API': '用户中心 API',
         'item.label.Balance APIs': '余额 API',
         'item.label.Deposit&Withdrawal APIs': '充提 API',
+        'item.label.Deposit&amp;Withdrawal APIs': '充提 API',
         'item.label.Market APIs': '市场 API',
         'item.label.Order APIs': '订单 API',
         'item.label.Trade APIs': '交易 API',
@@ -1230,6 +1270,13 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.WebSocket Private APIs': 'WebSocket 私有 API',
         'item.label.WebSocket Public APIs': 'WebSocket 公共 API',
         'item.label.Futures WebSocket APIs': '期货 WebSocket API',
+        'item.label.Access Description APIs': '访问描述 API',
+        'item.label.Entrust APIs': '委托 API',
+        'item.label.Market Data APIs': '市场数据 API',
+        'item.label.Python Package APIs': 'Python 包 API',
+        'item.label.Quote Collection APIs': '行情收集 API',
+        'item.label.User APIs': '用户 API',
+        'item.label.WebSocket V2 APIs': 'WebSocket V2 API',
         'item.label.Margin Balance APIs': '杠杆余额 API',
         'item.label.Copy Account APIs': '跟单账户 API',
         'item.label.Comprehensive API solutions for all your trading needs': '为您的所有交易需求提供全面的 API 解决方案'
