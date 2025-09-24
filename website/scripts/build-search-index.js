@@ -4,7 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-/* eslint-disable no-restricted-properties */
+ 
 /* eslint-disable regexp/no-super-linear-backtracking */
 /* eslint-disable prefer-named-capture-group */
 const fs = require('fs');
@@ -20,7 +20,7 @@ function extractTypeAndCategory(filePath) {
   const pathParts = filePath.split('/');
 
   if (pathParts.includes('futures')) {
-    return {type: 'futures', category: '期货交易'};
+    return {type: 'futures', category: '合约交易'};
   } else if (pathParts.includes('spot')) {
     return {type: 'spot', category: '现货交易'};
   } else if (pathParts.includes('copy-trading')) {
@@ -115,7 +115,9 @@ function processDocument(filePath) {
       const paragraphMatch = markdownContent.match(/\n\n([^#\n][^\n]{20,200})/);
       if (paragraphMatch) {
         description = paragraphMatch[1].trim().substring(0, 150);
-        if (description.length === 150) {description += '...';}
+        if (description.length === 150) {
+          description += '...';
+        }
       }
     }
 

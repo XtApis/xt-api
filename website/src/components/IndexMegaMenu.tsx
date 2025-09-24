@@ -26,7 +26,6 @@ function IndexMegaMenu(): JSX.Element {
   }, []);
 
   const categories = [
-
     {
       key: 'spot',
       label: 'Spot',
@@ -40,7 +39,7 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Access Description APIs',
         },
         {
-          href: '/docs/spot/Balance/GetCurrencyInfo',
+          href: '/docs/spot/Balance/GetCurrencies',
           label: 'Balance',
           description: 'Balance APIs',
         },
@@ -114,17 +113,17 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Python Package APIs',
         },
         {
-          href: '/docs/futures/Quote collection/GetDepthInfo',
+          href: '/docs/futures/Quote collection/get-futures-info',
           label: 'Quote Collection',
           description: 'Quote Collection APIs',
         },
         {
-          href: '/docs/futures/User/GetUserInfo',
+          href: '/docs/futures/User/Get symbol list',
           label: 'User',
           description: 'User APIs',
         },
         {
-          href: '/docs/futures/WEBSOCKET(V2)/Request message format',
+          href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information',
           label: 'WebSocket V2',
           description: 'WebSocket V2 APIs',
         },
@@ -148,7 +147,7 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Balance APIs',
         },
         {
-          href: '/docs/margin-spot/Market/GetServerTime',
+          href: '/docs/margin-spot/Market/GetSymbolList',
           label: 'Market',
           description: 'Market APIs',
         },
@@ -167,7 +166,7 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Access Description APIs',
         },
         {
-          href: '/docs/copy-trading/Copy tradeing/ChooseLeader',
+          href: '/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder',
           label: 'Copy Trading',
           description: 'Copy Trading APIs',
         },
@@ -210,17 +209,17 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Access Description APIs',
         },
         {
-          href: '/docs/trading-third-party/Balance/GetBalance',
+          href: '/docs/trading-third-party/Balance/GetSingleCurrencyAsset',
           label: 'Balance',
           description: 'Balance APIs',
         },
         {
-          href: '/docs/trading-third-party/OAuth Interface/OAuth',
+          href: '/docs/trading-third-party/OAuth Interface/ApplyToken',
           label: 'OAuth Interface',
           description: 'OAuth Interface APIs',
         },
         {
-          href: '/docs/trading-third-party/Order/CreateOrder',
+          href: '/docs/trading-third-party/Order/GetSingleOrder',
           label: 'Order',
           description: 'Order APIs',
         },
@@ -230,7 +229,7 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Trade APIs',
         },
         {
-          href: '/docs/trading-third-party/User Registration/User_Registration',
+          href: '/docs/trading-third-party/User Registration/UserRegistration',
           label: 'User Registration',
           description: 'User Registration APIs',
         },
@@ -249,17 +248,17 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Access Description APIs',
         },
         {
-          href: '/docs/user-center/Account/GetAccountInfo',
+          href: '/docs/user-center/Account/QueryAccountList',
           label: 'Account',
           description: 'Account APIs',
         },
         {
-          href: '/docs/user-center/ApiKey/CreateApiKey',
+          href: '/docs/user-center/ApiKey/QueryUserApiKey',
           label: 'ApiKey',
           description: 'ApiKey APIs',
         },
         {
-          href: '/docs/user-center/Referral Commission/GetReferralInfo',
+          href: '/docs/user-center/Referral Commission/GetAllUsersOfAffiliate',
           label: 'Referral Commission',
           description: 'Referral Commission APIs',
         },

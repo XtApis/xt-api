@@ -12,7 +12,7 @@
     "message": "现货交易"
   },
   "item.label.Futures Trading": {
-    "message": "期货交易"
+    "message": "合约交易"
   },
   "item.label.Margin Trading": {
     "message": "杠杆交易"
@@ -21,7 +21,7 @@
     "message": "跟单交易"
   },
   "item.label.Futures Copy": {
-    "message": "期货跟单"
+    "message": "合约跟单"
   },
   "item.label.Trading Third Party": {
     "message": "第三方交易"
@@ -54,7 +54,7 @@
     "message": "WebSocket 公共"
   },
   "item.label.Futures WebSocket": {
-    "message": "期货 WebSocket"
+    "message": "合约 WebSocket"
   },
   "item.label.Margin Balance": {
     "message": "杠杆余额"
@@ -82,7 +82,7 @@
     "message": "现货交易 API"
   },
   "item.label.Futures Trading APIs": {
-    "message": "期货交易 API"
+    "message": "合约交易 API"
   },
   "item.label.Margin Trading APIs": {
     "message": "杠杆交易 API"
@@ -91,7 +91,7 @@
     "message": "跟单交易 API"
   },
   "item.label.Futures Copy API": {
-    "message": "期货跟单 API"
+    "message": "合约跟单 API"
   },
   "item.label.Trading Third Party API": {
     "message": "第三方交易 API"

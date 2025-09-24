@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Balance',
           description: 'Balance APIs',
-          href: '/docs/spot/Balance/GetCurrencyInfo',
+          href: '/docs/spot/Balance/GetCurrencies',
         },
         {
           title: 'Deposit&Withdrawal',
@@ -107,17 +107,17 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Quote Collection',
           description: 'Quote Collection APIs',
-          href: '/docs/futures/Quote collection/GetDepthInfo',
+          href: '/docs/futures/Quote collection/get-futures-info',
         },
         {
           title: 'User',
           description: 'User APIs',
-          href: '/docs/futures/User/GetUserInfo',
+          href: '/docs/futures/User/Get symbol list',
         },
         {
           title: 'WebSocket V2',
           description: 'WebSocket V2 APIs',
-          href: '/docs/futures/WEBSOCKET(V2)/Request message format',
+          href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information',
         },
       ],
     },
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Market',
           description: 'Market APIs',
-          href: '/docs/margin-spot/Market/GetServerTime',
+          href: '/docs/margin-spot/Market/GetSymbolList',
         },
       ],
     },
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Copy Trading',
           description: 'Copy Trading APIs',
-          href: '/docs/copy-trading/Copy tradeing/ChooseLeader',
+          href: '/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder',
         },
       ],
     },
@@ -191,17 +191,17 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Balance',
           description: 'Balance APIs',
-          href: '/docs/trading-third-party/Balance/GetBalance',
+          href: '/docs/trading-third-party/Balance/GetSingleCurrencyAsset',
         },
         {
           title: 'OAuth Interface',
           description: 'OAuth Interface APIs',
-          href: '/docs/trading-third-party/OAuth Interface/OAuth',
+          href: '/docs/trading-third-party/OAuth Interface/ApplyToken',
         },
         {
           title: 'Order',
           description: 'Order APIs',
-          href: '/docs/trading-third-party/Order/CreateOrder',
+          href: '/docs/trading-third-party/Order/GetSingleOrder',
         },
         {
           title: 'Trade',
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'User Registration',
           description: 'User Registration APIs',
-          href: '/docs/trading-third-party/User Registration/User_Registration',
+          href: '/docs/trading-third-party/User Registration/UserRegistration',
         },
       ],
     },
@@ -227,17 +227,17 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'Account',
           description: 'Account APIs',
-          href: '/docs/user-center/Account/GetAccountInfo',
+          href: '/docs/user-center/Account/QueryAccountList',
         },
         {
           title: 'ApiKey',
           description: 'ApiKey APIs',
-          href: '/docs/user-center/ApiKey/CreateApiKey',
+          href: '/docs/user-center/ApiKey/QueryUserApiKey',
         },
         {
           title: 'Referral Commission',
           description: 'Referral Commission APIs',
-          href: '/docs/user-center/Referral Commission/GetReferralInfo',
+          href: '/docs/user-center/Referral Commission/GetAllUsersOfAffiliate',
         },
       ],
     },
@@ -517,7 +517,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Balance',
           description: 'Balance APIs',
-          href: '/docs/spot/Balance/GetCurrencyInfo',
+          href: '/docs/spot/Balance/GetCurrencies',
         },
         {
           title: 'Deposit&Withdrawal',
@@ -588,17 +588,17 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Quote Collection',
           description: 'Quote Collection APIs',
-          href: '/docs/futures/Quote collection/GetDepthInfo',
+          href: '/docs/futures/Quote collection/get-futures-info',
         },
         {
           title: 'User',
           description: 'User APIs',
-          href: '/docs/futures/User/GetUserInfo',
+          href: '/docs/futures/User/Get symbol list',
         },
         {
           title: 'WebSocket V2',
           description: 'WebSocket V2 APIs',
-          href: '/docs/futures/WEBSOCKET(V2)/Request message format',
+          href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information',
         },
       ],
     },
@@ -619,7 +619,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Market',
           description: 'Market APIs',
-          href: '/docs/margin-spot/Market/GetServerTime',
+          href: '/docs/margin-spot/Market/GetSymbolList',
         },
       ],
     },
@@ -635,7 +635,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Copy Trading',
           description: 'Copy Trading APIs',
-          href: '/docs/copy-trading/Copy tradeing/ChooseLeader',
+          href: '/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder',
         },
       ],
     },
@@ -672,17 +672,17 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Balance',
           description: 'Balance APIs',
-          href: '/docs/trading-third-party/Balance/GetBalance',
+          href: '/docs/trading-third-party/Balance/GetSingleCurrencyAsset',
         },
         {
           title: 'OAuth Interface',
           description: 'OAuth Interface APIs',
-          href: '/docs/trading-third-party/OAuth Interface/OAuth',
+          href: '/docs/trading-third-party/OAuth Interface/ApplyToken',
         },
         {
           title: 'Order',
           description: 'Order APIs',
-          href: '/docs/trading-third-party/Order/CreateOrder',
+          href: '/docs/trading-third-party/Order/GetSingleOrder',
         },
         {
           title: 'Trade',
@@ -692,7 +692,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'User Registration',
           description: 'User Registration APIs',
-          href: '/docs/trading-third-party/User Registration/User_Registration',
+          href: '/docs/trading-third-party/User Registration/UserRegistration',
         },
       ],
     },
@@ -708,17 +708,17 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Account',
           description: 'Account APIs',
-          href: '/docs/user-center/Account/GetAccountInfo',
+          href: '/docs/user-center/Account/QueryAccountList',
         },
         {
           title: 'ApiKey',
           description: 'ApiKey APIs',
-          href: '/docs/user-center/ApiKey/CreateApiKey',
+          href: '/docs/user-center/ApiKey/QueryUserApiKey',
         },
         {
           title: 'Referral Commission',
           description: 'Referral Commission APIs',
-          href: '/docs/user-center/Referral Commission/GetReferralInfo',
+          href: '/docs/user-center/Referral Commission/GetAllUsersOfAffiliate',
         },
       ],
     },

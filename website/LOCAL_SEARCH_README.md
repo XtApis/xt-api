@@ -10,7 +10,7 @@
 - ✅ **实时搜索**: 输入即搜索，300ms 防抖优化
 - ✅ **智能匹配**: 支持标题、内容、关键词、路径搜索
 - ✅ **高亮显示**: 搜索结果中关键词高亮显示
-- ✅ **分类标签**: 显示文档类型（现货、期货、跟单等）
+- ✅ **分类标签**: 显示文档类型（现货、合约、跟单等）
 - ✅ **键盘导航**: 支持方向键导航和快捷键操作
 - ✅ **响应式设计**: 支持桌面端和移动端
 - ✅ **多语言支持**: 支持中英文搜索
@@ -51,7 +51,7 @@ src/
 尝试搜索以下关键词：
 
 - `现货` - 搜索现货交易相关文档
-- `期货` - 搜索期货交易相关文档
+- `合约` - 搜索合约交易相关文档
 - `API` - 搜索 API 相关文档
 - `订单` - 搜索订单相关接口
 - `用户` - 搜索用户中心相关文档
@@ -66,15 +66,15 @@ src/
 
 ```typescript
 interface SearchIndexItem {
-  id: string;           // 文档 ID
-  title: string;        // 文档标题
-  description: string;  // 文档描述
-  content: string;      // 清理后的内容
-  keywords: string[];   // 提取的关键词
-  url: string;          // 文档 URL
-  path: string;         // 文件路径
-  type: string;         // 文档类型
-  category: string;     // 文档分类
+  id: string; // 文档 ID
+  title: string; // 文档标题
+  description: string; // 文档描述
+  content: string; // 清理后的内容
+  keywords: string[]; // 提取的关键词
+  url: string; // 文档 URL
+  path: string; // 文件路径
+  type: string; // 文档类型
+  category: string; // 文档分类
 }
 ```
 
@@ -107,12 +107,12 @@ interface SearchIndexItem {
 [
   './src/plugins/local-search/index.ts',
   {
-    docsDir: 'docs',                    // 搜索的文档目录
-    indexFile: 'search-index.json',     // 索引文件输出路径
-    maxResults: 20,                     // 最大搜索结果数
-    minSearchLength: 2,                 // 最小搜索字符数
+    docsDir: 'docs', // 搜索的文档目录
+    indexFile: 'search-index.json', // 索引文件输出路径
+    maxResults: 20, // 最大搜索结果数
+    minSearchLength: 2, // 最小搜索字符数
   },
-]
+];
 ```
 
 ## 样式定制

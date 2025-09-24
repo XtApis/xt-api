@@ -843,7 +843,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.User Center API">User Center API</div>
                         </a>
 
-                        <a href="/docs/spot/Balance/GetCurrencyInfo"
+                        <a href="/docs/spot/Balance/GetCurrencies"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -883,7 +883,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Order APIs">Order APIs</div>
                         </a>
 
-                        <a href="/docs/spot/Trade/GetTradeHistory"
+                        <a href="/docs/spot/Trade/QueryTrade"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -923,7 +923,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.WebSocket Public APIs">WebSocket Public APIs</div>
                         </a>
 
-                        <a href="/docs/futures/WEBSOCKET(V2)/Request message format"
+                        <a href="/docs/futures/WEBSOCKET(V2)/General_WSS_information"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -968,21 +968,21 @@ export default async function createConfigAsync(): Promise<Config> {
       products: [
         { title: 'Index', titleZh: '指数', subtitle: 'Index APIs', subtitleZh: '指数 API', href: '/docs/index_overview/overview' },
         { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Futures Trading', titleZh: '期货交易', subtitle: 'Futures Trading APIs', subtitleZh: '期货交易 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Futures Trading', titleZh: '合约交易', subtitle: 'Futures Trading APIs', subtitleZh: '合约交易 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
         { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
         { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Futures Copy', titleZh: '合约跟单', subtitle: 'Futures Copy API', subtitleZh: '合约跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' },
         { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface' },
         { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencyInfo' },
+        { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencies' },
         { title: 'Deposit&Withdrawal', titleZh: '充提', subtitle: 'Deposit&Withdrawal APIs', subtitleZh: '充提 API', href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies' },
         { title: 'Market', titleZh: '市场', subtitle: 'Market APIs', subtitleZh: '市场 API', href: '/docs/spot/Market/GetServerTime' },
         { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/spot/Order/PlaceOrder' },
-        { title: 'Trade', titleZh: '交易', subtitle: 'Trade APIs', subtitleZh: '交易 API', href: '/docs/spot/Trade/GetTradeHistory' },
+        { title: 'Trade', titleZh: '交易', subtitle: 'Trade APIs', subtitleZh: '交易 API', href: '/docs/spot/Trade/QueryTrade' },
         { title: 'Transfer', titleZh: '转账', subtitle: 'Transfer APIs', subtitleZh: '转账 API', href: '/docs/spot/Transfer/InternalTransfer' },
         { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket Private/RequestMessageFormat' },
         { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' },
-        { title: 'Futures WebSocket', titleZh: '期货 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '期货 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' },
+        { title: 'Futures WebSocket', titleZh: '合约 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '合约 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information' },
         { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetBalanceBySymbol' },
         { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
       ]
@@ -1003,11 +1003,11 @@ export default async function createConfigAsync(): Promise<Config> {
       descZh: '现货交易 API 和市场数据',
       products: [
         { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencyInfo' },
+        { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencies' },
         { title: 'Deposit&Withdrawal', titleZh: '充提', subtitle: 'Deposit&Withdrawal APIs', subtitleZh: '充提 API', href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies' },
         { title: 'Market', titleZh: '市场', subtitle: 'Market APIs', subtitleZh: '市场 API', href: '/docs/spot/Market/GetServerTime' },
         { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/spot/Order/PlaceOrder' },
-        { title: 'Trade', titleZh: '交易', subtitle: 'Trade APIs', subtitleZh: '交易 API', href: '/docs/spot/Trade/GetTradeHistory' },
+        { title: 'Trade', titleZh: '交易', subtitle: 'Trade APIs', subtitleZh: '交易 API', href: '/docs/spot/Trade/QueryTrade' },
         { title: 'Transfer', titleZh: '转账', subtitle: 'Transfer APIs', subtitleZh: '转账 API', href: '/docs/spot/Transfer/InternalTransfer' },
         { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket Private/RequestMessageFormat' },
         { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' }
@@ -1015,17 +1015,17 @@ export default async function createConfigAsync(): Promise<Config> {
     },
     'futures': {
       title: 'Futures Trading',
-      titleZh: '期货交易',
+      titleZh: '合约交易',
       desc: 'Futures trading APIs and derivatives',
-      descZh: '期货交易 API 和衍生品',
+      descZh: '合约交易 API 和合约交易',
       products: [
         { title: 'Access Description', titleZh: '访问描述', subtitle: 'Access Description APIs', subtitleZh: '访问描述 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
         { title: 'Entrust', titleZh: '委托', subtitle: 'Entrust APIs', subtitleZh: '委托 API', href: '/docs/futures/Entrust/CreateTriggerOrders' },
         { title: 'Market Data', titleZh: '市场数据', subtitle: 'Market Data APIs', subtitleZh: '市场数据 API', href: '/docs/futures/Market Data/get-client-ip' },
         { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/futures/Order/create-orders' },
         { title: 'Python Package', titleZh: 'Python 包', subtitle: 'Python Package APIs', subtitleZh: 'Python 包 API', href: '/docs/futures/Python Package/PythonPackage' },
-        { title: 'Quote Collection', titleZh: '行情收集', subtitle: 'Quote Collection APIs', subtitleZh: '行情收集 API', href: '/docs/futures/Quote collection/GetDepthInfo' },
-        { title: 'User', titleZh: '用户', subtitle: 'User APIs', subtitleZh: '用户 API', href: '/docs/futures/User/GetUserInfo' },
+        { title: 'Quote Collection', titleZh: '行情收集', subtitle: 'Quote Collection APIs', subtitleZh: '行情收集 API', href: '/docs/futures/Quote collection/get-futures-info' },
+        { title: 'User', titleZh: '用户', subtitle: 'User APIs', subtitleZh: '用户 API', href: '/docs/futures/User/Get symbol list' },
         { title: 'WebSocket V2', titleZh: 'WebSocket V2', subtitle: 'WebSocket V2 APIs', subtitleZh: 'WebSocket V2 API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' }
       ]
     },
@@ -1051,11 +1051,11 @@ export default async function createConfigAsync(): Promise<Config> {
     },
     'futuresCopy': {
       title: 'Futures Copy',
-      titleZh: '期货跟单',
+      titleZh: '合约跟单',
       desc: 'Futures copy trading APIs',
-      descZh: '期货跟单交易 API',
+      descZh: '合约跟单交易 API',
       products: [
-        { title: 'Futures Copy', titleZh: '期货跟单', subtitle: 'Futures Copy API', subtitleZh: '期货跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' }
+        { title: 'Futures Copy', titleZh: '合约跟单', subtitle: 'Futures Copy API', subtitleZh: '合约跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' }
       ]
     },
     'tradingThirdParty': {
@@ -1122,7 +1122,7 @@ export default async function createConfigAsync(): Promise<Config> {
         // 转义特殊字符用于 data-i18n 属性
         const titleKey = product.title.replace(/&/g, '&amp;');
         const subtitleKey = product.subtitle.replace(/&/g, '&amp;');
-        
+
         html += \`
           <a href="\${product.href}"
              style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
@@ -1136,7 +1136,7 @@ export default async function createConfigAsync(): Promise<Config> {
 
       productsGrid.innerHTML = html;
       console.log('✅ Updated products grid with', category.products.length, 'products');
-      
+
       // 立即更新翻译
       setTimeout(() => {
         updateDropdownTranslations();
@@ -1227,10 +1227,10 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.All Products': '所有产品',
         'item.label.Index': '指数',
         'item.label.Spot Trading': '现货交易',
-        'item.label.Futures Trading': '期货交易',
+        'item.label.Futures Trading': '合约交易',
         'item.label.Margin Trading': '杠杆交易',
         'item.label.Copy Trading': '跟单交易',
-        'item.label.Futures Copy': '期货跟单',
+        'item.label.Futures Copy': '合约跟单',
         'item.label.Trading Third Party': '第三方交易',
         'item.label.User Center': '用户中心',
         'item.label.Balance': '余额',
@@ -1242,7 +1242,7 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.Transfer': '转账',
         'item.label.WebSocket Private': 'WebSocket 私有',
         'item.label.WebSocket Public': 'WebSocket 公共',
-        'item.label.Futures WebSocket': '期货 WebSocket',
+        'item.label.Futures WebSocket': '合约 WebSocket',
         'item.label.Access Description': '访问描述',
         'item.label.Entrust': '委托',
         'item.label.Market Data': '市场数据',
@@ -1254,10 +1254,10 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.Copy Account': '跟单账户',
         'item.label.Index APIs': '指数 API',
         'item.label.Spot Trading APIs': '现货交易 API',
-        'item.label.Futures Trading APIs': '期货交易 API',
+        'item.label.Futures Trading APIs': '合约交易 API',
         'item.label.Margin Trading APIs': '杠杆交易 API',
         'item.label.Copy Trading API': '跟单交易 API',
-        'item.label.Futures Copy API': '期货跟单 API',
+        'item.label.Futures Copy API': '合约跟单 API',
         'item.label.Trading Third Party API': '第三方交易 API',
         'item.label.User Center API': '用户中心 API',
         'item.label.Balance APIs': '余额 API',
@@ -1269,7 +1269,7 @@ export default async function createConfigAsync(): Promise<Config> {
         'item.label.Transfer APIs': '转账 API',
         'item.label.WebSocket Private APIs': 'WebSocket 私有 API',
         'item.label.WebSocket Public APIs': 'WebSocket 公共 API',
-        'item.label.Futures WebSocket APIs': '期货 WebSocket API',
+        'item.label.Futures WebSocket APIs': '合约 WebSocket API',
         'item.label.Access Description APIs': '访问描述 API',
         'item.label.Entrust APIs': '委托 API',
         'item.label.Market Data APIs': '市场数据 API',
@@ -1525,7 +1525,7 @@ export default async function createConfigAsync(): Promise<Config> {
               //             'item.label.Web3 Wallet': 'Web3 钱包',
               //             'item.label.Dev Tools': '开发工具',
               //             'item.label.Spot Trading': '现货交易',
-              //             'item.label.Futures Trading': '期货交易',
+              //             'item.label.Futures Trading': '合约交易',
               //             'item.label.Margin Trading': '杠杆交易',
               //             'item.label.Copy Trading': '跟单交易',
               //             'item.label.Algo Trading': '算法交易',
@@ -1536,7 +1536,7 @@ export default async function createConfigAsync(): Promise<Config> {
               //             'item.label.User Center': '用户中心',
               //             'item.label.Web3': 'Web3',
               //             'item.label.Spot Trading APIs': '现货交易 API',
-              //             'item.label.Futures Trading APIs': '期货交易 API',
+              //             'item.label.Futures Trading APIs': '合约交易 API',
               //             'item.label.Margin Trading APIs': '杠杆交易 API',
               //             'item.label.Copy Trading API': '跟单交易 API',
               //             'item.label.Algo Trading APIs': '算法交易 API',

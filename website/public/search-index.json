@@ -10763,7 +10763,7 @@
     "id": "index",
     "title": "更新日志",
     "description": "XT API 的版本更新日志和变更记录",
-    "content": "更新日志 欢迎查看 XT API 的更新日志！这里记录了所有版本的更新内容、新功能、修复的问题和重要的变更。 最新版本 v2.1.0 (2024-01-15) 🚀 新功能 新增期货跟单交易 API 支持第三方交易平台集成 新增用户中心管理 API 优化跟单交易算法 🔧 改进 提升 API 响应速度 30% 优化错误处理机制 改进文档和示例代码 增强安全性验证 🐛 修复 修复跟单交易延迟问题 解决期货 API 连接不稳定 修复用户认证异常 解决数据同步问题 历史版本 v2.0.0 (2023-12-01) 🚀 重大更新 全新 API 架构设计 支持多市场交易 引入跟单交易功能 重构用户管理系统 🔧 改进 完全重写核心模块 优化性能和稳定性 增强安全机制 改进错误处理 v1.5.0 (2023-10-15) 🚀 新功能 新增保证金现货交易 支持杠杆交易 引入风险管理系统 新增数据分析 API 🔧 改进 优化交易引擎 提升系统稳定性 改进用户体验 增强监控功能 版本规划 即将推出 (v2.2.0) 期权交易支持 AI 智能交易助手 更多第三方平台集成 移动端 SDK 长期规划 跨链交易支持 去中心化交易集成 机构级功能 全球化部署 反馈和建议 如果您有任何问题、建议或反馈，请通过以下方式联系我们： GitHub Issues 技术支持 开发者社区 相关链接 API 文档首页 快速开始 开发者工具 常见问题",
+    "content": "更新日志 欢迎查看 XT API 的更新日志！这里记录了所有版本的更新内容、新功能、修复的问题和重要的变更。 最新版本 v2.1.0 (2024-01-15) 🚀 新功能 新增合约跟单交易 API 支持第三方交易平台集成 新增用户中心管理 API 优化跟单交易算法 🔧 改进 提升 API 响应速度 30% 优化错误处理机制 改进文档和示例代码 增强安全性验证 🐛 修复 修复跟单交易延迟问题 解决合约 API 连接不稳定 修复用户认证异常 解决数据同步问题 历史版本 v2.0.0 (2023-12-01) 🚀 重大更新 全新 API 架构设计 支持多市场交易 引入跟单交易功能 重构用户管理系统 🔧 改进 完全重写核心模块 优化性能和稳定性 增强安全机制 改进错误处理 v1.5.0 (2023-10-15) 🚀 新功能 新增保证金现货交易 支持杠杆交易 引入风险管理系统 新增数据分析 API 🔧 改进 优化交易引擎 提升系统稳定性 改进用户体验 增强监控功能 版本规划 即将推出 (v2.2.0) 期权交易支持 AI 智能交易助手 更多第三方平台集成 移动端 SDK 长期规划 跨链交易支持 去中心化交易集成 机构级功能 全球化部署 反馈和建议 如果您有任何问题、建议或反馈，请通过以下方式联系我们： GitHub Issues 技术支持 开发者社区 相关链接 API 文档首页 快速开始 开发者工具 常见问题",
     "keywords": [
       "更新日志",
       "xt",
@@ -17806,12 +17806,12 @@
   },
   {
     "id": "index",
-    "title": "期货委托接口",
-    "description": "期货交易委托相关接口，包括下单、撤单、查询等功能",
-    "content": "期货委托接口 期货交易委托相关接口提供了完整的期货交易委托管理功能，包括创建、取消、查询等操作。 主要功能 📋 委托管理 创建追踪委托 取消单个追踪委托 取消所有追踪委托 查询委托详情 📊 计划委托 创建计划委托 取消计划委托 批量取消计划委托 查询计划委托 💰 止盈止损 创建止盈止损 取消止盈止损 批量取消止盈止损 修改止盈止损 接口列表 追踪委托相关 创建追踪委托 - 创建新的追踪委托订单 取消单个追踪委托 - 取消指定的追踪委托 取消所有追踪委托 - 取消所有活跃的追踪委托 查询追踪委托详情 - 获取追踪委托的详细信息 查询追踪委托列表 - 获取所有追踪委托列表 查询追踪委托历史 - 获取历史追踪委托记录 计划委托相关 创建计划委托 - 创建新的计划委托订单 取消计划委托 - 取消指定的计划委托 批量取消计划委托 - 批量取消计划委托 查询计划委托 - 获取计划委托列表 根据 ID 查询计划委托 - 根据 ID 获取计划委托详情 查询计划委托历史 - 获取历史计划委托记录 止盈止损相关 创建止盈止损 - 创建新的止盈止损订单 取消止盈止损 - 取消指定的止盈止损 批量取消止盈止损 - 批量取消止盈止损 修改止盈止损 - 修改止盈止损参数 查询止盈止损 - 获取止盈止损列表 根据 ID 查询止盈止损 - 根据 ID 获取止盈止损详情 注意事项 权限要求：所有委托接口都需要有效的 API 密钥和签名 频率限制：大部分接口限制为 200 次/秒/API 密钥 参数验证：请确保传入的参数符合接口要求 错误处理：请根据返回的错误码进行相应的错误处理 快速开始 首先确保您已经申请了 API 密钥 了解基础信息和签名算法 查看具体接口的请求参数和响应格式 在测试环境中验证接口调用 更多详细信息请参考各个具体接口的文档。",
+    "title": "合约委托接口",
+    "description": "合约交易委托相关接口，包括下单、撤单、查询等功能",
+    "content": "合约委托接口 合约交易委托相关接口提供了完整的合约交易委托管理功能，包括创建、取消、查询等操作。 主要功能 📋 委托管理 创建追踪委托 取消单个追踪委托 取消所有追踪委托 查询委托详情 📊 计划委托 创建计划委托 取消计划委托 批量取消计划委托 查询计划委托 💰 止盈止损 创建止盈止损 取消止盈止损 批量取消止盈止损 修改止盈止损 接口列表 追踪委托相关 创建追踪委托 - 创建新的追踪委托订单 取消单个追踪委托 - 取消指定的追踪委托 取消所有追踪委托 - 取消所有活跃的追踪委托 查询追踪委托详情 - 获取追踪委托的详细信息 查询追踪委托列表 - 获取所有追踪委托列表 查询追踪委托历史 - 获取历史追踪委托记录 计划委托相关 创建计划委托 - 创建新的计划委托订单 取消计划委托 - 取消指定的计划委托 批量取消计划委托 - 批量取消计划委托 查询计划委托 - 获取计划委托列表 根据 ID 查询计划委托 - 根据 ID 获取计划委托详情 查询计划委托历史 - 获取历史计划委托记录 止盈止损相关 创建止盈止损 - 创建新的止盈止损订单 取消止盈止损 - 取消指定的止盈止损 批量取消止盈止损 - 批量取消止盈止损 修改止盈止损 - 修改止盈止损参数 查询止盈止损 - 获取止盈止损列表 根据 ID 查询止盈止损 - 根据 ID 获取止盈止损详情 注意事项 权限要求：所有委托接口都需要有效的 API 密钥和签名 频率限制：大部分接口限制为 200 次/秒/API 密钥 参数验证：请确保传入的参数符合接口要求 错误处理：请根据返回的错误码进行相应的错误处理 快速开始 首先确保您已经申请了 API 密钥 了解基础信息和签名算法 查看具体接口的请求参数和响应格式 在测试环境中验证接口调用 更多详细信息请参考各个具体接口的文档。",
     "keywords": [
-      "期货委托接口",
-      "期货交易委托相关接口，包括下单、撤单、查询等功能",
+      "合约委托接口",
+      "合约交易委托相关接口，包括下单、撤单、查询等功能",
       "futures",
       "entrust",
       "index",
@@ -22837,7 +22837,7 @@
       "result",
       "returnCode"
     ],
-    "url": "/docs/futures/WEBSOCKET(V2)/Request message format",
+    "url": "/docs/futures/WEBSOCKET(V2)/General_WSS_information",
     "path": "futures/WEBSOCKET(V2)/Request message format.mdx",
     "type": "futures",
     "category": "futures"
@@ -22946,11 +22946,11 @@
   },
   {
     "id": "index",
-    "title": "期货跟单 API",
-    "description": "XT 期货跟单 API 文档",
-    "content": "期货跟单 API 欢迎使用 XT 期货跟单 API！本 API 专门为期货市场提供跟单交易功能，支持跟随优秀期货交易者的策略，实现自动化期货交易。 主要功能 期货跟单: 专门针对期货市场的跟单功能 杠杆管理: 智能杠杆控制和风险分配 合约选择: 支持多种期货合约跟单 风险控制: 期货特有的风险管理系统 快速开始 安装和配置 选择期货跟单对象 设置跟单参数 监控跟单状态 API 特点 期货专用: 专为期货市场优化 高杠杆支持: 支持高杠杆跟单 合约灵活: 多种合约类型支持 风险可控: 完善的风险控制机制 跟单模式 全仓跟单: 按比例复制所有期货交易 部分跟单: 选择性复制部分期货交易 智能跟单: AI 优化期货跟单策略 定时跟单: 按时间计划跟单 支持的期货类型 永续合约 交割合约 期权合约 混合合约 相关链接 现货交易 API 期货交易 API 保证金现货 API 跟单交易 API",
+    "title": "合约跟单 API",
+    "description": "XT 合约跟单 API 文档",
+    "content": "合约跟单 API 欢迎使用 XT 合约跟单 API！本 API 专门为合约市场提供跟单交易功能，支持跟随优秀合约交易者的策略，实现自动化合约交易。 主要功能 合约跟单: 专门针对合约市场的跟单功能 杠杆管理: 智能杠杆控制和风险分配 合约选择: 支持多种合约合约跟单 风险控制: 合约特有的风险管理系统 快速开始 安装和配置 选择合约跟单对象 设置跟单参数 监控跟单状态 API 特点 合约专用: 专为合约市场优化 高杠杆支持: 支持高杠杆跟单 合约灵活: 多种合约类型支持 风险可控: 完善的风险控制机制 跟单模式 全仓跟单: 按比例复制所有合约交易 部分跟单: 选择性复制部分合约交易 智能跟单: AI 优化合约跟单策略 定时跟单: 按时间计划跟单 支持的合约类型 永续合约 交割合约 期权合约 混合合约 相关链接 现货交易 API 合约交易 API 保证金现货 API 跟单交易 API",
     "keywords": [
-      "期货跟单",
+      "合约跟单",
       "api",
       "xt",
       "文档",
@@ -22968,11 +22968,11 @@
   {
     "id": "installation",
     "title": "安装和配置",
-    "description": "期货跟单 API 的安装和配置指南",
-    "content": "安装和配置 环境要求 Node.js 16.0 或更高版本 npm 8.0 或 yarn 1.22 或更高版本 支持 ES6+ 的现代浏览器 稳定的网络连接 期货交易权限 安装步骤 安装 SDK `bash npm install @xt/futures-copy-api ` 或者使用 yarn： `bash yarn add @xt/futures-copy-api ` 导入模块 `javascript import {FuturesCopyAPI} from '@xt/futures-copy-api'; ` 初始化配置 `javascript const futuresCopyAPI = new FuturesCopyAPI({ apiKey: 'your-api-key', secretKey: 'your-secret-key', passphrase: 'your-passphrase', sandbox: false, baseURL: 'https://api.xt.com', }); ` 配置参数 | 参数 | 类型 | 必填 | 说明 | | ---------- | ------- | ---- | -------------------- | | apiKey | string | 是 | API 访问密钥 | | secretKey | string | 是 | API 签名密钥 | | passphrase | string | 是 | API 密码短语 | | sandbox | boolean | 否 | 是否使用沙盒环境 | | baseURL | string | 否 | API 基础地址 | | timeout | number | 否 | 请求超时时间（毫秒） | 期货跟单设置 选择期货跟单对象 `javascript try { const futuresLeaders = await futuresCopyAPI.getFuturesLeaders({ market: 'futures', // 期货市场 contractType: 'perpetual', // 合约类型 minProfit: 0.15, // 最小收益率 maxRisk: 0.08, // 最大风险 }); console.log('期货跟单对象:', futuresLeaders); } catch (error) { console.error('获取失败:', error.message); } ` 设置期货跟单参数 `javascript try { const result = await futuresCopyAPI.setFuturesCopyParameters({ leaderId: 'futures_leader123', copyRatio: 0.6, // 跟单比例 maxAmount: 5000, // 最大跟单金额 leverage: 10, // 杠杆倍数 stopLoss: 0.15, // 止损比例 takeProfit: 0.25, // 止盈比例 }); console.log('期货跟单参数设置成功:', result); } catch (error) { console.error('设置失败:', error.message); } ` 错误处理 `javascript try { const result = await futuresCopyAPI.startFuturesCopyTrading( 'futures_leader123', ); console.log('期货跟单开始成功:', result); } catch (error) { if (error.code === 'INSUFFICIENT_MARGIN') { console.error('保证金不足，请充值'); } else if (error.code === 'LEVERAGE_TOO_HIGH') { console.error('杠杆倍数过高，请调整'); } else if (error.code === 'CONTRACT_NOT_AVAILABLE') { console.error('合约不可用'); } else { console.error('请求失败:', error.message); } } ` 下一步 配置完成后，你可以： 选择期货跟单对象 设置期货跟单策略 监控期货跟单状态 管理期货跟单记录",
+    "description": "合约跟单 API 的安装和配置指南",
+    "content": "安装和配置 环境要求 Node.js 16.0 或更高版本 npm 8.0 或 yarn 1.22 或更高版本 支持 ES6+ 的现代浏览器 稳定的网络连接 合约交易权限 安装步骤 安装 SDK `bash npm install @xt/futures-copy-api ` 或者使用 yarn： `bash yarn add @xt/futures-copy-api ` 导入模块 `javascript import {FuturesCopyAPI} from '@xt/futures-copy-api'; ` 初始化配置 `javascript const futuresCopyAPI = new FuturesCopyAPI({ apiKey: 'your-api-key', secretKey: 'your-secret-key', passphrase: 'your-passphrase', sandbox: false, baseURL: 'https://api.xt.com', }); ` 配置参数 | 参数 | 类型 | 必填 | 说明 | | ---------- | ------- | ---- | -------------------- | | apiKey | string | 是 | API 访问密钥 | | secretKey | string | 是 | API 签名密钥 | | passphrase | string | 是 | API 密码短语 | | sandbox | boolean | 否 | 是否使用沙盒环境 | | baseURL | string | 否 | API 基础地址 | | timeout | number | 否 | 请求超时时间（毫秒） | 合约跟单设置 选择合约跟单对象 `javascript try { const futuresLeaders = await futuresCopyAPI.getFuturesLeaders({ market: 'futures', // 合约市场 contractType: 'perpetual', // 合约类型 minProfit: 0.15, // 最小收益率 maxRisk: 0.08, // 最大风险 }); console.log('合约跟单对象:', futuresLeaders); } catch (error) { console.error('获取失败:', error.message); } ` 设置合约跟单参数 `javascript try { const result = await futuresCopyAPI.setFuturesCopyParameters({ leaderId: 'futures_leader123', copyRatio: 0.6, // 跟单比例 maxAmount: 5000, // 最大跟单金额 leverage: 10, // 杠杆倍数 stopLoss: 0.15, // 止损比例 takeProfit: 0.25, // 止盈比例 }); console.log('合约跟单参数设置成功:', result); } catch (error) { console.error('设置失败:', error.message); } ` 错误处理 `javascript try { const result = await futuresCopyAPI.startFuturesCopyTrading( 'futures_leader123', ); console.log('合约跟单开始成功:', result); } catch (error) { if (error.code === 'INSUFFICIENT_MARGIN') { console.error('保证金不足，请充值'); } else if (error.code === 'LEVERAGE_TOO_HIGH') { console.error('杠杆倍数过高，请调整'); } else if (error.code === 'CONTRACT_NOT_AVAILABLE') { console.error('合约不可用'); } else { console.error('请求失败:', error.message); } } ` 下一步 配置完成后，你可以： 选择合约跟单对象 设置合约跟单策略 监控合约跟单状态 管理合约跟单记录",
     "keywords": [
       "安装和配置",
-      "期货跟单",
+      "合约跟单",
       "api",
       "的安装和配置指南",
       "futures",
@@ -37537,7 +37537,7 @@
     "id": "index",
     "title": "现货交易 API",
     "description": "XT 现货交易 API 文档",
-    "content": "现货交易 API 欢迎使用 XT 现货交易 API！本 API 提供了完整的现货交易功能，包括市场数据查询、下单交易、账户管理等。 主要功能 市场数据: 实时价格、深度、K 线等数据 交易操作: 买入、卖出、撤单等交易功能 账户管理: 余额查询、资金划转等 订单管理: 订单查询、历史记录等 快速开始 安装和配置 API 认证 基础交易操作 高级功能 API 特点 高性能: 毫秒级响应，支持高频交易 稳定性: 99.9% 可用性保证 安全性: 多重加密，安全可靠 易用性: 简洁的 REST API 设计 支持的市场 主流币种交易对 创新币种交易对 稳定币交易对 法币交易对 交易类型 限价单 市价单 止损单 止盈单 冰山单 相关链接 期货交易 API 保证金现货 API 跟单交易 API 期货跟单 API",
+    "content": "现货交易 API 欢迎使用 XT 现货交易 API！本 API 提供了完整的现货交易功能，包括市场数据查询、下单交易、账户管理等。 主要功能 市场数据: 实时价格、深度、K 线等数据 交易操作: 买入、卖出、撤单等交易功能 账户管理: 余额查询、资金划转等 订单管理: 订单查询、历史记录等 快速开始 安装和配置 API 认证 基础交易操作 高级功能 API 特点 高性能: 毫秒级响应，支持高频交易 稳定性: 99.9% 可用性保证 安全性: 多重加密，安全可靠 易用性: 简洁的 REST API 设计 支持的市场 主流币种交易对 创新币种交易对 稳定币交易对 法币交易对 交易类型 限价单 市价单 止损单 止盈单 冰山单 相关链接 合约交易 API 保证金现货 API 跟单交易 API 合约跟单 API",
     "keywords": [
       "现货交易",
       "api",
@@ -41750,7 +41750,7 @@
     "id": "user-center",
     "title": "用户中心 API",
     "description": "XT 用户中心 API 文档",
-    "content": "用户中心 API 欢迎使用 XT 用户中心 API！本 API 提供了完整的用户账户管理功能，包括用户信息、安全设置、通知管理等。 主要功能 账户管理: 用户信息查询和修改 安全设置: 密码、2FA、API 密钥管理 通知管理: 邮件、短信、推送通知 权限控制: 细粒度的权限管理系统 快速开始 安装和配置 用户认证 账户管理 安全设置 相关链接 现货交易 API 期货交易 API 保证金现货 API 跟单交易 API",
+    "content": "用户中心 API 欢迎使用 XT 用户中心 API！本 API 提供了完整的用户账户管理功能，包括用户信息、安全设置、通知管理等。 主要功能 账户管理: 用户信息查询和修改 安全设置: 密码、2FA、API 密钥管理 通知管理: 邮件、短信、推送通知 权限控制: 细粒度的权限管理系统 快速开始 安装和配置 用户认证 账户管理 安全设置 相关链接 现货交易 API 合约交易 API 保证金现货 API 跟单交易 API",
     "keywords": [
       "用户中心",
       "api",

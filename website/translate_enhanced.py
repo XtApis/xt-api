@@ -213,7 +213,7 @@ translations = {
     'MarketData': '行情数据',
     'Order': '订单',
     'PythonPackage': 'Python包',
-    'Python Package': 'Python包',
+    'PythonPackage': 'Python包',
     'Quote collection': '行情集合',
     'User': '用户',
     'UserWebsocket': '用户WebSocket',

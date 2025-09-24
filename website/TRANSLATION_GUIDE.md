@@ -109,10 +109,10 @@ yarn serve
 ### 9. 支持的目录
 
 - `spot` - 现货交易 API
-- `futures` - 期货交易 API
+- `futures` - 合约交易 API
 - `margin-spot` - 保证金现货 API
 - `copy-trading` - 跟单交易 API
-- `futures-copy` - 期货跟单 API
+- `futures-copy` - 合约跟单 API
 - `trading-third-party` - 第三方交易 API
 - `user-center` - 用户中心 API
 - `index_overview` - 概览页面
