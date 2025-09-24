@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'WebSocket V2',
           description: 'WebSocket V2 APIs',
-          href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information',
+          href: '/docs/futures/WebsocKetV2/General_WSS_information',
         },
       ],
     },
@@ -172,11 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
           description: 'Copy Trading APIs',
           href: '/docs/futures-copy/Copy Trading/ChooseLeader',
         },
-        {
-          title: 'Installation',
-          description: 'Installation Guide',
-          href: '/docs/futures-copy/installation',
-        },
+        // {
+        //   title: 'Installation',
+        //   description: 'Installation Guide',
+        //   href: '/docs/futures-copy/installation',
+        // },
       ],
     },
     tradingThirdParty: {
@@ -495,7 +495,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'User Center',
           description: 'User Center API',
-          href: '/docs/user-center/AAccess Description/BasicInformationOfTheInterface',
+          href: '/docs/user-center/Access Description/BasicInformationOfTheInterface',
         },
       ],
     },
@@ -603,7 +603,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'WebSocket V2',
           description: 'WebSocket V2 APIs',
-          href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information',
+          href: '/docs/futures/WebsocKetV2/General_WSS_information',
         },
       ],
     },
@@ -658,11 +658,11 @@ window.showCategory = function showCategory(category) {
           description: 'Copy Trading APIs',
           href: '/docs/futures-copy/Copy Trading/ChooseLeader',
         },
-        {
-          title: 'Installation',
-          description: 'Installation Guide',
-          href: '/docs/futures-copy/installation',
-        },
+        // {
+        //   title: 'Installation',
+        //   description: 'Installation Guide',
+        //   href: '/docs/futures-copy/installation',
+        // },
       ],
     },
     tradingThirdParty: {
