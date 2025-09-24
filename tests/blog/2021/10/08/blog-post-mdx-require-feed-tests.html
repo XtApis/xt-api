@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-blog-tests" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">🐕 Dogfood - blog plugin</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docusaurus.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docusaurus.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docusaurus.io/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="🐕 Dogfood - blog plugin"><meta data-rh="true" name="description" content="Some MDX tests, mostly to test how the RSS feed render those"><meta data-rh="true" property="og:description" content="Some MDX tests, mostly to test how the RSS feed render those"><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2021-10-08T00:00:00.000Z"><meta data-rh="true" property="article:author" content="https://sebastienlorber.com"><meta data-rh="true" property="article:tag" content="Paginated-tag,Blog,Docusaurus,Long-long,Long-long-long,Long-long-long-long"><link data-rh="true" rel="icon" href="/img/docusaurus.ico"><link data-rh="true" rel="canonical" href="https://docusaurus.io/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests"><link data-rh="true" rel="alternate" href="https://docusaurus.io/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests" hreflang="en"><link data-rh="true" rel="alternate" href="https://docusaurus.io/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://docusaurus.io/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://GTNEYZMA9V-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://docusaurus.io/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests","mainEntityOfPage":"https://docusaurus.io/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests","url":"https://docusaurus.io/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests","headline":"Blog post MDX require Feed tests","name":"Blog post MDX require Feed tests","description":"Some MDX tests, mostly to test how the RSS feed render those","datePublished":"2021-10-08T00:00:00.000Z","author":{"@type":"Person","name":"Sebastien Lorber","description":"Docusaurus maintainer","url":"https://sebastienlorber.com","image":"https://github.com/slorber.png"},"keywords":[],"isPartOf":{"@type":"Blog","@id":"https://docusaurus.io/tests/blog","name":"Blog"}}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="XT API RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="XT API Atom Feed">
+<link rel="alternate" type="application/json" href="/blog/feed.json" title="XT API JSON Feed">
+
+
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5CR2Q1NRE"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-E5CR2Q1NRE",{})</script>
+
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/changelog/rss.xml" title="Docusaurus changelog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/changelog/atom.xml" title="Docusaurus changelog Atom Feed">
+<link rel="alternate" type="application/json" href="/changelog/feed.json" title="Docusaurus changelog JSON Feed">
+
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/tests/blog/rss.xml" title="Docusaurus Tests Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/tests/blog/atom.xml" title="Docusaurus Tests Blog Atom Feed">
+<link rel="alternate" type="application/json" href="/tests/blog/feed.json" title="Docusaurus Tests Blog JSON Feed">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script src="/js/product-dropdown.js" async></script>
+<script src="/js/product-dropdown-i18n.js" async></script><link rel="stylesheet" href="/assets/css/styles.860cfb80.css">
+<script src="/assets/js/runtime~main.da00f2e0.js" defer="defer"></script>
+<script src="/assets/js/main.371d60e2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/xtlogo.png?v=2"><link rel="preload" as="image" href="https://github.com/slorber.png"><link rel="preload" as="image" href="/img/docusaurus.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_UHvc" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top navbarHideable_uAgx"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/xtlogo.png?v=2" alt="" class="themedComponent_bJGS themedComponent--light_LEkC" height="36" width="85"><img src="/img/xtlogo.png?v=2" alt="" class="themedComponent_bJGS themedComponent--dark_jnGk" height="36" width="85"></div><b class="navbar__title text--truncate">XT API</b></a><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">Product</a><ul class="dropdown__menu"><li class="">
+                <div style="padding: 0; width: 100%; background: white; min-width:90vw; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                  <div style="display: flex; min-height: 400px; max-height: 80vh; overflow-y: auto;">
+                    <!-- 左侧分类导航 -->
+                    <div style="width: 200px; background: #f9fafb; border-right: 1px solid #e5e7eb; padding: 0;">
+                      <div style="padding: 20px 0;">
+                        <div id="all-products-nav" style="padding: 12px 20px; background: #f3f4f6; cursor: pointer; font-weight: 600; font-size: 16px; color: #1f2937;" onclick='showCategory("AllProducts")' data-i18n="item.label.All Products">All Products</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover='this.style.backgroundColor="#f3f4f6",this.style.color="#1f2937"' onmouseout='this.style.backgroundColor="transparent",this.style.color="#6b7280"' onclick='showCategory("Index")' data-category="Index" data-i18n="item.label.Index">Index</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover='this.style.backgroundColor="#f3f4f6",this.style.color="#1f2937"' onmouseout='this.style.backgroundColor="transparent",this.style.color="#6b7280"' onclick='showCategory("spot")' data-category="spot" data-i18n="item.label.Spot Trading">Spot Trading</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover='this.style.backgroundColor="#f3f4f6",this.style.color="#1f2937"' onmouseout='this.style.backgroundColor="transparent",this.style.color="#6b7280"' onclick='showCategory("futures")' data-category="futures" data-i18n="item.label.Futures Trading">Futures Trading</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover='this.style.backgroundColor="#f3f4f6",this.style.color="#1f2937"' onmouseout='this.style.backgroundColor="transparent",this.style.color="#6b7280"' onclick='showCategory("marginSpot")' data-category="marginSpot" data-i18n="item.label.Margin Trading">Margin Trading</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover='this.style.backgroundColor="#f3f4f6",this.style.color="#1f2937"' onmouseout='this.style.backgroundColor="transparent",this.style.color="#6b7280"' onclick='showCategory("copyTrading")' data-category="copyTrading" data-i18n="item.label.Copy Trading">Copy Trading</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover='this.style.backgroundColor="#f3f4f6",this.style.color="#1f2937"' onmouseout='this.style.backgroundColor="transparent",this.style.color="#6b7280"' onclick='showCategory("futuresCopy")' data-category="futuresCopy" data-i18n="item.label.Futures Copy">Futures Copy</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover='this.style.backgroundColor="#f3f4f6",this.style.color="#1f2937"' onmouseout='this.style.backgroundColor="transparent",this.style.color="#6b7280"' onclick='showCategory("tradingThirdParty")' data-category="tradingThirdParty" data-i18n="item.label.Trading Third Party">Trading Third Party</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;" onmouseover='this.style.backgroundColor="#f3f4f6",this.style.color="#1f2937"' onmouseout='this.style.backgroundColor="transparent",this.style.color="#6b7280"' onclick='showCategory("userCenter")' data-category="userCenter" data-i18n="item.label.User Center">User Center</div>
+                      </div>
+                    </div>
+
+                    <!-- 右侧内容区域 -->
+                    <div style="flex: 1; padding: 32px; background: white;">
+                      <div style="margin-bottom: 24px;">
+                        <h2 id="categoryTitle" style="margin: 0 0 8px 0; font-size: 24px; font-weight: 600; color: #1f2937;" data-i18n="item.label.All Products">All Products</h2>
+                        <p id="categoryDesc" style="margin: 0; color: #6b7280; font-size: 14px;" data-i18n="item.label.Comprehensive API solutions for all your trading needs">Comprehensive API solutions for all your trading needs</p>
+                      </div>
+
+                      <div id="productsGrid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;">
+                        <!-- 产品链接 -->
+                        <a id="index-content-link" href="/docs/index_overview/overview" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Index">Index</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Index APIs">Index APIs</div>
+                        </a>
+
+
+
+                        <a href="/docs/spot/Access Description/BasicInformationOfTheInterface" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Spot Trading">Spot Trading</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Spot Trading APIs">Spot Trading APIs</div>
+                        </a>
+
+                        <a href="/docs/futures/Access Description/ApiLibrary" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Futures Trading">Futures Trading</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Futures Trading APIs">Futures Trading APIs</div>
+                        </a>
+
+                        <a href="/docs/margin-spot/Access Description/BasicInformationOfTheInterface" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Margin Trading">Margin Trading</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Margin Trading APIs">Margin Trading APIs</div>
+                        </a>
+
+                        <a href="/docs/copy-trading/Access Description/BasicInformationOfTheInterface" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Copy Trading">Copy Trading</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Copy Trading API">Copy Trading API</div>
+                        </a>
+
+                        <a href="/docs/futures-copy/Access Description/BasicInformationOfTheInterface" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Futures Copy">Futures Copy</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Futures Copy API">Futures Copy API</div>
+                        </a>
+
+                        <a href="/docs/trading-third-party/Access Description/BasicInformationOfTheInterface" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Trading Third Party">Trading Third Party</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Trading Third Party API">Trading Third Party API</div>
+                        </a>
+
+                        <a href="/docs/user-center/Access Description/BasicInformationOfTheInterface" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.User Center">User Center</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.User Center API">User Center API</div>
+                        </a>
+
+                        <a href="/docs/spot/Balance/GetCurrencies" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Balance">Balance</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Balance APIs">Balance APIs</div>
+                        </a>
+
+                        <a href="/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Deposit&Withdrawal">Deposit&Withdrawal</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Deposit&Withdrawal APIs">Deposit&Withdrawal APIs</div>
+                        </a>
+
+                        <a href="/docs/spot/Market/GetServerTime" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Market">Market</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Market APIs">Market APIs</div>
+                        </a>
+
+                        <a href="/docs/spot/Order/PlaceOrder" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Order">Order</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Order APIs">Order APIs</div>
+                        </a>
+
+                        <a href="/docs/spot/Trade/QueryTrade" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Trade">Trade</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Trade APIs">Trade APIs</div>
+                        </a>
+
+                        <a href="/docs/spot/Transfer/InternalTransfer" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Transfer">Transfer</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Transfer APIs">Transfer APIs</div>
+                        </a>
+
+                        <a href="/docs/spot/WebSocket Private/RequestMessageFormat" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.WebSocket Private">WebSocket Private</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.WebSocket Private APIs">WebSocket Private APIs</div>
+                        </a>
+
+                        <a href="/docs/spot/WebSocket Public/subscribeParam" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.WebSocket Public">WebSocket Public</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.WebSocket Public APIs">WebSocket Public APIs</div>
+                        </a>
+
+                        <a href="/docs/futures/WEBSOCKET(V2)/General_WSS_information" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Futures WebSocket">Futures WebSocket</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Futures WebSocket APIs">Futures WebSocket APIs</div>
+                        </a>
+
+                        <a href="/docs/margin-spot/Balance/GetBalanceBySymbol" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Margin Balance">Margin Balance</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Margin Balance APIs">Margin Balance APIs</div>
+                        </a>
+
+                        <a href="/docs/copy-trading/Account/GetAccountInfo" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Copy Account">Copy Account</div>
+                          <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Copy Account APIs">Copy Account APIs</div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+<!-- script moved to static file: /js/product-dropdown-i18n.js -->
+<!--
+  // 产品分类数据
+  const categoryData = {
+    'AllProducts': {
+      title: 'All Products',
+      titleZh: '所有产品',
+      desc: 'Comprehensive API solutions for all your trading needs',
+      descZh: '为您的所有交易需求提供全面的 API 解决方案',
+      products: [
+        { title: 'Index', titleZh: '指数', subtitle: 'Index APIs', subtitleZh: '指数 API', href: '/docs/index_overview/overview' },
+        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Futures Trading', titleZh: '合约交易', subtitle: 'Futures Trading APIs', subtitleZh: '合约交易 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Futures Copy', titleZh: '合约跟单', subtitle: 'Futures Copy API', subtitleZh: '合约跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface' },
+        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencies' },
+        { title: 'Deposit&Withdrawal', titleZh: '充提', subtitle: 'Deposit&Withdrawal APIs', subtitleZh: '充提 API', href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies' },
+        { title: 'Market', titleZh: '市场', subtitle: 'Market APIs', subtitleZh: '市场 API', href: '/docs/spot/Market/GetServerTime' },
+        { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/spot/Order/PlaceOrder' },
+        { title: 'Trade', titleZh: '交易', subtitle: 'Trade APIs', subtitleZh: '交易 API', href: '/docs/spot/Trade/QueryTrade' },
+        { title: 'Transfer', titleZh: '转账', subtitle: 'Transfer APIs', subtitleZh: '转账 API', href: '/docs/spot/Transfer/InternalTransfer' },
+        { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket Private/RequestMessageFormat' },
+        { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' },
+        { title: 'Futures WebSocket', titleZh: '合约 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '合约 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information' },
+        { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetBalanceBySymbol' },
+        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
+      ]
+    },
+    'Index': {
+      title: 'Index',
+      titleZh: '指数',
+      desc: 'Index trading and market data APIs',
+      descZh: '指数交易和市场数据 API',
+      products: [
+        { title: 'Index', titleZh: '指数', subtitle: 'Index APIs', subtitleZh: '指数 API', href: '/docs/index_overview/overview' },
+     ]
+    },
+    'spot': {
+      title: 'Spot Trading',
+      titleZh: '现货交易',
+      desc: 'Spot trading APIs and market data',
+      descZh: '现货交易 API 和市场数据',
+      products: [
+        { title: 'Spot Trading', titleZh: '现货交易', subtitle: 'Spot Trading APIs', subtitleZh: '现货交易 API', href: '/docs/spot/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Balance', titleZh: '余额', subtitle: 'Balance APIs', subtitleZh: '余额 API', href: '/docs/spot/Balance/GetCurrencies' },
+        { title: 'Deposit&Withdrawal', titleZh: '充提', subtitle: 'Deposit&Withdrawal APIs', subtitleZh: '充提 API', href: '/docs/spot/Deposit&Withdrawal/GetSupportedCurrencies' },
+        { title: 'Market', titleZh: '市场', subtitle: 'Market APIs', subtitleZh: '市场 API', href: '/docs/spot/Market/GetServerTime' },
+        { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/spot/Order/PlaceOrder' },
+        { title: 'Trade', titleZh: '交易', subtitle: 'Trade APIs', subtitleZh: '交易 API', href: '/docs/spot/Trade/QueryTrade' },
+        { title: 'Transfer', titleZh: '转账', subtitle: 'Transfer APIs', subtitleZh: '转账 API', href: '/docs/spot/Transfer/InternalTransfer' },
+        { title: 'WebSocket Private', titleZh: 'WebSocket 私有', subtitle: 'WebSocket Private APIs', subtitleZh: 'WebSocket 私有 API', href: '/docs/spot/WebSocket Private/RequestMessageFormat' },
+        { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' }
+      ]
+    },
+    'futures': {
+      title: 'Futures Trading',
+      titleZh: '合约交易',
+      desc: 'Futures trading APIs and derivatives',
+      descZh: '合约交易 API 和合约交易',
+      products: [
+        { title: 'Access Description', titleZh: '访问描述', subtitle: 'Access Description APIs', subtitleZh: '访问描述 API', href: '/docs/futures/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Entrust', titleZh: '委托', subtitle: 'Entrust APIs', subtitleZh: '委托 API', href: '/docs/futures/Entrust/CreateTriggerOrders' },
+        { title: 'Market Data', titleZh: '市场数据', subtitle: 'Market Data APIs', subtitleZh: '市场数据 API', href: '/docs/futures/Market Data/get-client-ip' },
+        { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/futures/Order/create-orders' },
+        { title: 'Python Package', titleZh: 'Python 包', subtitle: 'Python Package APIs', subtitleZh: 'Python 包 API', href: '/docs/futures/Python Package/PythonPackage' },
+        { title: 'Quote Collection', titleZh: '行情收集', subtitle: 'Quote Collection APIs', subtitleZh: '行情收集 API', href: '/docs/futures/Quote collection/get-futures-info' },
+        { title: 'User', titleZh: '用户', subtitle: 'User APIs', subtitleZh: '用户 API', href: '/docs/futures/User/Get symbol list' },
+        { title: 'WebSocket V2', titleZh: 'WebSocket V2', subtitle: 'WebSocket V2 APIs', subtitleZh: 'WebSocket V2 API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' }
+      ]
+    },
+    'marginSpot': {
+      title: 'Margin Trading',
+      titleZh: '杠杆交易',
+      desc: 'Margin trading and leverage APIs',
+      descZh: '杠杆交易和杠杆 API',
+      products: [
+        { title: 'Margin Trading', titleZh: '杠杆交易', subtitle: 'Margin Trading APIs', subtitleZh: '杠杆交易 API', href: '/docs/margin-spot/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetBalanceBySymbol' }
+      ]
+    },
+    'copyTrading': {
+      title: 'Copy Trading',
+      titleZh: '跟单交易',
+      desc: 'Copy trading and social trading APIs',
+      descZh: '跟单交易和社交交易 API',
+      products: [
+        { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
+        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
+      ]
+    },
+    'futuresCopy': {
+      title: 'Futures Copy',
+      titleZh: '合约跟单',
+      desc: 'Futures copy trading APIs',
+      descZh: '合约跟单交易 API',
+      products: [
+        { title: 'Futures Copy', titleZh: '合约跟单', subtitle: 'Futures Copy API', subtitleZh: '合约跟单 API', href: '/docs/futures-copy/Access Description/BasicInformationOfTheInterface' }
+      ]
+    },
+    'tradingThirdParty': {
+      title: 'Trading Third Party',
+      titleZh: '第三方交易',
+      desc: 'Third party trading integration APIs',
+      descZh: '第三方交易集成 API',
+      products: [
+        { title: 'Trading Third Party', titleZh: '第三方交易', subtitle: 'Trading Third Party API', subtitleZh: '第三方交易 API', href: '/docs/trading-third-party/Access Description/BasicInformationOfTheInterface' }
+      ]
+    },
+    'userCenter': {
+      title: 'User Center',
+      titleZh: '用户中心',
+      desc: 'User management and account APIs',
+      descZh: '用户管理和账户 API',
+      products: [
+        { title: 'User Center', titleZh: '用户中心', subtitle: 'User Center API', subtitleZh: '用户中心 API', href: '/docs/user-center/Access Description/BasicInformationOfTheInterface' }
+      ]
+    }
+  };
+
+  // 显示分类内容的函数
+  function showCategory(categoryKey) {
+    console.log('🔄 Showing category:', categoryKey);
+
+    const category = categoryData[categoryKey];
+    if (!category) {
+      console.error('❌ Category not found:', categoryKey);
+      return;
+    }
+
+    const locale = document.documentElement.lang || 'en';
+    const isZh = locale === 'zh-Hans';
+
+    console.log('🌐 Current locale:', locale, 'isZh:', isZh);
+
+    // 更新标题和描述
+    const titleElement = document.getElementById('categoryTitle');
+    const descElement = document.getElementById('categoryDesc');
+
+    if (titleElement) {
+      const titleText = isZh ? category.titleZh : category.title;
+      titleElement.textContent = titleText;
+      console.log('📝 Updated title to:', titleText);
+    }
+
+    if (descElement) {
+      const descText = isZh ? category.descZh : category.desc;
+      descElement.textContent = descText;
+      console.log('📝 Updated description to:', descText);
+    }
+
+    // 更新产品网格
+    const productsGrid = document.getElementById('productsGrid');
+    if (productsGrid) {
+      let html = '';
+      category.products.forEach(product => {
+        const title = isZh ? product.titleZh : product.title;
+        const subtitle = isZh ? product.subtitleZh : product.subtitle;
+
+        console.log('�� Product:', product.title, '->', title, '|', product.subtitle, '->', subtitle);
+
+        // 转义特殊字符用于 data-i18n 属性
+        const titleKey = product.title.replace(/&/g, '&amp;');
+        const subtitleKey = product.subtitle.replace(/&/g, '&amp;');
+
+        html += `
+          <a href="${product.href}"
+             style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+             onmouseover="this.style.opacity='0.7';"
+             onmouseout="this.style.opacity='1';">
+            <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.${titleKey}">${title}</div>
+            <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.${subtitleKey}">${subtitle}</div>
+          </a>
+        `;
+      });
+
+      productsGrid.innerHTML = html;
+      console.log('✅ Updated products grid with', category.products.length, 'products');
+
+      // 立即更新翻译
+      setTimeout(() => {
+        updateDropdownTranslations();
+      }, 50);
+    }
+
+    // 更新左侧选中状态
+    const allNavItems = document.querySelectorAll('[data-category]');
+    allNavItems.forEach(item => {
+      item.style.backgroundColor = 'transparent';
+      item.style.color = '#6b7280';
+    });
+
+    const selectedItem = document.querySelector(`[data-category="${categoryKey}"]`);
+    if (selectedItem) {
+      selectedItem.style.backgroundColor = '#f3f4f6';
+      selectedItem.style.color = '#1f2937';
+    }
+
+    console.log('✅ Category updated successfully');
+  }
+
+  // 动态翻译函数
+  function updateDropdownTranslations() {
+    const locale = document.documentElement.lang || 'en';
+    console.log('🔄 Updating translations for locale:', locale);
+
+    const translations = {
+      'en': {
+        'item.label.All Products': 'All Products',
+        'item.label.Index': 'Index',
+        'item.label.Spot Trading': 'Spot Trading',
+        'item.label.Futures Trading': 'Futures Trading',
+        'item.label.Margin Trading': 'Margin Trading',
+        'item.label.Copy Trading': 'Copy Trading',
+        'item.label.Futures Copy': 'Futures Copy',
+        'item.label.Trading Third Party': 'Trading Third Party',
+        'item.label.User Center': 'User Center',
+        'item.label.Balance': 'Balance',
+        'item.label.Deposit&Withdrawal': 'Deposit&Withdrawal',
+        'item.label.Deposit&amp;Withdrawal': 'Deposit&Withdrawal',
+        'item.label.Market': 'Market',
+        'item.label.Order': 'Order',
+        'item.label.Trade': 'Trade',
+        'item.label.Transfer': 'Transfer',
+        'item.label.WebSocket Private': 'WebSocket Private',
+        'item.label.WebSocket Public': 'WebSocket Public',
+        'item.label.Futures WebSocket': 'Futures WebSocket',
+        'item.label.Access Description': 'Access Description',
+        'item.label.Entrust': 'Entrust',
+        'item.label.Market Data': 'Market Data',
+        'item.label.Python Package': 'Python Package',
+        'item.label.Quote Collection': 'Quote Collection',
+        'item.label.User': 'User',
+        'item.label.WebSocket V2': 'WebSocket V2',
+        'item.label.Margin Balance': 'Margin Balance',
+        'item.label.Copy Account': 'Copy Account',
+        'item.label.Index APIs': 'Index APIs',
+        'item.label.Spot Trading APIs': 'Spot Trading APIs',
+        'item.label.Futures Trading APIs': 'Futures Trading APIs',
+        'item.label.Margin Trading APIs': 'Margin Trading APIs',
+        'item.label.Copy Trading API': 'Copy Trading API',
+        'item.label.Futures Copy API': 'Futures Copy API',
+        'item.label.Trading Third Party API': 'Trading Third Party API',
+        'item.label.User Center API': 'User Center API',
+        'item.label.Balance APIs': 'Balance APIs',
+        'item.label.Deposit&Withdrawal APIs': 'Deposit&Withdrawal APIs',
+        'item.label.Deposit&amp;Withdrawal APIs': 'Deposit&Withdrawal APIs',
+        'item.label.Market APIs': 'Market APIs',
+        'item.label.Order APIs': 'Order APIs',
+        'item.label.Trade APIs': 'Trade APIs',
+        'item.label.Transfer APIs': 'Transfer APIs',
+        'item.label.WebSocket Private APIs': 'WebSocket Private APIs',
+        'item.label.WebSocket Public APIs': 'WebSocket Public APIs',
+        'item.label.Futures WebSocket APIs': 'Futures WebSocket APIs',
+        'item.label.Access Description APIs': 'Access Description APIs',
+        'item.label.Entrust APIs': 'Entrust APIs',
+        'item.label.Market Data APIs': 'Market Data APIs',
+        'item.label.Python Package APIs': 'Python Package APIs',
+        'item.label.Quote Collection APIs': 'Quote Collection APIs',
+        'item.label.User APIs': 'User APIs',
+        'item.label.WebSocket V2 APIs': 'WebSocket V2 APIs',
+        'item.label.Margin Balance APIs': 'Margin Balance APIs',
+        'item.label.Copy Account APIs': 'Copy Account APIs',
+        'item.label.Comprehensive API solutions for all your trading needs': 'Comprehensive API solutions for all your trading needs'
+      },
+      'zh-Hans': {
+        'item.label.All Products': '所有产品',
+        'item.label.Index': '指数',
+        'item.label.Spot Trading': '现货交易',
+        'item.label.Futures Trading': '合约交易',
+        'item.label.Margin Trading': '杠杆交易',
+        'item.label.Copy Trading': '跟单交易',
+        'item.label.Futures Copy': '合约跟单',
+        'item.label.Trading Third Party': '第三方交易',
+        'item.label.User Center': '用户中心',
+        'item.label.Balance': '余额',
+        'item.label.Deposit&Withdrawal': '充提',
+        'item.label.Deposit&amp;Withdrawal': '充提',
+        'item.label.Market': '市场',
+        'item.label.Order': '订单',
+        'item.label.Trade': '交易',
+        'item.label.Transfer': '转账',
+        'item.label.WebSocket Private': 'WebSocket 私有',
+        'item.label.WebSocket Public': 'WebSocket 公共',
+        'item.label.Futures WebSocket': '合约 WebSocket',
+        'item.label.Access Description': '访问描述',
+        'item.label.Entrust': '委托',
+        'item.label.Market Data': '市场数据',
+        'item.label.Python Package': 'Python 包',
+        'item.label.Quote Collection': '行情收集',
+        'item.label.User': '用户',
+        'item.label.WebSocket V2': 'WebSocket V2',
+        'item.label.Margin Balance': '杠杆余额',
+        'item.label.Copy Account': '跟单账户',
+        'item.label.Index APIs': '指数 API',
+        'item.label.Spot Trading APIs': '现货交易 API',
+        'item.label.Futures Trading APIs': '合约交易 API',
+        'item.label.Margin Trading APIs': '杠杆交易 API',
+        'item.label.Copy Trading API': '跟单交易 API',
+        'item.label.Futures Copy API': '合约跟单 API',
+        'item.label.Trading Third Party API': '第三方交易 API',
+        'item.label.User Center API': '用户中心 API',
+        'item.label.Balance APIs': '余额 API',
+        'item.label.Deposit&Withdrawal APIs': '充提 API',
+        'item.label.Deposit&amp;Withdrawal APIs': '充提 API',
+        'item.label.Market APIs': '市场 API',
+        'item.label.Order APIs': '订单 API',
+        'item.label.Trade APIs': '交易 API',
+        'item.label.Transfer APIs': '转账 API',
+        'item.label.WebSocket Private APIs': 'WebSocket 私有 API',
+        'item.label.WebSocket Public APIs': 'WebSocket 公共 API',
+        'item.label.Futures WebSocket APIs': '合约 WebSocket API',
+        'item.label.Access Description APIs': '访问描述 API',
+        'item.label.Entrust APIs': '委托 API',
+        'item.label.Market Data APIs': '市场数据 API',
+        'item.label.Python Package APIs': 'Python 包 API',
+        'item.label.Quote Collection APIs': '行情收集 API',
+        'item.label.User APIs': '用户 API',
+        'item.label.WebSocket V2 APIs': 'WebSocket V2 API',
+        'item.label.Margin Balance APIs': '杠杆余额 API',
+        'item.label.Copy Account APIs': '跟单账户 API',
+        'item.label.Comprehensive API solutions for all your trading needs': '为您的所有交易需求提供全面的 API 解决方案'
+      }
+    };
+
+    const currentTranslations = translations[locale] || translations['en'];
+
+    // 查找所有带有 data-i18n 属性的元素
+    const elements = document.querySelectorAll('[data-i18n]');
+    console.log('🔍 Found elements to translate:', elements.length);
+
+    let translatedCount = 0;
+    elements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (currentTranslations[key]) {
+        const oldText = element.textContent;
+        element.textContent = currentTranslations[key];
+        if (oldText !== currentTranslations[key]) {
+          translatedCount++;
+          console.log('✅ Translated:', key, '->', currentTranslations[key]);
+        }
+      }
+    });
+    console.log('📊 Total translated elements:', translatedCount);
+  }
+
+  // 使用 MutationObserver 监听 DOM 变化
+  function setupDropdownObserver() {
+    const observer = new MutationObserver(function(mutations) {
+      let shouldUpdate = false;
+
+      mutations.forEach(function(mutation) {
+        // 检查是否有新节点添加
+        if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1) { // Element node
+              // 检查是否包含菜单相关的元素
+              if (node.querySelector && (
+                node.querySelector('[data-i18n]') ||
+                node.id === 'all-products-nav' ||
+                node.classList.contains('navbar__item--dropdown') ||
+                node.querySelector('#productsGrid')
+              )) {
+                shouldUpdate = true;
+              }
+            }
+          });
+        }
+
+        // 检查属性变化（如显示/隐藏）
+        if (mutation.type === 'attributes') {
+          const target = mutation.target;
+          if (target.classList && (
+            target.classList.contains('navbar__item--dropdown') ||
+            target.classList.contains('navbar__item--show')
+          )) {
+            shouldUpdate = true;
+          }
+        }
+      });
+
+      if (shouldUpdate) {
+        console.log('🔄 DOM changed, updating translations...');
+        setTimeout(updateDropdownTranslations, 100);
+      }
+    });
+
+    // 开始观察
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class', 'style']
+    });
+
+    console.log('👀 Dropdown observer setup complete');
+  }
+
+  // 立即执行一次翻译
+  updateDropdownTranslations();
+
+  // 页面加载完成后设置监听器
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('📄 DOMContentLoaded fired');
+      updateDropdownTranslations();
+      setupDropdownObserver();
+    });
+  } else {
+    console.log('✅ DOM already loaded');
+    updateDropdownTranslations();
+    setupDropdownObserver();
+  }
+
+  // 延迟执行，确保所有元素都已渲染
+  setTimeout(updateDropdownTranslations, 100);
+  setTimeout(updateDropdownTranslations, 500);
+  setTimeout(updateDropdownTranslations, 1000);
+
+  // 监听语言切换
+  const langObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+        console.log('🌐 Language changed to:', document.documentElement.lang);
+        setTimeout(updateDropdownTranslations, 100);
+      }
+    });
+  });
+  langObserver.observe(document.documentElement, { attributes: true });
+
+  // 监听窗口焦点事件（用户切换标签页回来时）
+  window.addEventListener('focus', function() {
+    console.log('👁️ Window focused, checking translations');
+    setTimeout(updateDropdownTranslations, 100);
+  });
+
+  // 监听鼠标进入菜单区域
+  document.addEventListener('mouseover', function(event) {
+    const dropdown = event.target.closest('.navbar__item--dropdown');
+    if (dropdown) {
+      console.log('🖱️ Mouse over dropdown, updating translations');
+      setTimeout(updateDropdownTranslations, 50);
+    }
+  });
+
+-->
+
+              </li></ul></div><button type="button">😉</button></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbarSearchContainer_dDCC"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Command+K)"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_tqOs"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">简体中文</a></li><li class=""><hr style="margin: 0.3rem 0;"></li><li><a href="https://github.com/facebook/docusaurus/issues/3526" target="_blank" rel="noopener noreferrer" class="dropdown__link">Help Us Translate<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_Rdzz"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_bT41 colorModeToggle_UolE"><button class="clean-btn toggleButton_x9TT toggleButtonDisabled_Dj8q" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_nCQi lightToggleIcon_dnYY"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_nCQi darkToggleIcon_OBbf"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_nCQi systemToggleIcon_IWwm"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_PEsc"><div class="container margin-vert--lg"><div class="row"><aside class="col col--3"><nav class="sidebar_P3nc thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_VrjY margin-bottom--md">Recent posts</div><div role="group"><h3 class="yearGroupHeading_lECJ">2024</h3><ul class="sidebarItemList_OSkG clean-list"><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2024/07/03/dual-author">Dual author socials</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2024/07/03/multiple-authors">How multiple authors with socials looks</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2024/07/03/single-author">Single author socials</a></li></ul></div><div role="group"><h3 class="yearGroupHeading_lECJ">2023</h3><ul class="sidebarItemList_OSkG clean-list"><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2023/08/05">Ensure heading... (custom label)</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2023/07/19/a">Test if href in feed resolved correctly</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2023/07/19/b">Test Relative Path</a></li></ul></div><div role="group"><h3 class="yearGroupHeading_lECJ">2022</h3><ul class="sidebarItemList_OSkG clean-list"><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/x/y/z.html">A post with html slug</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2022/04/20/dup-footnote">First post with footnote to test posts with same footnote reference.</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2022/01/22/dup-footnote">Second post with footnote to test posts with same footnote reference.</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2022/01/21/dup-footnote">Third post with footnote to test posts with same footnote reference.</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2022/01/20/image-only-authors">Image-only authors</a></li></ul></div><div role="group"><h3 class="yearGroupHeading_lECJ">2021</h3><ul class="sidebarItemList_OSkG clean-list"><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2021/11/13/dup-title">Post with duplicate title</a></li><li class="sidebarItem_WJ0y"><a aria-current="page" class="sidebarItemLink_Qrfg sidebarItemLinkActive_nUeK" href="/tests/blog/2021/10/08/blog-post-mdx-require-feed-tests">Blog post MDX require Feed tests</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2021/10/07/blog-post-mdx-feed-tests">Blog post MDX Feed tests</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2021/09/13/dup-title">Post with duplicate title</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2021/08/23/multiple-authors">Multiple authors</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2021/08/22/no-author">Hmmm!</a></li><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2021/08/21/blog-post-toc-tests">Blog TOC FrontMatter tests</a></li></ul></div><div role="group"><h3 class="yearGroupHeading_lECJ">2020</h3><ul class="sidebarItemList_OSkG clean-list"><li class="sidebarItem_WJ0y"><a class="sidebarItemLink_Qrfg" href="/tests/blog/2020/08/03/demo/second-blog-intro">Using twice the blog plugin</a></li></ul></div></nav></aside><main class="col col--7"><article class=""><header><h1 class="title_UBNu">Blog post MDX require Feed tests</h1><div class="container_x5Un margin-vert--md"><time datetime="2021-10-08T00:00:00.000Z">October 8, 2021</time> · <!-- -->9 min read</div><div class="margin-top--md margin-bottom--sm row"><div class="col col--12 authorCol_bvyx"><div class="avatar margin-bottom--sm"><a class="avatar__photo-link" href="/tests/blog/authors/slorber"><img class="avatar__photo authorImage_p8ow" src="https://github.com/slorber.png" alt="Sebastien Lorber"></a><div class="avatar__intro authorDetails_dWdF"><div class="avatar__name"><a href="/tests/blog/authors/slorber"><span class="authorName_Y8Hr" translate="no">Sebastien Lorber</span></a></div><small class="authorTitle_Slpj" title="Docusaurus maintainer">Docusaurus maintainer</small><div class="authorSocials_tPnL"><a href="https://x.com/sebastienlorber" target="_blank" rel="noopener noreferrer" class="authorSocialLink_hEWM" title="X"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 1200 1227" style="--dark:#000;--light:#fff" class="authorSocialLink_hEWM xSvg_Q0g7"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"></path></svg></a></div></div></div></div></div></header><div id="__blog-post-container" class="markdown"><p>Some MDX tests, mostly to test how the RSS feed render those</p>
+<!-- -->
+<p>Test MDX with require calls</p>
+<!-- -->
+<img src="/img/docusaurus.png">
+<img>
+<img></div><footer class="docusaurus-mt-lg"><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class="col"><b>Tags:</b><ul class="tags_rTaS padding--none margin-left--sm"><li class="tag_l5va"><a rel="tag" class="tag_Nd8t tagRegular_TiLs" href="/tests/blog/tags/paginated-tag">Paginated-tag</a></li><li class="tag_l5va"><a rel="tag" class="tag_Nd8t tagRegular_TiLs" href="/tests/blog/tags/blog">Blog</a></li><li class="tag_l5va"><a rel="tag" class="tag_Nd8t tagRegular_TiLs" href="/tests/blog/tags/docusaurus">Docusaurus</a></li><li class="tag_l5va"><a rel="tag" class="tag_Nd8t tagRegular_TiLs" href="/tests/blog/tags/long-long">Long-long</a></li><li class="tag_l5va"><a rel="tag" class="tag_Nd8t tagRegular_TiLs" href="/tests/blog/tags/long-long-long">Long-long-long</a></li><li class="tag_l5va"><a rel="tag" class="tag_Nd8t tagRegular_TiLs" href="/tests/blog/tags/long-long-long-long">Long-long-long-long</a></li></ul></div></div><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class="col"><a href="https://github.com/facebook/docusaurus/edit/main/website/_dogfooding/_blog-tests/_dogfooding/_blog tests/2021-10-08-blog-post-mdx-require-feed-tests.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_IMw_" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_OHCJ"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/tests/blog/2021/11/13/dup-title"><div class="pagination-nav__sublabel">Newer post</div><div class="pagination-nav__label">Post with duplicate title</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tests/blog/2021/10/07/blog-post-mdx-feed-tests"><div class="pagination-nav__sublabel">Older post</div><div class="pagination-nav__label">Blog post MDX Feed tests</div></a></nav></main></div></div></div></div>
+</body>
+</html>
