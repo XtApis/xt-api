@@ -1,123 +1,254 @@
 <div align="center">
   <h1 align="center">
-    Docusaurus
+    XT API Documentation / XT API 文档
     <br />
     <br />
-    <a href="https://docusaurus.io">
-      <img src="https://docusaurus.io/img/slash-introducing.svg" alt="Docusaurus">
+    <a href="https://xt.com">
+      <img src="https://xt.com/static/media/logo.8a8b8b8b.png" alt="XT Exchange" width="200">
     </a>
   </h1>
 </div>
 
 <p align="center">
-  <a href="https://x.com/docusaurus"><img src="https://img.shields.io/twitter/follow/docusaurus.svg?style=social" align="right" alt="Twitter Follow" /></a>
-  <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/Docusaurus/backers/badge.svg" /></a>
-  <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/Docusaurus/sponsors/badge.svg" /></a>
-  <a href="https://www.npmjs.com/package/@docusaurus/core"><img src="https://img.shields.io/npm/v/@docusaurus/core.svg?style=flat" alt="npm version"></a>
-  <a href="https://github.com/facebook/docusaurus/actions/workflows/tests.yml"><img src="https://github.com/facebook/docusaurus/actions/workflows/tests.yml/badge.svg" alt="GitHub Actions status"></a>
-  <a href="CONTRIBUTING.md#pull-requests"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
-  <a href="https://discord.gg/docusaurus"><img src="https://img.shields.io/discord/102860784329052160.svg" align="right" alt="Discord Chat" /></a>
-  <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg"></a>
-  <a href="#license"><img src="https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000"></a>
-  <a href="https://github.com/facebook/jest"><img src="https://img.shields.io/badge/tested_with-jest-99424f.svg" alt="Tested with Jest"></a>
-  <a href="https://argos-ci.com" target="_blank" rel="noreferrer noopener" aria-label="Covered by Argos"><img src="https://argos-ci.com/badge.svg" alt="Covered by Argos" width="133" height="20" /></a>
-  <a href="https://gitpod.io/#https://github.com/facebook/docusaurus"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
-  <a href="https://app.netlify.com/sites/docusaurus-2/deploys"><img src="https://api.netlify.com/api/v1/badges/9e1ff559-4405-4ebe-8718-5e21c0774bc8/deploy-status" alt="Netlify Status"></a>
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffacebook%2Fdocusaurus%2Ftree%2Fmain%2Fexamples%2Fclassic&project-name=my-docusaurus-site&repo-name=my-docusaurus-site"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
-  <a href="https://app.netlify.com/start/deploy?repository=https://github.com/slorber/docusaurus-starter"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+  <a href="https://xt.com"><img src="https://img.shields.io/badge/XT-Exchange-blue" alt="XT Exchange" /></a>
+  <a href="https://github.com/XtApis/api"><img src="https://img.shields.io/github/stars/XtApis/api?style=social" alt="GitHub Stars" /></a>
+  <a href="https://t.me/XT_api"><img src="https://img.shields.io/badge/Telegram-Support-blue" alt="Telegram Support" /></a>
+  <a href="https://pypi.org/project/pyxt/"><img src="https://img.shields.io/pypi/v/pyxt" alt="Python SDK" /></a>
+  <a href="https://www.npmjs.com/package/xt-open-api"><img src="https://img.shields.io/npm/v/xt-open-api" alt="JavaScript SDK" /></a>
 </p>
 
-## Introduction
+## 🇺🇸 English | 🇨🇳 中文
 
-Docusaurus is a project for building, deploying, and maintaining open source project websites easily.
+---
 
-Short on time? Check out our [5-minute tutorial ⏱️](https://tutorial.docusaurus.io)!
+## 🇺🇸 English
 
-**Tip**: use **[docusaurus.new](https://docusaurus.new)** to test Docusaurus immediately in a playground.
+### Introduction
 
-- **Simple to Start**
+Welcome to XT API documentation! XT provides REST and WebSocket APIs to suit your trading needs.
 
-> Docusaurus is built in a way so that it can [get running](https://docusaurus.io/docs/installation) in as little time as possible. We've built Docusaurus to handle the website build process so you can focus on your project.
+### Quick Start
 
-- **Localizable**
+#### Environment Information
 
-> Docusaurus ships with [localization support](https://docusaurus.io/docs/i18n/introduction) via CrowdIn. Empower and grow your international community by translating your documentation.
+- **Spot Trading API**: [https://sapi.xt.com](https://sapi.xt.com)
+- **Futures Trading API (USDT-M)**: [https://fapi.xt.com](https://fapi.xt.com)
+- **Futures Trading API (Coin-M)**: [https://dapi.xt.com](https://dapi.xt.com)
 
-- **Customizable**
+#### Tutorials
 
-> While Docusaurus ships with the key pages and sections you need to get started, including a home page, a docs section, a [blog](https://docusaurus.io/docs/blog), and additional support pages, it is also [customizable](https://docusaurus.io/docs/creating-pages) as well to ensure you have a site that is [uniquely yours](https://docusaurus.io/docs/styling-layout).
+- **Python Spot Trading Tutorial**: [Python Spot Trading Tutorial](https://github.com/kelvinxue/pyxt/blob/main/examples/spot_guide.ipynb)
+- **Python Derivatives Trading Tutorial**: [Python Derivatives Trading Tutorial](https://github.com/kelvinxue/pyxt/blob/main/examples/future_guide.ipynb)
 
-## Installation
+### API Categories
 
-Use the initialization CLI to create your site:
+#### Core Trading APIs
+
+- **Spot Trading** - Spot market trading, order management, account queries
+- **Futures Trading** - Futures contract trading, leverage trading, risk control
+- **Margin Spot** - Spot leverage trading, lending management
+- **Copy Trading** - Copy trading, strategy following
+
+#### User Center APIs
+
+- **Account Management** - User information, account queries
+- **API Keys** - Key creation, permission management
+- **Referral System** - Referral commissions, commission queries
+
+#### Third-Party Trading APIs
+
+- **OAuth Interface** - Third-party authorization login
+- **User Registration** - Third-party user registration
+- **Order Management** - Third-party order operations
+
+### SDK Support
+
+#### Python SDK
+
+Use Python SDK for easier integration:
 
 ```bash
-npm init docusaurus@latest
+pip install pyxt
 ```
 
-[Read the docs](https://docusaurus.io/docs/installation) for any further information.
+- **GitHub**: [pyxt](https://github.com/kelvinxue/pyxt)
+- **PyPI**: [pyxt](https://pypi.org/project/pyxt/)
 
-## Contributing
+#### Java SDK
 
-We've released Docusaurus because it helps us better scale and supports the many OSS projects at Meta. We hope that other organizations can benefit from the project. We are thankful for any contributions from the community.
+Lightweight Java code library:
 
-### [Code of Conduct](https://code.fb.com/codeofconduct)
+- **GitHub**: [xt4-java-demo](https://github.com/xt-com/xt4-java-demo)
 
-Meta has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.fb.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
+#### JavaScript SDK
 
-### Contributing guide
+JavaScript SDK provides access to various endpoints for interacting with the XT platform:
 
-Read our [contributing guide](https://github.com/facebook/docusaurus/blob/main/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Docusaurus.
+```bash
+npm install xt-open-api
+```
 
-### Beginner-friendly bugs
+- **NPM**: [xt-open-api](https://www.npmjs.com/package/xt-open-api)
 
-To help you get your feet wet and get you familiar with our contribution process, we have a list of [beginner-friendly bugs](https://github.com/facebook/docusaurus/labels/good%20first%20issue) that might contain smaller issues to tackle first. This is a great place to get started.
+### Main Features
 
-## Contact
+- **REST API** - Complete RESTful API interfaces
+- **WebSocket API** - Real-time data push and trading
+- **Multi-language Support** - Python, Java, JavaScript SDKs
+- **Complete Documentation** - Detailed API documentation and examples
+- **Test Environment** - Testnet environment for development and testing
 
-We have a few channels for contact:
+### Documentation Structure
 
-- [Discord](https://discord.gg/docusaurus):
-  - `#general` for those using Docusaurus.
-  - `#contributors` for those wanting to contribute to the Docusaurus core.
-- [@docusaurus](https://x.com/docusaurus) X
-- [GitHub Issues](https://github.com/facebook/docusaurus/issues)
+```
+docs/
+├── spot/                    # Spot Trading API
+├── futures/                 # Futures Trading API
+├── margin-spot/            # Margin Spot API
+├── copy-trading/           # Copy Trading API
+├── futures-copy/           # Futures Copy API
+├── user-center/            # User Center API
+├── trading-third-party/    # Third-Party Trading API
+└── index_overview/         # Overview and Quick Start
+```
 
-## Contributors
+### Getting Started
 
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)]. <a href="https://github.com/facebook/docusaurus/graphs/contributors"><img src="https://opencollective.com/Docusaurus/contributors.svg?width=890&button=false" /></a>
+1. **Get API Keys** - Apply for API keys on the XT platform
+2. **Choose SDK** - Select the appropriate SDK for your development language
+3. **Read Documentation** - Check the detailed documentation for the corresponding API
+4. **Run Examples** - Start development using the provided example code
 
-## Backers
+### Support & Contact
 
-Thank you to all our backers! 🙏 [Become a backer](https://opencollective.com/Docusaurus#backer)
+- **Telegram Group**: [XT API Support Group](https://t.me/XT_api)
+- **Online Support**: Please consult online customer service for any questions
+- **GitHub Issues**: [Submit Issues](https://github.com/XtApis/api/issues)
 
-<a href="https://opencollective.com/Docusaurus#backers" target="_blank"><img src="https://opencollective.com/Docusaurus/backers.svg?width=890"></a>
+### License
 
-## Sponsors
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [Become a sponsor](https://opencollective.com/Docusaurus#sponsor)
+### Contributing
 
-<a href="https://opencollective.com/Docusaurus/sponsor/0/website" target="_blank"><img src="https://opencollective.com/Docusaurus/sponsor/0/avatar.svg"></a> <a href="https://opencollective.com/Docusaurus/sponsor/1/website" target="_blank"><img src="https://opencollective.com/Docusaurus/sponsor/1/avatar.svg"></a>
+Contributions to code and documentation are welcome! Please check the [Contributing Guide](./CONTRIBUTING.md) to learn how to participate in the project.
 
-## License
+---
 
-Docusaurus is [MIT licensed](./LICENSE).
+## 🇨🇳 中文
 
-The Docusaurus documentation (e.g., `.md` files in the `/docs` folder) is [Creative Commons licensed](./LICENSE-docs).
+### 简介
 
-## Special thanks
+欢迎使用 XT API 文档！XT 提供 REST 和 WebSocket API 来满足您的交易需求。
 
-<p>
-  <a href="http://www.browserstack.com/" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./admin/img/browserstack-dark-mode-logo.svg#gh-dark-mode-only">
-      <img alt="BrowserStack logo" src="./admin/img/browserstack-light-mode-logo.svg#gh-light-mode-only" height="50px" />
-    </picture>
-  </a>
-</p>
+### 快速开始
 
-[BrowserStack](http://www.browserstack.com/) supports us with [free access for open source](https://www.browserstack.com/open-source).
+#### 环境信息
 
-[![Rocket Validator logo](./admin/img/rocketvalidator-logo.png)](https://rocketvalidator.com/)
+- **现货交易 API**: [https://sapi.xt.com](https://sapi.xt.com)
+- **合约交易 API (USDT-M)**: [https://fapi.xt.com](https://fapi.xt.com)
+- **合约交易 API (Coin-M)**: [https://dapi.xt.com](https://dapi.xt.com)
 
-[Rocket Validator](https://rocketvalidator.com/) helps us find HTML markup or accessibility issues.
+#### 教程
+
+- **Python 现货交易教程**: [Python Spot Trading Tutorial](https://github.com/kelvinxue/pyxt/blob/main/examples/spot_guide.ipynb)
+- **Python 衍生品交易教程**: [Python Derivatives Trading Tutorial](https://github.com/kelvinxue/pyxt/blob/main/examples/future_guide.ipynb)
+
+### API 分类
+
+#### 核心交易 API
+
+- **现货交易** - 现货市场交易、订单管理、账户查询
+- **合约交易** - 期货合约交易、杠杆交易、风险控制
+- **保证金现货** - 现货杠杆交易、借贷管理
+- **跟单交易** - 复制交易、策略跟随
+
+#### 用户中心 API
+
+- **账户管理** - 用户信息、账户查询
+- **API 密钥** - 密钥创建、权限管理
+- **返佣系统** - 推荐返佣、佣金查询
+
+#### 第三方交易 API
+
+- **OAuth 接口** - 第三方授权登录
+- **用户注册** - 第三方用户注册
+- **订单管理** - 第三方订单操作
+
+### SDK 支持
+
+#### Python SDK
+
+使用 Python SDK 进行更简单的集成：
+
+```bash
+pip install pyxt
+```
+
+- **GitHub**: [pyxt](https://github.com/kelvinxue/pyxt)
+- **PyPI**: [pyxt](https://pypi.org/project/pyxt/)
+
+#### Java SDK
+
+轻量级 Java 代码库：
+
+- **GitHub**: [xt4-java-demo](https://github.com/xt-com/xt4-java-demo)
+
+#### JavaScript SDK
+
+JavaScript SDK 提供访问 XT 平台各种端点的功能：
+
+```bash
+npm install xt-open-api
+```
+
+- **NPM**: [xt-open-api](https://www.npmjs.com/package/xt-open-api)
+
+### 主要功能
+
+- **REST API** - 完整的 RESTful API 接口
+- **WebSocket API** - 实时数据推送和交易
+- **多语言支持** - Python、Java、JavaScript SDK
+- **完整文档** - 详细的 API 文档和示例
+- **测试环境** - 提供测试网环境进行开发测试
+
+### 文档结构
+
+```
+docs/
+├── spot/                    # 现货交易 API
+├── futures/                 # 合约交易 API
+├── margin-spot/            # 保证金现货 API
+├── copy-trading/           # 跟单交易 API
+├── futures-copy/           # 合约跟单 API
+├── user-center/            # 用户中心 API
+├── trading-third-party/    # 第三方交易 API
+└── index_overview/         # 概览和快速开始
+```
+
+### 开始使用
+
+1. **获取 API 密钥** - 在 XT 平台申请 API 密钥
+2. **选择 SDK** - 根据您的开发语言选择合适的 SDK
+3. **阅读文档** - 查看对应 API 的详细文档
+4. **运行示例** - 使用提供的示例代码开始开发
+
+### 支持与联系
+
+- **Telegram 群组**: [XT API Support Group](https://t.me/XT_api)
+- **在线客服**: 如有任何问题，请咨询在线客服
+- **GitHub Issues**: [提交问题](https://github.com/XtApis/api/issues)
+
+### 许可证
+
+本项目采用 MIT 许可证。详情请参阅 [LICENSE](./LICENSE) 文件。
+
+### 贡献
+
+欢迎贡献代码和文档！请查看 [贡献指南](./CONTRIBUTING.md) 了解如何参与项目。
+
+---
+
+<div align="center">
+  <p>Powered by <a href="https://xt.com">XT Exchange</a> | 由 <a href="https://xt.com">XT Exchange</a> 提供支持</p>
+</div>
