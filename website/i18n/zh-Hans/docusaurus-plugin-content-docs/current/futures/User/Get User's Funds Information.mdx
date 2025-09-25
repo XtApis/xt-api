@@ -1,40 +1,43 @@
 ---
-id: Get symbol list
-title: 获取交易对列表
-sidebar_label: 获取交易对列表
+id: GetAccountInfoCn
+title: 获取账户相关信息
+sidebar_label: 获取账户相关信息
 sidebar_position: 1
 ---
 
-**类型** GET
+### 描述
+**GET** `/future/user/v1/account/info`
 
-**接口说明：** `/v4/public/lever/symbol`
+---
 
 ### 限流规则
+- 200次/秒/apikey
 
-200次/秒/apikey
+---
 
-### 响应示例
+### 请求参数
 
-```json title="响应"
+_无_
+
+---
+
+### 返回示例
+
+```json
 {
-  "rc": 0,
-  "mc": "SUCCESS",
-  "ma": [],
-  "result": [
-    {
-      "symbolId": 123, // 现货交易对ID
-      "symbol": "btc_usdt", // 现货交易对
-      "buyCurrencyId": 123, // 买入币种ID
-      "buyCurrency": "btc", // 买入币种
-      "sellCurrencyId": 234, // 卖出币种ID
-      "sellCurrency": "usdt", // 卖出币种
-      "maxLoanAmountBuy": "", // 买入币种最大可借额度
-      "maxLoanAmountSell": "", // 卖出币种最大可借额度
-      "maxLeverage": "", // 最大借贷倍数
-      "dailyInterestRate": "", // 日利率
-      "liquidationRate": "", // 爆仓风险率
-      "tipsRate": "" // 提醒系数
-    }
-  ]
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "accountId": 0,            // 账户ID
+    "allowOpenPosition": false,// 是否允许开仓
+    "allowTrade": false,       // 是否允许交易
+    "allowTransfer": false,    // 是否允许划转
+    "openTime": "",            // 开户时间
+    "state": 0,                // 用户状态
+    "userId": 0                // 用户ID
+  },
+  "returnCode": 0
 }
-```

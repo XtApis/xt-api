@@ -1,40 +1,48 @@
 ---
-id: Get symbol list
-title: Get symbol list
-sidebar_label: Get symbol list
+id: GetAccountInfo
+title: Get Account Related Information
+sidebar_label: Get Account Related Information
 sidebar_position: 1
 ---
 
-**Type** GET
+### Description
 
-**Description:** `/v4/public/lever/symbol`
+\*Type\*\* GET
 
-### Limit Flow Rules
+**Description:**`/future/user/v1/account/info`
 
-200/s/apikey
+---
+
+### Limit Rule
+
+- 200/s/apikey
+
+---
+
+### Parameters
+
+_None_
+
+---
 
 ### Response Example
 
-```json title="Response"
+```json
 {
-  "rc": 0,
-  "mc": "SUCCESS",
-  "ma": [],
-  "result": [
-    {
-      "symbolId": 123, // Spot symbol id
-      "symbol": "btc_usdt", // Spot symbol
-      "buyCurrencyId": 123, // Buy currency id
-      "buyCurrency": "btc", // Buy currency
-      "sellCurrencyId": 234, // Sell currency id
-      "sellCurrency": "usdt", // Sell currency
-      "maxLoanAmountBuy": "", // The maximum amount of buy currency that can be borrowed
-      "maxLoanAmountSell": "", // The maximum amount of sell currency that can be borrowed
-      "maxLeverage": "", // Maximum loan multiple
-      "dailyInterestRate": "", // Daily interest rate
-      "liquidationRate": "", // Liquidation risk rate
-      "tipsRate": "" // Reminder coefficient
-    }
-  ]
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "accountId": 0, // Account ID
+    "allowOpenPosition": false, // Is it possible to open position
+    "allowTrade": false, // Is it possible to trade
+    "allowTransfer": false, // Is it possible to transfer
+    "openTime": "", // Opening time
+    "state": 0, // User status
+    "userId": 0 // User ID
+  },
+  "returnCode": 0
 }
 ```
