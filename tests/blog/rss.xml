@@ -78,20 +78,20 @@
             <guid>https://docusaurus.io/tests/blog/2022/04/20/dup-footnote</guid>
             <pubDate>Wed, 20 Apr 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[foo]]></description>
-            <content:encoded><![CDATA[<p>foo<sup><a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fn-1-75bc62" id="user-content-fnref-1-75bc62" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">1</a></sup></p>
-<p>bar<sup><a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fn-2-75bc62" id="user-content-fnref-2-75bc62" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">2</a></sup></p>
-<p>baz<sup><a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fn-3-75bc62" id="user-content-fnref-3-75bc62" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">3</a></sup></p>
+            <content:encoded><![CDATA[<p>foo<sup><a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fn-1-4dab54" id="user-content-fnref-1-4dab54" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">1</a></sup></p>
+<p>bar<sup><a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fn-2-4dab54" id="user-content-fnref-2-4dab54" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">2</a></sup></p>
+<p>baz<sup><a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fn-3-4dab54" id="user-content-fnref-3-4dab54" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">3</a></sup></p>
 <!-- -->
 <section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithHideOnScrollNavbar_SSbb sr-only" id="footnote-label">Footnotes<a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes" translate="no">​</a></h2>
 <ol>
-<li id="user-content-fn-1-75bc62">
-<p>foo <a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fnref-1-75bc62" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-1-4dab54">
+<p>foo <a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fnref-1-4dab54" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-2-75bc62">
-<p>bar <a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fnref-2-75bc62" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-2-4dab54">
+<p>bar <a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fnref-2-4dab54" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-3-75bc62">
-<p>baz <a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fnref-3-75bc62" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-3-4dab54">
+<p>baz <a href="https://docusaurus.io/tests/blog/2022/04/20/dup-footnote#user-content-fnref-3-4dab54" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></content:encoded>
@@ -102,20 +102,20 @@
             <guid>https://docusaurus.io/tests/blog/2022/01/22/dup-footnote</guid>
             <pubDate>Sat, 22 Jan 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[foo]]></description>
-            <content:encoded><![CDATA[<p>foo<sup><a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fn-1-eb3636" id="user-content-fnref-1-eb3636" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">1</a></sup></p>
-<p>bar<sup><a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fn-2-eb3636" id="user-content-fnref-2-eb3636" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">2</a></sup></p>
-<p>baz<sup><a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fn-3-eb3636" id="user-content-fnref-3-eb3636" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">3</a></sup></p>
+            <content:encoded><![CDATA[<p>foo<sup><a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fn-1-b87272" id="user-content-fnref-1-b87272" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">1</a></sup></p>
+<p>bar<sup><a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fn-2-b87272" id="user-content-fnref-2-b87272" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">2</a></sup></p>
+<p>baz<sup><a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fn-3-b87272" id="user-content-fnref-3-b87272" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">3</a></sup></p>
 <!-- -->
 <section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithHideOnScrollNavbar_SSbb sr-only" id="footnote-label">Footnotes<a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes" translate="no">​</a></h2>
 <ol>
-<li id="user-content-fn-1-eb3636">
-<p>foo <a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fnref-1-eb3636" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-1-b87272">
+<p>foo <a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fnref-1-b87272" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-2-eb3636">
-<p>bar <a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fnref-2-eb3636" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-2-b87272">
+<p>bar <a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fnref-2-b87272" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-3-eb3636">
-<p>baz <a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fnref-3-eb3636" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-3-b87272">
+<p>baz <a href="https://docusaurus.io/tests/blog/2022/01/22/dup-footnote#user-content-fnref-3-b87272" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></content:encoded>
@@ -126,20 +126,20 @@
             <guid>https://docusaurus.io/tests/blog/2022/01/21/dup-footnote</guid>
             <pubDate>Fri, 21 Jan 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[foo]]></description>
-            <content:encoded><![CDATA[<p>foo<sup><a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fn-1-a9bad4" id="user-content-fnref-1-a9bad4" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">1</a></sup></p>
-<p>bar<sup><a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fn-2-a9bad4" id="user-content-fnref-2-a9bad4" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">2</a></sup></p>
-<p>baz<sup><a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fn-3-a9bad4" id="user-content-fnref-3-a9bad4" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">3</a></sup></p>
+            <content:encoded><![CDATA[<p>foo<sup><a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fn-1-87f0a4" id="user-content-fnref-1-87f0a4" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">1</a></sup></p>
+<p>bar<sup><a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fn-2-87f0a4" id="user-content-fnref-2-87f0a4" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">2</a></sup></p>
+<p>baz<sup><a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fn-3-87f0a4" id="user-content-fnref-3-87f0a4" data-footnote-ref="true" aria-describedby="footnote-label" class="footnoteRefHideOnScrollNavbar_cA5g">3</a></sup></p>
 <!-- -->
 <section data-footnotes="true" class="footnotes"><h2 class="anchor anchorWithHideOnScrollNavbar_SSbb sr-only" id="footnote-label">Footnotes<a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#footnote-label" class="hash-link" aria-label="Direct link to Footnotes" title="Direct link to Footnotes" translate="no">​</a></h2>
 <ol>
-<li id="user-content-fn-1-a9bad4">
-<p>foo <a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fnref-1-a9bad4" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-1-87f0a4">
+<p>foo <a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fnref-1-87f0a4" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-2-a9bad4">
-<p>bar <a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fnref-2-a9bad4" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-2-87f0a4">
+<p>bar <a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fnref-2-87f0a4" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
-<li id="user-content-fn-3-a9bad4">
-<p>baz <a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fnref-3-a9bad4" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-3-87f0a4">
+<p>baz <a href="https://docusaurus.io/tests/blog/2022/01/21/dup-footnote#user-content-fnref-3-87f0a4" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>]]></content:encoded>

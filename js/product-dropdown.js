@@ -325,12 +325,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (productsContent) {
+      // 获取当前语言
+      const currentLang = document.documentElement.lang || 'en';
+      const basePath = currentLang === 'zh-Hans' ? '/zh-Hans' : '';
+
       productsContent.innerHTML = categoryData.products
         .map((product) => {
           const titleKey = (product.title || '').replace(/&/g, '&amp;');
           const descKey = (product.description || '').replace(/&/g, '&amp;');
+          // 为链接添加语言前缀
+          const localizedHref = basePath + product.href;
           return `
-        <a href="${product.href}" class="product-item">
+        <a href="${localizedHref}" class="product-item">
           <div class="product-title" data-i18n="item.label.${titleKey}">${product.title}</div>
           <div class="product-description" data-i18n="item.label.${descKey}">${product.description}</div>
         </a>
@@ -828,12 +834,18 @@ window.showCategory = function showCategory(category) {
   }
 
   if (productsGrid) {
+    // 获取当前语言
+    const currentLang = document.documentElement.lang || 'en';
+    const basePath = currentLang === 'zh-Hans' ? '/zh-Hans' : '';
+
     productsGrid.innerHTML = categoryData.products
       .map((product) => {
         const titleKey = (product.title || '').replace(/&/g, '&amp;');
         const descKey = (product.description || '').replace(/&/g, '&amp;');
+        // 为链接添加语言前缀
+        const localizedHref = basePath + product.href;
         return `
-      <a href="${product.href}" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7';" onmouseout="this.style.opacity='1';">
+      <a href="${localizedHref}" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7';" onmouseout="this.style.opacity='1';">
         <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.${titleKey}">${product.title}</div>
         <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.${descKey}">${product.description}</div>
       </a>
