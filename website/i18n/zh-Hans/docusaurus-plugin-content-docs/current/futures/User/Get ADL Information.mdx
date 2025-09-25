@@ -5,17 +5,21 @@ sidebar_label: 获取ADL信息
 sidebar_position: 13
 ---
 
-**类型** GET
+**请求类型** GET
 
-**接口说明：** `/future/user/v1/position/adl`
+**接口地址:** `/future/user/v1/position/adl`
+
+---
 
 ### 限流规则
 
 200次/秒/apikey
 
+---
+
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
   "error": {
     "code": "",
@@ -24,11 +28,10 @@ sidebar_position: 13
   "msgInfo": "",
   "result": [
     {
-      "longQuantile": 0, //多头持仓ADL
-      "shortQuantile": 0, //空头持仓ADL
-      "symbol": "" //交易对
+      "longQuantile": 0,   // 多头仓位ADL档位
+      "shortQuantile": 0,  // 空头仓位ADL档位
+      "symbol": ""         // 交易对
     }
   ],
   "returnCode": 0
 }
-```

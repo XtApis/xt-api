@@ -2,26 +2,32 @@
 id: GetContractAccountAssets
 title: 获取合约账户资产
 sidebar_label: 获取合约账户资产
-sidebar_position: 1
+sidebar_position: 1.1
 ---
 
-**类型** GET
+**请求类型** GET
 
-**接口说明：** /future/user/v1/compat/balance/list
+**接口地址:** `/future/user/v1/compat/balance/list`
+
+---
 
 #### **限流规则**
 
 200次/秒/apikey
 
-### 参数
+---
 
-| 名称           | 类型   | 必填  | 默认值 | 说明    |
-| -------------- | ------ | ----- | ------ | ------- |
-| queryAccountId | string | 否    | N/A    | 账户ID  |
+### 请求参数
+
+| 参数名         | 类型   | 是否必填 | 默认值 | 描述     |
+| -------------- | ------ | -------- | ------ | -------- |
+| queryAccountId | string | 否       | N/A    | 账户 ID  |
+
+---
 
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
   "error": {
     "code": "",
@@ -30,24 +36,23 @@ sidebar_position: 1
   "msgInfo": "",
   "result": [
     {
-      "accountId": 500000000000, // 账户ID
-      "userId": 500000000000, // 用户ID
-      "coin": "usdt", // 币种
-      "underlyingType": 2, // 币本位、U本位
-      "walletBalance": "2078.57264793", // 钱包余额
-      "openOrderMarginFrozen": "0", // 订单冻结
-      "isolatedMargin": "0", // 逐仓保证金冻结
-      "crossedMargin": "0", // 全仓保证金冻结
-      "amount": "2078.57264793", // 净资产余额
-      "totalAmount": "2078.57264793", // 保证金余额
-      "convertBtcAmount": "0.03638940", // 钱包余额转换BTC
-      "convertUsdtAmount": "2078.5726", // 钱包余额转换USDT
-      "profit": "0", // 盈亏
-      "notProfit": "0", // 未实现盈亏
-      "bonus": "0", // 体验金
-      "coupon": "0" // 抵扣券
+      "accountId": 500000000000,     // 账户ID
+      "userId": 500000000000,        // 用户ID
+      "coin": "usdt",                // 币种
+      "underlyingType": 2,           // 币种标准，U本位
+      "walletBalance": "2078.57264793",  // 钱包余额
+      "openOrderMarginFrozen": "0",  // 委托单冻结
+      "isolatedMargin": "0",         // 逐仓保证金
+      "crossedMargin": "0",          // 全仓保证金
+      "amount": "2078.57264793",     // 净资产余额
+      "totalAmount": "2078.57264793",// 保证金余额
+      "convertBtcAmount": "0.03638940", // 钱包余额折算BTC
+      "convertUsdtAmount": "2078.5726", // 钱包余额折算USDT
+      "profit": "0",                 // 已实现盈亏
+      "notProfit": "0",              // 未实现盈亏
+      "bonus": "0",                  // 奖励金
+      "coupon": "0"                  // 抵扣券
     }
   ],
   "returnCode": 0
 }
-```

@@ -1035,7 +1035,7 @@ export default async function createConfigAsync(): Promise<Config> {
         { title: 'Order', titleZh: '订单', subtitle: 'Order APIs', subtitleZh: '订单 API', href: '/docs/futures/Order/create-orders' },
         { title: 'Python Package', titleZh: 'Python 包', subtitle: 'Python Package APIs', subtitleZh: 'Python 包 API', href: '/docs/futures/Python Package/PythonPackage' },
         { title: 'Quote Collection', titleZh: '行情收集', subtitle: 'Quote Collection APIs', subtitleZh: '行情收集 API', href: '/docs/futures/Quote collection/get-futures-info' },
-        { title: 'User', titleZh: '用户', subtitle: 'User APIs', subtitleZh: '用户 API', href: '/docs/futures/User/Get symbol list' },
+        { title: 'User', titleZh: '用户', subtitle: 'User APIs', subtitleZh: '用户 API', href: '/docs/futures/User/GetAccountInfo' },
         { title: 'WebSocket V2', titleZh: 'WebSocket V2', subtitle: 'WebSocket V2 APIs', subtitleZh: 'WebSocket V2 API', href: '/docs/futures/WEBSOCKET(V2)/Request message format' }
       ]
     },
