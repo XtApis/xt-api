@@ -1,6 +1,4 @@
 {
-  "label": "余额",
-  "position": 2,
-  "localized_id": "Balance",
-  "localized_title": "余额"
+  "label": "账户余额",
+  "position": 2
 }

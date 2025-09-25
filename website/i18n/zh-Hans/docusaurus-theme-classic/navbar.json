@@ -30,13 +30,13 @@
     "message": "用户中心"
   },
   "item.label.Balance": {
-    "message": "余额"
+    "message": "账户余额"
   },
   "item.label.Deposit&Withdrawal": {
-    "message": "充提"
+    "message": "充币与提币"
   },
   "item.label.Market": {
-    "message": "市场"
+    "message": "行情"
   },
   "item.label.Order": {
     "message": "订单"
@@ -45,13 +45,13 @@
     "message": "交易"
   },
   "item.label.Transfer": {
-    "message": "转账"
+    "message": "资金划转"
   },
   "item.label.WebSocket Private": {
-    "message": "WebSocket 私有"
+    "message": "WebSocket 私有接口"
   },
   "item.label.WebSocket Public": {
-    "message": "WebSocket 公共"
+    "message": "WebSocket 公共接口"
   },
   "item.label.Futures WebSocket": {
     "message": "合约 WebSocket"
@@ -92,6 +92,9 @@
   },
   "item.label.Futures Copy API": {
     "message": "合约跟单 API"
+  },
+  "item.label.Access Description": {
+    "message": "访问说明"
   },
   "item.label.Trading Third Party API": {
     "message": "第三方交易 API"

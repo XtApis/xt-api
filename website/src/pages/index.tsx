@@ -16,9 +16,18 @@ import Heading from '@theme/Heading';
 // 删除所有未使用的组件函数
 
 export default function Home(): ReactNode {
-  // 自动重定向到 index overview 页面
+  // 自动重定向到 index overview 页面，保持当前语言
   if (typeof window !== 'undefined') {
-    window.location.replace('/docs/index_overview/overview');
+    // 获取当前语言
+    const currentLang = document.documentElement.lang || 'en';
+    console.log('🌐 Home page redirect - Current language:', currentLang);
+
+    // 根据当前语言构建正确的路径
+    const basePath = currentLang === 'zh-Hans' ? '/zh-Hans' : '';
+    const targetUrl = `${basePath  }/docs/index_overview/overview`;
+
+    console.log('🎯 Home page redirecting to:', targetUrl);
+    window.location.replace(targetUrl);
   }
 
   const {

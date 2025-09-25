@@ -1,6 +1,4 @@
 {
-  "label": "WebSocket公开",
-  "position": 9,
-  "localized_id": "WebSocket Public",
-  "localized_title": "WebSocket公开"
+  "label": "WebSocket 公共接口",
+  "position": 9
 }

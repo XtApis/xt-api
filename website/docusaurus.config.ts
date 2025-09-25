@@ -205,6 +205,10 @@ export default async function createConfigAsync(): Promise<Config> {
         src: '/js/product-dropdown-i18n.js',
         async: true,
       },
+      {
+        src: '/js/logo-i18n.js',
+        async: true,
+      },
     ],
     i18n: {
       defaultLocale: 'en',
@@ -673,6 +677,7 @@ export default async function createConfigAsync(): Promise<Config> {
           srcDark: 'img/xtlogo.png?v=2',
           width: 85,
           height: 36,
+          href: '/docs/index_overview/overview',
         },
         items: [
           {
