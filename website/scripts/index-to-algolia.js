@@ -53,9 +53,20 @@ function buildUrl(file, lang) {
   )
     .replace(/\\/g, '/')
     .replace(/\.(?:md|mdx)$/i, '');
+
+  // Read the front matter to get the correct id for the URL
+  const raw = fse.readFileSync(file, 'utf8');
+  const {data} = matter(raw);
+
+  // Use the id from front matter if available, otherwise use the filename
+  const docId = data.id || path.basename(file, path.extname(file));
+
+  // Replace the filename part with the doc id
+  const pathParts = rel.split('/');
+  pathParts[pathParts.length - 1] = docId;
+
   // URL encode the path segments to handle spaces and special characters
-  const encodedRel = rel
-    .split('/')
+  const encodedRel = pathParts
     .map((segment) => encodeURIComponent(segment))
     .join('/');
   return base + encodedRel;
