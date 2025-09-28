@@ -29,12 +29,17 @@ if (!APP_ID || !ADMIN_KEY) {
 
 function walk(dir) {
   const out = [];
-  if (!fs.existsSync(dir)) {return out;}
+  if (!fs.existsSync(dir)) {
+    return out;
+  }
   for (const name of fs.readdirSync(dir)) {
     const p = path.join(dir, name);
     const st = fs.statSync(p);
-    if (st.isDirectory()) {out.push(...walk(p));}
-    else if (/\.(?:md|mdx)$/i.test(p)) {out.push(p);}
+    if (st.isDirectory()) {
+      out.push(...walk(p));
+    } else if (/\.(?:md|mdx)$/i.test(p)) {
+      out.push(p);
+    }
   }
   return out;
 }
@@ -48,7 +53,12 @@ function buildUrl(file, lang) {
   )
     .replace(/\\/g, '/')
     .replace(/\.(?:md|mdx)$/i, '');
-  return base + rel;
+  // URL encode the path segments to handle spaces and special characters
+  const encodedRel = rel
+    .split('/')
+    .map((segment) => encodeURIComponent(segment))
+    .join('/');
+  return base + encodedRel;
 }
 
 function extractApiPaths(content) {
