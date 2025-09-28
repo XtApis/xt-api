@@ -5,260 +5,127 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const fs = require('fs');
 const path = require('path');
-const {algoliasearch} = require('algoliasearch');
+const fs = require('fs');
+const fse = require('fs-extra');
 const matter = require('gray-matter');
+const {algoliasearch} = require('algoliasearch');
 
-// Algolia 配置
-const client = algoliasearch('GTNEYZMA9V', 'c17bcebd2d5d3ec62b4aa36c46fedb6a');
-const indexName = 'xt_api_docs';
+const ROOT = path.join(__dirname, '..');
+const DOCS_DIR = path.join(ROOT, 'docs');
+const ZH_DOCS_DIR = path.join(
+  ROOT,
+  'i18n/zh-Hans/docusaurus-plugin-content-docs/current',
+);
 
-// 文档目录
-const docsDir = path.join(__dirname, '../docs');
+const APP_ID = process.env.ALGOLIA_APP_ID;
+const ADMIN_KEY = process.env.ALGOLIA_ADMIN_API_KEY;
+const INDEX_NAME = process.env.ALGOLIA_INDEX_NAME || 'xt_api_docs';
 
-/**
- * 递归读取目录中的所有 Markdown 文件
- */
-async function getAllMarkdownFiles(dir, fileList = []) {
-  const files = await fs.promises.readdir(dir);
-
-  for (const file of files) {
-    const filePath = path.join(dir, file);
-    const stat = await fs.promises.stat(filePath);
-
-    if (stat.isDirectory()) {
-      await getAllMarkdownFiles(filePath, fileList);
-    } else if (path.extname(file) === '.md' || path.extname(file) === '.mdx') {
-      fileList.push(filePath);
-    }
-  }
-
-  return fileList;
+if (!APP_ID || !ADMIN_KEY) {
+  console.error('Missing ALGOLIA_APP_ID or ALGOLIA_ADMIN_API_KEY');
+  process.exit(1);
 }
 
-/**
- * 处理 Markdown 文件内容
- */
-async function processMarkdownFile(filePath) {
-  const content = await fs.promises.readFile(filePath, 'utf8');
-  const {data, content: markdownContent} = matter(content);
+function walk(dir) {
+  const out = [];
+  if (!fs.existsSync(dir)) {return out;}
+  for (const name of fs.readdirSync(dir)) {
+    const p = path.join(dir, name);
+    const st = fs.statSync(p);
+    if (st.isDirectory()) {out.push(...walk(p));}
+    else if (/\.(?:md|mdx)$/i.test(p)) {out.push(p);}
+  }
+  return out;
+}
 
-  // 获取相对路径作为 URL
-  const relativePath = path.relative(docsDir, filePath);
-  let urlPath = relativePath
-    .replace(/\.(?:md|mdx)$/, '')
+function buildUrl(file, lang) {
+  const base = lang === 'zh-Hans' ? '/zh-Hans/docs/' : '/docs/';
+  const rel = (
+    lang === 'zh-Hans'
+      ? path.relative(ZH_DOCS_DIR, file)
+      : path.relative(DOCS_DIR, file)
+  )
     .replace(/\\/g, '/')
-    .replace(/\/index$/, '');
+    .replace(/\.(?:md|mdx)$/i, '');
+  return base + rel;
+}
 
-  // 确保 URL 路径格式正确
-  if (urlPath && !urlPath.startsWith('/')) {
-    urlPath = `/${  urlPath}`;
+function extractApiPaths(content) {
+  const s = new Set();
+  const re =
+    /\/(?:api|future|futures|spot|user|margin|copy|trading|index)[^\s`"')<>]*/gi;
+  for (const m of content.matchAll(re)) {
+    s.add(m[0]);
   }
-  if (!urlPath) {
-    urlPath = '/';
-  }
+  return Array.from(s);
+}
 
-  // 清理 Markdown 内容
-  const cleanContent = markdownContent
-    .replace(/```[\s\S]*?```/g, '') // 移除代码块
-    .replace(/`[^`]+`/g, '') // 移除行内代码
-    .replace(/\[(?<text>[^\]]+)\]\([^)]+\)/g, '$<text>') // 移除链接格式，保留文字
-    .replace(/[#*_~]/g, '') // 移除 Markdown 标记
-    .replace(/\n+/g, ' ') // 将换行符替换为空格
-    .trim()
-    .substring(0, 8000); // 限制内容长度，避免超过 Algolia 限制
-
-  // 构建层级结构
-  // const pathParts = relativePath.split('/');
-  const category = getCategory(relativePath);
-  const title = data.title || path.basename(filePath, path.extname(filePath));
-
-  // 确保 URL 格式正确
-  let finalUrl = `/docs${urlPath}`;
-
-  // 验证 URL 格式
-  try {
-    // eslint-disable-next-line no-new
-    new URL(finalUrl, 'http://localhost:3000');
-  } catch (e) {
-    console.warn(`⚠️  无效的 URL: "${finalUrl}" for file: ${relativePath}`);
-    finalUrl = `/docs/${relativePath
-      .replace(/\.(?:md|mdx)$/, '')
-      .replace(/\\/g, '/')}`;
-  }
-
+function fileToRecord(file, lang) {
+  const raw = fse.readFileSync(file, 'utf8');
+  const {data, content} = matter(raw);
+  const title =
+    data.title || data.sidebar_label || path.basename(file, path.extname(file));
+  const keywords = Array.isArray(data.keywords) ? data.keywords : [];
+  const url = buildUrl(file, lang);
+  const apiPaths = extractApiPaths(content);
   return {
-    objectID: urlPath.replace(/^\//, '') || relativePath,
-    content: cleanContent,
-    type: 'content',
-    url: finalUrl,
-
-    // Docusaurus 期望的层级结构
+    objectID: `${lang}:${url}`,
+    url,
+    language: lang,
+    title,
     hierarchy: {
-      lvl0: category,
-      lvl1: title,
-      lvl2: null,
-      lvl3: null,
-      lvl4: null,
-      lvl5: null,
-      lvl6: null,
+      lvl0: data.sidebar_label || title,
+      lvl1: data.id || '',
     },
-
-    // Docusaurus 标签
-    language: 'en',
+    keywords: Array.from(new Set([...keywords, ...apiPaths])),
+    content: content.slice(0, 5000),
     docusaurus_tag: 'docs-default-current',
-
-    // 额外信息
-    anchor: null,
-    path: relativePath,
+    type: 'content',
   };
 }
 
-/**
- * 根据文件路径推断分类
- */
-function getCategory(filePath) {
-  const pathParts = filePath.split('/');
-  if (pathParts.length > 1) {
-    return pathParts[0];
-  }
-  return 'docs';
+function buildAll() {
+  const recs = [];
+  walk(DOCS_DIR).forEach((f) => recs.push(fileToRecord(f, 'en')));
+  walk(ZH_DOCS_DIR).forEach((f) => recs.push(fileToRecord(f, 'zh-Hans')));
+  return recs;
 }
 
-/**
- * 检查记录大小并分割过大的记录
- */
-function validateAndSplitRecords(records) {
-  const validRecords = [];
-  const maxSize = 9000; // 留一些余量
+async function run() {
+  const client = algoliasearch(APP_ID, ADMIN_KEY);
+  const records = buildAll();
+  console.log(`Uploading ${records.length} records to ${INDEX_NAME}...`);
 
-  records.forEach((record) => {
-    const recordSize = JSON.stringify(record).length;
-
-    if (recordSize <= maxSize) {
-      validRecords.push(record);
-    } else {
-      // 分割过大的记录
-      console.log(
-        `⚠️  记录 "${record.title}" 太大 (${recordSize} bytes)，正在分割...`,
-      );
-
-      const contentChunks = [];
-      const chunkSize = 4000; // 每个块的内容大小
-
-      for (let i = 0; i < record.content.length; i += chunkSize) {
-        const chunk = record.content.substring(i, i + chunkSize);
-        contentChunks.push(chunk);
-      }
-
-      contentChunks.forEach((chunk, index) => {
-        const chunkRecord = {
-          ...record,
-          objectID: `${record.objectID}_chunk_${index}`,
-          content: chunk,
-          description: chunk.substring(0, 200),
-          title: `${record.title} (Part ${index + 1})`,
-        };
-        validRecords.push(chunkRecord);
-      });
-    }
+  await client.setSettings({
+    indexName: INDEX_NAME,
+    indexSettings: {
+      searchableAttributes: [
+        'unordered(url)',
+        'unordered(title)',
+        'unordered(keywords)',
+        'unordered(hierarchy.lvl0)',
+        'unordered(hierarchy.lvl1)',
+        'unordered(hierarchy.lvl2)',
+        'unordered(hierarchy.lvl3)',
+        'unordered(hierarchy.lvl4)',
+        'unordered(hierarchy.lvl5)',
+        'unordered(hierarchy.lvl6)',
+        'unordered(content)',
+      ],
+      attributesForFaceting: ['language', 'docusaurus_tag', 'type'],
+    },
   });
 
-  return validRecords;
+  await client.replaceAllObjects({
+    indexName: INDEX_NAME,
+    objects: records,
+    autoGenerateObjectIDIfNotExist: true,
+  });
+  console.log('Done');
 }
 
-/**
- * 主函数：索引所有文档
- */
-async function indexDocuments() {
-  try {
-    console.log('🔍 正在扫描文档文件...');
-
-    // 获取所有 Markdown 文件
-    const markdownFiles = await getAllMarkdownFiles(docsDir);
-    console.log(`📁 找到 ${markdownFiles.length} 个文档文件`);
-
-    // 处理所有文件
-    const processedFiles = await Promise.all(
-      markdownFiles.map(processMarkdownFile),
-    );
-    const rawRecords = processedFiles.filter((record) => {
-      // 过滤掉有问题的记录
-      if (!record.url || record.url === '/docs/' || record.url === '/docs') {
-        console.warn(`⚠️  跳过无效记录: ${record.objectID}`);
-        return false;
-      }
-      return true;
-    });
-    console.log(`📄 处理了 ${rawRecords.length} 个文档记录`);
-
-    // 验证并分割过大的记录
-    const records = validateAndSplitRecords(rawRecords);
-    console.log(`✅ 验证后得到 ${records.length} 个记录`);
-
-    // 上传到 Algolia
-    console.log('🚀 正在上传到 Algolia...');
-    const {taskIDs} = await client.saveObjects({
-      indexName,
-      objects: records,
-    });
-
-    console.log('✅ 成功上传到 Algolia!');
-    console.log(`📊 任务 ID:`, taskIDs);
-    console.log(`🔗 索引名称: ${indexName}`);
-
-    // 配置搜索属性
-    console.log('⚙️  正在配置搜索属性...');
-    await client.setSettings({
-      indexName,
-      indexSettings: {
-        searchableAttributes: [
-          'unordered(hierarchy.lvl0)',
-          'unordered(hierarchy.lvl1)',
-          'unordered(hierarchy.lvl2)',
-          'unordered(hierarchy.lvl3)',
-          'unordered(hierarchy.lvl4)',
-          'unordered(hierarchy.lvl5)',
-          'unordered(hierarchy.lvl6)',
-          'content',
-        ],
-        attributesForFaceting: ['language', 'docusaurus_tag', 'type'],
-        customRanking: ['desc(hierarchy.lvl0)', 'desc(hierarchy.lvl1)'],
-        attributesToRetrieve: [
-          'hierarchy.lvl0',
-          'hierarchy.lvl1',
-          'hierarchy.lvl2',
-          'hierarchy.lvl3',
-          'hierarchy.lvl4',
-          'hierarchy.lvl5',
-          'hierarchy.lvl6',
-          'content',
-          'type',
-          'url',
-        ],
-        attributesToSnippet: [
-          'hierarchy.lvl1:10',
-          'hierarchy.lvl2:10',
-          'hierarchy.lvl3:10',
-          'hierarchy.lvl4:10',
-          'hierarchy.lvl5:10',
-          'hierarchy.lvl6:10',
-          'content:10',
-        ],
-      },
-    });
-
-    console.log('🎉 Algolia 搜索配置完成!');
-  } catch (error) {
-    console.error('❌ 索引过程中出现错误:', error);
-    process.exit(1);
-  }
-}
-
-// 运行脚本
-if (require.main === module) {
-  indexDocuments();
-}
-
-module.exports = {indexDocuments};
+run().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

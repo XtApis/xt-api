@@ -664,7 +664,8 @@ export default async function createConfigAsync(): Promise<Config> {
         indexName: 'xt_api_docs',
         contextualSearch: false,
         searchParameters: {
-          facetFilters: [], // 清空默认的过滤器
+          // 仅返回中文结果（可按需修改）
+          facetFilters: ['language:zh-Hans'],
         },
         searchPagePath: false,
       },
