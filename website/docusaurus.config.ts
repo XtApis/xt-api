@@ -665,6 +665,7 @@ export default async function createConfigAsync(): Promise<Config> {
         contextualSearch: false,
         searchParameters: {
           // 根据当前语言环境过滤结果
+          // facetFilters:['language:en']
           facetFilters:
             process.env.DOCUSAURUS_CURRENT_LOCALE === 'zh-Hans'
               ? ['language:zh-Hans']
