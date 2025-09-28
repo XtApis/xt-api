@@ -79,20 +79,27 @@ function fileToRecord(file, lang) {
   const keywords = Array.isArray(data.keywords) ? data.keywords : [];
   const url = buildUrl(file, lang);
   const apiPaths = extractApiPaths(content);
-  return {
+
+  const record = {
     objectID: `${lang}:${url}`,
     url,
     language: lang,
     title,
+    docTitle: title, // Backup title field
+    docLanguage: lang, // Backup language field
     hierarchy: {
       lvl0: data.sidebar_label || title,
       lvl1: data.id || '',
+      lvl2: title, // Put title in lvl2
+      lvl3: lang, // Put language in lvl3
     },
     keywords: Array.from(new Set([...keywords, ...apiPaths])),
     content: content.slice(0, 5000),
     docusaurus_tag: 'docs-default-current',
     type: 'content',
   };
+
+  return record;
 }
 
 function buildAll() {
@@ -127,10 +134,15 @@ async function run() {
     },
   });
 
-  await client.replaceAllObjects({
+  // Clear existing objects first
+  await client.clearObjects({
+    indexName: INDEX_NAME,
+  });
+
+  // Then save new objects
+  await client.saveObjects({
     indexName: INDEX_NAME,
     objects: records,
-    autoGenerateObjectIDIfNotExist: true,
   });
   console.log('Done');
 }
