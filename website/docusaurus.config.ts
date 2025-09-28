@@ -664,8 +664,11 @@ export default async function createConfigAsync(): Promise<Config> {
         indexName: 'xt_api_docs',
         contextualSearch: false,
         searchParameters: {
-          // 仅返回中文结果（可按需修改）
-          facetFilters: ['language:zh-Hans'],
+          // 根据当前语言环境过滤结果
+          facetFilters:
+            process.env.DOCUSAURUS_CURRENT_LOCALE === 'zh-Hans'
+              ? ['language:zh-Hans']
+              : ['language:en'],
         },
         searchPagePath: false,
       },
