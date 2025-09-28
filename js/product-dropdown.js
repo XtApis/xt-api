@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'User',
           description: 'User APIs',
-          href: '/docs/futures/User/Get symbol list',
+          href: '/docs/futures/User/GetAccountInfo',
         },
         {
           title: 'WebSocket V2',
@@ -604,7 +604,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'User',
           description: 'User APIs',
-          href: '/docs/futures/User/Get symbol list',
+          href: '/docs/futures/User/GetAccountInfo',
         },
         {
           title: 'WebSocket V2',
