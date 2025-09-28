@@ -65,11 +65,9 @@ function buildUrl(file, lang) {
   const pathParts = rel.split('/');
   pathParts[pathParts.length - 1] = docId;
 
-  // URL encode the path segments to handle spaces and special characters
-  const encodedRel = pathParts
-    .map((segment) => encodeURIComponent(segment))
-    .join('/');
-  return base + encodedRel;
+  // Join path segments without URL encoding to match Docusaurus routing
+  const finalRel = pathParts.join('/');
+  return base + finalRel;
 }
 
 function extractApiPaths(content) {
