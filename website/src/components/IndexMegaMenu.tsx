@@ -118,7 +118,7 @@ function IndexMegaMenu(): JSX.Element {
           description: 'Quote Collection APIs',
         },
         {
-          href: '/docs/futures/User/Get symbol list',
+          href: '/docs/futures/User/GetAccountInfo',
           label: 'User',
           description: 'User APIs',
         },

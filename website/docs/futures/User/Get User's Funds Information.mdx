@@ -1,23 +1,19 @@
 ---
-id: GetAccountInfo
-title: Get Account Related Information
-sidebar_label: Get Account Related Information
-sidebar_position: 1
-keywords:
-  - account info
-  - account information
-  - /future/user/v1/account/info
+id: GetUserFunds
+title: Get User's Funds Information
+sidebar_label: Get User's Funds Information
+sidebar_position: 4
 ---
 
 ### Description
 
-\*Type\*\* GET
+**Type** GET
 
-**Description:**`/future/user/v1/account/info`
+**Description:** `/future/user/v1/balance/list`
 
 ---
 
-### Limit Rule
+### Limit Flow Rules
 
 - 200/s/apikey
 
@@ -38,15 +34,18 @@ _None_
     "msg": ""
   },
   "msgInfo": "",
-  "result": {
-    "accountId": 0, // Account ID
-    "allowOpenPosition": false, // Is it possible to open position
-    "allowTrade": false, // Is it possible to trade
-    "allowTransfer": false, // Is it possible to transfer
-    "openTime": "", // Opening time
-    "state": 0, // User status
-    "userId": 0 // User ID
-  },
+  "result": [
+    {
+      "availableBalance": 0, // Available balance
+      "coin": "", // Currency
+      "isolatedMargin": 0, // Frozen isolated margin
+      "openOrderMarginFrozen": 0, // Frozen order margin
+      "crossedMargin": 0, // Crossed margin
+      "bonus": 0, // Bonus
+      "coupon": 0, // Coupon
+      "walletBalance": 0 // Wallet balance
+    }
+  ],
   "returnCode": 0
 }
 ```

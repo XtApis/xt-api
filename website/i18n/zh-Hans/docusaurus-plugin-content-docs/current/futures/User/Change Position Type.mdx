@@ -5,27 +5,25 @@ sidebar_label: 修改持仓模式
 sidebar_position: 17
 ---
 
-**类型** POST
+**请求类型** POST
 
-**接口说明：** `/future/user/v1/position/change-type`
+**接口描述:** `/future/user/v1/position/change-type`
 
 ### 限流规则
 
 200次/秒/apikey
 
+### 请求参数
 
-### Parameters
-
-|     参数名    |  类型  |  是否必填   |  默认值  |       描述      |    取值范围        |
-|--------------|--------|-----------|---------|----------------|-------------------|
-| symbol       | string | Yes       | N/A     | Trading pair   |                   |
-| positionSide | string | Yes       | N/A     | Position side  | LONG; SHORT       |
-| positionType | string | Yes       | N/A     | Position type  | CROSSED; ISOLATED |
-
+| 参数名       | 类型   | 是否必填 | 默认值 | 描述     | 取值范围            |
+| ------------ | ------ | -------- | ------ | -------- | ------------------- |
+| symbol       | string | 是       | N/A    | 交易对   |                     |
+| positionSide | string | 是       | N/A    | 持仓方向 | LONG; SHORT         |
+| positionType | string | 是       | N/A    | 仓位模式 | CROSSED; ISOLATED   |
 
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
   "error": {
     "code": "",
@@ -35,4 +33,3 @@ sidebar_position: 17
   "result": {},
   "returnCode": 0
 }
-```

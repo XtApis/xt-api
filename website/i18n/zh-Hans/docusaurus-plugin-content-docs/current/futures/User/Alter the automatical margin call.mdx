@@ -1,0 +1,41 @@
+---
+id: AlterAutoMargin
+title: 修改自动追加保证金
+sidebar_label: 修改自动追加保证金
+sidebar_position: 11
+---
+
+### 接口描述
+**POST** `/future/user/v1/position/auto-margin`
+
+`Content-Type = application/x-www-form-urlencoded && application/json`
+
+---
+
+### 限流规则
+- 200次/秒/apikey
+
+---
+
+### 请求参数
+
+| 参数名       | 类型    | 是否必填 | 默认值 | 描述               | 取值范围    |
+|--------------|---------|----------|--------|--------------------|-------------|
+| symbol       | string  | 是       | N/A    | 交易对             |             |
+| positionSide | string  | 是       | N/A    | 持仓方向           | LONG; SHORT |
+| autoMargin   | boolean | 是       | N/A    | 是否自动追加保证金 | true; false |
+
+---
+
+### 响应示例
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}

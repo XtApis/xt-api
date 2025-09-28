@@ -1,32 +1,33 @@
 ---
-id: Get history track list
-title: 获取历史追踪单列表（非活跃）
-sidebar_label: 获取历史追踪单列表（非活跃）
-sidebar_position: 1.8
+id: GetAccountInfo
+title: 获取账户相关信息
+sidebar_label: 获取账户相关信息
+sidebar_position: 1
 ---
 
-### 说明
+### 接口描述
 
-**GET** `/future/trade/v1/entrust/track-list-history`
+**请求类型:** GET
 
-### 参数
+**接口地址:** `/future/user/v1/account/info`
 
-| 名称 | 类型 | 必填 | 默认值 | 说明 | 范围 |
-| --- | --- | --- | --- | --- | --- |
-| direction | string | 否 | NEXT | 方向（PREV：上一页；NEXT：下一页） | PREV；NEXT |
-| limit | integer | 否 | 10 | 限制数量 |  |
-| id | integer | 否 | N/A |  |  |
-| endTime | integer | 否 | N/A | 结束时间 |  |
-| startTime | integer | 否 | N/A | 开始时间 |  |
-| symbol | string | 否 | N/A | 交易对 |  |
+---
 
 ### 限流规则
 
-200次/秒/apikey
+- 200次/秒/apikey
+
+---
+
+### 请求参数
+
+_无_
+
+---
 
 ### 响应示例
 
-```json title="响应"
+```json
 {
   "error": {
     "code": "",
@@ -34,33 +35,13 @@ sidebar_position: 1.8
   },
   "msgInfo": "",
   "result": {
-    "hasNext": true, // 是否有下一页
-    "hasPre": true, // 是否有上一页
-    "items": [
-      {
-        "activationPrice": 0, // 激活价格
-        "avgPrice": 0, // 平均价格
-        "callback": "", // 回调幅度配置 1：PROPORTION（比例） 2：FIXED（固定）
-        "callbackVal": 0, // 回调值
-        "configActivation": false, // 是否配置激活价格
-        "createdTime": 0, // 创建时间
-        "currentPrice": 0, // 实时价格，与激活价格和委托价格比较
-        "desc": "", // 描述
-        "executedQty": 0, // 实际成交数量
-        "orderSide": "", // 订单方向
-        "ordinary": true,
-        "origQty": 0, // 数量（张）
-        "positionSide": "", // 持仓方向
-        "price": 0, // 委托价格
-        "state": "", // 订单状态：NOT_ACTIVATION（未激活）、NOT_TRIGGERED（未触发）、TRIGGERING（触发中）、TRIGGERED（已触发）、USER_REVOCATION（用户撤销）、PLATFORM_REVOCATION（平台撤销）、EXPIRED（已过期）、DELEGATION_FAILED（委托失败）
-        "stopPrice": 0, // 触发价格
-        "symbol": "", // 交易对
-        "trackId": 0, // 追踪单ID
-        "triggerPriceType": "", // 触发价格类型
-        "updatedTime": 0 // 更新时间
-      }
-    ]
+    "accountId": 0,           // 账户ID
+    "allowOpenPosition": false, // 是否允许开仓
+    "allowTrade": false,        // 是否允许交易
+    "allowTransfer": false,     // 是否允许划转
+    "openTime": "",             // 开户时间
+    "state": 0,                 // 用户状态
+    "userId": 0                 // 用户ID
   },
   "returnCode": 0
 }
-```
