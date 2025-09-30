@@ -1,48 +1,75 @@
 ---
-id: QuerySingleOrder
+id: QuerySingle
 title: 查询单个订单
 sidebar_label: 查询单个订单
 sidebar_position: 1
 ---
 
-**类型:** GET **描述:** `/v4/order`
+### 描述
+**请求类型:** GET
 
-### 参数
+**请求路径:** `/v4/order`
 
-| 名称          | 类型   | 是否必填 | 默认值 | 描述           | 取值范围 |
-| ------------- | ------ | -------- | ------ | -------------- | -------- |
-| orderId       | number | 否       |        | 订单ID         |          |
-| clientOrderId | string | 否       |        | 客户端订单ID   |          |
+---
+
+### 请求参数
+
+| 名称          | 类型   | 必填 | 默认值 | 描述       |
+|---------------|--------|------|--------|------------|
+| orderId       | number | 否   | N/A    | 订单 ID    |
+| clientOrderId | string | 否   | N/A    | 客户订单 ID |
+
+---
+
+### 限流规则
+- 50 次/秒/每个 API Key
+
+---
+
+### 示例代码
+
+```java title="Java"
+public String orderGet(){
+
+}
+```
+
+```python title="Python"
+# Python 示例占位
+```
+
+---
 
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
-  "ma": [{}],
+  "ma": [
+    {}
+  ],
   "result": {
     "symbol": "BTC_USDT",
     "orderId": "6216559590087220004",
     "clientOrderId": "16559590087220001",
     "baseCurrency": "string",
     "quoteCurrency": "string",
-    "side": "BUY",
-    "type": "LIMIT",
-    "timeInForce": "GTC",
+    "side": "BUY",               // 订单方向: BUY=买单, SELL=卖单
+    "type": "LIMIT",             // 订单类型: LIMIT=限价单, MARKET=市价单
+    "timeInForce": "GTC",        // 有效方式: GTC, IOC, FOK, GTX
     "price": "40000",
-    "origQty": "2",
-    "origQuoteQty": "48000",
-    "executedQty": "1.2",
-    "leavingQty": "string",
-    "tradeBase": "2",
-    "tradeQuote": "48000",
-    "avgPrice": "42350",
-    "fee": "string",
+    "origQty": "2",              // 原始数量
+    "origQuoteQty": "48000",     // 原始金额
+    "executedQty": "1.2",        // 已成交数量
+    "leavingQty": "string",      // 剩余未成交数量 (若取消或拒绝则为 0)
+    "tradeBase": "2",            // 成交数量
+    "tradeQuote": "48000",       // 成交金额
+    "avgPrice": "42350",         // 平均成交价格
+    "fee": "string",             // 手续费
     "feeCurrency": "string",
-    "state": "NEW",
-    "time": 1655958915583,
-    "updatedTime": 1655958915583
+    "state": "NEW",              // 订单状态: NEW=新建, PARTIALLY_FILLED=部分成交, FILLED=完全成交, CANCELED=已取消, REJECTED=已拒绝, EXPIRED=已过期
+    "time": 1655958915583,       // 下单时间
+    "updatedTime": 1655958915583 // 最后更新时间
   }
 }
-```

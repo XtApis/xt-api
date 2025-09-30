@@ -1,17 +1,43 @@
 ---
 id: GetSingleOrder
-title: Get single
-sidebar_label: Get single
+title: Get Single Order
+sidebar_label: Get Single Order
 sidebar_position: 1
 ---
 
-**Type:** GET **Description:** `/v4/order/{orderId}`
+**Type** GET
+
+**Description:** `/v4/order/{orderId}`
+
+---
 
 ### Parameters
 
-| name    | type   | mandatory | default | description | ranges |
-| ------- | ------ | --------- | ------- | ----------- | ------ |
-| orderId | number | true      |         |             |        |
+| Name    | Type   | Mandatory | Default | Description |
+| ------- | ------ | --------- | ------- | ----------- |
+| orderId | number | Yes       | —       | Order ID    |
+
+---
+
+### Limit Flow Rules
+
+- 10/s/apikey
+
+---
+
+### Code Example
+
+```java title="Java"
+public String orderGet(){
+
+}
+```
+
+```python title="Python"
+# your Python request code here
+```
+
+---
 
 ### Response Example
 
@@ -26,22 +52,22 @@ sidebar_position: 1
     "clientOrderId": "16559590087220001",
     "baseCurrency": "string",
     "quoteCurrency": "string",
-    "side": "BUY",
-    "type": "LIMIT",
-    "timeInForce": "GTC",
+    "side": "BUY", // order side: BUY, SELL
+    "type": "LIMIT", // order type: LIMIT, MARKET
+    "timeInForce": "GTC", // effective way: GTC, IOC, FOK, GTX
     "price": "40000",
-    "origQty": "2",
-    "origQuoteQty": "48000",
-    "executedQty": "1.2",
-    "leavingQty": "string",
-    "tradeBase": "2",
-    "tradeQuote": "48000",
-    "avgPrice": "42350",
-    "fee": "string",
+    "origQty": "2", // original quantity
+    "origQuoteQty": "48000", // original amount
+    "executedQty": "1.2", // executed quantity
+    "leavingQty": "string", // remaining quantity (0 if cancelled or rejected)
+    "tradeBase": "2", // transaction quantity
+    "tradeQuote": "48000", // transaction amount
+    "avgPrice": "42350", // average transaction price
+    "fee": "string", // handling fee
     "feeCurrency": "string",
-    "state": "NEW",
-    "time": 1655958915583,
-    "ip": "127.0.0.1",
+    "state": "NEW", // order state: NEW, PARTIALLY_FILLED, FILLED, CANCELED, REJECTED, EXPIRED
+    "time": 1655958915583, // order time
+    "ip": "127.0.0.1", // IP address
     "updatedTime": 1655958915583
   }
 }

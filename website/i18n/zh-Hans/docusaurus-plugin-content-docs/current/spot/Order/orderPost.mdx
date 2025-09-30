@@ -5,41 +5,48 @@ sidebar_label: 提交订单
 sidebar_position: 2
 ---
 
-**类型:** post **描述:** `/v4/order`
+**请求类型:** POST
+**请求路径:** `/v4/order`
 
-### 参数
+---
 
-| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
-| --- | --- | --- | --- | --- | --- |
-| symbol | string | 是 |  | 交易对 |  |
-| clientOrderId | string | 否 |  | 客户端订单ID，格式: ^[a-zA-Z0-9_]{4,22}$ |  |
-| side | string | 是 |  | 买卖方向：BUY（买入）、SELL（卖出） |  |
-| type | string | 是 |  | 订单类型：LIMIT（限价单）、MARKET（市价单） |  |
-| timeInForce | string | 是 |  | 有效方式：GTC、FOK、IOC、GTX |  |
-| bizType | string | 是 |  | 业务类型：SPOT（现货）、LEVER（杠杆） |  |
-| price | number | 否 |  | 价格。限价单必填；市价单不填 |  |
-| quantity | number | 否 |  | 数量。限价单必填，或按数量下市价单时必填 |  |
-| quoteQty | number | 否 |  | 金额。按金额下市价单时必填 |  |
-| nftId | string | 否 |  | NFT ID |  |
+### 参数说明
 
-#### 备注
+| 名称          | 类型   | 必填 | 默认值 | 描述                                                                 | 取值范围                 |
+|---------------|--------|------|--------|----------------------------------------------------------------------|--------------------------|
+| symbol        | string | 是   | —      | 交易对                                                               | —                        |
+| clientOrderId | string | 否   | —      | 自定义订单号，正则: `^[a-zA-Z0-9_]{4,22}$`                          | —                        |
+| side          | string | 是   | —      | 订单方向                                                             | BUY, SELL                |
+| type          | string | 是   | —      | 订单类型                                                             | LIMIT, MARKET            |
+| timeInForce   | string | 是   | —      | 有效方式                                                             | GTC, FOK, IOC, GTX       |
+| bizType       | string | 是   | —      | 业务类型                                                             | SPOT, LEVER              |
+| price         | number | 否   | —      | 价格。当为 LIMIT 订单时必填；MARKET 订单不需要填写                   | —                        |
+| quantity      | number | 否   | —      | 数量。当为 LIMIT 订单或按数量市价单时必填                           | —                        |
+| quoteQty      | number | 否   | —      | 金额。当为 LIMIT 订单或按金额市价单时必填                           | —                        |
+| nftId         | string | 否   | —      | NFT ID                                                              | —                        |
 
-创建市价买单时，quantity 必须为空，quoteQty 必填。创建市价卖单时，quoteQty 必须为空，quantity 必填。
+---
 
-#### 限流规则
+### 备注
+- 创建 **买入市价单** 时，`quantity` 必须为空，`quoteQty` 必填。
+- 创建 **卖出市价单** 时，`quoteQty` 必须为空，`quantity` 必填。
 
-20次/秒/apikey
+---
+
+### 限流规则
+- 20/s/apikey
+
+---
 
 ### 响应示例
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
   "ma": [{}],
   "result": {
     "orderId": "6216559590087220004",
-    "ip": "127.0.0.1"
+    "ip": "127.0.0.1"                    // IP 地址
   }
 }
-```

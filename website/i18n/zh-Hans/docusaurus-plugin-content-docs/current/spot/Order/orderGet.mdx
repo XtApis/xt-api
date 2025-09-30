@@ -1,21 +1,46 @@
 ---
 id: GetSingleOrder
-title: 查询单个订单
-sidebar_label: 查询单个订单
+title: 获取单个订单
+sidebar_label: 获取单个订单
 sidebar_position: 1
 ---
 
-**类型:** GET **描述:** `/v4/order/{orderId}`
+**请求类型** GET
 
-### 参数
+**接口描述:** `/v4/order/{orderId}`
 
-| 名称    | 类型   | 是否必填 | 默认值 | 描述    | 取值范围 |
-| ------- | ------ | -------- | ------ | ------- | -------- |
-| orderId | number | 是       |        | 订单ID  |          |
+---
+
+### 请求参数
+
+| 参数名  | 类型   | 是否必填 | 默认值 | 描述   |
+|---------|--------|----------|--------|--------|
+| orderId | number | 是       | —      | 订单ID |
+
+---
+
+### 限频规则
+- 10次/秒/每apikey
+
+---
+
+### 示例代码
+
+```java title="Java"
+public String orderGet(){
+
+}
+```
+
+```python title="Python"
+# Python 示例代码
+```
+
+---
 
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
@@ -26,23 +51,22 @@ sidebar_position: 1
     "clientOrderId": "16559590087220001",
     "baseCurrency": "string",
     "quoteCurrency": "string",
-    "side": "BUY",
-    "type": "LIMIT",
-    "timeInForce": "GTC",
+    "side": "BUY",                // 订单方向: BUY, SELL
+    "type": "LIMIT",              // 订单类型: LIMIT, MARKET
+    "timeInForce": "GTC",         // 有效方式: GTC, IOC, FOK, GTX
     "price": "40000",
-    "origQty": "2",
-    "origQuoteQty": "48000",
-    "executedQty": "1.2",
-    "leavingQty": "string",
-    "tradeBase": "2",
-    "tradeQuote": "48000",
-    "avgPrice": "42350",
-    "fee": "string",
+    "origQty": "2",               // 原始数量
+    "origQuoteQty": "48000",      // 原始金额
+    "executedQty": "1.2",         // 已成交数量
+    "leavingQty": "string",       // 待成交数量 (取消/拒绝时为0)
+    "tradeBase": "2",             // 成交数量
+    "tradeQuote": "48000",        // 成交金额
+    "avgPrice": "42350",          // 平均成交价格
+    "fee": "string",              // 手续费
     "feeCurrency": "string",
-    "state": "NEW",
-    "time": 1655958915583,
-    "ip": "127.0.0.1",
-    "updatedTime": 1655958915583
+    "state": "NEW",               // 订单状态: NEW, PARTIALLY_FILLED, FILLED, CANCELED, REJECTED, EXPIRED
+    "time": 1655958915583,        // 下单时间
+    "ip": "127.0.0.1",            // 请求IP
+    "updatedTime": 1655958915583  // 最后更新时间
   }
 }
-```

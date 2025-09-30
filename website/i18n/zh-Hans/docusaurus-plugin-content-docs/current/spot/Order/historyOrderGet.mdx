@@ -5,41 +5,46 @@ sidebar_label: 查询历史订单
 sidebar_position: 10
 ---
 
-**类型:** GET **描述:** `/v4/history-order`
+**类型** GET
 
-### 参数
+**描述:** `/v4/history-order`
 
-| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
-| --- | --- | --- | --- | --- | --- |
-| symbol | string | 否 |  | 交易对，不填表示所有 |  |
-| bizType | string | 否 |  | SPOT（现货）、LEVER（杠杆） |  |
-| side | string | 否 |  | BUY（买入）、SELL（卖出） |  |
-| type | string | 否 |  | LIMIT（限价）、MARKET（市价） |  |
-| state | string | 否 |  | 订单状态：PARTIALLY_FILLED（部分成交）、FILLED（完全成交）、CANCELED（已取消）、REJECTED（已拒绝）、EXPIRED（已过期） |  |
-| fromId | number | 否 |  | 起始ID |  |
-| direction | string | 否 |  | 查询方向：PREV（向前）、NEXT（向后） |  |
-| limit | number | 否 | 20 | 限制数量，最大100 |  |
-| startTime | number | 否 |  | 开始时间，例如：1657682804112 |  |
-| endTime | number | 否 |  | 结束时间 |  |
-| hiddenCanceled | bool | 否 |  | 隐藏已取消订单 |  |
+---
 
-#### **限流规则**
+### 请求参数
 
-10次/秒/apikey
+| 名称            | 类型   | 必填 | 默认值 | 描述                                   | 取值范围                           |
+|-----------------|--------|------|--------|----------------------------------------|------------------------------------|
+| symbol          | string | 否   | N/A    | 交易对，不填表示全部                   | —                                  |
+| bizType         | string | 否   | N/A    | 业务类型                               | SPOT, LEVER                        |
+| side            | string | 否   | N/A    | 买卖方向                               | BUY, SELL                          |
+| type            | string | 否   | N/A    | 订单类型                               | LIMIT, MARKET                      |
+| state           | string | 否   | N/A    | 订单[状态](#orderStatus)               | PARTIALLY_FILLED, FILLED, CANCELED, REJECTED, EXPIRED |
+| fromId          | number | 否   | N/A    | 起始ID                                 | —                                  |
+| direction       | string | 否   | N/A    | 查询方向                               | PREV, NEXT                         |
+| limit           | number | 否   | 20     | 限制数量（最大100）                    | —                                  |
+| startTime       | number | 否   | N/A    | 开始时间（示例：1657682804112）        | —                                  |
+| endTime         | number | 否   | N/A    | 结束时间                               | —                                  |
+| hiddenCanceled  | bool   | 否   | N/A    | 是否隐藏已取消订单                     | —                                  |
+
+---
+
+### 限流规则
+- 10次/秒/每apikey
+
+---
 
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
-  "ma": [
-    {}
-  ],
+  "ma": [{}],
   "result": {
     "hasPrev": true,
     "hasNext": true,
-    "items": [
+    "items": [   // 字段信息参见【查询单个订单】接口
       {
         "symbol": "BTC_USDT",
         "orderId": "6216559590087220004",
@@ -67,4 +72,3 @@ sidebar_position: 10
     ]
   }
 }
-```

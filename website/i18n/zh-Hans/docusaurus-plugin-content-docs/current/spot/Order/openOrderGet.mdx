@@ -1,75 +1,64 @@
 ---
+id: QueryOpenOrders
 title: 查询当前挂单
-position_number: 8
-type: get
-description: /v4/open-order
-parameters:
-  - name: symbol
-    type: string
-    mandatory: false
-    default:
-    description: 交易对，不填表示所有
-    ranges:
-  - name: bizType
-    type: string
-    mandatory: false
-    default:
-    description: 'SPOT（现货）、LEVER（杠杆）'
-    ranges:
-  - name: side
-    type: string
-    mandatory: false
-    default:
-    description: BUY（买入）、SELL（卖出）
-    ranges:
-content_markdown: >-
-  #### **限流规则**
-  
-  10次/秒/apikey
-
-
-left_code_blocks:
-  - code_block:
-    title: Java
-    language: java
-  - code_block:
-    title: Python
-    language: python
-right_code_blocks:
-  - code_block: |-
-      {
-        "rc": 0,
-        "mc": "string",
-        "ma": [
-          {}
-        ],
-        "result": [      //字段信息参考查询单个订单接口
-          {
-            "symbol": "BTC_USDT",
-            "orderId": "6216559590087220004",
-            "clientOrderId": "16559590087220001",
-            "baseCurrency": "string",
-            "quoteCurrency": "string",
-            "side": "BUY",
-            "type": "LIMIT",
-            "timeInForce": "GTC",
-            "price": "40000",
-            "origQty": "2",
-            "origQuoteQty": "48000",
-            "executedQty": "1.2",
-            "leavingQty": "string",
-            "tradeBase": "2",
-            "tradeQuote": "48000",
-            "avgPrice": "42350",
-            "fee": "string",
-            "feeCurrency": "string",
-            "state": "NEW",
-            "time": 1655958915583,
-            "ip": "127.0.0.1",
-            "updatedTime": 1655958915583
-          }
-        ]
-      }
-    title: Response
-    language: json
+sidebar_label: 查询当前挂单
+sidebar_position: 8
 ---
+
+**请求类型** GET
+
+**接口描述：** `/v4/open-order`
+
+---
+
+### 请求参数
+
+| 参数名   | 类型   | 是否必填 | 默认值 | 描述                                   | 取值范围     |
+|----------|--------|----------|--------|----------------------------------------|--------------|
+| symbol   | string | 否       | N/A    | 交易对，不填则表示全部                  | —            |
+| bizType  | string | 否       | N/A    | 业务类型                                | SPOT, LEVER  |
+| side     | string | 否       | N/A    | 订单方向                                | BUY, SELL    |
+
+---
+
+### 限频规则
+- 10次/秒/每apikey
+
+---
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [
+    {}
+  ],
+  "result": [
+    {
+      "symbol": "BTC_USDT",
+      "orderId": "6216559590087220004",
+      "clientOrderId": "16559590087220001",
+      "baseCurrency": "string",
+      "quoteCurrency": "string",
+      "side": "BUY",
+      "type": "LIMIT",
+      "timeInForce": "GTC",
+      "price": "40000",
+      "origQty": "2",
+      "origQuoteQty": "48000",
+      "executedQty": "1.2",
+      "leavingQty": "string",
+      "tradeBase": "2",
+      "tradeQuote": "48000",
+      "avgPrice": "42350",
+      "fee": "string",
+      "feeCurrency": "string",
+      "state": "NEW",
+      "time": 1655958915583,
+      "ip": "127.0.0.1",
+      "updatedTime": 1655958915583
+    }
+  ]
+}

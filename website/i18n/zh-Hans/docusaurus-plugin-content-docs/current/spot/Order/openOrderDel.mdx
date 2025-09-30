@@ -1,33 +1,38 @@
 ---
-id: CancelOpenOrder
+id: CancelCurrentPendingOrder
 title: 取消当前挂单
 sidebar_label: 取消当前挂单
 sidebar_position: 9
 ---
 
-**类型:** DELETE **描述:** `/v4/open-order`
+**请求类型** DELETE
 
-### 参数
+**接口描述：** `/v4/open-order`
 
-| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
-| --- | --- | --- | --- | --- | --- |
-| symbol | string | 否 |  | 交易对，不填表示所有 |  |
-| bizType | string | 是 |  | SPOT（现货）、LEVER（杠杆） |  |
-| side | string | 否 |  | BUY（买入）、SELL（卖出） |  |
+---
 
-#### **限流规则**
+### 请求参数
 
-10次/秒/apikey
+| 参数名   | 类型   | 是否必填 | 默认值 | 描述                                   | 取值范围     |
+|----------|--------|----------|--------|----------------------------------------|--------------|
+| symbol   | string | 否       | N/A    | 交易对，不填则表示全部                  | —            |
+| bizType  | string | 是       | N/A    | 业务类型                                | SPOT, LEVER  |
+| side     | string | 否       | N/A    | 订单方向                                | BUY, SELL    |
 
-**注意:** 参数应以 JSON 形式放在请求体中。
+---
+
+### 限频规则
+- 10次/秒/每apikey
+- **注意：** 参数需以 **JSON** 格式放置于请求体中。
+
+---
 
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
   "ma": [{}],
   "result": {}
 }
-```

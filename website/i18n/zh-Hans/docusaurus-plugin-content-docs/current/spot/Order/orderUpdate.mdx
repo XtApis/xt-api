@@ -5,30 +5,35 @@ sidebar_label: 更新订单（限价）
 sidebar_position: 5
 ---
 
-**类型:** put **描述:** `/v4/order/{orderId}`
+**请求类型:** PUT
+**接口地址:** `/v4/order/{orderId}`
 
-### 参数
+---
 
-| 名称     | 类型   | 是否必填 | 默认值 | 描述    | 取值范围 |
-| -------- | ------ | -------- | ------ | ------- | -------- |
-| orderId  | number | 是       |        | 订单ID  |          |
-| price    | number | 是       |        | 价格    |          |
-| quantity | number | 是       |        | 数量    |          |
+### 参数说明
 
-#### **限流规则**
+| 名称     | 类型   | 是否必填 | 默认值 | 描述     | 取值范围 |
+| -------- | ------ | -------- | ------ | -------- | -------- |
+| orderId  | number | 是       | —      | 订单ID   |          |
+| price    | number | 是       | —      | 价格     |          |
+| quantity | number | 是       | —      | 数量     |          |
 
-50次/秒/apikey
+---
+
+### 限流规则
+- 50次/秒/每apikey
+
+---
 
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
   "ma": [{}],
   "result": {
-    "orderId": "6216559590087220004", //订单ID
-    "modifyId": "407329711723834560" //修改ID
+    "orderId": "6216559590087220004", // 订单ID
+    "modifyId": "407329711723834560" // 修改ID
   }
 }
-```
