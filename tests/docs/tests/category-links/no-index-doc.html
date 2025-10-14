@@ -37,8 +37,8 @@
 <script src="/js/product-dropdown.js" async></script>
 <script src="/js/product-dropdown-i18n.js" async></script>
 <script src="/js/logo-i18n.js" async></script><link rel="stylesheet" href="/assets/css/styles.860cfb80.css">
-<script src="/assets/js/runtime~main.62b24777.js" defer="defer"></script>
-<script src="/assets/js/main.e3fbdef8.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.6b85bb06.js" defer="defer"></script>
+<script src="/assets/js/main.e986cb45.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -171,7 +171,7 @@
                           <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Margin Balance APIs">Margin Balance APIs</div>
                         </a>
 
-                        <a href="/docs/copy-trading/Account/GetAccountInfo" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
+                        <a href="/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover='this.style.opacity="0.7"' onmouseout='this.style.opacity="1"'>
                           <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;" data-i18n="item.label.Copy Account">Copy Account</div>
                           <div style="font-size: 12px; color: #6b7280;" data-i18n="item.label.Copy Account APIs">Copy Account APIs</div>
                         </a>
@@ -208,7 +208,7 @@
         { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' },
         { title: 'Futures WebSocket', titleZh: '合约 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '合约 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information' },
         { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetBalanceBySymbol' },
-        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
+        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder' }
       ]
     },
     'Index': {
@@ -270,7 +270,7 @@
       descZh: '跟单交易和社交交易 API',
       products: [
         { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
+        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder' }
       ]
     },
     'futuresCopy': {
@@ -633,6 +633,6 @@
     <span style="font-size: 0.5rem; color: lightgrey;">Powered by</span>
     <img style="width: 100px; height: 100px; display: block;" src="/img/docusaurus.png" alt="Docusaurus Logo">
   </li></ul></li></ul></nav><div style="border:solid thin red;padding:10px;text-align:center">Sidebar Ad</div><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PUyN"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_DI0B"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_EfwR"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_n6xZ"><div class="docItemContainer_RhpI"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Wvrh" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_uaSn"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/tests/docs/category/tests"><span>Tests</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/tests/docs/category-links-generated-index-slug"><span>Category Links</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">no-index-doc</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Index</span></li></ul></nav><div class="theme-doc-markdown markdown"><header><h1>Index</h1></header>
-<p>This file (<code>index.md</code>) is supposed to be a category index, but it isn&#x27;t because we have set <code>link: null</code> in the <code>_category_.json</code>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_OHCJ"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-10-13T09:54:35.000Z" itemprop="dateModified">Oct 13, 2025</time></b> by <b>forest</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/tests/docs/tests/category-links/custom-index-convention/sample-doc"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Sample doc</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tests/docs/tests/category-links/no-index-doc/sample-doc"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Sample doc</div></a></nav></div></div></div></div></main></div></div></div></div>
+<p>This file (<code>index.md</code>) is supposed to be a category index, but it isn&#x27;t because we have set <code>link: null</code> in the <code>_category_.json</code>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_OHCJ"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-10-14T02:49:16.000Z" itemprop="dateModified">Oct 14, 2025</time></b> by <b>forest</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/tests/docs/tests/category-links/custom-index-convention/sample-doc"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Sample doc</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tests/docs/tests/category-links/no-index-doc/sample-doc"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Sample doc</div></a></nav></div></div></div></div></main></div></div></div></div>
 </body>
 </html>
