@@ -957,7 +957,7 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.Margin Balance APIs">Margin Balance APIs</div>
                         </a>
 
-                        <a href="/docs/copy-trading/Account/GetAccountInfo"
+                        <a href="/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
@@ -999,7 +999,7 @@ export default async function createConfigAsync(): Promise<Config> {
         { title: 'WebSocket Public', titleZh: 'WebSocket 公共', subtitle: 'WebSocket Public APIs', subtitleZh: 'WebSocket 公共 API', href: '/docs/spot/WebSocket Public/subscribeParam' },
         { title: 'Futures WebSocket', titleZh: '合约 WebSocket', subtitle: 'Futures WebSocket APIs', subtitleZh: '合约 WebSocket API', href: '/docs/futures/WEBSOCKET(V2)/General_WSS_information' },
         { title: 'Margin Balance', titleZh: '杠杆余额', subtitle: 'Margin Balance APIs', subtitleZh: '杠杆余额 API', href: '/docs/margin-spot/Balance/GetBalanceBySymbol' },
-        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
+        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder' }
       ]
     },
     'Index': {
@@ -1061,7 +1061,7 @@ export default async function createConfigAsync(): Promise<Config> {
       descZh: '跟单交易和社交交易 API',
       products: [
         { title: 'Copy Trading', titleZh: '跟单交易', subtitle: 'Copy Trading API', subtitleZh: '跟单交易 API', href: '/docs/copy-trading/Access Description/BasicInformationOfTheInterface' },
-        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Account/GetAccountInfo' }
+        { title: 'Copy Account', titleZh: '跟单账户', subtitle: 'Copy Account APIs', subtitleZh: '跟单账户 API', href: '/docs/copy-trading/Copy tradeing/GetCurrentLeaderOrder' }
       ]
     },
     'futuresCopy': {
