@@ -22,6 +22,19 @@ sidebar_position: 1
 | startTime | number | false | N/A | Start time (e.g. `1657682804112`) |  |
 | endTime | number | false | N/A | End time |  |
 
+### Parameters Example
+
+```bash title="cURL"
+curl --location --request GET 'https://sapi.xt.com/v4/trade?limit=100&bizType=SPOT&startTime=1757779200000&endTime=1760457599999&direction=NEXT' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+```
+
 ### Notes
 
 This endpoint retrieves trade records. Supports filtering by trading pair, business type, side, order type, time range, and pagination.

@@ -33,6 +33,34 @@ sidebar_position: 5
 
 - 30/s/apikey
 
+### Parameters Example
+
+```
+curl --location --request POST 'https://sapi.xt.com/v4/batch-order' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "clientBatchId": "xxxxxxxxxx",
+    "items": [
+        {
+            "symbol": "XT_USDT",
+            "clientOrderId": "xxxxxxxxxx",
+            "side": "BUY",
+            "type": "LIMIT",
+            "timeInForce": "GTC",
+            "bizType": "SPOT",
+            "price": 10,
+            "quantity": 1
+        }
+    ]
+}'
+```
+
 ---
 
 ### Request Example

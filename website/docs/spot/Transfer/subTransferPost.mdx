@@ -5,8 +5,7 @@ sidebar_label: Transfer between sub-account business systems
 sidebar_position: 2
 ---
 
-**Type:** POST  
-**Description:** `/v4/balance/account/transfer`
+**Type:** POST **Description:** `/v4/balance/account/transfer`
 
 ### Parameters
 
@@ -27,6 +26,26 @@ This endpoint performs fund transfers between business system accounts under the
 
 - `bizId` is recommended to be stored for reconciliation.
 - If leverage accounts are involved, `symbol` must be specified.
+
+### Parameters Example
+
+```curl --location --request POST 'https://sapi.xt.com/v4/balance/account/transfer' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "bizId": "xxxx_xxxxxxxx",
+    "from": "SPOT",
+    "to": "SPOT",
+    "currency": "USDT",
+    "amount": "1",
+    "toAccountId": accountId
+}'
+```
 
 ### Response Example
 

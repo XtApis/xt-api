@@ -5,7 +5,9 @@ sidebar_label: Transfer between user business systems
 sidebar_position: 1
 ---
 
-**Type:** POST **Description:** `/v4/balance/transfer`
+**Type:** POST
+
+**Description:** `/v4/balance/transfer`
 
 ### Parameters
 
@@ -18,21 +20,32 @@ sidebar_position: 1
 | symbol | string | false | N/A | Transfer symbol (must be lowercase). Required if one of the transfer-in or transfer-out accounts is **leverage** |  |
 | amount | bigDecimal | true | N/A | Transfer amount |  |
 
-#### bizType
-
-| Value    | Description |
-| -------- | ----------- |
-| spot     | 现货账户    |
-| leverage | 杠杆账户    |
-| futures  | 合约账户    |
-| margin   | 保证金账户  |
-
 ### Notes
 
 This endpoint allows fund transfers between **different business systems** under the same user.
 
 - `bizId` ensures idempotent processing, recommended to be stored for reconciliation.
 - If leverage accounts are involved, `symbol` must be provided.
+
+#### Parameters Example
+
+```
+curl --location --request POST 'https://sapi.xt.com/v4/balance/transfer' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "bizId": "xxxx_xxxxxxxx",
+    "from": "SPOT",
+    "to": "FUTURES_U",
+    "currency": "USDT",
+    "amount": "1"
+}
+```
 
 ### Response Example
 

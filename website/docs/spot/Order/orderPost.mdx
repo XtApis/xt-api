@@ -31,6 +31,28 @@ Create a BUY order based on market price, quantity must be null, quoteQty requir
 
 20/s/apikey
 
+### Parameters Example
+
+```
+curl --location --request POST 'https://sapi.xt.com/v4/order' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "symbol": "XT_USDT",
+    "side": "BUY",
+    "type": "LIMIT",
+    "timeInForce": "GTC",
+    "bizType": "SPOT",
+    "price": 10,
+    "quantity": 1
+}'
+```
+
 ### Response Example
 
 ```json

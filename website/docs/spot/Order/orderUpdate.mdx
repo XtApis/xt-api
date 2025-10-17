@@ -5,7 +5,7 @@ sidebar_label: Update Order(Limit)
 sidebar_position: 5
 ---
 
-**Type:** put **Description:** `/v4/order/{orderId}`
+**Type:** PUT **Description:** `/v4/order/{orderId}`
 
 ### Parameters
 
@@ -18,6 +18,24 @@ sidebar_position: 5
 #### **Limit Flow Rules**
 
 50/s/apikey
+
+### Parameters Example
+
+```
+curl --location --request PUT 'https://sapi.xt.com/v4/order/xxxxxx' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "orderId": "xxxxxx",
+    "price": 10,
+    "quantity": 2
+}'
+```
 
 ### Response Example
 

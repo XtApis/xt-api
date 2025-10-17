@@ -21,6 +21,22 @@ Response field information, refer to the **Get single interface**.
 
 ### Response Example
 
+```
+curl --location --request DELETE 'https://sapi.xt.com/v4/batch-order' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+  "orderIds": [123456789, 987654321]
+}'
+```
+
+### Response Example
+
 ```json title="Response"
 {
   "rc": 0,

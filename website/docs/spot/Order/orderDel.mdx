@@ -17,6 +17,19 @@ sidebar_position: 3
 
 N/A
 
+### Parameters Example
+
+```
+curl --location --request DELETE 'https://sapi.xt.com/v4/order/xxxxxxxxxxx' \    // xxxxxxxxxxx：orderId
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+```
+
 ### Response Example
 
 ```json title="Response"

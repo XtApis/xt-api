@@ -25,6 +25,20 @@ sidebar_position: 8
 - 10次/秒/每apikey
 
 ---
+### 请求示例
+
+```
+curl --location --request GET 'https://sapi.xt.com/v4/open-order?symbol=XT_USDT' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+
+
+```
 
 ### 响应示例
 

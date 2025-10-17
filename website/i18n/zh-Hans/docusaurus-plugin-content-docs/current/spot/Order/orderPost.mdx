@@ -10,7 +10,7 @@ sidebar_position: 2
 
 ---
 
-### 参数说明
+### 请求参数
 
 | 名称          | 类型   | 必填 | 默认值 | 描述                                                                 | 取值范围                 |
 |---------------|--------|------|--------|----------------------------------------------------------------------|--------------------------|
@@ -31,12 +31,35 @@ sidebar_position: 2
 - 创建 **买入市价单** 时，`quantity` 必须为空，`quoteQty` 必填。
 - 创建 **卖出市价单** 时，`quoteQty` 必须为空，`quantity` 必填。
 
+### 请求示例
+
+```
+curl --location --request POST 'https://sapi.xt.com/v4/order' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "symbol": "XT_USDT",
+    "side": "BUY",
+    "type": "LIMIT",
+    "timeInForce": "GTC",
+    "bizType": "SPOT",
+    "price": 10,
+    "quantity": 1
+}'
+```
+### Res
+
+
 ---
 
 ### 限流规则
 - 20/s/apikey
 
----
 
 ### 响应示例
 

@@ -16,6 +16,19 @@ sidebar_position: 7
 
 > Note: The parameters should be placed in the request body in the form of JSON.
 
+### Parameters Example
+
+```
+curl --location --request DELETE 'https://sapi.xt.com/v4/batch-order?orderIds=xxxxxx,xxxxxx,xxxxxx' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+```
+
 ### Response Example
 
 ```json title="Response"

@@ -5,9 +5,11 @@ sidebar_label: 用户业务系统间划转
 sidebar_position: 1
 ---
 
-**类型：** POST **接口描述：** `/v4/balance/transfer`
+**类型：** POST
 
-### 参数
+**接口描述：** `/v4/balance/transfer`
+
+### 请求参数
 
 | 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
@@ -24,6 +26,26 @@ sidebar_position: 1
 
 - `bizId` 确保幂等处理，建议保存用于对账。
 - 如涉及杠杆账户，必须提供 `symbol` 参数。
+
+
+####  请求示例
+```
+curl --location --request POST 'https://sapi.xt.com/v4/balance/transfer' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "bizId": "xxxx_xxxxxxxx",
+    "from": "SPOT",
+    "to": "FUTURES_U",
+    "currency": "USDT",
+    "amount": "1"
+}
+```
 
 ### 响应示例
 

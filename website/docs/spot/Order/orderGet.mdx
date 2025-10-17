@@ -25,16 +25,17 @@ sidebar_position: 1
 
 ---
 
-### Code Example
+### Parameters Example
 
-```java title="Java"
-public String orderGet(){
-
-}
 ```
-
-```python title="Python"
-# your Python request code here
+curl --location --request GET 'https://sapi.xt.com/v4/order/xxxxxxxxxxx' \     // xxxxxxxxxxx：orderId
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
 ```
 
 ---

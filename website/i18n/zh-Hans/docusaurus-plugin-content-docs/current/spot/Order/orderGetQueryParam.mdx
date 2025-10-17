@@ -24,20 +24,17 @@ sidebar_position: 1
 ### 限流规则
 - 50 次/秒/每个 API Key
 
----
-
-### 示例代码
-
-```java title="Java"
-public String orderGet(){
-
-}
+### Parameters Example
 ```
-
-```python title="Python"
-# Python 示例占位
+curl --location --request GET 'https://sapi.xt.com/v4/order?orderId=xxxxxx' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
 ```
-
 ---
 
 ### 响应示例

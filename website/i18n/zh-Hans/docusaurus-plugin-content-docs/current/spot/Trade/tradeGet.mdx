@@ -5,7 +5,9 @@ sidebar_label: 查询成交记录
 sidebar_position: 1
 ---
 
-**类型:** GET **描述:** `/v4/trade`
+**类型:** GET
+
+**描述:** `/v4/trade`
 
 ### 参数
 
@@ -21,6 +23,19 @@ sidebar_position: 1
 | limit | number | 否 | 20 | 限制数量，最大100 |  |
 | startTime | number | 否 | N/A | 开始时间（例如：`1657682804112`） |  |
 | endTime | number | 否 | N/A | 结束时间 |  |
+
+### 请求示例
+
+```bash title="cURL"
+curl --location --request GET 'https://sapi.xt.com/v4/trade?limit=100&bizType=SPOT&startTime=1757779200000&endTime=1760457599999&direction=NEXT' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+```
 
 ### 说明
 

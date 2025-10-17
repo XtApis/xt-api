@@ -24,6 +24,23 @@ sidebar_position: 5
 - 50次/秒/每apikey
 
 ---
+### 请求示例
+```
+curl --location --request PUT 'https://sapi.xt.com/v4/order/xxxxxx' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "orderId": "xxxxxx",
+    "price": 10,
+    "quantity": 2
+}'
+```
+
 
 ### 响应示例
 

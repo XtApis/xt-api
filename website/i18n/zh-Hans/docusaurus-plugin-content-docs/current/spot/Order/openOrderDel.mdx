@@ -25,6 +25,23 @@ sidebar_position: 9
 - 10次/秒/每apikey
 - **注意：** 参数需以 **JSON** 格式放置于请求体中。
 
+### 请求示例
+
+```
+curl --location --request DELETE 'https://sapi.xt.com/v4/open-order' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+--data '{
+    "bizType": "SPOT",
+    "symbol": "XT_USDT"
+}'
+```
+
 ---
 
 ### 响应示例

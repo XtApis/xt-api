@@ -33,6 +33,22 @@ sidebar_position: 10
 
 - 10/s/apikey
 
+### Parameters Example
+
+```
+
+curl --location --request GET 'https://sapi.xt.com/v4/history-order?symbol=XT_USDT&direction=NEXT&limit=10&startTime=xxxxxxxx&endTime=xxxxxxxx' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+
+
+```
+
 ---
 
 ### Response Example
