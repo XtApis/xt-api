@@ -24,6 +24,20 @@ sidebar_position: 4
 | endTime | integer | false | N/A | End time |  |
 | state | string | true | N/A | Order status: NOT_TRIGGERED (new order); TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY | NOT_TRIGGERED;TRIGGERING;TRIGGERED;USER_REVOCATION;PLATFORM_REVOCATION;EXPIRED;UNFINISHED;HISTORY |
 
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/plan-list" \
+-H "validate-appkey: $APPKEY"             # Required
+-H "validate-timestamp: $TIMESTAMP"       # Required
+-H "validate-signature: $SIGNATURE"       # Required
+-H "Content-Type: application/x-www-form-urlencoded" # Required
+-d "symbol=btc_usdt"                      # Required
+-d "state=TRIGGERING"                     # Required
+-d "page=1" \
+-d "size=10"
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -61,3 +75,12 @@ sidebar_position: 4
   "returnCode": 0
 }
 ```
+
+### Error Codes
+
+| Error code     | Description                 |
+| -------------- | --------------------------- |
+| invalid_state  | Invalid state parameter     |
+| invalid_symbol | Trading pair does not exist |
+
+---

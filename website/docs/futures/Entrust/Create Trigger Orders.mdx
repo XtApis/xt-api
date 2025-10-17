@@ -32,6 +32,24 @@ sidebar_position: 1
 
 ### Request Example
 
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/create-plan" \
+    -H "validate-appkey: $APPKEY" \         # Required
+    -H "validate-timestamp: $TIMESTAMP" \   # Required
+    -H "validate-singature: $SINGATURE" \   # Required
+    -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+    -d "symbol=btc_usdt" \                  # Required
+    -d "orderSide=BUY" \                    # Required
+    -d "entrustType=STOP" \                 # Required
+    -d "origQty=1" \                        # Required
+    -d "stopPrice=999" \                    # Required
+    -d "timeInForce=IOC" \                  # Required
+    -d "triggerPriceType=LATEST_PRICE" \    # Required
+    -d "positionSide=LONG"  # Ture
+```
+
+### Request Example
+
 ```json title="Response"
 {
   "error": {
@@ -43,3 +61,18 @@ sidebar_position: 1
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Description |
+| --- | --- |
+| deposit_coupon_exists | Margin coupon already exists |
+| exist_bonus_positon_not_create_reverse_position | Reverse position not allowed when a bonus position exists |
+| invalid_params | Required parameter missing |
+| invalid_price | Invalid price; take-profit/stop-loss limit price validation failed |
+| market_plan_entrust_must_be_ioc_or_fok | Market TP/SL order must use IOC or FOK |
+| invalid_stop_price | Invalid stop price |
+| invalid_quantity_scale | Order quantity must be an integer |
+| invalid_trigger_profit_price | Invalid take-profit trigger price |
+| invalid_time_in_force | timeInForce validation failed for planned take-profit order |
+| on_board_30_minutes_limit_order_price_limit | Limit order price restriction within first 30 minutes after listing |

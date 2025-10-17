@@ -5,28 +5,47 @@ sidebar_label: See Trigger Orders History
 sidebar_position: 6
 ---
 
-**Type:** GET
+**Type:** GET **Description:** `/future/trade/v1/entrust/plan-list-history`
 
-**Description:** `/future/trade/v1/entrust/plan-list-history`
+---
 
 ### Limit Flow Rules
 
 200/s/apikey
 
+---
+
 ### Parameters
 
 | Name | Type | Mandatory | Default | Description | Ranges |
 | --- | --- | --- | --- | --- | --- |
-| symbol | string | true | N/A | Trading pairs (queries all trading pairs if not passed) |  |
-| direction | string | false | NEXT | Direction (PREV: Previous page; NEXT: Next page) | PREV;NEXT |
-| id | integer | false | N/A | ID |  |
-| limit | integer | false | 10 | Limit |  |
-| startTime | integer | false | N/A | Start time |  |
-| endTime | integer | false | N/A | End time |  |
+| symbol | string | TRUE | N/A | Trading pair (if not provided, queries all pairs) | — |
+| direction | string | FALSE | NEXT | Query direction | PREV; NEXT |
+| id | integer | FALSE | N/A | Record ID | — |
+| limit | integer | FALSE | 10 | Limit number of records | — |
+| startTime | integer | FALSE | N/A | Start time | — |
+| endTime | integer | FALSE | N/A | End time | — |
+
+---
+
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/plan-list-history" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "symbol=btc_usdt"                       # Required
+    -d "direction=NEXT" \
+    -d "limit=10"
+```
+
+---
 
 ### Response Example
 
-```json title="Response"
+```json
 {
   "error": {
     "code": "",
@@ -34,26 +53,26 @@ sidebar_position: 6
   },
   "msgInfo": "",
   "result": {
-    "hasNext": false, // Is there a next page
-    "hasPrev": false, // Is there a previous page
+    "hasNext": false, // Whether there is a next page
+    "hasPrev": false, // Whether there is a previous page
     "items": [
-      // Datasheets
+      // Data list
       {
         "clientOrderId": "", // Client order ID
-        "closePosition": false, // Whether triggered to close all
-        "createdTime": 0, // Create time
+        "closePosition": false, // Whether to close all positions
+        "createdTime": 0, // Creation time
         "entrustId": 0, // Order ID
-        "entrustType": "", // Order type
-        "marketOrderLevel": 0, // Best market price
+        "entrustType": "", // Entrust type
+        "marketOrderLevel": 0, // Market order level
         "orderSide": "", // Order side
         "ordinary": true,
-        "origQty": 0, // Quantity (Cont)
+        "origQty": 0, // Quantity (contracts)
         "positionSide": "", // Position side
-        "price": 0, // Order price
-        "state": "", // Order state: NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED
+        "price": 0, // Entrust price
+        "state": "", // Order status: NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED
         "stopPrice": 0, // Trigger price
         "symbol": "", // Trading pair
-        "timeInForce": "", // Valid way
+        "timeInForce": "", // Time in force
         "triggerPriceType": "" // Trigger price type
       }
     ]
@@ -61,3 +80,13 @@ sidebar_position: 6
   "returnCode": 0
 }
 ```
+
+---
+
+### Error Codes
+
+| Error code | Description |
+| ---------- | ----------- |
+| —          | —           |
+
+---

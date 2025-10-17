@@ -9,23 +9,42 @@ sidebar_position: 12
 
 **Description:** `/future/trade/v1/entrust/update-profit-stop`
 
-**Remark:** Content-Type = application/x-www-form-urlencoded && application/json
+---
 
 ### Limit Flow Rules
 
 200/s/apikey
 
+---
+
 ### Parameters
 
 | Name | Type | Mandatory | Default | Description | Ranges |
 | --- | --- | --- | --- | --- | --- |
-| profitId | integer | true | N/A | Stop limit ID |  |
-| triggerProfitPrice | number | false | N/A | TP trigger price |  |
-| triggerStopPrice | number | false | N/A | SL trigger price |  |
+| profitId | integer | TRUE | N/A | Profit and Stop order ID | — |
+| triggerProfitPrice | number | FALSE | N/A | Take-profit trigger price | — |
+| triggerStopPrice | number | FALSE | N/A | Stop-loss trigger price | — |
+
+---
+
+### Request Example
+
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/update-profit-stop" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "profitId=1234567890"                   # Required
+    -d "triggerProfitPrice=200" \
+    -d "triggerStopPrice=100"
+```
+
+---
 
 ### Response Example
 
-```json title="Response"
+```json
 {
   "error": {
     "code": "",
@@ -36,3 +55,34 @@ sidebar_position: 12
   "returnCode": 0
 }
 ```
+
+---
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| invalid_entrust | Profit ID does not exist |
+| user_can_not_trade | Account prohibited from trading |
+| sub_account_not_trade | Sub-account cannot trade |
+| user_can_not_open_position | Account restricted from opening positions |
+| invalid_order_type | Invalid order type |
+| invalid_trigger_profit_price | Invalid take-profit price |
+| invalid_trigger_stop_price | Invalid stop-loss price |
+| invalid_origQty | Invalid order quantity |
+| invalid_quantity_scale | Order quantity must be an integer |
+| invalid_time_in_force | Invalid time-in-force setting |
+| trigger_profit_price_less_than_entry_price | Take-profit price must be higher than entry price (long) |
+| trigger_profit_price_less_than_mark_price | Take-profit price must be higher than current mark price (long) |
+| trigger_profit_price_less_than_index_price | Take-profit price must be higher than current index price (long) |
+| trigger_profit_price_more_than_entry_price | Take-profit price must be lower than entry price (short) |
+| trigger_profit_price_more_than_mark_price | Take-profit price must be lower than current mark price (short) |
+| trigger_profit_price_more_than_index_price | Take-profit price must be lower than current index price (short) |
+| trigger_stop_price_less_than_entry_price | Stop-loss price must be higher than entry price (short) |
+| trigger_stop_price_less_than_mark_price | Stop-loss price must be higher than current mark price (short) |
+| trigger_stop_price_less_than_index_price | Stop-loss price must be higher than current index price (short) |
+| trigger_stop_price_more_than_entry_price | Stop-loss price must be lower than entry price (long) |
+| trigger_stop_price_more_than_mark_price | Stop-loss price must be lower than current mark price (long) |
+| trigger_stop_price_more_than_index_price | Stop-loss price must be lower than current index price (long) |
+
+---

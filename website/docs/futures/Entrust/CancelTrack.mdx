@@ -9,21 +9,38 @@ sidebar_position: 14
 
 **Description:** `/future/trade/v1/entrust/cancel-track`
 
-**Remark:** Content-Type = application/x-www-form-urlencoded
+---
 
 ### Limit Flow Rules
 
 200/s/apikey
 
+---
+
 ### Parameters
 
-| Name    | Type    | Mandatory | Default | Description | Ranges |
-| ------- | ------- | --------- | ------- | ----------- | ------ |
-| trackId | integer | true      | N/A     | Track ID    |        |
+| Name    | Type    | Mandatory | Default | Description       | Ranges |
+| ------- | ------- | --------- | ------- | ----------------- | ------ |
+| trackId | integer | TRUE      | N/A     | Tracking order ID | —      |
+
+---
+
+### Request Example
+
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-track" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "trackId=1234567890"                    # Required
+```
+
+---
 
 ### Response Example
 
-```json title="Response"
+```json
 {
   "error": {
     "code": "",
@@ -34,3 +51,13 @@ sidebar_position: 14
   "returnCode": 0
 }
 ```
+
+---
+
+### Error Codes
+
+| Error Code            | Description                   |
+| --------------------- | ----------------------------- |
+| invalid_track_entrust | Tracking order does not exist |
+
+---

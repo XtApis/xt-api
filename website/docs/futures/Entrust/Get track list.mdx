@@ -5,32 +5,46 @@ sidebar_label: Get track list (all active)
 sidebar_position: 16
 ---
 
-**Type:** POST
+**Type:** GET **Description:** `/future/trade/v1/entrust/track-list`
 
-**Description:** `/future/trade/v1/entrust/track-list`
+---
 
 ### Limit Flow Rules
 
 200/s/apikey
 
+---
+
 ### Parameters
 
-| Name      | Type    | Mandatory | Default | Description               |
-| --------- | ------- | --------- | ------- | ------------------------- |
-| page      | integer | false     | 1       | Page                      |
-| size      | integer | false     | 10      | Quantity of a single page |
-| endTime   | integer | false     | N/A     | End time                  |
-| startTime | integer | false     | N/A     | Start time                |
-| symbol    | string  | false     | N/A     | Symbol                    |
+| Name      | Type    | Mandatory | Default | Description              |
+| --------- | ------- | --------- | ------- | ------------------------ |
+| page      | integer | FALSE     | 1       | Page number              |
+| size      | integer | FALSE     | 10      | Number of items per page |
+| endTime   | integer | FALSE     | N/A     | End time                 |
+| startTime | integer | FALSE     | N/A     | Start time               |
+| symbol    | string  | FALSE     | N/A     | Trading pair             |
 
-### Example Code
+---
 
-```java
-public void getTrackDetail() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/entrust/track-list");
-    System.out.println(text);
-}
-###Example Code
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/track-list" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "page=1" \
+    -d "size=10" \
+    -d "symbol=btc_usdt"
+```
+
+---
+
+### Response Example
+
+```json
 {
   "error": {
     "code": "",
@@ -40,32 +54,42 @@ public void getTrackDetail() {
   "result": {
     "items": [
       {
-        "activationPrice": 0,      // Activation price
-        "avgPrice": 0,             // Average price
-        "callback": "",            // Callback range configuration: PROPORTION or FIXED
-        "callbackVal": 0,          // Callback value
-        "configActivation": false, // Whether to configure activation price
-        "createdTime": 0,          // Create time
-        "currentPrice": 0,         // Real-time price, compared with activation and order price
-        "desc": "",                // Description
-        "executedQty": 0,          // Actual transaction quantity
-        "orderSide": "",           // Order side
-        "ordinary": true,          // Ordinary
-        "origQty": 0,              // Quantity (Cont)
-        "positionSide": "",        // Position side
-        "price": 0,                // Order price
-        "state": "",               // Order state: NOT_ACTIVATION; NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; DELEGATION_FAILED
-        "stopPrice": 0,            // Trigger price
-        "symbol": "",              // Symbol
-        "trackId": 0,              // Track id
-        "triggerPriceType": "",    // Trigger price type
-        "updatedTime": 0           // Update time
+        "activationPrice": 0, // Activation price
+        "avgPrice": 0, // Average price
+        "callback": "", // Callback configuration: PROPORTION or FIXED
+        "callbackVal": 0, // Callback value
+        "configActivation": false, // Whether activation price is configured
+        "createdTime": 0, // Creation time
+        "currentPrice": 0, // Current market price
+        "desc": "", // Description
+        "executedQty": 0, // Executed quantity
+        "orderSide": "", // Order direction
+        "ordinary": true, // Normal order
+        "origQty": 0, // Quantity (contracts)
+        "positionSide": "", // Position side
+        "price": 0, // Entrust price
+        "state": "", // Order state: NOT_ACTIVATION, NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED, DELEGATION_FAILED
+        "stopPrice": 0, // Trigger price
+        "symbol": "", // Trading pair
+        "trackId": 0, // Track order ID
+        "triggerPriceType": "", // Trigger price type
+        "updatedTime": 0 // Updated time
       }
     ],
-    "page": 1,                     // Page
-    "ps": 10,                      // Page size
-    "total": 20                    // Total
+    "page": 1, // Page number
+    "ps": 10, // Page size
+    "total": 20 // Total count
   },
   "returnCode": 0
 }
 ```
+
+---
+
+### Error Codes
+
+| Error Code | Description |
+| ---------- | ----------- |
+| —          | —           |
+
+---

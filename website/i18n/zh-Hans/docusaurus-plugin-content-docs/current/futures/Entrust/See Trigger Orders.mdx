@@ -24,6 +24,22 @@ sidebar_position: 4
 | endTime | integer | false | N/A | 结束时间 |  |
 | state | string | true | N/A | 订单状态：NOT_TRIGGERED（新订单）；TRIGGERING（触发中）；TRIGGERED（已触发）；USER_REVOCATION（用户撤销）；PLATFORM_REVOCATION（平台撤销）；EXPIRED（已过期）；UNFINISHED（未完成）；HISTORY（历史） | NOT_TRIGGERED;TRIGGERING;TRIGGERED;USER_REVOCATION;PLATFORM_REVOCATION;EXPIRED;UNFINISHED;HISTORY |
 
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/plan-list" \
+-H "validate-appkey: $APPKEY"         # 必填
+-H "validate-timestamp: $TIMESTAMP"   # 必填
+-H "validate-signature: $SIGNATURE"   # 必填
+-H "Content-Type: application/x-www-form-urlencoded" # 必填
+-d "symbol=btc_usdt"                  # 必填
+-d "state=TRIGGERING"                 # 必填
+-d "page=1" \
+-d "size=10"
+```
+
+
+
+
 ### 响应示例
 
 ```json title="响应"
@@ -61,3 +77,8 @@ sidebar_position: 4
   "returnCode": 0
 }
 ```
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_state | state 有误 |
+| invalid_symbol | 交易对不存在 |

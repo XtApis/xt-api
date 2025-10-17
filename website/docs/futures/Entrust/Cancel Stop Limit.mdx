@@ -5,25 +5,40 @@ sidebar_label: Cancel Stop Limit
 sidebar_position: 8
 ---
 
-**Type:** POST
+**Type:** POST **Description:** `/future/trade/v1/entrust/cancel-profit-stop`
 
-**Description:** `/future/trade/v1/entrust/cancel-profit-stop`
-
-**Remark:** Content-Type = application/x-www-form-urlencoded && application/json
+---
 
 ### Limit Flow Rules
 
 200/s/apikey
 
+---
+
 ### Parameters
 
-| Name     | Type    | Mandatory | Default | Description   | Ranges |
-| -------- | ------- | --------- | ------- | ------------- | ------ |
-| profitId | integer | true      | N/A     | Stop limit ID |        |
+| Name     | Type    | Mandatory | Default | Description          | Ranges |
+| -------- | ------- | --------- | ------- | -------------------- | ------ |
+| profitId | integer | TRUE      | N/A     | Profit/Stop order ID | —      |
+
+---
+
+### Request Example
+
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-profit-stop" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "profitId=123456789"                    # Required
+```
+
+---
 
 ### Response Example
 
-```json title="Response"
+```json
 {
   "error": {
     "code": "",
@@ -34,3 +49,14 @@ sidebar_position: 8
   "returnCode": 0
 }
 ```
+
+---
+
+### Error Codes
+
+| Error Code      | Description      |
+| --------------- | ---------------- |
+| invalid_entrust | Invalid order ID |
+| fail            | Internal error   |
+
+---

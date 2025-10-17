@@ -32,6 +32,26 @@ sidebar_position: 1
 
 ### 请求示例
 
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/create-plan" \
+     -H "validate-appkey: $APPKEY" \        #必须
+    -H "validate-timestamp: $TIMESTAMP" \   #必须
+    -H "validate-singature: $SINGATURE" \   #必须
+    -H "Content-Type: application/x-www-form-urlencoded" \  #必须
+    -d "symbol=btc_usdt" \                  #必须
+    -d "orderSide=BUY" \                    #必须
+    -d "entrustType=STOP" \                 #必须
+    -d "origQty=1" \                        #必须
+    -d "stopPrice=999" \                    #必须
+    -d "timeInForce=IOC" \                  #必须
+    -d "triggerPriceType=LATEST_PRICE" \    #必须
+    -d "positionSide=LONG"                  #必须
+```
+
+
+
+### 返回示例
+
 ```json title="响应"
 {
   "error": {
@@ -43,3 +63,16 @@ sidebar_position: 1
   "returnCode": 0
 }
 ```
+### 错误码
+| 错误码 | 描述 |
+| --- | --- |
+| deposit_coupon_exists | 保证金优惠券已存在 |
+| exist_bonus_positon_not_create_reverse_position | 不允许创建反向仓位（存在赠金仓位） |
+| invalid_params | 有必填参数未填写 |
+| invalid_price | 某个价格参数填写有误；计划止盈/止损限价校验失败 |
+| market_plan_entrust_must_be_ioc_or_fok | 市价止盈/止损委托必须为 IOC 或 FOK |
+| invalid_stop_price | 止损价格有误 |
+| invalid_quantity_scale | 下单数量必须是整数 |
+| invalid_trigger_profit_price | 触发止盈价格有误 |
+| invalid_time_in_force | 计划委托止盈的 timeInForce 校验失败 |
+| on_board_30_minutes_limit_order_price_limit | 上板后 30 分钟内限价单价格限制 |

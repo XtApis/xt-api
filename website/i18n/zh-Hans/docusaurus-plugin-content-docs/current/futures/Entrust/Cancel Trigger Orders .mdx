@@ -5,27 +5,71 @@ sidebar_label: 取消触发订单
 sidebar_position: 2
 ---
 
-**类型:** POST
+**请求方式：** POST
 
-**描述:** `/future/trade/v1/entrust/cancel-plan`
 
-**备注:** Content-Type = application/x-www-form-urlencoded && application/json
+**接口描述：** `/future/trade/v1/entrust/cancel-plan`
+
+
+---
+
 
 ### 限流规则
+- 200 次/秒/每个 apikey
 
-200/s/apikey
 
-### 参数
+---
 
-| 名称      | 类型    | 必填 | 默认值 | 描述       | 范围 |
-| --------- | ------- | ---- | ------ | ---------- | ---- |
-| entrustId | integer | true | N/A    | 触发订单ID |      |
+
+### 请求参数
+
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 参数说明 | 取值范围 |
+|---------------|--------|-----------|---------|---------------|----------|
+| entrustId | string | 是 | — | 计划委托单 ID | — |
+
+
+---
+
 
 ### 请求示例
 
-```java title="Java"
-public void getKLine() {
-    String text = HttpUtil.get(URL + "/data/api/future/trade/v1/getKLine?market=btc_usdt&type=1min&since=0");
-    System.out.println(text);
+
+```bash title="cURL"
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-plan" \
+-H "validate-appkey: $APPKEY" \                         # 必填
+-H "validate-timestamp: $TIMESTAMP" \                   # 必填
+-H "validate-signature: $SIGNATURE" \                   # 必填
+-H "Content-Type: application/x-www-form-urlencoded" \  # 必填
+-d "entrustId=12345678"\                                # 必填
+```
+
+
+---
+
+
+### 返回示例
+
+
+```json title="Response"
+{
+"error": {
+"code": "",
+"msg": ""
+},
+"msgInfo": "",
+"result": {},
+"returnCode": 0
 }
 ```
+
+
+---
+
+
+### 错误码说明
+
+
+| 错误码 | 描述 |
+|------------------|--------------------------|
+| invalid_params | 提交的参数有误或为空 |

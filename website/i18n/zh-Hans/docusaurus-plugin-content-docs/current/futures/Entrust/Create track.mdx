@@ -5,37 +5,60 @@ sidebar_label: 创建跟踪单
 sidebar_position: 13
 ---
 
-**类型:** POST
 
+
+**请求类型:** POST
 **描述:** `/future/trade/v1/entrust/create-track`
 
-**备注:** Content-Type = application/x-www-form-urlencoded
+---
 
 ### 限流规则
 
 200/s/apikey
 
-### 参数
+---
 
+### 参数说明
 | 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
-| --- | --- | --- | --- | --- | --- |
-| callback | string | true | N/A | 回调幅度配置 | FIXED;PROPORTION |
-| callbackVal | number | true | N/A | 回调值 | 大于0 |
-| orderSide | string | true | N/A | 订单方向 | BUY;SELL |
-| origQty | number | true | N/A | 原始数量（张） |  |
-| positionSide | string | true | N/A | 持仓方向 | BOTH;LONG;SHORT |
-| positionType | string | true | N/A | 持仓类型 | CROSSED;ISOLATED |
-| symbol | string | true | N/A | 交易对 |  |
-| triggerPriceType | string | true | N/A | 触发价格类型 | INDEX_PRICE;MARK_PRICE;LATEST_PRICE |
-| activationPrice | number | false | N/A | 激活价格 |  |
-| clientMedia | string | false | N/A | 客户端媒介 |  |
-| clientMediaChannel | string | false | N/A | 客户端媒介渠道 |  |
-| clientOrderId | string | false | N/A | 客户端订单ID |  |
-| expireTime | integer | false | N/A | 过期时间 |  |
+|------|------|------|--------|------|------|
+| callback | string | TRUE | N/A | 回调幅度配置 | FIXED; PROPORTION |
+| callbackVal | number | TRUE | N/A | 回调值（大于0） | 大于0 |
+| orderSide | string | TRUE | N/A | 订单方向 | BUY; SELL |
+| origQty | number | TRUE | N/A | 原始数量（张） | — |
+| positionSide | string | TRUE | N/A | 持仓方向 | BOTH; LONG; SHORT |
+| positionType | string | TRUE | N/A | 持仓类型 | CROSSED; ISOLATED |
+| symbol | string | TRUE | N/A | 交易对 | — |
+| triggerPriceType | string | TRUE | N/A | 触发价格类型 | INDEX_PRICE; MARK_PRICE; LATEST_PRICE |
+| activationPrice | number | FALSE | N/A | 激活价格 | — |
+| clientMedia | string | FALSE | N/A | 客户端媒介 | — |
+| clientMediaChannel | string | FALSE | N/A | 客户端媒介渠道 | — |
+| clientOrderId | string | FALSE | N/A | 客户端订单ID | — |
+| expireTime | integer | FALSE | N/A | 过期时间 | — |
+
+---
 
 ### 请求示例
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/create-track" \
+    -H "validate-appkey: $APPKEY"              # 必须
+    -H "validate-timestamp: $TIMESTAMP"        # 必须
+    -H "validate-signature: $SIGNATURE"        # 必须
+    -H "Content-Type: application/x-www-form-urlencoded"  # 必须
+    -d "symbol=btc_usdt"                       # 必须
+    -d "callback=FIXED"                        # 必须
+    -d "callbackVal=1"                         # 必须
+    -d "orderSide=BUY"                         # 必须
+    -d "origQty=1"                             # 必须
+    -d "positionSide=LONG"                     # 必须
+    -d "positionType=CROSSED"                  # 必须
+    -d "triggerPriceType=INDEX_PRICE"          # 必须
+    -d "activationPrice=999"
+```
 
-```json title="响应"
+---
+
+### 响应示例
+```json
 {
   "error": {
     "code": "",
@@ -46,3 +69,25 @@ sidebar_position: 13
   "returnCode": 0
 }
 ```
+
+---
+
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_symbol | 交易对不存在 |
+| symbol_is_not_trading | 交易对当前无法交易 |
+| The trading pair currently does not support placing orders through the OpenAPI. | 该交易对当前不支持通过 OpenAPI 下单 |
+| deposit_coupon_exists | 该抵扣券已领取或已绑定 |
+| exist_bonus_positon_not_create_reverse_position | 不可创建反向仓位 |
+| invalid_params | 参数设置有误或置空了 |
+| invalid_exceed_max_rate_limit | 回调幅度设置不能超过最大值 |
+| invalid_below_min_rate_limit | 回调幅度设置不能低于最小值 |
+| invalid_exceed_max_price_limit | 回调幅度设置不能超过最新成交价的 |
+| invalid_exceed_min_price_limit | 回调率设置不能低于最新成交价的 |
+| invalid_activation_price | 触发价格不合法 |
+| invalid_quantity_scale | 数量必须为整数 |
+| user_can_not_trade | 账户禁止交易 |
+| sub_account_not_trade | 子账户不可交易 |
+| user_can_not_open_position | 账户禁止开仓 |
+| symbol_is_not_open_position | 当前交易对已暂停开新仓 |
