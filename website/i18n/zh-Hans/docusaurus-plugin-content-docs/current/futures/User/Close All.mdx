@@ -9,9 +9,30 @@ position_number: 12
 
 **接口描述:** `/future/user/v1/position/close-all`
 
+---
+
 #### 限流规则
 
 200次/秒/apikey
+
+---
+
+### 请求参数
+
+_None_
+
+---
+
+### 请求示例
+```bash
+  curl -X POST "https://fapi.xt.com/future/user/v1/position/close-all" \ 
+    -H "validate-appkey: $APPKEY" \  # 必须
+    -H "validate-timestamp: $TIMESTAMP" \  # 必须
+    -H "validate-singature: $SINGATURE" \  # 必须
+    -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+```
+
+---
 
 ### 响应示例
 
@@ -25,3 +46,14 @@ position_number: 12
   "result": true,
   "returnCode": 0
 }
+```
+
+---
+
+### 错误码
+
+| **Error code**               | **Desc**                       |
+| ---------------------------- | ------------------------------ |
+| queryAccountId               | string                         |
+
+

@@ -9,17 +9,35 @@ position_number: 14
 
 **接口描述:** `/future/user/v1/user/collection/add`
 
-> **备注:** `Content-Type = application/x-www-form-urlencoded` **或** `application/json`
+ **备注:** `Content-Type = application/x-www-form-urlencoded` **或** `application/json`
+
+ ---
 
 #### 限流规则
 
 200次/秒/apikey
+
+---
 
 ### 请求参数
 
 | 参数名 | 类型   | 是否必填 | 默认值 | 描述     | 取值范围 |
 | ------ | ------ | -------- | ------ | -------- | -------- |
 | symbol | string | 是       | N/A    | 交易对名称 | —        |
+
+---
+
+### 请求示例
+```bash
+  curl -X POST "https://fapi.xt.com/future/user/v1/user/collection/add" \ 
+    -H "validate-appkey: $APPKEY" \  # 必须
+    -H "validate-timestamp: $TIMESTAMP" \  # 必须
+    -H "validate-singature: $SINGATURE" \  # 必须
+    -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+    -d "symbol=btc_usdt" \  # 必须
+```
+
+---
 
 ### 响应示例
 
@@ -33,3 +51,14 @@ position_number: 14
   "result": true,
   "returnCode": 0
 }
+```
+
+---
+
+### 错误码
+
+| **Error code**               | **Desc**                       |
+| ---------------------------- | ------------------------------ |
+| invalid_symbol               | 交易对不存在                         |
+
+

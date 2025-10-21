@@ -9,18 +9,39 @@ sidebar_position: 10
 
 **接口描述：** `/future/user/v1/position/margin`
 
+---
+
 **请求参数**
 
 | 参数名       | 类型   | 是否必填 | 默认值 | 描述 |
 | ------------ | ------ | -------- | ------ | ---- |
 | symbol       | string | 是       | N/A    | 交易对 |
-| margin       | number | 否       | N/A    | 数量 |
-| positionSide | string | 否       | N/A    | 持仓方向 (LONG, SHORT) |
-| type         | string | 否       | N/A    | 调整方向（ADD: 增加逐仓保证金, SUB: 减少逐仓保证金） |
+| margin       | number | 是       | N/A    | 数量 |
+| positionSide | string | 是       | N/A    | 持仓方向 (LONG, SHORT) |
+| type         | string | 是       | N/A    | 调整方向（ADD: 增加逐仓保证金, SUB: 减少逐仓保证金） |
+
+---
 
 ### 限流规则
 
 200次/秒/apikey
+
+---
+
+### 请求示例
+```bash
+  curl -X POST "https://fapi.xt.com/future/user/v1/position/margin"
+    -H "validate-appkey: $APPKEY" \  # 必须
+    -H "validate-timestamp: $TIMESTAMP" \  # 必须
+    -H "validate-singature: $SINGATURE" \  # 必须
+    -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+    -d "symbol=btc_usdt" \  # 必须
+    -d "margin=9999" \ 
+    -d "positionSide=SHORT" \ 
+    -d "type=ADD" 
+```
+
+---
 
 ### 响应示例
 
@@ -34,3 +55,15 @@ sidebar_position: 10
   "result": {},
   "returnCode": 0
 }
+```
+
+---
+
+### 错误码
+
+| **Error code**               | **Desc**                       |
+| ---------------------------- | ------------------------------ |
+| invalid_params               | 参数缺失                 |
+| invalid_margin | 保证金不合法 |
+
+
