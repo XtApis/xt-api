@@ -11,27 +11,31 @@ sidebar_position: 4
 | ---- | ------ | --------- | ------- | ----------- | ------ |
 |      | string | false     |         |             |        |
 
+**format**
+
 ```javascript title="format"
 {
-    "topic": "trade",
-    "event": "trade@btc_usdt",    //title
-    "data": { }
+  "topic": "trade",
+  "event": "trade@btc_usdt",  // title
+  "data":  { }
 }
 ```
+
+**Example of transaction record (real-time push message)**
 
 ```json title="Example of transaction record (real-time push message)"
 {
   "topic": "trade",
   "event": "trade@btc_usdt",
   "data": {
-    "s": "btc_usdt", //symbol
-    "i": 6316559590087222000, //tradeId
-    "t": 1655992403617, //time
-    "oi": 6616559590087222666, //orderId
-    "p": "43000", //price
-    "q": "0.21", //quantity
-    "v": "9030", //quoteQty
-    "b": true //whether is buyerMaker or not
+    "s": "btc_usdt", // symbol
+    "i": 6316559590087222000, // tradeId
+    "t": 1655992403617, // time
+    "oi": 6616559590087222666, // orderId
+    "p": "43000", // price
+    "q": "0.21", // quantity
+    "v": "9030", // quoteQty
+    "b": true // whether is buyerMaker or not
   }
 }
 ```
