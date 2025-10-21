@@ -5,6 +5,8 @@ sidebar_label: Get open order list
 sidebar_position: 9
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 ### Description
 
 **Type:** POST
@@ -26,6 +28,18 @@ sidebar_position: 9
 | symbol | string | No | N/A | 交易对名称 | 例如：`eth_usdt`, `btc_usdt` |
 
 ---
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/list-open-order" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt"  # Required
+`}
+</CodeBlock>
 
 ### Response Example
 
@@ -67,3 +81,9 @@ sidebar_position: 9
   "desc": null // Description
 }
 ```
+
+### Error Codes
+
+| Error code | Description |
+| --- | --- |
+|  |  |

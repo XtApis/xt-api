@@ -5,6 +5,8 @@ sidebar_label: 查看订单
 sidebar_position: 5
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 **类型:** GET
 
 **描述:** `/future/trade/v1/order/list`
@@ -25,9 +27,21 @@ sidebar_position: 5
 
 200/s/apikey
 
-### 响应示例
+### 请求示例
 
-import CodeBlock from '@theme/CodeBlock';
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/list" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \
+  -d "size=10" \
+  -d "page=1"
+`}
+</CodeBlock>
+
+### 响应示例
 
 <CodeBlock language="json" title="Response">
   {`{
@@ -68,3 +82,10 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| invalid state | state填写错误 |
+| invalid_symbol | 交易对不存在 |

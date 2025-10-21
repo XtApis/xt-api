@@ -5,16 +5,18 @@ sidebar_label: 获取当前委托订单列表
 sidebar_position: 9
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 ### 接口描述
 
 **类型:** POST
 
 **描述:** `/future/trade/v1/order/list-open-order`
 
-
 ---
 
 ### 限流规则
+
 - 10次/秒/apikey
 
 ---
@@ -26,6 +28,18 @@ sidebar_position: 9
 | symbol | string | 否       | N/A    | 交易对名称 | 例如：`eth_usdt`, `btc_usdt` |
 
 ---
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/list-open-order" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt"  # 必须
+`}
+</CodeBlock>
 
 ### 返回示例
 
@@ -66,3 +80,10 @@ sidebar_position: 9
   "markPrice": "4543.73",                 // 标记价格
   "desc": null                            // 描述
 }
+```
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+|  |  |

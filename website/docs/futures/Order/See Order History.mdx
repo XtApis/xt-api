@@ -5,6 +5,8 @@ sidebar_label: See Order History
 sidebar_position: 1.1
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 **Type:** GET
 
 **Description:** `/future/trade/v1/order/list-history`
@@ -24,9 +26,20 @@ sidebar_position: 1.1
 
 200/s/apikey
 
-### Response Example
+### Request Example
 
-import CodeBlock from '@theme/CodeBlock';
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/list-history" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-singature: $SINGATURE" \\  # Required 
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # Required
+  -d "symbol=eth_usdt" \\  # Required
+  -d "limit=10"
+`}
+</CodeBlock>
+
+### Response Example
 
 <CodeBlock language="json" title="Response">
   {`{
@@ -66,3 +79,9 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| invalid_symbol | The trading pair does not exist |

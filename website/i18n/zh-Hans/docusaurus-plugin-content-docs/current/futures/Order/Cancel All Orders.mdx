@@ -5,6 +5,8 @@ sidebar_label: 撤销所有订单
 sidebar_position: 8
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 **类型:** POST
 
 **描述:** `/future/trade/v1/order/cancel-all`
@@ -19,9 +21,19 @@ sidebar_position: 8
 | --- | --- | --- | --- | --- | --- |
 | symbol | string | true | N/A | 交易对（传入 `""` 则撤销所有交易对的订单） |  |
 
-### 响应示例
+### 请求示例
 
-import CodeBlock from '@theme/CodeBlock';
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/cancel-all" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=eth_usdt"  # 必须
+`}
+</CodeBlock>
+
+### 响应示例
 
 <CodeBlock language="json" title="Response">
   {`{
@@ -34,3 +46,10 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| invalid_symbol | 交易对不存在 |
+| fail | 内部异常 |

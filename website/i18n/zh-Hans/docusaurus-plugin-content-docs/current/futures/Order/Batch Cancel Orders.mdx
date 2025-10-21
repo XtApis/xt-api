@@ -5,6 +5,8 @@ sidebar_label: 批量撤销订单
 sidebar_position: 7
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 **类型:** POST
 
 **描述:** `/future/trade/v1/order/cancel-batch`
@@ -19,9 +21,19 @@ sidebar_position: 7
 
 200/s/apikey
 
-### 响应示例
+### 请求示例
 
-import CodeBlock from '@theme/CodeBlock';
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/cancel-batch" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "orderIds=111111,222222,333333"  # 必须
+`}
+</CodeBlock>
+
+### 响应示例
 
 <CodeBlock language="json" title="Response">
   {`{
@@ -34,3 +46,9 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+|  |  |

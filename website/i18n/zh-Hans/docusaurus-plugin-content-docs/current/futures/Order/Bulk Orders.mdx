@@ -4,6 +4,7 @@ title: 批量下单
 sidebar_label: 批量下单
 sidebar_position: 3
 ---
+import CodeBlock from '@theme/CodeBlock';
 
 **类型:** POST
 
@@ -20,3 +21,62 @@ sidebar_position: 3
 | 名称 | 类型   | 必填 | 默认值 | 描述                   | 范围 |
 | ---- | ------ | --------- | ------- | ----------------------------- | ------ |
 | list | string | true      | N/A     | 订单数据列表集合 |        |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/create-batch" \\
+  -H "validate-appkey: $APPKEY" \\  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \\  # 必须
+  -H "validate-signature: $SINGATURE" \\  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # 必须
+  -d "" \\  # 必须
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": "",
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| gateway_decommission_ip_country | 很遗憾，我们无法向受限制国家/地区的用户提供服务，如有疑问，请联系客服 |
+| gateway_decommission_kyc_country | 很遗憾，我们无法向受限制国家/地区的用户提供服务，如有疑问，请联系客服 |
+| GATEWAY_0003 | 当前用户触发风控，您的操作已被暂时禁止 |
+| GATEWAY_0006 | 由于您触发风控规则，账户被锁定【\{hour}小时\{minutes}分钟】，如有疑问请联系客服或大客户经理 |
+| GATEWAY_0007 | 由于您触发风控规则，账户被锁定【\{minutes}分钟】，如有疑问请联系客服或大客户经理 |
+| invalid_symbol | 交易对不存在 |
+| symbol_is_not_trading | 交易对当前不可交易 |
+| openapi_not_supported | 该交易对当前不支持API操作 |
+| symbol_is_not_open_position | 交易对当前不可持仓 |
+| invalid_params | 参数设置有误 |
+| invalid_quantity | origQty必须为整数 |
+| quantity_can_not_less_than * | origQty必须大于 * |
+| user_can_not_trade | 账户当前禁止交易 |
+| sub_account_not_trade | 子账户当前不可交易 |
+| user_can_not_open_position | 账户当前无法开仓 |
+| invalid_time_in_force | 时间设置不合法 |
+| invalid_price | 价格设置不合法 |
+| invalid_trigger_profit_price | 不合法的止盈价格 |
+| invalid_trigger_stop_price | 不合法的止损价格 |
+| trigger_profit_price_more_than_sell_one_price | 止盈触发价格需大于卖一价（多） |
+| trigger_profit_price_less_than_buy_one_price | 止盈触发价格需小于买一价（空） |
+| trigger_stop_price_more_than_sell_one_price | 止损触发价格需小于卖一价（多） |
+| trigger_stop_price_less_than_buy_one_price | 止损触发价格需大于买一价（空） |
+| trigger_profit_price_less_than_order_delegate_price | 触发止盈价格不可小于订单委托价格（多） |
+| trigger_profit_price_more_than_order_delegate_price | 触发止盈价格不可大于订单委托价格（空） |
+| trigger_stop_price_more_than_order_delegate_price | 触发止损价格不可大于订单委托价格（多） |
+| trigger_stop_price_less_than_order_delegate_price | 触发止损价格不可小于订单委托价格（空） |
+| on_board_30_minutes_limit_order_price_limit | 上板后30分钟内限价订单价格限制 |

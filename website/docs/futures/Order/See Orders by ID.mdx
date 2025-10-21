@@ -19,6 +19,20 @@ sidebar_position: 4
 
 200/s/apikey
 
+### Request Example
+
+<CodeBlock language="bash" title="Request Example">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/detail" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-singature: $SINGATURE" \\  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # Required
+  -d "orderId=1234567890"  # Required
+`}
+</CodeBlock>
+
+
+
 ### Response Example
 
 import CodeBlock from '@theme/CodeBlock';
@@ -54,3 +68,10 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Codes
+
+| Error code | Description |
+| --- | --- |
+| null | Order not found |
+

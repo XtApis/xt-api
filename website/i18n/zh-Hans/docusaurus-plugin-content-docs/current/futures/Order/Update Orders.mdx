@@ -5,6 +5,8 @@ sidebar_label: 更新订单
 sidebar_position: 2
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 **类型:** POST
 
 **描述:** `/future/trade/v1/order/update`
@@ -33,9 +35,27 @@ sidebar_position: 2
 
 200/s/apikey
 
-### 响应示例
+### 请求示例
 
-import CodeBlock from '@theme/CodeBlock';
+<CodeBlock language="bash" title="Request">
+{`REQUEST_BODY='{
+  "orderId":"1234567890",
+  "price":"3800",
+  "origQty":1
+}'
+
+# 以上三个参数是必须的，可选参数请参考可选参数列表
+
+curl -X POST "https://fapi.xt.com/future/trade/v1/order/update" \\
+  -H "validate-appkey: $APPKEY" \\  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \\  # 必须
+  -H "validate-singature: $SINGATURE" \\  # 必须
+  -H "Content-Type: application/json" \\  # 必须
+  -d "\${REQUEST_BODY}"  # 必须
+`}
+</CodeBlock>
+
+### 响应示例
 
 <CodeBlock language="json" title="Response">
   {`{
@@ -48,3 +68,20 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| invalid_order | Order id 不存在 |
+| invalid_params | 参数设置有误 |
+| invalid_quantity | origQty必须为整数 |
+| invalid_price | price设置不合法 |
+| invalid_trigger_profit_price | 止盈价格设置不合法 |
+| invalid_trigger_stop_price | 止损价格设置不合法 |
+| trigger_profit_price_less_than_order_delegate_price | 触发止盈价格不可小于订单委托价格（多） |
+| trigger_profit_price_more_than_order_delegate_price | 触发止盈价格不可大于订单委托价格（空） |
+| trigger_stop_price_more_than_order_delegate_price | 触发止损价格不可大于订单委托价格（多） |
+| trigger_stop_price_less_than_order_delegate_price | 触发止损价格不可小于订单委托价格（空） |
+| invalid_time_in_force | 无效的订单有效期 |
+| on_board_30_minutes_limit_order_price_limit | 上板后30分钟内限价订单价格限制 |

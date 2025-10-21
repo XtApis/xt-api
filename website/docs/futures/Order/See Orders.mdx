@@ -5,6 +5,8 @@ sidebar_label: See Orders
 sidebar_position: 5
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 **Type:** GET
 
 **Description:** `/future/trade/v1/order/list`
@@ -25,9 +27,21 @@ sidebar_position: 5
 
 200/s/apikey
 
-### Response Example
+### Request Example
 
-import CodeBlock from '@theme/CodeBlock';
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/list" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \
+  -d "size=10" \
+  -d "page=1"
+`}
+</CodeBlock>
+
+### Response Example
 
 <CodeBlock language="json" title="Response">
   {`{
@@ -68,3 +82,10 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Codes
+
+| Error code | Description |
+| --- | --- |
+| invalid state | Invalid state parameter |
+| invalid_symbol | The trading pair does not exist |

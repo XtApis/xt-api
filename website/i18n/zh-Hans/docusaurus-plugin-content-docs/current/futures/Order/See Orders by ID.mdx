@@ -19,6 +19,18 @@ sidebar_position: 4
 
 200/s/apikey
 
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/detail" \\
+  -H "validate-appkey: $APPKEY" \\  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \\  # 必须
+  -H "validate-signature: $SINGATURE" \\  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # 必须
+  -d "orderId=1234567890"  # 必须
+`}
+</CodeBlock>
+
 ### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
@@ -54,3 +66,9 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| null | 未找到该订单 |

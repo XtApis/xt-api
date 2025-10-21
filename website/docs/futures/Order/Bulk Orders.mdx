@@ -4,6 +4,7 @@ title: Bulk Orders
 sidebar_label: Bulk Orders
 sidebar_position: 3
 ---
+import CodeBlock from '@theme/CodeBlock';
 
 **Type:** POST
 
@@ -20,3 +21,62 @@ sidebar_position: 3
 | Name | Type   | Mandatory | Default | Description                   | Ranges |
 | ---- | ------ | --------- | ------- | ----------------------------- | ------ |
 | list | string | true      | N/A     | List collection of order data |        |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/create-batch" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-singature: $SINGATURE" \\  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # Required
+  -d "" \\  # Required
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": "",
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| gateway_decommission_ip_country | Unfortunately, we are unable to provide services to users from restricted countries/regions. Please contact customer support for assistance. |
+| gateway_decommission_kyc_country | Unfortunately, we are unable to provide services to users from restricted countries/regions. Please contact customer support for assistance. |
+| GATEWAY_0003 | The current user has triggered a risk control rule, and your operation has been temporarily disabled. |
+| GATEWAY_0006 | Your account is locked due to risk control for【\{hour} hour(s) and \{minutes} minute(s)】. Please contact customer support or your account manager for details. |
+| GATEWAY_0007 | Your account is locked due to risk control for【\{minutes} minute(s)】. Please contact customer support or your account manager for details. |
+| invalid_symbol | The trading pair does not exist. |
+| symbol_is_not_trading | The trading pair is not currently tradable. |
+| openapi_not_supported | The trading pair currently does not support API operations. |
+| symbol_is_not_open_position | The trading pair cannot hold positions at this time. |
+| invalid_params | Invalid parameter settings. |
+| invalid_quantity | origQty must be an integer. |
+| quantity_can_not_less_than * | origQty must be greater than *. |
+| user_can_not_trade | The account is currently prohibited from trading. |
+| sub_account_not_trade | Sub-account is not allowed to trade. |
+| user_can_not_open_position | The account cannot open positions at this time. |
+| invalid_time_in_force | Invalid time-in-force setting. |
+| invalid_price | Invalid price setting. |
+| invalid_trigger_profit_price | Invalid take-profit price. |
+| invalid_trigger_stop_price | Invalid stop-loss price. |
+| trigger_profit_price_more_than_sell_one_price | Take-profit trigger price must be higher than the best ask (long). |
+| trigger_profit_price_less_than_buy_one_price | Take-profit trigger price must be lower than the best bid (short). |
+| trigger_stop_price_more_than_sell_one_price | Stop-loss trigger price must be lower than the best ask (long). |
+| trigger_stop_price_less_than_buy_one_price | Stop-loss trigger price must be higher than the best bid (short). |
+| trigger_profit_price_less_than_order_delegate_price | Take-profit trigger price cannot be lower than the order price (long). |
+| trigger_profit_price_more_than_order_delegate_price | Take-profit trigger price cannot be higher than the order price (short). |
+| trigger_stop_price_more_than_order_delegate_price | Stop-loss trigger price cannot be higher than the order price (long). |
+| trigger_stop_price_less_than_order_delegate_price | Stop-loss trigger price cannot be lower than the order price (short). |
+| on_board_30_minutes_limit_order_price_limit | Limit order price is restricted within 30 minutes after listing. |
