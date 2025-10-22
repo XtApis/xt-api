@@ -1,0 +1,44 @@
+---
+id: GetAllUsersOfAffiliate
+title: 获取所有推荐用户
+sidebar_label: 获取所有推荐用户
+sidebar_position: 1
+---
+
+**类型:** GET
+
+**描述:** `/v4/referal/invite/users`
+
+### 参数
+
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| startTime | number | false |  | 开始时间 |  |
+| endTime | number | false |  | 结束时间 |  |
+| fromId | number | false |  | 起始ID |  |
+| direction | string | false | NEXT | 查询方向 | PREV, NEXT |
+| limit | int | false | 10 | 数量限制，最大100 | `1<=limit<=100` |
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "id": 123,
+        "regTime": 1721962593000,
+        "role": "PARTNER",
+        "userId": 123456789
+      }
+    ]
+  }
+}
+```

@@ -11,36 +11,34 @@ import CodeBlock from '@theme/CodeBlock';
 
 ### Description
 
----
-
 <Tabs>
   <TabItem value="subscribe" label="Subscribe">
     <CodeBlock language="javascript" title="Subscribe">{`{
-    "method": "subscribe",
-    "params": [
-        "{topic}@{arg},{arg}",
-        "{topic}@{arg}"
-    ],
-    "id": "{id}"    // callback ID
+  "method": "subscribe",
+  "params": [
+    "{topic}@{arg},{arg}",
+    "{topic}@{arg}"
+  ],
+  "id": "{id}"    // callback ID
 }`}</CodeBlock>
   </TabItem>
 
 {' '}
 <TabItem value="unsubscribe" label="Unsubscribe">
   <CodeBlock language="javascript" title="Unsubscribe">{`{
-    "method": "unsubscribe",
-    "params": [
-        "{topic}@{arg},{arg}"
-    ],
-    "id": "{id}"    // callback ID
+  "method": "unsubscribe",
+  "params": [
+    "{topic}@{arg},{arg}"
+  ],
+  "id": "{id}"    // callback ID
 }`}</CodeBlock>
 </TabItem>
 
   <TabItem value="response" label="Response Example">
     <CodeBlock language="json" title="Response Example">{`{
-    "id": "123",
-    "code": 0,
-    "msg": "success"
+  "id": "123",
+  "code": 0,
+  "msg": "success"
 }`}</CodeBlock>
   </TabItem>
 </Tabs>
