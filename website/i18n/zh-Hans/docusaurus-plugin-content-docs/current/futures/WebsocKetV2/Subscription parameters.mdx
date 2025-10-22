@@ -5,38 +5,13 @@ sidebar_label: 订阅参数
 sidebar_position: 6
 ---
 
-### 格式
 
-```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+### 结构说明
+
+**格式：**
+```text
 {topic}@{listenKey},...
-```
-
-- `topic` 示例：`order`、`trade`、`balance`、`position`、`notify`
-- `listenKey` 通过 `/v1/user/listen-key` 获取
-- 一个请求中可以添加多个订阅，用逗号分隔
-
----
-
-### 示例
-
-**订阅（多个主题）**
-
-```json title="订阅"
-{
-  "method": "SUBSCRIBE",
-  "params": ["order@{listenKey}", "trade@{listenKey}", "balance@{listenKey}"],
-  "id": "sub-1"
-}
-```
-
-**取消订阅（单个主题）**
-
-```json title="取消订阅"
-{
-  "method": "UNSUBSCRIBE",
-  "params": ["position@{listenKey}"],
-  "id": "unsub-1"
-}
-```
-
-> 注意：请将 `{listenKey}` 替换为实际值。如果收到 `invalid_listen_key`，请重新获取 listenKey。

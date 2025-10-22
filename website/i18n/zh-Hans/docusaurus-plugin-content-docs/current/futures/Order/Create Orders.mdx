@@ -10,7 +10,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 **描述:** `/future/trade/v1/order/create`
 
-> Content-Type = `application/x-www-form-urlencoded` && `application/json` 注意：此方法不需要签名。
+> Content-Type = `application/x-www-form-urlencoded` && `application/json`
 
 ### 参数
 
@@ -27,26 +27,33 @@ import CodeBlock from '@theme/CodeBlock';
 | triggerStopPrice | number | false | N/A | 止损价格 |  |
 | positionSide | string | true | N/A | 仓位方向 | LONG;SHORT |
 
-### OrigQty 计算公式
-
-**公式**
-
-**说明**
-
-- `Truncate`: 取整数部分
-- `Balance`: (钱包余额 - 挂单保证金冻结), api: `/future/user/v1/compat/balance/list`
-- `Percent`: 用户输入，例如 `0.2`
-- `Leverage`: 你想要的杠杆，例如 `20`
-- `Mark_price`: 当前交易对标记价格，例如 `88888 (btc_usdt)`
-- `Contract_size`: 合约大小，api: `/future/market/v1/public/symbol/detail`，合约乘数（面值）
-
-**示例** truncate(10000 _ 0.2 _ 20 / 88888 / 0.0001) = 4500
-
----
 
 ### 限流规则
 
 200/s/apikey
+
+
+
+### OrigQty 计算公式
+#### 公式
+origQty = Truncate ((Balance * Percent * Leverage ) / (Mark_price * Contract_size))
+
+#### 解释
+Truncate : 取整数部分
+
+Balance : (walletBalance - openOrderMarginFrozen) , api: /future/user/v1/compat/balance/list
+
+Percent : 用户输入 , 例如: 0.2
+
+Leverage : 杠杆倍数 , 例如: 20
+
+Mark_price : 市场标记价格 , 例如: 88888 (btc_usdt)
+
+Contract_size : 合约面值 , api: /future/market/v1/public/symbol/detail , Contract multiplier(face value)
+#### 举例
+truncate(10000 * 0.2 * 20 / 88888 / 0.0001) = 4500
+
+
 
 ### 请求示例
 

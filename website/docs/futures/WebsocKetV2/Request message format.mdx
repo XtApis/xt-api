@@ -5,28 +5,42 @@ sidebar_label: Request message format
 sidebar_position: 2
 ---
 
-### Subscribe / Unsubscribe
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 
-```json title="Subscribe/Unsubscribe"
-{
-  "method": "SUBSCRIBE/UNSUBSCRIBE",
-  "params": [
-    "{order}@{listenKey}",
-    "{trade}@{listenKey}",
-    "{balance}@{listenKey}",
-    "{position}@{listenKey}",
-    "{notify}@{listenKey}"
-  ],
-  "id": "{id}" // user defined
-}
-```
+### Description
 
-### Example: Subscribe
+---
 
-```json title="Subscribe Example"
-{
-  "method": "SUBSCRIBE",
-  "params": ["order@A246C3DF8EE532DC75007BC5D86698541678596355681"],
-  "id": "test1"
-}
-```
+<Tabs>
+  <TabItem value="subscribe" label="Subscribe">
+    <CodeBlock language="javascript" title="Subscribe">{`{
+    "method": "subscribe",
+    "params": [
+        "{topic}@{arg},{arg}",
+        "{topic}@{arg}"
+    ],
+    "id": "{id}"    // callback ID
+}`}</CodeBlock>
+  </TabItem>
+
+{' '}
+<TabItem value="unsubscribe" label="Unsubscribe">
+  <CodeBlock language="javascript" title="Unsubscribe">{`{
+    "method": "unsubscribe",
+    "params": [
+        "{topic}@{arg},{arg}"
+    ],
+    "id": "{id}"    // callback ID
+}`}</CodeBlock>
+</TabItem>
+
+  <TabItem value="response" label="Response Example">
+    <CodeBlock language="json" title="Response Example">{`{
+    "id": "123",
+    "code": 0,
+    "msg": "success"
+}`}</CodeBlock>
+  </TabItem>
+</Tabs>

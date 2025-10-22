@@ -1,32 +1,46 @@
 ---
 id: RequestMessageFormat
-title: 请求消息格式
-sidebar_label: 请求消息格式
+title: 请求报文格式
+sidebar_label: 请求报文格式
 sidebar_position: 2
 ---
 
-### 订阅 / 取消订阅
 
-```json title="订阅/取消订阅"
-{
-  "method": "SUBSCRIBE/UNSUBSCRIBE",
-  "params": [
-    "{order}@{listenKey}",
-    "{trade}@{listenKey}",
-    "{balance}@{listenKey}",
-    "{position}@{listenKey}",
-    "{notify}@{listenKey}"
-  ],
-  "id": "{id}" // 用户自定义
-}
-```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 
-### 示例：订阅
+### 描述
 
-```json title="订阅示例"
-{
-  "method": "SUBSCRIBE",
-  "params": ["order@A246C3DF8EE532DC75007BC5D86698541678596355681"],
-  "id": "test1"
-}
-```
+---
+
+<Tabs>
+  <TabItem value="subscribe" label="订阅">
+    <CodeBlock language="javascript" title="订阅">{`{
+    "method": "subscribe",
+    "params": [
+        "{topic}@{arg},{arg}",
+        "{topic}@{arg}"
+    ],
+    "id": "{id}"    // 回调ID
+}`}</CodeBlock>
+  </TabItem>
+
+  <TabItem value="unsubscribe" label="取消订阅">
+    <CodeBlock language="javascript" title="取消订阅">{`{
+    "method": "unsubscribe",
+    "params": [
+        "{topic}@{arg},{arg}"
+    ],
+    "id": "{id}"    // 回调ID
+}`}</CodeBlock>
+  </TabItem>
+
+  <TabItem value="response" label="响应示例">
+    <CodeBlock language="json" title="响应示例">{`{
+    "id": "123",
+    "code": 0,
+    "msg": "success"
+}`}</CodeBlock>
+  </TabItem>
+</Tabs>
