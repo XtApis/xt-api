@@ -127,9 +127,9 @@
     "message": "UserWebsocket",
     "description": "The label for category UserWebsocket in sidebar futures"
   },
-  "sidebar.futures.category.WebsocKetV2": {
-    "message": "WebsocKetV2",
-    "description": "The label for category WebsocKetV2 in sidebar futures"
+  "sidebar.futures.category.WebsocketV2": {
+    "message": "WebsocketV2",
+    "description": "The label for category WebsocketV2 in sidebar futures"
   },
   "sidebar.margin-spot.category.Access Description": {
     "message": "Access Description",

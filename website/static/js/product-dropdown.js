@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           title: 'WebSocket V2',
           description: 'WebSocket V2 APIs',
-          href: '/docs/futures/WebsocKetV2/General_WSS_information',
+          href: '/docs/futures/WebsocketV2/General_WSS_information',
         },
       ],
     },
@@ -609,7 +609,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'WebSocket V2',
           description: 'WebSocket V2 APIs',
-          href: '/docs/futures/WebsocKetV2/General_WSS_information',
+          href: '/docs/futures/WebsocketV2/General_WSS_information',
         },
       ],
     },

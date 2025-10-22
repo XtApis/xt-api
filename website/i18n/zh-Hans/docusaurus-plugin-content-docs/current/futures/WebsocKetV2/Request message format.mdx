@@ -8,39 +8,40 @@ sidebar_position: 2
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
+
 
 ### 描述
 
----
+
 
 <Tabs>
   <TabItem value="subscribe" label="订阅">
-    <CodeBlock language="javascript" title="订阅">{`{
-    "method": "subscribe",
-    "params": [
-        "{topic}@{arg},{arg}",
-        "{topic}@{arg}"
-    ],
-    "id": "{id}"    // 回调ID
-}`}</CodeBlock>
+
+```javascript title="订阅"
+{
+  "method": "subscribe",
+  "params": [
+    "{topic}@{arg},{arg}",
+    "{topic}@{arg}"
+  ],
+  "id": "{id}"     // 回调 ID
+}
+```
+
   </TabItem>
 
   <TabItem value="unsubscribe" label="取消订阅">
-    <CodeBlock language="javascript" title="取消订阅">{`{
-    "method": "unsubscribe",
-    "params": [
-        "{topic}@{arg},{arg}"
-    ],
-    "id": "{id}"    // 回调ID
-}`}</CodeBlock>
-  </TabItem>
 
-  <TabItem value="response" label="响应示例">
-    <CodeBlock language="json" title="响应示例">{`{
-    "id": "123",
-    "code": 0,
-    "msg": "success"
-}`}</CodeBlock>
+```javascript title="取消订阅"
+{
+  "method": "unsubscribe",
+  "params": [
+    "{topic}@{arg},{arg}"
+  ],
+  "id": "{id}"     // 回调 ID
+}
+```
+
   </TabItem>
 </Tabs>
+````

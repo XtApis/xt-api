@@ -127,9 +127,9 @@
     "message": "用户 WebSocket",
     "description": "The label for category UserWebsocket in sidebar futures"
   },
-  "sidebar.futures.category.WebsocKetV2": {
+  "sidebar.futures.category.WebsocketV2": {
     "message": "WebSocket V2 接口",
-    "description": "The label for category WebsocKetV2 in sidebar futures"
+    "description": "The label for category WebsocketV2 in sidebar futures"
   },
   "sidebar.margin-spot.category.Access Description": {
     "message": "访问说明",

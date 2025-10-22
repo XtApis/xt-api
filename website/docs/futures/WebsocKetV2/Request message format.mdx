@@ -7,38 +7,35 @@ sidebar_position: 2
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 
 ### Description
 
 <Tabs>
-  <TabItem value="subscribe" label="Subscribe">
-    <CodeBlock language="javascript" title="Subscribe">{`{
+  <TabItem value="subscribe" label="subscribe">
+
+```javascript title="subscribe"
+{
   "method": "subscribe",
   "params": [
     "{topic}@{arg},{arg}",
     "{topic}@{arg}"
   ],
-  "id": "{id}"    // callback ID
-}`}</CodeBlock>
-  </TabItem>
+  "id": "{id}"     //call back ID
+}
+```
 
-{' '}
-<TabItem value="unsubscribe" label="Unsubscribe">
-  <CodeBlock language="javascript" title="Unsubscribe">{`{
+  </TabItem>
+  <TabItem value="unsubscribe" label="unsubscribe">
+
+```javascript title="unsubscribe"
+{
   "method": "unsubscribe",
   "params": [
     "{topic}@{arg},{arg}"
   ],
-  "id": "{id}"    // callback ID
-}`}</CodeBlock>
-</TabItem>
+  "id": "{id}"     //call back ID
+}
+```
 
-  <TabItem value="response" label="Response Example">
-    <CodeBlock language="json" title="Response Example">{`{
-  "id": "123",
-  "code": 0,
-  "msg": "success"
-}`}</CodeBlock>
   </TabItem>
 </Tabs>
