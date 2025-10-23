@@ -1,0 +1,35 @@
+---
+id: LoanAutoAdjustSwitch
+title: 设置自动补仓
+sidebar_label: 设置自动补仓
+sidebar_position: 7
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`POST /v4/balance/public/finance/loan/product/auto-adjust-switch`
+
+---
+
+### 请求参数
+
+<CodeBlock language="json" title="请求参数">
+{`{
+  "available": true                     // 是否启用自动补仓开关
+}`}
+</CodeBlock>
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {}
+}`}
+</CodeBlock>

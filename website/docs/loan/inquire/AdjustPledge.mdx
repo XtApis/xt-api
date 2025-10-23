@@ -1,0 +1,75 @@
+---
+id: AdjustPledgeHistoryQuery
+title: Query Adjust Pledge History
+sidebar_label: Query Adjust Pledge History
+sidebar_position: 13
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/order/finance/loan/order/history/adjust-pledge`
+
+---
+
+### Query Parameters
+
+| Name | Type | Required | Default | Description | Allowed Values |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | false | 1 | Page number | — |
+| limit | integer | false | 10 | Items per page | — |
+| orderId | string | false | — | Order ID | — |
+| loanCurrencyIdList | array | false | — | List of loan currency IDs | — |
+| pledgeCurrencyIdList | array | false | — | List of pledge currency IDs | — |
+| adjustPledgeType | string | false | — | Adjustment direction | ADD (increase pledge), REMOVE (decrease pledge) |
+| adjustPledgeRateType | string | false | — | Adjustment trigger type | MANUAL (manual adjustment), AUTO (automatic adjustment) |
+| productTypes | array | false | — | Product type list | SEVEN_DAY_APR, THIRTY_DAY_APR, NINETY_DAY_APR, DEMAND, VIP |
+| startTime | integer | false | — | Start timestamp (ms) | — |
+| endTime | integer | false | — | End timestamp (ms) | — |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                        // Response code: 0 - success
+  "mc": "SUCCESS",                                // Message
+  "ma": [],                                       // Message arguments
+  "result": {
+    "hasPrev": false,                             // Has previous page
+    "hasNext": false,                             // Has next page
+    "items": [                                    // Adjust pledge history list
+      {
+        "id": "537773892660445952",               // Order ID
+        "adjustPledgeType": "ADD",                // Adjustment direction: ADD - increase pledge, REMOVE - decrease pledge
+        "pledgeAmount": "0.0912687836",           // Adjusted pledge amount
+        "pledgeCurrencyId": 2,                    // Pledge currency ID
+        "pledgeCurrency": "btc",                  // Pledge currency symbol
+        "loanCurrencyId": 11,                     // Loan currency ID
+        "loanCurrency": "usdt",                   // Loan currency symbol
+        "beforePledgeRate": 0.7999,               // Pledge ratio before adjustment
+        "afterPledgeRate": 0.0101,                // Pledge ratio after adjustment
+        "createTime": 1758845200368,              // Adjustment time (ms)
+        "adjustPledgeRateType": "MANUAL",         // Adjustment trigger type: MANUAL / AUTO
+        "productType": "DEMAND"                   // Product type
+      },
+      {
+        "id": "537773892660445952",
+        "adjustPledgeType": "REMOVE",
+        "pledgeAmount": "0.0009959031",
+        "pledgeCurrencyId": 2,
+        "pledgeCurrency": "btc",
+        "loanCurrencyId": 11,
+        "loanCurrency": "usdt",
+        "beforePledgeRate": 0.4296,
+        "afterPledgeRate": 0.7999,
+        "createTime": 1758845193913,
+        "adjustPledgeRateType": "MANUAL",
+        "productType": "DEMAND"
+      }
+    ]
+  }
+}`}
+</CodeBlock>

@@ -1,0 +1,38 @@
+---
+id: LoanAdjustPledge
+title: 调整质押物
+sidebar_label: 调整质押物
+sidebar_position: 3
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`POST /v4/order/finance/loan/order/adjust-pledge`
+
+---
+
+### 请求参数
+
+<CodeBlock language="json" title="请求参数">
+{`{
+  "bizId": "1231231",
+  "positionId": 12345,                 // 持仓ID
+  "type": "ADD",                       // 调整类型: ADD-增加, REMOVE-减少
+  "amount": "0.5"                      // 调整数量
+}`}
+</CodeBlock>
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "order-id-1234"
+}`}
+</CodeBlock>

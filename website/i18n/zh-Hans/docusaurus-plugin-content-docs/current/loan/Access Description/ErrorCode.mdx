@@ -1,0 +1,133 @@
+---
+id: FinanceLoanErrorCodes
+title: 错误码与枚举说明
+sidebar_label: 错误码与枚举说明
+sidebar_position: 99
+---
+
+### 枚举定义
+
+#### 产品类型 (productType)
+- `SEVEN_DAY_APR` - 7天年化利率产品
+- `THIRTY_DAY_APR` - 30天年化利率产品
+- `NINETY_DAY_APR` - 90天年化利率产品
+- `DEMAND` - 活期借贷产品
+- `VIP` - VIP借贷产品
+
+#### 订单类型 (type)
+- `ORDINARY` - 普通订单
+- `VIP` - VIP订单
+- `NOVICE` - 新手订单
+
+#### 订单状态 (status)
+- `RUNNING` - 运行中
+- `REPAYING` - 还款中
+- `FORCE_LIQUIDATING` - 强制平仓中
+- `OVERDUE` - 逾期
+- `REPAID` - 已还款
+- `RENEWED` - 已续借
+- `FORCE_LIQUIDATED` - 已强制平仓
+- `COMPLETE` - 已完成
+
+#### 还款类型 (repaymentType)
+- `ORDINARY_REPAYMENT` - 普通还款
+- `PLEDGE_REPAYMENT` - 质押物还款
+
+#### 调整质押物类型 (adjustPledgeType)
+- `ADD` - 增加质押物
+- `REMOVE` - 减少质押物
+
+#### 调整触发类型 (adjustPledgeRateType)
+- `MANUAL` - 手动调整
+- `AUTO` - 自动调整
+
+#### 借贷类型 (loanType)
+- `LOAN` - 负债
+- `PLEDGE` - 质押
+
+---
+
+## 错误码说明
+
+### HTTP 状态码
+
+| 状态码 | 说明 |
+|--------|------|
+| 0 | 成功 |
+| 1 | 业务异常 |
+
+---
+
+### 业务错误码 (FinanceLoanOrderResponse.Status)
+
+#### 通用错误 (FINANCE_LOAN_ORDER_001-010)
+
+| 错误码 | 说明 | 触发条件 |
+|--------|------|----------|
+| FINANCE_LOAN_ORDER_002 | 存在逾期订单 | 用户有未处理的逾期订单，必须先处理 |
+| FINANCE_LOAN_ORDER_003 | 产品/服务不可用 | 产品下架、货币下线、交易禁用或价格异常 |
+| FINANCE_LOAN_ORDER_004 | VIP配置无效 | VIP借贷配置为空或不可用 |
+| FINANCE_LOAN_ORDER_005 | 价格波动过大 | 价格波动超过5%阈值 |
+| FINANCE_LOAN_ORDER_007 | 不支持续借 | 货币下线、产品不可用或交易禁用 |
+| FINANCE_LOAN_ORDER_008 | 质押率过高 | 当前质押率超过预警阈值 |
+| FINANCE_LOAN_ORDER_009 | 余额不足 | 账户余额少于所需利息金额 |
+| FINANCE_LOAN_ORDER_010 | 订单已续借 | 该借款订单已经续借过 |
+
+#### 参数验证错误 (FINANCE_LOAN_ORDER_011-020)
+
+| 错误码 | 说明 | 触发条件 |
+|--------|------|----------|
+| FINANCE_LOAN_ORDER_011 | 不允许调整质押 | 货币下线或交易禁用 |
+| FINANCE_LOAN_ORDER_014 | 相同货币错误 | 借款币种和质押币种不能相同 |
+| FINANCE_LOAN_ORDER_015 | 借款金额过小 | 借款金额低于最小要求金额 |
+| FINANCE_LOAN_ORDER_016 | 借款金额超限 | 借款金额超过最大可借金额 |
+| FINANCE_LOAN_ORDER_017 | 质押金额超限 | 质押金额超过最大允许质押金额 |
+| FINANCE_LOAN_ORDER_018 | 质押率超预警 | 用户输入的质押率超过预警比率 |
+
+#### 业务逻辑错误 (FINANCE_LOAN_ORDER_021-030)
+
+| 错误码 | 说明 | 触发条件 |
+|--------|------|----------|
+| FINANCE_LOAN_ORDER_021 | 余额未找到 | 指定货币的用户余额未找到 |
+| FINANCE_LOAN_ORDER_025 | 续借时间未到 | 续借时间尚未到达 |
+| FINANCE_LOAN_ORDER_026 | 还款金额超限 | 还款金额超过总债务（本金+利息+罚息） |
+| FINANCE_LOAN_ORDER_029 | 余额API错误 | 获取账户余额时发生错误 |
+| FINANCE_LOAN_ORDER_030 | 赎回质押超限 | 赎回质押金额超过最大可赎回金额 |
+
+#### 产品类型错误 (FINANCE_LOAN_ORDER_031-040)
+
+| 错误码 | 说明 | 触发条件 |
+|--------|------|----------|
+| FINANCE_LOAN_ORDER_031 | 产品类型不可用 | 指定产品类型不可用 |
+| FINANCE_LOAN_ORDER_032 | 续借产品类型无效 | 续借产品类型无效 |
+| FINANCE_LOAN_ORDER_033 | VIP最小金额不足 | VIP借款金额低于最小要求 |
+| FINANCE_LOAN_ORDER_034 | 精度验证失败 | 金额精度超过货币允许最大精度 |
+| FINANCE_LOAN_ORDER_035 | 新手活动不可用 | 新手借贷活动不可用或已禁用 |
+| FINANCE_LOAN_ORDER_036 | 非新手用户 | 用户不符合新手借贷条件 |
+| FINANCE_LOAN_ORDER_037 | 需要KYC验证 | 用户未完成所需的KYC验证（2级+） |
+| FINANCE_LOAN_ORDER_038 | 新手+优惠券冲突 | 新手借贷活动不能使用优惠券 |
+| FINANCE_LOAN_ORDER_039 | VIP+优惠券冲突 | VIP借贷不能使用优惠券 |
+| FINANCE_LOAN_ORDER_040 | 优惠券不匹配 | 借贷信息与优惠券不匹配 |
+
+#### 特殊操作错误 (FINANCE_LOAN_ORDER_041+)
+
+| 错误码 | 说明 | 触发条件 |
+|--------|------|----------|
+| FINANCE_LOAN_ORDER_041 | 优惠券不可用 | 折扣优惠券已禁用或不可用 |
+| FINANCE_LOAN_ORDER_042 | 还款余额不足 | 一键还款时余额不足 |
+| FINANCE_LOAN_ORDER_043 | 无运行中订单 | 一键还款时未找到运行中订单 |
+| FINANCE_LOAN_ORDER_044 | 还款请求无效 | 单项一键还款请求无效 |
+
+---
+
+## 更新日志
+### v1.0.0 (2025-09-23)
+- 初始版本发布
+- 支持基础借款、还款功能
+- 支持质押物调整功能
+- 支持续借功能
+- 支持一键还款功能
+- 支持自动补仓设置
+- 支持历史查询功能
+
+---

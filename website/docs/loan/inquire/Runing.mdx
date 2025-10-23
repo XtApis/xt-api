@@ -1,0 +1,84 @@
+---
+id: RunningLoanOrders
+title: Query Running Loan Orders
+sidebar_label: Query Running Loan Orders
+sidebar_position: 10
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/order/finance/loan/order/running`
+
+---
+
+### Query Parameters
+
+| Name | Type | Required | Default | Description | Allowed Values |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | false | 1 | Page number | — |
+| limit | integer | false | 10 | Items per page | — |
+| orderId | string | false | — | Order ID | — |
+| loanCurrencyIdList | array | false | — | List of loan currency IDs | — |
+| pledgeCurrencyIdList | array | false | — | List of pledge currency IDs | — |
+| status | array | false | — | List of order statuses | RUNNING, REPAYING, FORCE_LIQUIDATING, OVERDUE, REPAID, RENEWED, FORCE_LIQUIDATED |
+| productTypes | array | false | — | List of product types | SEVEN_DAY_APR, THIRTY_DAY_APR, NINETY_DAY_APR, DEMAND, VIP |
+| sortType | string | false | — | Sorting type | DUE_TIME_DESC, DUE_TIME_ASC, PLEDGE_RATE_DESC, PLEDGE_RATE_ASC, CREATE_TIME_DESC |
+| startTime | integer | false | — | Start timestamp (ms) | — |
+| endTime | integer | false | — | End timestamp (ms) | — |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                        // Response code: 0 - success
+  "mc": "SUCCESS",                                // Message
+  "ma": [],                                       // Message arguments
+  "result": {
+    "hasPrev": false,                             // Has previous page
+    "hasNext": false,                             // Has next page
+    "items": [                                    // Running order list
+      {
+        "positionId": "542798145470390784",       // Position ID
+        "orderId": "542798144228902336",          // Order ID
+        "vipCfgId": null,                         // VIP config ID
+        "totalLoanAmount": "111.00040207",        // Total loan amount (principal + interest)
+        "loanAmount": "111",                      // Loan principal
+        "interest": "0.00040207",                 // Accumulated interest
+        "pledgeCurrency": "btc",                  // Pledge currency
+        "pledgeCurrencyId": 2,                    // Pledge currency ID
+        "pledgeAmount": "0.0085350021",           // Pledge amount
+        "dueTime": 1916794799000,                 // Due time (ms)
+        "duration": 1825,                         // Loan duration (days)
+        "currentPledgeRatio": 86.9,               // Current pledge ratio (%)
+        "currentPrice": "14966.87665825",         // Current pledge price
+        "status": "RUNNING",                      // Order status
+        "createTime": 1759115162582,              // Creation time
+        "aprYear": "0.01",                        // Annual interest rate (%)
+        "aprHour": "0.000001",                    // Hourly interest rate (%)
+        "earlyWarningPledgeRate": 0.9,            // Early warning ratio
+        "initialPledgeRate": 0.8,                 // Initial pledge ratio
+        "earlyWarningPrice": "14450.35146245",    // Early warning price
+        "forceLiquidatePledgeRate": 0.98,         // Force liquidation ratio
+        "forceLiquidatePrice": "13270.7309349",   // Force liquidation price
+        "productType": "DEMAND",                  // Product type
+        "overdueTime": null,                      // Overdue time
+        "type": "ORDINARY",                       // Order type
+        "overdueInterestMultiple": 3,             // Overdue interest multiple
+        "gracePeriod": 7,                         // Grace period (days)
+        "loanCurrency": "xt",                     // Loan currency
+        "loanCurrencyId": 128,                    // Loan currency ID
+        "productId": 4,                           // Product ID
+        "pledgeProductId": 32,                    // Pledge product ID
+        "interestDeduction": "0",                 // Interest deduction
+        "couponCfg": null,                        // Coupon config
+        "couponAvailable": false,                 // Coupon available
+        "loanProductId": 4                        // Loan product ID
+      }
+    ]
+  }
+}`}
+</CodeBlock>

@@ -1,0 +1,36 @@
+---
+id: CurrentLoanOverview
+title: 当前借贷概览
+sidebar_label: 当前借贷概览
+sidebar_position: 15
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`GET /v4/balance/finance/loan/asset/current-loan`
+
+---
+
+### 查询参数
+
+无需查询参数。
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,                                    // 响应码：0-成功
+  "mc": "SUCCESS",                            // 响应消息
+  "ma": [],                                   // 消息参数数组
+  "result": {
+    "totalLoanAmount": "102.6418",            // 当前借款总金额（USDT计价）
+    "totalPledgeAmount": "10584.2128",        // 当前质押总金额（USDT计价）
+    "overDueOrderCount": 0,                   // 逾期订单数量
+    "runningOrderCount": 1                    // 运行中订单数量
+  }
+}`}
+</CodeBlock>

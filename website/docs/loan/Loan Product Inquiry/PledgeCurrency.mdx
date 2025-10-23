@@ -1,0 +1,96 @@
+---
+id: PledgeCurrency
+title: Pledge Currency Query
+sidebar_label: Pledge Currency Query
+sidebar_position: 20
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/public/finance/loan/product/pledge-currency`
+
+---
+
+### Query Parameters
+
+| Name | Type | Required | Default | Description | Allowed Values |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | false | 1 | Page number | — |
+| limit | integer | false | 10 | Number of items per page | — |
+| currencyId | integer | false | — | Currency ID | — |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "id": 32,                              // Pledge product ID
+        "currencyType": "PLEDGE_CURRENCY",     // Currency type
+        "currencyId": 2,                       // Currency ID
+        "currency": "btc",                     // Currency symbol
+        "weight": 1,                           // Weight for sorting
+        "initialPledgeRate": 0.8,              // Initial pledge rate
+        "initialPledgeRateStr": "80",          // Initial pledge rate (%)
+        "earlyWarningPledgeRate": 0.9,         // Warning pledge rate
+        "earlyWarningPledgeRateStr": "90",     // Warning pledge rate (%)
+        "forceLiquidatePledgeRate": 0.98,      // Liquidation pledge rate
+        "forceLiquidatePledgeRateStr": "98",   // Liquidation pledge rate (%)
+        "individualCap": 100000.0              // Individual pledge cap (USDT)
+      },
+      {
+        "id": 33,
+        "currencyType": "PLEDGE_CURRENCY",
+        "currencyId": 11,
+        "currency": "usdt",
+        "weight": 1,
+        "initialPledgeRate": 0.6,
+        "initialPledgeRateStr": "60",
+        "earlyWarningPledgeRate": 0.7,
+        "earlyWarningPledgeRateStr": "70",
+        "forceLiquidatePledgeRate": 0.99,
+        "forceLiquidatePledgeRateStr": "99",
+        "individualCap": 1000000.0
+      },
+      {
+        "id": 35,
+        "currencyType": "PLEDGE_CURRENCY",
+        "currencyId": 941,
+        "currency": "sol",
+        "weight": 1,
+        "initialPledgeRate": 0.8,
+        "initialPledgeRateStr": "80",
+        "earlyWarningPledgeRate": 0.88,
+        "earlyWarningPledgeRateStr": "88",
+        "forceLiquidatePledgeRate": 0.95,
+        "forceLiquidatePledgeRateStr": "95",
+        "individualCap": 10000000.0
+      },
+      {
+        "id": 36,
+        "currencyType": "PLEDGE_CURRENCY",
+        "currencyId": 5,
+        "currency": "eth",
+        "weight": 1,
+        "initialPledgeRate": 0.8,
+        "initialPledgeRateStr": "80",
+        "earlyWarningPledgeRate": 0.88,
+        "earlyWarningPledgeRateStr": "88",
+        "forceLiquidatePledgeRate": 0.95,
+        "forceLiquidatePledgeRateStr": "95",
+        "individualCap": 100000000.0
+      }
+    ]
+  }
+}`}
+</CodeBlock>

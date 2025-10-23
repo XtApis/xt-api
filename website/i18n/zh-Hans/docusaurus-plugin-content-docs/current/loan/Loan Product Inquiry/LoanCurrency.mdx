@@ -1,0 +1,110 @@
+---
+id: LoanCurrency
+title: 借款币种查询
+sidebar_label: 借款币种查询
+sidebar_position: 19
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`GET /v4/public/finance/loan/product/loan-currency`
+
+---
+
+### 查询参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 可选值 |
+|------|------|------|--------|------|--------|
+| page | integer | 否 | 1 | 页码 | — |
+| limit | integer | 否 | 10 | 每页数量 | — |
+| currencyId | integer | 否 | — | 币种ID | — |
+| sortType | string | 否 | — | 排序类型 | SEVEN_DAY_APR_DESC, SEVEN_DAY_APR_ASC, THIRTY_DAY_APR_DESC, THIRTY_DAY_APR_ASC, NINETY_DAY_APR_DESC, NINETY_DAY_APR_ASC |
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "sevenDayAprAvailable": true,          // 7天产品是否可用
+        "thirtyDayAprAvailable": true,         // 30天产品是否可用
+        "ninetyDayAprAvailable": true,         // 90天产品是否可用
+        "demandAprAvailable": true,            // 活期产品是否可用
+        "id": 1,                               // 借贷产品ID
+        "currencyType": "LOAN_CURRENCY",       // 币种类别
+        "currencyId": 11,                      // 币种ID
+        "currency": "usdt",                    // 币种符号
+        "weight": 60000,                       // 权重（排序用）
+        "sevenDayApr": "22.22",                // 7天年化利率(%)
+        "sevenDayAprPerHour": "0.002537",      // 7天年化利率按小时(%)
+        "thirtyDayApr": "33.33",               // 30天年化利率(%)
+        "thirtyDayAprPerHour": "0.003805",     // 30天年化利率按小时(%)
+        "ninetyDayApr": "20",                  // 90天年化利率(%)
+        "demandApr": "33",                     // 活期年化利率(%)
+        "ninetyDayAprPerHour": "0.002284",     // 90天年化利率按小时(%)
+        "demandAprPerHour": "0.003768",        // 活期年化利率按小时(%)
+        "singleMin": 10.0,                     // 单次借款最小金额
+        "individualCap": 20000.0,              // 个人借款限额
+        "discountList": null,                  // 折扣比例列表
+        "discountConditions": [],              // 折扣条件列表
+        "originalSevenDayApr": 0.2222,         // 原始7天年化利率
+        "originalThirtyDayApr": 0.3333,        // 原始30天年化利率
+        "originalNinetyDayApr": 0.2,           // 原始90天年化利率
+        "originalDemandApr": 0.33,             // 原始活期年化利率
+        "loanProductId": 1                     // OpenAPI借贷产品ID
+      },
+      {
+        "sevenDayAprAvailable": true,
+        "thirtyDayAprAvailable": false,
+        "ninetyDayAprAvailable": true,
+        "demandAprAvailable": true,
+        "id": 4,
+        "currencyType": "LOAN_CURRENCY",
+        "currencyId": 128,
+        "currency": "xt",
+        "weight": 1000,
+        "sevenDayApr": "3.23",
+        "sevenDayAprPerHour": "0.000369",
+        "thirtyDayApr": "13.33",
+        "thirtyDayAprPerHour": "0.001522",
+        "ninetyDayApr": "10.23",
+        "demandApr": "0.01",
+        "ninetyDayAprPerHour": "0.001168",
+        "demandAprPerHour": "0.000001",
+        "singleMin": 1.0,
+        "individualCap": 20000000.0,
+        "discountList": [
+          {
+            "discountRate": 0.2,
+            "loanProductType": "THIRTY_DAY_APR",
+            "discountStartTime": null,
+            "discountEndTime": 1798646400000
+          },
+          {
+            "discountRate": 0.5555,
+            "loanProductType": "NINETY_DAY_APR",
+            "discountStartTime": null,
+            "discountEndTime": 1766592000000
+          }
+        ],
+        "discountConditions": [],
+        "originalSevenDayApr": 0.0323,
+        "originalThirtyDayApr": 0.1666,
+        "originalNinetyDayApr": 0.23,
+        "originalDemandApr": 0.000023,
+        "loanProductId": 4
+      }
+    ]
+  }
+}`}
+</CodeBlock>

@@ -1,0 +1,54 @@
+---
+id: LoanAssetQuery
+title: Query Loan Assets
+sidebar_label: Query Loan Assets
+sidebar_position: 9
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/balance/finance/loan/asset/loan-asset`
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                    // Response code: 0 - success
+  "mc": "SUCCESS",                            // Response message
+  "ma": [],                                   // Message arguments array
+  "result": {
+    "totalLoanAmount": "953.2379",            // Total loan asset (in USDT)
+    "totalPledgeAmount": "11581.3713",        // Total pledged asset (in USDT)
+    "loanAssetItems": [                       // Loan asset detail list
+      {
+        "currencyId": 128,                    // Currency ID
+        "currency": "xt",                     // Currency symbol
+        "amount": 111.00040207,               // Loan amount
+        "sortAmountU": 850.5961,              // Value in USDT for sorting
+        "amountU": "850.5961"                 // Equivalent in USDT
+      },
+      {
+        "currencyId": 11,
+        "currency": "usdt",
+        "amount": 102.64170062,
+        "sortAmountU": 102.6418,
+        "amountU": "102.6418"
+      }
+    ],
+    "pledgeAssetItems": [                     // Pledged asset detail list
+      {
+        "currencyId": 2,                      // Currency ID
+        "currency": "btc",                    // Currency symbol
+        "amount": 0.1009593516,               // Pledged amount
+        "sortAmountU": 11581.3713,            // Value in USDT for sorting
+        "amountU": "11581.3713"               // Equivalent in USDT
+      }
+    ],
+    "runningOrderCount": 0                    // Number of active orders
+  }
+}`}
+</CodeBlock>

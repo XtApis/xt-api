@@ -1,0 +1,56 @@
+---
+id: LoanBatchRepayList
+title: One-Click Repayment List Query
+sidebar_label: One-Click Repayment List Query
+sidebar_position: 6
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/order/finance/loan/order/on-click`
+
+---
+
+### Query Parameters
+
+- `productTypes`: List of product types
+
+**Product Type Description:**
+
+- `NINETY_DAY_APR` - Represents current (demand) product
+- `VIP` - Represents VIP product
+- Fixed-term products can omit this parameter
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                    // Response code: 0 - success
+  "mc": "SUCCESS",                            // Response message
+  "ma": [],                                   // Message arguments array
+  "result": [                                 // One-click repayment list
+    {
+      "loanCurrency": "USDT",                 // Loan currency symbol
+      "loanCurrencyId": 11,                   // Loan currency ID
+      "loanAmount": "102.64170062",           // Total loan amount (including principal, interest, penalty)
+      "productId": 1,                         // Product ID
+      "enough": true,                         // Whether balance is sufficient for repayment
+      "spotAmount": "1000.00000000",          // Spot account balance
+      "productType": "DEMAND"                 // Product type: DEMAND (Demand), VIP (VIP), etc.
+    },
+    {
+      "loanCurrency": "BTC",
+      "loanCurrencyId": 2,
+      "loanAmount": "0.00123456",
+      "productId": 3,
+      "enough": false,
+      "spotAmount": "0.00100000",
+      "productType": "SEVEN_DAY_APR"
+    }
+  ]
+}`}
+</CodeBlock>

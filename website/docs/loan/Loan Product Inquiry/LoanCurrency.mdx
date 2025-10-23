@@ -1,0 +1,110 @@
+---
+id: LoanCurrency
+title: Loan Currency Query
+sidebar_label: Loan Currency Query
+sidebar_position: 19
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/public/finance/loan/product/loan-currency`
+
+---
+
+### Query Parameters
+
+| Name | Type | Required | Default | Description | Allowed Values |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | false | 1 | Page number | — |
+| limit | integer | false | 10 | Number of items per page | — |
+| currencyId | integer | false | — | Currency ID | — |
+| sortType | string | false | — | Sort type | SEVEN_DAY_APR_DESC, SEVEN_DAY_APR_ASC, THIRTY_DAY_APR_DESC, THIRTY_DAY_APR_ASC, NINETY_DAY_APR_DESC, NINETY_DAY_APR_ASC |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "sevenDayAprAvailable": true,          // Whether 7-day product is available
+        "thirtyDayAprAvailable": true,         // Whether 30-day product is available
+        "ninetyDayAprAvailable": true,         // Whether 90-day product is available
+        "demandAprAvailable": true,            // Whether demand product is available
+        "id": 1,                               // Loan product ID
+        "currencyType": "LOAN_CURRENCY",       // Currency type
+        "currencyId": 11,                      // Currency ID
+        "currency": "usdt",                    // Currency symbol
+        "weight": 60000,                       // Sorting weight
+        "sevenDayApr": "22.22",                // 7-day annualized rate (%)
+        "sevenDayAprPerHour": "0.002537",      // 7-day hourly rate (%)
+        "thirtyDayApr": "33.33",               // 30-day annualized rate (%)
+        "thirtyDayAprPerHour": "0.003805",     // 30-day hourly rate (%)
+        "ninetyDayApr": "20",                  // 90-day annualized rate (%)
+        "demandApr": "33",                     // Demand annualized rate (%)
+        "ninetyDayAprPerHour": "0.002284",     // 90-day hourly rate (%)
+        "demandAprPerHour": "0.003768",        // Demand hourly rate (%)
+        "singleMin": 10.0,                     // Minimum single loan amount
+        "individualCap": 20000.0,              // Individual loan cap
+        "discountList": null,                  // Discount list
+        "discountConditions": [],              // Discount conditions
+        "originalSevenDayApr": 0.2222,         // Original 7-day APR
+        "originalThirtyDayApr": 0.3333,        // Original 30-day APR
+        "originalNinetyDayApr": 0.2,           // Original 90-day APR
+        "originalDemandApr": 0.33,             // Original demand APR
+        "loanProductId": 1                     // OpenAPI loan product ID
+      },
+      {
+        "sevenDayAprAvailable": true,
+        "thirtyDayAprAvailable": false,
+        "ninetyDayAprAvailable": true,
+        "demandAprAvailable": true,
+        "id": 4,
+        "currencyType": "LOAN_CURRENCY",
+        "currencyId": 128,
+        "currency": "xt",
+        "weight": 1000,
+        "sevenDayApr": "3.23",
+        "sevenDayAprPerHour": "0.000369",
+        "thirtyDayApr": "13.33",
+        "thirtyDayAprPerHour": "0.001522",
+        "ninetyDayApr": "10.23",
+        "demandApr": "0.01",
+        "ninetyDayAprPerHour": "0.001168",
+        "demandAprPerHour": "0.000001",
+        "singleMin": 1.0,
+        "individualCap": 20000000.0,
+        "discountList": [
+          {
+            "discountRate": 0.2,
+            "loanProductType": "THIRTY_DAY_APR",
+            "discountStartTime": null,
+            "discountEndTime": 1798646400000
+          },
+          {
+            "discountRate": 0.5555,
+            "loanProductType": "NINETY_DAY_APR",
+            "discountStartTime": null,
+            "discountEndTime": 1766592000000
+          }
+        ],
+        "discountConditions": [],
+        "originalSevenDayApr": 0.0323,
+        "originalThirtyDayApr": 0.1666,
+        "originalNinetyDayApr": 0.23,
+        "originalDemandApr": 0.000023,
+        "loanProductId": 4
+      }
+    ]
+  }
+}`}
+</CodeBlock>

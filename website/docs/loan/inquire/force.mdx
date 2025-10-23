@@ -1,0 +1,79 @@
+---
+id: ForceLiquidationHistoryQuery
+title: Query Force Liquidation History
+sidebar_label: Query Force Liquidation History
+sidebar_position: 14
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/order/finance/loan/order/history/force`
+
+---
+
+### Query Parameters
+
+| Name | Type | Required | Default | Description | Allowed Values |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | false | 1 | Page number | — |
+| limit | integer | false | 10 | Number of items per page | — |
+| orderId | string | false | — | Order ID | — |
+| loanCurrencyIdList | array | false | — | List of loan currency IDs | — |
+| pledgeCurrencyIdList | array | false | — | List of pledge currency IDs | — |
+| productTypes | array | false | — | Product type list | SEVEN_DAY_APR, THIRTY_DAY_APR, NINETY_DAY_APR, DEMAND, VIP |
+| startTime | integer | false | — | Start timestamp (ms) | — |
+| endTime | integer | false | — | End timestamp (ms) | — |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                        // Response code: 0 - success
+  "mc": "SUCCESS",                                // Message
+  "ma": [],                                       // Message arguments
+  "result": {
+    "hasPrev": false,                             // Has previous page
+    "hasNext": false,                             // Has next page
+    "items": [                                    // Force liquidation history list
+      {
+        "id": "527592187727339712",               // Order ID
+        "userId": null,                           // User ID (usually null for forced liquidation)
+        "forceLiquidatePledgeRate": 0.9825,       // Pledge rate at liquidation
+        "forceLiquidatePrice": "65901.61",        // Pledge price at liquidation
+        "forceLiquidatePledgeAmount": "0.0156282556", // Pledged amount liquidated
+        "pledgeCurrencyId": 2,                    // Pledge currency ID
+        "pledgeCurrency": "btc",                  // Pledge currency symbol
+        "loanAmount": "1011.8209695",             // Loan amount (including interest)
+        "loanCurrencyId": 11,                     // Loan currency ID
+        "loanCurrency": "usdt",                   // Loan currency symbol
+        "forceLiquidateClearingFee": "0.0000188509", // Liquidation clearing fee
+        "pledgeAmount": "0",                      // Remaining pledge amount (usually 0 after liquidation)
+        "status": "FORCE_LIQUIDATED",             // Order status
+        "createTime": 1756708115039,              // Liquidation time (ms)
+        "productType": "DEMAND"                   // Product type
+      },
+      {
+        "id": "527626959459606720",
+        "userId": null,
+        "forceLiquidatePledgeRate": 0.9825,
+        "forceLiquidatePrice": "65901.61",
+        "forceLiquidatePledgeAmount": "0.0156264487",
+        "pledgeCurrencyId": 2,
+        "pledgeCurrency": "btc",
+        "loanAmount": "1011.74472292",
+        "loanCurrencyId": 11,
+        "loanCurrency": "usdt",
+        "forceLiquidateClearingFee": "0.0000188494",
+        "pledgeAmount": "0",
+        "status": "FORCE_LIQUIDATED",
+        "createTime": 1756708115031,
+        "productType": "DEMAND"
+      }
+    ]
+  }
+}`}
+</CodeBlock>

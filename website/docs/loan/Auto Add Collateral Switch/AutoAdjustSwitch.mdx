@@ -1,0 +1,35 @@
+---
+id: LoanAutoAdjustSwitch
+title: Set Auto Replenishment
+sidebar_label: Set Auto Replenishment
+sidebar_position: 7
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `POST /v4/balance/public/finance/loan/product/auto-adjust-switch`
+
+---
+
+### Request Parameters
+
+<CodeBlock language="json" title="Request Parameters">
+  {`{
+  "available": true                     // Whether to enable auto-replenishment switch
+}`}
+</CodeBlock>
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {}
+}`}
+</CodeBlock>

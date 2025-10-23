@@ -1,41 +1,38 @@
 ---
-id: borrow
-title: borrow
-sidebar_label: borrow
-sidebar_position: 1
+id: LoanAdjustPledge
+title: Adjust Pledged Assets
+sidebar_label: Adjust Pledged Assets
+sidebar_position: 3
 ---
 
-**Type:** POST
+import CodeBlock from '@theme/CodeBlock';
 
-**Description:** `/v4/order/finance/loan/order/v1/borrow`
+### Description
 
-### 注意事项
+**Endpoint:** `POST /v4/order/finance/loan/order/adjust-pledge`
 
-**仅支持普通借款，不包含 VIP 借款和新手借款**
+---
 
-### 参数说明
+### Request Parameters
 
-### 请求示例:
+<CodeBlock language="json" title="Request Parameters">
+  {`{
+  "bizId": "1231231",
+  "positionId": 12345,                 // Position ID
+  "type": "ADD",                       // Adjustment type: ADD (increase), REMOVE (decrease)
+  "amount": "0.5"                      // Adjustment amount
+}`}
+</CodeBlock>
 
-```json
-{
-  "loanProductId": 123, // 借款产品ID
-  "pledgeProductId": 456, // 质押产品ID
-  "productType": "SEVEN_DAY_APR", // 产品类型: SEVEN_DAY_APR, THIRTY_DAY_APR, DEMAND
-  "loanAmount": "30000", // 借款金额
-  "pledgeAmount": "1.5", // 质押金额
-  "couponId": 789, // 优惠券ID (可选)
-  "isNovice": false // 是否新手订单
-}
-```
+---
 
-### 响应示例
+### Response Example
 
-```json
-{
+<CodeBlock language="json" title="Response Example">
+  {`{
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
-  "result": "542798144228902336"
-}
-```
+  "result": "order-id-1234"
+}`}
+</CodeBlock>

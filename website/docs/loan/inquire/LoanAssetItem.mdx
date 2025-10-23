@@ -1,0 +1,46 @@
+---
+id: LoanAssetItem
+title: Loan Asset Details
+sidebar_label: Loan Asset Details
+sidebar_position: 17
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/balance/finance/loan/asset/loan-asset-item`
+
+---
+
+### Query Parameters
+
+| Name | Type | Required | Default | Description | Allowed Values |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | true | — | Page number | — |
+| limit | integer | false | 10 | Number of items per page | — |
+| loanType | string | true | — | Loan type | LOAN (Debt), PLEDGE (Collateral) |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                    // Response code: 0 - success
+  "mc": "SUCCESS",                            // Message
+  "ma": [],                                   // Message arguments
+  "result": {
+    "hasPrev": false,                         // Has previous page
+    "hasNext": false,                         // Has next page
+    "items": [                                // Asset details list
+      {
+        "currencyId": 11,                     // Currency ID
+        "currency": "usdt",                   // Currency symbol
+        "amount": "102.64170062",             // Asset amount
+        "amountU": "102.64170062"             // Equivalent value in USDT
+      }
+    ]
+  }
+}`}
+</CodeBlock>

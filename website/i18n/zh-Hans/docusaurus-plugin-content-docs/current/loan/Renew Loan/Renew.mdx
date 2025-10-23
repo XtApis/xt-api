@@ -1,0 +1,39 @@
+---
+id: LoanRenew
+title: 续借
+sidebar_label: 续借
+sidebar_position: 4
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`POST /v4/order/finance/loan/order/renew`
+
+---
+
+### 请求参数
+
+<CodeBlock language="json" title="请求参数">
+{`{
+  "bizId": 12345678910,
+  "positionId": 12345,                 // 原持仓ID
+  "productType": "THIRTY_DAY_APR",     // 续借产品类型
+  "couponId": 789,                     // 优惠券ID (可选)
+  "discountConditionSatisfied": true   // 折扣条件是否满足 (可选)
+}`}
+</CodeBlock>
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "order-id-1234"
+}`}
+</CodeBlock>
