@@ -19,6 +19,17 @@ sidebar_position: 7
 
 200/s/apikey
 
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/position" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=eth_usdt"
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -58,3 +69,9 @@ sidebar_position: 7
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+|  |  |

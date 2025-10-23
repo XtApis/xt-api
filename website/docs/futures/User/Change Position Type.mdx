@@ -21,6 +21,19 @@ sidebar_position: 17
 | positionSide | string | Yes | N/A | Position side | LONG; SHORT |
 | positionType | string | Yes | N/A | Position type | CROSSED; ISOLATED |
 
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/position/change-type" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  # Required
+  -d "positionSide=SHORT" \  # Required
+  -d "positionType=CROSSED" \  # Required
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -34,3 +47,12 @@ sidebar_position: 17
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | Symbol does not exist |
+| invalid_position_type_only_isolated | Invalid position type — only isolated allowed |
+| invalid_position_type_only_crossed | Invalid position type — only crossed allowed |
+| position_exists | Position already exists |

@@ -13,6 +13,20 @@ position_number: 12
 
 200次/秒/apikey
 
+### 请求参数
+
+无
+
+### 请求示例
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/position/close-all" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded"  # 必须
+```
+
 ### 响应示例
 
 ```json title="Response"
@@ -25,3 +39,12 @@ position_number: 12
   "result": true,
   "returnCode": 0
 }
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| fail | 内部异常 |
+| invalid_symbol | 交易对不存在 |
+| symbol_is_not_trading | 交易对闭市 |

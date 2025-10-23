@@ -22,6 +22,20 @@ sidebar_position: 10
 
 200次/秒/apikey
 
+### 请求示例
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/position/margin" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \  # 必须
+  -d "margin=9999" \ 
+  -d "positionSide=SHORT" \ 
+  -d "type=ADD"
+```
+
 ### 响应示例
 
 ```json title="Response"
@@ -34,3 +48,11 @@ sidebar_position: 10
   "result": {},
   "returnCode": 0
 }
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_params | 参数缺失 |
+| invalid_margin | 保证金不合法 |

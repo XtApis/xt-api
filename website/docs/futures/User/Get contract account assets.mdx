@@ -19,6 +19,17 @@ sidebar_position: 1.1
 | -------------- | ------ | --------- | ------- | ----------- |
 | queryAccountId | string | false     | N/A     | Account ID  |
 
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/compat/balance/list" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "queryAccountId=1234567890"
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -51,3 +62,9 @@ sidebar_position: 1.1
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+|   |   |

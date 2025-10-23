@@ -17,6 +17,16 @@ sidebar_position: 8
 
 ---
 
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/step-rate" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+```
+
 ### 响应示例
 
 ```json title="Response"
@@ -48,3 +58,10 @@ sidebar_position: 8
   },
   "returnCode": 0
 }
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+|  |  |

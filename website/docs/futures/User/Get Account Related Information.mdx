@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ### Description
 
-\*Type\*\* GET
+**Type** GET
 
 **Description:**`/future/user/v1/account/info`
 
@@ -25,9 +25,19 @@ _None_
 
 ---
 
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/account/info" \
+  -H "validate-appkey: $APPKEY" \        # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded"   # Required
+```
+
 ### Response Example
 
-```json
+```json title="Response"
 {
   "error": {
     "code": "",
@@ -46,3 +56,9 @@ _None_
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+|   |   |

@@ -19,6 +19,17 @@ sidebar_position: 3
 
 200/s/apikey
 
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/balance/detail" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "coin=btc" \  # Required
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -41,3 +52,9 @@ sidebar_position: 3
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_coin | Coin does not exist |

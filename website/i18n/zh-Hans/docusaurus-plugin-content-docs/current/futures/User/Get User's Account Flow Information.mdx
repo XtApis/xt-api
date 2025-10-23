@@ -30,6 +30,18 @@ sidebar_position: 5
 
 ---
 
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/balance/bills" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \  # 必须
+  -d "limit=10"
+```
+
 ### 响应示例
 
 ```json title="Response"
@@ -57,3 +69,11 @@ sidebar_position: 5
   },
   "returnCode": 0
 }
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_coin | 币种不存在 |
+| invalid_symbol | 交易对不存在 |

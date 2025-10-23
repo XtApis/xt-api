@@ -21,6 +21,19 @@ sidebar_position: 9
 
 200/s/apikey
 
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/position/adjust-leverage" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  # Required
+  -d "positionSide=SHORT" \  # Required
+  -d "leverage=20" \  # Required
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -34,3 +47,11 @@ sidebar_position: 9
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | The trading pair does not exist or is null |
+| invalid_leverage | Invalid leverage multiple |
+

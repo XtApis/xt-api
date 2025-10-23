@@ -13,6 +13,16 @@ sidebar_position: 2
 
 200/s/apikey
 
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/accout/open" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -26,3 +36,10 @@ sidebar_position: 2
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_recommend_code | Invalid recommend code |
+| invalid_params_recommend_code | Invalid recommend code |

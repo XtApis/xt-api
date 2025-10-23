@@ -20,6 +20,16 @@ keywords:
 
 200/s/apikey
 
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/user/listen-key" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -33,3 +43,9 @@ keywords:
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| fail | Internal error |

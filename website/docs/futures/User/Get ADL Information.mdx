@@ -9,9 +9,25 @@ sidebar_position: 13
 
 **Description:** `/future/user/v1/position/adl`
 
+### Request Parameters
+
+| Parameter | Type | Required | Default | Description |
+|------------|------|-----------|----------|---------------------------------------------|
+| symbol | string | No | N/A | Trading pair (if not provided, query positions for all trading pairs) |
+
 ### Limit Flow Rules
 
 200/s/apikey
+
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/position/adl" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+```
 
 ### Response Example
 
@@ -32,3 +48,9 @@ sidebar_position: 13
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | Symbol does not exist |

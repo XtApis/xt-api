@@ -21,6 +21,17 @@ position_number: 14
 | ------ | ------ | --------- | ------- | ------------ | ------ |
 | symbol | string | true      | N/A     | Trading pair | —      |
 
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/user/collection/add" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt"  # Required
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -34,3 +45,9 @@ position_number: 14
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | The trading pair does not exist |

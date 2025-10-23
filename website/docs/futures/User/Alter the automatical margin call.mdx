@@ -29,6 +29,19 @@ sidebar_position: 11
 
 ---
 
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/position/auto-margin" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  # Required
+  -d "positionSide=SHORT" \  # Required
+  -d "autoMargin=true" \  # Required
+```
+
 ### Response Example
 
 ```json
@@ -42,3 +55,11 @@ sidebar_position: 11
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | The trading pair does not exist or cannot be empty |
+| invalid_position_side | Position side cannot be empty |
+| invalid_auto_margin | Auto margin configuration cannot be empty |

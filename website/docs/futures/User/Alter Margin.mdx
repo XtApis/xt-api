@@ -22,6 +22,20 @@ sidebar_position: 10
 
 200/s/apikey
 
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/position/margin" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  # Required
+  -d "margin=9999" \ 
+  -d "positionSide=SHORT" \ 
+  -d "type=ADD"
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -35,3 +49,10 @@ sidebar_position: 10
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_params | Missing parameters |
+| invalid_margin | Invalid margin |

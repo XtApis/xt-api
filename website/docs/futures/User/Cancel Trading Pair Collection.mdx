@@ -17,6 +17,23 @@ sidebar_position: 15
 
 ---
 
+### Request Parameters
+
+| Parameter | Type | Required | Default | Description |
+|------------|------|-----------|----------|-------------|
+| symbol | string | Yes | N/A | Trading pair |
+
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/user/collection/cancel" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  # Required
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -30,3 +47,10 @@ sidebar_position: 15
   "returnCode": 0
 }
 ```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | Symbol does not exist |
+| you have not collected the symbol | The trading pair is not in your favorites |
