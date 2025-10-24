@@ -1220,5 +1220,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
     }
-  }, 2000);
+  }, 1500);
 });
+
+if (typeof window !== 'undefined') {
+  setTimeout(() => {
+    if (typeof window.showCategory === 'function') {
+      window.showCategory('AllProducts');
+    }
+  }, 500);
+
+  setTimeout(() => {
+    if (typeof window.showCategory === 'function') {
+      window.showCategory('AllProducts');
+    }
+  }, 1000);
+}
