@@ -234,10 +234,72 @@ document.addEventListener('DOMContentLoaded', () => {
           description: 'ApiKey APIs',
           href: '/docs/user-center/ApiKey/QueryUserApiKey',
         },
+      ],
+    },
+    referralProgram: {
+      title: 'Referral Program',
+      description: 'Referral Program APIs',
+      products: [
         {
-          title: 'Referral Commission',
-          description: 'Referral Commission APIs',
-          href: '/docs/user-center/Referral Commission/GetAllUsersOfAffiliate',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/Referral Commission/Access Description/BasicInformation',
+        },
+        {
+          title: 'Referral Management',
+          description: 'Referral Management APIs',
+          href: '/docs/Referral Commission/Referral Commission/GetAllUsersOfAffiliate',
+        },
+      ],
+    },
+    loan: {
+      title: 'Loan',
+      description: 'Loan APIs',
+      products: [
+        {
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/loan/Access Description/BasicInformation',
+        },
+        {
+          title: 'Borrow Money',
+          description: 'Borrow Money APIs',
+          href: '/docs/loan/Borrow Money/LoanBorrow',
+        },
+        {
+          title: 'Repay',
+          description: 'Repay APIs',
+          href: '/docs/loan/Repay/LoanRepay',
+        },
+        {
+          title: 'Adjust Collateral',
+          description: 'Adjust Collateral APIs',
+          href: '/docs/loan/Adjust Collateral/LoanAdjustPledge',
+        },
+        {
+          title: 'Renew Loan',
+          description: 'Renew Loan APIs',
+          href: '/docs/loan/Renew Loan/LoanRenew',
+        },
+        {
+          title: 'One Click Repay',
+          description: 'One Click Repay APIs',
+          href: '/docs/loan/One Click Repay/LoanBatchRepay',
+        },
+        {
+          title: 'Auto Add Collateral Switch',
+          description: 'Auto Add Collateral Switch APIs',
+          href: '/docs/loan/Auto Add Collateral Switch/LoanAutoAdjustSwitch',
+        },
+        {
+          title: 'Loan Inquiry',
+          description: 'Loan Inquiry APIs',
+          href: '/docs/loan/inquire/AdjustPledgeHistoryQuery',
+        },
+        {
+          title: 'Loan Product Inquiry',
+          description: 'Loan Product Inquiry APIs',
+          href: '/docs/loan/Loan Product Inquiry/LoanCurrency',
         },
       ],
     },
@@ -503,6 +565,16 @@ window.showCategory = function showCategory(category) {
           description: 'User Center API',
           href: '/docs/user-center/Access Description/BasicInformationOfTheInterface',
         },
+        {
+          title: 'Referral Program',
+          description: 'Referral Program API',
+          href: '/docs/Referral Commission/Access Description/BasicInformation',
+        },
+        {
+          title: 'Loan',
+          description: 'Loan API',
+          href: '/docs/loan/Access Description/BasicInformation',
+        },
       ],
     },
     Index: {
@@ -726,10 +798,72 @@ window.showCategory = function showCategory(category) {
           description: 'ApiKey APIs',
           href: '/docs/user-center/ApiKey/QueryUserApiKey',
         },
+      ],
+    },
+    referralProgram: {
+      title: 'Referral Program',
+      description: 'Referral Program APIs',
+      products: [
         {
-          title: 'Referral Commission',
-          description: 'Referral Commission APIs',
-          href: '/docs/user-center/Referral Commission/GetAllUsersOfAffiliate',
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/Referral Commission/Access Description/BasicInformation',
+        },
+        {
+          title: 'Referral Management',
+          description: 'Referral Management APIs',
+          href: '/docs/Referral Commission/Referral Commission/GetAllUsersOfAffiliate',
+        },
+      ],
+    },
+    loan: {
+      title: 'Loan',
+      description: 'Loan APIs',
+      products: [
+        {
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/loan/Access Description/BasicInformation',
+        },
+        {
+          title: 'Borrow Money',
+          description: 'Borrow Money APIs',
+          href: '/docs/loan/Borrow Money/LoanBorrow',
+        },
+        {
+          title: 'Repay',
+          description: 'Repay APIs',
+          href: '/docs/loan/Repay/LoanRepay',
+        },
+        {
+          title: 'Adjust Collateral',
+          description: 'Adjust Collateral APIs',
+          href: '/docs/loan/Adjust Collateral/LoanAdjustPledge',
+        },
+        {
+          title: 'Renew Loan',
+          description: 'Renew Loan APIs',
+          href: '/docs/loan/Renew Loan/LoanRenew',
+        },
+        {
+          title: 'One Click Repay',
+          description: 'One Click Repay APIs',
+          href: '/docs/loan/One Click Repay/LoanBatchRepay',
+        },
+        {
+          title: 'Auto Add Collateral Switch',
+          description: 'Auto Add Collateral Switch APIs',
+          href: '/docs/loan/Auto Add Collateral Switch/LoanAutoAdjustSwitch',
+        },
+        {
+          title: 'Loan Inquiry',
+          description: 'Loan Inquiry APIs',
+          href: '/docs/loan/inquire/AdjustPledgeHistoryQuery',
+        },
+        {
+          title: 'Loan Product Inquiry',
+          description: 'Loan Product Inquiry APIs',
+          href: '/docs/loan/Loan Product Inquiry/LoanCurrency',
         },
       ],
     },
@@ -819,6 +953,8 @@ window.showCategory = function showCategory(category) {
       futuresCopy: 'Futures Copy',
       tradingThirdParty: 'Trading Third Party',
       userCenter: 'User Center',
+      referralProgram: 'Referral Program',
+      loan: 'Loan',
     };
     const titleLabel = labelMap[category] || categoryData.title || '';
     const titleKey = titleLabel.replace(/&/g, '&amp;');
