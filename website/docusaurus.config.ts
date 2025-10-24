@@ -758,6 +758,20 @@ export default async function createConfigAsync(): Promise<Config> {
                              onclick="showCategory('userCenter')"
                              data-category="userCenter"
                              data-i18n="item.label.User Center">User Center</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('referralProgram')"
+                             data-category="referralProgram"
+                             data-i18n="item.label.Referral Program">Referral Program</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('loan')"
+                             data-category="loan"
+                             data-i18n="item.label.Loan">Loan</div>
                       </div>
                     </div>
 
@@ -855,6 +869,26 @@ export default async function createConfigAsync(): Promise<Config> {
                                data-i18n="item.label.User Center">User Center</div>
                           <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.User Center API">User Center API</div>
+                        </a>
+
+                        <a href="/docs/Referral Commission/Access Description/BasicInformation"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
+                           onmouseout="this.style.opacity='1';">
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
+                               data-i18n="item.label.Referral Program">Referral Program</div>
+                          <div style="font-size: 12px; color: #6b7280;"
+                               data-i18n="item.label.Referral Program API">Referral Program API</div>
+                        </a>
+
+                        <a href="/docs/loan/Access Description/BasicInformation"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
+                           onmouseout="this.style.opacity='1';">
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
+                               data-i18n="item.label.Loan">Loan</div>
+                          <div style="font-size: 12px; color: #6b7280;"
+                               data-i18n="item.label.Loan API">Loan API</div>
                         </a>
 
                         <a href="/docs/spot/Balance/GetCurrencies"
@@ -1380,11 +1414,17 @@ export default async function createConfigAsync(): Promise<Config> {
       console.log('📄 DOMContentLoaded fired');
       updateDropdownTranslations();
       setupDropdownObserver();
+      if (typeof showCategory === 'function') {
+        showCategory('AllProducts');
+      }
     });
   } else {
     console.log('✅ DOM already loaded');
     updateDropdownTranslations();
     setupDropdownObserver();
+    if (typeof showCategory === 'function') {
+      showCategory('AllProducts');
+    }
   }
 
   // 延迟执行，确保所有元素都已渲染
