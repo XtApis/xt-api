@@ -218,5 +218,49 @@
   "sidebar.api.category.📦 eslint-plugin": {
     "message": "📦 eslint-plugin",
     "description": "The label for category 📦 eslint-plugin in sidebar api"
+  },
+  "sidebar.loan.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar loan"
+  },
+  "sidebar.loan.category.Adjust Collateral": {
+    "message": "调整抵押品",
+    "description": "The label for category Adjust Collateral in sidebar loan"
+  },
+  "sidebar.loan.category.Auto Add Collateral Switch": {
+    "message": "自动补仓开关",
+    "description": "The label for category Auto Add Collateral Switch in sidebar loan"
+  },
+  "sidebar.loan.category.Borrow Money": {
+    "message": "借款",
+    "description": "The label for category Borrow Money in sidebar loan"
+  },
+  "sidebar.loan.category.Loan Product Inquiry": {
+    "message": "借贷产品查询",
+    "description": "The label for category Loan Product Inquiry in sidebar loan"
+  },
+  "sidebar.loan.category.One Click Repay": {
+    "message": "一键还款",
+    "description": "The label for category One Click Repay in sidebar loan"
+  },
+  "sidebar.loan.category.Renew Loan": {
+    "message": "续贷",
+    "description": "The label for category Renew Loan in sidebar loan"
+  },
+  "sidebar.loan.category.Repay": {
+    "message": "还款",
+    "description": "The label for category Repay in sidebar loan"
+  },
+  "sidebar.loan.category.inquire": {
+    "message": "查询",
+    "description": "The label for category inquire in sidebar loan"
+  },
+  "sidebar.Referral Commission.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar Referral Commission"
+  },
+  "sidebar.Referral Commission.category.Referral Commission": {
+    "message": "返佣管理",
+    "description": "The label for category Referral Commission in sidebar Referral Commission"
   }
 }
