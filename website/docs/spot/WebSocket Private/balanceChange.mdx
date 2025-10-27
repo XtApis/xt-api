@@ -21,6 +21,16 @@ sidebar_position: 5
 - Supports both **SPOT** and **LEVER** business types.
 - Useful for tracking real-time balance changes after trades, deposits, withdrawals, or transfers.
 
+### Subscribe Example
+
+```json title="Subscribe"
+{
+  "method": "subscribe",
+  "params": ["balance"],
+  "listenKey": "512312356123123123" // Listening key obtained via /v4/ws-token
+}
+```
+
 ### Push Example
 
 ```json title="Push"

@@ -19,6 +19,16 @@ sidebar_position: 6
 - Subscription format: `trigger`
 - Useful for tracking creation, updates, and state changes of trigger orders.
 
+### Subscribe Example
+
+```json title="Subscribe"
+{
+  "method": "subscribe",
+  "params": ["trigger"],
+  "listenKey": "512312356123123123" // Listening key obtained via /v4/ws-token
+}
+```
+
 ### Push Example
 
 ```json title="Push"

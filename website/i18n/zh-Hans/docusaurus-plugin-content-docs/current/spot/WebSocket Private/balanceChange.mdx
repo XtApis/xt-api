@@ -21,6 +21,16 @@ sidebar_position: 5
 - 支持 **SPOT** 和 **LEVER** 两种业务类型。
 - 可用于实时跟踪交易、充值、提现或转账后的余额变化。
 
+### 订阅示例
+
+```json title="订阅"
+{
+  "method": "subscribe",
+  "params": ["balance"],
+  "listenKey": "512312356123123123" // 通过 /v4/ws-token 获取的监听密钥
+}
+```
+
 ### 推送示例
 
 ```json title="推送"

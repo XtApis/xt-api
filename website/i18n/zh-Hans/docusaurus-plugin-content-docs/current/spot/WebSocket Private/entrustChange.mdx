@@ -19,6 +19,16 @@ sidebar_position: 6
 - 订阅格式：`trigger`
 - 可用于跟踪触发订单的创建、更新和状态变化。
 
+### 订阅示例
+
+```json title="订阅"
+{
+  "method": "subscribe",
+  "params": ["trigger"],
+  "listenKey": "512312356123123123" // 通过 /v4/ws-token 获取的监听密钥
+}
+```
+
 ### 推送示例
 
 ```json title="推送"

@@ -26,6 +26,16 @@ sidebar_position: 7
   - `EXPIRED` — Order expired
 - Useful for tracking real-time order creation, updates, executions, and cancellations.
 
+### Subscribe Example
+
+```json title="Subscribe"
+{
+  "method": "subscribe",
+  "params": ["order"],
+  "listenKey": "512312356123123123" // Listening key obtained via /v4/ws-token
+}
+```
+
 ### Push Example
 
 ```json title="Push"

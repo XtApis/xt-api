@@ -20,6 +20,16 @@ sidebar_position: 8
 - Indicates execution details including trade ID, order ID, price, quantity, and maker/taker info.
 - Useful for tracking completed trades in real time.
 
+### Subscribe Example
+
+```json title="Subscribe"
+{
+  "method": "subscribe",
+  "params": ["trade"],
+  "listenKey": "512312356123123123" // Listening key obtained via /v4/ws-token
+}
+```
+
 ### Push Example
 
 ```json title="Push"

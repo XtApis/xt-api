@@ -21,6 +21,19 @@ sidebar_position: 4
 - Calling this endpoint again will **reset the validity period**.
 - `accessToken` is equivalent to **listenKey**, used for establishing WebSocket connections.
 
+### Request Example
+
+```json title="Request"
+curl --location --request POST 'https://sapi.xt.com/v4/ws-token' \
+  --header 'accept: */*' \
+  --header 'Content-Type: application/json' \
+  --header 'validate-algorithms: HmacSHA256' \
+  --header 'validate-recvwindow: 60000' \
+  --header 'validate-appkey: xxxxxxxxxx' \
+  --header 'validate-timestamp: xxxxxxxxxx' \
+  --header 'validate-signature: xxxxxxxxxx' \
+```
+
 ### Response Example
 
 ```json title="Response"
