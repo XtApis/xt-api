@@ -23,6 +23,15 @@ sidebar_position: 18
 | ------ | ------ | -------- | ------ | -------- | ---- |
 | symbol | string | 是       | N/A    | 交易对   |      |
 
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/funding-rate" \
+      -d "symbol=eth_usdt" # 必须
+}
+```
+
 ### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
@@ -50,3 +59,9 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |

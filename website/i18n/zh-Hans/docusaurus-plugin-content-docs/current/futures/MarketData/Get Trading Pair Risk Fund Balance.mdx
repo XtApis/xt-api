@@ -13,6 +13,10 @@ sidebar_position: 20
 
 此方法不需要签名。
 
+### 限流规则
+
+无
+
 ### 参数
 
 | 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
@@ -21,6 +25,16 @@ sidebar_position: 20
 | direction | string | false | NEXT | 方向（PREV：上一页；NEXT：下一页） | PREV;NEXT |
 | id | integer | false | N/A | id |  |
 | limit | integer | false | 10 | 限制数量 |  |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/contract/risk-balance" \
+      -d "symbol=eth_usdt" \ # 必须
+      -d "limit=10"
+}
+```
 
 ### 响应示例
 
@@ -48,3 +62,10 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |
+| invalid_direction | 方向填写有误 |

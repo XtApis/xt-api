@@ -13,6 +13,10 @@ sidebar_position: 20
 
 This method does not require a signature.
 
+### Limit flow rules
+
+None
+
 ### Parameters
 
 | Name | Type | Mandatory | Default | Description | Ranges |
@@ -21,6 +25,16 @@ This method does not require a signature.
 | direction | string | false | NEXT | Direction (PREV: Previous page; NEXT: Next page) | PREV;NEXT |
 | id | integer | false | N/A | id |  |
 | limit | integer | false | 10 | Limit |  |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/contract/risk-balance" \
+      -d "symbol=eth_usdt" \ # required
+      -d "limit=10"
+}
+```
 
 ### Response Example
 
@@ -48,3 +62,10 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |
+| invalid_direction | Invalid direction |

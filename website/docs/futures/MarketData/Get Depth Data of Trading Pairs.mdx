@@ -22,6 +22,16 @@ sidebar_position: 10
 | symbol | string  | true      | N/A     | Trading pair          |        |
 | level  | integer | true      | N/A     | Level (min:1, max:50) |        |
 
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/depth"  \
+      -d "symbol=btc_usdt" \ # required
+      -d "level=1" \ # required
+}
+```
+
 ### Response Example
 
 import CodeBlock from '@theme/CodeBlock';
@@ -43,3 +53,10 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |
+| invalid_level | The minimum value of level is 1 and must be an integer |

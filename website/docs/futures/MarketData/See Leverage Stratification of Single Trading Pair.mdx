@@ -5,7 +5,7 @@ sidebar_label: See Leverage Stratification of Single Trading Pair
 sidebar_position: 5
 ---
 
-**Type:** POST
+**Type:** GET
 
 **Description:** `/future/market/v1/public/leverage/bracket/detail`
 
@@ -13,11 +13,24 @@ sidebar_position: 5
 
 This method does not require a signature.
 
+### Limit flow rules
+
+None
+
 ### Parameters
 
 | Name   | Type   | Mandatory | Default | Description  | Ranges |
 | ------ | ------ | --------- | ------- | ------------ | ------ |
 | symbol | string | true      | N/A     | Trading pair |        |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/leverage/bracket/detail" \
+      -d "symbol=eth_usdt"
+}
+```
 
 ### Response Example
 
@@ -48,3 +61,9 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |
