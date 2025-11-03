@@ -5,32 +5,106 @@ sidebar_label: Signature Statement
 sidebar_position: 4
 ---
 
-Since XT provides open interfaces for third-party platforms, **data security** must be ensured — such as preventing data tampering, avoiding outdated data, stopping repeated submissions, and controlling request frequency. Among these, verifying whether the data has been tampered with is the most critical.
+#### Signature Overview
 
-### Signature Rules
+> Note: `${?}` or `$?` indicates variable substitution.
 
-1. **AppKey & SecretKey** Distributed offline. Different calls should use different `appkey` and `secretkey`.
+To generate a `signature`, you must use the `SECRET KEY` obtained from your API Key to encrypt the `unencrypted_string`.
 
-2. **Timestamp** Add a timestamp in **milliseconds (Unix timestamp)** of the request time. The validity of the request is calculated based on this value.
+---
 
-3. **Signature** All request data must be signed.
+#### Signature Generation Logic
 
-4. **RecvWindow** The validity period is set by `recvWindow`. Default is **5 seconds**, maximum **60 seconds**.
+##### 1️⃣ If HTTP parameters are placed in the **QueryString**:
 
-   - If the timestamp is more than **5000ms older** than server time, the request is invalid.
-   - If the client timestamp is more than **1 second ahead** of the server, the request is also rejected.
-   - RecvWindow **> 5 seconds is not recommended**. This mechanism handles **network jitter** and helps ensure timeliness in high-frequency trading.
+```
+unencrypted_string = ${fixed_header}#${end_point}#${query_string}
+```
 
-5. **Signature Algorithms** Signatures are calculated with HSC-based protocols. Default: **HmacSHA256** Supported: `HmacMD5`, `HmacSHA1`, `HmacSHA224`, `HmacSHA256`, `HmacSHA384`, `HmacSHA512`
+If multiple key-value pairs exist in the QueryString, they must be **sorted in ascending ASCII order by key**, then concatenated:
 
-### Required Signature Parameters
+```
+keya=value&keyb=value&keyc=value
+```
 
-| Name | Mandatory | Example | Description |
-| --- | --- | --- | --- |
-| validate-appkey | true | `dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83` | API Key |
-| validate-timestamp | true | `1641446237201` | Unix timestamp (ms) |
-| validate-signature | true | `0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d` | Generated signature |
-| validate-recvwindow | false | `5000` (ms) | Time window for validity |
-| validate-algorithms | false | `HmacSHA256` | Default `HmacSHA256` |
-| api-version | false | `1.0` | Reserved, API version number |
-| validate-signversion | false | `1.0` | Reserved, signature version |
+##### 2️⃣ If HTTP parameters are placed in the **RequestBody**:
+
+```
+unencrypted_string = ${fixed_header}#${end_point}#${request_body}
+```
+
+---
+
+#### Parameter Definitions
+
+| Parameter      | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| `fixed_header` | The fixed header string composed of appkey and timestamp |
+| `end_point`    | The request path (excluding domain)                      |
+| `query_string` | The query parameters in the URL                          |
+| `request_body` | The content of POST body                                 |
+
+---
+
+#### Structure
+
+```
+fixed_header = "validate-appkey=${your_appkey}&validate-timestamp=${current_timestamp}"
+```
+
+Each section is concatenated using a `#` symbol:
+
+```
+unencrypted_string = fixed_header#end_point#query_string
+```
+
+---
+
+#### Example
+
+```bash
+curl -G "https://fapi.xt.com/future/user/v1/balance/detail" \
+  -H "validate-appkey: $APPKEY" \
+  -H "validate-timestamp: $TIMESTAMP" \
+  -H "validate-signature: $SIGNATURE" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "coin=btc"
+```
+
+**Example values:**
+
+```
+current_timestamp = *****
+your_appkey = ++++++
+```
+
+Then:
+
+```
+fixed_header="validate-appkey=++++++&validate-timestamp=*****"
+end_point="/future/user/v1/balance/detail"
+query_string="coin=btc"
+```
+
+Final `unencrypted_string`:
+
+```
+unencrypted_string="validate-appkey=++++++&validate-timestamp=*****#/future/user/v1/balance/detail#coin=btc"
+```
+
+---
+
+#### Generating the Signature
+
+Once you have the `unencrypted_string`, use `SECRET KEY` and HMAC-SHA256 to generate the signature:
+
+```bash
+SIGNATURE=$(echo -n "$unencrypted_string" | openssl dgst -sha256 -hmac "$SECRETKEY" | awk '{print $2}')
+echo $SIGNATURE
+```
+
+Then include the signature in the request header as:
+
+```
+validate-signature: $SIGNATURE
+```

@@ -5,19 +5,106 @@ sidebar_label: 接口基础信息
 sidebar_position: 1.5
 ---
 
+#### 基础地址
 
-:::info
+- **USDT-M:** `https://fapi.xt.com` （适用于 U 本位合约）
+- **Coin-M:** `https://dapi.xt.com` （适用于币本位合约）
 
-**USDT-M:** [https://fapi.xt.com](https://fapi.xt.com)
+---
 
-**Coin-M:** [https://dapi.xt.com](https://dapi.xt.com)
+#### 网络建议
 
-:::
+由于高延迟和稳定性差的原因，**不建议通过代理访问 XT API**。
 
-由于高延迟和稳定性差的原因，不建议通过代理访问 XT API。
+---
 
-GET 请求参数放在 query Params 中，POST 请求参数放在 request body 中。
+#### 请求方式
 
-请求头信息设置为：Content-Type=application/x-www-form-urlencoded
+- **GET 请求：** 参数放在 **QueryString** 中。
+- **POST 请求：** 参数可以放在 **RequestBody** 或 **QueryString** 中。
 
-除了接口本身所需的参数外，还需要在 query Params 或 request body 中传递 signature（签名参数）。不需要传递签名参数的接口会额外说明。
+##### 当参数放在 QueryString 中时：
+必须在 HTTP Header 中添加：
+```
+Content-Type: application/x-www-form-urlencoded
+```
+
+##### 当参数放在 RequestBody 中时：
+必须在 HTTP Header 中添加：
+```
+Content-Type: application/json
+```
+
+---
+
+#### 接口分类
+
+XT API 接口分为 **公共接口** 和 **用户接口**。
+
+##### 🟢 公共接口
+- 无需身份认证。
+- 参数直接放入 QueryString 中。
+- 通常使用 **GET** 方法。
+
+**示例：**
+```bash
+curl -G "https://fapi.xt.com/future/market/v1/public/symbol/detail?symbol=btc_usdt"
+```
+
+**或：**
+```bash
+curl -G "https://fapi.xt.com/future/market/v1/public/symbol/detail" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "symbol=btc_usdt"
+```
+
+##### 🔒 用户接口
+- 需要在 Header 中传入认证参数。
+- 除了 QueryString 或 RequestBody 参数外，至少需要以下四个 Header：
+
+| Header | 说明 |
+|--------|------|
+| `validate-appkey` | 用户公钥 |
+| `validate-timestamp` | 当前时间戳（毫秒） |
+| `validate-signature` | 请求签名 |
+| `Content-Type` | 请求类型（`application/json` 或 `application/x-www-form-urlencoded`） |
+
+**GET 示例：**
+```bash
+curl -G "https://fapi.xt.com/future/user/v1/compat/balance/list" \
+  -H "validate-appkey: $APPKEY" \
+  -H "validate-timestamp: $TIMESTAMP" \
+  -H "validate-signature: $SIGNATURE" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "queryAccountId=1234567890"
+```
+
+**POST 示例：**
+```bash
+curl -X POST "https://fapi.xt.com/future/user/v1/user/collection/add" \
+  -H "validate-appkey: $APPKEY" \
+  -H "validate-timestamp: $TIMESTAMP" \
+  -H "validate-signature: $SIGNATURE" \
+  -H "Content-Type: application/json" \
+  -d '{"symbol":"btc_usdt"}'
+```
+
+> 不需要签名的接口将在文档中额外说明。
+
+---
+
+#### 认证说明
+
+- **如何获取 APPKEY：** [访问说明 → 申请 API KEY](../access/api-key.md)
+- **如何获取签名：** [访问说明 → 获取签名](../access/signature.md)
+
+---
+
+#### 限流规则
+
+- **资产类接口：** 每秒最多 3 次请求。
+- **其他接口：** 单个用户每秒最多 10 次请求，单个 IP 每分钟最多 1000 次。
+
+> 超过限制后账户将被锁定 10 分钟。
+
+---

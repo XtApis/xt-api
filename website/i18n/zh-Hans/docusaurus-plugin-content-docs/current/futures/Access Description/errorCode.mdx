@@ -5,8 +5,15 @@ sidebar_label: 错误码
 sidebar_position: 99
 ---
 
-| 状态码 | 错误信息 |
-| ------ | -------- |
-| 200    | 成功     |
-| 401    | 需要登录 |
-| 403    | 登录已过期 |
+| HTTP 返回码 | 响应类型 | 说明 |
+|--------------|-----------|------|
+| **200** | OK | 成功调用接口（接口功能调用不一定成功） |
+| **400** | BAD_REQUEST | 请求 URL 包含黑名单关键词，或缺少 `validate-appkey` / `validate-timestamp` 请求头 |
+| **403** | FORBIDDEN | Host 不符合规则、租户未启用、时间窗口超限、请求 IP 不在白名单内、签名验证失败、AppKey 无权限 |
+| **405** | METHOD_NOT_ALLOWED | Host 头为 null |
+| **429** | TOO_MANY_REQUESTS | 触发限流规则 |
+| **500** | INTERNAL_SERVER_ERROR | 客户端 IP 为空、获取不到域名或租户域名信息 |
+| **502** | BAD_GATEWAY | 未知异常 |
+| **503** | SERVICE_UNAVAILABLE | 下游服务不存在或不可用 |
+
+---

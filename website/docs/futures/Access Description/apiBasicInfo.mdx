@@ -5,19 +5,114 @@ sidebar_label: Basic Information of the Interface
 sidebar_position: 1.5
 ---
 
-:::info
+#### Base URLs
 
-**USDT-M:** [https://fapi.xt.com](https://fapi.xt.com)
+- **USDT-M:** `https://fapi.xt.com` (for USDT-margined futures)
+- **Coin-M:** `https://dapi.xt.com` (for Coin-margined futures)
 
-**Coin-M:** [https://dapi.xt.com](https://dapi.xt.com)
-:::
+---
 
+#### Network Recommendation
 
+It is **not recommended** to access XT APIs via proxy due to **high latency and poor stability**.
 
-DDue to the reasons of high latency and poor stability, it is not recommend to access the XT API through a proxy.
+---
 
-GET request parameters are put in query Params, POST request parameters are put in request body.
+#### Request Methods
 
-The request header information is set to: Content-Type=application/x-www-form-urlencoded
+- **GET requests:** Parameters should be passed in the **QueryString**.
+- **POST requests:** Parameters can be passed in the **RequestBody** or **QueryString**.
 
-In addition to the parameters required by the interface itself, signature, which is the signature parameter, needs to be passed in the query Params or request body. The interface that does not need to pass the signature parameter will be additionally explained.
+##### When parameters are in the QueryString
+
+Include the following header:
+
+```
+Content-Type: application/x-www-form-urlencoded
+```
+
+##### When parameters are in the RequestBody
+
+Include the following header:
+
+```
+Content-Type: application/json
+```
+
+---
+
+#### API Categories
+
+XT API endpoints are divided into **Public Interfaces** and **User Interfaces**.
+
+##### 🟢 Public Interfaces
+
+- No authentication required.
+- Parameters are placed in the QueryString.
+- Usually use the **GET** method.
+
+**Example:**
+
+```bash
+curl -G "https://fapi.xt.com/future/market/v1/public/symbol/detail?symbol=btc_usdt"
+```
+
+**or:**
+
+```bash
+curl -G "https://fapi.xt.com/future/market/v1/public/symbol/detail" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "symbol=btc_usdt"
+```
+
+##### 🔒 User Interfaces
+
+- Require authentication via HTTP headers.
+- Along with QueryString or RequestBody parameters, the following four headers are required:
+
+| Header | Description |
+| --- | --- |
+| `validate-appkey` | User API key |
+| `validate-timestamp` | Current timestamp (in milliseconds) |
+| `validate-signature` | Request signature |
+| `Content-Type` | Request content type (`application/json` or `application/x-www-form-urlencoded`) |
+
+**GET Example:**
+
+```bash
+curl -G "https://fapi.xt.com/future/user/v1/compat/balance/list" \
+  -H "validate-appkey: $APPKEY" \
+  -H "validate-timestamp: $TIMESTAMP" \
+  -H "validate-signature: $SIGNATURE" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "queryAccountId=1234567890"
+```
+
+**POST Example:**
+
+```bash
+curl -X POST "https://fapi.xt.com/future/user/v1/user/collection/add" \
+  -H "validate-appkey: $APPKEY" \
+  -H "validate-timestamp: $TIMESTAMP" \
+  -H "validate-signature: $SIGNATURE" \
+  -H "Content-Type: application/json" \
+  -d '{"symbol":"btc_usdt"}'
+```
+
+> Endpoints that do **not require signature authentication** will be explicitly indicated.
+
+---
+
+#### Authentication References
+
+- **How to obtain an APPKEY:** [Access Guide → Apply for API Key](../access/api-key.md)
+- **How to generate a signature:** [Access Guide → Generate Signature](../access/signature.md)
+
+---
+
+#### Rate Limits
+
+- **Asset-related endpoints:** Up to 3 requests per second.
+- **Other endpoints:** Up to 10 requests per second per user, and 1000 requests per minute per IP.
+
+> If the frequency limit is exceeded, the account will be locked for 10 minutes.
