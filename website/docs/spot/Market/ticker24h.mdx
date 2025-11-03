@@ -20,6 +20,14 @@ sidebar_position: 11
 1. single symbol: `10/s/ip`
 2. multiple symbols: `10/s/ip`
 
+### Request Example
+
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/ticker/24h?symbol=XT_USDT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -29,16 +37,16 @@ sidebar_position: 11
   "ma": [],
   "result": [
     {
-      "s": "btc_usdt",
-      "t": 1661856036925,
-      "cv": "0.0000",
-      "cr": "0.00",
-      "o": "9000.0000",
-      "l": "9000.0000",
-      "h": "9000.0000",
-      "c": "9000.0000",
-      "q": "0.0136",
-      "v": "122.9940"
+      "s": "btc_usdt", // trading pair
+      "t": 1661856036925, // update time
+      "cv": "0.0000", // price change
+      "cr": "0.00", // price change percentage
+      "o": "9000.0000", // opening price (first trade)
+      "l": "9000.0000", // lowest price
+      "h": "9000.0000", // highest price
+      "c": "9000.0000", // closing price (last trade)
+      "q": "0.0136", // trading volume
+      "v": "122.9940" // trading value
     }
   ]
 }

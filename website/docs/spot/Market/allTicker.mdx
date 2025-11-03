@@ -28,32 +28,38 @@ sidebar_position: 8
 
 ---
 
+### Request Example
+
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/ticker?symbol=XT_USDT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### Response Example
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
   "result": [
     {
-      "s": "btc_usdt",
-      "t": 1662444879425,
-      "cv": "0.00",
-      "cr": "0.0000",
-      "o": "200.00",
-      "l": "200.00",
-      "h": "200.00",
-      "c": "200.00",
-      "q": "0.002",
-      "v": "0.40",
-      "ap": null,
-      "aq": null,
-      "bp": null,
-      "bq": null
-      "bq": null
+      "s": "btc_usdt", // trading pair
+      "t": 1662444879425, // update time
+      "cv": "0.00", // price change
+      "cr": "0.0000", // price change percentage
+      "o": "200.00", // opening price (first trade)
+      "l": "200.00", // lowest price
+      "h": "200.00", // highest price
+      "c": "200.00", // closing price (last trade)
+      "q": "0.002", // trading volume
+      "v": "0.40", // trading value
+      "ap": null, // best ask price
+      "aq": null, // best ask quantity
+      "bp": null, // best bid price
+      "bq": null // best bid quantity
     }
   ]
 }
-
 ```

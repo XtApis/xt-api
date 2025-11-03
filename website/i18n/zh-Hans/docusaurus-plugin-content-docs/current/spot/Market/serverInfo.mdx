@@ -12,12 +12,13 @@ sidebar_position: 1
 ### 请求示例
 
 ```bash title="Request"
-public String getServerInfo() {
-
-}
+  curl --location --request GET 'https://sapi.xt.com/v4/public/time' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
 ```
 
 ### 响应示例
+
 ```json title="Response"
 {
   "rc": 0,

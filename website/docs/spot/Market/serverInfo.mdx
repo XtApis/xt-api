@@ -9,15 +9,17 @@ sidebar_position: 1
 
 ---
 
-### Code Examples
+### Request Examples
 
-```java title="Java"
-public String getServerInfo() {
-
-}
-
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/time' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
 
 Response Example
+
+```json title="Response"
 {
   "rc": 0,
   "mc": "SUCCESS",
