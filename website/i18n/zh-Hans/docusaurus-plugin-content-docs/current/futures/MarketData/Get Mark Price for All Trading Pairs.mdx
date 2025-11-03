@@ -13,11 +13,21 @@ sidebar_position: 14
 
 此方法不需要签名。
 
+### 限流规则
+
+无
+
 ### 参数
 
-| 名称   | 类型   | 是否必需 | 默认值 | 描述     | 范围 |
-| ------ | ------ | -------- | ------ | -------- | ---- |
-| symbol | string | 否       | N/A    | 交易对   |      |
+无
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/mark-price" 
+}
+```
 
 ### 响应示例
 
@@ -40,3 +50,9 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+|  |  |

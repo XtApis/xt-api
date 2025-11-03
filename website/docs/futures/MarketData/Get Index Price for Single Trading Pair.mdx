@@ -13,11 +13,24 @@ sidebar_position: 11
 
 This method does not require a signature.
 
+### Limit flow rules
+
+None
+
 ### Parameters
 
 | Name   | Type   | Mandatory | Default | Description  | Ranges |
 | ------ | ------ | --------- | ------- | ------------ | ------ |
 | symbol | string | true      | N/A     | Trading pair |        |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/symbol-index-price"  \
+      -d "symbol=btc_usdt" \ # required
+}
+```
 
 ### Response Example
 
@@ -38,3 +51,9 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |

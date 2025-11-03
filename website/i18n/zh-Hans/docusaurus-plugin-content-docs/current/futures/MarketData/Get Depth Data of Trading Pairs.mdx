@@ -22,6 +22,16 @@ sidebar_position: 10
 | symbol | string  | 是       | N/A    | 交易对               |      |
 | level  | integer | 是       | N/A    | 档位（最小:1，最大:50） |      |
 
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/depth"  \
+      -d "symbol=btc_usdt" \ # 必须
+      -d "level=1" \ # 必须
+}
+```
+
 ### 响应示例
 
 import CodeBlock from '@theme/CodeBlock';
@@ -43,3 +53,10 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |
+| invalid_level | level 最小为 1 且为整数 |

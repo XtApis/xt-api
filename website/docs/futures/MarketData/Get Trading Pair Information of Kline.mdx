@@ -13,6 +13,10 @@ sidebar_position: 15
 
 This method does not require a signature.
 
+### Limit flow rules
+
+None
+
 ### Parameters
 
 | Name | Type | Mandatory | Default | Description | Ranges |
@@ -22,6 +26,16 @@ This method does not require a signature.
 | startTime | integer | false | N/A | Start time |  |
 | endTime | integer | false | N/A | End time |  |
 | limit | integer | false | N/A | Limit |  |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/kline" \
+      -d "symbol=eth_usdt" \ # required
+      -d "interval=1m"  # required 
+}
+```
 
 ### Response Example
 
@@ -49,3 +63,12 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |
+| invalid_limit | The minimum value of limit is 1, the maximum is 1500, and it must be an integer |
+| invalid_interval | Invalid time interval |
+| invalid_time | Invalid start or end time |

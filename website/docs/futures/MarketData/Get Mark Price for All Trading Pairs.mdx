@@ -13,11 +13,21 @@ sidebar_position: 14
 
 This method does not require a signature.
 
+### Limit flow rules
+
+None
+
 ### Parameters
 
-| Name   | Type   | Mandatory | Default | Description  | Ranges |
-| ------ | ------ | --------- | ------- | ------------ | ------ |
-| symbol | string | false     | N/A     | Trading pair |        |
+None
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/mark-price" 
+}
+```
 
 ### Response Example
 
@@ -40,3 +50,9 @@ import CodeBlock from '@theme/CodeBlock';
   "returnCode": 0
 }`}
 </CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+|  |  |
