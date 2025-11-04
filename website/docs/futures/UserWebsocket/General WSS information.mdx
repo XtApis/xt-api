@@ -5,39 +5,102 @@ sidebar_label: General WSS information
 sidebar_position: 1
 ---
 
-### Base Address
-
-**wss://fstream.xt.com/ws/user**
+**WebSocket base URL**: `wss://fstream.xt.com/ws/user` _(User private channel)_
 
 ---
 
-### Request Headers
+### Request headers
 
-The request header of the compression extension protocol must be added:
+When initiating the WebSocket upgrade request, it is recommended to enable the per‑message compression extension:
 
-```http
+```http title="Recommended header"
 Sec-Websocket-Extensions: permessage-deflate
 ```
 
 ---
 
-### Subscription Steps
+### Subscription steps
 
-**Step 1:** Call the interface `/v1/user/listen-key` to obtain the **listenKey**.
+1. Call the API to obtain a **ListenKey**: [`GET https://fapi.xt.com/future/v1/user/listen-key`](https://fapi.xt.com/future/v1/user/listen-key). _(Tip: you may also link to “Contract API → User → Get ListenKey” in your docs sidebar.)_
+2. After the WebSocket connection is established, to subscribe to **user‑related** events, send the JSON below:
 
-**Step 2:** When subscribing to user-related WebSocket events, send:
-
-```json
+```json title="SUBSCRIBE"
 {
   "method": "SUBSCRIBE",
-  "params": ["order@{listenKey obtained in the previous step}"],
+  "params": ["{topic_you_follow}@{ListenKey_from_step_1}"],
+  "id": "id_field_could_call_whatever_you_want"
+}
+```
+
+**Notes**
+
+- If you receive `invalid_listen_key`, the ListenKey has expired or is invalid. 👉 Request a new ListenKey via API.
+- User data is pushed **after subscription succeeds** and when there is a change.
+- To unsubscribe, set `method` to `UNSUBSCRIBE`.
+
+---
+
+## Request message format
+
+**Subscribe / Unsubscribe**
+
+```json title="Message format"
+{
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": [
+    "order@{ListenKey}",
+    "trade@{ListenKey}",
+    "balance@{ListenKey}",
+    "position@{ListenKey}",
+    "notify@{ListenKey}"
+  ],
+  "id": "{id}" // user-defined
+}
+```
+
+**Subscribe example** — After the WebSocket is established, send the JSON below to the server.
+
+```json title="SUBSCRIBE example"
+{
+  "method": "SUBSCRIBE",
+  "params": ["order@A246C3DF8EE532DC75007BC5D86698541678596355681"],
   "id": "test1"
 }
 ```
 
 ---
 
-### Notes
+## Response message format
 
-- If you receive **`invalid_listen_key`**, it means the listenKey is expired or invalid. 👉 Re-request a new listenKey through the interface.
-- User-related data will be pushed **after subscription is successful**.
+```json title="Format"
+{
+  "id": "{id}", // callback ID
+  "code": 1, // result: 0 = success; 1 = failure; 2 = ListenKey invalid
+  "msg": "" // message of subscription result / details
+}
+```
+
+```json title="Example"
+{"id": "123", "code": 0, "msg": "success"}
+```
+
+---
+
+## Heartbeat
+
+Each client connection must periodically send a **text** `ping` message. The server will reply with a **text** `pong`.
+
+If the server does not receive a `ping` within **30 seconds**, it will proactively close the connection.
+
+---
+
+## Error codes
+
+| Error code | Description |
+| --- | --- |
+| `{topic}@invalid_listenkey` | ListenKey expired or invalid. Please request again. |
+| `Invalid Parameter` | Invalid parameters. Please check the JSON string. |
+
+```
+
+```

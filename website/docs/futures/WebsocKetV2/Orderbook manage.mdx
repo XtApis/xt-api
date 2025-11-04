@@ -5,32 +5,26 @@ sidebar_label: Orderbook manage
 sidebar_position: 7
 ---
 
-### How to Manage a Local Order Book Correctly
+## Order book management ✅
 
-1. Open a stream to: **`wss://fstream.xt.com/ws/market`**, subscribing to `depth_update@btc_usdt`.
+**How to maintain a local order book correctly**
 
-2. Buffer the events you receive from the stream.
-
-3. Get a depth snapshot from: **`https://fapi.xt.com/future/market/v1/public/depth?symbol=btc_usdt&level=500`**
-
-4. Drop any event where **`u <= lastUpdateId`** in the snapshot.
-
-5. The first processed event should have **`fu <= lastUpdateId+1`** **AND** **`u >= lastUpdateId+1`**.
-
-6. While listening to the stream, each new event's **`fu`** should equal the previous event's **`u+1`**.
-
-7. The data in each event is the **absolute quantity** for a price level.
-
-8. If the quantity is **0**, remove the price level.
-
-9. Receiving an event that removes a price level not present in your local order book **can happen and is normal**.
+1. Connect to `wss://fstream.xt.com/ws/market`, subscribe to `depth_update@btc_usdt`.
+2. Buffer events received from the stream.
+3. Fetch a depth snapshot: `https://fapi.xt.com/future/market/v1/public/depth?symbol=btc_usdt&level=500`.
+4. Discard any event where `u <= lastUpdateId` in the snapshot.
+5. The first processed event should satisfy `fu <= lastUpdateId + 1` and `u >= lastUpdateId + 1`.
+6. While listening, each new event's `fu` should equal the previous event's `u + 1`.
+7. The data in each event represents the **absolute** quantity at each price level.
+8. If a quantity is `0`, remove that price level.
+9. Receiving deletion events for a local price level that does not exist may occur and is normal.
 
 ---
 
-### Note
+### Notes
 
-Due to depth snapshots having a **limit on the number of price levels**, a price level outside of the initial snapshot that doesn't have a quantity change will not have an update in the Diff Depth Stream.
+Due to the limited number of price levels in the depth snapshot, levels with **no changes** after the initial snapshot will not appear in the incremental depth stream. Therefore, even if you apply all updates correctly, those levels will not be visible in the local order book, which may lead to minor discrepancies from the actual order book. However, for most use cases, a 500‑level depth limit is sufficient to understand the market and trade effectively.
 
-Consequently, those price levels will not be visible in the local order book even when applying all updates from the Diff Depth Stream correctly, which may cause **slight differences** compared to the real order book.
+```
 
-However, for most use cases, the depth limit of **500** is sufficient to understand the market and trade effectively.
+```

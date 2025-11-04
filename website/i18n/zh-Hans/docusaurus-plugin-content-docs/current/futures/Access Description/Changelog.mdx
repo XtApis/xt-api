@@ -1,0 +1,52 @@
+---
+id: websocketV2Changelog
+title: 更新日志
+sidebar_label: 更新日志
+sidebar_position: 100
+---
+
+## 2025-11-04
+### 结构调整
+- 修改了大部分子项的名称，统一命名风格。
+- 删除 **订阅参数** 页面。
+- 将部分子项移动到 **通用 WebSocket 信息**。
+
+
+### 新增
+- **K 线图** — `kline`、`klineZh`
+- **交易对市场成交记录** — `trades`、`tradesZh`
+- **交易对聚合行情** — `aggTicker`、`aggTickerZh`
+- **交易对指数价格** — `indexPrice`、`indexPriceZh`
+- **交易对标记价格** — `markPrice`、`markPriceZh`
+- **交易对增量深度** — `depthUpdate`、`depthUpdateZh`
+- **交易对有限深度** — `depthLimited`、`depthLimitedZh`
+- **交易对资金费率** — `fundRate`、`fundRateZh`
+
+### 规范
+- 所有页面均以 frontmatter 开头（`id`、`title`、`sidebar_label`、`sidebar_position`）。
+- JSON 代码内的注释做了**纵向对齐**，提升可读性。
+- 仅使用纯 Markdown 与围栏代码块（无 Tabs/CodeGroup），保证构建稳定。
+
+---
+
+## 2025-11-03
+### 信息架构
+- 删除子模块：**频率限制规则**、**API 库**、**返回格式**。
+- 新增子模块：**更新日志**。
+- 子模块重命名：**错误码** → **通用错误码**。
+
+
+### 新增 / 重构
+- **通用 WebSocket 信息** — `generalWebsocketInfo`、`generalWebsocketInfoZh`
+- **请求消息格式** — `requestMessageFormat`、`requestMessageFormatZh`
+- **响应消息格式** — `responseMessageFormat`、`responseMessageFormatZh`
+- **推送消息格式** — `pushMessageFormat`、`pushMessageFormatZh`
+- **心跳检测** — `heartbeat`、`heartbeatZh`
+- **错误码** — `errorCodes`、`errorCodesZh`
+- **订单簿管理** — `orderBookManagement`、`orderBookManagementZh`
+
+### 构建稳定性
+- 去除对 `<Tabs/>`/`<CodeGroup/>` 的依赖，统一使用带 `title="..."` 的围栏代码块。
+- 统一 `id` 命名为 **驼峰**。
+- 侧边栏顺序统一（先通用信息与格式类，再频道类）。
+```

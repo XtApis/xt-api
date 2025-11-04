@@ -7,19 +7,17 @@ sidebar_position: 11
 
 ### Subscribe / Unsubscribe
 
-```json title="Subscribe/Unsubscribe"
+```json title="Subscribe / Unsubscribe"
 {
   "method": "SUBSCRIBE/UNSUBSCRIBE",
-  "params": ["{notify}@{listenKey}"],
+  "params": ["notify@{listenKey}"],
   "id": "{id}"
 }
 ```
 
----
+### Response example
 
-### Response Example
-
-```json title="Response"
+```json title="Response example"
 {
   "topic": "notify",
   "event": "notify",
@@ -27,8 +25,8 @@ sidebar_position: 11
     "symbol": "btc_usdt",
     "positionType": "ISOLATED",
     "positionSide": "LONG",
-    "positionSize": "123", // Position quantity
-    "notifyType": "WARN" // Notification type: WARN (warning, about to be levelled), PARTIAL (partial liquidation), LIQUIDATION (liquidation), ADL (auto-deleveraging)
+    "positionSize": "123", // position size
+    "notifyType": "WARN" // WARN (warning, about to be liquidated), PARTIAL (partial liquidation), LIQUIDATION (forced liquidation), ADL (auto‑deleveraging)
   }
 }
 ```
