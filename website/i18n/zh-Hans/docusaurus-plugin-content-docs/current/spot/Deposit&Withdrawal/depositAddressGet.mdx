@@ -22,6 +22,19 @@ sidebar_position: 2
 - 某些币种可能需要除地址外的 **memo/tag**。
 - 请务必确认网络与币种匹配，避免资产损失。
 
+### 请求示例
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/deposit/address?chain=XT%20Smart%20Chain&currency=XT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
+
 ### 响应示例
 
 ```json title="响应"

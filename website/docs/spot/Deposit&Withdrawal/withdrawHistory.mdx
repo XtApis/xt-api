@@ -40,6 +40,19 @@ sidebar_position: 6
 - Time range filtering is supported with `startTime` and `endTime`.
 - Status values align with **Deposit/Withdrawal record status** definitions.
 
+### Request Example
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/withdraw/history?currency=XT&chain=XT%20Smart%20Chain&limit=100' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
+
 ### Response Example
 
 ```json title="Response"

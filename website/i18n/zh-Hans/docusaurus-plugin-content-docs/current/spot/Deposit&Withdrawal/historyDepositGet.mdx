@@ -5,7 +5,8 @@ sidebar_label: 获取充币历史
 sidebar_position: 3
 ---
 
-**类型:** GET **描述:** `/v4/deposit/history`
+**类型:** GET 
+**描述:** `/v4/deposit/history`
 
 ### 参数
 
@@ -27,6 +28,19 @@ sidebar_position: 3
 - 支持使用 `fromId` 和 `direction` 进行分页。
 - 状态值参考：[depositWithdrawStatus](#depositWithdrawStatus)。
 - 某些币种充币时需要填写 **memo/tag**。
+
+### 请求示例
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/deposit/history?currency=XT&chain=XT%20Smart%20Chain&limit=100' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
 
 ### 响应示例
 

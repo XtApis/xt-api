@@ -18,9 +18,22 @@ sidebar_position: 2
 
 ---
 
+### 请求示例
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/balance?currency=XT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
+
 ### 返回示例
 
-```json
+```json title="Response"
 {
   "rc": 0,
   "mc": "string",
@@ -36,3 +49,4 @@ sidebar_position: 2
     "convertBtcAmount": 0        // 折合BTC数量
   }
 }
+```

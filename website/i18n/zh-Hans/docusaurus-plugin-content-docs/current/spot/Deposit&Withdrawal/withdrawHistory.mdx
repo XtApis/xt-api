@@ -27,6 +27,19 @@ sidebar_position: 6
 - 支持使用 `startTime` 和 `endTime` 进行时间范围筛选。
 - 状态值与**充提币记录状态**定义一致。
 
+### 请求示例
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/withdraw/history?currency=XT&chain=XT%20Smart%20Chain&limit=100' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
+
 ### 响应示例
 
 ```json title="响应"

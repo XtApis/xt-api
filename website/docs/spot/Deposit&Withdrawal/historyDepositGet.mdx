@@ -5,7 +5,8 @@ sidebar_label: Get deposit history
 sidebar_position: 3
 ---
 
-**Type:** GET **Description:** `/v4/deposit/history`
+**Type:** GET 
+**Description:** `/v4/deposit/history`
 
 ### Parameters
 
@@ -27,6 +28,19 @@ This endpoint retrieves the historical deposit records of a user.
 - Supports pagination using `fromId` and `direction`.
 - Status values reference: [depositWithdrawStatus](#depositWithdrawStatus).
 - Some currencies require **memo/tag** to be filled when depositing.
+
+### Request Example
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/deposit/history?currency=XT&chain=XT%20Smart%20Chain&limit=100' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
 
 ### Response Example
 
