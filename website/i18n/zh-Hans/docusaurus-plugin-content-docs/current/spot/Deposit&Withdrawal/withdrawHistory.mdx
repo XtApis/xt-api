@@ -13,7 +13,7 @@ sidebar_position: 6
 | --- | --- | --- | --- | --- | --- |
 | currency | string | 是 | N/A | 币种名称，来自**获取充提币支持币种**接口 |  |
 | chain | string | 是 | N/A | 转账网络，来自**获取充提币支持币种**接口 |  |
-| status | string | 否 | N/A | 提币状态（参见[depositWithdrawStatus](#depositWithdrawStatus)） | SUBMIT, REVIEW, AUDITED, AUDITED_AGAIN, PENDING, SUCCESS, FAIL, CANCEL |
+| status | string | 否 | N/A | 提币状态（参见[depositWithdrawStatus](../Access%20Description/PublicModule#depositwithdraw-status)） | SUBMIT, REVIEW, AUDITED, AUDITED_AGAIN, PENDING, SUCCESS, FAIL, CANCEL |
 | fromId | long | 否 | N/A | 上次分页ID，即记录的主键ID |  |
 | direction | string | 否 | NEXT | 分页方向 | NEXT = 下一页，PREV = 上一页 |
 | limit | int | 否 | 10 | 每页记录数（最大200） | 1 ≤ limit ≤ 200 |

@@ -22,7 +22,7 @@ description: /spot/v4/history-order
 | `bizType` | string | 否 |  | SPOT（现货）, LEVER（杠杆） |
 | `side` | string | 否 |  | BUY（买入）, SELL（卖出） |
 | `type` | string | 否 |  | LIMIT（限价）, MARKET（市价） |
-| `state` | string | 否 |  | 订单[状态](#orderStatus)，PARTIALLY_FILLED（部分成交）, FILLED（完全成交）, CANCELED（已取消）, REJECTED（已拒绝）, EXPIRED（已过期） |
+| `state` | string | 否 |  | 订单[状态](../Access%20Description/PublicModule#order-state) ，PARTIALLY_FILLED（部分成交）, FILLED（完全成交）, CANCELED（已取消）, REJECTED（已拒绝）, EXPIRED（已过期） |
 | `fromId` | number | 否 |  | 起始ID |
 | `direction` | string | 否 |  | 查询方向：PREV（向前）, NEXT（向后） |
 | `limit` | number | 否 | 20 | 限制条数，最大100 |
