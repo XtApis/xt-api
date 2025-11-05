@@ -5,40 +5,56 @@ sidebar_label: Get Depth Info
 sidebar_position: 2
 ---
 
-**Type:** GET
+### Request Method
 
-**Description:** `/future/market/v1/public/cg/orderbook`
+- Type: **GET**
+- Endpoint: `/future/market/v1/public/cg/orderbook`
+- Note: This method does **not** require a signature
 
-> Content-Type = application/x-www-form-urlencoded
+---
 
-### Note：
+### Request Parameters
 
-This method does not require a signature.
+| Name   | Type   | Required | Default | Description  | Range |
+| ------ | ------ | -------- | ------- | ------------ | ----- |
+| symbol | string | TRUE     | N/A     | Trading pair |       |
+| level  | int    | FALSE    | 50      | Depth level  | 1-200 |
 
-### Parameters
+---
 
-| Name   | Type   | Mandatory | Default | Description                 | Ranges |
-| ------ | ------ | --------- | ------- | --------------------------- | ------ |
-| symbol | string | true      | N/A     | Trading pair, e.g. BTC-USDT |        |
-| level  | int    | false     | 50      | Depth level                 | 1-200  |
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/market/v1/public/cg/orderbook" \
+    -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+    -d "symbol=eth_usdt"  # Required
+```
+
+---
 
 ### Response Example
 
-import CodeBlock from '@theme/CodeBlock';
+```json
+{
+    "ticker_id": "BTC-USDT",
+    "timestamp": 1698668957638,
+    "bids": [
+      ["34794.6", "97164"],
+      ["34794.5", "9897"],
+      ...
+    ],
+    "asks": [
+      ["34794.7", "168479"],
+      ["34794.8", "4009"],
+      ...
+    ]
+}
+```
 
-<CodeBlock language="json" title="Response">
-  {`{
-  "ticker_id": "BTC-USDT",
-  "timestamp": 1698668957638,
-  "bids": [
-    ["34794.6", "97164"],
-    ["34794.5", "9897"],
-    ...
-  ],
-  "asks": [
-    ["34794.7", "168479"],
-    ["34794.8", "4009"],
-    ...
-  ]
-}`}
-</CodeBlock>
+---
+
+### Error Codes
+
+| Error code     | Description          |
+| -------------- | -------------------- |
+| invalid_symbol | Invalid trading pair |

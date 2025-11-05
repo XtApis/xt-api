@@ -21,6 +21,7 @@ import CodeBlock from '@theme/CodeBlock';
 | limit | integer | false | 10 | Limit |  |
 | startTime | integer | false | N/A | Start time |  |
 | endTime | integer | false | N/A | End time |  |
+| forceClose | string | false | false | Force liquidation information. Without this field, the force liquidation order information will not be displayed. |  |
 
 ### Limit Flow Rules
 
@@ -29,10 +30,10 @@ import CodeBlock from '@theme/CodeBlock';
 ### Request Example
 
 <CodeBlock language="bash" title="Request">
-{`curl -G "https://fapi.xt.com/future/trade/v1/order/list-history" \\
+  {`curl -G "https://fapi.xt.com/future/trade/v1/order/list-history" \\
   -H "validate-appkey: $APPKEY" \\  # Required
   -H "validate-timestamp: $TIMESTAMP" \\  # Required
-  -H "validate-singature: $SINGATURE" \\  # Required 
+  -H "validate-singature: $SINGATURE" \\  # Required
   -H "Content-Type: application/x-www-form-urlencoded" \\  # Required
   -d "symbol=eth_usdt" \\  # Required
   -d "limit=10"
@@ -82,6 +83,6 @@ import CodeBlock from '@theme/CodeBlock';
 
 ### Error Codes
 
-| Error Code | Description |
-| --- | --- |
+| Error Code     | Description                     |
+| -------------- | ------------------------------- |
 | invalid_symbol | The trading pair does not exist |
