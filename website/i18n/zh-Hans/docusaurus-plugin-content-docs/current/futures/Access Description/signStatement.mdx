@@ -5,100 +5,35 @@ sidebar_label: 签名说明
 sidebar_position: 4
 ---
 
-#### 签名说明
+#### 签名参数说明
 
-> 注：`${?}` 或 `$?` 表示对变量的引用。
+由于 XT 为第三方平台提供开放接口，必须确保数据安全——例如防止数据篡改、避免过时数据、阻止重复提交以及控制请求频率。
+其中，**验证数据是否被篡改** 是最关键的。
 
-在生成签名 `signature` 时，需要使用申请 API Key 时获得的 `SECRET KEY` 对 `unencrypted_string` 进行加密。
-
----
-
-#### 签名生成逻辑
-
-##### 1️⃣ 若 HTTP 请求参数放在 **QueryString** 中：
-```
-unencrypted_string = ${fixed_header}#${end_point}#${query_string}
-```
-
-当 `query_string` 有多个键值对时，需要按照键的字典序（ASCII 升序）进行排序后拼接，如：
-```
-keya=value&keyb=value&keyc=value
-```
-
-##### 2️⃣ 若 HTTP 请求参数放在 **RequestBody** 中：
-```
-unencrypted_string = ${fixed_header}#${end_point}#${request_body}
-```
+##### 签名参数
+1. **validate-appkey** — 为申请 API Key 后获取的公钥
+2. **validate-timestamp** — 为请求时间的毫秒级时间戳（Unix 时间戳），请求的有效性基于此值和 `validate-recvwindow` 计算
+3. **validate-signature** — 部分接口请求数据须签名，签名规则见（[访问说明 -> 获取签名](../Access%20Description/Signature)）
+4. **validate-recvwindow** — 该次请求的有效期由 recvwindow 确定。默认为 5 秒，最大 60 秒
+   - 如果时间戳比服务器时间早 5000ms 以上，请求无效
+   - 如果客户端时间戳比服务器提前 1 秒以上，请求也会被拒绝
+   - RecvWindow 不建议超过 5 秒，此机制处理网络抖动并有助于确保高频交易中的时效性
+5. **validate-algorithms** — 签名使用基于 HSC 的协议计算
+   - 默认：HmacSHA256
+   - 支持：HmacMD5、HmacSHA1、HmacSHA224、HmacSHA256、HmacSHA384、HmacSHA512
 
 ---
 
-#### 参数定义
+#### 请求头签名相关参数列表
 
-| 参数 | 含义 |
-|------|------|
-| `fixed_header` | 固定头部参数字符串，由 appkey 与 timestamp 组成 |
-| `end_point` | 请求路径（不包含域名） |
-| `query_string` | 请求 URL 中的参数字符串 |
-| `request_body` | POST 请求体内容 |
-
----
-
-#### 结构说明
-
-```
-fixed_header = "validate-appkey=${your_appkey}&validate-timestamp=${current_timestamp}"
-```
-
-每个部分之间使用 `#` 符号拼接：
-```
-unencrypted_string = fixed_header#end_point#query_string
-```
-
----
-
-#### 示例
-
-```bash
-curl -G "https://fapi.xt.com/future/user/v1/balance/detail" \
-  -H "validate-appkey: $APPKEY" \
-  -H "validate-timestamp: $TIMESTAMP" \
-  -H "validate-signature: $SIGNATURE" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "coin=btc"
-```
-
-**假设：**
-```
-当前时间戳为 *****
-你的 APPKEY 为 ++++++
-```
-
-则：
-```
-fixed_header="validate-appkey=++++++&validate-timestamp=*****"
-end_point="/future/user/v1/balance/detail"
-query_string="coin=btc"
-```
-
-最终：
-```
-unencrypted_string="validate-appkey=++++++&validate-timestamp=*****#/future/user/v1/balance/detail#coin=btc"
-```
-
----
-
-#### 生成签名
-
-获取 `unencrypted_string` 后，可使用 `SECRET KEY` 通过 HMAC-SHA256 算法生成签名：
-
-```bash
-SIGNATURE=$(echo -n "$unencrypted_string" | openssl dgst -sha256 -hmac "$SECRETKEY" | awk '{print $2}')
-echo $SIGNATURE
-```
-
-生成后，将 `SIGNATURE` 填入 HTTP 请求头中的：
-```
-validate-signature: $SIGNATURE
-```
+| 名称 | 必填 | 示例 | 描述 |
+|------|------|------|------|
+| validate-appkey | TRUE | dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83 | 公钥 |
+| validate-timestamp | TRUE | 1641446237201 | Unix 时间戳（毫秒） |
+| validate-signature | TRUE | 0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d | 生成的签名 |
+| validate-recvwindow | FALSE | 5000（毫秒） | 有效性时间窗口 |
+| validate-algorithms | FALSE | HmacSHA256 | 默认 HmacSHA256 |
+| api-version | FALSE | 1 | 保留字段，API 版本号 |
+| validate-signversion | FALSE | 1 | 保留字段，签名版本 |
 
 ---

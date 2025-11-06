@@ -5,101 +5,64 @@ sidebar_label: Obtain Signature
 sidebar_position: 5
 ---
 
-Example for http://fapi.xt.com/api/v1/public/symbol/detail?symbol=btc_usdt
+#### Generate Signature
 
-The following is an example of an order placed in a call interface using echo openssl and curl tools in a Linux bash environment. Appkey, secret for demonstration purposes only:
+> Note: `${?}` and `$?` refer to variable substitution.
 
-appKey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+To generate a signature (`signature`), use the **SECRET KEY** obtained with your API Key to encrypt the `unencrypted_string`.
 
-secretKey: bc6630d0231fda5cd98794f52c4998659beda290
+---
 
-Partial data of Header：
+#### Rules
 
-validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+- **If HTTP request parameters are in QueryString:** `unencrypted_string = ${fixed_header}#${end_point}#${query_string}` When multiple key-value pairs exist in `query_string`, sort the keys **alphabetically** and concatenate with `&`, for example: `keya=value&keyb=value&keyc=value`
 
-validate-timestamp: 1641446237201
+- **If HTTP request parameters are in RequestBody:** `unencrypted_string = ${fixed_header}#${end_point}#${request_body}`
 
-validate-algorithms: HmacSHA256
+---
 
-Request data：
+#### fixed_header Format
 
 ```
-{
-  type: 'LIMIT',
-  timeInForce: 'GTC',
-  side: 'BUY',
-  symbol: 'btc_usdt',
-  price: '39000',
-  quantity: '2'
-}
+fixed_header = "validate-appkey=${your_appkey}&validate-timestamp=${current_timestamp}"
 ```
 
-### 1. Data
+Each part of `unencrypted_string` is joined with `#`.
 
-path: Concatenate all values in the order in path. The restful path in the form of `/test/{var1}/{var2}/` will be spliced according to the actual parameters filled in, for example: /sign/test/bb/aa
+---
 
-query: Sorted by lexicographic order of key, concatenate all key=value. Example: userName=dfdfdf&password=ggg
+#### Example
 
-body: Json: Operate as JSON string is not converted or sorted.
+```bash
+curl -G "https://fapi.xt.com/future/user/v1/balance/detail" \
+  -H "validate-appkey: $APPKEY" \
+  -H "validate-timestamp: $TIMESTAMP" \
+  -H "validate-singature: $SIGNATURE" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "coin=btc"
+```
 
-          x-www-form-urlencoded: Sorted by lexicographic order of key, concatenate all key=value. Example: userName=dfdfdf&password=ggg　
+##### Example Breakdown:
 
-          form-data：Not supported.
+```bash
+# Suppose current timestamp = ***** and your APPKEY = ++++++
+fixed_header="validate-appkey=++++++&validate-timestamp=*****"
+end_point="/future/user/v1/balance/detail"
+query_string="coin=btc"
 
-If there are multiple data forms, re-concatenate in the order of path, query, and body to obtain the concatenate value of all data.
+# Then
+unencrypted_string="validate-appkey=++++++&validate-timestamp=*****#/future/user/v1/balance/detail#coin=btc"
+```
 
-Example of Path:
+---
 
-          /future/api/v1/public/symbol/detail
+#### Generate the Signature
 
-          The above concatenated value is recorded as path
+After obtaining the unencrypted_string, you can use the encryption algorithm along with the SECRETKEY to obtain the signature SIGNATURE for the unencrypted_string.
 
-#### Example 1. All parameters sent via query string
+```bash
+SIGNATURE=$(echo -n "$FINAL_STRING" | openssl dgst -sha256 -hmac "$SECRETKEY" | awk '{print $2}')
+echo $SIGNATURE
+```
 
-            symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
-
-            The above concatenate value is recorded as query
-
-#### Example 2.All parameters send X-www-form-urlencoded request body string via the request body
-
-Request body string of json
-
-            symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
-
-            The above concatenate value is recorded as body
-
-Request body string of www-form-urlencoded
-
-            `{"symbol" : "btc_usdt","side" : "BUY","type":"LIMIT","timeInForce":"GTC","quantity":2,"price":39000}`
-
-            The above concatenate value is recorded as body
-
-#### Example 3.Mix to use query string and request body (form and json format)
-
-queryString: symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC 上述拼接值记作 query
-
-requestBody: `{"quantity":2,"price":39000}` The above concatenate value is recorded as query
-
-        The final concatenate value of the entire data is # concatenated with path, query, and body and form #path, #query, and #body. The finalconcatenate value is recorded asY=#path#query#body。
-
-        Note:
-
-            query without data, body with data:Y=#path#body
-
-            query with data, body without data:Y=#path#query
-
-            query with data, body with data:Y=#path#query#body
-
-### 2. Request header
-
-X=”validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-timestamp=1641446237201”
-
-### 3. Obtain Signature
-
-Finally, record the string that needs to be encrypted as sign=XY
-
-Finally, encrypt the final concatenated value according to the following method to obtain a signature.
-
-signature=org.apache.commons.codec.digest.HmacUtils.hmacSha256Hex(secretkey, sign);
-
-Put the generated signature in the request header, with validate-signature as the key and singature as the value.
+After generating the signature, include `SIGNATURE` in the HTTP request header as the value of `validate-signature`.

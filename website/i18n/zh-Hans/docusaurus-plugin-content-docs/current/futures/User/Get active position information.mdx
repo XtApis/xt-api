@@ -1,7 +1,7 @@
 ---
 id: Get active position information
-title: 获取持仓信息
-sidebar_label: 获取持仓信息
+title: 获取活跃持仓信息
+sidebar_label: 获取活跃持仓信息
 sidebar_position: 7
 ---
 
@@ -28,7 +28,7 @@ sidebar_position: 7
 ### 请求示例
 
 ```bash title="Request"
-curl -G "https://fapi.xt.com/future/user/v1/position" \ 
+curl -G "https://fapi.xt.com/future/user/v1/position" \
   -H "validate-appkey: $APPKEY" \  # 必须
   -H "validate-timestamp: $TIMESTAMP" \  # 必须
   -H "validate-singature: $SINGATURE" \  # 必须
@@ -74,7 +74,7 @@ curl -G "https://fapi.xt.com/future/user/v1/position" \
   ],
   "returnCode": 0
 }
-```  
+```
 
 ### 错误码
 
