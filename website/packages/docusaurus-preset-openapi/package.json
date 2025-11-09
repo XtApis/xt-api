@@ -1,0 +1,46 @@
+{
+  "name": "docusaurus-preset-openapi",
+  "description": "OpenAPI preset for Docusaurus.",
+  "version": "0.7.7",
+  "license": "MIT",
+  "keywords": [
+    "openapi",
+    "swagger",
+    "docusaurus",
+    "documentation",
+    "react"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-annotations/docusaurus-openapi.git",
+    "directory": "packages/docusaurus-preset-openapi"
+  },
+  "bugs": {
+    "url": "https://github.com/cloud-annotations/docusaurus-openapi/issues"
+  },
+  "main": "lib/index.js",
+  "types": "src/preset-openapi.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@docusaurus/types": "^3.7.0"
+  },
+  "dependencies": {
+    "@docusaurus/preset-classic": "^3.8.0",
+    "docusaurus-plugin-openapi": "^0.7.7",
+    "docusaurus-plugin-proxy": "^0.7.7",
+    "docusaurus-theme-openapi": "^0.7.7"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0  || ^19.0.0",
+    "react-dom": "^18.0.0  || ^19.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

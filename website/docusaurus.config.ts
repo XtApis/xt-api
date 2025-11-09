@@ -33,7 +33,7 @@ import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
 import type {Options as BlogOptions} from '@docusaurus/plugin-content-blog';
 import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
 import type {Options as IdealImageOptions} from '@docusaurus/plugin-ideal-image';
-// import type {Options as ClientRedirectsOptions} from '@docusaurus/plugin-client-redirects';
+import pluginOpenAPI from './packages/docusaurus-plugin-openapi/src';
 
 // const ArchivedVersionsDropdownItems = Object.entries(
 //   VersionsArchived
@@ -169,6 +169,10 @@ function getLocalizedConfigValue(key: keyof typeof ConfigLocalized) {
 const showLastUpdate = process.env.DOCUSAURUS_CURRENT_LOCALE === defaultLocale;
 
 export default async function createConfigAsync(): Promise<Config> {
+  const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? defaultLocale;
+  const openapiContentPath =
+    currentLocale === 'zh-Hans' ? './api-docs/zh' : './api-docs/EN';
+
   return {
     title: 'XT API',
     tagline: getLocalizedConfigValue('tagline'),
@@ -295,6 +299,7 @@ export default async function createConfigAsync(): Promise<Config> {
     themes: [
       'live-codeblock',
       ['@docusaurus/theme-search-algolia', {id: 'search-algolia'}],
+      'docusaurus-theme-openapi',
       ...dogfoodingThemeInstances,
     ],
     plugins: [
@@ -308,6 +313,15 @@ export default async function createConfigAsync(): Promise<Config> {
             return {
               optimization: {
                 concatenateModules: isProductionDeployment ? !isServer : false,
+              },
+              resolve: {
+                fallback: {
+                  url: false,
+                  path: false,
+                  fs: false,
+                  buffer: require.resolve('buffer/'),
+                  process: require.resolve('process/browser'),
+                },
               },
             };
           },
@@ -379,41 +393,6 @@ export default async function createConfigAsync(): Promise<Config> {
           showLastUpdateTime: showLastUpdate,
         } satisfies DocsOptions,
       ],
-      // Temporarily disabled client-redirects to fix build issues
-      // !process.env.DOCUSAURUS_SKIP_BUNDLING && [
-      //   'client-redirects',
-      //   {
-      //     fromExtensions: ['html'],
-      //     createRedirects(_routePath) {
-      //       // Custom redirects can be added here if needed
-      //       return [];
-      //     },
-      //     redirects: [
-      //       // Redirect /docs to the new default page
-      //       {
-      //         from: ['/docs', '/docs/'],
-      //         to: '/docs/index_overview/overview',
-      //       },
-      //       {
-      //         from: ['/docs/support', '/docs/next/support'],
-      //         to: '/community/support',
-      //       },
-      //       {
-      //         from: ['/docs/team', '/docs/next/team'],
-      //         to: '/community/team',
-      //       },
-      //       {
-      //         from: ['/docs/resources', '/docs/next/resources'],
-      //         to: '/community/resources',
-      //       },
-      //       {
-      //         from: '/docs/api/misc/docusaurus-init',
-      //         to: '/docs/api/misc/create-docusaurus',
-      //       },
-      //       ...dogfoodingRedirects,
-      //     ],
-      //   } satisfies ClientRedirectsOptions,
-      // ],
       [
         'ideal-image',
         {
@@ -490,6 +469,25 @@ export default async function createConfigAsync(): Promise<Config> {
       // ],
       '@docusaurus/theme-mermaid',
       './src/plugins/featureRequests/FeatureRequestsPlugin.js',
+      // OpenAPI 插件配置
+      [
+        'docusaurus-plugin-openapi',
+        {
+          id: 'api',
+          path: openapiContentPath,
+          routeBasePath: 'api',
+          sidebarCollapsed: false,
+        },
+      ],
+      [
+        'docusaurus-plugin-openapi',
+        {
+          id: 'api-examples',
+          path: './api-docs/examples',
+          routeBasePath: 'api/examples',
+          sidebarCollapsed: false,
+        },
+      ],
       ...dogfoodingPluginInstances,
     ],
     presets: [
@@ -1529,6 +1527,12 @@ export default async function createConfigAsync(): Promise<Config> {
           {
             type: 'custom-dogfood-navbar-item',
             content: '😉',
+          },
+          // API Docs Link
+          {
+            to: '/api',
+            label: 'API Reference',
+            position: 'left',
           },
           // Right side items
           {
