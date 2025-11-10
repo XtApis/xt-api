@@ -194,7 +194,7 @@ paths:
     post:
       tags:
         - 体验金
-      summary: 使用体验金(私有)
+      summary: 使用体验金
       operationId: useBonusUsingPOST
       requestBody:
         content:
