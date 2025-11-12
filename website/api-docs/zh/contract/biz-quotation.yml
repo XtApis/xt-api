@@ -1,0 +1,4415 @@
+openapi: 3.0.3
+info:
+  title: 合约
+  description: 合约接口文档
+  termsOfService: 'urn:tos'
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0'
+  version: '1.0'
+servers:
+  - url: 'http://localhost:8080'
+    description: Inferred Url
+tags:
+  - name: basic-error-controller
+    description: Basic Error Controller
+  - name: operation-handler
+    description: Operation Handler
+  - name: web-mvc-links-handler
+    description: Web Mvc Links Handler
+  - name: 内部获取交易对配置信息
+    description: Internal Cg V 2 Controller
+  - name: 内部获取行情信息
+    description: Internal Quotation Controller
+  - name: 合约信息
+    description: Contract Info Controller
+  - name: 外部接口信息
+    description: External Controller
+  - name: 市场异动
+    description: Market Controller
+  - name: 服务器时间
+    description: Server Time Controller
+  - name: 杠杆分层
+    description: Leverage Bracket Controller
+  - name: 获取事件合约配置信息
+    description: Event Future Controller
+  - name: 获取交易对配置信息
+    description: Symbol Controller
+  - name: 获取交易对配置信息(v2)
+    description: Symbol V 2 Controller
+  - name: 获取交易对配置信息(v3)
+    description: Symbol V 3 Controller
+  - name: 获取板块配置信息
+    description: Plate Controller
+  - name: 行情接口
+    description: Internal Quotation V 2 Controller
+  - name: 行情类接口
+    description: Merchant Controller
+paths:
+  /error:
+    get:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingPUT
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingPOST
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingDELETE
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    options:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingOPTIONS
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    head:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingHEAD
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    patch:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingPATCH
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    trace:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingTRACE
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v1/public/contract/open-interest:
+    get:
+      tags:
+        - 合约信息
+      summary: 获取交易对仓位头寸
+      operationId: getOpenInterestUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: symbol
+          required: true
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«OpenInterestVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/contract/risk-balance:
+    get:
+      tags:
+        - 合约信息
+      summary: 获取交易对风险基金余额
+      operationId: getRiskBalanceListUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: direction
+          in: query
+          description: '方向（PREV:上一页；NEXT:下一页）'
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: id
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: integer
+            format: int64
+        - name: limit
+          in: query
+          description: 条数
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: integer
+            format: int32
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«MongoPageResult«RiskBalanceVO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/event-future/limit:
+    get:
+      tags:
+        - 获取事件合约配置信息
+      summary: 获取事件合约限制信息
+      operationId: getEventFutureLimitUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«EventFutureLimitInfoVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/event-future/list/detail:
+    get:
+      tags:
+        - 获取事件合约配置信息
+      summary: 获取所事件合约配置信息
+      operationId: getEventFutureListUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«EventFutureConfigVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/cg/contracts:
+    get:
+      tags:
+        - 外部接口信息
+      summary: 获取合约信息
+      operationId: getContractsUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContractVO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/cg/orderbook:
+    get:
+      tags:
+        - 外部接口信息
+      summary: 获取交易对的深度信息
+      operationId: getDepthUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: level
+          in: query
+          description: '档位（min:1,max:200）'
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int32
+        - name: symbol
+          in: query
+          description: '交易对,例如 BTC-USDT'
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrderBookVO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/cg/orderbook:
+    get:
+      tags:
+        - 内部获取交易对配置信息
+      summary: 获取交易对的深度信息
+      operationId: getDepthUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: level
+          in: query
+          description: '档位（min:1,max:200）'
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int32
+        - name: symbol
+          in: query
+          description: '交易对,例如 BTC-USDT'
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrderBookVO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/contract/risk-balance:
+    get:
+      tags:
+        - 内部获取交易对配置信息
+      summary: 获取交易对风险基金余额
+      operationId: getRiskBalanceListUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: direction
+          in: query
+          description: '方向（PREV:上一页；NEXT:下一页）'
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: id
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: integer
+            format: int64
+        - name: limit
+          in: query
+          description: 条数
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: integer
+            format: int32
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«MongoPageResult«RiskBalanceVO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/leverage/bracket/list:
+    get:
+      tags:
+        - 内部获取交易对配置信息
+      summary: 查询所有交易对杠杆分层
+      operationId: getBracketListUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«List«SymbolBracketCacheDTO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/internal/q/kline:
+    get:
+      tags:
+        - 内部获取行情信息
+      summary: 获取交易对的k线信息
+      operationId: getKlineUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: endTime
+          in: query
+          description: 结束时间
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+        - name: interval
+          in: query
+          description: '时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M'
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: 限制条数
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            maximum: 1500
+            exclusiveMaximum: false
+            minimum: 1
+            exclusiveMinimum: false
+            type: integer
+            format: int32
+        - name: startTime
+          in: query
+          description: 起始时间
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«KlineVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/q/deal:
+    get:
+      tags:
+        - 行情接口
+      summary: 获取交易对的最新成交信息
+      operationId: getDealsUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: num
+          in: query
+          description: 数量
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            minimum: 1
+            exclusiveMinimum: false
+            type: integer
+            format: int64
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«DealVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/q/depth:
+    get:
+      tags:
+        - 行情接口
+      summary: 获取交易对的深度信息
+      operationId: getDepthUsingGET_2
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: level
+          in: query
+          description: '档位（min:1,max:50）'
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            minimum: 1
+            exclusiveMinimum: false
+            type: integer
+            format: int32
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«DepthVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/q/funding-rate:
+    get:
+      tags:
+        - 行情接口
+      summary: 获取资金费率
+      operationId: getFundingRateUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: symbol
+          required: true
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«FundRateDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/q/funding-rate-record:
+    get:
+      tags:
+        - 行情接口
+      summary: getFundingRateRecord
+      operationId: getFundingRateRecordUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: symbol
+          required: false
+          style: form
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: id
+          required: false
+          style: form
+          schema:
+            type: integer
+            format: int64
+        - name: direction
+          in: query
+          description: direction
+          required: false
+          style: form
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: limit
+          required: false
+          style: form
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«MongoPageResult«FundRateRecordVO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/q/symbol-index-price:
+    get:
+      tags:
+        - 行情接口
+      summary: 获取单个交易对的指数价格
+      operationId: getIndexPriceBySymbolUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«PriceVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/q/symbol-mark-price:
+    get:
+      tags:
+        - 行情接口
+      summary: 获取单个交易对的标记价格
+      operationId: getMarkPriceBySymbolUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«PriceVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/q/ticker:
+    get:
+      tags:
+        - 行情接口
+      summary: 获取指定交易对的行情信息
+      operationId: getTickerUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«TickerVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/q/ticker/book:
+    get:
+      tags:
+        - 行情接口
+      summary: 获取指定交易对的买一卖一行情信息
+      operationId: getTickerBookUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«TickerBookVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/internal/fund-rate/white-user:
+    get:
+      tags:
+        - 内部获取交易对配置信息
+      summary: (内部)获取资金费白名单
+      operationId: getWhitelistUsingGET
+      parameters:
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          style: form
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«boolean»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/internal/symbol/country-agentuid-filter:
+    post:
+      tags:
+        - 内部获取交易对配置信息
+      summary: (内部)用户分国家区域代理uid展示币对
+      operationId: countryAgentuidFilterUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryAgentUidFilterRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«List«InternalFilterSymbolVO»»
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/internal/symbol/list:
+    get:
+      tags:
+        - 内部获取交易对配置信息
+      summary: (内部)获取所有交易对的配置信息
+      operationId: getSymbolListUsingGET
+      parameters:
+        - name: symbolId
+          in: query
+          description: symbolId
+          required: false
+          style: form
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«List«InternalSymbolCacheDTO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/internal/tenant-symbol/list:
+    get:
+      tags:
+        - 内部获取交易对配置信息
+      summary: (内部)获取所有租户交易对的信息
+      operationId: getTenantSymbolListUsingGET
+      parameters:
+        - name: tenantId
+          in: query
+          description: tenantId
+          required: false
+          style: form
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«List«InternalTenantSymbolCacheDTO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/internal/symbol/list:
+    get:
+      tags:
+        - 内部获取交易对配置信息
+      summary: 获取所有交易对的配置信息
+      operationId: getSymbolListUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: xt-underlying-type
+          in: header
+          description: xt-underlying-type
+          required: false
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: version
+          required: false
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«SymbolListDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/leverage/bracket/detail:
+    get:
+      tags:
+        - 杠杆分层
+      summary: 查询单个交易对杠杆分层
+      operationId: getBracketDetailUsingGET
+      parameters:
+        - name: symbol
+          in: query
+          description: symbol
+          required: true
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«SymbolBracketVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/leverage/bracket/list:
+    get:
+      tags:
+        - 杠杆分层
+      summary: 查询所有交易对杠杆分层
+      operationId: getBracketListUsingGET_1
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«List«SymbolBracketCacheDTO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/market/category:
+    get:
+      tags:
+        - 市场异动
+      summary: 获取异动分类
+      operationId: categoryUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«MarketCategoryVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/market/list:
+    get:
+      tags:
+        - 市场异动
+      summary: 获取市场异动列表
+      operationId: listUsingGET
+      parameters:
+        - name: category
+          in: query
+          description: category
+          required: false
+          style: form
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: page
+          required: false
+          style: form
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          description: size
+          required: false
+          style: form
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«PageResult«MarketVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/merchant/q/trade-list:
+    get:
+      tags:
+        - 行情类接口
+      summary: 查询成交明细
+      operationId: getTradeListUsingGET
+      parameters:
+        - name: endTime
+          in: query
+          description: 结束时间
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+        - name: orderId
+          in: query
+          description: 订单Id
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+        - name: page
+          in: query
+          description: 页码
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int32
+        - name: size
+          in: query
+          description: 单页数
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            maximum: 500
+            exclusiveMaximum: false
+            type: integer
+            format: int32
+        - name: startTime
+          in: query
+          description: 开始时间
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+        - name: symbol
+          in: query
+          description: 交易对
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«PageResult«MMTradeVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /actuator/health:
+    get:
+      tags:
+        - operation-handler
+      summary: handle
+      operationId: handleUsingGET
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /actuator/health/**:
+    get:
+      tags:
+        - operation-handler
+      summary: handle
+      operationId: handleUsingGET_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /actuator/prometheus:
+    get:
+      tags:
+        - operation-handler
+      summary: handle
+      operationId: handleUsingGET_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain;version=0.0.4;charset=utf-8:
+              schema:
+                type: object
+            application/openmetrics-text;version=1.0.0;charset=utf-8:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/plate/list:
+    get:
+      tags:
+        - 获取板块配置信息
+      summary: 获取板块信息
+      operationId: getSymbolListUsingGET_2
+      parameters:
+        - name: isDelivery
+          in: query
+          description: isDelivery
+          required: false
+          style: form
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«PlateVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/agg-ticker:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取指定交易对的聚合行情信息
+      operationId: getAggTickerUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«AggTickerVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/agg-tickers:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取全交易对的聚合行情信息
+      operationId: getAggTickersUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«AggTickerVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/deal:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取交易对的最新成交信息
+      operationId: getDealsUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: num
+          in: query
+          description: 数量
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            minimum: 1
+            exclusiveMinimum: false
+            type: integer
+            format: int64
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«DealVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/deliver-kline:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取交割合约的k线信息
+      operationId: getDeliverKlineUsingGET
+      parameters:
+        - name: contractType
+          in: query
+          description: >-
+            交割类型：CURRENT_MONTH,NEXT_MONTH,CURRENT_QUARTER,NEXT_QUARTER,CURRENT_WEEK,NEXT_WEEK
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+        - name: endTime
+          in: query
+          description: 结束时间
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+        - name: interval
+          in: query
+          description: '时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M'
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: 限制条数
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            maximum: 1500
+            exclusiveMaximum: false
+            minimum: 1
+            exclusiveMinimum: false
+            type: integer
+            format: int32
+        - name: pair
+          in: query
+          description: 交易对pair
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+        - name: startTime
+          in: query
+          description: 起始时间
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«KlineDTO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/depth:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取交易对的深度信息
+      operationId: getDepthUsingGET_3
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: level
+          in: query
+          description: '档位（min:1,max:50）'
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            minimum: 1
+            exclusiveMinimum: false
+            type: integer
+            format: int32
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«DepthVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/funding-rate:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取资金费率
+      operationId: getFundingRateUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: symbol
+          required: true
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«FundRateDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/funding-rate-record:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取资金费率记录
+      operationId: getFundingRateRecordUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: direction
+          in: query
+          description: '方向（PREV:上一页；NEXT:下一页）'
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: id
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: integer
+            format: int64
+        - name: limit
+          in: query
+          description: 条数
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: integer
+            format: int32
+        - name: symbol
+          in: query
+          description: 交易对
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«MongoPageResult«FundRateRecordVO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/funding-rate-record-chart:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取资金费率图表
+      operationId: getFundingRateRecordChartUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: symbol
+          required: false
+          style: form
+          schema:
+            type: string
+        - name: startTime
+          in: query
+          description: startTime
+          required: true
+          style: form
+          schema:
+            type: integer
+            format: int64
+        - name: endTime
+          in: query
+          description: endTime
+          required: true
+          style: form
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«FundRateRecordVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/funding-rate-record-tool:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取资金费率工具记录
+      operationId: getFundingRateToolRecordUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: direction
+          in: query
+          description: '方向（PREV:上一页；NEXT:下一页）'
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: id
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: integer
+            format: int64
+        - name: limit
+          in: query
+          description: 条数
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: integer
+            format: int32
+        - name: symbol
+          in: query
+          description: 交易对
+          required: false
+          style: form
+          allowReserved: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: >-
+                  #/components/schemas/CommonResponse«MongoPageResult«FundRateRecordVO»»
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/funding-rate-tool:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取资金费率工具
+      operationId: getFundingRateToolUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: symbol
+          required: true
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«FundRateDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/index-price:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取所有交易对的指数价格
+      operationId: getAllIndexPriceUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«PriceVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/index-price/list:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取指定交易对的指数价格
+      operationId: findIndexPriceListUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+        - name: startTime
+          in: query
+          description: startTime
+          required: false
+          style: form
+          schema:
+            type: integer
+            format: int64
+        - name: endTime
+          in: query
+          description: endTime
+          required: false
+          style: form
+          schema:
+            type: integer
+            format: int64
+        - name: limit
+          in: query
+          description: limit
+          required: false
+          style: form
+          schema:
+            maximum: 500
+            exclusiveMaximum: false
+            minimum: 1
+            exclusiveMinimum: false
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«IndexPriceDTO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/indicator:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取k线指标
+      operationId: getIndicatorUsingGET
+      parameters:
+        - name: tenant-id
+          in: header
+          description: tenant-id
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: symbol
+          in: query
+          description: symbol
+          required: true
+          style: form
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: name
+          required: true
+          style: form
+          schema:
+            type: string
+        - name: interval
+          in: query
+          description: interval
+          required: false
+          style: form
+          schema:
+            type: string
+        - name: period
+          in: query
+          description: period
+          required: true
+          style: form
+          schema:
+            maximum: 180
+            exclusiveMaximum: false
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«string»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/kline:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取交易对的k线信息
+      operationId: getKlineUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: endTime
+          in: query
+          description: 结束时间
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+        - name: interval
+          in: query
+          description: '时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M'
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: 限制条数
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            maximum: 1500
+            exclusiveMaximum: false
+            minimum: 1
+            exclusiveMinimum: false
+            type: integer
+            format: int32
+        - name: startTime
+          in: query
+          description: 起始时间
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int64
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«KlineDTO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/mark-price:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取所有交易对的标记价格
+      operationId: getAllMarkPriceUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«PriceVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/openprice:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取交易对指定时区当天0点的开盘时间，不传symbol获取所有可交货币对
+      operationId: getOpenPriceUsingGET
+      parameters:
+        - name: symbol
+          in: query
+          description: 交易对
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+        - name: timeZone
+          in: query
+          description: 时区偏移秒值，如东八区传28800
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«OpenPriceVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/symbol-index-price:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取单个交易对的指数价格
+      operationId: getIndexPriceBySymbolUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«PriceVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/symbol-mark-price:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取单个交易对的标记价格
+      operationId: getMarkPriceBySymbolUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«PriceVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/ticker:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取指定交易对的行情信息
+      operationId: getTickerUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«TickerVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/ticker/book:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取指定交易对的买一卖一行情信息
+      operationId: getTickerBookUsingGET_1
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: 交易对
+          required: true
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«TickerBookVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/ticker/books:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取全交易对的买一卖一行情信息
+      operationId: getTickerBooksUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«TickerBookVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/tickers:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取全交易对的行情信息
+      operationId: getTickersUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«TickerVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/q/tradestats:
+    get:
+      tags:
+        - 行情类接口
+      summary: 获取统计信息
+      operationId: getTradeStatsUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«TradeStatsVO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/time:
+    get:
+      tags:
+        - 服务器时间
+      summary: 获取服务器时间
+      operationId: getServerTimeUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«long»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/symbol/all:
+    get:
+      tags:
+        - 获取交易对配置信息
+      summary: 获取所有交易对
+      operationId: getAllSymbolsUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«string»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/symbol/coin/detail:
+    get:
+      tags:
+        - 获取交易对配置信息
+      summary: 获取币种详情
+      operationId: getCoinDetailUsingGET
+      parameters:
+        - name: coin
+          in: query
+          description: '币种，多个币种用,隔开'
+          required: false
+          style: form
+          explode: true
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«CoinDetailVO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/symbol/coins:
+    get:
+      tags:
+        - 获取交易对配置信息
+      summary: 获取交易对币种
+      operationId: getCoinListUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«string»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/symbol/detail:
+    get:
+      tags:
+        - 获取交易对配置信息
+      summary: 获取单个交易对的配置信息
+      operationId: getSymbolDetailUsingGET
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: symbol
+          required: false
+          style: form
+          allowReserved: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«SymbolCacheDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/public/symbol/list:
+    get:
+      tags:
+        - 获取交易对配置信息
+      summary: 获取所有交易对的配置信息
+      operationId: getSymbolListUsingGET_3
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«List«SymbolCacheDTO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/public/symbol/list:
+    get:
+      tags:
+        - 获取交易对配置信息(v2)
+      summary: 获取所有交易对的配置信息
+      operationId: getSymbolListUsingGET_4
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: version
+          required: false
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«SymbolListDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v3/public/symbol/list:
+    get:
+      tags:
+        - 获取交易对配置信息(v3)
+      summary: 获取所有交易对的配置信息
+      operationId: getSymbolListUsingGET_5
+      parameters:
+        - name: client-ip
+          in: header
+          description: client-ip
+          required: false
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: version
+          required: false
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommonResponse«SymbolListDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /actuator:
+    get:
+      tags:
+        - web-mvc-links-handler
+      summary: links
+      operationId: linksUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    AggTickerVO:
+      title: AggTickerVO
+      type: object
+      properties:
+        a:
+          type: string
+          description: 24小时成交量
+        ap:
+          type: string
+          description: 卖一价格
+        bp:
+          type: string
+          description: 买一价格
+        c:
+          type: string
+          description: 最新价
+        h:
+          type: string
+          description: 24小时最高价
+        i:
+          type: string
+          description: 指数价格
+        l:
+          type: string
+          description: 24小时最低价
+        m:
+          type: string
+          description: 标记价格
+        o:
+          type: string
+          description: 24小时前第一笔成交价
+        r:
+          type: string
+          description: 24小时涨跌幅
+        s:
+          type: string
+          description: 交易对
+        t:
+          type: integer
+          description: 时间
+          format: int64
+        v:
+          type: string
+          description: 24小时成交额
+    CoinDetailVO:
+      title: CoinDetailVO
+      type: object
+      properties:
+        actualPrecision:
+          type: integer
+          description: 实际精度
+          format: int32
+        coin:
+          type: string
+          description: 币种
+        displayPrecision:
+          type: integer
+          description: 显示精度
+          format: int32
+        spotCoin:
+          type: string
+          description: 现货币种
+    CommonResponse«AggTickerVO»:
+      title: CommonResponse«AggTickerVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/AggTickerVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«DepthVO»:
+      title: CommonResponse«DepthVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/DepthVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«EventFutureLimitInfoVO»:
+      title: CommonResponse«EventFutureLimitInfoVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/EventFutureLimitInfoVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«FundRateDTO»:
+      title: CommonResponse«FundRateDTO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/FundRateDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«AggTickerVO»»:
+      title: CommonResponse«List«AggTickerVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/AggTickerVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«CoinDetailVO»»:
+      title: CommonResponse«List«CoinDetailVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/CoinDetailVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«DealVO»»:
+      title: CommonResponse«List«DealVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/DealVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«EventFutureConfigVO»»:
+      title: CommonResponse«List«EventFutureConfigVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventFutureConfigVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«FundRateRecordVO»»:
+      title: CommonResponse«List«FundRateRecordVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/FundRateRecordVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«IndexPriceDTO»»:
+      title: CommonResponse«List«IndexPriceDTO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndexPriceDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«InternalFilterSymbolVO»»:
+      title: CommonResponse«List«InternalFilterSymbolVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/InternalFilterSymbolVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«InternalSymbolCacheDTO»»:
+      title: CommonResponse«List«InternalSymbolCacheDTO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/InternalSymbolCacheDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«InternalTenantSymbolCacheDTO»»:
+      title: CommonResponse«List«InternalTenantSymbolCacheDTO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/InternalTenantSymbolCacheDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«KlineDTO»»:
+      title: CommonResponse«List«KlineDTO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/KlineDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«KlineVO»»:
+      title: CommonResponse«List«KlineVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/KlineVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«MarketCategoryVO»»:
+      title: CommonResponse«List«MarketCategoryVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketCategoryVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«OpenPriceVO»»:
+      title: CommonResponse«List«OpenPriceVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenPriceVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«PlateVO»»:
+      title: CommonResponse«List«PlateVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlateVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«PriceVO»»:
+      title: CommonResponse«List«PriceVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«SymbolBracketCacheDTO»»:
+      title: CommonResponse«List«SymbolBracketCacheDTO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/SymbolBracketCacheDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«SymbolCacheDTO»»:
+      title: CommonResponse«List«SymbolCacheDTO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/SymbolCacheDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«TickerBookVO»»:
+      title: CommonResponse«List«TickerBookVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/TickerBookVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«TickerVO»»:
+      title: CommonResponse«List«TickerVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/TickerVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«List«string»»:
+      title: CommonResponse«List«string»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: array
+          items:
+            type: string
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«MongoPageResult«FundRateRecordVO»»:
+      title: CommonResponse«MongoPageResult«FundRateRecordVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/MongoPageResult«FundRateRecordVO»'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«MongoPageResult«RiskBalanceVO»»:
+      title: CommonResponse«MongoPageResult«RiskBalanceVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/MongoPageResult«RiskBalanceVO»'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«OpenInterestVO»:
+      title: CommonResponse«OpenInterestVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/OpenInterestVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«PageResult«MMTradeVO»»:
+      title: CommonResponse«PageResult«MMTradeVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/PageResult«MMTradeVO»'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«PageResult«MarketVO»»:
+      title: CommonResponse«PageResult«MarketVO»»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/PageResult«MarketVO»'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«PriceVO»:
+      title: CommonResponse«PriceVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/PriceVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«SymbolBracketVO»:
+      title: CommonResponse«SymbolBracketVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/SymbolBracketVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«SymbolCacheDTO»:
+      title: CommonResponse«SymbolCacheDTO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/SymbolCacheDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«SymbolListDTO»:
+      title: CommonResponse«SymbolListDTO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/SymbolListDTO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«TickerBookVO»:
+      title: CommonResponse«TickerBookVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/TickerBookVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«TickerVO»:
+      title: CommonResponse«TickerVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/TickerVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«TradeStatsVO»:
+      title: CommonResponse«TradeStatsVO»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          $ref: '#/components/schemas/TradeStatsVO'
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«boolean»:
+      title: CommonResponse«boolean»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: boolean
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«long»:
+      title: CommonResponse«long»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: integer
+          format: int64
+        returnCode:
+          type: integer
+          format: int32
+    CommonResponse«string»:
+      title: CommonResponse«string»
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorMessage'
+        msgInfo:
+          type: string
+        result:
+          type: string
+        returnCode:
+          type: integer
+          format: int32
+    ContractVO:
+      title: ContractVO
+      type: object
+      properties:
+        ask:
+          type: string
+          description: Current lowest ask price
+        base_currency:
+          type: string
+          description: 'Symbol/currency code of base pair, eg. BTC'
+        base_volume:
+          type: string
+          description: 24小时交易量
+        bid:
+          type: string
+          description: Current highest bid price
+        collection_internal:
+          type: integer
+          description: 收取时间间隔（小时）
+          format: int32
+        contractSize:
+          type: number
+          format: bigdecimal
+        end_timestamp:
+          type: integer
+          description: >-
+            Ending of this derivative product (relevant for expirable futures or
+            options)
+          format: int64
+        funding_rate:
+          type: number
+          description: 资金费率
+          format: bigdecimal
+        high:
+          type: string
+          description: 24小时最高交易价格
+        id:
+          type: integer
+          format: int64
+        index_currency:
+          type: string
+          description: Underlying currency for index
+        index_name:
+          type: string
+          description: Name of the underlying index if any
+        index_price:
+          type: string
+          description: Underlying index price
+        last_price:
+          type: string
+          description: 最新价格
+        low:
+          type: string
+          description: 24小时最低交易价格
+        next_funding_rate:
+          type: number
+          description: Upcoming predicted funding rate
+          format: bigdecimal
+        next_funding_rate_timestamp:
+          type: integer
+          description: 下次资金费率时间
+          format: int64
+        open_interest:
+          type: number
+          description: The open interest in the last 24 hours in contracts
+          format: bigdecimal
+        product_type:
+          type: string
+          description: 产品类型
+        start_timestamp:
+          type: integer
+          description: >-
+            Starting of this derivative product (relevant for expirable futures
+            or options)
+          format: int64
+        symbol:
+          type: string
+        target_currency:
+          type: string
+          description: 'Symbol/currency code of target pair, eg. ETH'
+        target_volume:
+          type: string
+          description: 24小时交易额
+        ticker_id:
+          type: string
+          description: >-
+            Identifier of a ticker with delimiter to separate base/target, eg.
+            BTC-PERP
+        underlyingType:
+          type: integer
+          format: int32
+    CountryAgentUidFilterRequest:
+      title: CountryAgentUidFilterRequest
+      type: object
+      properties:
+        countryCode:
+          type: string
+        symbol:
+          type: array
+          items:
+            type: string
+        userId:
+          type: integer
+          format: int64
+    DealVO:
+      title: DealVO
+      type: object
+      properties:
+        a:
+          type: number
+          description: 成交量
+          format: bigdecimal
+        m:
+          type: string
+          description: 买卖方向
+        p:
+          type: number
+          description: 成交价
+          format: bigdecimal
+        s:
+          type: string
+          description: 交易对
+        t:
+          type: integer
+          description: 成交时间
+          format: int64
+    DepthVO:
+      title: DepthVO
+      type: object
+      properties:
+        a:
+          type: array
+          description: 卖单
+          items:
+            type: array
+            items:
+              type: string
+        b:
+          type: array
+          description: 买单
+          items:
+            type: array
+            items:
+              type: string
+        s:
+          type: string
+          description: 交易对
+        t:
+          type: integer
+          description: 时间
+          format: int64
+        u:
+          type: integer
+          description: updateId
+          format: int64
+    ErrorMessage:
+      title: ErrorMessage
+      type: object
+      properties:
+        args:
+          type: array
+          items:
+            type: object
+        code:
+          type: string
+        msg:
+          type: string
+    EventFutureConfigVO:
+      title: EventFutureConfigVO
+      type: object
+      properties:
+        amountConfig:
+          type: string
+          description: 预设金额
+        amountScale:
+          type: integer
+          description: 金额精度
+          format: int32
+        cycleConfig:
+          type: string
+          description: 周期配置
+        maxAmount:
+          type: number
+          description: 最大下单金额
+          format: bigdecimal
+        minAmount:
+          type: number
+          description: 最小下单金额
+          format: bigdecimal
+        state:
+          type: integer
+          description: 状态
+          format: int32
+        symbol:
+          type: string
+          description: 交易对
+    EventFutureLimitInfoVO:
+      title: EventFutureLimitInfoVO
+      type: object
+      properties:
+        isFirstUse:
+          type: boolean
+          description: 是否首次使用
+          example: false
+        isInLimit:
+          type: boolean
+          description: 是否受限
+          example: false
+    FundRateDTO:
+      title: FundRateDTO
+      type: object
+      properties:
+        collectionInternal:
+          type: integer
+          format: int32
+        fundingRate:
+          type: number
+          format: bigdecimal
+        nextCollectionTime:
+          type: integer
+          format: int64
+        symbol:
+          type: string
+    FundRateRecordVO:
+      title: FundRateRecordVO
+      type: object
+      properties:
+        collectionInternal:
+          type: integer
+          description: 收取时间间隔（秒）
+          format: int64
+        createdTime:
+          type: integer
+          description: 时间
+          format: int64
+        fundingRate:
+          type: number
+          description: 最新资金费率
+          format: bigdecimal
+        id:
+          type: integer
+          description: id
+          format: int64
+        symbol:
+          type: string
+          description: 交易对
+    IndexPriceDTO:
+      title: IndexPriceDTO
+      type: object
+      properties:
+        p:
+          type: string
+        s:
+          type: string
+        t:
+          type: integer
+          format: int64
+    InternalFilterSymbolVO:
+      title: InternalFilterSymbolVO
+      type: object
+      properties:
+        showFlag:
+          type: boolean
+          description: 是否能展示
+          example: false
+        symbol:
+          type: string
+          description: 币对
+    InternalSymbolCacheDTO:
+      title: InternalSymbolCacheDTO
+      type: object
+      properties:
+        baseCoin:
+          type: string
+          description: 标的资产
+        cnName:
+          type: string
+          description: 合约中文名称
+        contractSize:
+          type: number
+          description: 合约乘数（面值）
+          format: bigdecimal
+        contractType:
+          type: string
+          description: |-
+            合约类型，永续，交割     PERPETUAL(1, "perpetual"),
+                CURRENT_MONTH(2, "current month"),
+                NEXT_MONTH(3, "next month"),
+                CURRENT_QUARTER(4, "current quarter"),
+                NEXT_QUARTER(5, "next quarter"),
+                PREDICT(6, "predict"),
+                CURRENT_WEEK(7, "next quarter"),
+                NEXT_WEEK(8, "next quarter");
+        deliveryDate:
+          type: integer
+          description: 交割时间
+          format: int64
+        deliveryPrice:
+          type: number
+          description: 交割价格
+          format: bigdecimal
+        enDesc:
+          type: string
+          description: 合约英文描述
+        enName:
+          type: string
+          description: 合约英文名称
+        fullName:
+          type: string
+          description: 币种全称
+        id:
+          type: integer
+          format: int64
+        isDisplay:
+          type: boolean
+          description: 是否展示
+          example: false
+        isOpenApi:
+          type: boolean
+          description: 是否支持OpenApi
+          example: false
+        minStepPrice:
+          type: number
+          description: 最小价格变动单位
+          format: bigdecimal
+        onboardDate:
+          type: integer
+          description: 上线时间
+          format: int64
+        pair:
+          type: string
+          description: 标的交易对
+        pricePrecision:
+          type: integer
+          description: 价格精度
+          format: int32
+        productType:
+          type: string
+          description: '合约类型，perpetual, futures，不区分交割间隔'
+        quoteCoin:
+          type: string
+          description: 报价资产
+        sequence:
+          type: integer
+          description: 序列
+          format: int32
+        spotCoin:
+          type: string
+          description: 币种
+        state:
+          type: integer
+          description: '交易对状态：0:待上市；1:交易中；2:已下架'
+          format: int32
+        symbol:
+          type: string
+          description: 交易对
+        symbolGroupId:
+          type: integer
+          format: int64
+        tradeSwitch:
+          type: boolean
+          description: 交易对开关
+          example: false
+        underlyingType:
+          type: string
+          description: 标的类型，1币本位，2U本位
+    InternalTenantSymbolCacheDTO:
+      title: InternalTenantSymbolCacheDTO
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        lastIcon:
+          type: string
+          description: 标签
+        symbol:
+          type: string
+          description: 交易对
+        symbolId:
+          type: integer
+          description: 交易对id
+          format: int64
+        tenantId:
+          type: integer
+          description: 租户id
+          format: int64
+        thanosSwitch:
+          type: boolean
+          description: 是否启用
+          example: false
+    KlineDTO:
+      title: KlineDTO
+      type: object
+      properties:
+        a:
+          type: string
+          description: 成交量
+        c:
+          type: string
+          description: 结束价
+        h:
+          type: string
+          description: 最高价
+        l:
+          type: string
+          description: 最低价
+        o:
+          type: string
+          description: 开始价
+        p:
+          type: string
+          description: 交易对Pair
+        s:
+          type: string
+          description: 交易对
+        t:
+          type: integer
+          description: 时间
+          format: int64
+        v:
+          type: string
+          description: 成交额
+    KlineVO:
+      title: KlineVO
+      type: object
+      properties:
+        a:
+          type: number
+          description: 成交量
+          format: bigdecimal
+        c:
+          type: number
+          description: 结束价
+          format: bigdecimal
+        h:
+          type: number
+          description: 最高价
+          format: bigdecimal
+        l:
+          type: number
+          description: 最低价
+          format: bigdecimal
+        o:
+          type: number
+          description: 开始价
+          format: bigdecimal
+        p:
+          type: string
+          description: 交易对Pair
+        s:
+          type: string
+          description: 交易对
+        t:
+          type: integer
+          description: 时间
+          format: int64
+        v:
+          type: number
+          description: 成交额
+          format: bigdecimal
+    LeverageBracketCacheDTO:
+      title: LeverageBracketCacheDTO
+      type: object
+      properties:
+        bracket:
+          type: integer
+          description: 档位
+          format: int32
+        maintMarginRate:
+          type: number
+          description: 维持保证金率
+          format: bigdecimal
+        maxLeverage:
+          type: number
+          description: 最大杠杆倍数
+          format: bigdecimal
+        maxNominalValue:
+          type: number
+          description: 该层最大名义价值
+          format: bigdecimal
+        maxStartMarginRate:
+          type: number
+          description: 最大起始保证金率
+          format: bigdecimal
+        minLeverage:
+          type: number
+          description: 最小杠杆倍数
+          format: bigdecimal
+        startMarginRate:
+          type: number
+          description: 起始保证金率
+          format: bigdecimal
+        symbol:
+          type: string
+          description: 交易对
+    Link:
+      title: Link
+      type: object
+      properties:
+        href:
+          type: string
+        templated:
+          type: boolean
+    MMTradeVO:
+      title: MMTradeVO
+      type: object
+      properties:
+        clientOrderId:
+          type: string
+        fee:
+          type: string
+        isMaker:
+          type: boolean
+        marginUnfrozen:
+          type: string
+        oppositeUserId:
+          type: integer
+          format: int64
+        orderId:
+          type: string
+        orderSide:
+          type: string
+        positionSide:
+          type: string
+        price:
+          type: string
+        quantity:
+          type: string
+        symbol:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+    MarketCategoryVO:
+      title: MarketCategoryVO
+      type: object
+      properties:
+        category:
+          type: string
+        desc:
+          type: string
+    MarketVO:
+      title: MarketVO
+      type: object
+      properties:
+        category:
+          type: string
+        contractType:
+          type: integer
+          format: int32
+        eventTime:
+          type: integer
+          format: int64
+        rate:
+          type: number
+          format: bigdecimal
+        status:
+          type: string
+        symbol:
+          type: string
+        underlyingType:
+          type: integer
+          format: int32
+    ModelAndView:
+      title: ModelAndView
+      type: object
+      properties:
+        empty:
+          type: boolean
+        model:
+          type: object
+        modelMap:
+          type: object
+          additionalProperties:
+            type: object
+        reference:
+          type: boolean
+        status:
+          type: string
+          enum:
+            - ACCEPTED
+            - ALREADY_REPORTED
+            - BAD_GATEWAY
+            - BAD_REQUEST
+            - BANDWIDTH_LIMIT_EXCEEDED
+            - CHECKPOINT
+            - CONFLICT
+            - CONTINUE
+            - CREATED
+            - DESTINATION_LOCKED
+            - EXPECTATION_FAILED
+            - FAILED_DEPENDENCY
+            - FORBIDDEN
+            - FOUND
+            - GATEWAY_TIMEOUT
+            - GONE
+            - HTTP_VERSION_NOT_SUPPORTED
+            - IM_USED
+            - INSUFFICIENT_SPACE_ON_RESOURCE
+            - INSUFFICIENT_STORAGE
+            - INTERNAL_SERVER_ERROR
+            - I_AM_A_TEAPOT
+            - LENGTH_REQUIRED
+            - LOCKED
+            - LOOP_DETECTED
+            - METHOD_FAILURE
+            - METHOD_NOT_ALLOWED
+            - MOVED_PERMANENTLY
+            - MOVED_TEMPORARILY
+            - MULTIPLE_CHOICES
+            - MULTI_STATUS
+            - NETWORK_AUTHENTICATION_REQUIRED
+            - NON_AUTHORITATIVE_INFORMATION
+            - NOT_ACCEPTABLE
+            - NOT_EXTENDED
+            - NOT_FOUND
+            - NOT_IMPLEMENTED
+            - NOT_MODIFIED
+            - NO_CONTENT
+            - OK
+            - PARTIAL_CONTENT
+            - PAYLOAD_TOO_LARGE
+            - PAYMENT_REQUIRED
+            - PERMANENT_REDIRECT
+            - PRECONDITION_FAILED
+            - PRECONDITION_REQUIRED
+            - PROCESSING
+            - PROXY_AUTHENTICATION_REQUIRED
+            - REQUESTED_RANGE_NOT_SATISFIABLE
+            - REQUEST_ENTITY_TOO_LARGE
+            - REQUEST_HEADER_FIELDS_TOO_LARGE
+            - REQUEST_TIMEOUT
+            - REQUEST_URI_TOO_LONG
+            - RESET_CONTENT
+            - SEE_OTHER
+            - SERVICE_UNAVAILABLE
+            - SWITCHING_PROTOCOLS
+            - TEMPORARY_REDIRECT
+            - TOO_EARLY
+            - TOO_MANY_REQUESTS
+            - UNAUTHORIZED
+            - UNAVAILABLE_FOR_LEGAL_REASONS
+            - UNPROCESSABLE_ENTITY
+            - UNSUPPORTED_MEDIA_TYPE
+            - UPGRADE_REQUIRED
+            - URI_TOO_LONG
+            - USE_PROXY
+            - VARIANT_ALSO_NEGOTIATES
+        view:
+          $ref: '#/components/schemas/View'
+        viewName:
+          type: string
+    MongoPageResult«FundRateRecordVO»:
+      title: MongoPageResult«FundRateRecordVO»
+      type: object
+      properties:
+        hasNext:
+          type: boolean
+          description: 是否有下一页
+          example: false
+        hasPrev:
+          type: boolean
+          description: 是否有上一页
+          example: false
+        items:
+          type: array
+          description: 数据列表
+          items:
+            $ref: '#/components/schemas/FundRateRecordVO'
+    MongoPageResult«RiskBalanceVO»:
+      title: MongoPageResult«RiskBalanceVO»
+      type: object
+      properties:
+        hasNext:
+          type: boolean
+          description: 是否有下一页
+          example: false
+        hasPrev:
+          type: boolean
+          description: 是否有上一页
+          example: false
+        items:
+          type: array
+          description: 数据列表
+          items:
+            $ref: '#/components/schemas/RiskBalanceVO'
+    OpenInterestVO:
+      title: OpenInterestVO
+      type: object
+      properties:
+        openInterest:
+          type: number
+          description: 头寸
+          format: bigdecimal
+        openInterestUsd:
+          type: number
+          description: 头寸价值
+          format: bigdecimal
+        symbol:
+          type: string
+          description: 交易对
+        time:
+          type: integer
+          description: 时间
+          format: int64
+    OpenPriceVO:
+      title: OpenPriceVO
+      type: object
+      properties:
+        openPrice:
+          type: number
+          description: 开盘价
+          format: bigdecimal
+        symbol:
+          type: string
+          description: 交易对
+    OrderBookVO:
+      title: OrderBookVO
+      type: object
+      properties:
+        asks:
+          type: array
+          description: asks
+          items:
+            type: array
+            items:
+              type: string
+        bids:
+          type: array
+          description: bids
+          items:
+            type: array
+            items:
+              type: string
+        ticker_id:
+          type: string
+          description: 交易对
+        timestamp:
+          type: integer
+          description: 更新时间
+          format: int64
+    PageResult«MMTradeVO»:
+      title: PageResult«MMTradeVO»
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MMTradeVO'
+        page:
+          type: integer
+          format: int64
+        ps:
+          type: integer
+          format: int64
+        total:
+          type: integer
+          format: int64
+    PageResult«MarketVO»:
+      title: PageResult«MarketVO»
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketVO'
+        page:
+          type: integer
+          format: int64
+        ps:
+          type: integer
+          format: int64
+        total:
+          type: integer
+          format: int64
+    PlateVO:
+      title: PlateVO
+      type: object
+      properties:
+        id:
+          type: integer
+          description: id
+          format: int64
+        plate:
+          type: string
+          description: 名称
+        symbolSortRule:
+          type: integer
+          description: 板块内币对排序规则 0 前端默认 1 按币对上线时间倒序
+          format: int32
+    PriceVO:
+      title: PriceVO
+      type: object
+      properties:
+        p:
+          type: number
+          description: 价格
+          format: bigdecimal
+        s:
+          type: string
+          description: 交易对
+        t:
+          type: integer
+          description: 时间
+          format: int64
+    RiskBalanceVO:
+      title: RiskBalanceVO
+      type: object
+      properties:
+        amount:
+          type: number
+          description: 余额
+          format: bigdecimal
+        coin:
+          type: string
+          description: 币种
+        createdTime:
+          type: integer
+          description: 时间
+          format: int64
+        id:
+          type: integer
+          description: id
+          format: int64
+    SymbolBracketCacheDTO:
+      title: SymbolBracketCacheDTO
+      type: object
+      properties:
+        leverageBrackets:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeverageBracketCacheDTO'
+        symbol:
+          type: string
+    SymbolBracketVO:
+      title: SymbolBracketVO
+      type: object
+      properties:
+        leverageBrackets:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeverageBracketCacheDTO'
+        symbol:
+          type: string
+    SymbolCacheDTO:
+      title: SymbolCacheDTO
+      type: object
+      properties:
+        baseCoin:
+          type: string
+          description: 标的资产
+        baseCoinDisplayPrecision:
+          type: integer
+          description: 标的币种显示精度
+          format: int32
+        baseCoinPrecision:
+          type: integer
+          description: 标的币种精度
+          format: int32
+        cnDesc:
+          type: string
+          description: 合约中文描述
+        cnName:
+          type: string
+          description: 合约中文名称
+        cnRemark:
+          type: string
+          description: 合约备注(中文)
+        contractSize:
+          type: number
+          description: 合约乘数（面值）
+          format: bigdecimal
+        contractType:
+          type: string
+          description: 合约类型，永续，交割
+        curMaxLeverage:
+          type: integer
+          description: 当前杠杆最大倍数
+          format: int32
+        deliveryCompletion:
+          type: boolean
+          description: 交割是否完成
+          example: false
+        deliveryDate:
+          type: integer
+          description: 交割时间
+          format: int64
+        deliveryPrice:
+          type: number
+          description: 交割价格
+          format: bigdecimal
+        depthPrecisionMerge:
+          type: integer
+          description: 盘口精度合并
+          format: int32
+        displaySwitch:
+          type: boolean
+        enDesc:
+          type: string
+          description: 合约英文描述
+        enName:
+          type: string
+          description: 合约英文名称
+        enRemark:
+          type: string
+          description: 合约备注(英文)
+        fastTrackCallbackRate1:
+          type: number
+          description: 跟踪委托-快捷回调率1
+          format: bigdecimal
+        fastTrackCallbackRate2:
+          type: number
+          description: 跟踪委托-快捷回调率2
+          format: bigdecimal
+        id:
+          type: integer
+          format: int64
+        initLeverage:
+          type: integer
+          description: 初始杠杆倍数
+          format: int32
+        initPositionType:
+          type: string
+          description: 初始仓位类型
+        isDisplay:
+          type: boolean
+          description: 是否展示
+          example: false
+        isOpenApi:
+          type: boolean
+          description: 是否支持OpenApi
+          example: false
+        labels:
+          type: array
+          description: 标签
+          items:
+            type: string
+        latestPriceDeviation:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+          description: '最新价格与标记价格偏离，默认0.01,当最新价格和标记价格价差超过时，止盈止损订单将不会触发'
+          format: bigdecimal
+        liquidationFee:
+          type: number
+          description: 强平手续费
+          format: bigdecimal
+        makerFee:
+          type: number
+          description: maker手续费
+          format: bigdecimal
+        marketCloseTakeBound:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+          description: 市价平偏离比例
+          format: bigdecimal
+        marketOpenTakeBound:
+          minimum: 0
+          exclusiveMinimum: false
+          type: number
+          description: 市价开偏离比例
+          format: bigdecimal
+        marketTakeBound:
+          type: number
+          description: 市价单最多价格偏离
+          format: bigdecimal
+        maxEntrusts:
+          type: integer
+          description: 最多open条件单
+          format: int32
+        maxNotional:
+          type: number
+          description: 最大名义价值
+          format: bigdecimal
+        maxOpenOrders:
+          type: integer
+          description: 最多open订单
+          format: int32
+        maxPrice:
+          type: number
+          description: 预测合约价格上限(原型指数价格上限)
+          format: bigdecimal
+        maxTrackCallbackRate:
+          type: number
+          description: 跟踪委托-最大回调率
+          format: bigdecimal
+        minNotional:
+          type: number
+          description: 最小名义价值
+          format: bigdecimal
+        minPrice:
+          type: number
+          description: 预测合约价格下限(原型指数价格下限)
+          format: bigdecimal
+        minQty:
+          type: number
+          description: 最小数量
+          format: bigdecimal
+        minStepPrice:
+          type: number
+          description: 最小价格变动单位
+          format: bigdecimal
+        minTrackCallbackRate:
+          type: number
+          description: 跟踪委托-最小回调率
+          format: bigdecimal
+        multiplierDown:
+          type: number
+          description: 限价卖单下限百分比
+          format: bigdecimal
+        multiplierUp:
+          type: number
+          description: 限价买单价格上限百分比
+          format: bigdecimal
+        nextOpenTime:
+          type: integer
+          description: 下次开市时间戳（毫秒）
+          format: int64
+        offTime:
+          type: string
+          description: 下线时间
+          format: date-time
+        onboardDate:
+          type: integer
+          description: 上线时间
+          format: int64
+        openSwitch:
+          type: boolean
+          description: 允许开仓开关
+          example: false
+        pair:
+          type: string
+          description: 标的交易对
+        plates:
+          type: array
+          items:
+            type: integer
+            format: int64
+        predictEventParam:
+          type: string
+          description: 事件关联参数
+        predictEventSort:
+          type: string
+          description: '事件关联排序:WIN 胜, FLAT 平, NEGATIVE 负'
+        predictEventType:
+          type: string
+          description: '预测事件类型:PERPETUAL 永续事件，ONCE 单事件'
+        pricePrecision:
+          type: integer
+          description: 价格精度
+          format: int32
+        productType:
+          type: string
+          description: '合约类型，perpetual, futures，不区分交割间隔'
+        quantityPrecision:
+          type: integer
+          description: 数量精度
+          format: int32
+        quoteCoin:
+          type: string
+          description: 报价资产
+        quoteCoinDisplayPrecision:
+          type: integer
+          description: 报价币种显示精度
+          format: int32
+        quoteCoinPrecision:
+          type: integer
+          description: 报价币种精度
+          format: int32
+        riskExpireTime:
+          type: integer
+          description: 风控设置的当前最大杠杆倍数和当前名义持仓价值系数的过期时间
+          format: int64
+        riskNominalValueCoefficient:
+          type: number
+          description: 当前名义持仓价值系数
+          format: bigdecimal
+        spotCoin:
+          type: string
+          description: 币种
+        state:
+          type: integer
+          description: 状态
+          format: int32
+        supportEntrustType:
+          type: string
+          description: 支持计划委托类型
+        supportOrderType:
+          type: string
+          description: 支持订单类型
+        supportPositionType:
+          type: string
+          description: 支持仓位类型
+        supportTimeInForce:
+          type: string
+          description: 支持有效方式
+        symbol:
+          type: string
+          description: 交易对
+        symbolGroupId:
+          type: integer
+          format: int64
+        symbolId:
+          type: integer
+          format: int64
+        takerFee:
+          type: number
+          description: taker手续费
+          format: bigdecimal
+        tradeSwitch:
+          type: boolean
+          description: 交易对开关
+          example: false
+        underlyingType:
+          type: string
+          description: 标的类型，币本位，u本位
+        updatedTime:
+          type: string
+          description: 更新时间
+          format: date-time
+    SymbolListDTO:
+      title: SymbolListDTO
+      type: object
+      properties:
+        symbols:
+          type: array
+          description: 交易对列表
+          items:
+            $ref: '#/components/schemas/SymbolCacheDTO'
+        time:
+          type: integer
+          description: 时间
+          format: int64
+        version:
+          type: string
+          description: 版本
+    TickerBookVO:
+      title: TickerBookVO
+      type: object
+      properties:
+        ap:
+          type: string
+          description: asks price(卖一价)
+        aq:
+          type: string
+          description: asks qty(卖一量)
+        bp:
+          type: string
+          description: bids price(买一价)
+        bq:
+          type: string
+          description: bids qty(买一量)
+        s:
+          type: string
+          description: 交易对(symbol)
+        t:
+          type: integer
+          description: 更新时间(time)
+          format: int64
+    TickerVO:
+      title: TickerVO
+      type: object
+      properties:
+        a:
+          type: string
+          description: 24小时成交量
+        c:
+          type: string
+          description: 最新价
+        h:
+          type: string
+          description: 24小时最高价
+        l:
+          type: string
+          description: 24小时最低价
+        o:
+          type: string
+          description: 24小时前第一笔成交价
+        r:
+          type: string
+          description: 24小时涨跌幅
+        s:
+          type: string
+          description: 交易对
+        t:
+          type: integer
+          description: 时间
+          format: int64
+        v:
+          type: string
+          description: 24小时成交额
+    TradeStatsVO:
+      title: TradeStatsVO
+      type: object
+      properties:
+        openPositionValue:
+          type: number
+          description: 所有交易对未平仓量
+          format: bigdecimal
+        time:
+          type: integer
+          description: 时间
+          format: int64
+        tradeDataValue:
+          type: number
+          description: 所有交易对24小时成交额
+          format: bigdecimal
+    View:
+      title: View
+      type: object
+      properties:
+        contentType:
+          type: string

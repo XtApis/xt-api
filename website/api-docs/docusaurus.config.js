@@ -86,6 +86,22 @@ const config = {
         routeBasePath: "swap",
       },
     ],
+    [
+      "docusaurus-plugin-openapi",
+      {
+        id: "api-user",
+        path: "add/biz-user.yml",
+        routeBasePath: "api/user",
+      },
+    ],
+    [
+      "docusaurus-plugin-openapi",
+      {
+        id: "api-contract",
+        path: "add/biz-quotation.yml",
+        routeBasePath: "api/contract",
+      },
+    ],
   ],
 
   themeConfig:
@@ -116,6 +132,14 @@ const config = {
               { to: "/cos", label: "Cloud Object Storage" },
               // { to: "/multi-spec", label: "Multi-spec" },
               { to: "/swap", label: "Swap" },
+            ],
+          },
+          {
+            label: "API 请求",
+            position: "left",
+            items: [
+              { to: "/api/user", label: "用户" },
+              { to: "/api/contract", label: "合约" },
             ],
           },
           {
