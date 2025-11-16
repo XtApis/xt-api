@@ -238,9 +238,6 @@ export default async function createConfigAsync(): Promise<Config> {
     markdown: {
       format: 'detect',
       mermaid: true,
-      hooks: {
-        onBrokenMarkdownLinks: 'warn',
-      },
       mdx1Compat: {
         // comments: false,
       },
