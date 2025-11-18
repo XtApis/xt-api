@@ -19,11 +19,17 @@
   "scripts": {
     "build": "tsc --noEmit && yarn babel:lib && yarn babel:lib-next && yarn format:lib-next",
     "watch": "concurrently --names \"lib,lib-next,tsc\" --kill-others \"yarn babel:lib --watch\" \"yarn babel:lib-next --watch\" \"yarn tsc --watch\"",
-    "babel:lib": "cross-env BABEL_ENV=lib babel src -d lib --extensions \".tsx,.ts\" --ignore \"**/*.d.ts\" --copy-files",
-    "babel:lib-next": "cross-env BABEL_ENV=lib-next babel src -d lib-next --extensions \".tsx,.ts\" --ignore \"**/*.d.ts\" --copy-files",
+    "babel:lib": "cross-env BABEL_ENV=lib node_modules/.bin/babel src -d lib --extensions \".tsx,.ts\" --ignore \"**/*.d.ts\" --copy-files",
+    "babel:lib-next": "cross-env BABEL_ENV=lib-next node_modules/.bin/babel src -d lib-next --extensions \".tsx,.ts\" --ignore \"**/*.d.ts\" --copy-files",
     "format:lib-next": "prettier --config ../../.prettierrc.json --write \"lib-next/**/*.{js,ts,jsx,tsc}\""
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.25.9",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.25.9",
+    "@babel/plugin-proposal-optional-chaining": "^7.25.9",
+    "@babel/plugin-transform-modules-commonjs": "^7.25.9",
+    "@babel/preset-typescript": "^7.25.9",
     "@docusaurus/module-type-aliases": "^3.7.0",
     "@docusaurus/types": "^3.7.0",
     "@types/concurrently": "^6.3.0",
@@ -32,7 +38,9 @@
     "@types/mdx-js__react": "^1.5.4",
     "@types/postman-collection": "^3.5.3",
     "@types/rtlcss": "^3.1.1",
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.3",
+    "prettier": "^2.8.8"
   },
   "dependencies": {
     "@docusaurus/theme-common": "^3.7.0",
