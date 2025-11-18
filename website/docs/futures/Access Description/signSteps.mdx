@@ -61,7 +61,7 @@ unencrypted_string="validate-appkey=++++++&validate-timestamp=*****#/future/user
 After obtaining the unencrypted_string, you can use the encryption algorithm along with the SECRETKEY to obtain the signature SIGNATURE for the unencrypted_string.
 
 ```bash
-SIGNATURE=$(echo -n "$FINAL_STRING" | openssl dgst -sha256 -hmac "$SECRETKEY" | awk '{print $2}')
+SIGNATURE=$(echo -n "$unencrypted_string" | openssl dgst -sha256 -hmac "$SECRETKEY" | awk '{print $2}')
 echo $SIGNATURE
 ```
 

@@ -64,7 +64,7 @@ unencrypted_string="validate-appkey=++++++&validate-timestamp=*****#/future/user
 
 获取unencryoted_string后，可用加密算法与SECRETKEY将unencryoted_string获取签名SIGNATURE
 ```bash
-SIGNATURE=$(echo -n "$FINAL_STRING" | openssl dgst -sha256 -hmac "$SECRETKEY" | awk '{print $2}')
+SIGNATURE=$(echo -n "$unencryoted_string" | openssl dgst -sha256 -hmac "$SECRETKEY" | awk '{print $2}')
 echo $SIGNATURE
 ```
 
