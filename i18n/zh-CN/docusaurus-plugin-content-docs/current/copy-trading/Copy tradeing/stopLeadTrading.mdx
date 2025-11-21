@@ -1,0 +1,29 @@
+---
+id: StopLeadTrading
+title: 停止带单交易
+sidebar_label: 停止带单交易
+position_number: 19
+---
+
+**类型:** POST
+
+**描述:** `/v1/copy-trade-account/copy-trade/cancel-leader`
+
+#### 限流规则
+
+2/s/ip
+
+### 参数
+
+_无_
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": true //true 或 false
+}
+```

@@ -1,0 +1,66 @@
+---
+id: Get User's Single Currency Fund Information
+title: 获取用户单币种资金信息
+sidebar_label: 获取用户单币种资金信息
+sidebar_position: 3
+---
+
+**请求类型** GET
+
+**接口地址：** `/future/user/v1/balance/detail`
+
+---
+
+### 请求参数
+
+| 参数名 | 类型   | 是否必填 | 默认值 | 描述 |
+| ------ | ------ | -------- | ------ | ---- |
+| coin   | string | 是       | N/A    | 币种 |
+
+---
+
+### 限流规则
+
+200次/秒/apikey
+
+---
+
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/balance/detail" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "coin=btc" \  # 必须
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "availableBalance": 0,      // 可用余额
+    "coin": "",                 // 币种
+    "isolatedMargin": 0,        // 冻结逐仓保证金
+    "openOrderMarginFrozen": 0, // 冻结委托保证金
+    "crossedMargin": 0,         // 全仓保证金
+    "bonus": 0,                 // 奖励金
+    "coupon": 0,                // 抵扣券
+    "walletBalance": 0          // 钱包余额
+  },
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_coin | 币种不存在 |

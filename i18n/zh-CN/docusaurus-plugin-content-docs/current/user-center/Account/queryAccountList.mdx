@@ -1,0 +1,48 @@
+---
+id: QueryAccountList
+title: 查询账户列表（适用于主账户和子账户）
+sidebar_label: 查询账户列表（适用于主账户和子账户）
+sidebar_position: 1
+---
+
+**类型:** GET
+
+**描述:** `/v4/user/account`
+
+### 参数
+
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| accountId | string | 否 | - | 账户 ID | - |
+| accountName | string | 否 | - | 账户名称 | - |
+| level | integer | 否 | - | 账户级别 | 1: 主账户; 2: 子账户 |
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "1352123154436",
+      "accountName": "master1",
+      "userId": 1352123154435,
+      "level": 1,
+      "createTime": "2022-04-19 02:02:42",
+      "updateTime": "2022-04-19 02:02:42"
+    },
+    {
+      "id": "1626456841938669570",
+      "accountName": "first1",
+      "userId": 1352123154436,
+      "level": 2,
+      "createTime": "2023-02-17 05:41:43",
+      "updateTime": "2023-02-17 05:41:43"
+    }
+  ]
+}
+```

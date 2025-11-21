@@ -1,0 +1,56 @@
+---
+id: GetMyHistoryLeaders
+title: Get My History Leaders
+sidebar_label: Get My History Leaders
+sidebar_position: 18
+---
+
+**Type:** GET
+
+**Description:** `/future/copytrade/user/v1/copy-trade/follower-leaders-page`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| type | number | No | - | Type (1: current follow, 2: history) | 1, 2 |
+| direction | string | No | - | Direction | NEXT, PREV |
+| limit | number | No | - | Page size | 10 |
+| id | number | No | - | ID | - |
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "leaderName": "string",     // leader nickname
+        "avatar": "string",         // avatar
+        "accountId": 0,             // leader accountId
+        "id": 0,                    // id
+        "level": 0,                 // level
+        "levelName": "string",      // level name
+        "followMarginU": 0,         // total follow margin
+        "followProfitU": 0,         // total follow profit
+        "cancel": Boolean           // status: false=following, true=canceled
+      }
+    ]
+  }
+}
+```

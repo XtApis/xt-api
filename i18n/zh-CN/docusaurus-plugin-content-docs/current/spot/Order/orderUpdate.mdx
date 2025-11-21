@@ -1,0 +1,56 @@
+---
+id: UpdateOrderLimit
+title: 更新订单（限价）
+sidebar_label: 更新订单（限价）
+sidebar_position: 5
+---
+
+**请求类型:** PUT
+**接口地址:** `/v4/order/{orderId}`
+
+---
+
+### 参数说明
+
+| 名称     | 类型   | 是否必填 | 默认值 | 描述     | 取值范围 |
+| -------- | ------ | -------- | ------ | -------- | -------- |
+| orderId  | number | 是       | —      | 订单ID   |          |
+| price    | number | 是       | —      | 价格     |          |
+| quantity | number | 是       | —      | 数量     |          |
+
+---
+
+### 限流规则
+- 50次/秒/每apikey
+
+---
+### 请求示例
+```
+curl --location --request PUT 'https://sapi.xt.com/v4/order/xxxxxx' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "orderId": "xxxxxx",
+    "price": 10,
+    "quantity": 2
+}'
+```
+
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "orderId": "6216559590087220004", // 订单ID
+    "modifyId": "407329711723834560" // 修改ID
+  }
+}

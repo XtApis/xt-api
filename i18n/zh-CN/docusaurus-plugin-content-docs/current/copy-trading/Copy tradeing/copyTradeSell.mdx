@@ -1,0 +1,32 @@
+---
+id: SellLeadOrder
+title: 卖出带单订单
+sidebar_label: 卖出带单订单
+sidebar_position: 6
+---
+
+**请求类型:** POST
+
+**接口路径:** `/v1/copy-trade-order/copy-trade/order/sell`
+
+### 限流规则
+
+50次/秒/API密钥
+
+### 请求参数
+
+| 参数名          | 类型   | 是否必填 | 默认值 | 描述         | 取值范围 |
+| ------------- | ------ | --------- | ------- | --------------- | ------ |
+| leaderOrderId | number | 是      |         | 带单订单ID |        |
+| symbol        | string | 是      |         | 交易对          |        |
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

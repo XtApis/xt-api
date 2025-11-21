@@ -1,0 +1,108 @@
+---
+id: SubmitBatchOrder
+title: 提交批量订单
+sidebar_label: 提交批量订单
+sidebar_position: 5
+---
+
+**类型** POST
+
+**接口描述:** `/v4/batch-order`
+
+---
+
+### 请求参数
+
+| 参数名              | 类型   | 是否必填 | 默认值 | 描述                                                                 | 取值范围             |
+|---------------------|--------|----------|--------|----------------------------------------------------------------------|----------------------|
+| clientBatchId       | string | 否       | N/A    | 客户端批次号。正则规则：`^[a-zA-Z0-9_]{4,32}$`                        | —                    |
+| items               | array  | 是       | N/A    | 订单数组                                                             | —                    |
+| item.symbol         | string | 是       | N/A    | 交易对                                                               | —                    |
+| item.clientOrderId  | string | 否       | N/A    | 客户端订单号。正则规则：`^[a-zA-Z0-9_]{4,32}$`                        | —                    |
+| item.side           | string | 是       | N/A    | 买卖方向                                                             | BUY, SELL            |
+| item.type           | string | 是       | N/A    | 订单类型                                                             | LIMIT, MARKET        |
+| item.timeInForce    | string | 是       | N/A    | 有效方式                                                             | GTC, FOK, IOC, GTX   |
+| item.bizType        | string | 是       | N/A    | 业务类型                                                             | SPOT, LEVER          |
+| item.price          | number | 否       | N/A    | 价格。LIMIT 必填，MARKET 可为空                                      | —                    |
+| item.quantity       | number | 否       | N/A    | 数量。LIMIT 必填，或按数量下 MARKET 订单时必填                       | —                    |
+| item.quoteQty       | number | 否       | N/A    | 金额。LIMIT 必填，或按金额下 MARKET 订单时必填                       | —                    |
+
+---
+
+### 限流规则
+- 30次/秒/apikey
+
+
+### 请求示例
+
+```
+curl --location --request POST 'https://sapi.xt.com/v4/batch-order' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx' \
+--data '{
+    "clientBatchId": "xxxxxxxxxx",
+    "items": [
+        {
+            "symbol": "XT_USDT",
+            "clientOrderId": "xxxxxxxxxx",
+            "side": "BUY",
+            "type": "LIMIT",
+            "timeInForce": "GTC",
+            "bizType": "SPOT",
+            "price": 10,
+            "quantity": 1
+        }
+    ]
+}'
+```
+
+---
+
+### 请求示例
+
+```json title="Request"
+{
+  "clientBatchId": "51232",
+  "items": [
+    {
+      "symbol": "BTC_USDT",
+      "clientOrderId": "16559590087220001",
+      "side": "BUY",
+      "type": "LIMIT",
+      "timeInForce": "GTC",
+      "bizType": "SPOT",
+      "price": 40000,
+      "quantity": 2,
+      "quoteQty": 80000
+    }
+  ]
+}
+```
+
+---
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "batchId": "123",
+    "items": [
+      {
+        "index": "0",               // 从 0 开始
+        "clientOrderId": "123",
+        "orderId": "123",
+        "reject": "false",
+        "reason": "invalid price precision"
+      }
+    ]
+  }
+}

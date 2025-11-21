@@ -1,0 +1,52 @@
+---
+id: GetLeadTraderHistoricalLeadOrder
+title: Get Lead Trader Historical Lead Order
+sidebar_label: Get Lead Trader Historical Lead Order
+sidebar_position: 29
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-order/public/copy-trade/order/leader-order-history`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `leaderAccountId` | number | Yes |  | Leader account id |
+| `symbol` | string | No |  | Trading pair, e.g. `btc_usdt`. If null, defaults to all |
+| `direction` | string | No | NEXT | Query direction. PREV - previous page, NEXT - next page |
+| `limit` | number | No | 10 | Number of pages (1-100) |
+| `id` | object | No |  | Start ID, e.g. `6216559590087220004` |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "string", // id
+      "orderId": "string", // order id
+      "symbol": "string", // symbol
+      "buySize": 0, // buy size
+      "buyTime": 0, // buy time
+      "buyPrice": 0, // buy price
+      "sellSize": 0, // sell size
+      "sellTime": 0, // sell time
+      "sellPrice": 0, // sell price
+      "profit": 0, // profit
+      "profitRate": 0, // profit rate
+      "triggerProfitPrice": 0, // take profit price
+      "triggerStopPrice": 0, // stop loss price
+      "followCount": 0 // follow count
+    }
+  ]
+}
+```

@@ -1,0 +1,60 @@
+---
+id: Change Position Type
+title: 修改持仓模式
+sidebar_label: 修改持仓模式
+sidebar_position: 17
+---
+
+**请求类型** POST
+
+**接口描述:** `/future/user/v1/position/change-type`
+
+### 限流规则
+
+200次/秒/apikey
+
+### 请求参数
+
+| 参数名       | 类型   | 是否必填 | 默认值 | 描述     | 取值范围            |
+| ------------ | ------ | -------- | ------ | -------- | ------------------- |
+| symbol       | string | 是       | N/A    | 交易对   |                     |
+| positionSide | string | 是       | N/A    | 持仓方向 | LONG; SHORT         |
+| positionType | string | 是       | N/A    | 仓位模式 | CROSSED; ISOLATED   |
+
+### 请求示例
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/position/change-type" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \  # 必须
+  -d "positionSide=SHORT" \  # 必须
+  -d "positionType=CROSSED" \  # 必须
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | 交易对不存在 |
+| invalid_position_type_only_isolated | 仓位类型无效——仅限逐仓 |
+| invalid_position_type_only_crossed | 仓位类型无效——仅限全仓 |
+| position_exists | 仓位已存在 |
+
+

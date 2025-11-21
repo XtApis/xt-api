@@ -1,0 +1,71 @@
+---
+id: get-trading-pair-risk-fund-balance
+title: Get Trading Pair Risk Fund Balance
+sidebar_label: Get Trading Pair Risk Fund Balance
+sidebar_position: 20
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/contract/risk-balance`
+
+#### Note：
+
+This method does not require a signature.
+
+### Limit flow rules
+
+None
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true |  | Trading pair |  |
+| direction | string | false | NEXT | Direction (PREV: Previous page; NEXT: Next page) | PREV;NEXT |
+| id | integer | false | N/A | id |  |
+| limit | integer | false | 10 | Limit |  |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/contract/risk-balance" \
+      -d "symbol=eth_usdt" \ # required
+      -d "limit=10"
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // Is there a next page
+    "hasPrev": false, // Is there a previous page
+    "items": [        // Datasheets
+      {
+        "amount": 0,      // Balance
+        "coin": "",       // Currency
+        "createdTime": 0, // Time
+        "id": 0           // id
+      }
+    ]
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |
+| invalid_direction | Invalid direction |

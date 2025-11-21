@@ -1,0 +1,28 @@
+---
+id: Heartbeat
+title: Heartbeat
+sidebar_label: Heartbeat
+sidebar_position: 5
+---
+
+### Description
+
+Each client connection must periodically send a text **`ping`** message. The server will reply with a text **`pong`**.
+
+If the server does not receive a **`ping`** within **30 seconds**, it will actively disconnect the link.
+
+---
+
+### Example
+
+**Client → Server**
+
+```plaintext
+ping
+```
+
+**Server → Client**
+
+```plaintext
+pong
+```

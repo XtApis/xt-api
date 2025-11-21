@@ -1,0 +1,52 @@
+---
+id: get-trading-pair-currency
+title: Get Trading Pair Currency
+sidebar_label: Get Trading Pair Currency
+sidebar_position: 2
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/symbol/coins`
+
+#### Note：
+
+This method does not require a signature.
+
+### Limit flow rules
+
+None
+
+### Request Parameters
+
+None
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -X GET "https://fapi.xt.com/future/market/v1/public/symbol/coins" 
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error Code | Description |
+|------------|-------------|
+|           |             |

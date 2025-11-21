@@ -1,0 +1,79 @@
+---
+id: SeeTriggerOrdersByEntrustId
+title: See Trigger Orders base on EntrustId
+sidebar_label: See Trigger Orders base on EntrustId
+sidebar_position: 5
+---
+
+**Type:** GET
+
+**Description:** `/future/trade/v1/entrust/plan-detail`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Parameters
+
+| Name      | Type    | Mandatory | Default | Description | Ranges |
+| --------- | ------- | --------- | ------- | ----------- | ------ |
+| entrustId | integer | TRUE      | N/A     | Order ID    | —      |
+
+---
+
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/plan-detail" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "entrustId=987654321"                   # Required
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "closePosition": false, // Whether to close all positions
+    "createdTime": 0, // Creation time
+    "entrustId": 0, // Order ID
+    "entrustType": "", // Entrust type
+    "marketOrderLevel": 0, // Market order level
+    "orderSide": "", // Order side
+    "ordinary": true,
+    "origQty": 0, // Quantity (contracts)
+    "positionSide": "", // Position side
+    "price": 0, // Entrust price
+    "state": "", // Order status: NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED, UNFINISHED, HISTORY
+    "stopPrice": 0, // Trigger price
+    "symbol": "", // Trading pair
+    "timeInForce": "", // Time in force
+    "triggerPriceType": "" // Trigger price type
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error code         | Description      |
+| ------------------ | ---------------- |
+| invalid_entrust_Id | Invalid order ID |
+
+---

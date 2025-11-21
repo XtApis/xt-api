@@ -1,0 +1,71 @@
+---
+id: Get Fund Fee Information
+title: Get Fund Fee Information
+sidebar_label: Get Fund Fee Information
+sidebar_position: 6
+---
+
+**Type** GET
+
+**Description:** `/future/user/v1/balance/funding-rate-list`
+
+**Parameters**
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| symbol | string | Yes | N/A | Trading pair (queries all if not passed) |
+| direction | string | No | NEXT | Direction (PREV: Previous page; NEXT: Next page) |
+| id | integer | No | N/A | Record ID |
+| limit | integer | No | 10 | Limit |
+| startTime | integer | No | N/A | Start time |
+| endTime | integer | No | N/A | End time |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/balance/funding-rate-list" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=eth_usdt" \  # Required
+  -d "limit=10"
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // Is there a next page
+    "hasPrev": false, // Is there a previous page
+    "items": [
+      // Datasheets
+      {
+        "cast": 0, // Fund fee
+        "coin": "", // Currency
+        "createdTime": 0, // Time
+        "id": 0, // ID
+        "positionSide": "", // Direction
+        "symbol": "" // Trading pair
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | Symbol does not exist |

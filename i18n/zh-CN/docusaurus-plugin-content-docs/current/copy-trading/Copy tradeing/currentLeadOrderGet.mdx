@@ -1,0 +1,49 @@
+---
+id: GetCurrentLeaderOrder
+title: 获取当前带单订单
+sidebar_label: 获取当前带单订单
+sidebar_position: 1
+---
+
+**请求类型:** GET
+
+**接口路径:** `/v1/copy-trade-order/copy-trade/order/cur-leader-order`
+
+### 限流规则
+
+2次/秒/API密钥
+
+### 请求参数
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | 否 |  | 交易对，不填则代表全部 |  |
+| type | number | 否 | 2 | <a href="#leaderOrderRequestType">带单订单请求类型</a>，1=详细，2=汇总 |  |
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "string",
+      "orderId": "string", // 订单ID
+      "symbol": "string", // 交易对
+      "buySize": 0, // 买入数量
+      "buyTime": 0, // 买入时间
+      "buyPrice": 0, // 买入价格
+      "sellSize": 0, // 卖出数量
+      "sellTime": 0, // 卖出时间
+      "sellPrice": 0, // 卖出价格
+      "profit": 0, // 盈亏
+      "profitRate": 0, // 盈亏率
+      "triggerProfitPrice": 0, // 触发止盈价格
+      "triggerStopPrice": 0, // 触发止损价格
+      "followCount": 0 // 跟单人数
+    }
+  ]
+}
+```

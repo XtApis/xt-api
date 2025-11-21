@@ -1,0 +1,63 @@
+---
+id: CancelTriggerOrders
+title: Cancel Trigger Orders
+sidebar_label: Cancel Trigger Orders
+sidebar_position: 2
+---
+
+**\*Type:** POST
+
+**Description:** `/future/trade/v1/entrust/cancel-plan`
+
+---
+
+### Limit Flow Rules
+
+- 200/s/apikey
+
+---
+
+### Parameters
+
+| Name      | Type   | Mandatory | Default | Description   | Ranges |
+| --------- | ------ | --------- | ------- | ------------- | ------ |
+| entrustId | string | Yes       | —       | Plan order ID | —      |
+
+---
+
+### Request Example
+
+```bash title="cURL"
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-plan" \
+-H "validate-appkey: $APPKEY" \                              # Required
+-H "validate-timestamp: $TIMESTAMP" \                        # Required
+-H "validate-signature: $SIGNATURE" \                        # Required
+-H "Content-Type: application/x-www-form-urlencoded" \       # Required
+-d "entrustId=12345678"                                      # Required
+```
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error Code     | Description                                  |
+| -------------- | -------------------------------------------- |
+| invalid_params | The provided parameter is empty or incorrect |
+
+---

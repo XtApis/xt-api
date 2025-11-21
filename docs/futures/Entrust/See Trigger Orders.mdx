@@ -1,0 +1,86 @@
+---
+id: SeeTriggerOrders
+title: See Trigger Orders
+sidebar_label: See Trigger Orders
+sidebar_position: 4
+---
+
+**Type:** GET
+
+**Description:** `/future/trade/v1/entrust/plan-list`
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true | N/A | Trading pairs (queries all trading pairs if not passed) |  |
+| page | integer | false | 1 | Page |  |
+| size | integer | false | 10 | Quantity of a single page |  |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+| state | string | true | N/A | Order status: NOT_TRIGGERED (new order); TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY | NOT_TRIGGERED;TRIGGERING;TRIGGERED;USER_REVOCATION;PLATFORM_REVOCATION;EXPIRED;UNFINISHED;HISTORY |
+
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/plan-list" \
+-H "validate-appkey: $APPKEY"             # Required
+-H "validate-timestamp: $TIMESTAMP"       # Required
+-H "validate-signature: $SIGNATURE"       # Required
+-H "Content-Type: application/x-www-form-urlencoded" # Required
+-d "symbol=btc_usdt"                      # Required
+-d "state=TRIGGERING"                     # Required
+-d "page=1" \
+-d "size=10"
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "clientOrderId": "", // Client order ID
+        "closePosition": false, // Whether triggered to close all
+        "createdTime": 0, // Create time
+        "entrustId": 0, // Order ID
+        "entrustType": "", // Order type
+        "marketOrderLevel": 0, // Best market price
+        "orderSide": "", // Order side
+        "ordinary": true,
+        "origQty": 0, // Quantity (Cont)
+        "positionSide": "", // Position side
+        "price": 0, // Order price
+        "state": "", // Order state: NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY
+        "stopPrice": 0, // Trigger price
+        "symbol": "", // Trading pair
+        "timeInForce": "", // Valid way
+        "triggerPriceType": "" // Trigger price type
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}
+```
+
+### Error Codes
+
+| Error code     | Description                 |
+| -------------- | --------------------------- |
+| invalid_state  | Invalid state parameter     |
+| invalid_symbol | Trading pair does not exist |
+
+---

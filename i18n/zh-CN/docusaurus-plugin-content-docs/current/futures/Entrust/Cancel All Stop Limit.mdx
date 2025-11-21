@@ -1,0 +1,58 @@
+---
+id: CancelAllStopLimit
+title: 取消所有止盈止损
+sidebar_label: 取消所有止盈止损
+sidebar_position: 9
+---
+
+**请求类型:** POST
+**描述:** `/future/trade/v1/entrust/cancel-all-profit-stop`
+
+---
+
+### 限流规则
+
+200/s/apikey
+
+---
+
+### 参数说明
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| symbol | string | TRUE | N/A | 交易对，例如 btc_usdt | — |
+
+---
+
+### 请求示例
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-all-profit-stop" \
+    -H "validate-appkey: $APPKEY"              # 必须
+    -H "validate-timestamp: $TIMESTAMP"        # 必须
+    -H "validate-signature: $SIGNATURE"        # 必须
+    -H "Content-Type: application/x-www-form-urlencoded"  # 必须
+    -d "symbol=btc_usdt"                       # 必须
+```
+
+---
+
+### 响应示例
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}
+```
+
+---
+
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_symbol | 交易对不存在 |
+| fail | 内部异常 |
+````

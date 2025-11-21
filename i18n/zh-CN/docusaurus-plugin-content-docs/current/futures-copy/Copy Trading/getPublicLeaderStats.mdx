@@ -1,0 +1,55 @@
+---
+id: PublicGetLeaderStatistics
+title: 公开获取带单员统计数据
+sidebar_label: 公开获取带单员统计数据
+sidebar_position: 25
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-stats`
+
+---
+
+### 参数
+
+| 名称      | 类型   | 必填 | 默认值 | 描述      | 范围 |
+| --------- | ------ | --------- | ------- | ---------------- | ------ |
+| accountId | number | 是       | -       | 带单员账户ID | -      |
+| days      | number | 否        | -       | 天数             | -      |
+
+---
+
+### 限流规则
+
+2/s/ip
+
+---
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "recentRate": 0, // 当前收益率
+    "totalEarnings": 0, // 总收益
+    "maxRetraction": 0, // 最大回撤
+    "followersEarnings": 0, // 跟单者收益
+    "winRate": 0, // 胜率
+    "totalTransactions": 0, // 总交易次数
+    "profitCount": 0, // 盈利次数
+    "lossCount": 0, // 亏损次数
+    "avgProfitAmount": 0, // 平均盈利金额
+    "avgLossAmount": 0, // 平均亏损金额
+    "pnlRate": 0, // 盈亏比
+    "avgHoldTime": 0, // 平均持仓时间
+    "weeklyTradeFrequency": 0, // 每周交易频率
+    "followerMargin": 0, // 跟单者总保证金
+    "tradeDays": 0, // 交易天数
+    "lastTradeTime": 0 // 最后交易时间
+  }
+}
+```

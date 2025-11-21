@@ -1,0 +1,35 @@
+---
+id: BalanceChange
+title: Balance change
+sidebar_label: Balance change
+sidebar_position: 7
+---
+
+### Subscribe / Unsubscribe
+
+```json title="Subscribe/Unsubscribe"
+{
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{balance}@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "balance",
+  "event": "balance@123456",
+  "data": {
+    "coin": "usdt",
+    "underlyingType": 1, // 1: Coin-M, 2: USDT-M
+    "walletBalance": "123", // Balance
+    "openOrderMarginFrozen": "123", // Frozen order
+    "isolatedMargin": "213", // Isolated Margin
+    "crossedMargin": "0" // Crossed Margin
+  }
+}
+```

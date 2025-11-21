@@ -1,0 +1,62 @@
+---
+id: QueryUserApiKey
+title: Query User's ApiKey (Applicable to Master and Sub Account)
+sidebar_label: Query User's ApiKey
+sidebar_position: 1
+---
+
+**Type:** GET
+
+**Description:** `/v4/user/account/api-key`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| userAccountId | string | false | - | Account id | - |
+| keyName | string | false | - | ApiKey name | - |
+| isLock | integer | false | - | ApiKey is locked or not | 0: not locked; 1: locked |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": [
+    {
+      "id": 1,
+      "userAccountId": "1352123154435", // account id
+      "userAccountLevel": 1, // 1-master account; 2-sub account
+      "userId": 1352123154435, // user id
+      "keyName": "abc", // apiKey name
+      "bindIps": "", // bind ip list
+      "accessKey": "b5e58714-2382-4e2f-8762-81b5ec9d363a", // encryption key
+      "secretKey": "17aef63c0cba308089fae03e2b13a4794bd2d411", // encryption string
+      "isLock": 0, // 0: not locked; 1: locked
+      "roleScopes": "QUERY_TRADE", // permissions code
+      "tags": null, // tags
+      "createTime": "2023-02-17 05:41:43", // create time
+      "updateTime": "2023-02-17 05:41:43" // update time
+    },
+    {
+      "id": 2,
+      "userAccountId": "13523123154435",
+      "userAccountLevel": 1,
+      "userId": 1352123154435,
+      "keyName": "bcd",
+      "bindIps": "",
+      "accessKey": "b5e58714-2382-4e2f-8762-81b5ec9d363a",
+      "secretKey": "17aef63c0cba308089fae03e2b13a4794bd2d411",
+      "isLock": 0,
+      "roleScopes": "QUERY_TRADE",
+      "tags": null,
+      "createTime": "2023-02-17 05:41:43",
+      "updateTime": "2023-02-17 05:41:43"
+    }
+  ]
+}
+```

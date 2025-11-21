@@ -1,0 +1,64 @@
+---
+id: GetAccountInfo
+title: 获取账户相关信息
+sidebar_label: 获取账户相关信息
+sidebar_position: 1
+---
+
+### 接口描述
+
+**请求类型:** GET
+
+**接口地址:** `/future/user/v1/account/info`
+
+---
+
+### 限流规则
+
+- 200次/秒/apikey
+
+---
+
+### 请求参数
+
+_无_
+
+---
+
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/account/info" \
+  -H "validate-appkey: $APPKEY" \        # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded"   # 必须
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "accountId": 0,           // 账户ID
+    "allowOpenPosition": false, // 是否允许开仓
+    "allowTrade": false,        // 是否允许交易
+    "allowTransfer": false,     // 是否允许划转
+    "openTime": "",             // 开户时间
+    "state": 0,                 // 用户状态
+    "userId": 0                 // 用户ID
+  },
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+|   |   |

@@ -1,0 +1,67 @@
+---
+id: GetUserFunds
+title: Get User's Funds Information
+sidebar_label: Get User's Funds Information
+sidebar_position: 4
+---
+
+### Description
+
+**Type** GET
+
+**Description:** `/future/user/v1/balance/list`
+
+---
+
+### Limit Flow Rules
+
+- 200/s/apikey
+
+---
+
+### Parameters
+
+_None_
+
+---
+
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/balance/list" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "availableBalance": 0, // Available balance
+      "coin": "", // Currency
+      "isolatedMargin": 0, // Frozen isolated margin
+      "openOrderMarginFrozen": 0, // Frozen order margin
+      "crossedMargin": 0, // Crossed margin
+      "bonus": 0, // Bonus
+      "coupon": 0, // Coupon
+      "walletBalance": 0 // Wallet balance
+    }
+  ],
+  "returnCode": 0
+}
+```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+|  |  |

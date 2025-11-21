@@ -1,0 +1,42 @@
+---
+id: QueryUserCommissions
+title: Query User Commissions
+sidebar_label: Query User Commissions
+sidebar_position: 9
+---
+
+**Type:** GET
+
+**Description:** `/v4/referal/invite/commissions`
+
+### Parameters
+
+| Name | Type   | Mandatory | Default | Description | Ranges |
+| ---- | ------ | --------- | ------- | ----------- | ------ |
+| uid  | number | true      |         | User ID     |        |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "exchangeUid": 6224154788385,
+      "commissionDate": "2025-04-18",
+      "commission": 0.318247047,
+      "commissionCurrency": "USDT",
+      "commissionType": "trade",
+      "commissionRate": 0.9,
+      "tradingPair": "ETH_USDT",
+      "tradeType": "futures",
+      "tradeVolume": 982.2441,
+      "fee": 0.35360783,
+      "createdAt": "2025-04-18 00:00:00",
+      "commissionTimestamp": 1744934400000
+    }
+  ]
+}
+```

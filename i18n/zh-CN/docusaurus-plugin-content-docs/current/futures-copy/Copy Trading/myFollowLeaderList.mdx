@@ -1,0 +1,35 @@
+---
+id: GetMyCurrentLeaders
+title: 获取我当前的带单员
+sidebar_label: 获取我当前的带单员
+sidebar_position: 17
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/user/v1/copy-trade/my-follow-list`
+
+---
+
+### 参数
+
+_无_
+
+---
+
+### 限流规则
+
+2/s/apikey
+
+---
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": [0, 0] // 带单员账户ID列表
+}
+```

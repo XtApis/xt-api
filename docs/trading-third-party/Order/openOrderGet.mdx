@@ -1,0 +1,58 @@
+---
+id: QueryCurrentPendingOrder
+title: Query the Current Pending Order
+sidebar_label: Query the Current Pending Order
+sidebar_position: 7
+description: /spot/v4/open-order
+---
+
+**Type:** GET
+
+**Description:** `/spot/v4/open-order`
+
+### Limit Flow Rules
+
+10/s/apikey
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `symbol` | string | No |  | Trading pair, if not filled in, represents all |
+| `bizType` | string | No |  | SPOT, LEVER |
+| `side` | string | No |  | BUY, SELL |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "symbol": "BTC_USDT",
+      "orderId": "6216559590087220004",
+      "clientOrderId": "16559590087220001",
+      "baseCurrency": "string",
+      "quoteCurrency": "string",
+      "side": "BUY",
+      "type": "LIMIT",
+      "timeInForce": "GTC",
+      "price": "40000",
+      "origQty": "2",
+      "origQuoteQty": "48000",
+      "executedQty": "1.2",
+      "leavingQty": "string",
+      "tradeBase": "2",
+      "tradeQuote": "48000",
+      "avgPrice": "42350",
+      "fee": "string",
+      "feeCurrency": "string",
+      "state": "NEW",
+      "time": 1655958915583,
+      "updatedTime": 1655958915583
+    }
+  ]
+}
+```

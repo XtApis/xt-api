@@ -1,0 +1,31 @@
+---
+id: MarkPrice
+title: 标记价格
+sidebar_label: 标记价格
+sidebar_position: 15
+---
+
+### 请求格式
+
+```
+mark_price@{symbol}
+```
+
+- **示例**：`mark_price@btc_usdt`
+- **推送频率**：1000ms
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "topic": "mark_price",
+  "event": "mark_price@btc_usdt",
+  "data": {
+    "s": "btc_usdt", // 交易对
+    "p": "50000", // 价格
+    "t": 123124124 // 时间戳
+  }
+}
+```

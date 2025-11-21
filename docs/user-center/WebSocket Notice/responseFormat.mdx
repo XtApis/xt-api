@@ -1,0 +1,44 @@
+---
+id: ResponseMessageFormat
+title: Response Message Format
+sidebar_label: Response Message Format
+sidebar_position: 3
+---
+
+**Type:** WEBSOCKET
+
+**Description:** Server response message schema for WebSocket API operations (acknowledgements and errors).
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| id | string | false | - | Echoed client callback ID used to correlate request/response. | - |
+| code | integer | true | - | Result code. `0` = success; non‑zero indicates error. | 0=success; 1=fail; 2=listenKey invalid; 401=token expire |
+| msg | string | false | "" | Additional message or error description. | - |
+
+---
+
+### Response Format
+
+```javascript title="format"
+{
+  "id": "{id}",   // callback ID
+  "code": 1,       // result: 0=success; 1=fail; 2=listenKey invalid
+  "msg": ""
+}
+```
+
+### Response Examples
+
+```json title="Response-success"
+{"id": "123", "code": 0, "msg": "success"}
+```
+
+```json title="response-token invalid"
+{"id": "123", "code": 401, "msg": "token expire"}
+```
+
+```
+
+```

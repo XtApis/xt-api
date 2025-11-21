@@ -1,0 +1,109 @@
+---
+id: BulkOrdersNew
+title: Batch Order Placement
+sidebar_label: Batch Order Placement
+sidebar_position: 3.5
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Method:** POST
+
+**Endpoint:** `/future/trade/v2/order/atomic-create-batch`
+
+> Content-Type = `application/x-www-form-urlencoded && application/json`
+
+---
+
+### Rate Limit
+
+200 requests/second per apikey
+
+---
+
+### Parameters
+
+Request Body (JSON)
+
+The request body is a JSON array, where each element represents an individual order.
+
+---
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+  {`curl -X POST "https://fapi.xt.com/future/trade/v2/order/atomic-create-batch" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-signature: $SIGNATURE" \\  # Required
+  -H "Content-Type: application/json" \\  # Required
+  -d '[
+        {
+          "symbol": "btc_usdt",
+          "origQty": 10,
+          "orderType": "MARKET",
+          "orderSide": "BUY",
+          "positionSide": "LONG"
+        },
+        {
+          "symbol": "eth_usdt",
+          "origQty": 5,
+          "orderType": "MARKET",
+          "orderSide": "BUY",
+          "positionSide": "LONG"
+        }
+      ]' \\  # Required
+`}
+</CodeBlock>
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": "",
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+---
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| gateway_decommission_ip_country | Unfortunately, our services are not available to users from restricted countries/regions. Please contact customer support if you have any questions. |
+| gateway_decommission_kyc_country | Unfortunately, our services are not available to users from restricted countries/regions. Please contact customer support if you have any questions. |
+| GATEWAY_0003 | The user has triggered risk control; your operation is temporarily blocked. |
+| GATEWAY_0006 | Your account has been locked due to risk control for **`{hour}`hours `{minutes}`minutes**. Please contact customer support or your account manager. |
+| GATEWAY_0007 | Your account has been locked due to risk control for **`{minutes} `minutes**. Please contact customer support or your account manager. |
+| invalid_symbol | The trading pair does not exist. |
+| symbol_is_not_trading | The trading pair is not currently available for trading. |
+| openapi_not_supported | The trading pair does not support OpenAPI operations. |
+| symbol_is_not_open_position | The trading pair cannot open positions. |
+| invalid_params | Invalid parameters. |
+| invalid_quantity | `origQty` must be an integer. |
+| quantity_can_not_less_than \* | `origQty` must be greater than \*. |
+| user_can_not_trade | The account is currently prohibited from trading. |
+| sub_account_not_trade | The sub-account is not allowed to trade. |
+| user_can_not_open_position | The account cannot open new positions. |
+| invalid_time_in_force | Invalid `timeInForce` parameter. |
+| invalid_price | Invalid price setting. |
+| invalid_trigger_profit_price | Invalid take-profit trigger price. |
+| invalid_trigger_stop_price | Invalid stop-loss trigger price. |
+| trigger_profit_price_more_than_sell_one_price | Take-profit trigger price must be higher than the best ask (long position). |
+| trigger_profit_price_less_than_buy_one_price | Take-profit trigger price must be lower than the best bid (short position). |
+| trigger_stop_price_more_than_sell_one_price | Stop-loss trigger price must be lower than the best ask (long position). |
+| trigger_stop_price_less_than_buy_one_price | Stop-loss trigger price must be higher than the best bid (short position). |
+| trigger_profit_price_less_than_order_delegate_price | Take-profit trigger price cannot be lower than the order price (long). |
+| trigger_profit_price_more_than_order_delegate_price | Take-profit trigger price cannot be higher than the order price (short). |
+| trigger_stop_price_more_than_order_delegate_price | Stop-loss trigger price cannot be higher than the order price (long). |
+| trigger_stop_price_less_than_order_delegate_price | Stop-loss trigger price cannot be lower than the order price (short). |
+| on_board_30_minutes_limit_order_price_limit | Limit order price restrictions apply within 30 minutes of listing. |
+| order_create_size_exceed | The number of orders in a single batch exceeds the maximum limit (20 orders). |

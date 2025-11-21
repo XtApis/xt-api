@@ -1,0 +1,57 @@
+---
+id: GetLeaderDailyCumulativeIncomeChart
+title: Get Leader Daily Cumulative Income Chart
+sidebar_label: Get Leader Daily Cumulative Income Chart
+sidebar_position: 26
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-balance/public/copy-trade/leader-income-rate`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `accountId` | number | Yes |  | Leader account id |
+| `days` | number | No | 7 | Query days. Options: `7, 30, 90, 180` |
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "incomeRate": [
+      // income rate
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ],
+    "totalIncome": [
+      // total income
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ],
+    "totalIncomeRate": [
+      // total income rate
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ]
+  }
+}
+```

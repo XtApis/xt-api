@@ -1,0 +1,48 @@
+---
+id: PublicGetLeaderInfo
+title: Public Get Leader Info
+sidebar_label: Public Get Leader Info
+sidebar_position: 27
+---
+
+**Type:** GET
+
+**Description:** `/future/copytrade/public/user/v1/public/copy-trade/leader-detail-v2`
+
+### Parameters
+
+| Name      | Type   | Mandatory | Default | Description      | Ranges |
+| --------- | ------ | --------- | ------- | ---------------- | ------ |
+| accountId | number | Yes       | -       | Leader accountId | -      |
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "nickName": "string", // Nickname
+    "avatar": "string", // Avatar
+    "intro": "string", // Introduction
+    "leadDays": 0, // Lead days (start time)
+    "levelId": 0, // Leader level ID
+    "level": 0, // Leader level
+    "levelName": "string", // Leader level name
+    "label": ["string"], // Labels
+    "followNumber": 0, // Total follower count
+    "currentFollowNumber": 0, // Current active follower count
+    "maxFollowerSize": 0, // Max allowed followers
+    "profitRate": 0, // Leader profit rate
+    "platformProfitRate": 0, // Platform profit rate
+    "totalRights": 0, // Total rights / equity
+    "displayEquity": true, // Whether to display equity
+    "displayPosition": false // Whether to display positions
+  }
+}
+```

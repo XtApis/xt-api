@@ -1,0 +1,46 @@
+---
+id: getLoanList
+title: Get Loan List
+sidebar_label: Get Loan List
+sidebar_position: 2
+---
+
+**Type:** GET
+
+**Description:** `/v4/lever/loan`
+
+### Parameters
+
+| Name      | Type   | Mandatory | Default | Description    | Ranges      |
+| --------- | ------ | --------- | ------- | -------------- | ----------- |
+| symbol    | string | Yes       | -       | Trading pair   | -           |
+| startTime | long   | Yes       | -       | Start time     | -           |
+| endTime   | long   | Yes       | -       | End time       | -           |
+| fromId    | long   | No        | -       | Page start ID  | -           |
+| direction | string | Yes       | -       | Page direction | NEXT / PREV |
+| limit     | int    | No        | 20      | Page limit     | Default 20  |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": {
+    "hasNext": true, // whether has next page
+    "hasPrev": true, // whether has previous page
+    "items": [
+      {
+        "id": "string", // loan record id
+        "amount": 0, // loan amount
+        "currency": "string", // currency
+        "currencyId": 0, // currency id
+        "symbol": "string", // trading pair symbol
+        "symbolId": 0, // symbol id
+        "createTime": 0 // create time (timestamp)
+      }
+    ]
+  }
+}
+```

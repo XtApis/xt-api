@@ -1,0 +1,76 @@
+---
+id: GetContractAccountAssets
+title: 获取合约账户资产
+sidebar_label: 获取合约账户资产
+sidebar_position: 1.1
+---
+
+**请求类型** GET
+
+**接口地址:** `/future/user/v1/compat/balance/list`
+
+---
+
+#### **限流规则**
+
+200次/秒/apikey
+
+---
+
+### 请求参数
+
+| 参数名         | 类型   | 是否必填 | 默认值 | 描述     |
+| -------------- | ------ | -------- | ------ | -------- |
+| queryAccountId | string | 否       | N/A    | 账户 ID  |
+
+---
+
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/compat/balance/list" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "queryAccountId=1234567890"
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "accountId": 500000000000,     // 账户ID
+      "userId": 500000000000,        // 用户ID
+      "coin": "usdt",                // 币种
+      "underlyingType": 2,           // 币种标准，U本位
+      "walletBalance": "2078.57264793",  // 钱包余额
+      "openOrderMarginFrozen": "0",  // 委托单冻结
+      "isolatedMargin": "0",         // 逐仓保证金
+      "crossedMargin": "0",          // 全仓保证金
+      "amount": "2078.57264793",     // 净资产余额
+      "totalAmount": "2078.57264793",// 保证金余额
+      "convertBtcAmount": "0.03638940", // 钱包余额折算BTC
+      "convertUsdtAmount": "2078.5726", // 钱包余额折算USDT
+      "profit": "0",                 // 已实现盈亏
+      "notProfit": "0",              // 未实现盈亏
+      "bonus": "0",                  // 奖励金
+      "coupon": "0"                  // 抵扣券
+    }
+  ],
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+|   |   |

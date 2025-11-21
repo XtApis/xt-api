@@ -1,0 +1,41 @@
+---
+id: AggTicker
+title: Agg ticker
+sidebar_label: Agg ticker
+sidebar_position: 12
+---
+
+### Request Format
+
+```
+agg_ticker@{symbol}
+```
+
+- **example**: `agg_ticker@btc_usdt`
+- **rate**: 1000ms
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "agg_ticker",
+  "event": "agg_ticker@btc_usdt",
+  "data": {
+    "s": "btc_index", // trading pair
+    "o": "49000", // opening price
+    "c": "50000", // closing price
+    "h": "0.1", // highest price
+    "l": "0.1", // lowest price
+    "a": "0.1", // volume
+    "v": "0.1", // turnover
+    "ch": "0.21", // quote change
+    "i": "0.21", // index price
+    "m": "0.21", // mark price
+    "bp": "0.21", // bid price
+    "ap": "0.21", // ask price
+    "t": 123124124 // timestamp
+  }
+}
+```

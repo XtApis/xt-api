@@ -1,0 +1,53 @@
+---
+id: GetFollowerPositionHistory
+title: Get follower position history
+sidebar_label: Get follower position history
+sidebar_position: 36
+---
+
+**Type:** GET
+
+**Description:** `/future/copytrade/user/v1/copy-trade/follower-balance-bill`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| leaderAccountId | number | Yes |  | leader accountId |  |
+| symbol | string | No |  | symbol |  |
+| direction | string | No |  | direction | NEXT, PREV |
+| limit | number | No |  | page size | 10 |
+| id | number | No |  | id |  |
+
+### Limit Flow Rules
+
+### Response
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "",
+  "error": {
+    "code": "",
+    "msg": "",
+    "args": [{}]
+  },
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "id": 0,
+        "accountId": 0, // account id
+        "coin": "", // currency
+        "symbol": "", // trading pair
+        "type": "", // EXCHANGE transfer CLOSE_POSITION close profit/loss TAKE_OVER position takeover QIANG_PING_MANAGER forced liquidation management fee FUND funding fee FEE fee (open, close, forced liquidation) ADL auto-deleveraging TAKE_OVER position takeover MERGE position merge
+        "amount": 0.0, // quantity
+        "side": "", // ADD deposit SUB withdrawal
+        "afterAmount": 0.0, // balance after change
+        "createdTime": 0 // time
+      }
+    ]
+  }
+}
+```

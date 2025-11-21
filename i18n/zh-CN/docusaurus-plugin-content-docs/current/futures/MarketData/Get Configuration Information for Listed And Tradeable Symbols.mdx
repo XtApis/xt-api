@@ -1,0 +1,111 @@
+---
+id: get-configuration-information-for-listed-and-tradeable-symbols
+title: 获取已上市且可交易合约的配置信息
+sidebar_label: 获取已上市且可交易合约的配置信息
+sidebar_position: 4
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v3/public/symbol/list`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 请求参数
+
+无
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -X GET "https://fapi.xt.com/future/market/v3/public/symbol/list"
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "baseCoin": "",      // 基础资产
+      "baseCoinDisplayPrecision": 0,  // 显示的基础币种精度
+      "cnDesc": "",  // 合约描述
+      "cnName": "",  // 合约名称
+      "cnRemark": "",  // 合约备注
+      "contractSize": 0,  // 合约乘数（面值）
+      "contractType": "",  // 合约类型，永续、交割
+      "deliveryCompletion": false,
+      "deliveryDate": 0,
+      "deliveryPrice": 0,
+      "depthPrecisionMerge": 0,
+      "enDesc": "",
+      "enName": "",
+      "enRemark": "",
+      "initLeverage": 0,
+      "initPositionType": "",
+      "isDisplay": false,
+      "isOpenApi": false,
+      "labels": [],
+      "liquidationFee": 0,
+      "makerFee": 0,
+      "marketTakeBound": 0,
+      "maxEntrusts": 0,
+      "maxNotional": 0,
+      "maxOpenOrders": 0,
+      "maxPrice": 0,
+      "minNotional": 0,
+      "minPrice": 0,
+      "minQty": 0,
+      "minStepPrice": 0,
+      "multiplierDown": 0,
+      "multiplierUp": 0,
+      "onboardDate": 0,
+      "pair": "",
+      "plates": [],
+      "predictEventParam": "",
+      "predictEventSort": "",
+      "predictEventType": "",
+      "pricePrecision": 0,
+      "productType": "",
+      "quantityPrecision": 0,     // 已弃用
+      "quoteCoin": "",
+      "quoteCoinDisplayPrecision": 0,
+      "quoteCoinPrecision": 0,
+      "baseCoinPrecision": 0,
+      "state": 0,
+      "supportEntrustType": "",
+      "supportOrderType": "",
+      "supportPositionType": "",
+      "supportTimeInForce": "",
+      "offTime": "",                    // 合约计划下架时间
+      "symbol": "",
+      "symbolGroupId": 0,
+      "takerFee": 0,
+      "tradeSwitch": false,
+      "underlyingType": ""
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+|  |  |

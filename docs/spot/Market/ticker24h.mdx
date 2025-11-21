@@ -1,0 +1,45 @@
+---
+id: Get24hStatisticsTicker
+title: Get 24h statistics ticker
+sidebar_label: Get 24h statistics ticker
+sidebar_position: 11
+---
+
+**Type:** GET **Description:** `/v4/public/ticker/24h`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false |  | trading pair eg:btc_usdt |  |
+| symbols | array | false |  | Collection of trading pairs. Priority is higher than symbol. eg: btc_usdt,eth_usdt |  |
+| tags | string | false |  | Set of tags, separated by commas, currently only supports spot |  |
+
+#### **Limit Flow Rules**
+
+1. single symbol: `10/s/ip`
+2. multiple symbols: `10/s/ip`
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "s": "btc_usdt",
+      "t": 1661856036925,
+      "cv": "0.0000",
+      "cr": "0.00",
+      "o": "9000.0000",
+      "l": "9000.0000",
+      "h": "9000.0000",
+      "c": "9000.0000",
+      "q": "0.0136",
+      "v": "122.9940"
+    }
+  ]
+}
+```

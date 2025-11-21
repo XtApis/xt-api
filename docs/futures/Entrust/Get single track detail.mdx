@@ -1,0 +1,82 @@
+---
+id: GetSingleTrackDetail
+title: Get single track detail
+sidebar_label: Get single track detail
+sidebar_position: 15
+---
+
+**Type:** GET **Description:** `/future/trade/v1/entrust/track-detail`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Parameters
+
+| Name    | Type    | Mandatory | Default | Description       | Ranges |
+| ------- | ------- | --------- | ------- | ----------------- | ------ |
+| trackId | integer | TRUE      | N/A     | Tracking order ID | —      |
+
+---
+
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/track-detail" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "trackId=1234567890"                    # Required
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "activationPrice": 0, // Activation price
+    "avgPrice": 0, // Average price
+    "callback": "", // Callback type: PROPORTION or FIXED
+    "callbackVal": 0, // Callback value
+    "configActivation": false, // Whether activation price is configured
+    "createdTime": 0, // Creation time
+    "currentPrice": 0, // Current market price
+    "desc": "", // Description
+    "executedQty": 0, // Executed quantity
+    "orderSide": "", // Order side
+    "ordinary": true, // Ordinary flag
+    "origQty": 0, // Original quantity (contracts)
+    "positionSide": "", // Position side
+    "price": 0, // Entrust price
+    "state": "", // Order state: NOT_ACTIVATION, NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED, DELEGATION_FAILED
+    "stopPrice": 0, // Trigger price
+    "symbol": "", // Trading pair
+    "trackId": 0, // Tracking order ID
+    "triggerPriceType": "", // Trigger price type
+    "updatedTime": 0 // Last updated time
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error Code       | Description                   |
+| ---------------- | ----------------------------- |
+| invalid_track_Id | Tracking order does not exist |
+
+---

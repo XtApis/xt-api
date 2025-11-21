@@ -1,0 +1,67 @@
+---
+id: get-funding-rate-information
+title: Get Funding Rate Information
+sidebar_label: Get Funding Rate Information
+sidebar_position: 18
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/funding-rate`
+
+#### **Limit Flow Rules**
+
+1/s/ip
+
+### Note：
+
+This method does not require a signature.
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      | N/A     | Trading pair |        |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/funding-rate" \
+      -d "symbol=eth_usdt" # required
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // Is there a next page
+    "hasPrev": false, // Is there a previous page
+    "items": [        // Datasheets
+      {
+        "collectionInternal": 0, // Billing Cycle (hour)
+        "createdTime": 0,        // Time
+        "fundingRate": 0,        // Latest funding rate
+        "id": 0,                 // id
+        "symbol": ""             // Trading pair
+      }
+    ]
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |

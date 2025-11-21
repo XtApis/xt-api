@@ -1,0 +1,25 @@
+---
+id: BasicInformation
+title:  接入说明
+sidebar_label:  接入说明
+sidebar_position: 1
+---
+
+### 概述
+
+本文档描述了借贷系统的 API 接口，支持普通借款、还款、质押物调整、续借等核心功能。
+
+**基础信息:**
+
+- 基础 URL: `https://sapi.xt-dev.com`
+- 认证方式: Gateway Header
+- 内容类型: `application/json`
+
+### 认证
+
+所有 API 请求都需要在 Header 中包含认证信息：
+
+```
+access_key: {tenant_id}
+x-account-id: {account_id}
+```

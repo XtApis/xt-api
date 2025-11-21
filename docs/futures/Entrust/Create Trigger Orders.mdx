@@ -1,0 +1,78 @@
+---
+id: CreateTriggerOrders
+title: Create Trigger Orders
+sidebar_label: Create Trigger Orders
+sidebar_position: 1
+---
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/entrust/create-plan`
+
+**Remark:** Content-Type = application/x-www-form-urlencoded && application/json
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| clientOrderId | string | false | N/A | Client order ID |  |
+| symbol | string | true |  | Trading pair |  |
+| orderSide | string | true | N/A | Order side: BUY; SELL | BUY;SELL |
+| entrustType | string | true | N/A | Order type: TAKE_PROFIT (Take Profit Limit Order); STOP (Stop Limit Order); TAKE_PROFIT_MARKET (Take Profit Market Order); STOP_MARKET (Stop Loss Market Order) | TAKE_PROFIT;STOP;TAKE_PROFIT_MARKET;STOP_MARKET |
+| origQty | number | true | N/A | Quantity (Cont) |  |
+| price | number | false | N/A | Price |  |
+| stopPrice | number | true | N/A | Trigger price |  |
+| timeInForce | string | true | N/A | Valid way: GTC; IOC; FOK; GTX. Market orders only support IOC | GTC;IOC;FOK;GTX |
+| triggerPriceType | string | true | N/A | Trigger price type: INDEX_PRICE (Index price); MARK_PRICE (Mark price); LATEST_PRICE (latest price) | INDEX_PRICE;MARK_PRICE;LATEST_PRICE |
+| positionSide | string | true | N/A | Position side: LONG; SHORT | LONG;SHORT |
+
+### Request Example
+
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/create-plan" \
+    -H "validate-appkey: $APPKEY" \         # Required
+    -H "validate-timestamp: $TIMESTAMP" \   # Required
+    -H "validate-singature: $SINGATURE" \   # Required
+    -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+    -d "symbol=btc_usdt" \                  # Required
+    -d "orderSide=BUY" \                    # Required
+    -d "entrustType=STOP" \                 # Required
+    -d "origQty=1" \                        # Required
+    -d "stopPrice=999" \                    # Required
+    -d "timeInForce=IOC" \                  # Required
+    -d "triggerPriceType=LATEST_PRICE" \    # Required
+    -d "positionSide=LONG"  # Ture
+```
+
+### Request Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+### Error code
+
+| Error code | Description |
+| --- | --- |
+| deposit_coupon_exists | Margin coupon already exists |
+| exist_bonus_positon_not_create_reverse_position | Reverse position not allowed when a bonus position exists |
+| invalid_params | Required parameter missing |
+| invalid_price | Invalid price; take-profit/stop-loss limit price validation failed |
+| market_plan_entrust_must_be_ioc_or_fok | Market TP/SL order must use IOC or FOK |
+| invalid_stop_price | Invalid stop price |
+| invalid_quantity_scale | Order quantity must be an integer |
+| invalid_trigger_profit_price | Invalid take-profit trigger price |
+| invalid_time_in_force | timeInForce validation failed for planned take-profit order |
+| on_board_30_minutes_limit_order_price_limit | Limit order price restriction within first 30 minutes after listing |

@@ -1,0 +1,52 @@
+---
+id: get-trading-pair-currency
+title: 获取交易对币种
+sidebar_label: 获取交易对币种
+sidebar_position: 2
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/symbol/coins`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 请求参数
+
+无
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -X GET "https://fapi.xt.com/future/market/v1/public/symbol/coins" 
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| Error Code | Description |
+|------------|-------------|
+|           |             |

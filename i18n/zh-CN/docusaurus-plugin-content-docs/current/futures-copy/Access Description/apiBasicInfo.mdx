@@ -1,0 +1,26 @@
+---
+id: BasicInformationOfTheInterface
+title: 接口基本信息
+sidebar_label: 接口基本信息
+sidebar_position: 2
+---
+
+
+:::info **生产环境:**
+
+[https://fapi.xt.com](https://fapi.xt.com)
+
+:::
+
+由于延迟高、稳定性差等原因，**不建议**通过代理访问 XT API。
+
+- **GET** 请求参数放在 **query Params** 中。
+- **POST** 请求参数放在 **request body** 中。
+
+请求头应设置为：
+
+Content-Type=application/x-www-form-urlencoded
+
+除了接口本身所需的参数外，还必须在 query Params 或 request body 中传入 **signature** 参数。
+
+> **不**需要 signature 参数的接口会在其文档中明确说明。

@@ -1,0 +1,46 @@
+---
+id: WithdrawDetail
+title: Withdraw Detail
+sidebar_label: Withdraw Detail
+sidebar_position: 5
+---
+
+**Type:** GET **Description:** `/v4/withdraw`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| recordId | string | false | N/A | Withdrawal record ID, obtained from the **Withdraw** endpoint. Recommended to use this first. |  |
+| clientOrderId | string | false | N/A | Custom client ID |  |
+
+### Notes
+
+- Limit flow rules: **1 request/second per apikey**.
+- Use `recordId` if available, otherwise `clientOrderId`.
+- This endpoint retrieves the detailed information of a specific withdrawal record.
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "id": 100, // Withdrawal record ID
+    "clientOrderId": 10, // Client ID
+    "type": 0, // Type: CHAIN_TRANSFER - Blockchain withdrawal, INTERNAL_TRANSFER - Internal withdrawal
+    "currency": "btc", // Currency
+    "address": "xxxxx", // Withdrawal address
+    "status": "REVIEW", // Withdrawal status (see Deposit/Withdraw status reference)
+    "amount": 0.1, // Withdrawal amount
+    "fee": 0.0001, // Withdrawal fee
+    "chain": "Tron", // Transfer network
+    "memo": "yyyyy", // Memo/Tag if applicable
+    "confirmations": 2, // Number of block confirmations
+    "transactionId": "490267492", // Transaction hash
+    "createdTime": 1737093343000 // Withdrawal application time (ms)
+  }
+}
+```

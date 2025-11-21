@@ -1,0 +1,29 @@
+---
+id: GetUserRole
+title: Get User Role
+sidebar_label: Get User Role
+sidebar_position: 11
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-account/copy-trade/user-status`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+_None_
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": "string" // LEADER, FOLLOWER, NONE
+}
+```

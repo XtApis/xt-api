@@ -1,0 +1,44 @@
+---
+id: SignatureInstructions
+title: Signature Instructions
+sidebar_label: Signature Instructions
+sidebar_position: 4
+---
+
+Since XT needs to provide some open interfaces for third-party platforms, the issue of **data security** must be considered. For example:
+
+- Whether the data has been tampered with
+- Whether the data is outdated
+- Whether the data can be submitted repeatedly
+- Whether the interface access frequency is exceeded
+
+Among these, **whether the data has been tampered with is the most important**.
+
+### Rules
+
+1. **AppKey & SecretKey** Please apply for `appkey` and `secretkey` in the user center first. Each user's `appkey` and `secretkey` are different.
+
+2. **Timestamp** Its value should be the Unix timestamp (milliseconds) when the request is sent. The data validity is calculated based on this value.
+
+3. **Signature** Add `signature`, its value is obtained by a certain rule of the signature algorithm.
+
+4. **RecvWindow** Defines the valid time of the request.
+
+   - The server checks whether the timestamp falls between **2s and 60s**.
+   - Requests older than **5000ms** are invalid.
+   - If the client timestamp is **>1s ahead** of the server time, the request is invalid.
+   - Longer than **5s is not recommended**.
+   - You can adjust `recvWindow` for high-frequency trading.
+
+5. **Algorithms** The signature is calculated using a **hash protocol**. Recommended: **HmacSHA256**. Supported: `HmacMD5`, `HmacSHA1`, `HmacSHA224`, `HmacSHA256`, `HmacSHA384`, `HmacSHA512`.
+
+### Signature Parameters
+
+| Name | Mandatory | Example | Description |
+| --- | --- | --- | --- |
+| `validate-appkey` | Yes | dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83 | User’s AppKey |
+| `validate-timestamp` | Yes | 1641446237201 | Unix timestamp (ms) |
+| `validate-signature` | Yes | 0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d | Generated signature |
+| `validate-recvwindow` | Yes | 5000 (millisecond) | Request valid time window |
+| `validate-algorithms` | Yes | HmacSHA256 | Supported: HmacMD5, HmacSHA1, HmacSHA224, HmacSHA256, HmacSHA384, HmacSHA512 |
+| `validate-signversion` | No | 1.0 | Reserved, signature version number |

@@ -1,0 +1,67 @@
+---
+id: GetLeaderHistoryOrderPage
+title: 获取带单员历史订单分页
+sidebar_label: 获取带单员历史订单分页
+sidebar_position: 2
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/order/v1/copy-trade/leader-order-history`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| type | number | 是 | - | 类型，1 (详情), 2 (汇总) | 1, 2 |
+| symbol | string | 否 | - | 交易对 | - |
+| direction | string | 否 | - | 分页方向 | NEXT, PREV |
+| limit | number | 否 | - | 页面大小 | 10 |
+| id | number | 否 | - | ID | - |
+
+### 限流规则
+
+2/s/apikey
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "symbolName": "string", // 交易对
+        "positionType": "string", // 仓位类型: CROSSED; ISOLATED
+        "positionSide": "string", // 方向: LONG; SHORT
+        "openLeverage": 5, // 杠杆倍数
+        "id": 0, // ID
+        "orderId": 0, // 订单ID
+        "trackNo": 0, // 追踪号
+        "openTime": 0, // 开仓时间
+        "closeTime": 0, // 平仓时间
+        "entryPrice": 0, // 持仓价格
+        "openPrice": 0, // 开仓价格
+        "closePrice": 0, // 平仓价格
+        "profitRate": 0, // 收益率
+        "openMargin": 0, // 开仓保证金
+        "realizedPnl": 0, // 已实现盈亏
+        "fee": 0, // 手续费
+        "openSize": 0, // 开仓数量
+        "closeSize": 0, // 平仓数量
+        "positionSize": 0, // 持仓数量
+        "closeOrderSize": 0, // 平仓订单数量
+        "availableCloseSize": 0, // 可平仓数量
+        "triggerProfitPrice": 0, // 止盈触发价格
+        "triggerStopPrice": 0, // 止损触发价格
+        "triggerPriceType": "string", // 触发价格类型: LATEST_PRICE, MARK_PRICE
+        "followOrderCount": 0 // 跟单订单数量
+      }
+    ]
+  }
+}
+```

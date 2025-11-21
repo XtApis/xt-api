@@ -1,0 +1,40 @@
+---
+id: GetLeadTraderCurrencyPreferences
+title: 获取带单者币种偏好
+sidebar_label: 获取带单者币种偏好
+sidebar_position: 27
+---
+
+**请求类型:** GET
+
+**接口路径:** `/v1/copy-trade-balance/public/copy-trade/leader-trading-prefer`
+
+### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+| 参数名      | 类型   | 是否必填 | 默认值 | 描述       | 取值范围        |
+| --------- | ------ | --------- | ------- | ----------------- | ------------- |
+| accountId | number | 是       |         | 带单账户ID |               |
+| days      | number | 否        | 7       | 查询天数        | 7, 30, 90, 180 |
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": [
+    {
+      "count": 0, // 交易次数
+      "index": 0,
+      "percentage": 0, // 百分比
+      "pnl": 0, // 交易盈亏
+      "symbol": "string" // 交易对，"others"表示其他
+    }
+  ]
+}
+```

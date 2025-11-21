@@ -1,0 +1,56 @@
+---
+id: GetSingleCurrencyAsset
+title: Get a single currency asset
+sidebar_label: Get a single currency asset
+sidebar_position: 2
+---
+
+### Description
+
+**GET** `/v4/balance`
+
+---
+
+### Parameters
+
+| Name     | Type   | Mandatory | Default | Description   | Ranges |
+| -------- | ------ | --------- | ------- | ------------- | ------ |
+| currency | string | Yes       | N/A     | Example: usdt | -      |
+
+---
+
+### Code Example
+
+#### Java
+
+```java
+public String getBalance(){
+    // Your request logic here
+}
+```
+
+#### Python
+
+```python
+# Your request logic here
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "currency": "usdt",
+    "currencyId": 0,
+    "frozenAmount": 0,
+    "availableAmount": 0,
+    "totalAmount": 0,
+    "convertBtcAmount": 0
+  }
+}
+```

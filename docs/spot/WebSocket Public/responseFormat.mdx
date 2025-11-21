@@ -1,0 +1,19 @@
+---
+id: ResponseMessageFormat
+title: Response message format
+sidebar_label: Response message format
+sidebar_position: 3
+---
+
+### Format
+
+```json title="Format"
+{
+  "id": "{id}",   // call back ID
+  "code": 1,      // result 0=success; 1=fail; 2=listenKey invalid
+  "msg": ""
+}
+Response Examples
+{"id":"123", "code": 0, "msg": "success"}
+{"id":"123", "code": 401, "msg": "token expire"}
+```

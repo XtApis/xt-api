@@ -1,0 +1,33 @@
+---
+id: RequestMessageFormat
+title: Request message format
+sidebar_label: Request message format
+sidebar_position: 2
+---
+
+### Parameters
+
+| name | type | mandatory | default | description            |
+| ---- | ---- | --------- | ------- | ---------------------- |
+| –    | –    | false     | N/A     | No parameters required |
+
+### Notes
+
+- Request messages are used to **subscribe** or **unsubscribe** from WebSocket topics.
+- Parameter format: \{topic\}@\{arg\},\{arg\},…
+- `listenKey` must be applied via the **/v4/ws-token** endpoint.
+- `id` is a custom request identifier for matching responses.
+
+### Subscribe Example
+
+```javascript title="Subscribe"
+{
+"method": "subscribe",
+"params": [
+  "\{topic\}@\{arg\},\{arg\}",   // Event subscription
+  "\{topic\}@\{arg\}"
+],
+"listenKey": "512312356123123123", // Listener key from /v4/ws-token
+"id": "\{id\}"
+}
+```

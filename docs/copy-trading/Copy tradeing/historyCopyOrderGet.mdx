@@ -1,0 +1,53 @@
+---
+id: GetHistoricalCopyOrder
+title: Get Historical Copy Order
+sidebar_label: Historical Copy Order
+position_number: 3
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-order/copy-trade/order/his-follower-order`
+
+#### Limit Flow Rules
+
+2/s/apikey
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false | — | Trading pair, if not filled in, represents all | — |
+| direction | string | false | NEXT | Query direction | PREV-previous page, NEXT-next page |
+| limit | number | false | 10 | Number of pages | 1-100 |
+| id | object | false | — | Start ID, e.g. `6216559590087220004` | — |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "string",
+      "orderId": "string", // order id
+      "symbol": "string", // symbol
+      "buySize": 0, // buy quantity
+      "buyTime": 0, // buy time
+      "buyPrice": 0, // buy price
+      "sellSize": 0, // sell quantity
+      "sellTime": 0, // sell time
+      "sellPrice": 0, // sell price
+      "profit": 0, // profit
+      "profitRate": 0, // profit rate
+      "triggerProfitPrice": 0, // trigger profit price
+      "triggerStopPrice": 0, // trigger stop price
+      "leaderOrderId": "string", // leader order id
+      "leaderNickname": "string", // leader nickname
+      "leaderAvatar": "string" // leader avatar
+    }
+  ]
+}
+```

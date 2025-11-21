@@ -1,0 +1,63 @@
+---
+id: RepayHistoryQuery
+title: Query Repayment History
+sidebar_label: Query Repayment History
+sidebar_position: 12
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/order/finance/loan/order/history/repay`
+
+---
+
+### Query Parameters
+
+| Name | Type | Required | Default | Description | Allowed Values |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | false | 1 | Page number | — |
+| limit | integer | false | 10 | Number of items per page | — |
+| orderId | string | false | — | Order ID | — |
+| loanCurrencyIdList | array | false | — | List of loan currency IDs | — |
+| pledgeCurrencyIdList | array | false | — | List of pledge currency IDs | — |
+| status | array | false | — | List of order statuses | RUNNING, REPAID, COMPLETE |
+| repaymentTypes | array | false | — | Repayment history types | ORDINARY_REPAYMENT, PLEDGE_REPAYMENT |
+| productTypes | array | false | — | List of product types | SEVEN_DAY_APR, THIRTY_DAY_APR, NINETY_DAY_APR, DEMAND, VIP |
+| startTime | integer | false | — | Start timestamp (ms) | — |
+| endTime | integer | false | — | End timestamp (ms) | — |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                        // Response code: 0 - success
+  "mc": "SUCCESS",                                // Message
+  "ma": [],                                       // Message arguments
+  "result": {
+    "hasPrev": false,                             // Has previous page
+    "hasNext": false,                             // Has next page
+    "items": [                                    // Repayment history list
+      {
+        "id": "542798144228902336",               // Order ID
+        "repaymentPrincipalAmount": "111",        // Repaid principal amount
+        "repaymentInterestAmount": "0.00040207",  // Repaid interest amount
+        "repaymentTotalAmount": "111.00040207",   // Total repayment (principal + interest)
+        "loanCurrency": "xt",                     // Loan currency symbol
+        "loanCurrencyId": 128,                    // Loan currency ID
+        "pledgeCurrency": "btc",                  // Pledge currency symbol
+        "pledgeCurrencyId": 2,                    // Pledge currency ID
+        "repaymentPledgeAmount": null,            // Pledged repayment amount (if partial)
+        "returnPledgeAmount": "0.0085350021",     // Returned pledge amount
+        "status": "COMPLETE",                     // Repayment status
+        "createTime": 1760405945766,              // Repayment time (ms)
+        "repaymentType": "ORDINARY_REPAYMENT",    // Repayment type
+        "productType": "DEMAND"                   // Product type
+      }
+    ]
+  }
+}`}
+</CodeBlock>

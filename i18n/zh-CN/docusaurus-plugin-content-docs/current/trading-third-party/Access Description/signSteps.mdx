@@ -1,0 +1,130 @@
+---
+id: ObtainSignature
+title: 获取签名
+sidebar_label: 获取签名
+sidebar_position: 5
+---
+
+示例：`http://oapi.xt.com/api/v1/public/symbol/detail?symbol=btc_usdt`
+
+以下是在 Linux bash 环境中使用 **echo openssl** 和 **curl** 工具调用下单接口的示例。Appkey、secret 仅用于演示目的：
+
+- **appKey:** `3976eb88-76d0-4f6e-a6b2-a57980770085`
+- **secretKey:** `bc6630d0231fda5cd98794f52c4998659beda290`
+
+### 部分 Header 数据
+
+```
+validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+validate-timestamp: 1641446237201
+validate-algorithms: HmacSHA256
+```
+
+### 请求数据
+
+```json
+{
+  "type": "LIMIT",
+  "timeInForce": "GTC",
+  "side": "BUY",
+  "symbol": "btc_usdt",
+  "price": "39000",
+  "quantity": "2"
+}
+```
+
+---
+
+## 1. 数据拼接规则
+
+- **path**：按照 path 中的顺序拼接所有值。示例：`/sign/test/bb/aa`
+
+- **query**：按 key 的字典序排序所有 key=value。示例：`userName=dfdfdf&password=ggg`
+
+- **body**：
+  - **JSON**：直接使用 JSON 字符串。
+  - **x-www-form-urlencoded**：按 key 的字典序排序所有 key=value。
+  - **form-data**：不支持。
+
+> 如果存在多种数据形式，按以下顺序拼接：`path → query → body`。
+
+**示例**
+
+- **Path 示例**
+
+  ```
+  /future/api/v1/public/symbol/detail
+  ```
+
+- **Query 示例**
+
+  ```
+  symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
+  ```
+
+- **Body (JSON) 示例**
+
+  ```json
+  {
+    "symbol": "btc_usdt",
+    "side": "BUY",
+    "type": "LIMIT",
+    "timeInForce": "GTC",
+    "quantity": 2,
+    "price": 39000
+  }
+  ```
+
+- **Body (x-www-form-urlencoded) 示例**
+
+  ```
+  symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
+  ```
+
+- **Query + Body 混合示例**
+  ```
+  query: symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC
+  body:  {"quantity":2,"price":39000}
+  ```
+
+**最终规则**：
+
+```
+Y = #path#query#body
+```
+
+- 仅有 query：`Y=#path#query`
+- 仅有 body：`Y=#path#body`
+- 同时有 query 和 body：`Y=#path#query#body`
+
+---
+
+## 2. 请求头拼接
+
+按字母自然升序排列后，用 `&` 连接各个 key：
+
+```
+X = validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-timestamp=1641446237201
+```
+
+---
+
+## 3. 生成签名
+
+最终需要加密的字符串：
+
+```
+sign = XY
+```
+
+加密方法：
+
+```java
+signature = org.apache.commons.codec.digest.HmacUtils.hmacSha256Hex(secretkey, sign);
+```
+
+将生成的签名放入请求头：
+
+```
+validate-signature: {signature}
+```

@@ -1,0 +1,51 @@
+---
+id: ChooseLeader
+title: 选择带单员
+sidebar_label: 选择带单员
+sidebar_position: 15
+---
+
+**类型:** POST
+
+**描述:**
+
+`/future/copytrade/user/v1/copy-trade/choose-leader`
+
+---
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| leaderAccountId | number | 是 | - | 带单员账户ID | - |
+| symbols | string | 是 | - | 交易对 | - |
+| followType | string | 是 | - | 跟单类型 | FUND, RATE, MARGIN_RATE |
+| followVal | number | 否 | - | 跟单金额 | - |
+| triggerProfitRate | number | 否 | - | 止盈率 | - |
+| triggerStopRate | number | 否 | - | 止损率 | - |
+| followDirection | string | 否 | - | 跟单方向 | FORWARD, REVERSE |
+| followLoss | number | 否 | - | 跟单亏损 | - |
+| autoFollowSymbol | boolean | 否 | - | 是否自动跟随交易对 | true, false |
+| followLossOperate | enum | 否 | - | 跟单亏损操作 | MARKET_SELL, LEADER_CLOSE, MANUAL_PROCESS |
+| syncPosition | boolean | 否 | - | 自动跟单新合约市场（智能跟单） | true, false |
+| followMode | enum | 否 | - | 跟单模式 | CUSTOM (自定义跟单), AUTO (智能跟单) |
+| transferFromBizType | enum | 是 | - | 从现货或合约转入 | SPOT, FUTURES_U |
+
+---
+
+### 限流规则
+
+2/s/apikey
+
+---
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=成功, false=失败
+}
+```

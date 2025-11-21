@@ -1,0 +1,44 @@
+---
+id: GetAllUsersOfAffiliate
+title: Get All Users of Affiliate
+sidebar_label: Get All Users of Affiliate
+sidebar_position: 1
+---
+
+**Type:** GET
+
+**Description:** `/v4/referal/invite/users`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| startTime | number | false |  | start time |  |
+| endTime | number | false |  | end time |  |
+| fromId | number | false |  | Starting ID |  |
+| direction | string | false | NEXT | query direction | PREV, NEXT |
+| limit | int | false | 10 | Limit number, max 100 | `1<=limit<=100` |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "id": 123,
+        "regTime": 1721962593000,
+        "role": "PARTNER",
+        "userId": 123456789
+      }
+    ]
+  }
+}
+```

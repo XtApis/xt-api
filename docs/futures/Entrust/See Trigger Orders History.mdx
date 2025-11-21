@@ -1,0 +1,92 @@
+---
+id: SeeTriggerOrdersHistory
+title: See Trigger Orders History
+sidebar_label: See Trigger Orders History
+sidebar_position: 6
+---
+
+**Type:** GET **Description:** `/future/trade/v1/entrust/plan-list-history`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | TRUE | N/A | Trading pair (if not provided, queries all pairs) | — |
+| direction | string | FALSE | NEXT | Query direction | PREV; NEXT |
+| id | integer | FALSE | N/A | Record ID | — |
+| limit | integer | FALSE | 10 | Limit number of records | — |
+| startTime | integer | FALSE | N/A | Start time | — |
+| endTime | integer | FALSE | N/A | End time | — |
+
+---
+
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/plan-list-history" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "symbol=btc_usdt"                       # Required
+    -d "direction=NEXT" \
+    -d "limit=10"
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // Whether there is a next page
+    "hasPrev": false, // Whether there is a previous page
+    "items": [
+      // Data list
+      {
+        "clientOrderId": "", // Client order ID
+        "closePosition": false, // Whether to close all positions
+        "createdTime": 0, // Creation time
+        "entrustId": 0, // Order ID
+        "entrustType": "", // Entrust type
+        "marketOrderLevel": 0, // Market order level
+        "orderSide": "", // Order side
+        "ordinary": true,
+        "origQty": 0, // Quantity (contracts)
+        "positionSide": "", // Position side
+        "price": 0, // Entrust price
+        "state": "", // Order status: NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED
+        "stopPrice": 0, // Trigger price
+        "symbol": "", // Trading pair
+        "timeInForce": "", // Time in force
+        "triggerPriceType": "" // Trigger price type
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error code | Description |
+| ---------- | ----------- |
+| —          | —           |
+
+---

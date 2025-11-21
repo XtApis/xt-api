@@ -1,0 +1,48 @@
+---
+id: ModifyUserAccountApiKey
+title: Modify User Account ApiKey
+sidebar_label: Modify User Account ApiKey
+sidebar_position: 3
+---
+
+**Type:** PUT
+
+**Description:** `/v4/user/account/api-key`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| id | string | true | - | ApiKey id | - |
+| accessKey | string | true | - | Access key | - |
+| keyName | string | false | - | ApiKey name | - |
+| bindIps | string | false | - | Bind ip list, multiple can be separated by commas | - |
+| roleScopes | string | true | - | Permissions code | QUERY: query; TRADE: spot & margin trade; WITHDRAW: withdraw; LEVER_LOAN: margin pledged; FUTURE: future trade; TRANSFER: transfer |
+| tags | string | false | - | Tags | - |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": {
+    "id": 4564, // apiKey id
+    "userAccountId": "1626456841938669570", // account id
+    "userAccountLevel": 2, // account level: 1-master account; 2-sub account
+    "userId": 1352123154435, // user id
+    "keyName": "123aaa", // apiKey name
+    "bindIps": null, // bind ip list
+    "accessKey": "99258227-f053-46a2-9b10-66c155eb705c", // encryption key
+    "secretKey": "4b1839e11bf7a1c6de5f078bd9f4b6e0850da3cf", // encryption string
+    "isLock": 0, // 0: not locked; 1: locked
+    "roleScopes": "QUERY_TRADE", // permissions code
+    "tags": null, // tags
+    "createTime": "2023-02-20 07:39:56.768", // create time
+    "updateTime": "2023-02-20 07:39:56.768" // update time
+  }
+}
+```

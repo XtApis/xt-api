@@ -1,0 +1,82 @@
+---
+id: QueryTrade
+title: 查询成交记录
+sidebar_label: 查询成交记录
+sidebar_position: 1
+---
+
+**类型:** GET
+
+**描述:** `/v4/trade`
+
+### 参数
+
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | 否 | N/A | 交易对，如不填写则代表所有 |  |
+| bizType | string | 否 | N/A | 业务类型：`SPOT`、`LEVER` |  |
+| orderSide | string | 否 | N/A | 订单方向：`BUY`、`SELL` |  |
+| orderType | string | 否 | N/A | 订单类型：`LIMIT`、`MARKET` |  |
+| orderId | number | 否 | N/A | 订单ID |  |
+| fromId | number | 否 | N/A | 起始ID |  |
+| direction | string | 否 | N/A | 查询方向：`PREV`、`NEXT` |  |
+| limit | number | 否 | 20 | 限制数量，最大100 |  |
+| startTime | number | 否 | N/A | 开始时间（例如：`1657682804112`） |  |
+| endTime | number | 否 | N/A | 结束时间 |  |
+
+### 请求示例
+
+```bash title="cURL"
+curl --location --request GET 'https://sapi.xt.com/v4/trade?limit=100&bizType=SPOT&startTime=1757779200000&endTime=1760457599999&direction=NEXT' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+```
+
+### 说明
+
+此接口用于查询成交记录。支持按交易对、业务类型、订单方向、订单类型、时间范围进行筛选，并支持分页查询。
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "hasPrev": true,
+    "hasNext": true,
+    "items": [
+      {
+        "symbol": "BTC_USDT", // 交易对
+        "tradeId": "6316559590087222001", // 成交ID
+        "orderId": "6216559590087220004", // 订单ID
+        "orderSide": "BUY", // 订单方向
+        "orderType": "LIMIT", // 订单类型
+        "bizType": "SPOT", // 业务类型
+        "time": 1655958915583, // 成交时间
+        "price": "40000", // 成交价格
+        "quantity": "1.2", // 成交数量
+        "quoteQty": "48000", // 成交金额
+        "baseCurrency": "BTC", // 基础币种
+        "quoteCurrency": "USDT", // 计价币种
+        "takerMaker": "taker", // 吃单方/挂单方
+
+        "deductType": "COUPON", // 手续费抵扣类型：COUPON / PLATFORM_CURRENCY / null
+        "deductFee": "0.003", // 使用优惠券时的抵扣费用金额；否则为null
+
+        "fee": "0.5", // 手续费金额（或使用平台币抵扣时的平台币数量）
+        "feeCurrency": "USDT", // 手续费币种
+
+        "couponAmount": "0.002", // 使用优惠券时的优惠券金额；否则为null
+        "couponCurrency": "usdt" // 使用优惠券时的优惠券币种；否则为null
+      }
+    ]
+  }
+}
+```

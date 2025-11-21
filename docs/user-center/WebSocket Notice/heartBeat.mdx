@@ -1,0 +1,31 @@
+---
+id: Heartbeat
+title: Heartbeat
+sidebar_label: Heartbeat
+sidebar_position: 5
+---
+
+### Description
+Each client connection must periodically send a text **"ping"**, and the server will reply with the text **"pong"**. If the server does not receive a ping message from the client within 1 minute, it will actively disconnect the connection.
+
+---
+
+### Example
+
+#### Python
+```python
+from websocket import create_connection
+
+ws = create_connection("wss://stream.xt.com/notice")
+
+# Periodically send ping
+ws.send("ping")
+print(ws.recv())  # Expected response "pong"
+```
+
+#### Response
+```json
+{
+  "msg": "pong"
+}
+```

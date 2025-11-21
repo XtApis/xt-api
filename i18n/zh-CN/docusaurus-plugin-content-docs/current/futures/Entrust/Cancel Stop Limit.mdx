@@ -1,0 +1,58 @@
+---
+id: CancelStopLimit
+title: 取消止盈止损
+sidebar_label: 取消止盈止损
+sidebar_position: 8
+---
+
+**请求类型:** POST
+**描述:** `/future/trade/v1/entrust/cancel-profit-stop`
+
+---
+
+### 限流规则
+
+200/s/apikey
+
+---
+
+### 参数说明
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| profitId | integer | TRUE | N/A | 止盈止损订单ID | — |
+
+---
+
+### 请求示例
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-profit-stop" \
+    -H "validate-appkey: $APPKEY"              # 必须
+    -H "validate-timestamp: $TIMESTAMP"        # 必须
+    -H "validate-signature: $SIGNATURE"        # 必须
+    -H "Content-Type: application/x-www-form-urlencoded"  # 必须
+    -d "profitId=123456789"                    # 必须
+```
+
+---
+
+### 响应示例
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}
+```
+
+---
+
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_entrust | 订单ID有误 |
+| fail | 内部异常 |
+````

@@ -1,0 +1,49 @@
+---
+id: get-futures-info
+title: 获取合约信息
+sidebar_label: 获取合约信息
+sidebar_position: 1
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/cg/contracts`
+
+> Content-Type = application/x-www-form-urlencoded
+
+### 注意事项：
+
+此接口无需签名认证。
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`[{
+  "id": 123,
+  "ask": "1817.32",                 // 当前最低卖价
+  "base_currency": "ETH",           // 基础交易对的货币代码，如 BTC
+  "base_volume": "13267684284",     // 24小时交易量
+  "bid": "1817.31",                 // 当前最高买价
+  "contractSize": 10,               // 合约面值
+  "end_timestamp": 253402099200000, // 合约到期时间
+  "funding_rate": "-0.03",          // 资金费率
+  "high": "1828.89",                // 24小时最高成交价
+  "index_currency": "USD",          // 指数标的货币
+  "index_name": "ETH-USD",          // 标的指数名称（如有）
+  "index_price": "1816.61",         // 标的指数价格
+  "last_price": "1817.31",          // 最新成交价
+  "low": "1778.65",                 // 24小时最低成交价
+  "next_funding_rate": "-0.03",     // 下次预测资金费率
+  "next_funding_rate_timestamp":1698681600000,  // 下次资金费率时间
+  "open_interest": "2419347630",    // 过去24小时持仓量（合约数）
+  "product_type": "PERPETUAL",      // 产品类型
+  "start_timestamp": 1651328033000, // 合约开始时间（适用于到期合约或期权）
+  "symbol": "eth_usd",
+  "target_currency": "USD",         // 目标交易对的货币代码，如 ETH
+  "target_volume": "73698647.51054371",  // 24小时交易量
+  "ticker_id": "ETH-USD",           // 交易对标识符，使用分隔符区分基础/目标货币，如 BTC-PERP
+  "underlyingType": 1               // 标的类型，币本位、USDT本位
+}]`}
+</CodeBlock>

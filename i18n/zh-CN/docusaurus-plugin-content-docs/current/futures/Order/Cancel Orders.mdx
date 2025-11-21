@@ -1,0 +1,55 @@
+---
+id: cancel-orders
+title: 撤销订单
+sidebar_label: 撤销订单
+sidebar_position: 6
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** POST
+
+**描述:** `/future/trade/v1/order/cancel`
+
+### 参数
+
+| 名称    | 类型    | 必填 | 默认值 | 描述 | 范围 |
+| ------- | ------- | --------- | ------- | ----------- | ------ |
+| orderId | integer | true      | N/A     | 订单 ID    |        |
+
+### 限流规则
+
+200/s/apikey
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/cancel" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "orderId=1234567890"  # 必须
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": "",  // 订单 ID
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| invalid_params | 参数错误 订单不存在 |
+

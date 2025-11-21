@@ -1,0 +1,59 @@
+---
+id: see-orders
+title: See Orders
+sidebar_label: See Orders
+sidebar_position: 5
+---
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/order/OrderList`
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | false     | N/A     | Trading pair |        |
+
+### Limit Flow Rules
+
+100/s/apikey
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "clientOrderId": "",        // Client order ID
+        "createdTime": 0,           // Create time
+        "executedQty": 0,           // Volume (Cont)
+        "marginFrozen": 0,          // Occupied margin
+        "orderId": 0,               // Order ID
+        "orderSide": "",            // Order side
+        "orderType": "",            // Order type
+        "origQty": 0,               // Quantity (Cont)
+        "positionSide": "",         // Position side
+        "price": 0,                 // Order price
+        "state": "",                // Order state
+        "symbol": "",               // Trading pair
+        "timeInForce": "",          // Valid type
+         "triggerProfitPrice": 0,   // TP trigger price
+        "triggerStopPrice": 0      // SL trigger price
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>

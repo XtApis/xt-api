@@ -1,0 +1,89 @@
+---
+id: GetHistoryTrackListInactive
+title: 获取历史跟踪单列表（非活跃）
+sidebar_label: 获取历史跟踪单列表（非活跃）
+sidebar_position: 19
+---
+
+**请求类型:** GET
+**描述:** `/future/trade/v1/entrust/track-list-history`
+
+---
+
+### 限流规则
+
+200/s/apikey
+
+---
+
+### 参数说明
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| direction | string | FALSE | NEXT | 翻页方向 | PREV; NEXT |
+| limit | integer | FALSE | 10 | 数量限制 | — |
+| id | integer | FALSE | N/A | 记录ID | — |
+| startTime | integer | FALSE | N/A | 开始时间 | — |
+| endTime | integer | FALSE | N/A | 结束时间 | — |
+| symbol | string | FALSE | N/A | 交易对 | — |
+
+---
+
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/track-list-history" \
+    -H "validate-appkey: $APPKEY"              # 必须
+    -H "validate-timestamp: $TIMESTAMP"        # 必须
+    -H "validate-signature: $SIGNATURE"        # 必须
+    -H "Content-Type: application/x-www-form-urlencoded"  # 必须
+    -d "symbol=btc_usdt" \
+    -d "limit=10"
+```
+
+---
+
+### 响应示例
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": true, // 是否有下一页
+    "hasPre": true,  // 是否有上一页
+    "items": [
+      {
+        "activationPrice": 0,       // 激活价格
+        "avgPrice": 0,              // 平均价格
+        "callback": "",             // 回调幅度配置：PROPORTION 或 FIXED
+        "callbackVal": 0,           // 回调值
+        "configActivation": false,  // 是否配置激活价格
+        "createdTime": 0,           // 创建时间
+        "currentPrice": 0,          // 实时价格
+        "desc": "",                 // 描述
+        "executedQty": 0,           // 实际成交数量
+        "orderSide": "",            // 订单方向
+        "ordinary": true,           // 是否普通订单
+        "origQty": 0,               // 数量（张）
+        "positionSide": "",         // 持仓方向
+        "price": 0,                 // 委托价格
+        "state": "",                // 订单状态：NOT_ACTIVATION（未激活）；NOT_TRIGGERED（未触发）；TRIGGERING（触发中）；TRIGGERED（已触发）；USER_REVOCATION（用户撤销）；PLATFORM_REVOCATION（平台撤销）；EXPIRED（已过期）；DELEGATION_FAILED（委托失败）
+        "stopPrice": 0,             // 触发价格
+        "symbol": "",               // 交易对
+        "trackId": 0,               // 跟踪单ID
+        "triggerPriceType": "",     // 触发价格类型
+        "updatedTime": 0            // 更新时间
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_symbol | 交易对不存在 |

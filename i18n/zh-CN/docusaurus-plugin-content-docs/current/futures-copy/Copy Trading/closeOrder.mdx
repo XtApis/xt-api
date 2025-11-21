@@ -1,0 +1,32 @@
+---
+id: CloseOrder
+title: 平仓订单
+sidebar_label: 平仓订单
+sidebar_position: 12
+---
+
+**类型:** POST
+
+**描述:** `/future/copytrade/order/v1/copy-trade/close`
+
+### 参数
+
+| 名称        | 类型    | 必填 | 默认值 | 描述           | 范围       |
+| ----------- | ------- | ---- | ------ | -------------- | ---------- |
+| trackNo     | number  | 是   | -      | 跟踪编号       | -          |
+| leaderOrder | boolean | 否   | -      | 是否为带单员订单 | true,false |
+
+### 限流规则
+
+5/s/apikey
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=成功, false=失败
+}
+```

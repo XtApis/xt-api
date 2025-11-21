@@ -1,0 +1,78 @@
+---
+id: QueryOpenOrders
+title: 查询当前挂单
+sidebar_label: 查询当前挂单
+sidebar_position: 8
+---
+
+**请求类型** GET
+
+**接口描述：** `/v4/open-order`
+
+---
+
+### 请求参数
+
+| 参数名   | 类型   | 是否必填 | 默认值 | 描述                                   | 取值范围     |
+|----------|--------|----------|--------|----------------------------------------|--------------|
+| symbol   | string | 否       | N/A    | 交易对，不填则表示全部                  | —            |
+| bizType  | string | 否       | N/A    | 业务类型                                | SPOT, LEVER  |
+| side     | string | 否       | N/A    | 订单方向                                | BUY, SELL    |
+
+---
+
+### 限频规则
+- 10次/秒/每apikey
+
+---
+### 请求示例
+
+```
+curl --location --request GET 'https://sapi.xt.com/v4/open-order?symbol=XT_USDT' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+
+
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [
+    {}
+  ],
+  "result": [
+    {
+      "symbol": "BTC_USDT",
+      "orderId": "6216559590087220004",
+      "clientOrderId": "16559590087220001",
+      "baseCurrency": "string",
+      "quoteCurrency": "string",
+      "side": "BUY",
+      "type": "LIMIT",
+      "timeInForce": "GTC",
+      "price": "40000",
+      "origQty": "2",
+      "origQuoteQty": "48000",
+      "executedQty": "1.2",
+      "leavingQty": "string",
+      "tradeBase": "2",
+      "tradeQuote": "48000",
+      "avgPrice": "42350",
+      "fee": "string",
+      "feeCurrency": "string",
+      "state": "NEW",
+      "time": 1655958915583,
+      "ip": "127.0.0.1",
+      "updatedTime": 1655958915583
+    }
+  ]
+}

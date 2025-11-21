@@ -1,0 +1,155 @@
+---
+id: GetSymbolInformation
+title: Get symbol information
+sidebar_label: Get symbol information
+sidebar_position: 3
+---
+
+**Type:** GET **Description:** `/v4/public/symbol`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false | - | trading pair eg:btc_usdt |  |
+| symbols | array | false | - | collection of trading pairs. priority is higher than symbol. eg: btc_usdt,eth_usdt |  |
+| version | string | false | - | version number, if request version equals response version, list will not be returned (reduce IO). eg: 2e14d2cd5czcb2c2af2c1db6 |  |
+
+### Limit Flow Rules
+
+1. Single symbol: `10/s/ip`
+2. Multiple symbols: `10/s/ip`
+
+### FILTER
+
+#### PRICE FILTER
+
+- `min`: minimum price allowed
+- `max`: maximum price allowed
+- `tickSize`: step interval → `price = minPrice + (integer * tickSize)`
+
+```text
+price >= min
+price <= max
+(price - minPrice) % tickSize == 0
+```
+
+#### QUANTITY FILTER
+
+- `min`: minimum allowed
+- `max`: maximum allowed
+- `tickSize`: step interval
+
+```text
+quantity >= min
+quantity <= max
+(quantity - minQuantity) % tickSize == 0
+```
+
+#### QUOTE_QTY FILTER
+
+- If `min` is null → no restriction
+- LIMIT orders → `price * quantity >= min`
+- MARKET BUY orders → `quoteQty >= min`
+
+#### PROTECTION_LIMIT FILTER
+
+- `buyMaxDeviation`, `buyPriceLimitCoefficient`, `sellMaxDeviation`, `sellPriceLimitCoefficient`
+
+```text
+Buy:  price >= latestPrice - latestPrice * buyMaxDeviation
+      price <= latestPrice + latestPrice * buyPriceLimitCoefficient
+
+Sell: price <= latestPrice + latestPrice * sellMaxDeviation
+      price >= latestPrice - latestPrice * sellPriceLimitCoefficient
+```
+
+#### PROTECTION_MARKET FILTER
+
+- `maxDeviation`: maximum deviation
+
+```text
+Buy:  latestPrice + latestPrice * maxDeviation >= sellBestPrice
+Sell: latestPrice - latestPrice * maxDeviation <= buyBestPrice
+```
+
+#### PROTECTION_ONLINE FILTER
+
+- `maxPriceMultiple`, `durationSeconds`
+
+```text
+price <= openPrice * maxPriceMultiple
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "time": 1662444177871,
+    "version": "7cd2cfab0dc979339f1de904bd90c9cb",
+    "symbols": [
+      {
+        "id": 614,
+        "symbol": "btc_usdt",
+        "state": "ONLINE",
+        "tradingEnabled": true,
+        "openapiEnabled": true,
+        "nextStateTime": null,
+        "nextState": null,
+        "depthMergePrecision": 5,
+        "baseCurrency": "btc",
+        "baseCurrencyPrecision": 5,
+        "baseCurrencyId": 2,
+        "quoteCurrency": "usdt",
+        "quoteCurrencyPrecision": 6,
+        "quoteCurrencyId": 11,
+        "pricePrecision": 4,
+        "quantityPrecision": 6,
+        "takerFeeRate": 0.001,
+        "makerFeeRate": 0.002,
+        "orderTypes": ["LIMIT", "MARKET"],
+        "timeInForces": ["GTC", "FOK", "IOC", "GTX"],
+        "displayWeight": 1,
+        "displayLevel": "FULL",
+        "plates": [],
+        "filters": [
+          {
+            "filter": "PROTECTION_LIMIT",
+            "buyMaxDeviation": "0.8",
+            "sellMaxDeviation": "0.8"
+          },
+          {
+            "filter": "PROTECTION_MARKET",
+            "maxDeviation": "0.1"
+          },
+          {
+            "filter": "PROTECTION_ONLINE",
+            "durationSeconds": "300",
+            "maxPriceMultiple": "5"
+          },
+          {
+            "filter": "PRICE",
+            "min": null,
+            "max": null,
+            "tickSize": null
+          },
+          {
+            "filter": "QUANTITY",
+            "min": null,
+            "max": null,
+            "tickSize": null
+          },
+          {
+            "filter": "QUOTE_QTY",
+            "min": null
+          }
+        ]
+      }
+    ]
+  }
+}
+```

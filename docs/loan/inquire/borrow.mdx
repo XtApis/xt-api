@@ -1,0 +1,83 @@
+---
+id: LoanHistoryQuery
+title: Query Loan History
+sidebar_label: Query Loan History
+sidebar_position: 11
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/order/finance/loan/order/history/borrow`
+
+---
+
+### Query Parameters
+
+| Name | Type | Required | Default | Description | Allowed Values |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | false | 1 | Page number | — |
+| limit | integer | false | 10 | Number of items per page | — |
+| orderId | string | false | — | Order ID | — |
+| loanCurrencyIdList | array | false | — | List of loan currency IDs | — |
+| pledgeCurrencyIdList | array | false | — | List of pledge currency IDs | — |
+| status | array | false | — | List of order statuses | RUNNING, REPAYING, FORCE_LIQUIDATING, OVERDUE, REPAID, RENEWED, FORCE_LIQUIDATED, COMPLETE |
+| types | array | false | — | Loan history types | ORDINARY_REPAYMENT, RENEW_LOAN |
+| productTypes | array | false | — | Product type list | SEVEN_DAY_APR, THIRTY_DAY_APR, NINETY_DAY_APR, DEMAND, VIP |
+| startTime | integer | false | — | Start timestamp (ms) | — |
+| endTime | integer | false | — | End timestamp (ms) | — |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                    // Response code: 0 - success
+  "mc": "SUCCESS",                            // Message
+  "ma": [],                                   // Message arguments
+  "result": {
+    "hasPrev": false,                         // Has previous page
+    "hasNext": false,                         // Has next page
+    "items": [                                // Loan history list
+      {
+        "id": "542798144228902336",           // Order ID
+        "originLoanAmount": "111",            // Original loan amount
+        "originPledgeAmount": "0.0085350021", // Original pledged amount
+        "aprYear": "0.01",                    // Annual rate (%)
+        "aprHour": "0.000001",                // Hourly rate (%)
+        "createTime": 1759115162286,          // Creation time (ms)
+        "dueTime": 1916794799000,             // Due time (ms)
+        "duration": 1825,                     // Loan duration (days)
+        "status": "RUNNING",                  // Order status
+        "loanCurrencyId": 128,                // Loan currency ID
+        "pledgeCurrencyId": 2,                // Pledge currency ID
+        "loanCurrency": "xt",                 // Loan currency symbol
+        "pledgeCurrency": "btc",              // Pledge currency symbol
+        "productType": "DEMAND",              // Product type
+        "type": "ORDINARY",                   // Order type
+        "sourceTag": null                     // Source tag
+      },
+      {
+        "id": "537773892660445952",
+        "originLoanAmount": "100",
+        "originPledgeAmount": "0.0010729615",
+        "aprYear": "33",
+        "aprHour": "0.003768",
+        "createTime": 1757917287366,
+        "dueTime": 1915595999000,
+        "duration": 1825,
+        "status": "RUNNING",
+        "loanCurrencyId": 11,
+        "pledgeCurrencyId": 2,
+        "loanCurrency": "usdt",
+        "pledgeCurrency": "btc",
+        "productType": "DEMAND",
+        "type": "ORDINARY",
+        "sourceTag": null
+      }
+    ]
+  }
+}`}
+</CodeBlock>

@@ -1,0 +1,62 @@
+---
+id: get-ask-bid-market-information-for-specific-trading-pair
+title: Get Ask Bid Market Information for Specific Trading Pair
+sidebar_label: Get Ask Bid Market Information for Specific Trading Pair
+sidebar_position: 18.5
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/ticker/book`
+
+#### Note：
+
+This method does not require a signature.
+
+### Limit flow rules
+
+None
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      | N/A     | Trading pair |        |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/ticker/book" \
+      -d "symbol=eth_usdt" # required
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "ap": "", // ask price
+    "aq": "", // ask amount
+    "bp": "", // bid price
+    "bq": "", // bid amount
+    "s": "",  // Trading pair
+    "t": 0    // Time
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |

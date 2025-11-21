@@ -1,0 +1,33 @@
+---
+id: CancelOrder
+title: Cancel Order
+sidebar_label: Cancel Order
+sidebar_position: 3
+---
+
+**Type:** DELETE
+
+**Description:** `/spot/v4/order/{orderId}`
+
+### Limit Flow Rules
+
+10/s/apikey
+
+### Parameters
+
+| Name      | Type   | Mandatory | Default | Description |
+| --------- | ------ | --------- | ------- | ----------- |
+| `orderId` | number | Yes       |         | Order ID    |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "cancelId": "6216559590087220004"
+  }
+}
+```

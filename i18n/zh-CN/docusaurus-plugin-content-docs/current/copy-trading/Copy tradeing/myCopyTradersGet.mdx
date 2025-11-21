@@ -1,0 +1,49 @@
+---
+id: GetMyCopyTraderList
+title: 获取我的跟单者列表
+sidebar_label: 获取我的跟单者列表
+position_number: 30
+---
+
+**请求类型:** GET
+
+**接口路径:** `/v1/copy-trade-account/copy-trade/leader-followers`
+
+#### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- |
+| `direction` | string | 否 | NEXT | 查询方向: `PREV` - 上一页, `NEXT` - 下一页 |
+| `limit` | number | 否 | 10 | 每页数量 (1–100) |
+| `id` | object | 否 |  | 起始ID，例如 `6216559590087220004` |
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "accountId": 0, // 跟单者账户ID
+        "avatar": "string", // 跟单者头像
+        "days": 0, // 跟单天数
+        "followMargin": 0, // 跟单保证金
+        "followProfit": 0, // 跟单盈亏
+        "followProfitRate": 0, // 跟单盈亏率
+        "followerName": "string", // 跟单者名称
+        "id": 0, // ID
+        "pageId": 0 // 用于分页查询的ID
+      }
+    ]
+  }
+}
+```

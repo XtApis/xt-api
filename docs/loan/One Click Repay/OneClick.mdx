@@ -1,0 +1,42 @@
+---
+id: LoanBatchRepay
+title: One-Click Repayment
+sidebar_label: One-Click Repayment
+sidebar_position: 5
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `POST /v4/order/finance/loan/order/repay/on-click`
+
+---
+
+### Request Parameters
+
+<CodeBlock language="json" title="Request Parameters">
+  {`{
+  "repayItems": [                      // Repayment item list
+    {
+      "loanCurrency": "usdt",
+      "productId": 123
+    }
+  ],
+  "productTypes": ["SEVEN_DAY_APR"],   // Product type list
+  "bizId": "batch_repay_123456789"     // Batch repayment business ID
+}`}
+</CodeBlock>
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "order-id-123"
+}`}
+</CodeBlock>

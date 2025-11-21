@@ -1,0 +1,74 @@
+---
+id: see-orders-by-id
+title: 根据 ID 查看订单
+sidebar_label: 根据 ID 查看订单
+sidebar_position: 4
+---
+
+**类型:** GET
+
+**描述:** `/future/trade/v1/order/detail`
+
+### 参数
+
+| 名称    | 类型    | 必填 | 默认值 | 描述 | 范围 |
+| ------- | ------- | --------- | ------- | ----------- | ------ |
+| orderId | integer | true      | N/A     | 订单 ID    |        |
+
+### 限流规则
+
+200/s/apikey
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/detail" \\
+  -H "validate-appkey: $APPKEY" \\  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \\  # 必须
+  -H "validate-signature: $SINGATURE" \\  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # 必须
+  -d "orderId=1234567890"  # 必须
+`}
+</CodeBlock>
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "avgPrice": 0,              // 成交均价
+    "closePosition": false,     // 订单条件触发时是否全部平仓
+    "closeProfit": 0,           // 平仓盈亏
+    "createdTime": 0,           // 创建时间
+    "executedQty": 0,           // 成交量（张）
+    "forceClose": false,        // 是否为强平订单
+    "marginFrozen": 0,          // 占用保证金
+    "orderId": 0,               // 订单 ID
+    "orderSide": "",            // 订单方向
+    "orderType": "",            // 订单类型
+    "origQty": 0,               // 数量（张）
+    "positionSide": "",         // 仓位方向
+    "price": 0,                 // 订单价格
+    "sourceId": 0,              // 触发条件 ID
+    "state": "",                // 订单状态
+    "symbol": "",               // 交易对
+    "timeInForce": "",          // 有效类型
+    "triggerProfitPrice": 0,    // 止盈触发价格
+    "triggerStopPrice": 0       // 止损触发价格
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| null | 未找到该订单 |

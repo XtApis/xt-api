@@ -1,0 +1,37 @@
+---
+id: PushMessageFormat
+title: 推送消息格式
+sidebar_label: 推送消息格式
+sidebar_position: 4
+---
+
+### 格式
+
+```javascript title="格式（含注释）"
+{
+  "topic": "trade",          // 频道名称
+  "event": "trade@btc_usdt", // 事件标识符（含交易对）
+  "data": {}                 // 数据载荷
+}
+{
+  "topic": "trade",
+  "event": "trade@btc_usdt",
+  "data": {}
+}
+示例：成交记录（实时推送）
+
+{
+  "topic": "trade",
+  "event": "trade@btc_usdt",
+  "data": {
+    "s": "btc_usdt",
+    "i": 6316559590087222000,
+    "t": 1655992403617,
+    "oi": 6616559590087222666,
+    "p": "43000",
+    "q": "0.21",
+    "v": "9030",
+    "b": true
+  }
+}
+```

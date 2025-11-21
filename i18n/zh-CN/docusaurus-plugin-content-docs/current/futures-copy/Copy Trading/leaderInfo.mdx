@@ -1,0 +1,44 @@
+---
+id: GetLeaderInfo
+title: 获取带单员信息
+sidebar_label: 获取带单员信息
+sidebar_position: 7
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/user/v1/copy-trade/leader-detail`
+
+### 限流规则
+
+2/s/apikey
+
+---
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "nickName": "string",           // 昵称
+    "avatar": "string",             // 头像
+    "intro": "string",              // 简介
+    "leadDays": 0,                  // 开始时间
+    "levelId": 0,                   // 带单员等级ID
+    "level": 0,                     // 带单员等级
+    "levelName": "string",          // 带单员等级名称
+    "label": ["string"],            // 标签
+    "followNumber": 0,              // 带单员的跟单人数
+    "currentFollowNumber": 0,       // 带单员的当前跟单人数
+    "maxFollowerSize": 0,           // 带单员的最大跟单人数
+    "profitRate": 0,                // 带单员收益率
+    "platformProfitRate": 0,        // 平台收益率
+    "totalRights": 0,               // 总金额
+    "displayEquity": Boolean,       // 是否显示金额
+    "displayPosition": Boolean      // 是否显示仓位
+  }
+}
+```

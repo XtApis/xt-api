@@ -1,0 +1,42 @@
+---
+id: CancelBatchOrder
+title: 批量撤单
+sidebar_label: 批量撤单
+sidebar_position: 7
+---
+
+**类型:** DELETE
+**接口描述:** `/v4/batch-order`
+
+### 请求参数
+
+| 参数名        | 类型   | 是否必填 | 默认值 | 描述         | 取值范围 |
+|---------------|--------|----------|--------|--------------|----------|
+| clientBatchId | string | 否       |        | 客户端批次号 |          |
+| orderIds      | array  | 是       |        | 订单 ID 列表 | `6216559590087220004, 6216559590087220005` |
+
+> 注意：参数需放置在请求体中，以 **JSON** 格式传递。
+
+
+### 请求示例
+```
+curl --location --request DELETE 'https://sapi.xt.com/v4/batch-order?orderIds=xxxxxx,xxxxxx,xxxxxx' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-appkey: xxxxxxxxxx' \
+--header 'validate-timestamp: xxxxxxxxxx' \
+--header 'validate-signature: xxxxxxxxxx'
+```
+
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {}
+}

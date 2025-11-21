@@ -1,0 +1,69 @@
+---
+id: see-leverage-stratification-of-single-trading-pair
+title: See Leverage Stratification of Single Trading Pair
+sidebar_label: See Leverage Stratification of Single Trading Pair
+sidebar_position: 5
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/leverage/bracket/detail`
+
+#### Note：
+
+This method does not require a signature.
+
+### Limit flow rules
+
+None
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      | N/A     | Trading pair |        |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/leverage/bracket/detail" \
+      -d "symbol=eth_usdt"
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "leverageBrackets": [
+      {
+        "bracket": 0,            // Level
+        "maintMarginRate": 0,    // Maintain margin rate
+        "maxLeverage": 0,        // Maximum leverage
+        "maxNominalValue": 0,    // Maximum notional value
+        "maxStartMarginRate": 0, // Maximum initial margin rate
+        "minLeverage": 0,        // Minimum leverage
+        "startMarginRate": 0,    // Initial margin rate
+        "symbol": ""             // Trading pair
+      }
+    ],
+    "symbol": ""
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |

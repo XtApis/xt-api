@@ -1,0 +1,54 @@
+---
+id: batch-cancel-orders
+title: Batch Cancel Orders
+sidebar_label: Batch Cancel Orders
+sidebar_position: 7
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/order/cancel-batch`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| orderIds | string | true | N/A | Order IDs (comma-separated) |  |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/cancel-batch" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "orderIds=111111,222222,333333"  # Required
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error code | Description |
+| --- | --- |
+|  |  |

@@ -1,0 +1,33 @@
+---
+id: RequestMessageFormat
+title: Request message format
+sidebar_label: Request message format
+sidebar_position: 2
+---
+
+### Subscribe
+
+```json title="Subscribe"
+{
+  "method": "subscribe",
+  "params": [
+    "{topic}@{arg},{arg}",
+    "{topic}@{arg}"
+  ],
+  "id": "{id}" // call back ID
+}
+
+Unsubscribe
+{
+  "method": "unsubscribe",
+  "params": [
+    "\{topic\}@\{arg\},\{arg\}"
+  ],
+  "id": "\{id\}" // call back ID
+}
+Response Example
+{
+  "code": 0,
+  "msg": "success"
+}
+```

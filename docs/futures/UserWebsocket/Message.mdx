@@ -1,0 +1,34 @@
+---
+id: Message
+title: Message
+sidebar_label: Message
+sidebar_position: 11
+---
+
+### Subscribe / Unsubscribe
+
+```json title="Subscribe/Unsubscribe"
+{
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{notify}@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "notify",
+  "event": "notify",
+  "data": {
+    "symbol": "btc_usdt",
+    "positionType": "ISOLATED",
+    "positionSide": "LONG",
+    "positionSize": "123", // Position quantity
+    "notifyType": "WARN" // Notification type: WARN (warning, about to be levelled), PARTIAL (partial liquidation), LIQUIDATION (liquidation), ADL (auto-deleveraging)
+  }
+}
+```

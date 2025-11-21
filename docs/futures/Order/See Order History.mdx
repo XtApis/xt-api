@@ -1,0 +1,87 @@
+---
+id: see-order-history
+title: See Order History
+sidebar_label: See Order History
+sidebar_position: 1.1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/future/trade/v1/order/list-history`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true | N/A | Trading pairs (queries all trading pairs if not passed) |  |
+| direction | string | false | NEXT | Direction | PREV;NEXT |
+| id | integer | false | N/A | id |  |
+| limit | integer | false | 10 | Limit |  |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/list-history" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-singature: $SINGATURE" \\  # Required 
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # Required
+  -d "symbol=eth_usdt" \\  # Required
+  -d "limit=10"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false,   // Is there a next page
+    "hasPrev": false,   // Is there a previous page
+    "items": [          // Datasheets
+      {
+        "clientOrderId": "",       // Client order ID
+        "avgPrice": 0,             // Average price
+        "closePosition": false,    // Whether to close all when order condition is triggered
+        "closeProfit": 0,          // Offset profit and loss
+        "createdTime": 0,          // Create time
+        "executedQty": 0,          // Volume (Cont)
+        "forceClose": false,       // Is it a liquidation order
+        "marginFrozen": 0,         // Occupied margin
+        "orderId": 0,              // Order ID
+        "orderSide": "",           // Order side
+        "orderType": "",           // Order type
+        "origQty": 0,              // Quantity (Cont)
+        "positionSide": "",        // Position side
+        "price": 0,                // Order price
+        "sourceId": 0,             // Triggering conditions ID
+        "state": "",               // Order state: NEW; PARTIALLY_FILLED; FILLED; CANCELED; REJECTED; EXPIRED
+        "symbol": "",              // Trading pair
+        "timeInForce": "",         // Valid type
+        "triggerProfitPrice": 0,   // TP trigger price
+        "triggerStopPrice": 0      // SL trigger price
+      }
+    ]
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| invalid_symbol | The trading pair does not exist |

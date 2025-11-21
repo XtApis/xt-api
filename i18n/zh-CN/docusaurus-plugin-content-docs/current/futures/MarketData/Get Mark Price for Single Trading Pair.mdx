@@ -1,0 +1,59 @@
+---
+id: get-mark-price-for-single-trading-pair
+title: 获取单个交易对的标记价格
+sidebar_label: 获取单个交易对的标记价格
+sidebar_position: 13
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/symbol-mark-price`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 参数
+
+| 名称   | 类型   | 是否必需 | 默认值 | 描述     | 范围 |
+| ------ | ------ | -------- | ------ | -------- | ---- |
+| symbol | string | 是       | N/A    | 交易对   |      |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/symbol-mark-price"  \
+      -d "symbol=btc_usdt" \ # 必须
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "p": 0,  // 价格
+    "s": "", // 交易对
+    "t": 0   // 时间
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |

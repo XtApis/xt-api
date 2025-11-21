@@ -1,0 +1,51 @@
+---
+id: GetUserSetting
+title: 获取用户设置
+sidebar_label: 获取用户设置
+sidebar_position: 9
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/user/v1/copy-trade/user-settings`
+
+---
+
+### 参数
+
+_无_
+
+---
+
+### 限流规则
+
+10/s/apikey
+
+---
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "id": 0, // ID
+    "intro": "string", // 简介
+    "followCapitalMin": 0, // 最小保证金
+    "labelIds": 0, // 标签ID
+    "label": [
+      // 标签
+      {
+        "id": 0, // ID
+        "label": "string" // 备注
+      }
+    ],
+    "autoUnfollow": true, // 自动取消跟单
+    "displayEquity": true, // 显示总金额
+    "displayPosition": true, // 显示仓位
+    "openLeader": false // 是否开启带单员交易
+  }
+}
+```

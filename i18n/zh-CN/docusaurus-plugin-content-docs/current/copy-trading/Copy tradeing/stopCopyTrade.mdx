@@ -1,0 +1,31 @@
+---
+id: StopCopyTrading
+title: 停止跟单交易
+sidebar_label: 停止跟单交易
+position_number: 24
+---
+
+**请求类型:** POST
+
+**接口路径:** `/v1/copy-trade-account/copy-trade/cancel-follow`
+
+#### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+| 参数名              | 类型   | 是否必填 | 默认值 | 描述       |
+| ----------------- | ------ | --------- | ------- | ----------------- |
+| `leaderAccountId` | number | 是       |         | 带单账户ID |
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

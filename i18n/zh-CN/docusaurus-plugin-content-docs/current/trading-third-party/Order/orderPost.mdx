@@ -1,0 +1,47 @@
+---
+id: SubmitOrder
+title: 提交订单
+sidebar_label: 提交订单
+sidebar_position: 2
+description: /spot/v4/order
+---
+
+**类型:** POST
+
+**接口:** `/spot/v4/order`
+
+### 备注
+
+- 创建基于市价的**买单** → `quantity` 必须为 `null`，`quoteQty` 为**必填项**。
+- 创建基于市价的**卖单** → `quoteQty` 必须为 `null`，`quantity` 为**必填项**。
+
+### 限流规则
+
+20次/秒/apikey
+
+### 参数
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | 是 |  | 交易对 |  |
+| `clientOrderId` | string | 否 |  | 正则模式：`^[a-zA-Z0-9_]{4,32}$` |  |
+| `side` | string | 是 |  | BUY（买入）, SELL（卖出） |  |
+| `type` | string | 是 |  | 订单类型：LIMIT（限价）, MARKET（市价） |  |
+| `timeInForce` | string | 是 |  | 有效方式：GTC, FOK, IOC, GTX |  |
+| `bizType` | string | 是 |  | SPOT（现货）, LEVER（杠杆） |  |
+| `price` | number | 否 |  | 价格。限价单必填；市价单留空 |  |
+| `quantity` | number | 否 |  | 数量。限价单或按数量市价单必填 |  |
+| `quoteQty` | number | 否 |  | 金额。限价单或按金额市价单必填 |  |
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "orderId": "6216559590087220004"
+  }
+}
+```

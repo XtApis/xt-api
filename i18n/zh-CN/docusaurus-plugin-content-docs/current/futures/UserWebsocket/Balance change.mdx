@@ -1,0 +1,35 @@
+---
+id: BalanceChange
+title: 余额变化
+sidebar_label: 余额变化
+sidebar_position: 7
+---
+
+### 订阅 / 取消订阅
+
+```json title="订阅/取消订阅"
+{
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{balance}@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "topic": "balance",
+  "event": "balance@123456",
+  "data": {
+    "coin": "usdt",
+    "underlyingType": 1, // 1: 币本位，2: USDT本位
+    "walletBalance": "123", // 余额
+    "openOrderMarginFrozen": "123", // 冻结订单
+    "isolatedMargin": "213", // 逐仓保证金
+    "crossedMargin": "0" // 全仓保证金
+  }
+}
+```

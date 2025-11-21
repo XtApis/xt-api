@@ -1,0 +1,41 @@
+---
+id: LoanBorrow
+title: Loan Borrow Order
+sidebar_label: Loan Borrow Order
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `POST /v4/order/finance/loan/order/v1/borrow`
+
+---
+
+### Request Parameters
+
+<CodeBlock language="json" title="Request Parameters">
+  {`{
+  "loanProductId": 123,                 // Loan product ID
+  "pledgeProductId": 456,               // Pledge product ID
+  "productType": "SEVEN_DAY_APR",       // Product type: SEVEN_DAY_APR, THIRTY_DAY_APR, DEMAND
+  "loanAmount": "30000",                // Loan amount
+  "pledgeAmount": "1.5",                // Pledge amount
+  "couponId": 789,                      // Coupon ID (optional)
+  "isNovice": false                     // Whether it is a new user order
+}`}
+</CodeBlock>
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "542798144228902336"
+}`}
+</CodeBlock>

@@ -1,0 +1,86 @@
+---
+id: GetCurrentFollowingList
+title: 获取当前跟单列表
+sidebar_label: 获取当前跟单列表
+sidebar_position: 33
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/user/v1/copy-trade/current-following-v2`
+
+### 限流规则
+
+2/s/apikey
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "",
+  "error": null,
+  "result": [
+    {
+      "id": 0,
+      "tenantId": 0,
+      "leaderName": "",
+      "leaderAccountId": "",
+      "leaderUserId": "",
+      "subAccountId": 0,
+      "avatar": "",
+      "followMode": "", // 跟单模式: CUSTOM, AUTO
+      "startTime": 0,
+      "endTime": 0,
+      "followAmount": 0.0, // 净跟单金额
+      "followVal": 0.0, // 自定义跟单数量
+      "followType": "", // 自定义跟单类型
+      "followMargin": 0.0, // 自定义跟单本金
+      "profit": 0.0, // 已结算盈亏
+      "divideProfit": 0.0, // 分润支出
+      "divideRate": 0.0, // 分润比例
+      "orderList": [
+        {
+          "symbol": "",
+          "symbolName": "",
+          "positionType": "", // 仓位类型: CROSSED (全仓), ISOLATED (逐仓)
+          "positionSide": "", // 持仓方向: LONG, SHORT
+          "openLeverage": 0, // 杠杆倍数
+          "id": 0,
+          "leaderAccountId": "", // 带单员账户ID
+          "accountId": 0, // 跟单员账户ID
+          "orderId": 0, // 订单ID
+          "trackNo": 0, // 跟单追踪号
+          "openTime": 0, // 开仓时间
+          "closeTime": 0, // 平仓时间
+          "openPrice": 0.0, // 开仓均价
+          "closePrice": 0.0, // 平仓均价
+          "openMargin": 0.0, // 初始保证金
+          "realizedPnl": 0.0, // 已实现盈亏
+          "profitRate": 0.0, // 收益率，乘以100
+          "openSize": 0.0, // 开仓数量
+          "closeSize": 0.0, // 已平仓数量
+          "positionSize": 0.0, // 持仓数量
+          "closeOrderSize": 0.0, // 平仓订单占用
+          "availableCloseSize": 0.0, // 可平仓数量
+          "profitId": 0, // 止盈止损ID
+          "triggerPriceType": "", // 触发价格类型: 1 指数价格, 2 标记价格, 3 最新价格
+          "triggerProfitPrice": 0.0, // 止盈触发价格
+          "triggerStopPrice": 0.0, // 止损触发价格
+          "contractType": "", // 合约类型: PERPETUAL, PREDICT
+          "entryPrice": 0.0, // 持仓均价
+          "openOrderSize": 0.0, // 开仓订单占用
+          "isolatedMargin": 0.0, // 逐仓保证金
+          "openOrderMarginFrozen": 0.0, // 开仓订单保证金占用
+          "realizedProfit": 0.0, // 已实现收益
+          "autoMargin": false, // 自动追加保证金
+          "leverage": 0, // 杠杆倍数
+          "closeProfit": 0.0, // 平仓盈亏
+          "totalFee": 0.0, // 手续费
+          "totalFundFee": 0.0 // 资金费用
+        }
+      ]
+    }
+  ]
+}
+```

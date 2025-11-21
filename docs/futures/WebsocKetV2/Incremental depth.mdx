@@ -1,0 +1,43 @@
+---
+id: IncrementalDepth
+title: Incremental depth
+sidebar_label: Incremental depth
+sidebar_position: 16
+---
+
+### Request Format
+
+```
+depth_update@{symbol},{interval}
+```
+
+- **interval options**: `100`, `250`, `500`, `1000` (default rate: 100ms)
+- **example**: `depth_update@btc_usdt,100ms`
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "depth_update",
+  "event": "depth_update@btc_usdt",
+  "data": {
+    "s": "btc_usdt", // symbol
+    "pu": 120, // previousUpdateId = previous lastUpdateId
+    "fu": 121, // firstUpdateId = previous lastUpdateId + 1
+    "u": 123, // lastUpdateId
+    "a": [
+      // asks (sell orders)
+      ["34000", "1.2"],
+      ["34001", "2.3"]
+    ],
+    "b": [
+      // bids (buy orders)
+      ["32000", "0.2"],
+      ["31000", "0.5"]
+    ],
+    "t": 123456789 // timestamp
+  }
+}
+```

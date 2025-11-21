@@ -1,0 +1,36 @@
+---
+id: ModifyLeaderSetting
+title: Modify Leader Setting
+sidebar_label: Modify Leader Setting
+position_number: 13
+---
+
+**Type:** POST
+
+**Description:** `/v1/copy-trade-account/copy-trade/leader-settings`
+
+#### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `leaderIntro` | string | No |  | Leader introduction |
+| `labelIds` | string | No |  | Label ids, separated by commas, e.g. `1,2,3,4` |
+| `displayEquity` | bool | No |  | Display total assets or not |
+| `displayQuantity` | bool | No |  | Display buy quantity or not |
+| `symbols` | string | Yes |  | Selected copy trade symbols, e.g. `btc_usdt,eth_usdt` |
+| `openLeader` | bool | No |  | Open leader or not |
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": true
+}
+```

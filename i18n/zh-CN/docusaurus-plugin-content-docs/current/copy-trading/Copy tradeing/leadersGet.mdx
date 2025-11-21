@@ -1,0 +1,47 @@
+---
+id: GetMyLeadTrades
+title: 获取我的带单交易
+sidebar_label: 获取我的带单交易
+sidebar_position: 21
+---
+
+**请求类型:** GET
+
+**接口路径:** `/v1/copy-trade-account/copy-trade/my-leaders`
+
+### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- |
+| `type` | number | 是 |  | 带单交易类型。<a href="#leaderTypeCn">带单者类型</a>，1: 当前带单交易; 2: 历史带单交易 |
+| `direction` | string | 否 | NEXT | 查询方向。PREV - 上一页, NEXT - 下一页 |
+| `limit` | number | 否 | 10 | 每页数量 (1-100) |
+| `id` | object | 否 |  | 起始ID，例如 `6216559590087220004` |
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "accountId": 0, // 账户ID
+        "avatar": "string", // 头像
+        "followMargin": 0, // 跟单金额
+        "followProfit": 0, // 跟单盈亏
+        "id": 0, // 用于分页查询的ID
+        "leaderName": "string" // 带单者昵称
+      }
+    ]
+  }
+}
+```

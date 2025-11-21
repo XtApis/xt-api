@@ -1,0 +1,31 @@
+---
+id: TradeRecord
+title: Trade record
+sidebar_label: Trade record
+sidebar_position: 8
+---
+
+### Request
+
+- **format:** `trade@{symbol}`
+- **example:** `trade@btc_usdt`
+- **rate:** real
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "trade",
+  "event": "trade@btc_usdt",
+  "data": {
+    "s": "btc_usdt",
+    "i": 6316559590087222000,
+    "t": 1655992403617,
+    "oi": 6616559590087222666,
+    "p": "43000",
+    "q": "0.21",
+    "v": "9030",
+    "b": true
+  }
+}
+```

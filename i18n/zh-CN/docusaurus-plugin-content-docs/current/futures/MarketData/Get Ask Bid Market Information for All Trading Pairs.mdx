@@ -1,0 +1,61 @@
+---
+id: get-ask-bid-market-information-for-all-trading-pairs
+title: 获取所有交易对的买卖盘行情信息
+sidebar_label: 获取所有交易对的买卖盘行情信息
+sidebar_position: 19.5
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/ticker/books`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 参数
+
+无
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/ticker/books"
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "ap": "", // 卖一价
+      "aq": "", // 卖一量
+      "bp": "", // 买一价
+      "bq": "", // 买一量
+      "s": "",  // 交易对
+      "t": 0    // 时间
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+|  |  |

@@ -1,0 +1,61 @@
+---
+id: CancelAllTrack
+title: Cancel all track
+sidebar_label: Cancel all track
+sidebar_position: 17
+---
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/entrust/cancel-all-track`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Parameters
+
+_No optional parameters._
+
+---
+
+### Request Example
+
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-all-track" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error Code     | Description                 |
+| -------------- | --------------------------- |
+| invalid_symbol | Trading pair does not exist |
+| fail           | Internal error              |
+
+---

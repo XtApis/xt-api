@@ -1,0 +1,54 @@
+---
+id: LoanAssetQuery
+title: 借贷资产查询
+sidebar_label: 借贷资产查询
+sidebar_position: 9
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`GET /v4/balance/finance/loan/asset/loan-asset`
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,                                    // 响应码：0-成功
+  "mc": "SUCCESS",                            // 响应消息
+  "ma": [],                                   // 消息参数数组
+  "result": {
+    "totalLoanAmount": "953.2379",            // 借贷总资产 (USDT计价)
+    "totalPledgeAmount": "11581.3713",        // 质押总资产 (USDT计价)
+    "loanAssetItems": [                       // 借贷资产明细列表
+      {
+        "currencyId": 128,                    // 货币ID
+        "currency": "xt",                     // 货币符号
+        "amount": 111.00040207,               // 借贷数量
+        "sortAmountU": 850.5961,              // 排序用USDT价值
+        "amountU": "850.5961"                 // USDT等值
+      },
+      {
+        "currencyId": 11,
+        "currency": "usdt",
+        "amount": 102.64170062,
+        "sortAmountU": 102.6418,
+        "amountU": "102.6418"
+      }
+    ],
+    "pledgeAssetItems": [                     // 质押资产明细列表
+      {
+        "currencyId": 2,                      // 货币ID
+        "currency": "btc",                    // 货币符号
+        "amount": 0.1009593516,               // 质押数量
+        "sortAmountU": 11581.3713,            // 排序用USDT价值
+        "amountU": "11581.3713"               // USDT等值
+      }
+    ],
+    "runningOrderCount": 0                    // 运行中订单数量
+  }
+}`}
+</CodeBlock>

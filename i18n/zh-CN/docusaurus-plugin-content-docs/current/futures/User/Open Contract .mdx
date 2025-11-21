@@ -1,0 +1,45 @@
+---
+id: Open Contract
+title: 开通合约
+sidebar_label: 开通合约
+sidebar_position: 2
+---
+
+**请求类型** POST
+
+**接口地址:** `/future/user/v1/account/open`
+
+### 限流规则
+
+200/s/apikey
+
+### 请求示例
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/accout/open" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_recommend_code | 推荐码无效 |
+| invalid_params_recommend_code | 推荐码无效 |

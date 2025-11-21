@@ -1,0 +1,140 @@
+---
+id: FinanceLoanErrorCodes
+title: Error Codes & Enum Definitions
+sidebar_label: Error Codes & Enum Definitions
+sidebar_position: 99
+---
+
+### Enum Definitions
+
+#### Product Type (productType)
+
+- `SEVEN_DAY_APR` - 7-day APR product
+- `THIRTY_DAY_APR` - 30-day APR product
+- `DEMAND` - Flexible loan product
+- `VIP` - VIP loan product
+
+#### Order Type (type)
+
+- `ORDINARY` - Standard order
+- `VIP` - VIP order
+- `NOVICE` - New user order
+
+#### Order Status (status)
+
+- `RUNNING` - Active
+- `REPAYING` - Repaying
+- `FORCE_LIQUIDATING` - Forced liquidation in progress
+- `OVERDUE` - Overdue
+- `REPAID` - Repaid
+- `RENEWED` - Renewed
+- `FORCE_LIQUIDATED` - Forced liquidation completed
+- `COMPLETE` - Completed
+
+#### Repayment Type (repaymentType)
+
+- `ORDINARY_REPAYMENT` - Regular repayment
+- `PLEDGE_REPAYMENT` - Pledge-based repayment
+
+#### Adjust Pledge Type (adjustPledgeType)
+
+- `ADD` - Add pledge
+- `REMOVE` - Remove pledge
+
+#### Adjust Trigger Type (adjustPledgeRateType)
+
+- `MANUAL` - Manual adjustment
+- `AUTO` - Automatic adjustment
+
+#### Loan Type (loanType)
+
+- `LOAN` - Liability
+- `PLEDGE` - Collateral
+
+---
+
+## Error Code Description
+
+### HTTP Status Codes
+
+| Code | Description        |
+| ---- | ------------------ |
+| 0    | Success            |
+| 1    | Business exception |
+
+---
+
+### Business Error Codes (FinanceLoanOrderResponse.Status)
+
+#### General Errors (FINANCE_LOAN_ORDER_001–010)
+
+| Code | Description | Trigger Condition |
+| --- | --- | --- |
+| FINANCE_LOAN_ORDER_002 | Overdue order exists | User has unresolved overdue orders |
+| FINANCE_LOAN_ORDER_003 | Product/service unavailable | Product delisted, currency offline, trading disabled, or abnormal price |
+| FINANCE_LOAN_ORDER_004 | Invalid VIP configuration | VIP loan configuration missing or disabled |
+| FINANCE_LOAN_ORDER_005 | Excessive price fluctuation | Price fluctuation exceeds 5% threshold |
+| FINANCE_LOAN_ORDER_007 | Renewal not supported | Product unavailable or trading disabled |
+| FINANCE_LOAN_ORDER_008 | High pledge ratio | Current pledge ratio exceeds warning threshold |
+| FINANCE_LOAN_ORDER_009 | Insufficient balance | Account balance insufficient for interest payment |
+| FINANCE_LOAN_ORDER_010 | Already renewed | The loan order has already been renewed |
+
+#### Parameter Validation Errors (FINANCE_LOAN_ORDER_011–020)
+
+| Code | Description | Trigger Condition |
+| --- | --- | --- |
+| FINANCE_LOAN_ORDER_011 | Pledge adjustment not allowed | Currency offline or trading disabled |
+| FINANCE_LOAN_ORDER_014 | Same currency error | Loan and pledge currencies cannot be the same |
+| FINANCE_LOAN_ORDER_015 | Loan amount too small | Below minimum loan amount |
+| FINANCE_LOAN_ORDER_016 | Loan amount exceeded | Above maximum allowable loan |
+| FINANCE_LOAN_ORDER_017 | Pledge amount exceeded | Above maximum allowable pledge amount |
+| FINANCE_LOAN_ORDER_018 | Pledge ratio exceeded | Input pledge ratio exceeds warning threshold |
+
+#### Business Logic Errors (FINANCE_LOAN_ORDER_021–030)
+
+| Code | Description | Trigger Condition |
+| --- | --- | --- |
+| FINANCE_LOAN_ORDER_021 | Balance not found | User balance for specified currency not found |
+| FINANCE_LOAN_ORDER_025 | Renewal time not reached | Renewal not yet available |
+| FINANCE_LOAN_ORDER_026 | Repayment amount exceeded | Exceeds total debt (principal + interest + penalty) |
+| FINANCE_LOAN_ORDER_029 | Balance API error | Error retrieving balance |
+| FINANCE_LOAN_ORDER_030 | Pledge redemption exceeded | Redeemed pledge exceeds maximum allowed |
+
+#### Product Type Errors (FINANCE_LOAN_ORDER_031–040)
+
+| Code | Description | Trigger Condition |
+| --- | --- | --- |
+| FINANCE_LOAN_ORDER_031 | Product type unavailable | Specified product type is unavailable |
+| FINANCE_LOAN_ORDER_032 | Invalid renewal product type | Renewal product type not supported |
+| FINANCE_LOAN_ORDER_033 | VIP minimum amount insufficient | VIP loan below minimum required amount |
+| FINANCE_LOAN_ORDER_034 | Precision validation failed | Exceeds currency decimal precision |
+| FINANCE_LOAN_ORDER_035 | Newbie activity unavailable | Newbie loan activity disabled |
+| FINANCE_LOAN_ORDER_036 | Not a new user | User not eligible for newbie loan |
+| FINANCE_LOAN_ORDER_037 | KYC required | User has not completed required KYC (Level 2+) |
+| FINANCE_LOAN_ORDER_038 | Newbie + coupon conflict | Newbie loan cannot use coupons |
+| FINANCE_LOAN_ORDER_039 | VIP + coupon conflict | VIP loan cannot use coupons |
+| FINANCE_LOAN_ORDER_040 | Coupon mismatch | Loan info does not match coupon |
+
+#### Special Operation Errors (FINANCE_LOAN_ORDER_041+)
+
+| Code | Description | Trigger Condition |
+| --- | --- | --- |
+| FINANCE_LOAN_ORDER_041 | Coupon unavailable | Coupon disabled or not usable |
+| FINANCE_LOAN_ORDER_042 | Insufficient repayment balance | Balance insufficient during one-click repayment |
+| FINANCE_LOAN_ORDER_043 | No active orders | No running orders found during one-click repayment |
+| FINANCE_LOAN_ORDER_044 | Invalid repayment request | Invalid single repayment request |
+
+---
+
+## Changelog
+
+### v1.0.0 (2025-09-23)
+
+- Initial release
+- Added core borrow and repay features
+- Added pledge adjustment functionality
+- Added renewal and one-click repayment support
+- Added auto-replenishment configuration
+- Added historical query support
+
+---

@@ -1,0 +1,50 @@
+---
+id: GetLeaderSetting
+title: 获取带单设置
+sidebar_label: 获取带单设置
+sidebar_position: 12
+---
+
+**请求类型:** GET
+
+**接口路径:** `/v1/copy-trade-account/copy-trade/leader-settings`
+
+### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+_无需参数_
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "displayEquity": true, // 是否展示总资产
+    "displayQuantity": true, // 是否展示买入数量
+    "labelIds": "string", // 标签ID，逗号分隔
+    "leaderIntro": "string", // 带单者简介
+    "leaderSymbol": [
+      // 已选择的跟单交易对
+      "btc_usdt"
+    ],
+    "openLeader": true, // 是否开启带单
+    "symbolConfig": [
+      // 所有跟单交易对
+      "btc_usdt"
+    ],
+    "tagsConfig": [
+      // 标签配置，标签列表
+      {
+        "id": 0,
+        "label": "string"
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,31 @@
+---
+id: IndexPrice
+title: 指数价格
+sidebar_label: 指数价格
+sidebar_position: 14
+---
+
+### 请求格式
+
+```
+index_price@{symbol}
+```
+
+- **示例**：`index_price@btc_usdt`
+- **推送频率**：1000ms
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "topic": "index_price",
+  "event": "index_price@btc_usdt",
+  "data": {
+    "s": "btc_usdt", // 交易对
+    "p": "50000", // 价格
+    "t": 123124124 // 时间戳
+  }
+}
+```

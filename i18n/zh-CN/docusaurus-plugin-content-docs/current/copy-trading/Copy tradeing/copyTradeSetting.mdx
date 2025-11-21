@@ -1,0 +1,48 @@
+---
+id: GetMyCopySetting
+title: 获取我的跟单设置
+sidebar_label: 获取我的跟单设置
+sidebar_position: 22
+---
+
+**请求类型:** GET
+
+**接口路径:** `/v1/copy-trade-account/copy-trade/follow-leader-config`
+
+### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+| 参数名            | 类型   | 是否必填 | 默认值 | 描述       | 取值范围 |
+| --------------- | ------ | --------- | ------- | ----------------- | ------ |
+| leaderAccountId | number | 是      |         | 带单账户ID |        |
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "autoFollowSymbol": true, // 是否自动跟随新交易对
+    "followLoss": 0, // 跟单止损
+    "followLossOperate": "LEADER_CLOSE", // 跟单止损操作: MARKET_SELL（市价卖出）; LEADER_CLOSE（跟随带单者平仓）; MANUAL_PROCESS（手动处理）
+    "followSymbols": [
+      // 跟单交易对，逗号分隔（已选择的交易对）
+      "string"
+    ],
+    "followType": "FUND", // 跟单类型: FUND（固定金额）; RATE（倍率跟单）
+    "followVal": 0, // 跟单数值，金额或倍率值
+    "leaderSymbols": [
+      // 带单交易对，所有可跟单的交易对
+      "string"
+    ],
+    "profitRate": 0, // 盈利率
+    "triggerProfitRate": 0, // 触发止盈率
+    "triggerStopRate": 0 // 触发止损率
+  }
+}
+```

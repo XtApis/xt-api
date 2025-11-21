@@ -1,0 +1,32 @@
+---
+id: SellLeadOrder
+title: Sell Lead Order
+sidebar_label: Sell Lead Order
+sidebar_position: 6
+---
+
+**Type:** POST
+
+**Description:** `/v1/copy-trade-order/copy-trade/order/sell`
+
+### Limit Flow Rules
+
+50/s/apikey
+
+### Parameters
+
+| Name          | Type   | Mandatory | Default | Description     | Ranges |
+| ------------- | ------ | --------- | ------- | --------------- | ------ |
+| leaderOrderId | number | true      |         | Leader order id |        |
+| symbol        | string | true      |         | Symbol          |        |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

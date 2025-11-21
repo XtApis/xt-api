@@ -1,0 +1,60 @@
+---
+id: ErrorCode
+title: 错误代码
+sidebar_label: 错误代码
+sidebar_position: 9
+---
+
+### HTTP 状态码
+
+| httpStatus | 描述 |
+| --- | --- |
+| 200 | 请求成功，请进一步检查 rc 和 mc 部分 |
+| 404 | 接口不存在 |
+| 429 | 请求过于频繁，请根据速率限制要求控制请求频率 |
+| 500 | 服务异常 |
+| 502 | 网关异常 |
+| 503 | 服务不可用，请稍后重试 |
+
+### 返回代码 (rc)
+
+| rc  | 返回代码         |
+| --- | ---------------- |
+| 0   | 业务成功         |
+| 1   | 业务失败         |
+
+### 消息代码 (mc)
+
+| mc | 消息代码 |
+| --- | --- |
+| SUCCESS | 成功 |
+| FAILURE | 失败 |
+| AUTH_001 | 缺少请求头 validate-appkey |
+| AUTH_002 | 缺少请求头 validate-timestamp |
+| AUTH_003 | 缺少请求头 validate-recvwindow |
+| AUTH_004 | 请求头 validate-recvwindow 错误 |
+| AUTH_005 | 缺少请求头 validate-algorithms |
+| AUTH_006 | 请求头 validate-algorithms 错误 |
+| AUTH_007 | 缺少请求头 validate-signature |
+| AUTH_101 | ApiKey 不存在 |
+| AUTH_102 | ApiKey 未激活 |
+| AUTH_103 | 签名错误 |
+| AUTH_104 | 未绑定 IP 请求 |
+| AUTH_105 | 消息过期 |
+| AUTH_106 | 超出 apikey 权限 |
+| LEVER_ORDER_099 | 订单正在处理中 |
+| LEVER_ORDER_082 | 当前仓位已平仓，暂不支持该操作 |
+| LEVER_ORDER_081 | 当前暂不支持手动操作 |
+| LEVER_ORDER_080 | 当前正在强平中，暂不支持该操作 |
+| LEVER_ORDER_032 | 当前没有借款或无法进行手动还款，请重试 |
+| LEVER_ORDER_031 | 还款金额错误 |
+| LEVER_ORDER_006 | 杠杆资金不足 |
+| LEVER_ORDER_005 | 当前市场最大可借金额不足 |
+| LEVER_ORDER_004 | 借款金额不足 |
+| LEVER_ORDER_003 | 借款金额错误 |
+| LEVER_ORDER_001 | 重复请求 |
+| LEVER_1004 | 当前子账户没有此交易权限 |
+| GATEWAY_0001 | 触发风控 |
+| GATEWAY_0002 | 触发风控 |
+| GATEWAY_0003 | 触发风控 |
+| GATEWAY_0004 | 触发风控 |

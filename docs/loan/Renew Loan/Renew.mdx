@@ -1,0 +1,39 @@
+---
+id: LoanRenew
+title: Loan Renewal
+sidebar_label: Loan Renewal
+sidebar_position: 4
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `POST /v4/order/finance/loan/order/renew`
+
+---
+
+### Request Parameters
+
+<CodeBlock language="json" title="Request Parameters">
+  {`{
+  "bizId": 12345678910,
+  "positionId": 12345,                 // Original position ID
+  "productType": "THIRTY_DAY_APR",     // Renewal product type
+  "couponId": 789,                     // Coupon ID (optional)
+  "discountConditionSatisfied": true   // Whether discount conditions are satisfied (optional)
+}`}
+</CodeBlock>
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "order-id-1234"
+}`}
+</CodeBlock>

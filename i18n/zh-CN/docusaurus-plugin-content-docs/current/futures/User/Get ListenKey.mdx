@@ -1,0 +1,55 @@
+---
+id: Get ListenKey
+title: 获取 ListenKey
+sidebar_label: 获取 ListenKey
+sidebar_position: 1.9
+keywords:
+  - listen-key
+  - 监听密钥
+  - 获取ListenKey
+  - /future/user/v1/user/listen-key
+---
+
+**请求类型** GET
+
+**接口地址:** `/future/user/v1/user/listen-key`
+
+**说明:** 有效期为 8 小时
+
+---
+
+### 限流规则
+
+200次/秒/apikey
+
+---
+
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/user/listen-key" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| fail | 内部异常 |

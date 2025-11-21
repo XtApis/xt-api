@@ -1,0 +1,46 @@
+---
+id: UserOrder
+title: 用户订单
+sidebar_label: 用户订单
+sidebar_position: 10
+---
+
+### 订阅 / 取消订阅
+
+```json title="订阅/取消订阅"
+{
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{order}@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "topic": "order",
+  "event": "order@123456",
+  "data": {
+    "symbol": "btc_usdt", // 交易对
+    "orderId": "1234", // 订单ID
+    "origQty": "34244", // 原始数量
+    "avgPrice": "123", // 成交均价
+    "price": "1111", // 订单价格
+    "executedQty": "34244", // 已成交数量（张）
+    "orderSide": "BUY", // BUY（买入）或 SELL（卖出）
+    "timeInForce": "IOC", // 有效方式
+    "positionSide": "LONG", // LONG（多头）或 SHORT（空头）
+    "marginFrozen": "123", // 占用保证金
+    "sourceType": "default", // DEFAULT: 普通订单；ENTRUST: 计划委托；PROFIT: 止盈止损
+    "type": "ORDER", // 类型
+    "state": "FILLED", // 订单状态：NEW（新建）、PARTIALLY_FILLED（部分成交）、PARTIALLY_CANCELED（部分取消）、FILLED（完全成交）、CANCELED（已取消）、REJECTED（已拒绝）、EXPIRED（已过期）
+    "createdTime": 1731231231, // 创建时间
+    "leverage": 20, // 杠杆倍数
+    "positionType": "ISOLATED", // 仓位类型：CROSSED（全仓）、ISOLATED（逐仓）
+    "orderType": "MARKET" // 订单类型：LIMIT（限价）、MARKET（市价）
+  }
+}
+```

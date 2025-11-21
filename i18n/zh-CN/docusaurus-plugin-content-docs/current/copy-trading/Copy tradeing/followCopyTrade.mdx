@@ -1,0 +1,39 @@
+---
+id: FollowCopyTrading
+title: 跟单交易
+sidebar_label: 跟单交易
+sidebar_position: 23
+---
+
+**请求类型:** POST
+
+**接口路径:** `/v1/copy-trade-account/copy-trade/follow`
+
+### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| leaderAccountId | number | 是 |  | 带单账户ID |  |
+| followType | string | 是 |  | 跟单类型 | <a href="#followType">跟单类型</a>，FUND（固定金额）;RATE（倍率） |
+| followVal | number | 是 |  | 跟单金额值或倍率值 |  |
+| followLoss | number | 否 |  | 跟单止损 |  |
+| followLossOperate | string | 是 |  | 跟单止损操作 | <a href="#followLossOperate">跟单止损操作</a>，MARKET_SELL（市价卖出）;LEADER_CLOSE（跟随带单者平仓）;MANUAL_PROCESS（手动处理） |
+| triggerStopRate | number | 否 |  | 单笔止损率 |  |
+| triggerProfitRate | number | 否 |  | 单笔止盈率 |  |
+| autoFollowSymbol | bool | 是 |  | 是否自动跟随新交易对 |  |
+| symbols | string | 是 |  | 跟单交易对 | 例如：xt_usdt,btc_usdt |
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

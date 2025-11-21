@@ -1,0 +1,59 @@
+---
+id: get-mark-price-for-single-trading-pair
+title: Get Mark Price for Single Trading Pair
+sidebar_label: Get Mark Price for Single Trading Pair
+sidebar_position: 13
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/symbol-mark-price`
+
+#### Note：
+
+This method does not require a signature.
+
+### Limit flow rules
+
+None
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      | N/A     | Trading pair |        |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/symbol-mark-price"  \
+      -d "symbol=btc_usdt" \ # required
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "p": 0,  // Price
+    "s": "", // Trading pair
+    "t": 0   // Time
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |

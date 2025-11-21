@@ -1,0 +1,59 @@
+---
+id: FullTicker
+title: Full ticker
+sidebar_label: Full ticker
+sidebar_position: 8
+---
+
+### Description
+
+**GET** `/v4/public/ticker`
+
+---
+
+### Limit Rule
+
+1. Single symbol: 10 requests/second/ip
+2. Multiple symbols: 10 requests/second/ip
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | No | N/A | Trading pair, e.g. `btc_usdt` | - |
+| symbols | array | No | N/A | Collection of trading pairs. Priority is higher than symbol, e.g. `btc_usdt,eth_usdt` | - |
+| tags | string | No | N/A | Set of tags, separated by commas. Currently only supports `spot` | - |
+
+---
+
+### Response Example
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "s": "btc_usdt",
+      "t": 1662444879425,
+      "cv": "0.00",
+      "cr": "0.0000",
+      "o": "200.00",
+      "l": "200.00",
+      "h": "200.00",
+      "c": "200.00",
+      "q": "0.002",
+      "v": "0.40",
+      "ap": null,
+      "aq": null,
+      "bp": null,
+      "bq": null
+      "bq": null
+    }
+  ]
+}
+
+```

@@ -1,0 +1,47 @@
+---
+id: SubmitOrder
+title: Submit Order
+sidebar_label: Submit Order
+sidebar_position: 2
+description: /spot/v4/order
+---
+
+**Type:** POST
+
+**Description:** `/spot/v4/order`
+
+### Remark
+
+- Create a **BUY order** based on market price → `quantity` must be `null`, `quoteQty` is **required**.
+- Create a **SELL order** based on market price → `quoteQty` must be `null`, `quantity` is **required**.
+
+### Limit Flow Rules
+
+20/s/apikey
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| `symbol` | string | Yes |  | Trading pair |  |
+| `clientOrderId` | string | No |  | Pattern: `^[a-zA-Z0-9_]{4,32}$` |  |
+| `side` | string | Yes |  | BUY, SELL |  |
+| `type` | string | Yes |  | Order type: LIMIT, MARKET |  |
+| `timeInForce` | string | Yes |  | Effective way: GTC, FOK, IOC, GTX |  |
+| `bizType` | string | Yes |  | SPOT, LEVER |  |
+| `price` | number | No |  | Price. Required if LIMIT; empty if MARKET |  |
+| `quantity` | number | No |  | Quantity. Required if LIMIT or market order by quantity |  |
+| `quoteQty` | number | No |  | Amount. Required if LIMIT or market order by amount |  |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "orderId": "6216559590087220004"
+  }
+}
+```

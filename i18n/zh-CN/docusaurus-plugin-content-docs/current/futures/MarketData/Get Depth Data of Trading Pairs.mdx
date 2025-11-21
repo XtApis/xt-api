@@ -1,0 +1,62 @@
+---
+id: get-depth-data-of-trading-pairs
+title: 获取交易对深度数据
+sidebar_label: 获取交易对深度数据
+sidebar_position: 10
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/depth`
+
+#### **限流规则**
+
+10次/秒/IP
+
+<br />> 注意：此方法不需要签名。
+
+### 参数
+
+| 名称   | 类型    | 是否必需 | 默认值 | 描述                 | 范围 |
+| ------ | ------- | -------- | ------ | -------------------- | ---- |
+| symbol | string  | 是       | N/A    | 交易对               |      |
+| level  | integer | 是       | N/A    | 档位（最小:1，最大:50） |      |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/depth"  \
+      -d "symbol=btc_usdt" \ # 必须
+      -d "level=1" \ # 必须
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "a": [], // 卖单
+    "b": [], // 买单
+    "s": "", // 交易对
+    "t": 0,  // 时间
+    "u": 0   // 更新ID
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |
+| invalid_level | level 最小为 1 且为整数 |

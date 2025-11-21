@@ -1,0 +1,29 @@
+---
+id: CreateSubAccount
+title: 创建子账户
+sidebar_label: 创建子账户
+sidebar_position: 2
+---
+
+**类型:** POST
+
+**描述:** `/v4/user/account`
+
+### 参数
+
+| 名称        | 类型   | 是否必需 | 默认值 | 描述       | 范围 |
+| ----------- | ------ | -------- | ------ | ---------- | ---- |
+| accountName | string | 是       | -      | 子账户名称 | -    |
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": true //true: 成功; false/null: 失败
+}
+```

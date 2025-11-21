@@ -1,0 +1,49 @@
+---
+id: GetMyCopyTraderList
+title: Get My Copy Trader List
+sidebar_label: Get My Copy Trader List
+position_number: 30
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-account/copy-trade/leader-followers`
+
+#### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `direction` | string | No | NEXT | Query direction: `PREV` - previous page, `NEXT` - next page |
+| `limit` | number | No | 10 | Number of pages (1–100) |
+| `id` | object | No |  | Start ID, e.g. `6216559590087220004` |
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "accountId": 0, // copy trader account id
+        "avatar": "string", // avatar of copy trader
+        "days": 0, // follow days
+        "followMargin": 0, // follow margin
+        "followProfit": 0, // follow profit
+        "followProfitRate": 0, // follow profit rate
+        "followerName": "string", // name of copy trader
+        "id": 0, // id
+        "pageId": 0 // the id used for pagination query
+      }
+    ]
+  }
+}
+```

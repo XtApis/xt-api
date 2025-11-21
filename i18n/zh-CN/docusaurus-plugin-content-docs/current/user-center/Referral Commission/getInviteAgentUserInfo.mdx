@@ -1,0 +1,99 @@
+---
+id: GetInviteAgentUserTradeInfo
+title: 获取邀请代理用户交易信息
+sidebar_label: 获取邀请代理用户交易信息
+sidebar_position: 10
+---
+
+### 接口地址
+`GET /v4/referal/invite/agent/user/info`
+
+---
+
+### 请求参数
+
+| 名称        | 类型   | 是否必填 | 默认值 | 描述                                    | 取值范围   |
+|-------------|--------|----------|--------|-----------------------------------------|------------|
+| uidList     | string | 是       | -      | 用户 ID 列表，例如：[6118530023996, 6118530023997] | -          |
+| startTime   | number | 是       | -      | 起始时间，例如：20250902                | -          |
+| endTime     | number | 是       | -      | 结束时间，例如：20250905                | -          |
+| fromId      | number | 是       | -      | 起始 ID，例如：48739                    | -          |
+| direction   | string | 是       | -      | 查询方向                                | PREV, NEXT |
+| limit       | number | 是       | -      | 每页条数，例如：100                     | -          |
+
+---
+
+### 返回示例
+
+```json
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "id": 48739,                        // 自增主键
+      "userId": 6118530023996,            // 用户 ID
+      "agentId": 5951540495512,           // 代理 ID（上级代理）
+      "regDate": "2024-08-07",            // 注册时间
+      "agentLevel": 1,                    // 代理等级
+      "lstLoginDeviceType": "web",        // 最近一次登录设备
+      "registerInviteCode": "BOAHBL",     // 注册邀请码
+      "totalAssetAmtU": 156.76358008,     // 全部账户折合 U 的余额
+      "depositAmtU1d": 0,                 // 当日入金
+      "depositAmtUCw": 0,                 // 本周入金
+      "depositAmtUCm": 0,                 // 本月入金
+      "withdrawAmtU1d": 0,                // 当日出金
+      "withdrawAmtUCw": 0,                // 本周出金
+      "withdrawAmtUCm": 0,                // 本月出金
+      "fstDepositDate": "2025-06-13",     // 首次入金时间
+      "spotTradeAmtU1d": 0,               // 当日现货交易额
+      "spotTradeAmtUCw": 25.7656,         // 本周现货交易额
+      "spotTradeAmtUCm": 25.7656,         // 本月现货交易额
+      "spotTradeFeeU1d": 0,               // 当日现货手续费
+      "spotTradeFeeUCw": 0.0504184,       // 本周现货手续费
+      "spotTradeFeeUCm": 0.0504184,       // 本月现货手续费
+      "contractTradeAmtU1d": 0,           // 当日合约交易额
+      "contractTradeAmtUCw": 0,           // 本周合约交易额
+      "contractTradeAmtUCm": 0,           // 本月合约交易额
+      "contractTradeFeeU1d": 0,           // 当日合约手续费
+      "contractTradeFeeUCw": 0,           // 本周合约手续费
+      "contractTradeFeeUCm": 0,           // 本月合约手续费
+      "spotAffiliateDisburseU1d": 0,      // 当日预计现货返佣
+      "spotAffiliateDisburseUCw": 0.03097,// 本周预计现货返佣
+      "spotAffiliateDisburseUCm": 0.03097,// 本月预计现货返佣
+      "contractAffiliateDisburseU1d": 0,  // 当日预计合约返佣
+      "contractAffiliateDisburseUCw": 0,  // 本周预计合约返佣
+      "contractAffiliateDisburseUCm": 0,  // 本月预计合约返佣
+      "closeProfitU1d": 0,                // 当日平仓盈亏
+      "closeProfitUCw": 0,                // 本周平仓盈亏
+      "closeProfitUCm": 0,                // 本月平仓盈亏
+      "userTradesTimes1d": "0",           // 用户当日交易时长
+      "userTradesTimesCw": "0",           // 用户本周交易时长
+      "userTradesTimesCm": "0",           // 用户本月交易时长
+      "userTransactionHours1d": "0",      // 用户当日交易小时数
+      "userTransactionHoursCw": "0.5",    // 用户本周交易小时数
+      "userTransactionHoursCm": "0.5",    // 用户本月交易小时数
+      "tradesNumber1d": "0",              // 当日交易笔数
+      "tradesNumberCw": "0.3333",         // 本周交易笔数
+      "tradesNumberCm": "0.3333",         // 本月交易笔数
+      "contractAvgLeverage1d": "0.0",     // 当日合约平均杠杆倍数
+      "contractAvgLeverageCw": "0.0",     // 本周合约平均杠杆倍数
+      "contractAvgLeverageCm": "0.0",     // 本月合约平均杠杆倍数
+      "bizDate": "20250902",              // 业务日期
+      "adsUserAllSymbolTradeRespDTOList": [
+        {
+          "symbolId": 9605,               // 交易对 ID
+          "symbol": "fet_usdt",           // 交易对名称
+          "spotTradeAmtU1d": 0,           // 当日现货成交额
+          "contractTradeAmtU1d": 0,       // 当日合约成交额
+          "bizDate": "20250902",          // 业务日期
+          "spotTradeAmtUCw": 25.7656,     // 本周现货成交额
+          "spotTradeAmtUCm": 25.7656,     // 本月现货成交额
+          "contractTradeAmtUCw": 0,       // 本周合约成交额
+          "contractTradeAmtUCm": 0        // 本月合约成交额
+        }
+      ]
+    }
+  ]
+}

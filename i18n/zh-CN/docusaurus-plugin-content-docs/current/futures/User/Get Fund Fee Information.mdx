@@ -1,0 +1,76 @@
+---
+id: Get Fund Fee Information
+title: 获取资金费率信息
+sidebar_label: 获取资金费率信息
+sidebar_position: 6
+---
+
+**请求类型** GET
+
+**接口地址:** `/future/user/v1/balance/funding-rate-list`
+
+---
+
+### 请求参数
+
+| 参数名     | 类型     | 是否必填 | 默认值 | 描述                                  |
+| ---------- | -------- | -------- | ------ | ------------------------------------- |
+| symbol     | string   | 是       | N/A    | 交易对（不传则查询所有交易对）         |
+| direction  | string   | 否       | NEXT   | 分页方向（PREV：上一页；NEXT：下一页） |
+| id         | integer  | 否       | N/A    | 记录 ID                               |
+| limit      | integer  | 否       | 10     | 每页条数                              |
+| startTime  | integer  | 否       | N/A    | 起始时间                              |
+| endTime    | integer  | 否       | N/A    | 结束时间                              |
+
+---
+
+### 限流规则
+
+200次/秒/apikey
+
+---
+
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/balance/funding-rate-list" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=eth_usdt" \  # 必须
+  -d "limit=10"
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false,       // 是否有下一页
+    "hasPrev": false,       // 是否有上一页
+    "items": [
+      {
+        "cast": 0,          // 资金费用
+        "coin": "",         // 币种
+        "createdTime": 0,   // 时间
+        "id": 0,            // 记录ID
+        "positionSide": "", // 持仓方向
+        "symbol": ""        // 交易对
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | 交易对不存在 |

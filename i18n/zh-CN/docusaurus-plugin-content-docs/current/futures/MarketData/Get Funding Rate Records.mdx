@@ -1,0 +1,72 @@
+---
+id: get-funding-rate-records
+title: 获取资金费率记录
+sidebar_label: 获取资金费率记录
+sidebar_position: 19
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/funding-rate-record`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 参数
+
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | 否 | N/A | 交易对 |  |
+| direction | string | 否 | NEXT | 方向（PREV：上一页；NEXT：下一页） | PREV;NEXT |
+| id | integer | 否 | N/A | id |  |
+| limit | integer | 否 | 10 | 限制条数 |  |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/funding-rate-record" \
+      -d "symbol=eth_usdt" \
+      -d "limit=5"
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // 是否有下一页
+    "hasPrev": false, // 是否有上一页
+    "items": [        // 数据列表
+      {
+        "collectionInternal": 0, // 收费周期（秒）
+        "createdTime": 0,        // 时间
+        "fundingRate": 0,        // 最新资金费率
+        "id": 0,                 // id
+        "symbol": ""             // 交易对
+      }
+    ]
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |
+| invalid_direction | 方向填写有误 |

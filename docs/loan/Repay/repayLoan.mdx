@@ -1,0 +1,38 @@
+---
+id: LoanRepay
+title: Loan Repayment
+sidebar_label: Loan Repayment
+sidebar_position: 2
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `POST /v4/order/finance/loan/order/repay`
+
+---
+
+### Request Parameters
+
+<CodeBlock language="json" title="Request Parameters">
+  {`{
+  "positionId": 12345,                 // Position ID
+  "amount": "15000",                   // Repayment amount
+  "pledgeRatio": "true",               // Whether to release pledged assets proportionally
+  "bizId": "repay_123456789"           // Business ID
+}`}
+</CodeBlock>
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "12345"
+}`}
+</CodeBlock>

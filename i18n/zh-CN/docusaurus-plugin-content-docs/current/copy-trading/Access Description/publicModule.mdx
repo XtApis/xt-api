@@ -1,0 +1,43 @@
+---
+id: PublicModule
+title: 公共模块
+sidebar_label: 公共模块
+sidebar_position: 10
+---
+
+#### **<span id="leaderOrderRequestType">交易员订单请求类型</span>**
+
+| 类型 | 描述                      |
+| ---- | -------------------------------- |
+| 1    | 查询订单详情             |
+| 2    | 查询订单汇总信息 |
+
+#### **<span id="copyTradeUserStatus">跟单用户状态</span>**
+
+| 用户状态 | 描述         |
+| ----------- | ------------------- |
+| LEADER      | 跟单交易员   |
+| FOLLOWER    | 跟单跟随者 |
+| NONE        | 无                |
+
+#### **<span id="leaderType">交易员类型</span>**
+
+| 类型 | 描述    |
+| ---- | -------------- |
+| 1    | 当前跟随 |
+| 2    | 历史跟随 |
+
+#### **<span id="followType">跟单类型</span>**
+
+| 跟单类型 | 描述                             |
+| ----------- | --------------------------------------- |
+| FUND        | 按固定金额跟单 |
+| RATE        | 按资金比例跟单   |
+
+#### **<span id="followLossOperate">跟单止损仓位处理</span>**
+
+| 止损操作 | 描述                             |
+| ----------------- | --------------------------------------- |
+| MARKET_SELL       | 立即按市价结算      |
+| LEADER_CLOSE      | 跟随交易员平仓 |
+| MANUAL_PROCESS    | 手动处理                       |

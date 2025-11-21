@@ -1,0 +1,74 @@
+---
+id: LoanPositionDetail
+title: 持仓详情
+sidebar_label: 持仓详情
+sidebar_position: 18
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`GET /v4/order/finance/loan/order/loan-position-detail`
+
+---
+
+### 查询参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 |
+|------|------|------|--------|------|
+| positionId | string | 是 | — | 持仓ID |
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,                                        // 响应码：0-成功
+  "mc": "SUCCESS",                                // 响应消息
+  "ma": [],                                       // 消息参数数组
+  "result": {
+    "id": "548214217828951040",                   // 持仓记录ID
+    "positionId": "548214217828951040",           // 持仓ID
+    "orderId": "548214201051584064",              // 关联订单ID
+    "totalLoanAmount": "10.0003768",              // 总借款金额（本金+利息）
+    "loanAmount": "10",                           // 借款本金
+    "interest": "0.0003768",                      // 当前累计利息
+    "pledgeCurrency": "btc",                      // 质押币种符号
+    "pledgeCurrencyId": 2,                        // 质押币种ID
+    "pledgeAmount": "0.0001092276",               // 质押数量
+    "dueTime": 1918083599000,                     // 到期时间（毫秒时间戳）
+    "duration": 1825,                             // 借款期限（天）
+    "currentPledgeRatio": 80.01,                  // 当前质押率（%）
+    "currentPrice": "114439.08",                  // 当前质押币价格
+    "status": "RUNNING",                          // 持仓状态：RUNNING-运行中
+    "createTime": 1760406454858,                 // 创建时间（毫秒时间戳）
+    "aprYear": "33",                              // 年化利率（%）
+    "aprHour": "0.003768",                        // 小时利率（%）
+    "earlyWarningPledgeRate": 0.9,                // 预警质押率阈值
+    "earlyWarningPrice": "101728.22416475",       // 预警价格（触发预警的质押币价格）
+    "forceLiquidatePledgeRate": 0.98,             // 强平质押率阈值
+    "forceLiquidatePrice": "93423.87933497",      // 强平价格（触发强平的质押币价格）
+    "productType": "DEMAND",                      // 产品类型：DEMAND-活期
+    "overdueTime": null,                          // 逾期时间（如有）
+    "initialPledgeRate": 0.8,                     // 初始质押率阈值
+    "overdueInterestMultiple": 3,                 // 逾期利息倍数
+    "gracePeriod": 7,                             // 宽限期（天）
+    "discountList": null,                         // 折扣列表
+    "loanCurrency": "usdt",                       // 借款币种符号
+    "loanCurrencyId": 11,                         // 借款币种ID
+    "productId": 1,                               // 产品ID
+    "pledgeProductId": 32,                        // 质押产品ID
+    "discountConditions": [],                     // 折扣条件列表
+    "sourceTag": null,                            // 来源标签
+    "interestDeduction": "0",                     // 利息扣减
+    "couponCfg": null,                            // 优惠券配置
+    "couponAvailable": false,                     // 优惠券是否可用
+    "originalSevenDayApr": 0.2222,                // 原始7天年化利率
+    "originalThirtyDayApr": 0.3333,               // 原始30天年化利率
+    "originalNinetyDayApr": 0.2,                  // 原始90天年化利率
+    "originalDemandApr": 0.33                     // 原始活期年化利率
+  }
+}`}
+</CodeBlock>

@@ -1,0 +1,94 @@
+---
+id: GetHistoryTrackListInactive
+title: Get history track list (inactive)
+sidebar_label: Get history track list (inactive)
+sidebar_position: 19
+---
+
+**Type:** GET **Description:** `/future/trade/v1/entrust/track-list-history`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| direction | string | FALSE | NEXT | Pagination direction | PREV; NEXT |
+| limit | integer | FALSE | 10 | Number of items per page | — |
+| id | integer | FALSE | N/A | Record ID | — |
+| startTime | integer | FALSE | N/A | Start time | — |
+| endTime | integer | FALSE | N/A | End time | — |
+| symbol | string | FALSE | N/A | Trading pair | — |
+
+---
+
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/track-list-history" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "symbol=btc_usdt" \
+    -d "limit=10"
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": true, // Whether there is a next page
+    "hasPre": true, // Whether there is a previous page
+    "items": [
+      {
+        "activationPrice": 0, // Activation price
+        "avgPrice": 0, // Average price
+        "callback": "", // Callback configuration: PROPORTION or FIXED
+        "callbackVal": 0, // Callback value
+        "configActivation": false, // Whether activation price is configured
+        "createdTime": 0, // Creation time
+        "currentPrice": 0, // Current market price
+        "desc": "", // Description
+        "executedQty": 0, // Executed quantity
+        "orderSide": "", // Order direction
+        "ordinary": true, // Normal flag
+        "origQty": 0, // Quantity (contracts)
+        "positionSide": "", // Position side
+        "price": 0, // Entrust price
+        "state": "", // Order state: NOT_ACTIVATION, NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED, DELEGATION_FAILED
+        "stopPrice": 0, // Trigger price
+        "symbol": "", // Trading pair
+        "trackId": 0, // Track order ID
+        "triggerPriceType": "", // Trigger price type
+        "updatedTime": 0 // Updated time
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error Code     | Description                 |
+| -------------- | --------------------------- |
+| invalid_symbol | Trading pair does not exist |
+
+---

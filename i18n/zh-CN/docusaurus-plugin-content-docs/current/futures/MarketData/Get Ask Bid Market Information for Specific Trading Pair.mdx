@@ -1,0 +1,62 @@
+---
+id: get-ask-bid-market-information-for-specific-trading-pair
+title: 获取指定交易对的买卖盘行情信息
+sidebar_label: 获取指定交易对的买卖盘行情信息
+sidebar_position: 18.5
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/ticker/book`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 参数
+
+| 名称   | 类型   | 是否必需 | 默认值 | 描述     | 范围 |
+| ------ | ------ | -------- | ------ | -------- | ---- |
+| symbol | string | 是       | N/A    | 交易对   |      |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/ticker/book" \
+      -d "symbol=eth_usdt" # 必须
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "ap": "", // 卖一价
+    "aq": "", // 卖一量
+    "bp": "", // 买一价
+    "bq": "", // 买一量
+    "s": "",  // 交易对
+    "t": 0    // 时间
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |

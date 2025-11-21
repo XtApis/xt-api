@@ -1,0 +1,33 @@
+---
+id: TradeRecord
+title: Trade record
+sidebar_label: Trade record
+sidebar_position: 8
+---
+
+### Request Format
+
+```
+trade@{symbol}
+```
+
+- **example**: `trade@btc_usdt`
+- **rate**: real-time
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "topic": "trade",
+  "event": "trade@btc_usdt",
+  "data": {
+    "s": "btc_index", // trading pair
+    "p": "50000", // price
+    "a": "0.1", // quantity
+    "m": "BID", // deal side: BID = Buy, ASK = Sell
+    "t": 123124124 // timestamp
+  }
+}
+```

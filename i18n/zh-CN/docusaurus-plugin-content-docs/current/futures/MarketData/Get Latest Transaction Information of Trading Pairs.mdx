@@ -1,0 +1,65 @@
+---
+id: get-latest-transaction-information-of-trading-pairs
+title: 获取交易对最新成交信息
+sidebar_label: 获取交易对最新成交信息
+sidebar_position: 9
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/deal`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 参数
+
+| 名称   | 类型    | 是否必需 | 默认值 | 描述     | 范围 |
+| ------ | ------- | -------- | ------ | -------- | ---- |
+| symbol | string  | 是       | N/A    | 交易对   |      |
+| num    | integer | 否       | 50     | 数量     |      |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/deal"  \
+      -d "symbol=btc_usdt"
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": 0,  // 成交量
+      "m": "", // 订单方向
+      "p": 0,  // 价格
+      "s": "", // 交易对
+      "t": 0   // 时间
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |
+| invalid_num | num 最小值为 1 且为整数 |

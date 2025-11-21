@@ -1,0 +1,36 @@
+---
+id: signature-generation
+title: 签名生成
+sidebar_label: 签名生成
+sidebar_position: 5
+---
+
+### 示例
+
+以 `https://sapi.xt.com/v4/order` 为例。
+
+以下是**示例 appKey** 和 **secretKey**（仅用于演示，在 Linux bash 中使用 echo/openssl/curl）：
+
+- **appKey**: `3976eb88-76d0-4f6e-a6b2-a57980770085`
+- **secretKey**: `bc6630d0231fda5cd98794f52c4998659beda290`
+
+---
+
+### 请求头示例
+
+validate-algorithms: HmacSHA256 validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085 validate-recvwindow: 5000 validate-timestamp: 1641446237201 validate-signature: 2b5eb11e18796d12d88f13dc27dbbd02c2cc51ff7059765ed9821957d82bb4d9
+
+---
+
+### 请求数据示例
+
+```json
+{
+  "type": "LIMIT",
+  "timeInForce": "GTC",
+  "side": "BUY",
+  "symbol": "btc_usdt",
+  "price": "39000",
+  "quantity": "2"
+}
+```

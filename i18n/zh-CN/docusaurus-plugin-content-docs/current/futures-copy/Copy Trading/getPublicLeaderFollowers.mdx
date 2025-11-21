@@ -1,0 +1,48 @@
+---
+id: PublicGetLeadersFollowers
+title: 公开获取带单员的跟单员
+sidebar_label: 公开获取带单员的跟单员
+sidebar_position: 28
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-follower-page`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| type | number | 否 | - | 类型 (1:详情, 2:汇总) | 1, 2 |
+| symbol | string | 否 | - | 交易对 | - |
+| leaderAccountId | number | 是 | - | 带单员账户ID | - |
+| direction | string | 否 | - | 查询方向 | NEXT, PREV |
+| limit | number | 否 | - | 页面大小 | 10 |
+| id | number | 否 | - | 页面ID | - |
+
+### 限流规则
+
+2/s/ip
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": [
+    {
+      "accountId": 0, // 带单员账户ID
+      "followerName": "string", // 跟单员昵称
+      "avatar": "string", // 头像
+      "id": 0, // ID
+      "pageId": 0, // 页面ID
+      "followMarginU": 0, // 跟单员总保证金
+      "followProfitU": 0, // 跟单员总收益
+      "followProfitRate": 0, // 跟单员收益率
+      "days": 0 // 天数
+    }
+  ]
+}
+```

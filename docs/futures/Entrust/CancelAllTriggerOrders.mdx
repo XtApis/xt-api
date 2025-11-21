@@ -1,0 +1,64 @@
+---
+id: CancelAllTriggerOrders
+title: Cancel All Trigger Orders
+sidebar_label: Cancel All Trigger Orders
+sidebar_position: 3
+---
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/entrust/cancel-all-plan`
+
+---
+
+### Limit Flow Rules
+
+- 200/s/apikey
+
+---
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description  | Ranges        |
+| ------ | ------ | --------- | ------- | ------------ | ------------- |
+| symbol | string | Yes       | —       | Trading pair | e.g. btc_usdt |
+
+---
+
+### Request Example
+
+```bash title="cURL"
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-all-plan" \
+-H "validate-appkey: $APPKEY" \                               # Required
+-H "validate-timestamp: $TIMESTAMP" \                         # Required
+-H "validate-signature: $SIGNATURE" \                         # Required
+-H "Content-Type: application/x-www-form-urlencoded" \        # Required
+-d "symbol=btc_usdt"                                          # Required
+```
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error Code     | Description                 |
+| -------------- | --------------------------- |
+| invalid_symbol | Trading pair does not exist |
+| fail           | Internal error              |
+
+---

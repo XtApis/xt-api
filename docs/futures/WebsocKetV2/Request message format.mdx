@@ -1,0 +1,41 @@
+---
+id: RequestMessageFormat
+title: Request message format
+sidebar_label: Request message format
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### Description
+
+<Tabs>
+  <TabItem value="subscribe" label="subscribe">
+
+```javascript title="subscribe"
+{
+  "method": "subscribe",
+  "params": [
+    "{topic}@{arg},{arg}",
+    "{topic}@{arg}"
+  ],
+  "id": "{id}"     //call back ID
+}
+```
+
+  </TabItem>
+  <TabItem value="unsubscribe" label="unsubscribe">
+
+```javascript title="unsubscribe"
+{
+  "method": "unsubscribe",
+  "params": [
+    "{topic}@{arg},{arg}"
+  ],
+  "id": "{id}"     //call back ID
+}
+```
+
+  </TabItem>
+</Tabs>

@@ -1,0 +1,25 @@
+---
+id: GetAvailableSymbolList
+title: Get available symbol list
+sidebar_label: Get available symbol list
+sidebar_position: 19
+---
+
+**Type:** GET
+
+**Description:** `/future/copytrade/public/user/v1/public/copy-trade/symbol-list`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": ["string", "string"] // symbols
+}
+```

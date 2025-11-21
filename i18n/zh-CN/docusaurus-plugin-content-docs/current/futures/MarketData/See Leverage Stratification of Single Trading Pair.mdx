@@ -1,0 +1,69 @@
+---
+id: see-leverage-stratification-of-single-trading-pair
+title: 查看单个交易对的杠杆分层
+sidebar_label: 查看单个交易对的杠杆分层
+sidebar_position: 5
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/leverage/bracket/detail`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 参数
+
+| 名称   | 类型   | 必填 | 默认值 | 描述  | 范围 |
+| ------ | ------ | --------- | ------- | ------------ | ------ |
+| symbol | string | true      | N/A     | 交易对 |        |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/leverage/bracket/detail" \
+      -d "symbol=eth_usdt"
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "leverageBrackets": [
+      {
+        "bracket": 0,            // 层级
+        "maintMarginRate": 0,    // 维持保证金率
+        "maxLeverage": 0,        // 最大杠杆
+        "maxNominalValue": 0,    // 最大名义价值
+        "maxStartMarginRate": 0, // 最大初始保证金率
+        "minLeverage": 0,        // 最小杠杆
+        "startMarginRate": 0,    // 初始保证金率
+        "symbol": ""             // 交易对
+      }
+    ],
+    "symbol": ""
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |

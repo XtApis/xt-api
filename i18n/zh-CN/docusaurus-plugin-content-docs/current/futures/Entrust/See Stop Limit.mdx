@@ -1,0 +1,96 @@
+---
+id: SeeStopLimit
+title: 查看止盈止损
+sidebar_label: 查看止盈止损
+sidebar_position: 10
+---
+
+
+
+
+**请求类型:** GET
+**描述:** `/future/trade/v1/entrust/profit-list`
+
+---
+
+### 限流规则
+
+200/s/apikey
+
+---
+
+### 参数说明
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| symbol | string | TRUE | N/A | 交易对（不传则查询所有交易对） | — |
+| page | integer | FALSE | 1 | 页码 | — |
+| size | integer | FALSE | 10 | 每页数量 | — |
+| startTime | integer | FALSE | N/A | 开始时间 | — |
+| endTime | integer | FALSE | N/A | 结束时间 | — |
+| state | string | TRUE | N/A | 订单状态：NOT_TRIGGERED（新订单）；TRIGGERING（触发中）；TRIGGERED（已触发）；USER_REVOCATION（用户撤销）；PLATFORM_REVOCATION（平台撤销）；EXPIRED（已过期）；UNFINISHED（未完成）；HISTORY（历史） | NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY |
+
+---
+
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/profit-list" \
+    -H "validate-appkey: $APPKEY"              # 必须
+    -H "validate-timestamp: $TIMESTAMP"        # 必须
+    -H "validate-signature: $SIGNATURE"        # 必须
+    -H "Content-Type: application/x-www-form-urlencoded"  # 必须
+    -d "symbol=btc_usdt"                       # 必须
+    -d "state=NOT_TRIGGERED"                   # 必须
+    -d "page=1" \
+    -d "size=10"
+```
+
+---
+
+### 响应示例
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "createdTime": 0,                     // 时间
+        "entryPrice": 0,                      // 开仓平均价格
+        "executedQty": 0,                     // 实际成交
+        "isolatedMargin": 0,                  // 逐仓保证金
+        "origQty": 0,                         // 数量（张）
+        "positionSide": "",                   // 持仓方向
+        "positionSize": 0,                    // 持仓数量（张）
+        "profitId": 0,                        // 订单ID
+        "state": "",                          // 订单状态：NOT_TRIGGERED（未触发）；TRIGGERING（触发中）；TRIGGERED（已触发）；USER_REVOCATION（用户撤销）；PLATFORM_REVOCATION（平台撤销）；EXPIRED（已过期）
+        "symbol": "",                         // 交易对
+        "triggerProfitPrice": 0,              // 止盈价格
+        "triggerStopPrice": 0,                // 止损价格
+        "profitDelegateOrderType": "LIMIT",   // 止盈委托订单类型：LIMIT（限价）；MARKET（市价）
+        "profitDelegatePrice": 0,             // 止盈委托价格
+        "profitDelegateTimeInForce": "GTC",   // 止盈委托订单有效期：GTC, FOK, IOC, GTX
+        "stopDelegateOrderType": "LIMIT",     // 止损委托订单类型：LIMIT（限价）；MARKET（市价）
+        "stopDelegatePrice": 0,               // 止损委托价格
+        "stopDelegateTimeInForce": "GTC"      // 止损委托订单有效期：GTC, FOK, IOC, GTX
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_symbol | 交易对不存在 |
+| invalid_position_type | 持仓类型不正确 |
+| invalid_position_side | 仓位方向不正确 |
+| invalid_state | state类型不正确 |

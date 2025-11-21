@@ -1,0 +1,30 @@
+---
+id: ObtainSignature
+title: 获取签名
+sidebar_label: 获取签名
+sidebar_position: 5
+---
+
+示例：`https://fapi.xt.com/api/v1/public/symbol/detail?symbol=btc_usdt`
+
+以下是在 Linux bash 环境中使用 **echo openssl** 和 **curl** 工具在调用接口中下单的示例。下面显示的 `appKey` 和 `secret` 仅用于演示目的：
+
+- **appKey**: `3976eb88-76d0-4f6e-a6b2-a57980770085`
+- **secretKey**: `bc6630d0231fda5cd98794f52c4998659beda290`
+
+### 请求头示例
+
+validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085 validate-timestamp: 1641446237201 validate-algorithms: HmacSHA256
+
+### 请求数据
+
+```json
+{
+  "type": "LIMIT",
+  "timeInForce": "GTC",
+  "side": "BUY",
+  "symbol": "btc_usdt",
+  "price": "39000",
+  "quantity": "2"
+}
+```

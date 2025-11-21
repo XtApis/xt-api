@@ -1,0 +1,58 @@
+---
+id: QueryCurrentPendingOrder
+title: 查询当前挂单
+sidebar_label: 查询当前挂单
+sidebar_position: 7
+description: /spot/v4/open-order
+---
+
+**类型:** GET
+
+**接口:** `/spot/v4/open-order`
+
+### 限流规则
+
+10次/秒/apikey
+
+### 参数
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- |
+| `symbol` | string | 否 |  | 交易对，如不填写则代表全部 |
+| `bizType` | string | 否 |  | SPOT（现货）, LEVER（杠杆） |
+| `side` | string | 否 |  | BUY（买入）, SELL（卖出） |
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "symbol": "BTC_USDT",
+      "orderId": "6216559590087220004",
+      "clientOrderId": "16559590087220001",
+      "baseCurrency": "string",
+      "quoteCurrency": "string",
+      "side": "BUY",
+      "type": "LIMIT",
+      "timeInForce": "GTC",
+      "price": "40000",
+      "origQty": "2",
+      "origQuoteQty": "48000",
+      "executedQty": "1.2",
+      "leavingQty": "string",
+      "tradeBase": "2",
+      "tradeQuote": "48000",
+      "avgPrice": "42350",
+      "fee": "string",
+      "feeCurrency": "string",
+      "state": "NEW",
+      "time": 1655958915583,
+      "updatedTime": 1655958915583
+    }
+  ]
+}
+```

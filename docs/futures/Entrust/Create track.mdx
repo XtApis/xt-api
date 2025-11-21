@@ -1,0 +1,98 @@
+---
+id: CreateTrack
+title: Create Track
+sidebar_label: Create Track
+sidebar_position: 13
+---
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/entrust/create-track`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| callback | string | TRUE | N/A | Callback type configuration | FIXED; PROPORTION |
+| callbackVal | number | TRUE | N/A | Callback value (must be > 0) | >0 |
+| orderSide | string | TRUE | N/A | Order side | BUY; SELL |
+| origQty | number | TRUE | N/A | Original quantity (contracts) | — |
+| positionSide | string | TRUE | N/A | Position side | BOTH; LONG; SHORT |
+| positionType | string | TRUE | N/A | Position type | CROSSED; ISOLATED |
+| symbol | string | TRUE | N/A | Trading pair | — |
+| triggerPriceType | string | TRUE | N/A | Trigger price type | INDEX_PRICE; MARK_PRICE; LATEST_PRICE |
+| activationPrice | number | FALSE | N/A | Activation price | — |
+| clientMedia | string | FALSE | N/A | Client media | — |
+| clientMediaChannel | string | FALSE | N/A | Client media channel | — |
+| clientOrderId | string | FALSE | N/A | Client order ID | — |
+| expireTime | integer | FALSE | N/A | Expiration time | — |
+
+---
+
+### Request Example
+
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/create-track" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "symbol=btc_usdt"                       # Required
+    -d "callback=FIXED"                        # Required
+    -d "callbackVal=1"                         # Required
+    -d "orderSide=BUY"                         # Required
+    -d "origQty=1"                             # Required
+    -d "positionSide=LONG"                     # Required
+    -d "positionType=CROSSED"                  # Required
+    -d "triggerPriceType=INDEX_PRICE"          # Required
+    -d "activationPrice=999"
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| invalid_symbol | Trading pair does not exist |
+| symbol_is_not_trading | Trading pair is not available for trading |
+| The trading pair currently does not support placing orders through the OpenAPI. | The trading pair currently does not support placing orders via OpenAPI |
+| deposit_coupon_exists | The coupon has been claimed or already bound |
+| exist_bonus_positon_not_create_reverse_position | Reverse position cannot be created |
+| invalid_params | Invalid or missing parameters |
+| invalid_exceed_max_rate_limit | Callback ratio exceeds maximum limit |
+| invalid_below_min_rate_limit | Callback ratio below minimum limit |
+| invalid_exceed_max_price_limit | Callback ratio exceeds latest transaction price limit |
+| invalid_exceed_min_price_limit | Callback ratio below latest transaction price limit |
+| invalid_activation_price | Invalid activation price |
+| invalid_quantity_scale | Quantity must be an integer |
+| user_can_not_trade | Account prohibited from trading |
+| sub_account_not_trade | Sub-account cannot trade |
+| user_can_not_open_position | Account restricted from opening positions |
+| symbol_is_not_open_position | The trading pair is not open for new positions |
+
+---

@@ -1,0 +1,45 @@
+---
+id: GetHistoricalProfitSharingDetail
+title: 获取历史分润明细
+sidebar_label: 获取历史分润明细
+sidebar_position: 15
+---
+
+**请求类型:** GET
+
+**接口路径:** `/v1/copy-trade-balance/copy-trade/share-profit/his-detail`
+
+### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| time | number | 是 |  | 分润时间，例如 `1717545600000` |  |
+| direction | string | 否 | NEXT | 查询方向 | PREV - 上一页, NEXT - 下一页 |
+| limit | number | 否 | 10 | 每页数量 | 1-100 |
+| id | object | 否 |  | 起始ID，例如 `6216559590087220004` |  |
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "hasNext": true,
+    "hasPrev": true,
+    "items": [
+      {
+        "amount": 0, // 分润金额
+        "avatar": "string", // 跟单者头像
+        "id": 0, // 用于分页查询的ID
+        "name": "string" // 跟单者昵称
+      }
+    ]
+  }
+}
+```

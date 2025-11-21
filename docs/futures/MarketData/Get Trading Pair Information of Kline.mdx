@@ -1,0 +1,74 @@
+---
+id: get-trading-pair-information-of-kline
+title: Get Trading Pair Information of Kline
+sidebar_label: Get Trading Pair Information of Kline
+sidebar_position: 15
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v1/public/q/kline`
+
+#### Note：
+
+This method does not require a signature.
+
+### Limit flow rules
+
+None
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | true | N/A | Trading pair |  |
+| interval | string | true | N/A | Time-interval | 1m;5m;15m;30m;1h;4h;1d;1w |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+| limit | integer | false | N/A | Limit |  |
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/kline" \
+      -d "symbol=eth_usdt" \ # required
+      -d "interval=1m"  # required 
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": 0,  // Volume
+      "c": 0,  // Close price
+      "h": 0,  // Highest price
+      "l": 0,  // Lowest price
+      "o": 0,  // Open price
+      "s": "", // Trading pair
+      "t": 0,  // Time
+      "v": 0   // Turnover
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+| invalid_symbol | Symbol does not exist |
+| invalid_limit | The minimum value of limit is 1, the maximum is 1500, and it must be an integer |
+| invalid_interval | Invalid time interval |
+| invalid_time | Invalid start or end time |

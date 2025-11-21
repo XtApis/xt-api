@@ -1,0 +1,31 @@
+---
+id: CloseAllCopyOrder
+title: Close All Copy Order
+sidebar_label: Close All Copy Order
+sidebar_position: 9
+---
+
+**Type:** POST
+
+**Description:** `/v1/copy-trade-order/copy-trade/order/close-all`
+
+### Limit Flow Rules
+
+50/s/apikey
+
+### Parameters
+
+| Name   | Type   | Mandatory | Default | Description | Ranges |
+| ------ | ------ | --------- | ------- | ----------- | ------ |
+| symbol | string | true      |         | Symbol      |        |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

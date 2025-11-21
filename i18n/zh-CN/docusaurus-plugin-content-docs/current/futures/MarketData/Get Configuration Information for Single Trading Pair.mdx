@@ -1,0 +1,115 @@
+---
+id: get-configuration-information-for-single-trading-pair
+title: 获取单个交易对的配置信息
+sidebar_label: 获取单个交易对的配置信息
+sidebar_position: 3
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/symbol/detail`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 参数
+
+| 名称   | 类型   | 是否必需 | 默认值 | 描述     | 范围 |
+| ------ | ------ | -------- | ------ | -------- | ---- |
+| symbol | string | 是       | N/A    | 交易对   |      |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/symbol/detail" \ 
+      -H "validate-appkey: $APPKEY" \  # 必须
+      -H "validate-timestamp: $TIMESTAMP" \  # 必须
+      -H "validate-singature: $SINGATURE" \  # 必须
+      -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+      -d "symbol=btc_usdt"  #必须
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "baseCoin": "",      // 基础资产
+    "baseCoinDisplayPrecision": 0,  // 显示的基础币种精度
+    "baseCoinPrecision": 0,  // 基础币种精度
+    "cnDesc": "",  // 合约中文描述
+    "cnName": "",  // 合约中文名称
+    "cnRemark": "",  // 合约中文备注
+    "contractSize": 0,  // 合约乘数（面值）
+    "contractType": "",  // 合约类型，永续、交割
+    "deliveryCompletion": false, // 是否完成交割
+    "deliveryDate": 0,  // 交割时间
+    "deliveryPrice": 0,  // 交割价格
+    "depthPrecisionMerge": 0,  // 盘口精度合并
+    "enDesc": "",      // 合约英文描述
+    "enName": "",      // 合约英文名称
+    "enRemark": "",    // 合约备注（英文）
+    "initLeverage": 0,  // 初始杠杆
+    "initPositionType": "",  // 初始仓位类型
+    "isDisplay": false,      // 是否显示
+    "isOpenApi": false,      // 是否支持OpenApi
+    "labels": [],            // 标签
+    "liquidationFee": 0,     // 强制平仓费用
+    "makerFee": 0,           // Maker费率
+    "marketTakeBound": 0,    // 市价单最大价格偏差
+    "maxEntrusts": 0,        // 最大活跃订单数
+    "maxNotional": 0,        // 最大名义价值
+    "maxOpenOrders": 0,      // 最大未成交订单数
+    "maxPrice": 0,           // 最高价格
+    "minNotional": 0,        // 最小名义价值
+    "minPrice": 0,           // 最低价格
+    "minQty": 0,             // 最小数量
+    "minStepPrice": 0,       // 最小价格变动单位
+    "multiplierDown": 0,     // 卖单限价下限百分比
+    "multiplierUp": 0,       // 买单限价上限百分比
+    "onboardDate": 0,        // 上市时间
+    "pair": "",              // 目标交易对
+    "plates": [],
+    "predictEventParam": "",   // 事件相关参数
+    "predictEventSort": "",    // 事件相关排序
+    "predictEventType": "",    // 预测事件类型
+    "pricePrecision": 0,       // 价格精度
+    "productType": "",         // 合约类型
+    "quantityPrecision": 0,    // 数量精度
+    "quoteCoin": "",           // 报价币种
+    "quoteCoinDisplayPrecision": 0,
+    "quoteCoinPrecision": 0,
+    "state": 0,
+    "supportEntrustType": "",
+    "supportOrderType": "",
+    "supportPositionType": "",
+    "supportTimeInForce": "",
+    "symbol": "",
+    "symbolGroupId": 0,
+    "takerFee": 0,
+    "tradeSwitch": false,
+    "underlyingType": ""
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| Error code | Desc |
+|----------------------|-------------|
+| invalid_symbol | 交易对不存在 |

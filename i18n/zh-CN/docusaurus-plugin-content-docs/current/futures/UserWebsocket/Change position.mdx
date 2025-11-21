@@ -1,0 +1,55 @@
+---
+id: ChangePosition
+title: 仓位变化
+sidebar_label: 仓位变化
+sidebar_position: 8
+type: ''
+description: ''
+parameters: []
+---
+
+### 订阅
+
+```json title="订阅"
+{
+  "method": "SUBSCRIBE",
+  "params": ["position@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+### 取消订阅
+
+```json title="取消订阅"
+{
+  "method": "UNSUBSCRIBE",
+  "params": ["position@{listenKey}"],
+  "id": "{id}"
+}
+```
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "topic": "position",
+  "event": "position@123456",
+  "data": {
+    "symbol": "btc_usdt",
+    "contractType": "PERPUTUAL", // PERPUTUAL（永续）, DELIVERY（交割）
+    "positionType": "ISOLATED", // ISOLATED（逐仓）, CROSSED（全仓）
+    "positionSide": "LONG",
+    "positionSize": "123", // 仓位数量
+    "closeOrderSize": "100", // 挂单数量（张）
+    "availableCloseSize": "23", // 可用数量（张）
+    "realizedProfit": "123", // 已实现盈亏
+    "entryPrice": "213", // 开仓均价
+    "isolatedMargin": "213", // 逐仓保证金
+    "openOrderMarginFrozen": "123", // 占用的开仓保证金
+    "underlyingType": "", // COIN_BASED（币本位）, U_BASED（U本位）
+    "leverage": 20 // 杠杆倍数
+  }
+}
+```

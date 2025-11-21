@@ -1,0 +1,87 @@
+---
+id: update-orders
+title: Update Orders
+sidebar_label: Update Orders
+sidebar_position: 2
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/order/update`
+
+> Content-Type = `application/x-www-form-urlencoded && application/json`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| orderId | number | true |  | Order ID |  |
+| price | number | true |  | Target price |  |
+| origQty | number | true |  | Target quantity (cont) |  |
+| triggerProfitPrice | number | false | N/A | Profit target price |  |
+| triggerStopPrice | number | false | N/A | Stop-Loss price |  |
+| triggerPriceType | string | false | LATEST_PRICE | Trigger price type | INDEX_PRICE; MARK_PRICE; LATEST_PRICE |
+| profitDelegateOrderType | string | false | N/A | Take-Profit order type | LIMIT; MARKET |
+| profitDelegateTimeInForce | string | false | N/A | Take-Profit order validity method | GTC; IOC; FOK; GTX |
+| profitDelegatePrice | number | false | N/A | Take-Profit order price |  |
+| stopDelegateOrderType | string | false | N/A | Stop-Loss order type | LIMIT; MARKET |
+| stopDelegateTimeInForce | string | false | N/A | Stop-Loss order validity method | GTC; IOC; FOK; GTX |
+| stopDelegatePrice | number | false | N/A | Stop-Loss order price |  |
+| followUpOrder | boolean | false | N/A | If true, indicates chase order |  |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`REQUEST_BODY='{
+  "orderId":"1234567890",
+  "price":"3800",
+  "origQty":1
+}'
+
+# The above three parameters are required. For optional parameters, please refer to the optional parameters list.
+
+curl -X POST "https://fapi.xt.com/future/trade/v1/order/update" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-singature: $SINGATURE" \\  # Required 
+  -H "Content-Type: application/json" \\  # Required
+  -d "\${REQUEST_BODY}"  # Required
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| invalid_order | Order ID does not exist |
+| invalid_params | Invalid parameter setting |
+| invalid_quantity | origQty must be an integer |
+| invalid_price | Invalid price setting |
+| invalid_trigger_profit_price | Invalid take-profit price setting |
+| invalid_trigger_stop_price | Invalid stop-loss price setting |
+| trigger_profit_price_less_than_order_delegate_price | Take-profit trigger price cannot be lower than the order price (Long) |
+| trigger_profit_price_more_than_order_delegate_price | Take-profit trigger price cannot be higher than the order price (Short) |
+| trigger_stop_price_more_than_order_delegate_price | Stop-loss trigger price cannot be higher than the order price (Long) |
+| trigger_stop_price_less_than_order_delegate_price | Stop-loss trigger price cannot be lower than the order price (Short) |
+| invalid_time_in_force | Invalid order time-in-force |
+| on_board_30_minutes_limit_order_price_limit | Limit order price restriction within 30 minutes after listing |

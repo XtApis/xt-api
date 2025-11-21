@@ -1,0 +1,155 @@
+---
+id: GetSymbolInformation
+title: 获取交易对信息
+sidebar_label: 获取交易对信息
+sidebar_position: 3
+---
+
+**类型:** GET **描述:** `/v4/public/symbol`
+
+### 参数
+
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | false | - | 交易对 例如：btc_usdt |  |
+| symbols | array | false | - | 交易对集合，优先级高于 symbol。例如：btc_usdt,eth_usdt |  |
+| version | string | false | - | 版本号，如果请求版本等于响应版本，将不返回列表（减少 IO）。例如：2e14d2cd5czcb2c2af2c1db6 |  |
+
+### 限流规则
+
+1. 单个交易对：`10次/秒/IP`
+2. 多个交易对：`10次/秒/IP`
+
+### 过滤器
+
+#### 价格过滤器
+
+- `min`：允许的最小价格
+- `max`：允许的最大价格
+- `tickSize`：步进间隔 → `price = minPrice + (整数 * tickSize)`
+
+```text
+price >= min
+price <= max
+(price - minPrice) % tickSize == 0
+```
+
+#### 数量过滤器
+
+- `min`：允许的最小值
+- `max`：允许的最大值
+- `tickSize`：步进间隔
+
+```text
+quantity >= min
+quantity <= max
+(quantity - minQuantity) % tickSize == 0
+```
+
+#### 报价数量过滤器
+
+- 如果 `min` 为 null → 无限制
+- 限价单 → `price * quantity >= min`
+- 市价买单 → `quoteQty >= min`
+
+#### 限价保护过滤器
+
+- `buyMaxDeviation`、`buyPriceLimitCoefficient`、`sellMaxDeviation`、`sellPriceLimitCoefficient`
+
+```text
+买入：price >= latestPrice - latestPrice * buyMaxDeviation
+     price <= latestPrice + latestPrice * buyPriceLimitCoefficient
+
+卖出：price <= latestPrice + latestPrice * sellMaxDeviation
+     price >= latestPrice - latestPrice * sellPriceLimitCoefficient
+```
+
+#### 市价保护过滤器
+
+- `maxDeviation`：最大偏差
+
+```text
+买入：latestPrice + latestPrice * maxDeviation >= sellBestPrice
+卖出：latestPrice - latestPrice * maxDeviation <= buyBestPrice
+```
+
+#### 上线保护过滤器
+
+- `maxPriceMultiple`、`durationSeconds`
+
+```text
+price <= openPrice * maxPriceMultiple
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "time": 1662444177871,
+    "version": "7cd2cfab0dc979339f1de904bd90c9cb",
+    "symbols": [
+      {
+        "id": 614,
+        "symbol": "btc_usdt",
+        "state": "ONLINE",
+        "tradingEnabled": true,
+        "openapiEnabled": true,
+        "nextStateTime": null,
+        "nextState": null,
+        "depthMergePrecision": 5,
+        "baseCurrency": "btc",
+        "baseCurrencyPrecision": 5,
+        "baseCurrencyId": 2,
+        "quoteCurrency": "usdt",
+        "quoteCurrencyPrecision": 6,
+        "quoteCurrencyId": 11,
+        "pricePrecision": 4,
+        "quantityPrecision": 6,
+        "takerFeeRate": 0.001,
+        "makerFeeRate": 0.002,
+        "orderTypes": ["LIMIT", "MARKET"],
+        "timeInForces": ["GTC", "FOK", "IOC", "GTX"],
+        "displayWeight": 1,
+        "displayLevel": "FULL",
+        "plates": [],
+        "filters": [
+          {
+            "filter": "PROTECTION_LIMIT",
+            "buyMaxDeviation": "0.8",
+            "sellMaxDeviation": "0.8"
+          },
+          {
+            "filter": "PROTECTION_MARKET",
+            "maxDeviation": "0.1"
+          },
+          {
+            "filter": "PROTECTION_ONLINE",
+            "durationSeconds": "300",
+            "maxPriceMultiple": "5"
+          },
+          {
+            "filter": "PRICE",
+            "min": null,
+            "max": null,
+            "tickSize": null
+          },
+          {
+            "filter": "QUANTITY",
+            "min": null,
+            "max": null,
+            "tickSize": null
+          },
+          {
+            "filter": "QUOTE_QTY",
+            "min": null
+          }
+        ]
+      }
+    ]
+  }
+}
+```

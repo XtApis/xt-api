@@ -1,0 +1,96 @@
+---
+id: PledgeCurrency
+title: 质押币种查询
+sidebar_label: 质押币种查询
+sidebar_position: 20
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`GET /v4/public/finance/loan/product/pledge-currency`
+
+---
+
+### 查询参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 可选值 |
+|------|------|------|--------|------|--------|
+| page | integer | 否 | 1 | 页码 | — |
+| limit | integer | 否 | 10 | 每页数量 | — |
+| currencyId | integer | 否 | — | 币种ID | — |
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "id": 32,                              // 质押产品ID
+        "currencyType": "PLEDGE_CURRENCY",     // 币种类别
+        "currencyId": 2,                       // 质押币种ID
+        "currency": "btc",                     // 质押币种符号
+        "weight": 1,                           // 权重（排序用）
+        "initialPledgeRate": 0.8,              // 初始质押率
+        "initialPledgeRateStr": "80",          // 初始质押率字符串(%)
+        "earlyWarningPledgeRate": 0.9,         // 预警质押率
+        "earlyWarningPledgeRateStr": "90",     // 预警质押率字符串(%)
+        "forceLiquidatePledgeRate": 0.98,      // 强平质押率
+        "forceLiquidatePledgeRateStr": "98",   // 强平质押率字符串(%)
+        "individualCap": 100000.0              // 个人质押限额(USDT计价)
+      },
+      {
+        "id": 33,
+        "currencyType": "PLEDGE_CURRENCY",
+        "currencyId": 11,
+        "currency": "usdt",
+        "weight": 1,
+        "initialPledgeRate": 0.6,
+        "initialPledgeRateStr": "60",
+        "earlyWarningPledgeRate": 0.7,
+        "earlyWarningPledgeRateStr": "70",
+        "forceLiquidatePledgeRate": 0.99,
+        "forceLiquidatePledgeRateStr": "99",
+        "individualCap": 1000000.0
+      },
+      {
+        "id": 35,
+        "currencyType": "PLEDGE_CURRENCY",
+        "currencyId": 941,
+        "currency": "sol",
+        "weight": 1,
+        "initialPledgeRate": 0.8,
+        "initialPledgeRateStr": "80",
+        "earlyWarningPledgeRate": 0.88,
+        "earlyWarningPledgeRateStr": "88",
+        "forceLiquidatePledgeRate": 0.95,
+        "forceLiquidatePledgeRateStr": "95",
+        "individualCap": 10000000.0
+      },
+      {
+        "id": 36,
+        "currencyType": "PLEDGE_CURRENCY",
+        "currencyId": 5,
+        "currency": "eth",
+        "weight": 1,
+        "initialPledgeRate": 0.8,
+        "initialPledgeRateStr": "80",
+        "earlyWarningPledgeRate": 0.88,
+        "earlyWarningPledgeRateStr": "88",
+        "forceLiquidatePledgeRate": 0.95,
+        "forceLiquidatePledgeRateStr": "95",
+        "individualCap": 100000000.0
+      }
+    ]
+  }
+}`}
+</CodeBlock>

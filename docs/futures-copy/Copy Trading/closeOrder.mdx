@@ -1,0 +1,32 @@
+---
+id: CloseOrder
+title: Close Order
+sidebar_label: Close Order
+sidebar_position: 12
+---
+
+**Type:** POST
+
+**Description:** `/future/copytrade/order/v1/copy-trade/close`
+
+### Parameters
+
+| Name        | Type    | Mandatory | Default | Description       | Ranges     |
+| ----------- | ------- | --------- | ------- | ----------------- | ---------- |
+| trackNo     | number  | Yes       | -       | Track number      | -          |
+| leaderOrder | boolean | No        | -       | Is leader’s order | true,false |
+
+### Limit Flow Rules
+
+5/s/apikey
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=success, false=fail
+}
+```

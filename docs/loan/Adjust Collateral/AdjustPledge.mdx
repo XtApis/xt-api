@@ -1,0 +1,38 @@
+---
+id: LoanAdjustPledge
+title: Adjust Pledged Assets
+sidebar_label: Adjust Pledged Assets
+sidebar_position: 3
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `POST /v4/order/finance/loan/order/adjust-pledge`
+
+---
+
+### Request Parameters
+
+<CodeBlock language="json" title="Request Parameters">
+  {`{
+  "bizId": "1231231",
+  "positionId": 12345,                 // Position ID
+  "type": "ADD",                       // Adjustment type: ADD (increase), REMOVE (decrease)
+  "amount": "0.5"                      // Adjustment amount
+}`}
+</CodeBlock>
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "order-id-1234"
+}`}
+</CodeBlock>

@@ -1,0 +1,79 @@
+---
+id: Get User's Account Flow Information
+title: 获取用户资金流水信息
+sidebar_label: 获取用户资金流水信息
+sidebar_position: 5
+---
+
+**请求类型** GET
+
+**接口地址：** `/future/user/v1/balance/bills`
+
+---
+
+### 请求参数
+
+| 参数名     | 类型     | 是否必填 | 默认值 | 描述                  |
+| ---------- | -------- | -------- | ------ | --------------------- |
+| symbol     | string   | 是       | N/A    | 交易对（不传则查询全部） |
+| direction  | string   | 否       | NEXT   | 查询方向（PREV: 上一页；NEXT: 下一页） |
+| id         | integer  | 否       | N/A    | 记录ID                |
+| limit      | integer  | 否       | 10     | 每页条数              |
+| startTime  | integer  | 否       | N/A    | 开始时间              |
+| endTime    | integer  | 否       | N/A    | 结束时间              |
+
+---
+
+### 限流规则
+
+200次/秒/apikey
+
+---
+
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/balance/bills" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \  # 必须
+  -d "limit=10"
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false,           // 是否有下一页
+    "hasPrev": false,           // 是否有上一页
+    "items": [
+      {
+        "afterAmount": 0,       // 变动后的余额
+        "amount": 0,            // 变动数量
+        "coin": "",             // 币种
+        "createdTime": 0,       // 时间戳
+        "id": 0,                // 记录ID
+        "side": "",             // ADD: 转入；SUB: 转出
+        "symbol": "",           // 交易对
+        "type": ""              // EXCHANGE: 转账；CLOSE_POSITION: 平仓盈亏；TAKE_OVER: 仓位接管；QIANG_PING_MANAGER: 强平管理费；FUND: 资金费率；FEE: 手续费（开仓、平仓、强平）；ADL: 自动减仓；MERGE: 仓位合并
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_coin | 币种不存在 |
+| invalid_symbol | 交易对不存在 |

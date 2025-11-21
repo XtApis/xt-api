@@ -1,0 +1,64 @@
+---
+id: get-market-information-for-all-trading-pairs
+title: 获取所有交易对的行情信息
+sidebar_label: 获取所有交易对的行情信息
+sidebar_position: 8
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/tickers`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 请求参数
+
+无
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/tickers" 
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": "", // 24小时成交额
+      "c": "", // 最新价
+      "h": "", // 24小时最高价
+      "l": "", // 24小时最低价
+      "o": "", // 24小时前第一笔成交价
+      "r": "", // 24小时价格涨跌幅
+      "s": "", // 交易对
+      "t": 0,  // 时间
+      "v": ""  // 24小时成交量
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+|  |  |

@@ -1,0 +1,38 @@
+---
+id: Heartbeat
+title: 心跳机制
+sidebar_label: 心跳机制
+sidebar_position: 6
+---
+
+
+### 描述
+客户端的每一个连接都需要定期发送一个文本 **"ping"**，服务器会回复文本 **"pong"**。如果服务器在 1 分钟内未收到客户端发送的 ping 消息，将会主动断开连接。
+
+
+---
+
+
+### 示例
+
+
+#### Python
+```python
+from websocket import create_connection
+
+
+ws = create_connection("wss://stream.xt.com/notice")
+
+
+# 定期发送 ping
+ws.send("ping")
+print(ws.recv()) # 预期响应 "pong"
+```
+
+
+#### 响应
+```json
+{
+"msg": "pong"
+}
+```

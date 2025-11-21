@@ -1,0 +1,102 @@
+---
+id: CreateStopLimit
+title: 创建止盈止损
+sidebar_label: 创建止盈止损
+sidebar_position: 7
+---
+
+**请求类型:** POST
+**描述:** `/future/trade/v1/entrust/create-profit`
+
+---
+
+### 限流规则
+200/s/apikey
+
+---
+
+### 参数说明
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| symbol | string | FALSE | N/A | 交易对 | — |
+| origQty | integer | TRUE | — | 数量（张） | — |
+| triggerProfitPrice | integer | TRUE | — | 止盈触发价格 | — |
+| triggerStopPrice | integer | TRUE | — | 止损触发价格 | — |
+| expireTime | integer | TRUE | — | 过期时间（timestamp） | — |
+| positionSide | string | TRUE | — | 持仓方向 | LONG; SHORT |
+| profitDelegateOrderType | string | TRUE | — | 止盈委托订单类型 | LIMIT; MARKET |
+| profitDelegateTimeInForce | string | TRUE | — | 止盈委托订单有效期 | GTC; FOK; IOC; GTX |
+| profitDelegatePrice | number | FALSE | — | 止盈委托价格 | — |
+| stopDelegateOrderType | string | TRUE | — | 止损委托订单类型 | LIMIT; MARKET |
+| stopDelegateTimeInForce | string | TRUE | — | 止损委托订单有效期 | GTC; FOK; IOC; GTX |
+| stopDelegatePrice | number | FALSE | — | 止损委托价格 | — |
+
+---
+
+### 请求示例
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/create-profit" \
+    -H "validate-appkey: $APPKEY"              # 必须
+    -H "validate-timestamp: $TIMESTAMP"        # 必须
+    -H "validate-signature: $SIGNATURE"        # 必须
+    -H "Content-Type: application/x-www-form-urlencoded"  # 必须
+    -d "origQty=1"                             # 必须
+    -d "triggerProfitPrice=2000"               # 必须
+    -d "triggerStopPrice=100"                  # 必须
+    -d "expireTime=1739558400000"              # 必须（时间戳）
+    -d "positionSide=LONG"                     # 必须
+    -d "profitDelegateOrderType=LIMIT"         # 必须
+    -d "profitDelegateTimeInForce=IOC"         # 必须
+    -d "stopDelegateOrderType=LIMIT"           # 必须
+    -d "stopDelegateTimeInForce=IOC"           # 必须
+    -d "symbol=btc_usdt"
+```
+
+---
+
+### 响应示例
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}
+```
+
+---
+
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_time_in_force | 止盈止损时间设置失败 |
+| invalid_params | 参数设置有误或置空 |
+| invalid_quantity_scale | 数量须为正整数 |
+| invalid_trigger_profit_price | 止盈触发价格有误 |
+| invalid_trigger_stop_price | 止损触发价格有误 |
+| quantity_can_not_less_than | 下单数量小于最小限制 |
+| invalid_price | 价格设置有误 |
+| more_than_available | 超过了可提供的数量 |
+| trigger_profit_price_less_than_entry_price | 止盈价格必须高于开仓价（多） |
+| trigger_profit_price_less_than_mark_price | 止盈价格必须高于当前标记价（多） |
+| trigger_profit_price_less_than_index_price | 止盈价格必须高于当前指数价（多） |
+| trigger_profit_price_more_than_entry_price | 止盈价格必须低于开仓价（空） |
+| trigger_profit_price_more_than_mark_price | 止盈价格必须低于当前标记价（空） |
+| trigger_profit_price_more_than_index_price | 止盈价格必须低于当前指数价（空） |
+| trigger_stop_price_less_than_entry_price | 止损价格必须高于开仓价（空） |
+| trigger_stop_price_less_than_mark_price | 止损价格必须高于当前标记价（空） |
+| trigger_stop_price_less_than_index_price | 止损价格必须高于当前指数价（空） |
+| trigger_stop_price_more_than_entry_price | 止损价格必须低于开仓价（多） |
+| trigger_stop_price_more_than_mark_price | 止损价格必须低于当前标记价（多） |
+| trigger_stop_price_more_than_index_price | 止损价格必须低于当前指数价（多） |
+| user_can_not_trade | 账户禁止交易 |
+| sub_account_not_trade | 子账户禁止交易 |
+| user_can_not_open_position | 账户限制开仓 |
+| invalid_symbol | 不存在该交易对 |
+| symbol_is_not_trading | 交易对未在交易状态 |
+| symbol_is_not_open_position | 交易对未在开启状态 |
+| The trading pair currently does not support placing orders through the OpenAPI."| 该交易对当前不支持通过 OpenAPI 下单 |
+````

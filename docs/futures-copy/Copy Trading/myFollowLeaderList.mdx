@@ -1,0 +1,35 @@
+---
+id: GetMyCurrentLeaders
+title: Get My Current Leaders
+sidebar_label: Get My Current Leaders
+sidebar_position: 17
+---
+
+**Type:** GET
+
+**Description:** `/future/copytrade/user/v1/copy-trade/my-follow-list`
+
+---
+
+### Parameters
+
+_None_
+
+---
+
+### Limit Flow Rules
+
+2/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": [0, 0] // leader accountId list
+}
+```

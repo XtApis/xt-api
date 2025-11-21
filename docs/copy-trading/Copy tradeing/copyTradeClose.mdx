@@ -1,0 +1,32 @@
+---
+id: CloseCopyOrder
+title: Close Copy Order
+sidebar_label: Close Copy Order
+sidebar_position: 8
+---
+
+**Type:** POST
+
+**Description:** `/v1/copy-trade-order/copy-trade/order/close`
+
+### Limit Flow Rules
+
+50/s/apikey
+
+### Parameters
+
+| Name          | Type   | Mandatory | Default | Description     | Ranges |
+| ------------- | ------ | --------- | ------- | --------------- | ------ |
+| leaderOrderId | number | true      |         | Leader order id |        |
+| symbol        | string | true      |         | Symbol          |        |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

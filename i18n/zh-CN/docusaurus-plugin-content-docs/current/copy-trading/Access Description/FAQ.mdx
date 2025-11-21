@@ -1,0 +1,26 @@
+---
+id: FAQ
+title: 常见问题
+sidebar_label: 常见问题
+sidebar_position: 12
+---
+
+### AUTH_105
+
+服务器会验证请求头参数：
+
+- `validate-timestamp` (validTimeStamp)
+- `validate-recvwindow` (recvwindow)
+
+必须遵循以下规则：
+
+```
+dealTimeStamp（服务器处理请求的时间，单位：毫秒） - validTimeStamp < recvwindow
+```
+
+否则，将返回 **AUTH_105**。
+
+#### 如何避免此错误？
+
+- `validate-timestamp` 建议使用发送请求时的时间，单位为**毫秒**。
+- `validate-recvwindow` 应设置稍大一些，以应对网络抖动。

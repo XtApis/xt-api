@@ -1,0 +1,107 @@
+---
+id: CreateStopLimit
+title: Create Stop Limit
+sidebar_label: Create Stop Limit
+sidebar_position: 7
+---
+
+**Type:** POST **Description:** `/future/trade/v1/entrust/create-profit`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | FALSE | N/A | Trading pair | — |
+| origQty | integer | TRUE | — | Quantity (contracts) | — |
+| triggerProfitPrice | integer | TRUE | — | Take-profit trigger price | — |
+| triggerStopPrice | integer | TRUE | — | Stop-loss trigger price | — |
+| expireTime | integer | TRUE | — | Expiration time (timestamp) | — |
+| positionSide | string | TRUE | — | Position side | LONG; SHORT |
+| profitDelegateOrderType | string | TRUE | — | Take-profit order type | LIMIT; MARKET |
+| profitDelegateTimeInForce | string | TRUE | — | Take-profit order time in force | GTC; FOK; IOC; GTX |
+| profitDelegatePrice | number | FALSE | — | Take-profit order price | — |
+| stopDelegateOrderType | string | TRUE | — | Stop-loss order type | LIMIT; MARKET |
+| stopDelegateTimeInForce | string | TRUE | — | Stop-loss order time in force | GTC; FOK; IOC; GTX |
+| stopDelegatePrice | number | FALSE | — | Stop-loss order price | — |
+
+---
+
+### Request Example
+
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/create-profit" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "origQty=1"                             # Required
+    -d "triggerProfitPrice=2000"               # Required
+    -d "triggerStopPrice=100"                  # Required
+    -d "expireTime=1739558400000"              # Required (timestamp)
+    -d "positionSide=LONG"                     # Required
+    -d "profitDelegateOrderType=LIMIT"         # Required
+    -d "profitDelegateTimeInForce=IOC"         # Required
+    -d "stopDelegateOrderType=LIMIT"           # Required
+    -d "stopDelegateTimeInForce=IOC"           # Required
+    -d "symbol=btc_usdt"
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| invalid_time_in_force | Failed to set time-in-force for TP/SL |
+| invalid_params | Invalid or missing parameters |
+| invalid_quantity_scale | Quantity must be a positive integer |
+| invalid_trigger_profit_price | Invalid take-profit trigger price |
+| invalid_trigger_stop_price | Invalid stop-loss trigger price |
+| quantity_can_not_less_than | Order quantity is below the minimum limit |
+| invalid_price | Invalid price setting |
+| more_than_available | Exceeds available quantity |
+| trigger_profit_price_less_than_entry_price | Take-profit price must be higher than entry price (LONG) |
+| trigger_profit_price_less_than_mark_price | Take-profit price must be higher than mark price (LONG) |
+| trigger_profit_price_less_than_index_price | Take-profit price must be higher than index price (LONG) |
+| trigger_profit_price_more_than_entry_price | Take-profit price must be lower than entry price (SHORT) |
+| trigger_profit_price_more_than_mark_price | Take-profit price must be lower than mark price (SHORT) |
+| trigger_profit_price_more_than_index_price | Take-profit price must be lower than index price (SHORT) |
+| trigger_stop_price_less_than_entry_price | Stop-loss price must be higher than entry price (SHORT) |
+| trigger_stop_price_less_than_mark_price | Stop-loss price must be higher than mark price (SHORT) |
+| trigger_stop_price_less_than_index_price | Stop-loss price must be higher than index price (SHORT) |
+| trigger_stop_price_more_than_entry_price | Stop-loss price must be lower than entry price (LONG) |
+| trigger_stop_price_more_than_mark_price | Stop-loss price must be lower than mark price (LONG) |
+| trigger_stop_price_more_than_index_price | Stop-loss price must be lower than index price (LONG) |
+| user_can_not_trade | Account prohibited from trading |
+| sub_account_not_trade | Sub-account not allowed to trade |
+| user_can_not_open_position | Account restricted from opening positions |
+| invalid_symbol | Trading pair does not exist |
+| symbol_is_not_trading | Trading pair is not in trading state |
+| symbol_is_not_open_position | Trading pair not open for position |
+| The trading pair currently does not support placing orders through OpenAPI | symbol_not_support_openapi |
+
+---

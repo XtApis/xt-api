@@ -1,0 +1,74 @@
+---
+id: LoanPositionDetail
+title: Loan Position Detail
+sidebar_label: Loan Position Detail
+sidebar_position: 18
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/order/finance/loan/order/loan-position-detail`
+
+---
+
+### Query Parameters
+
+| Name       | Type   | Required | Default | Description |
+| ---------- | ------ | -------- | ------- | ----------- |
+| positionId | string | true     | —       | Position ID |
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                        // Response code: 0 - success
+  "mc": "SUCCESS",                                // Message
+  "ma": [],                                       // Message arguments
+  "result": {
+    "id": "548214217828951040",                   // Record ID
+    "positionId": "548214217828951040",           // Position ID
+    "orderId": "548214201051584064",              // Related order ID
+    "totalLoanAmount": "10.0003768",              // Total loan amount (principal + interest)
+    "loanAmount": "10",                           // Loan principal
+    "interest": "0.0003768",                      // Accumulated interest
+    "pledgeCurrency": "btc",                      // Collateral currency symbol
+    "pledgeCurrencyId": 2,                        // Collateral currency ID
+    "pledgeAmount": "0.0001092276",               // Collateral amount
+    "dueTime": 1918083599000,                     // Due time (timestamp in ms)
+    "duration": 1825,                             // Loan term (days)
+    "currentPledgeRatio": 80.01,                  // Current pledge ratio (%)
+    "currentPrice": "114439.08",                  // Current collateral price
+    "status": "RUNNING",                          // Position status: RUNNING - active
+    "createTime": 1760406454858,                 // Creation time (timestamp in ms)
+    "aprYear": "33",                              // Annual interest rate (%)
+    "aprHour": "0.003768",                        // Hourly interest rate (%)
+    "earlyWarningPledgeRate": 0.9,                // Early warning pledge ratio threshold
+    "earlyWarningPrice": "101728.22416475",       // Early warning price
+    "forceLiquidatePledgeRate": 0.98,             // Forced liquidation ratio threshold
+    "forceLiquidatePrice": "93423.87933497",      // Forced liquidation price
+    "productType": "DEMAND",                      // Product type: DEMAND - flexible
+    "overdueTime": null,                          // Overdue time (if any)
+    "initialPledgeRate": 0.8,                     // Initial pledge ratio threshold
+    "overdueInterestMultiple": 3,                 // Overdue interest multiplier
+    "gracePeriod": 7,                             // Grace period (days)
+    "discountList": null,                         // Discount list
+    "loanCurrency": "usdt",                       // Loan currency symbol
+    "loanCurrencyId": 11,                         // Loan currency ID
+    "productId": 1,                               // Product ID
+    "pledgeProductId": 32,                        // Collateral product ID
+    "discountConditions": [],                     // Discount condition list
+    "sourceTag": null,                            // Source tag
+    "interestDeduction": "0",                     // Interest deduction
+    "couponCfg": null,                            // Coupon configuration
+    "couponAvailable": false,                     // Whether coupon is available
+    "originalSevenDayApr": 0.2222,                // Original 7-day APR
+    "originalThirtyDayApr": 0.3333,               // Original 30-day APR
+    "originalNinetyDayApr": 0.2,                  // Original 90-day APR
+    "originalDemandApr": 0.33                     // Original demand APR
+  }
+}`}
+</CodeBlock>

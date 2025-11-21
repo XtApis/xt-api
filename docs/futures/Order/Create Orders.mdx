@@ -1,0 +1,107 @@
+---
+id: Create Orders
+title: Create Orders
+sidebar_label: Create Orders
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/order/create`
+
+> Content-Type = `application/x-www-form-urlencoded` && `application/json`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| clientOrderId | string | false | N/A | Client order ID |  |
+| symbol | string | true | - | Trading pair |  |
+| orderSide | string | true | N/A | Order side | BUY;SELL |
+| orderType | string | true | N/A | Order type | LIMIT;MARKET |
+| origQty | number | true | N/A | Quantity (Cont) |  |
+| price | number | false | N/A | Price |  |
+| timeInForce | string | false | GTC | Valid way | GTC;IOC;FOK;GTX |
+| triggerProfitPrice | number | false | N/A | Stop profit price |  |
+| triggerStopPrice | number | false | N/A | Stop loss price |  |
+| positionSide | string | true | N/A | Position side | LONG;SHORT |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### OrigQty Calculation Formula
+
+#### Formula
+
+`origQty = Truncate((Balance * Percent * Leverage) / (Mark_price * Contract_size))`
+
+#### Explanation
+
+- **Truncate**: Take the integer part (discard decimals).
+- **Balance**: `(walletBalance - openOrderMarginFrozen)` , API: `/future/user/v1/compat/balance/list`
+- **Percent**: User input value, e.g., `0.2`
+- **Leverage**: Leverage multiplier, e.g., `20`
+- **Mark_price**: Market mark price, e.g., `88888` (`btc_usdt`)
+- **Contract_size**: Contract face value, API: `/future/market/v1/public/symbol/detail` → _Contract multiplier (face value)_
+
+#### Example
+
+`truncate(10000 * 0.2 * 20 / 88888 / 0.0001) = 4500`
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`REQUEST_BODY='{
+  "symbol":"eth_usdt",
+  "origQty":1,
+  "positionSide":"LONG",
+  "orderType":"LIMIT"
+}'
+
+# The following five parameters are required
+
+curl -X POST "https://fapi.xt.com/future/trade/v1/order/create" \
+ -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/json" \  # Required
+  -d "$REQUEST_BODY" `}
+
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| contract_not_open | Contract not opened |
+| exist_bonus_positon_not_create_reverse_position | Unable to create reverse position |
+| account_error | Account has no trial fund permission |
+| symbol_is_not_open_position | Trading pair is not open |
+| invalid_params | Invalid parameters |
+| invalid_quantity_scale | origQty must be an integer |
+| coupon_unavailable | Coupon unavailable |
+| welfare_coupon_not_exist | Coupon does not exist |
+| coupon_exceed_max_leverage | Coupon exceeds maximum leverage |
+| exceed_max_leverage | Exceeds maximum leverage |
+| gateway_decommission_ip_country | Unfortunately, our services are not available to users from restricted countries/regions. Please contact customer support if you have any questions. |
+| gateway_decommission_kyc_country | Unfortunately, our services are not available to users from restricted countries/regions. Please contact customer support if you have any questions. |
+| GATEWAY_0003 | The user has triggered risk control; your operation is temporarily prohibited. |
+| GATEWAY_0006 | Your account has been locked for【\{hour} hours and \{minutes} minutes】due to triggering risk control rules. Please contact customer service or your account manager if you have any questions. |
+| GATEWAY_0007 | Your account has been locked for【\{minutes} minutes】due to triggering risk control rules. Please contact customer service or your account manager if you have any questions. |

@@ -1,0 +1,57 @@
+---
+id: GetLeadTraderCurrentLeadOrder
+title: Get Lead Trader Current Lead Order
+sidebar_label: Get Lead Trader Current Lead Order
+sidebar_position: 28
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-order/public/copy-trade/order/leader-order-page`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| leaderAccountId | number | Yes |  | Leader account id |  |
+| symbol | string | No |  | Trading pair, e.g. `btc_usdt`. If null, all. |  |
+| type | number | Yes |  | Type | [search type](#leaderOrderRequestType), 1:detail; 2:total |
+
+#### leaderOrderRequestType
+
+| Value | Description       |
+| ----- | ----------------- |
+| 1     | Detail - 详细信息 |
+| 2     | Total - 汇总信息  |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": "string", // id
+      "orderId": "string", // order id
+      "symbol": "string", // symbol
+      "buySize": 0, // buy size
+      "buyTime": 0, // buy time
+      "buyPrice": 0, // buy price
+      "sellSize": 0, // sell size
+      "sellTime": 0, // sell time
+      "sellPrice": 0, // sell price
+      "profit": 0, // profit
+      "profitRate": 0, // profit rate
+      "triggerProfitPrice": 0, // take profit price
+      "triggerStopPrice": 0, // stop loss price
+      "followCount": 0 // follow count
+    }
+  ]
+}
+```

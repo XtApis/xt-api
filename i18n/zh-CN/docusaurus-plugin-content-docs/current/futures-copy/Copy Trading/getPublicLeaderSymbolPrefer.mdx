@@ -1,0 +1,38 @@
+---
+id: PublicGetLeadersPrefer
+title: 公开获取带单员偏好
+sidebar_label: 公开获取带单员偏好
+sidebar_position: 26
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-symbol-prefer`
+
+### 参数
+
+| 名称       | 类型   | 必填 | 默认值 | 描述      | 范围 |
+| ---------- | ------ | --------- | ------- | ---------------- | ------ |
+| accountId  | number | 是       | -       | 带单员账户ID | -      |
+| recentDays | number | 否        | -       | 天数             | -      |
+
+### 限流规则
+
+2/s/ip
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "index": 0, // 排名索引
+    "symbol": "string", // 交易对
+    "count": 0, // 交易次数
+    "percentage": 0, // 百分比
+    "pnl": 0 // 盈亏
+  }
+}
+```

@@ -1,0 +1,32 @@
+---
+id: CancelBatchOrder
+title: Cancel Batch Order
+sidebar_label: Cancel Batch Order
+sidebar_position: 6
+---
+
+**Type:** DELETE
+
+**Description:** `/spot/v4/batch-order`
+
+### Parameters
+
+| name | type | mandatory | default | description | ranges |
+| --- | --- | --- | --- | --- | --- |
+| clientBatchId | string | false |  | Client batch id |  |
+| orderIds | array | true |  | Order ID list | `6216559590087220004, 6216559590087220005` |
+
+### Notes
+
+The parameters should be placed in the request body in the form of **JSON**.
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {}
+}
+```

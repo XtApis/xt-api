@@ -1,0 +1,100 @@
+---
+id: SeeStopLimit
+title: See Stop Limit
+sidebar_label: See Stop Limit
+sidebar_position: 10
+---
+
+**Type:** GET
+
+**Description:** `/future/trade/v1/entrust/profit-list`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | TRUE | N/A | Trading pair (if not provided, query all pairs) | — |
+| page | integer | FALSE | 1 | Page number | — |
+| size | integer | FALSE | 10 | Number per page | — |
+| startTime | integer | FALSE | N/A | Start time | — |
+| endTime | integer | FALSE | N/A | End time | — |
+| state | string | TRUE | N/A | Order state: NOT_TRIGGERED (new), TRIGGERING (triggering), TRIGGERED (triggered), USER_REVOCATION (user canceled), PLATFORM_REVOCATION (platform canceled), EXPIRED (expired), UNFINISHED (unfinished), HISTORY (historical) | NOT_TRIGGERED; TRIGGERING; TRIGGERED; USER_REVOCATION; PLATFORM_REVOCATION; EXPIRED; UNFINISHED; HISTORY |
+
+---
+
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/profit-list" \
+    -H "validate-appkey: $APPKEY"              # Required
+    -H "validate-timestamp: $TIMESTAMP"        # Required
+    -H "validate-signature: $SIGNATURE"        # Required
+    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -d "symbol=btc_usdt"                       # Required
+    -d "state=NOT_TRIGGERED"                   # Required
+    -d "page=1" \
+    -d "size=10"
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "createdTime": 0, // Time
+        "entryPrice": 0, // Average entry price
+        "executedQty": 0, // Executed quantity
+        "isolatedMargin": 0, // Isolated margin
+        "origQty": 0, // Quantity (contracts)
+        "positionSide": "", // Position side
+        "positionSize": 0, // Position size (contracts)
+        "profitId": 0, // Order ID
+        "state": "", // Order state: NOT_TRIGGERED, TRIGGERING, TRIGGERED, USER_REVOCATION, PLATFORM_REVOCATION, EXPIRED
+        "symbol": "", // Trading pair
+        "triggerProfitPrice": 0, // Take-profit price
+        "triggerStopPrice": 0, // Stop-loss price
+        "profitDelegateOrderType": "LIMIT", // Take-profit order type: LIMIT, MARKET
+        "profitDelegatePrice": 0, // Take-profit order price
+        "profitDelegateTimeInForce": "GTC", // Take-profit order time-in-force: GTC, FOK, IOC, GTX
+        "stopDelegateOrderType": "LIMIT", // Stop-loss order type: LIMIT, MARKET
+        "stopDelegatePrice": 0, // Stop-loss order price
+        "stopDelegateTimeInForce": "GTC" // Stop-loss order time-in-force: GTC, FOK, IOC, GTX
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error Code            | Description                 |
+| --------------------- | --------------------------- |
+| invalid_symbol        | Trading pair does not exist |
+| invalid_position_type | Invalid position type       |
+| invalid_position_side | Invalid position side       |
+| invalid_state         | Invalid state type          |
+
+---

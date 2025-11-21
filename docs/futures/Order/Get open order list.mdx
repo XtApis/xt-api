@@ -1,0 +1,89 @@
+---
+id: ListOpenOrder
+title: Get open order list
+sidebar_label: Get open order list
+sidebar_position: 9
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Type:** POST
+
+**Description** `/future/trade/v1/order/list-open-order`
+
+---
+
+### Limit Rule
+
+- 10 次/秒/apikey
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | No | N/A | 交易对名称 | 例如：`eth_usdt`, `btc_usdt` |
+
+---
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/list-open-order" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt"  # Required
+`}
+</CodeBlock>
+
+### Response Example
+
+```json
+{
+  "orderId": "538511221008857280", // System order ID
+  "clientOrderId": "myOrder123", // User-defined order ID (if any)
+  "symbol": "eth_usdt", // Trading pair
+  "contractSize": 0.01, // Contract size
+  "orderType": "LIMIT", // Order type: LIMIT/MARKET
+  "orderSide": "BUY", // Order side: BUY/SELL
+  "positionSide": "LONG", // Position side: LONG/SHORT
+  "positionType": "ISOLATED", // Position type: ISOLATED / CROSSED
+  "timeInForce": "GTC", // Time in force: GTC/IOC/FOK
+  "price": "4009.94", // Order price
+  "origQty": "12", // Original quantity
+  "avgPrice": "0", // Average executed price
+  "executedQty": "0", // Executed quantity
+  "marginFrozen": "80.48751569", // Frozen margin
+  "remark": null, // Remark
+  "sourceId": null, // Source ID
+  "sourceType": "DEFAULT", // Source type, e.g. DEFAULT
+  "leverage": 6, // Leverage
+  "openPrice": null, // Open price (if any)
+  "state": "NEW", // Order state: NEW / PARTIALLY_FILLED
+  "createdTime": 1758093080143, // Created timestamp (ms)
+  "updatedTime": 1758093080371, // Updated timestamp (ms)
+  "welfareAccount": false, // Whether welfare account
+  "triggerPriceType": null, // Trigger price type (if any)
+  "triggerProfitPrice": null, // Take-profit trigger price
+  "profitDelegateOrderType": null, // Take-profit delegate order type
+  "profitDelegateTimeInForce": null, // Take-profit time in force
+  "profitDelegatePrice": null, // Take-profit delegate price
+  "triggerStopPrice": null, // Stop-loss trigger price
+  "stopDelegateOrderType": null, // Stop-loss delegate order type
+  "stopDelegateTimeInForce": null, // Stop-loss time in force
+  "stopDelegatePrice": null, // Stop-loss delegate price
+  "markPrice": "4543.73", // Mark price
+  "desc": null // Description
+}
+```
+
+### Error Codes
+
+| Error code | Description |
+| --- | --- |
+|  |  |

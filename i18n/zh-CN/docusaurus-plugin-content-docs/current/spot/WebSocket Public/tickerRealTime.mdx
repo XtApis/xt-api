@@ -1,0 +1,33 @@
+---
+id: Ticker
+title: 行情
+sidebar_label: 行情
+sidebar_position: 11
+---
+
+### 请求
+
+- **格式:** `ticker@{symbol}`
+- **示例:** `ticker@btc_usdt`
+- **频率:** 1000ms
+
+### 响应示例
+
+```json title="响应"
+{
+  "topic": "ticker",
+  "event": "ticker@btc_usdt",
+  "data": {
+    "s": "btc_usdt",
+    "t": 1657586700119,
+    "cv": "-200",
+    "cr": "-0.02",
+    "o": "30000",
+    "c": "39000",
+    "h": "38000",
+    "l": "40000",
+    "q": "4",
+    "v": "150000"
+  }
+}
+```

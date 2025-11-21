@@ -1,0 +1,38 @@
+---
+id: LoanTotalAsset
+title: Loan Total Asset
+sidebar_label: Loan Total Asset
+sidebar_position: 16
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### Description
+
+**Endpoint:** `GET /v4/balance/finance/loan/asset/loan-total-asset`
+
+---
+
+### Query Parameters
+
+No query parameters required.
+
+---
+
+### Response Example
+
+<CodeBlock language="json" title="Response Example">
+  {`{
+  "rc": 0,                                    // Response code: 0 - success
+  "mc": "SUCCESS",                            // Message
+  "ma": [],                                   // Message arguments
+  "result": {
+    "totalLoanAmount": "-102.64170062",       // Total loan amount (in USDT, negative means liability)
+    "totalPledgeAmount": "10585.08070245",    // Total pledge amount (in USDT)
+    "totalLoanAmountB": "-0.000896216",       // Total loan amount (in BTC)
+    "totalPledgeAmountB": "0.0924236321",     // Total pledge amount (in BTC)
+    "netAmount": "10482.43900183",            // Net asset (in USDT)
+    "netAmountB": "0.0915274161"              // Net asset (in BTC)
+  }
+}`}
+</CodeBlock>

@@ -1,0 +1,91 @@
+---
+id: see-orders
+title: 查看订单
+sidebar_label: 查看订单
+sidebar_position: 5
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/future/trade/v1/order/list`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| clientOrderId | string | false | N/A | 客户订单 ID |  |
+| page | integer | false | 1 | 页码 |  |
+| size | integer | false | 10 | 单页数量 |  |
+| startTime | integer | false | N/A | 开始时间 |  |
+| endTime | integer | false | N/A | 结束时间 |  |
+| state | string | false | NEW | 订单状态: `NEW`（新订单，未成交）; `PARTIALLY_FILLED`（部分成交）; `PARTIALLY_CANCELED`（部分撤销）; `FILLED`（全部成交）; `CANCELED`（已撤销）; `REJECTED`（订单失败）; `EXPIRED`（已过期）; `UNFINISHED`（未完成）; `HISTORY`（历史） | PREV; NEXT |
+| symbol | string | false | N/A | 交易对 |  |
+
+### 限流规则
+
+200/s/apikey
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/list" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \
+  -d "size=10" \
+  -d "page=1"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "clientOrderId": "",        // 客户订单 ID
+        "avgPrice": 0,              // 成交均价
+        "closePosition": false,     // 订单条件触发时是否全部平仓
+        "closeProfit": 0,           // 平仓盈亏
+        "createdTime": 0,           // 创建时间
+        "executedQty": 0,           // 成交量（张）
+        "forceClose": false,        // 是否为强平订单
+        "marginFrozen": 0,          // 占用保证金
+        "orderId": 0,               // 订单 ID
+        "orderSide": "",            // 订单方向
+        "orderType": "",            // 订单类型
+        "origQty": 0,               // 数量（张）
+        "positionSide": "",         // 仓位方向
+        "price": 0,                 // 订单价格
+        "sourceId": 0,              // 触发条件 ID
+        "state": "",                // 订单状态
+        "symbol": "",               // 交易对
+        "timeInForce": "",          // 有效类型
+        "triggerProfitPrice": 0,    // 止盈触发价格
+        "triggerStopPrice": 0       // 止损触发价格
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| invalid state | state填写错误 |
+| invalid_symbol | 交易对不存在 |

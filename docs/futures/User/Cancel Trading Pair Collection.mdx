@@ -1,0 +1,56 @@
+---
+id: Cancel Trading Pair Collection
+title: Cancel Trading Pair Collection
+sidebar_label: Cancel Trading Pair Collection
+sidebar_position: 15
+---
+
+**Type** POST
+
+**Description:** `/future/user/v1/user/collection/cancel`
+
+---
+
+### Limit Flow Rules
+
+200/s/apikey
+
+---
+
+### Request Parameters
+
+| Parameter | Type | Required | Default | Description |
+|------------|------|-----------|----------|-------------|
+| symbol | string | Yes | N/A | Trading pair |
+
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/user/collection/cancel" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  # Required
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": true,
+  "returnCode": 0
+}
+```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | Symbol does not exist |
+| you have not collected the symbol | The trading pair is not in your favorites |

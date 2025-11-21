@@ -1,0 +1,75 @@
+---
+id: CancelTriggerOrders
+title: 取消触发订单
+sidebar_label: 取消触发订单
+sidebar_position: 2
+---
+
+**请求方式：** POST
+
+
+**接口描述：** `/future/trade/v1/entrust/cancel-plan`
+
+
+---
+
+
+### 限流规则
+- 200 次/秒/每个 apikey
+
+
+---
+
+
+### 请求参数
+
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 参数说明 | 取值范围 |
+|---------------|--------|-----------|---------|---------------|----------|
+| entrustId | string | 是 | — | 计划委托单 ID | — |
+
+
+---
+
+
+### 请求示例
+
+
+```bash title="cURL"
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-plan" \
+-H "validate-appkey: $APPKEY" \                         # 必填
+-H "validate-timestamp: $TIMESTAMP" \                   # 必填
+-H "validate-signature: $SIGNATURE" \                   # 必填
+-H "Content-Type: application/x-www-form-urlencoded" \  # 必填
+-d "entrustId=12345678"\                                # 必填
+```
+
+
+---
+
+
+### 返回示例
+
+
+```json title="Response"
+{
+"error": {
+"code": "",
+"msg": ""
+},
+"msgInfo": "",
+"result": {},
+"returnCode": 0
+}
+```
+
+
+---
+
+
+### 错误码说明
+
+
+| 错误码 | 描述 |
+|------------------|--------------------------|
+| invalid_params | 提交的参数有误或为空 |

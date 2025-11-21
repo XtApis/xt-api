@@ -1,0 +1,38 @@
+---
+id: LoanTotalAsset
+title: 借贷总资产
+sidebar_label: 借贷总资产
+sidebar_position: 16
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+### 描述
+**接口地址：**
+`GET /v4/balance/finance/loan/asset/loan-total-asset`
+
+---
+
+### 查询参数
+
+无需查询参数。
+
+---
+
+### 响应示例
+
+<CodeBlock language="json" title="响应示例">
+{`{
+  "rc": 0,                                    // 响应码：0-成功
+  "mc": "SUCCESS",                            // 响应消息
+  "ma": [],                                   // 消息参数数组
+  "result": {
+    "totalLoanAmount": "-102.64170062",       // 借款总金额（USDT计价，负值表示负债）
+    "totalPledgeAmount": "10585.08070245",    // 质押总金额（USDT计价）
+    "totalLoanAmountB": "-0.000896216",       // 借款总金额（BTC计价）
+    "totalPledgeAmountB": "0.0924236321",     // 质押总金额（BTC计价）
+    "netAmount": "10482.43900183",            // 净资产（USDT计价）
+    "netAmountB": "0.0915274161"              // 净资产（BTC计价）
+  }
+}`}
+</CodeBlock>

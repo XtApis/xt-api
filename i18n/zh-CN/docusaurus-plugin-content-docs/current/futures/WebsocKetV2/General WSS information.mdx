@@ -1,0 +1,49 @@
+---
+id: General_WSS_information
+title: WebSocket 基本信息
+sidebar_label: WebSocket 基本信息
+sidebar_position: 1
+---
+
+### 说明
+
+连接 **XT WebSocket 服务**的基本信息。
+
+---
+
+### 基础地址
+
+**wss://fstream.x.group/ws/market**
+
+---
+
+### 请求头
+
+必须添加压缩扩展协议的请求头：
+
+```http
+Sec-Websocket-Extensions: permessage-deflate
+```
+
+---
+
+### 订阅步骤
+
+**步骤 1：** 调用接口 `/future/user/v1/user/listen-key` 获取 **listenKey**。
+
+**步骤 2：** 订阅用户相关的 WebSocket 事件时，发送：
+
+```json
+{
+  "method": "SUBSCRIBE",
+  "params": ["order@{上一步获取的listenKey}"],
+  "id": "test1"
+}
+```
+
+---
+
+### 注意事项
+
+- 如果收到 **`invalid_listen_key`**，表示 listenKey 已过期或无效。👉 需要通过接口重新获取新的 listenKey。
+- 用户相关数据将在**订阅成功后**推送。

@@ -1,0 +1,43 @@
+---
+id: IncrementalDepth
+title: 增量深度
+sidebar_label: 增量深度
+sidebar_position: 16
+---
+
+### 请求格式
+
+```
+depth_update@{symbol},{interval}
+```
+
+- **时间间隔选项**：`100`、`250`、`500`、`1000`（默认频率：100ms）
+- **示例**：`depth_update@btc_usdt,100ms`
+
+---
+
+### 响应示例
+
+```json title="响应"
+{
+  "topic": "depth_update",
+  "event": "depth_update@btc_usdt",
+  "data": {
+    "s": "btc_usdt", // 交易对
+    "pu": 120, // previousUpdateId = 前一个 lastUpdateId
+    "fu": 121, // firstUpdateId = 前一个 lastUpdateId + 1
+    "u": 123, // lastUpdateId
+    "a": [
+      // 卖单
+      ["34000", "1.2"],
+      ["34001", "2.3"]
+    ],
+    "b": [
+      // 买单
+      ["32000", "0.2"],
+      ["31000", "0.5"]
+    ],
+    "t": 123456789 // 时间戳
+  }
+}
+```

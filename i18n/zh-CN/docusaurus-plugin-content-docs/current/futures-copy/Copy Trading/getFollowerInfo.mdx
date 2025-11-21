@@ -1,0 +1,43 @@
+---
+id: GetFollowerInfo
+title: 获取跟单员信息
+sidebar_label: 获取跟单员信息
+sidebar_position: 28
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/user/v1/copy-trade/leader-relation`
+
+### 参数
+
+| 名称            | 类型   | 必填 | 默认值 | 描述         | 范围 |
+| --------------- | ------ | ---- | ------ | ------------ | ---- |
+| leaderAccountId | number | 是   | -      | 带单员账户ID | -    |
+
+### 限流规则
+
+2/s/apikey
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "leaderAccountId": 0, // 带单员账户ID
+    "symbols": "string", // 交易对
+    "followLoss": 0, // 跟单亏损
+    "followLossOperate": "enum", // 操作: MARKET_SELL, LEADER_CLOSE, MANUAL_PROCESS
+    "triggerProfitRate": 0, // 止盈触发率
+    "triggerStopRate": 0, // 止损触发率
+    "cancel": true, // 是否取消 (true = 已取消, false = 未取消)
+    "followDirection": "string", // 方向: FORWARD, REVERSE
+    "followType": "string", // 跟单类型: FUND, RATE, MARGIN_RATE
+    "followVal": 0, // 跟单数值
+    "autoFollowSymbol": true // 自动跟随新增交易对 (true/false)
+  }
+}
+```

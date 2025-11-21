@@ -1,0 +1,70 @@
+---
+id: Get Margin Call Information
+title: 获取爆仓预警信息
+sidebar_label: 获取爆仓预警信息
+sidebar_position: 18
+---
+
+**请求类型** GET
+
+**接口地址:** `/future/user/v1/position/break-list`
+
+---
+
+### 请求参数
+
+| 参数名 | 类型   | 是否必填 | 默认值 | 描述                                     | 取值范围 |
+| ------ | ------ | -------- | ------ | ---------------------------------------- | -------- |
+| symbol | string | 否       | N/A    | 交易对（不传时查询所有交易对的爆仓预警信息） |          |
+
+---
+
+### 限流规则
+
+200次/秒/apikey
+
+---
+
+### 请求示例
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/position/break-list" \ 
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SINGATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt"
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "breakPrice": 0,        // 爆仓价格，0代表不爆仓
+      "calMarkPrice": 0,      // 标记价格
+      "contractType": "",     // 合约类型：PERPETUAL 永续合约；PREDICT 预测合约
+      "entryPrice": 0,        // 开仓均价
+      "isolatedMargin": 0,    // 逐仓保证金
+      "leverage": 0,          // 杠杆倍数
+      "positionSide": "",     // 持仓方向：LONG 多头；SHORT 空头
+      "positionSize": 0,      // 持仓数量（张）
+      "positionType": "",     // 仓位类型：CROSSED 全仓；ISOLATED 逐仓
+      "symbol": ""            // 交易对
+    }
+  ],
+  "returnCode": 0
+}
+```
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | 交易对不存在 |

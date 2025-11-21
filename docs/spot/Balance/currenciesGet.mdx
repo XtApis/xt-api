@@ -1,0 +1,45 @@
+---
+id: GetCurrencies
+title: Get currency information
+sidebar_label: Get currency information
+sidebar_position: 1
+---
+
+### Description
+
+**GET** `/v4/public/currencies`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| — | string | No | N/A | No request parameters required |  |
+
+---
+
+### Response Example
+
+```json
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": [
+    {
+      "id": 11, // currency id
+      "currency": "usdt", // currency symbol
+      "fullName": "usdt", // full currency name
+      "logo": null, // currency logo
+      "cmcLink": null, // CoinMarketCap link
+      "weight": 100, // weight / ranking
+      "maxPrecision": 6, // maximum precision
+      "depositStatus": 1, // deposit status (0 closed, 1 open)
+      "withdrawStatus": 1, // withdrawal status (0 closed, 1 open)
+      "convertEnabled": 1, // small asset conversion (0 closed, 1 open)
+      "transferEnabled": 1 // transfer switch (0 closed, 1 open)
+    }
+  ]
+}
+```

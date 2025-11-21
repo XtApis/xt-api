@@ -1,0 +1,130 @@
+---
+id: ObtainSignature
+title: Obtain Signature
+sidebar_label: Obtain Signature
+sidebar_position: 5
+---
+
+Example for: `http://oapi.xt.com/api/v1/public/symbol/detail?symbol=btc_usdt`
+
+The following is an example of an order placed in a call interface using **echo openssl** and **curl** tools in a Linux bash environment. Appkey, secret are for demonstration purposes only:
+
+- **appKey:** `3976eb88-76d0-4f6e-a6b2-a57980770085`
+- **secretKey:** `bc6630d0231fda5cd98794f52c4998659beda290`
+
+### Partial Header Data
+
+```
+validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+validate-timestamp: 1641446237201
+validate-algorithms: HmacSHA256
+```
+
+### Request Data
+
+```json
+{
+  "type": "LIMIT",
+  "timeInForce": "GTC",
+  "side": "BUY",
+  "symbol": "btc_usdt",
+  "price": "39000",
+  "quantity": "2"
+}
+```
+
+---
+
+## 1. Data Concatenation Rules
+
+- **path**: Concatenate all values in the order in path. Example: `/sign/test/bb/aa`
+
+- **query**: Sort all key=value by key lex order. Example: `userName=dfdfdf&password=ggg`
+
+- **body**:
+  - **JSON**: Use JSON string directly.
+  - **x-www-form-urlencoded**: Sort all key=value by key lex order.
+  - **form-data**: Not supported.
+
+> If multiple data forms exist, concatenate in the order: `path → query → body`.
+
+**Examples**
+
+- **Path Example**
+
+  ```
+  /future/api/v1/public/symbol/detail
+  ```
+
+- **Query Example**
+
+  ```
+  symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
+  ```
+
+- **Body (JSON) Example**
+
+  ```json
+  {
+    "symbol": "btc_usdt",
+    "side": "BUY",
+    "type": "LIMIT",
+    "timeInForce": "GTC",
+    "quantity": 2,
+    "price": 39000
+  }
+  ```
+
+- **Body (x-www-form-urlencoded) Example**
+
+  ```
+  symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
+  ```
+
+- **Mixed Query + Body Example**
+  ```
+  query: symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC
+  body:  {"quantity":2,"price":39000}
+  ```
+
+**Final Rule**:
+
+```
+Y = #path#query#body
+```
+
+- If query only: `Y=#path#query`
+- If body only: `Y=#path#body`
+- If both query and body: `Y=#path#query#body`
+
+---
+
+## 2. Request Header Concatenation
+
+After natural ascending alphabetical order, join keys with `&`:
+
+```
+X = validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-timestamp=1641446237201
+```
+
+---
+
+## 3. Signature Generation
+
+Final string to encrypt:
+
+```
+sign = XY
+```
+
+Encryption method:
+
+```java
+signature = org.apache.commons.codec.digest.HmacUtils.hmacSha256Hex(secretkey, sign);
+```
+
+Put the generated signature in the request header:
+
+```
+validate-signature: {signature}
+```

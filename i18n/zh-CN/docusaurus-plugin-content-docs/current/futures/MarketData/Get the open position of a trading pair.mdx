@@ -1,0 +1,64 @@
+---
+id: get-the-open-position-of-a-trading-pair
+title: 获取交易对的持仓量
+sidebar_label: 获取交易对的持仓量
+sidebar_position: 21
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/contract/open-interest`
+
+#### **限流规则**
+
+1次/秒/IP
+
+### 注意：
+
+此方法不需要签名。
+
+### 参数
+
+| 名称   | 类型   | 是否必需 | 默认值 | 描述     | 范围 |
+| ------ | ------ | -------- | ------ | -------- | ---- |
+| symbol | string | 是       | N/A    | 交易对   |      |
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/contract/open-interest" \
+      -H "validate-appkey: $APPKEY" \  # 必须
+      -H "validate-timestamp: $TIMESTAMP" \  # 必须
+      -H "validate-singature: $SINGATURE" \  # 必须
+      -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+      -d "symbol=eth_usdt"  # 必须
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "symbol": "",          // 交易对
+    "openInterest": "",    // 持仓量
+    "openInterestUsd": 0,  // 持仓价值
+    "time": ""             // 时间
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+| invalid_symbol | 交易对不存在 |

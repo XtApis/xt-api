@@ -1,0 +1,72 @@
+---
+id: SeeTriggerOrdersByEntrustId
+title: 根据EntrustId查看触发订单
+sidebar_label: 根据EntrustId查看触发订单
+sidebar_position: 5
+---
+
+
+**请求类型:** GET
+**Description:** `/future/trade/v1/entrust/plan-detail`
+
+---
+
+### 限流规则
+200/s/apikey
+
+---
+
+### 参数说明
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| entrustId | integer | TRUE | N/A | 订单ID | — |
+
+---
+
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/plan-detail" \
+    -H "validate-appkey: $APPKEY"              # 必填
+    -H "validate-timestamp: $TIMESTAMP"        # 必填
+    -H "validate-signature: $SIGNATURE"        # 必填
+    -H "Content-Type: application/x-www-form-urlencoded"  # 必填
+    -d "entrustId=987654321"                   # 必填
+```
+
+---
+
+### 响应示例
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "closePosition": false,              // 是否触发全部平仓
+    "createdTime": 0,                    // 创建时间
+    "entrustId": 0,                      // 订单ID
+    "entrustType": "",                   // 委托类型
+    "marketOrderLevel": 0,               // 最优市价档位
+    "orderSide": "",                     // 订单方向
+    "ordinary": true,
+    "origQty": 0,                        // 数量（张）
+    "positionSide": "",                  // 持仓方向
+    "price": 0,                          // 委托价格
+    "state": "",                         // 订单状态：NOT_TRIGGERED（未触发）；TRIGGERING（触发中）；TRIGGERED（已触发）；USER_REVOCATION（用户撤销）；PLATFORM_REVOCATION（平台撤销）；EXPIRED（已过期）；UNFINISHED（未完成）；HISTORY（历史）
+    "stopPrice": 0,                      // 触发价格
+    "symbol": "",                        // 交易对
+    "timeInForce": "",                   // 有效期
+    "triggerPriceType": ""               // 触发价格类型
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_entrust_Id | 订单ID有误 |

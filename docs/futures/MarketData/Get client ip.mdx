@@ -1,0 +1,52 @@
+---
+id: GetClientIp
+title: Get client ip
+sidebar_label: Get client ip
+sidebar_position: 1
+---
+
+**Type:** GET
+
+**Description:** `/future/public/client`
+
+#### Note：
+
+This method does not require a signature.
+
+### Limit flow rules
+
+None
+
+### Request Parameters
+
+None
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -X GET "https://fapi.xt.com/future/public/client" 
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "ip": "192.168.1.1"
+  }
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error Code | Description |
+|------------|-------------|
+|           |             |
+

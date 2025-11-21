@@ -1,0 +1,32 @@
+---
+id: QueryUserKycStatus
+title: Query User KYC Status
+sidebar_label: Query User KYC Status
+sidebar_position: 6
+---
+
+**Type:** GET
+
+**Description:** `/v4/referal/invite/kyc/status`
+
+### Parameters
+
+| Name | Type   | Mandatory | Default | Description |
+| ---- | ------ | --------- | ------- | ----------- |
+| uid  | number | true      |         | User ID     |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "userid": 123456789,
+    "status": 2
+  }
+}
+```

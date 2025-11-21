@@ -1,0 +1,35 @@
+---
+id: PushMessageFormat
+title: 推送消息格式
+sidebar_label: 推送消息格式
+sidebar_position: 4
+---
+
+### 格式
+```javascript
+{
+    "topic": "trade",
+    "event": "trade@btc_usdt",    // 标题
+    "data": { }
+}
+```
+
+---
+
+### 示例（交易记录实时推送消息）
+```json
+{
+    "topic": "trade",
+    "event": "trade@btc_usdt",
+    "data": {
+        "s": "btc_usdt",           // 交易对
+        "i": 6316559590087222000,  // 成交 ID
+        "t": 1655992403617,        // 时间戳
+        "oi": 6616559590087222666, // 订单 ID
+        "p": "43000",              // 成交价格
+        "q": "0.21",               // 成交数量
+        "v": "9030"                // 成交额
+        "b": true                  // 是否为主动卖单
+    }
+}
+```

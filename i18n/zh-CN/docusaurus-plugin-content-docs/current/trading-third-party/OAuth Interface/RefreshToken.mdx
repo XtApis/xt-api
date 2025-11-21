@@ -1,0 +1,38 @@
+---
+id: RefreshToken
+title: 刷新令牌
+sidebar_label: 刷新令牌
+sidebar_position: 2
+---
+
+**类型:** GET
+
+**描述:** `/public/uaa/oauth2/token?client_id={client_id}&client_secret=${client_secret}&grant_type={grant_type}&refresh_token={refresh_token}`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| client_id | string | 是 |  | 机构身份标识 | 请向 XT.COM 申请 |
+| client_secret | string | 是 |  | 机构密钥 | 请向 XT.COM 申请 |
+| grant_type | string | 是 |  | 授权类型，固定值 | refresh_token |
+| refresh_token | string | 是 |  | 申请令牌时返回的 refresh_token 字段 |  |
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "user_id": "12345678",
+    "access_token": "eyJhbGciOiJSUzI1NiJ9....", // 用于访问授权接口的令牌
+    "refresh_token": "eyJhbGciOiJSUzI1NiJ9....", // 用于刷新访问令牌的令牌
+    "expires_in": 15551999, // access_token 过期前的毫秒数
+    "refresh_expires_in": 18143999, // refresh_token 过期前的毫秒数
+    "client_id": "35LF2FSLHX5IRQA4", // 机构身份标识
+    "scope": "userinfo" // 授权范围
+  }
+}
+```

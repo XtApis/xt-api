@@ -1,0 +1,79 @@
+---
+id: see-transaction-details
+title: See Transaction Details
+sidebar_label: See Transaction Details
+sidebar_position: 1.2
+---
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/future/trade/v1/order/trade-list`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| orderId | integer | false | N/A | Order ID |  |
+| symbol | string | false | N/A | Trading pair |  |
+| page | integer | false | 1 | Page |  |
+| size | integer | false | 10 | Quantity of a single page |  |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/trade-list" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-singature: $SINGATURE" \\  # Required 
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # Required
+  -d "symbol=eth_usdt" \\
+  -d "page=1" \\
+  -d "size=10"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "fee": 0,              // Fee
+        "feeCoin": "",         // Currency of fee
+        "orderId": 0,          // Order ID
+        "execId": 0,           // Trade ID
+        "price": 0,            // Price
+        "quantity": 0,         // Volume
+        "symbol": "",          // Trading pair
+        "timestamp": 0,        // Time
+        "takerMaker": "TAKER"  // taker or maker
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| invalid_page | Page number must be a positive integer |
+| invalid_size | The maximum value of size is 100 |
+| invalid_symbol | The trading pair does not exist |

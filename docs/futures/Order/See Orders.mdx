@@ -1,0 +1,91 @@
+---
+id: see-orders
+title: See Orders
+sidebar_label: See Orders
+sidebar_position: 5
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/future/trade/v1/order/list`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| clientOrderId | string | false | N/A | Client order ID |  |
+| page | integer | false | 1 | Page |  |
+| size | integer | false | 10 | Quantity of a single page |  |
+| startTime | integer | false | N/A | Start time |  |
+| endTime | integer | false | N/A | End time |  |
+| state | string | false | NEW | Order state: `NEW` (New order, unfilled); `PARTIALLY_FILLED` (Partial deal); `PARTIALLY_CANCELED` (Partial revocation); `FILLED` (Filled); `CANCELED` (Cancelled); `REJECTED` (Order failed); `EXPIRED` (Expired); `UNFINISHED` (Unfinished); `HISTORY` (History) | PREV; NEXT |
+| symbol | string | false | N/A | Trading pair |  |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://fapi.xt.com/future/trade/v1/order/list" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \
+  -d "size=10" \
+  -d "page=1"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "items": [
+      {
+        "clientOrderId": "",        // Client order ID
+        "avgPrice": 0,              // Average price
+        "closePosition": false,     // Whether to close all when order condition is triggered
+        "closeProfit": 0,           // Offset profit and loss
+        "createdTime": 0,           // Create time
+        "executedQty": 0,           // Volume (Cont)
+        "forceClose": false,        // Is it a liquidation order
+        "marginFrozen": 0,          // Occupied margin
+        "orderId": 0,               // Order ID
+        "orderSide": "",            // Order side
+        "orderType": "",            // Order type
+        "origQty": 0,               // Quantity (Cont)
+        "positionSide": "",         // Position side
+        "price": 0,                 // Order price
+        "sourceId": 0,              // Triggering conditions ID
+        "state": "",                // Order state
+        "symbol": "",               // Trading pair
+        "timeInForce": "",          // Valid type
+        "triggerProfitPrice": 0,    // TP trigger price
+        "triggerStopPrice": 0       // SL trigger price
+      }
+    ],
+    "page": 0,
+    "ps": 0,
+    "total": 0
+  },
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error code | Description |
+| --- | --- |
+| invalid state | Invalid state parameter |
+| invalid_symbol | The trading pair does not exist |

@@ -1,0 +1,57 @@
+---
+id: Adjust Leverage
+title: Adjust Leverage
+sidebar_label: Adjust Leverage
+sidebar_position: 9
+---
+
+**Type** POST
+
+**Description:** `/future/user/v1/position/adjust-leverage`
+
+**Parameters**
+
+| Name         | Type    | Mandatory | Default | Description                 |
+| ------------ | ------- | --------- | ------- | --------------------------- |
+| symbol       | string  | Yes       | N/A     | Trading pair                |
+| positionSide | string  | Yes       | N/A     | Position side (LONG, SHORT) |
+| leverage     | integer | Yes       | N/A     | Leverage                    |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+```bash title="Request"
+curl -X POST "https://fapi.xt.com/future/user/v1/position/adjust-leverage" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  # Required
+  -d "positionSide=SHORT" \  # Required
+  -d "leverage=20" \  # Required
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | The trading pair does not exist or is null |
+| invalid_leverage | Invalid leverage multiple |
+

@@ -1,0 +1,41 @@
+---
+id: AddUpdateCancelProfitStopOrder
+title: Cancel Profit-Stop Order
+sidebar_label: Cancel Profit-Stop Order
+sidebar_position: 10
+---
+
+**Type:** POST
+
+**Description:** `/future/copytrade/order/v1/copy-trade/update-profit-stop`
+
+---
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| trackNo | number | Yes | - | Track number | - |
+| triggerPriceType | string | Yes | - | Trigger price type | LATEST_PRICE, MARK_PRICE |
+| leaderOrder | boolean | Yes | - | Is leader order | true, false |
+| triggerProfitPrice | number | No | - | Trigger profit price | - |
+| triggerStopPrice | number | No | - | Trigger stop price | - |
+
+---
+
+### Limit Flow Rules
+
+10/s/apikey
+
+---
+
+### Response Example
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=success, false=fail
+}
+```

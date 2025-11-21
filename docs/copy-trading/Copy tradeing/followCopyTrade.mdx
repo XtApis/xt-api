@@ -1,0 +1,39 @@
+---
+id: FollowCopyTrading
+title: Follow Copy Trading
+sidebar_label: Follow Copy Trading
+sidebar_position: 23
+---
+
+**Type:** POST
+
+**Description:** `/v1/copy-trade-account/copy-trade/follow`
+
+### Limit Flow Rules
+
+2/s/ip
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| leaderAccountId | number | true |  | Leader account id |  |
+| followType | string | true |  | Follow type | <a href="#followType">follow type</a>, FUND;RATE |
+| followVal | number | true |  | Follow fund value or rate value |  |
+| followLoss | number | false |  | Follow loss |  |
+| followLossOperate | string | true |  | Follow loss operate | <a href="#followLossOperate">follow loss operate</a>, MARKET_SELL;LEADER_CLOSE;MANUAL_PROCESS |
+| triggerStopRate | number | false |  | Single stop loss rate |  |
+| triggerProfitRate | number | false |  | Single take profit rate |  |
+| autoFollowSymbol | bool | true |  | Auto follow symbol or not |  |
+| symbols | string | true |  | Copy trade symbols. | e.g. xt_usdt,btc_usdt |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

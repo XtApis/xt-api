@@ -1,0 +1,51 @@
+---
+id: Get ListenKey
+title: Get ListenKey
+sidebar_label: Get ListenKey
+sidebar_position: 1.9
+keywords:
+  - listen-key
+  - listen key
+  - Get ListenKey
+  - /future/user/v1/user/listen-key
+---
+
+**Type** GET
+
+**Description:** `/future/user/v1/user/listen-key`
+
+**Note:** Valid time is 8 hours
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/user/listen-key" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| fail | Internal error |

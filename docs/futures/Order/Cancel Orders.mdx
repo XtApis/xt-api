@@ -1,0 +1,54 @@
+---
+id: cancel-orders
+title: Cancel Orders
+sidebar_label: Cancel Orders
+sidebar_position: 6
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** POST
+
+**Description:** `/future/trade/v1/order/cancel`
+
+### Parameters
+
+| Name    | Type    | Mandatory | Default | Description | Ranges |
+| ------- | ------- | --------- | ------- | ----------- | ------ |
+| orderId | integer | true      | N/A     | Order ID    |        |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/cancel" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "orderId=1234567890"  # Required
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": "",  // Order ID
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Codes
+
+| Error code | Description |
+| --- | --- |
+| invalid_params | Parameter error or order does not exist |

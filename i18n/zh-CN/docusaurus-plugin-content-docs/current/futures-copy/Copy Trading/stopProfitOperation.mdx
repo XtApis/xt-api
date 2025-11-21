@@ -1,0 +1,41 @@
+---
+id: AddUpdateCancelProfitStopOrder
+title: 取消止盈止损订单
+sidebar_label: 取消止盈止损订单
+sidebar_position: 10
+---
+
+**类型:** POST
+
+**描述:** `/future/copytrade/order/v1/copy-trade/update-profit-stop`
+
+---
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| trackNo | number | 是 | - | 跟踪号 | - |
+| triggerPriceType | string | 是 | - | 触发价格类型 | LATEST_PRICE, MARK_PRICE |
+| leaderOrder | boolean | 是 | - | 是否为带单员订单 | true, false |
+| triggerProfitPrice | number | 否 | - | 止盈触发价格 | - |
+| triggerStopPrice | number | 否 | - | 止损触发价格 | - |
+
+---
+
+### 限流规则
+
+10/s/apikey
+
+---
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=成功, false=失败
+}
+```

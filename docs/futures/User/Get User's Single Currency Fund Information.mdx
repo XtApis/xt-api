@@ -1,0 +1,60 @@
+---
+id: Get User's Single Currency Fund Information
+title: Get User's Single Currency Fund Information
+sidebar_label: Get User's Single Currency Fund Information
+sidebar_position: 3
+---
+
+**Type** GET
+
+**Description:** `/future/user/v1/balance/detail`
+
+**Parameters**
+
+| Name | Type   | Mandatory | Default | Description |
+| ---- | ------ | --------- | ------- | ----------- |
+| coin | string | Yes       | N/A     | Currency    |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+```bash title="Request"
+curl -G "https://fapi.xt.com/future/user/v1/balance/detail" \ 
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SINGATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "coin=btc" \  # Required
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "availableBalance": 0, //Available balance
+    "coin": "", //Currency
+    "isolatedMargin": 0, //Frozen isolated margin
+    "openOrderMarginFrozen": 0, //Frozen order
+    "crossedMargin": 0, //Crossed Margin
+    "bonus": 0, //Bonus
+    "coupon": 0, //Coupon
+    "walletBalance": 0 //Balance
+  },
+  "returnCode": 0
+}
+```
+
+### Error code
+
+| Error code | Desc |
+|-------------|------|
+| invalid_coin | Coin does not exist |

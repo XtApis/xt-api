@@ -1,0 +1,45 @@
+---
+id: CreateOrder
+title: Create Order
+sidebar_label: Create Order
+sidebar_position: 2
+---
+
+**Type:** POST
+
+**Description:** `/v4/lever/order`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| MarketName | String | Yes | - | Trading pair, e.g. `BTC_USDT` | - |
+| CoinName | String | Yes | - | Coin name, lowercase. e.g. `btc` | - |
+| Amount | Number | Yes | - | Amount, e.g. `8000` | - |
+| Type | String | Yes | - | [Order Type](#marginOrderType), supports: `LOAN` / `REPAY` | - |
+| Media | String | No | - | Media source, e.g. `btok` | - |
+| MediaChannel | String | No | - | Media channel | - |
+
+#### marginOrderType
+
+| Value | Description |
+| ----- | ----------- |
+| LOAN  | 借款        |
+| REPAY | 还款        |
+
+### Notes
+
+#### **Limit Flow Rules**
+
+30/s/apikey
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {}
+}
+```

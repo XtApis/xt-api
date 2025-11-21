@@ -1,0 +1,57 @@
+---
+id: GetLeaderDailyCumulativeIncomeChart
+title: 获取带单者每日累计收益图表
+sidebar_label: 获取带单者每日累计收益图表
+sidebar_position: 26
+---
+
+**请求类型:** GET
+
+**接口路径:** `/v1/copy-trade-balance/public/copy-trade/leader-income-rate`
+
+### 限流规则
+
+2次/秒/IP
+
+### 请求参数
+
+| 参数名 | 类型 | 是否必填 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- |
+| `accountId` | number | 是 |  | 带单账户ID |
+| `days` | number | 否 | 7 | 查询天数。可选值: `7, 30, 90, 180` |
+
+### 响应示例
+
+```json title="响应"
+{
+  "ma": [{}],
+  "mc": "string",
+  "rc": 0,
+  "result": {
+    "incomeRate": [
+      // 收益率
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ],
+    "totalIncome": [
+      // 总收益
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ],
+    "totalIncomeRate": [
+      // 总收益率
+      {
+        "amount": 0,
+        "id": "string",
+        "time": 0
+      }
+    ]
+  }
+}
+```

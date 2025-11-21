@@ -1,0 +1,38 @@
+---
+id: CloseAllOrders
+title: 平仓所有订单
+sidebar_label: 平仓所有订单
+sidebar_position: 11
+---
+
+**类型:** POST
+
+**描述:** `/future/copytrade/order/v1/copy-trade/close-all`
+
+---
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| symbol | string | 否 | - | 交易对 | - |
+| closeLongShortType | string | 否 | - | 平仓方向 | LONG, SHORT, BOTH |
+
+---
+
+### 限流规则
+
+5/s/apikey
+
+---
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=成功, false=失败
+}
+```

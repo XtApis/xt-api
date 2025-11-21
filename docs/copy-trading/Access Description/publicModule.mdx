@@ -1,0 +1,43 @@
+---
+id: PublicModule
+title: Public Module
+sidebar_label: Public Module
+sidebar_position: 10
+---
+
+#### **<span id="leaderOrderRequestType">Leader Order Request Type</span>**
+
+| Type | Description                      |
+| ---- | -------------------------------- |
+| 1    | Query order details.             |
+| 2    | Query order summary information. |
+
+#### **<span id="copyTradeUserStatus">Copy Trade User Status</span>**
+
+| User Status | Description         |
+| ----------- | ------------------- |
+| LEADER      | Copy trade leader   |
+| FOLLOWER    | Copy trade follower |
+| NONE        | None                |
+
+#### **<span id="leaderType">Leader Type</span>**
+
+| Type | Description    |
+| ---- | -------------- |
+| 1    | Current follow |
+| 2    | History follow |
+
+#### **<span id="followType">Copy Trade Follow Type</span>**
+
+| Follow Type | Description                             |
+| ----------- | --------------------------------------- |
+| FUND        | Copy trading according to fixed amount. |
+| RATE        | Copy trading according to fund ratio.   |
+
+#### **<span id="followLossOperate">Copy Stop Loss Position Processing</span>**
+
+| FollowLossOperate | Description                             |
+| ----------------- | --------------------------------------- |
+| MARKET_SELL       | Immediately settle at market price      |
+| LEADER_CLOSE      | Follow the leader to close the position |
+| MANUAL_PROCESS    | Manual processing                       |

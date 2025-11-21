@@ -1,0 +1,36 @@
+---
+id: CancelCurrentPendingOrder
+title: Cancel the Current Pending Order
+sidebar_label: Cancel the Current Pending Order
+sidebar_position: 8
+description: /spot/v4/open-order
+---
+
+**Type:** DELETE
+
+**Description:** `/spot/v4/open-order`
+
+### Limit Flow Rules
+
+10/s/apikey
+
+> **Note:** The parameters should be placed in the request body in the form of JSON.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| `symbol` | string | Yes |  | Trading pair, if not filled in, represents all |
+| `bizType` | string | Yes |  | SPOT, LEVER |
+| `side` | string | Yes |  | BUY, SELL |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {}
+}
+```

@@ -1,0 +1,75 @@
+---
+id: get_aggregated_market_information_for_all_trading_pairs
+title: 获取所有交易对的聚合行情信息
+sidebar_label: 获取所有交易对的聚合行情信息
+sidebar_position: 17
+---
+
+**类型:** GET
+
+**描述:** `/future/market/v1/public/q/agg-tickers`
+
+#### 注意：
+
+此方法不需要签名。
+
+### 限流规则
+
+无
+
+### 参数
+
+无
+
+### 请求示例
+
+```bash title="Request"
+{
+  curl -G "https://fapi.xt.com/future/market/v1/public/q/agg-tickers" \
+}
+```
+
+### 响应示例
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="java" title="Java">
+  {`public void getKLine() {
+    String text = HttpUtil.get(URL + "/data/api/future/market/v1/getKLine?market=btc_usdt&type=1min&since=0");
+    System.out.println(text);
+}`}
+</CodeBlock>
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "a": "",  // 24小时成交额
+      "ap": "", // 卖一价
+      "bp": "", // 买一价
+      "c": "",  // 最新价
+      "h": "",  // 24小时最高价
+      "i": "",  // 指数价格
+      "l": "",  // 24小时最低价
+      "m": "",  // 标记价格
+      "o": "",  // 24小时前第一笔成交价
+      "r": "",  // 24小时价格涨跌幅
+      "s": "",  // 交易对
+      "t": 0,   // 时间
+      "v": ""   // 24小时成交量
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### 错误码
+
+| 错误码 | 描述 |
+|-------------|----------------|
+|  |  |

@@ -1,0 +1,10 @@
+{
+  "item.label.Product": {
+    "message": "Product",
+    "description": "Navbar item with label Product"
+  },
+  "item.label.API": {
+    "message": "API",
+    "description": "Navbar item with label API"
+  }
+}

@@ -1,0 +1,34 @@
+---
+id: SetStopLossOrStopProfit
+title: Set Stop-Loss or Stop-Profit for Lead or Copy Order
+sidebar_label: Set Stop-Loss/Profit
+position_number: 5
+---
+
+**Type:** GET
+
+**Description:** `/v1/copy-trade-order/copy-trade/order/stop-profit-loss`
+
+#### Limit Flow Rules
+
+2/s/apikey
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description |
+| --- | --- | --- | --- | --- |
+| symbol | string | true | - | Trading pair symbol |
+| leaderOrderId | number | true | - | For copy order, need `leaderOrderId`; for lead order, need `orderId` |
+| triggerProfitPrice | number | false | - | Trigger profit price |
+| triggerStopPrice | number | false | - | Trigger stop price |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": true
+}
+```

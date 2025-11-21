@@ -1,0 +1,48 @@
+---
+id: ComAnnouncement
+title: 公告订阅
+sidebar_label: 公告订阅
+sidebar_position: 7
+---
+
+### 请求
+用户可以通过新的 WebSocket 订阅实时公告，帮助您在最新动态、活动信息和重要新闻发布时及时获取。
+
+格式: `com_announcement_cn`
+示例: `com_announcement_cn`
+
+---
+
+### 示例
+
+#### Python
+```python
+from websocket import create_connection
+
+ws = create_connection("wss://stream.xt.com/notice")
+
+# 发送订阅请求
+ws.send('{"topic": "com_announcement_cn", "event": "com_announcement_cn"}')
+print("Subscribed to English announcement channel")
+```
+
+#### 响应
+```json
+{
+    "topic": "com_announcement_cn",
+    "event": "com_announcement_cn",
+    "data": {
+        "id": 10304809153689,                   // 公告ID
+        "catalogId": 10304809153689,            // 分类ID
+        "catalogName": "最新活动",               // 分类名称
+        "sectionId": 10304809153689,            // 子分类ID
+        "sectionName": "交易大赛",               // 子分类名称
+        "publishDate": 1753257631403,          // 发布时间戳（毫秒）
+        "title": "公告标题",                     // 公告标题
+        "content": "这是公告内容...",             // 公告内容
+        "disclaimer": "免责声明...",            // 免责声明
+        "url": "",                             // 公告链接
+        "htmlUrl": ""                          // 公告HTML链接
+    }
+}
+```

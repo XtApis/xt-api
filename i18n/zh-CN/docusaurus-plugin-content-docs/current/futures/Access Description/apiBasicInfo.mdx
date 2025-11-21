@@ -1,0 +1,23 @@
+---
+id: BasicInformationOfTheInterface
+title: 接口基础信息
+sidebar_label: 接口基础信息
+sidebar_position: 1.5
+---
+
+
+:::info
+
+**USDT-M:** [https://fapi.xt.com](https://fapi.xt.com)
+
+**Coin-M:** [https://dapi.xt.com](https://dapi.xt.com)
+
+:::
+
+由于高延迟和稳定性差的原因，不建议通过代理访问 XT API。
+
+GET 请求参数放在 query Params 中，POST 请求参数放在 request body 中。
+
+请求头信息设置为：Content-Type=application/x-www-form-urlencoded
+
+除了接口本身所需的参数外，还需要在 query Params 或 request body 中传递 signature（签名参数）。不需要传递签名参数的接口会额外说明。

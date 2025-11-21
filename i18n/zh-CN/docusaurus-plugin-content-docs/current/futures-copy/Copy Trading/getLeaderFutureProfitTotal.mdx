@@ -1,0 +1,46 @@
+---
+id: GetLeaderFutureProfitTotal
+title: 获取带单员合约盈利汇总
+sidebar_label: 获取带单员合约盈利汇总
+sidebar_position: 4
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/user/v1/copy-trade/my-profit-history`
+
+### 参数
+
+| 名称      | 类型   | 必填 | 默认值 | 描述     | 范围       |
+| --------- | ------ | ---- | ------ | -------- | ---------- |
+| direction | string | 否   | -      | 方向     | NEXT, PREV |
+| limit     | number | 否   | -      | 页面大小 | 10         |
+| id        | number | 否   | -      | ID       | -          |
+
+### 限流规则
+
+2/s/apikey
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "avatar": "string", // 头像
+        "name": "string",   // 带单员昵称
+        "profit": 5,        // 金额
+        "profitTime": "time", // 时间
+        "coin": 0,          // 币种
+        "id":               // ID
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,111 @@
+---
+id: get-configuration-information-for-listed-and-tradeable-symbols
+title: Get Configuration Information for Listed And Tradeable Symbols
+sidebar_label: Get Configuration Information for Listed And Tradeable Symbols
+sidebar_position: 4
+---
+
+**Type:** GET
+
+**Description:** `/future/market/v3/public/symbol/list`
+
+#### Note：
+
+This method does not require a signature.
+
+### Limit flow rules
+
+None
+
+### Request Parameters
+
+None
+
+### Request Example
+
+```bash title="Request"
+{
+  curl -X GET "https://fapi.xt.com/future/market/v3/public/symbol/list"
+}
+```
+
+### Response Example
+
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": [
+    {
+      "baseCoin": "",      //Target Assets
+      "baseCoinDisplayPrecision": 0,  //Displayed target currency precision
+      "cnDesc": "",  //Chinese description of the contract
+      "cnName": "",  //Contract Chinese name
+      "cnRemark": "",  //Contract Remarks (Chinese)
+      "contractSize": 0,  //Contract multiplier(face value)
+      "contractType": "",  //Contract type, perpetual, delivery
+      "deliveryCompletion": false,
+      "deliveryDate": 0,
+      "deliveryPrice": 0,
+      "depthPrecisionMerge": 0,
+      "enDesc": "",
+      "enName": "",
+      "enRemark": "",
+      "initLeverage": 0,
+      "initPositionType": "",
+      "isDisplay": false,
+      "isOpenApi": false,
+      "labels": [],
+      "liquidationFee": 0,
+      "makerFee": 0,
+      "marketTakeBound": 0,
+      "maxEntrusts": 0,
+      "maxNotional": 0,
+      "maxOpenOrders": 0,
+      "maxPrice": 0,
+      "minNotional": 0,
+      "minPrice": 0,
+      "minQty": 0,
+      "minStepPrice": 0,
+      "multiplierDown": 0,
+      "multiplierUp": 0,
+      "onboardDate": 0,
+      "pair": "",
+      "plates": [],
+      "predictEventParam": "",
+      "predictEventSort": "",
+      "predictEventType": "",
+      "pricePrecision": 0,
+      "productType": "",
+      "quantityPrecision": 0,     // Deprecated
+      "quoteCoin": "",
+      "quoteCoinDisplayPrecision": 0,
+      "quoteCoinPrecision": 0,
+      "baseCoinPrecision": 0,
+      "state": 0,
+      "supportEntrustType": "",
+      "supportOrderType": "",
+      "supportPositionType": "",
+      "supportTimeInForce": "",
+      "offTime": "",                    // Contract plan de-listing time
+      "symbol": "",
+      "symbolGroupId": 0,
+      "takerFee": 0,
+      "tradeSwitch": false,
+      "underlyingType": ""
+    }
+  ],
+  "returnCode": 0
+}`}
+</CodeBlock>
+
+### Error Code
+
+| Error Code | Desc |
+|-------------|----------------|
+|  |  |

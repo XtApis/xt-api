@@ -1,0 +1,36 @@
+---
+id: SignatureStatement
+title: Signature Statement
+sidebar_label: Signature Statement
+sidebar_position: 4
+---
+
+Since XT provides open interfaces for third-party platforms, **data security** must be ensured — such as preventing data tampering, avoiding outdated data, stopping repeated submissions, and controlling request frequency. Among these, verifying whether the data has been tampered with is the most critical.
+
+### Signature Rules
+
+1. **AppKey & SecretKey** Distributed offline. Different calls should use different `appkey` and `secretkey`.
+
+2. **Timestamp** Add a timestamp in **milliseconds (Unix timestamp)** of the request time. The validity of the request is calculated based on this value.
+
+3. **Signature** All request data must be signed.
+
+4. **RecvWindow** The validity period is set by `recvWindow`. Default is **5 seconds**, maximum **60 seconds**.
+
+   - If the timestamp is more than **5000ms older** than server time, the request is invalid.
+   - If the client timestamp is more than **1 second ahead** of the server, the request is also rejected.
+   - RecvWindow **> 5 seconds is not recommended**. This mechanism handles **network jitter** and helps ensure timeliness in high-frequency trading.
+
+5. **Signature Algorithms** Signatures are calculated with HSC-based protocols. Default: **HmacSHA256** Supported: `HmacMD5`, `HmacSHA1`, `HmacSHA224`, `HmacSHA256`, `HmacSHA384`, `HmacSHA512`
+
+### Required Signature Parameters
+
+| Name | Mandatory | Example | Description |
+| --- | --- | --- | --- |
+| validate-appkey | true | `dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83` | API Key |
+| validate-timestamp | true | `1641446237201` | Unix timestamp (ms) |
+| validate-signature | true | `0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d` | Generated signature |
+| validate-recvwindow | false | `5000` (ms) | Time window for validity |
+| validate-algorithms | false | `HmacSHA256` | Default `HmacSHA256` |
+| api-version | false | `1.0` | Reserved, API version number |
+| validate-signversion | false | `1.0` | Reserved, signature version |

@@ -1,0 +1,25 @@
+---
+id: BasicInformationOfTheInterface
+title: Basic Information of the Interface
+sidebar_label: Basic Information of the Interface
+sidebar_position: 2
+---
+
+:::info **Production environment:**
+
+[https://sapi.xt.com](https://sapi.xt.com)
+
+:::
+
+Due to reasons such as high latency and poor stability, it is not recommended to access the API through a proxy.
+
+- **GET** request parameters are placed in **query params**
+- **POST** request parameters are placed in **request body**
+
+Please set the request header to:
+
+```http
+Content-Type: application/json
+```
+
+For requests that do not start with `/public`, the request message must be **signed**.

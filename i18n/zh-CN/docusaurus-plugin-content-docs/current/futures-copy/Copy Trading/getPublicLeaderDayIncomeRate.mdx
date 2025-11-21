@@ -1,0 +1,51 @@
+---
+id: PublicGetLeaderDayIncomeRate
+title: 公开获取带单员日收益率
+sidebar_label: 公开获取带单员日收益率
+sidebar_position: 24
+---
+
+**类型:** GET
+
+**描述:** `/future/copytrade/public/user/v1/public/copy-trade/leader-day-income-rate`
+
+### 参数
+
+| 名称      | 类型   | 必填 | 默认值 | 描述         | 范围 |
+| --------- | ------ | ---- | ------ | ------------ | ---- |
+| accountId | number | 是   | -      | 带单员账户ID | -    |
+| days      | number | 否   | -      | 天数         | -    |
+
+### 限流规则
+
+2/s/ip
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": {
+    "totalIncome": [
+      {
+        "amount": 0, // 收益金额
+        "time": 0 // 时间戳
+      }
+    ],
+    "totalIncomeRate": [
+      {
+        "amount": 0, // 累计收益率金额
+        "time": 0 // 时间戳
+      }
+    ],
+    "incomeRate": [
+      {
+        "amount": 0, // 收益率
+        "time": 0 // 时间戳
+      }
+    ]
+  }
+}
+```

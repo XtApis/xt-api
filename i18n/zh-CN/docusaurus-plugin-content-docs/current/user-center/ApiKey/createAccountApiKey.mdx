@@ -1,0 +1,47 @@
+---
+id: CreateUserAccountApiKey
+title: 创建用户账户 API 密钥
+sidebar_label: 创建用户账户 API 密钥
+sidebar_position: 2
+---
+
+**类型：** POST
+
+**描述：** `/v4/user/account/api-key`
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| userAccountId | string | true | - | 账户 ID | - |
+| keyName | string | true | - | API 密钥名称 | - |
+| bindIps | string | false | - | 绑定 IP 列表，多个 IP 用逗号分隔 | - |
+| roleScopes | string | true | - | 权限代码 | QUERY: 启用查询权限；TRADE: 启用现货和杠杆交易权限；WITHDRAW: 启用提现权限；LEVER_LOAN: 启用杠杆质押权限；FUTURE: 启用合约交易权限；TRANSFER: 启用划转权限 |
+| tags | string | false | - | 标签 | - |
+
+---
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [{}],
+  "result": {
+    "id": 4564,
+    "userAccountId": "1626456841938669570",
+    "userAccountLevel": 2,
+    "userId": 1352123154435,
+    "keyName": "123aaa",
+    "bindIps": null,
+    "accessKey": "99258227-f053-46a2-9b10-66c155eb705c",
+    "secretKey": "4b1839e11bf7a1c6de5f078bd9f4b6e0850da3cf",
+    "isLock": 0,
+    "roleScopes": "QUERY_TRADE",
+    "tags": null,
+    "createTime": "2023-02-20 07:39:56.768",
+    "updateTime": "2023-02-20 07:39:56.768"
+  }
+}
+```

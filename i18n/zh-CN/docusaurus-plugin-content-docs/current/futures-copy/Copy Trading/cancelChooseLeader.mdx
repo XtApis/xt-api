@@ -1,0 +1,39 @@
+---
+id: CancelFollowLeader
+title: 取消跟单
+sidebar_label: 取消跟单
+sidebar_position: 16
+---
+
+**类型:** POST
+
+**描述:**
+
+`/future/copytrade/user/v1/copy-trade/cancel-choose-leader`
+
+---
+
+### 参数
+
+| 名称            | 类型   | 必填 | 默认值 | 描述           | 范围 |
+| --------------- | ------ | ---- | ------ | -------------- | ---- |
+| leaderAccountId | number | 是   | -      | 带单员账户ID   | -    |
+
+---
+
+### 限流规则
+
+2/s/apikey
+
+---
+
+### 响应示例
+
+```json
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "error": null,
+  "result": true // true=成功, false=失败
+}
+```

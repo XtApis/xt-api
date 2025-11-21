@@ -1,0 +1,266 @@
+{
+  "version.label": {
+    "message": "灰度版 🚧",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Getting Started": {
+    "message": "入门",
+    "description": "The label for category Getting Started in sidebar docs"
+  },
+  "sidebar.docs.category.Guides": {
+    "message": "指南",
+    "description": "The label for category Guides in sidebar docs"
+  },
+  "sidebar.docs.category.Guides.link.generated-index.title": {
+    "message": "Docusaurus 指南",
+    "description": "The generated-index page title for category Guides in sidebar docs"
+  },
+  "sidebar.docs.category.Guides.link.generated-index.description": {
+    "message": "一起学习最重要的 Docusaurus 概念！",
+    "description": "The generated-index page description for category Guides in sidebar docs"
+  },
+  "sidebar.docs.category.Docs": {
+    "message": "文档",
+    "description": "The label for category Docs in sidebar docs"
+  },
+  "sidebar.docs.category.Sidebar": {
+    "message": "侧边栏",
+    "description": "The label for category Sidebar in sidebar docs"
+  },
+  "sidebar.docs.category.Markdown Features": {
+    "message": "Markdown 功能",
+    "description": "The label for category Markdown Features in sidebar docs"
+  },
+  "sidebar.docs.category.Internationalization": {
+    "message": "国际化",
+    "description": "The label for category Internationalization in sidebar docs"
+  },
+  "sidebar.docs.category.Advanced Guides": {
+    "message": "进阶指南",
+    "description": "The label for category Advanced Guides in sidebar docs"
+  },
+  "sidebar.docs.category.Upgrading": {
+    "message": "升级",
+    "description": "The label for category Upgrading in sidebar docs"
+  },
+  "sidebar.docs.category.To Docusaurus v2": {
+    "message": "迁移到 Docusaurus v2",
+    "description": "The label for category To Docusaurus v2 in sidebar docs"
+  },
+  "sidebar.docs.doc.Tutorial": {
+    "message": "教程",
+    "description": "The label for the doc item Tutorial in sidebar docs, linking to the doc i18n/tutorial"
+  },
+  "sidebar.docs.doc.Using Git": {
+    "message": "使用 Git",
+    "description": "The label for the doc item Using Git in sidebar docs, linking to the doc i18n/git"
+  },
+  "sidebar.docs.doc.Using Crowdin": {
+    "message": "使用 Crowdin",
+    "description": "The label for the doc item Using Crowdin in sidebar docs, linking to the doc i18n/crowdin"
+  },
+  "sidebar.spot.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar spot"
+  },
+  "sidebar.spot.category.Balance": {
+    "message": "账户余额",
+    "description": "The label for category Balance in sidebar spot"
+  },
+  "sidebar.spot.category.Deposit&Withdrawal": {
+    "message": "充币与提币",
+    "description": "The label for category Deposit&Withdrawal in sidebar spot"
+  },
+  "sidebar.spot.category.Market": {
+    "message": "行情",
+    "description": "The label for category Market in sidebar spot"
+  },
+  "sidebar.spot.category.Order": {
+    "message": "订单",
+    "description": "The label for category Order in sidebar spot"
+  },
+  "sidebar.spot.category.Trade": {
+    "message": "交易",
+    "description": "The label for category Trade in sidebar spot"
+  },
+  "sidebar.spot.category.Transfer": {
+    "message": "资金划转",
+    "description": "The label for category Transfer in sidebar spot"
+  },
+  "sidebar.spot.category.WebSocket Private": {
+    "message": "WebSocket 私有接口",
+    "description": "The label for category WebSocket Private in sidebar spot"
+  },
+  "sidebar.spot.category.WebSocket Public": {
+    "message": "WebSocket 公共接口",
+    "description": "The label for category WebSocket Public in sidebar spot"
+  },
+  "sidebar.futures.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar futures"
+  },
+  "sidebar.futures.category.Entrust": {
+    "message": "委托",
+    "description": "The label for category Entrust in sidebar futures"
+  },
+  "sidebar.futures.category.MarketData": {
+    "message": "行情数据",
+    "description": "The label for category MarketData in sidebar futures"
+  },
+  "sidebar.futures.category.Order": {
+    "message": "订单",
+    "description": "The label for category Order in sidebar futures"
+  },
+  "sidebar.futures.category.PythonPackage": {
+    "message": "Python 开发包",
+    "description": "The label for category PythonPackage in sidebar futures"
+  },
+  "sidebar.futures.category.Quote collection": {
+    "message": "行情收集",
+    "description": "The label for category Quote collection in sidebar futures"
+  },
+  "sidebar.futures.category.User": {
+    "message": "用户",
+    "description": "The label for category User in sidebar futures"
+  },
+  "sidebar.futures.category.UserWebsocket": {
+    "message": "用户 WebSocket",
+    "description": "The label for category UserWebsocket in sidebar futures"
+  },
+  "sidebar.futures.category.WebsocketV2": {
+    "message": "WebSocket V2 接口",
+    "description": "The label for category WebsocketV2 in sidebar futures"
+  },
+  "sidebar.margin-spot.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar margin-spot"
+  },
+  "sidebar.margin-spot.category.Balance": {
+    "message": "账户余额",
+    "description": "The label for category Balance in sidebar margin-spot"
+  },
+  "sidebar.margin-spot.category.Market": {
+    "message": "行情",
+    "description": "The label for category Market in sidebar margin-spot"
+  },
+  "sidebar.copy-trading.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar copy-trading"
+  },
+  "sidebar.copy-trading.category.Copy tradeing": {
+    "message": "跟单交易",
+    "description": "The label for category Copy tradeing in sidebar copy-trading"
+  },
+  "sidebar.futures-copy.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar futures-copy"
+  },
+  "sidebar.futures-copy.category.Copy Trading": {
+    "message": "合约跟单",
+    "description": "The label for category Copy Trading in sidebar futures-copy"
+  },
+  "sidebar.trading-third-party.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.Balance": {
+    "message": "账户余额",
+    "description": "The label for category Balance in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.OAuth Interface": {
+    "message": "OAuth 接口",
+    "description": "The label for category OAuth Interface in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.Order": {
+    "message": "订单",
+    "description": "The label for category Order in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.Trade": {
+    "message": "交易",
+    "description": "The label for category Trade in sidebar trading-third-party"
+  },
+  "sidebar.trading-third-party.category.User Registration": {
+    "message": "用户注册",
+    "description": "The label for category User Registration in sidebar trading-third-party"
+  },
+  "sidebar.user-center.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar user-center"
+  },
+  "sidebar.user-center.category.Account": {
+    "message": "账户",
+    "description": "The label for category Account in sidebar user-center"
+  },
+  "sidebar.user-center.category.ApiKey": {
+    "message": "API 密钥",
+    "description": "The label for category ApiKey in sidebar user-center"
+  },
+  "sidebar.user-center.category.Referral Commission": {
+    "message": "返佣",
+    "description": "The label for category Referral Commission in sidebar user-center"
+  },
+  "sidebar.api.category.Plugin method references": {
+    "message": "插件方法参考",
+    "description": "The label for category Plugin method references in sidebar api"
+  },
+  "sidebar.api.category.Plugins": {
+    "message": "插件",
+    "description": "The label for category Plugins in sidebar api"
+  },
+  "sidebar.api.category.Themes": {
+    "message": "主题",
+    "description": "The label for category Themes in sidebar api"
+  },
+  "sidebar.api.category.Miscellaneous": {
+    "message": "杂项",
+    "description": "The label for category Miscellaneous in sidebar api"
+  },
+  "sidebar.api.category.📦 eslint-plugin": {
+    "message": "📦 eslint-plugin",
+    "description": "The label for category 📦 eslint-plugin in sidebar api"
+  },
+  "sidebar.loan.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar loan"
+  },
+  "sidebar.loan.category.Adjust Collateral": {
+    "message": "调整抵押品",
+    "description": "The label for category Adjust Collateral in sidebar loan"
+  },
+  "sidebar.loan.category.Auto Add Collateral Switch": {
+    "message": "自动补仓开关",
+    "description": "The label for category Auto Add Collateral Switch in sidebar loan"
+  },
+  "sidebar.loan.category.Borrow Money": {
+    "message": "借款",
+    "description": "The label for category Borrow Money in sidebar loan"
+  },
+  "sidebar.loan.category.Loan Product Inquiry": {
+    "message": "借贷产品查询",
+    "description": "The label for category Loan Product Inquiry in sidebar loan"
+  },
+  "sidebar.loan.category.One Click Repay": {
+    "message": "一键还款",
+    "description": "The label for category One Click Repay in sidebar loan"
+  },
+  "sidebar.loan.category.Renew Loan": {
+    "message": "续贷",
+    "description": "The label for category Renew Loan in sidebar loan"
+  },
+  "sidebar.loan.category.Repay": {
+    "message": "还款",
+    "description": "The label for category Repay in sidebar loan"
+  },
+  "sidebar.loan.category.inquire": {
+    "message": "查询",
+    "description": "The label for category inquire in sidebar loan"
+  },
+  "sidebar.Referral Commission.category.Access Description": {
+    "message": "访问说明",
+    "description": "The label for category Access Description in sidebar Referral Commission"
+  },
+  "sidebar.Referral Commission.category.Referral Commission": {
+    "message": "返佣管理",
+    "description": "The label for category Referral Commission in sidebar Referral Commission"
+  }
+}

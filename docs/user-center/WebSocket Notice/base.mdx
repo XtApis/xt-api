@@ -1,0 +1,44 @@
+---
+id: GeneralWssInformation
+title: General WSS Information
+sidebar_label: General WSS Information
+sidebar_position: 1
+---
+
+### Base Address
+`wss://stream.xt.com/notice`
+
+---
+
+### Request Headers
+
+WebSocket connections must include the compression extension protocol header:
+
+```text
+Sec-Websocket-Extensions: permessage-deflate
+```
+
+---
+
+### Example
+
+#### Python
+```python
+# Example: Connect using websocket-client
+from websocket import create_connection
+
+ws = create_connection(
+    "wss://stream.xt.com/notice",
+    header=["Sec-Websocket-Extensions: permessage-deflate"]
+)
+
+print("Connected to XT WebSocket server.")
+```
+
+#### Response
+```json
+{
+  "event": "subscribe",
+  "channel": "notice",
+  "status": "success"
+}

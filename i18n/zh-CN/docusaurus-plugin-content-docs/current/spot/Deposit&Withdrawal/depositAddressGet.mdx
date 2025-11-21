@@ -1,0 +1,37 @@
+---
+id: GetDepositAddress
+title: 获取充币地址
+sidebar_label: 获取充币地址
+sidebar_position: 2
+---
+
+**类型:** GET  
+**描述:** `/v4/deposit/address`
+
+### 参数
+
+| 名称     | 类型   | 是否必填 | 默认值 | 描述         | 取值范围 |
+| -------- | ------ | -------- | ------ | ------------ | -------- |
+| chain    | string | 是       | N/A    | 充币网络     |          |
+| currency | string | 是       | N/A    | 币种名称     |          |
+
+### 注意事项
+
+此接口用于获取指定币种在特定链上的充币地址。
+
+- 某些币种可能需要除地址外的 **memo/tag**。
+- 请务必确认网络与币种匹配，避免资产损失。
+
+### 响应示例
+
+```json title="响应"
+{
+  "rc": 0,
+  "mc": "string",
+  "ma": [{}],
+  "result": {
+    "address": "0xfa3abfa50eb2006f5be7831658b17aca240d8526", // 钱包地址
+    "memo": "" // 如需要则返回 Memo/Tag，否则为空
+  }
+}
+```

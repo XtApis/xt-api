@@ -1,0 +1,54 @@
+---
+id: CancelAllTrack
+title: 取消所有跟踪单
+sidebar_label: 取消所有跟踪单
+sidebar_position: 17
+---
+
+**请求类型:** POST
+**描述:** `/future/trade/v1/entrust/cancel-all-track`
+
+---
+
+### 限流规则
+
+200/s/apikey
+
+---
+
+### 参数说明
+无可选参数。
+
+---
+
+### 请求示例
+```bash
+curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-all-track" \
+    -H "validate-appkey: $APPKEY"              # 必须
+    -H "validate-timestamp: $TIMESTAMP"        # 必须
+    -H "validate-signature: $SIGNATURE"        # 必须
+    -H "Content-Type: application/x-www-form-urlencoded"  # 必须
+```
+
+---
+
+### 响应示例
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {},
+  "returnCode": 0
+}
+```
+
+---
+
+### 错误码
+| 错误码 | 描述 |
+|---------|------|
+| invalid_symbol | 交易对不存在 |
+| fail | 内部异常 |
