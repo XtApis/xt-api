@@ -109,22 +109,22 @@ const config: Config = {
       'docusaurus-plugin-openapi-docs',
       {
         id: "api", // plugin id
-        docsPluginId: "api", // configured for preset-classic
+        docsPluginId: "default", // configured for preset-classic
         config: {
           user_en: {
             specPath: "api-docs/en/user/biz-user.yml",
             outputDir: "api_docs/user",
             sidebarOptions: {
               groupPathsBy: "tag",
-              categoryLinkSource: "tag",
+              sidebarCollapsible: false,
             },
           } satisfies OpenApiPlugin.Options,
           user_zh: {
             specPath: "api-docs/zh/user/biz-user.yml",
-            outputDir: "api_docs/user_zh",
+            outputDir: "i18n/zh-CN/docusaurus-plugin-content-docs/current/user",
             sidebarOptions: {
               groupPathsBy: "tag",
-              categoryLinkSource: "tag",
+              sidebarCollapsible: false,
             },
           } satisfies OpenApiPlugin.Options,
           contract_en: {
@@ -132,15 +132,15 @@ const config: Config = {
             outputDir: "api_docs/contract",
             sidebarOptions: {
               groupPathsBy: "tag",
-              categoryLinkSource: "tag",
+              sidebarCollapsible: false,
             },
           } satisfies OpenApiPlugin.Options,
           contract_zh: {
             specPath: "api-docs/zh/contract/biz-quotation.yml",
-            outputDir: "api_docs/contract_zh",
+            outputDir: "i18n/zh-CN/docusaurus-plugin-content-docs/current/contract",
             sidebarOptions: {
               groupPathsBy: "tag",
-              categoryLinkSource: "tag",
+              sidebarCollapsible: false,
             },
           } satisfies OpenApiPlugin.Options,
         }
@@ -867,7 +867,6 @@ const config: Config = {
           sidebarId: 'api',
           position: 'left',
           label: 'API',
-          docsPluginId: 'api',
         },
         {
           type: 'search',
