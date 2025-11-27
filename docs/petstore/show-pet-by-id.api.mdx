@@ -1,0 +1,71 @@
+---
+id: show-pet-by-id
+title: "Info for a specific pet"
+description: "Info for a specific pet"
+sidebar_label: "Info for a specific pet"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFU8Fu2zAM/RXhnTZASNJh2EG3DiiG3IKtOwU5KDZtq7MtRaLTBob/faDiZm3TYr7YJEXq8b3nET5QtOx8vy5hkBr/uCH+flqX0GBbJ5gtAnHCTiPYaDtiipId0duOYKSaT7teAssNNCIdBhephOE4kEZJqYguyD0wuG9IuVL5SnFDKhAr9ioSR0dHgkYqGuoszAg+BbkicXR9jWnayegUfJ8oSf3LaiWv1+PvngIVTKV6PirjrTra1knuMFBiaBS+Z+pZ+m0IrSsyDcuHJEPGaxB+/0AFv1puCyebZyKEnyhssjtjc+WLZtcz1RShUfnYWT6nvn3FNLdfL5v5f48EDXbcSmpDjEmetwyv+8qrykdlVQpUuMoVwjM0OuLGi9R1DrNeBkuReDlmKSdRgOLxWeYhtjBomINZ5nPsIy3So61rigvnl8cbiDCur3yGO4P75brQktrMHep2s4aGjD1jvFmsFitZM/jEnc2kz5b6GP6rNS/UMD3xMrTW9TIvAx7n1Wb3apizT3cajU8shXHc20S/YztNkj4MFE8w253G0UZn97LFdkTpknyXMJVt01szj/98hE8/Z2d8Vv+z+LvA56TtT0KUbQeJoPGHTpf/bNpNGg3ZkmJGd67dFgUFftF15WhR6KL9j7t7TNNfpvNZGA==
+sidebar_class_name: "get api-method"
+info_path: docs/petstore/simple-petstore-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Info for a specific pet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/pets/{petId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Info for a specific pet
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"petId","in":"path","required":true,"description":"The id of the pet to retrieve","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Expected response to a valid request","content":{"application/json":{"schema":{"type":"object","required":["id","name"],"properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"tag":{"type":"string"}},"title":"Pet"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
