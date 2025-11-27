@@ -1,0 +1,71 @@
+---
+id: get-mark-using-get
+title: "掩码处理接口"
+description: "掩码处理接口"
+sidebar_label: "掩码处理接口"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVE1r20AQ/SthTm1QIjsJJegWglNMmwSS+hR8WEtjeRtpV5ld2XWNDoHQ5pSGUkqP/aYfp54K7S3/JXbzL8pIipGxS0+CmXkzb+c9zQisCA14R3B9eT759fnP6bfxm4ublz+g7YBOkISVWjUD8CBEuyvouGWkCu83HoEDiSARo0XiBiNQIkbwICFsBuCAVODBSYo0BAcCND7JhJuBBzfvz64/nk0un0kuJDxJJWEAnqUUHTB2GHGjrqYYHBBRpAcHaJD6lRq/h7EAbwR2mHCxVBZDJHBymLBF6N4GZFmbR5hEK4OGEWu1Gn9mKe0/AAd8rSwqy9lld5k/lTnS5qy2dRxrdVA2vPpuLEkVXv0G55aK7jxG3/J+iDdoZTEWiTRVOzU4sIvGiBD/ixYUmspzBZHgvUqLcTVeorOMHxNgJVPwhMyB2IQL4lmRaaquXogiNGlk/5GyKant2XmLBVlf40n5sI1afV6GlhKp7WmSTzGAvGh9vmhHU0cGAaqiYmO+Yk/bpR2dqiDfxGxufPF18va08N/44tP1iw/gQIy2p0uX5862PfDA7dddEwuyu1rh0E3STiR9NzVIK7GgY3Agd2Xp/5Qi8KBnbeK5bqR9EfW0sd5mbbM29wc0VReJMFhqUQTsUHm799Ick1dfxuc/53BFuKA9fv18/I7JW6TY7HcPkfrSZ3BKyrPalI4WPsuWORBJH5XJRSr/1a1E+D1cWltlhjP8B4PBqsizq5pCt4Qa92Fzu7F32FhhSOYAP75gVi8CiTY2FqoyY+G+Z1419YzFJ9ZNIiFzZXM+o1KLI+jXed9TNVilXA9mPlWk7QAvnetHo44w2KIoyzhcXCLWKZBGdCK+JV0RGZwjM70CcOegPE13l2ZP1kK+xzisnL++iFKuydXtC5I8E7yjduZAD0WAlJMpQFu+j4mtoPj8MHDqS764WfYXTREJPg==
+sidebar_class_name: "get api-method"
+info_path: api/user_zh/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"掩码处理接口"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/smartMoney/public/user-mark"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+掩码处理接口
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"preId","in":"query","description":"预处理id","required":true,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«string»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"string"},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

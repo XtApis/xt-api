@@ -1,0 +1,71 @@
+---
+id: get-trader-amount-using-get
+title: "查询累计收益&资产"
+description: "查询累计收益&资产"
+sidebar_label: "查询累计收益&资产"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVltvG0UU/ivWeeChWuJ1nCbO9ilKU2TRJihNeInyMN49tgd2Z7Yzs06NtRJISK36EBqoUCSEUNMUWpCoEAVKeKjU3xJf+i/g7Dpm13aTVEVIfdrZmXP5zm3m64BhDQ3OFnTv3u4ffT/47Mfe/u7LL3+BbQtkiIoZLkXVAwcaaDYU81AtBTISZlNz0XhvZQMsCJliARpUZKgDggUIDjDXJbmqBxZwAQ7ciFC1wQIPtat4SIbBgeOjw97+V929/ay8whsRV+iBU2e+Rgu0aftktC5VABYw35c766hRtUjIqIhk3CYGDJwOmHZIwlwYbKACK1FjJt2an4M4tkYw+Rn4+P+MR6GLwlxmbX06rgVn8HxvoXv4+FLZpmXZpvVisl5M1qVK8lOqJH/l+Yv0d/zs0+6fTy/9ZzFpo7hoQBxvk0UdSqFR0/msbdMnD3rtfbDAlcKgMHR6oXiBPhmr3CQYlmUQSLE+NPjipw0Zps23HAWRzwxv4YdrL/4C6wSHrH2ErqFmVNS2hqcoUCmpsoZXaOMaas0aeKY2Uw2diZUpxagQ3GCQ3R9qxzHF5uGU7FgQ6Ma0rKUnVVGXU7UU6sg3WfxTE3F2IKPZmvAy3lfdZ3d7t//gHrn3qAun9W9eZfB8b7V7+LiwUCjbhUW7UKrYhfL8xbE+L8+SSSMN89Mb5CrXZkp287b7T58Mfr4/+O3z46Mfer8edO88yhVgmJXU4OWNc2Qikcy4FVFQy89kjTc8dHnA/AQwD/B8MxyfhPeBknX+OuH17v3e/+bOy4Nv364I15nB146yv3vrLYgy0qhy0/Kq3u/fe5SOyzRDNMAmUmI5fytM903zEafe5+zS5N25KVhkmlLxTzAZzjm7PCl0Raoa9zwUqcTcpMSqNIUrMhJecl/lz3rfPRw8OchW65108sCCAE1TDnlA8uabJjhQbJWKOmDKXJMC28UwqvncLY5RBbAgeUWG/CBS/j+XRtOY0CkWfekyvym1cSp2xZ5Ib1XUUSn0CpvKB3pj+MlVOeyYNP+vKEtv92H3iwe9r2/17j+gjkIV6LX6dVQt7pJypIRjpB6+Scylfoot8LmLQicVGz7KSyFzm1iYnSGEOfw7OzszLDmdkapRHKrq4tXq8srq9ZV3SSW2gIJPkZXSjVBqEzCR8XFa8nPBjfrI4E1TDH3Gk2onsDrDwmxBq0RpH5WGSpYUB6xxJkdUjypAWp1OjWncVH4c03ZKPahoHtes5mfYwhik0aM+ndBNRfwxtsd4Yov5EckBEaLzu+RnuOBvYPuNedYpuHJc71982/SjOAEEZ2s7tqCJVK6kEKnmkutiaDJaxKRIcTSmRM3j+G9EDVnV
+sidebar_class_name: "get api-method"
+info_path: api/user_zh/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询累计收益&资产"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/smartMoney/public/getTraderAmount"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+查询累计收益&资产
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"accountId","in":"query","description":"交易员accountId","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}},{"name":"id","in":"query","description":"id","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}},{"name":"recentDays","in":"query","description":"7:近7天;30:近30天;90:近90天;180:近180天;365:近一年;","required":false,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«TopTraderCumulativeVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"TopTraderCumulativeVO","type":"object","properties":{"accountId":{"type":"string","description":"帐户id"},"days":{"type":"integer","description":"近N天 7 30 90 180 365","format":"int32"},"totalAmountList":{"type":"array","description":"累计资产波动","items":{"title":"AmountDTO","type":"object","properties":{"amount":{"type":"number","format":"bigdecimal"},"time":{"type":"integer","format":"int64"}}}},"totalProfitList":{"type":"array","description":"累计收益额波动","items":{"title":"AmountDTO","type":"object","properties":{"amount":{"type":"number","format":"bigdecimal"},"time":{"type":"integer","format":"int64"}}}},"totalProfitRateList":{"type":"array","description":"累计收益率波动","items":{"title":"AmountDTO","type":"object","properties":{"amount":{"type":"number","format":"bigdecimal"},"time":{"type":"integer","format":"int64"}}}},"userId":{"type":"integer","description":"用户id","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

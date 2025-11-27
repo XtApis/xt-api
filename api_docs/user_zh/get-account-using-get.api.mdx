@@ -1,0 +1,63 @@
+---
+id: get-account-using-get
+title: "获取账户相关信息"
+description: "获取账户相关信息"
+sidebar_label: "获取账户相关信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9r3EYQ/lfMPIaNdXZMCXorxgmmbVwauy/HPexJc7ptpF11dnWOewgcSOnRh9i0JQnJU0hjCin4ISEOcUohf4slO/9FO5Ls3vmucXIve8yPb2fm2/k0BCcjC34bjn/7oxwdFLuj4zd7x49fFz++OPr7SXlnHzoCTIoknTJ6NQQfInSfB4HJtNuwSkfXV9ZBAKFNjbZowR/CYqvFR4g2IJVyIviw9gUICIx2qB17L3mX+LBBHxPJ/5xyMYIPyyZJjP6mAXz3vLlsVffMt2vvDkGA20o50HS/w8CBgJS4Qqfq25HI0DjgChu+QmtlhBdmS4qqs4mSRHILBCiHybi9yc5z7inEMY91pHQEuYDERjPsee3hdmZmEdosduP1Twzg4gaa6HAMXWmHERKIc5wUr3fL0YEKQUDPUCJdHfvZEhci49hsrqWovzZW1QlngF1jYpR6CrB8uF/s7hU7+8Xb7aPDX0EA3pZJym30ZGzxFHad5MTQLsQ7Onx29Ob38uEHIbXtIX0iajH65eSvP2ehmhT1ukpmcDs1xrfb77cflQ9evX/wcnyUoXR42TFELsA66fAjOKkX8fjnV+X2nXO8XFlkoMwiXSeTpR9FcQN3eLcYPZ9JM8N9AtLMx5JX79ZlpJcnl+E/rPN9VD8BS62FaanY0DJzfUPqBwyhCroyHXTNUFeFIeo6Ymk64oZxc9dMpsNqTSd9J/cOip37Jy/3eDjjcicgQdc3jdDxdknXBx+8wYLXrJaneHcFWKQBEqvnEDKK/0XtO5f6nhebQMZ9Y51/tXW1NTXIVd1DIgznNiiGvCNAnWpBs/D1pP+HgPLes2LnaXn/p/LJUxYDpMSu9W4iDVTAyRlp3xnbiK0MWEpyAbEKUNuKGy2TSlZSGfRxbnGeK5yof3Nzc15W3nlDkdekWu/L1eWVGzdXLnNKLoCbrytbqA2psS6ReuyOD4x5orezB+PwtvPSWKqK1qqqYUNBGwYLIE71DZqxdQTwpNk9HHalxQ2K85zN32dIW+C3OwIGkpTs8mzbnVxAH2XIQtEewi3cqhUWU4YcyDjjMvjjxMycvQX+yuX5PzwKs18=
+sidebar_class_name: "get api-method"
+info_path: api/user_zh/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取账户相关信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/account/info"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取账户相关信息
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«AccountInfoVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"AccountInfoVO","type":"object","properties":{"accountId":{"type":"integer","description":"帐户id","format":"int64"},"allowOpenPosition":{"type":"boolean","description":"是否可开仓","example":false},"allowTrade":{"type":"boolean","description":"是否可以交易","example":false},"allowTransfer":{"type":"boolean","description":"是否可以划转","example":false},"openTime":{"type":"string","description":"开通时间","format":"date-time"},"state":{"type":"integer","description":"用户状态","format":"int32"},"userGroupId":{"type":"integer","description":"用户组别","format":"int64"},"userId":{"type":"integer","description":"用户id","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

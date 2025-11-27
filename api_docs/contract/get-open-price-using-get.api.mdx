@@ -1,0 +1,71 @@
+---
+id: get-open-price-using-get
+title: "获取交易对指定时区当天0点的开盘时间，不传symbol获取所有可交货币对"
+description: "获取交易对指定时区当天0点的开盘时间，不传symbol获取所有可交货币对"
+sidebar_label: "获取交易对指定时区当天0点的开盘时间，不传symbol获取所有可交货币对"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU9vG0UU/yrRO0E1ZJ20h2hvVZSiiNKglHAg8mG8+7we2J3ZzMw6GGultFCVSqZBVGqq0kOrhkYoEhVS1aa2ueSzeNfh1K8AM7sxaxxSQOK02jfvz++93/vTBU0DBe4mnDzp5V/dGv8yyO/+mO0+hToBEaOkmgm+6oMLAeq1GPlHknm4oRgP3l/5GAjEVNIINUrjpQucRgguqE7UECEQYBxc2EpQdoCAj8qTLDYuwYVRfz9/cC97/hoISNxKmEQf3CYNFRJQuhMaR00hIyBAw1Bsr6NC2TZKWiZGx2thRMHtgu7ENqqWjAeQpmQCRLMIPxUcz4eS773Mev3sxu74YDA++D7bGb4Z9rJnN0dHj7Jbh1mvPxo+XlxaqtWmoJYo/gtSxjUGKIFYM6oL0cVFSNO6CaFiwRUqY7FYq5nPNOC1D4CAJ7hGrs3rBeeC+VTiMG1RLYsoEny9dHh8eJUpfXw4IfKTtePB8QDIKS7R+Aw9bWiVhn3NCgwopZBVtytG8CEqRQN8qzWVgarkTqWkhgKmMarKS+s0NZn5eAavBCIVnMV38bLKm+JMK4kqCfW5EMq8KoV5a1riVLfimCdRw9I6TVc23Bn/8GA0eFUlvMECHz0W0dBgLCdmBv7fT01q85aoE8mXpwt2TnsVVpdqC7NNtcFpoltCsi/RB6t0cVbpipAN5vvIC41LsxrXhJ67IhLuWyqn307uvsp2709yyHu3s58fltP3671s/6fa+Obr8cOvi4Lley9/23vxZtgbHX07Gj4uSlS4yO/s5I/uZLvPR/39kxcH2dGNYpFEqFuiXFd2O+kWuOC0F5w4aYTMc7Ycw1tseSNgx7RcXYkM/0DY0jp2HScUHg1bQml3qbZUm2FhlTdRSvTnNmQIZmTZae+VjZR99824/2y2Eay4WLH5/dv5k6emzVBGaq15HWXbdhMkkrtaqHLEqWdaNyUQMg+5sjyX2+1yTL0Wzi3OG4RT+Le3t+epfZ0XMnBKU+VcXV1euXZ95T1jkhIwyRfIFgpBLJSOKK/E+N8pm6rQpIU1fqGdOKTMNprNrVvSuQntBcOtJRQIbIG9VSWpdQKGN6PW7Taowg0ZpqkRF7vfUO0zRRth5dz8BcNks04dqTORfY6d6r1r0zAxSmBu0D8P8856eVXenfs3t+gcRJXD9yemuvmRzIACd7OeEmgh9VHaohR2lz0PY12xMqfFGE4my9z9NP0doPI/aA==
+sidebar_class_name: "get api-method"
+info_path: api_docs/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取交易对指定时区当天0点的开盘时间，不传symbol获取所有可交货币对"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/openprice"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取交易对指定时区当天0点的开盘时间，不传symbol获取所有可交货币对
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"symbol","in":"query","description":"交易对","required":false,"style":"form","allowReserved":true,"schema":{"type":"string"}},{"name":"timeZone","in":"query","description":"时区偏移秒值，如东八区传28800","required":true,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«OpenPriceVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"OpenPriceVO","type":"object","properties":{"openPrice":{"type":"number","description":"开盘价","format":"bigdecimal"},"symbol":{"type":"string","description":"交易对"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

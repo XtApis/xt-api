@@ -1,0 +1,63 @@
+---
+id: get-public-step-rates-using-get
+title: "获取用户费率表（无需登录）"
+description: "获取用户费率表（无需登录）"
+sidebar_label: "获取用户费率表（无需登录）"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVl1P3EYU/SvoPiWRwbsEVZHfUgIVagoVH3lBPMzaF+8Ue8adGS+lK0t5iQCVQJoGCE0iNQlVqKKqVEVJurtpJX7Lrpd94i+0Yzt0lyXFT2PN3Hvmnjln7rgKirgSrHloPzqI1952Hr+JX/zW/nW9XXt1cvRne3MVFgzgAQqiKGcTDljgovoyLHnUnlEYTBOFck5S5n42NgsGCJQBZxIlWFUYLhT04KC0BQ00AFgw9TkYYHOmkCm9es28pgdpl9En+ktR5SFYMMp9n7PpDPD49W0q1fHrD5vemp06rh/XwQC1EuhwXvoKbQUGBELXq2haAwrBRTfsmJ74AqUkLl6aTYSbjFkUEYKsgAFUod89n2VHkWbmYNeKVIIyFyIDfOleMB+lKxNskV+YJVCGnvrfEjJeXQdzKS1bIFHozFL/glqNc4K11p606rV4901n9wgMWOTCJwoscIjCQaUhNG2NmB10DrRmraazqNOVQJlCF0VfBnW6d6VMfTKicz2soDeN2kaUs1tkJQdUauzm38/a23ut/V/i7cMrhdPGRrFQuHpuj+vDiWZkCcU4dh8SC/3SBchJZHZjupBK1HXQpj7xUjF9IpZynNH+avzHgc6QCoNJkkellFrrwf32q8PTxkazfi/9br6732z8GD9d79ytn/z1vQZVuVmpPKyUIA7e4V7o50Bs1vbjxz80333X2XvQWd26EkpHXT1tbMSbD1u1rfajg4/vEwZOftPGT47incNLTJsi5jBtipaZdpl4HqpPiUeYnYNx5+HvrY17zfd7nRfPUt4p6Y8RTVqCQBUKNtrbS/5z9XmnRmnWSKHY32/nGAlVmQv6LTqQBF3vDxrnokQdB1kaMdIfMcnVwDgPmZN0ud61k823ra2d9AVJ3XLy/OC0sRbv/tR5ere9V2+93z5trIMBPqoyzx4R3ZWIKoMFZqVoBsmTYoYShaldPyiIQtNFdfbKgAESRQWFfq+qEArv363LSgWWaXrcJl6ZS2XdKNwo9GkwwRZRCHQG5oQH0YIB9EO/zZpnWnv/pUqm482fW1sv453V+PlL3VpR+HJqcQZFhWoDQCiYpbjMnjVi63atGxS1kclEQJZcYbgZELuMA8NDusKe+peXl4dIsjrEhWtmqdK8PTE6NjkzNqhTIgM0+bSyYjoRcKl8wrr2yK9FD9Uzkyn8RpmBR2hihaTIaqbTPFSKWrREKc1AJmY8UwsM6NFrwQAtiU6sVktE4pzwokhPfx2iWAFrfsGAChGUlLQI8wuRAWUkjr6R81VYwhV9ZraNgfZKhXihLlD/L2gJz6ykfzyi6B/O52Z+
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取用户费率表（无需登录）"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/user/step-rate/getStepRates"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取用户费率表（无需登录）
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«StepRateDTO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"StepRateDTO","type":"object","properties":{"createdTime":{"type":"string","description":"创建时间","format":"date-time"},"creator":{"type":"string","description":"创建人"},"id":{"type":"integer","description":"id","format":"int64"},"levelRetentionDay":{"type":"integer","description":"等级保留天数(0，100)","format":"int32"},"makerFee":{"type":"number","description":"maker费率","format":"bigdecimal"},"remark":{"type":"string","description":"备注"},"stepName":{"type":"string","description":"等级名称，仅名称不会有逻辑"},"takerFee":{"type":"number","description":"taker费率","format":"bigdecimal"},"tradeVolume":{"type":"number","description":"交易下限量(usdt)，排序用","format":"bigdecimal"},"updatedTime":{"type":"string","description":"更新时间","format":"date-time"},"updater":{"type":"string","description":"更新人"},"walletBalance":{"type":"number","description":"钱包余额下限(usdt)","format":"bigdecimal"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

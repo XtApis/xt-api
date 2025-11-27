@@ -1,0 +1,71 @@
+---
+id: get-funding-rate-record-chart-using-get
+title: "获取资金费率图表"
+description: "获取资金费率图表"
+sidebar_label: "获取资金费率图表"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVl1rG0cU/SvmPrVhZcmOKWHfgrGLaRqDE/fF6GG0e7WadndmfWdWrioWAm1xCsFO2+CUti8m/YI8tIU0JXHog39LJStP+Qvl7q6klbXYLi0YhGfOvefM/dw+WBEYcHdgdPxg+OnnZ7+fDA9+HBw+gaYDOkYSVmq14YMLAdr1RPlSBVvC4hZ6mvzVjiC7baQK3l27Cw7EgkSEFold9kGJCMEFL5SobE3G4IBU4EIHhY8EDvhoPJIxc5zDEe4mktAHty1Cgw4Yr4ORALcPthezV2NJqgDS1JkQmV7U0uGYZTdB6s2RTDDzDLYXspe2pgiuSGgF2bsywks4S7ApraXkCqxSWQyyYDFC2PzonZUZHaj8y1VMQf+jhiZ7M7FWBg1bLDca/DPLvPkeOOBpZVFZvr1Wv8Y/JR5pMwGrOoq02iocnj69JY09fcplN625DzZPT05PwBmL060P0bNcfMQFa2UuBIk0lX2v8cH7aIwI8FJrQYEpBUAQCQ6otBiVzwvrNOXn+VhRLA5EJqgqovxmQ7V1pRWhSUJ7oYTiXeejc+nbPB2G6GV9rSySEmFlqmdTOHz0fHB4NHz8/PXjZ/z37aM3r+6f/fzVm1dfVJSFAx6hsJgX3BW8Z34rHbWnM6fkSCVRq8rP9/eGR7+N/vjs9f6Xo2cvzg72yz5bMvDRk5EI2bH0ryBM+pWiiiEyl7jz5n+//GH4zdeDX19wwrOs2oTU6mypVHfX9eXMhq1WGkvzPbWtRGI7muQn6EMGuj4PWtfUkr6PKkeszCNua7uwrhPlZ0U8ezc6+HNweFSO5uC7v0bHv4ADEdqOLrZCNvdtB1yod5fqcdIKpVffrReJq5GwWKOsOGse7wueMEjd8ZJIKOSVYG3s1uuh9kTY0ca6Nxo3GnPx3FBtJEJ/YZtC4Nkjx/1TNMPg4f2zlz/N2eXH+WYbHu0Pj59wlyBFZrN9B6krPTZOSLlWm2JWCY/bL3UglB4qk2WsGLc3Y+F1cGF5kRXO6N/b21sU2e2ipqBemJr6rY3Vtdt31mpskjrAj8+VLeUHsTY2EqrEcUHwZ942KSOLH9t6HAqZJTtT1S8SswPdJc5SlhpwYBcmfVWRnqYDnAE26/dbwuA2hWnKx/le4aT50ohWWFqe5zRNhv1031bK/Ah7ZUxXhAmDgHfb1Tne2ioW2tsL5VV7EWMJ9t9Jp5v1AsopaErY5H9IMiO4O83UGX8a/bsYlz+cLlBQhs08Or++6XkY29Idr2mWOGl2/shL038AZwSqQA==
+sidebar_class_name: "get api-method"
+info_path: api/contract_zh/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取资金费率图表"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/funding-rate-record-chart"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取资金费率图表
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"symbol","in":"query","description":"symbol","required":false,"style":"form","schema":{"type":"string"}},{"name":"startTime","in":"query","description":"startTime","required":true,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"endTime","in":"query","description":"endTime","required":true,"style":"form","schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«FundRateRecordVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"FundRateRecordVO","type":"object","properties":{"collectionInternal":{"type":"integer","description":"收取时间间隔（秒）","format":"int64"},"createdTime":{"type":"integer","description":"时间","format":"int64"},"fundingRate":{"type":"number","description":"最新资金费率","format":"bigdecimal"},"id":{"type":"integer","description":"id","format":"int64"},"symbol":{"type":"string","description":"交易对"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

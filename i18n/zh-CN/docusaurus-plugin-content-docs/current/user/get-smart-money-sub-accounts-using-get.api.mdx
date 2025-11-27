@@ -1,0 +1,63 @@
+---
+id: get-smart-money-sub-accounts-using-get
+title: "查询子账号列表"
+description: "查询子账号列表"
+sidebar_label: "查询子账号列表"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu00AQ/ZVqjmip01Ih5BuqSlVBW4lSLlUOG3viLNi7ZnadEiIfONELECEE3FCpQIgKVUhIlegt/5I0/AUa25S0dUCcNpqdN/tm3vOkD05GFvwdGA32Tn98mjz9Mn734uerb9AUYFIk6ZTRayH4EKHbSiS5daOxt5W1bgaBybSz21bpaHXlHgggtKnRFi34fVhsNPgI0QakUi4DPmzeBgGB0Q6149sr3hU+bNDBRPIvp1yM4MOySRKj71YFh4d3lHXDwzoC9zeHJ8MTEOB6KSNN6wEGDgSkxA04VdJBIkPTL6xwYB2tlRH+Ey0pKs4qSxLJHghQDpPpeIXOc24yxKkb60jpCHIBiY1q4nl5s6bbphZFaLPY/ZVC1Vf9jP7dYZnJUtc8r+yfslXNqbyWMTFKDeKC2uN3R6PBH09Nvn8avTwGAfhYJimTbcvYYi5Ay6RmWBfLnb7+PN47Hg2eMyOHWl6gq7TDCAkEtA0l0pWh60ucnlmkVTJZ+l+IGcl1tFRYU6WQldBlpJfP+6H+5WuLBYZRS42Fy5/PtpaZ6xhSTzCEIuna5aRbhloqDFGXGUuXMzaMm7tlMh0WTr2g2fuPk6MPo6+DUq3R3tvJ/mcQkKDrmGoPsHmk64APXnfBs2fO8GbtCBBgkbpIvGr6kFEMPnScS33Pi00g446xzr/RuNG4NN013UYiDOe2KYa8KUD9/kQqv5fjn6HK+MXH0cuD8Ztn4/0D/gSQErvZ3kLqqoDBGWnfGVstJRmwq3MBsQpQ20Kv0ppwM5VBB+cW55nhOf67u7vzsridNxR5FdR6d9aWVza2Vq4yJBfAzZfMFspAaqxLpJ56Y9bozzV25iCHj52XxlIVOheU+pUsO9Bd4JGfSQFi5vrmRc/TZ1S/35IWtynOcw4/ypB64O80BXQlKdniee80cwEdlCFSoeVD7PF4ggBT9kVXxhmz48XOap3Zhv8h8vwX7WlcFQ==
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询子账号列表"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/smartMoney/getSmartMoneySubAccounts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+查询子账号列表
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«SmartMoneySubAccountVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"SmartMoneySubAccountVO","type":"object","properties":{"accountId":{"type":"string"},"isSmartMoneyAccount":{"type":"boolean","description":"是否聪明钱账号","example":false},"name":{"type":"string","description":"用户名"},"tenantId":{"type":"integer","format":"int64"},"userGroupId":{"type":"integer","format":"int64"},"userId":{"type":"integer","description":"用户id","format":"int64"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

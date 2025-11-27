@@ -1,5 +1,6 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
-import petstoreSidebar from './docs/petstore/sidebar';
+// import petstoreSidebar from './docs/petstore/sidebar';
+// import apiSidebars from './sidebarsApi';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -79,7 +80,8 @@ const sidebars: SidebarsConfig = {
     },
   ],
   changelog: ['changelog/index'],
-  api: petstoreSidebar,
+  // api: apiSidebars,
+
   // But you can create a sidebar manually
   /*
   tutorialSidebar: [

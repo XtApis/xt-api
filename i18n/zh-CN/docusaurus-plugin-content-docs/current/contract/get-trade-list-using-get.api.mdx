@@ -1,0 +1,71 @@
+---
+id: get-trade-list-using-get
+title: "查询成交明细"
+description: "查询成交明细"
+sidebar_label: "查询成交明细"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFV11vG0UU/SvVfay2sZMGVO1bFaUoomlQEvMS5WG8e70eujuzuXPXiWOtBEJAJWipVIXygkpaCg+VKEgUiYan/BbsJP+Czu7GWccbJ4Svp5Xnfpwz987cOe4Bi8CAuwaHu18MPv7k4Oe9wYPn/S+fwboDOkYSLLVa8MGFAHmVhI+3peGGkSp4Z34VHIgFiQgZyWbpgRIRgguo/FUZITggFbiwkSB1wQEfjUcytjnfZDzYezT45sng8a9Hj38BBwg3Eknog9sSoUEHDHdDm6ylKQIHRBjqzWU0SB3rxJRYH6+NkQC3B9yNrbNUjAESOFmY4Hzp7VlIU2dIT5OPtOBPpnf449P+/Z3M6z+kFovgnLId7b46+Pajf5nV9ZkRVkZun8Oqf3/naPfVYOenv08sElsySiJw36rXHcAtL0yM7ODi8XKR9C/xZ0F8/ons//5h/4fP/48TabpRU4eT2f3x+rvB14/6L3/7x6gZJqkCSNN1m9HEWhk01j5Tr9vPKP7Su+CApxWjYmu9WrtqP6WskjMOczqKtFouEu6/eE8EuIwmCXn/xeJiNkXeX9rf29+DYRd18wP02M4TsmOHZc4DiTSVU8/bhUU0Jr8mk6MFBaa0W0EkbFUlY1ReL6LT1O7Ox4r6OBCZoKpuuWVBtXRlFGWbLvM/oxTnbuU05/G9FADDpOem9EKJipeKUVhFv4XVxZBmUdxFKtmaWocoVFYpQYFUDdUivY2qMl7HsTaSsWFOQZ99VZzhzK5MaG0r8ozeZWBSq7MdSHrVlo1EKJbcrTQWd7bKxDJCwyKKLzYH7DnKBv/FShGbCzqyZhFekII9rZyQmhu9AhPGa857tj49PioaSiTc1iS30YfM6fq40y1NTen7qHKP2XGPO5qv3NKJ8rPLOWobPHl++PLp4N7DbCw+ONj7FByIkNu6UCuZOOE2uFDrTNciJK8tFNc2amwvyLVQGuuSTchCvCQUvnn328yxW6uF2hNhWxt2b9Rv1MeG8YJqIRH6VxoUgp2f8ngIFBex//Dewevvx5+YbDkXWYOvPhvsPrMXFSkyS60VpE52EiEh5bI2xbwVnp0hqQOh9FCZrD3Fu3EzFl4br8xMWYYj/Dc3N6dEZp3SFNSKUFO7vTA3f2dl/poNSR2wm8+ZTecLsTYcCVXCqKz0yK6Gp4Vxi2txKGTW04xPr+jCGnSmsw7lfQAHNuzOT3qx7oAtt/Xs9ZrCYIPCNLXL+XNoO+RLI5ph6dk7RWP4Op0Wl5X87mJ3RKt2RJhYL7AP88WhSkJxAsyJ5rwkzFD3TQAp1OMlEcoabgJIIQYvCzKqsSbhlETbJcHKkmkS0rH6OoFZtz9IWhxw19ZTB9oofPvorfWKqJuehzGXoqwgsoHDKWT/IqXpn/VQybI=
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询成交明细"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/merchant/q/trade-list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+查询成交明细
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"endTime","in":"query","description":"结束时间","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}},{"name":"orderId","in":"query","description":"订单Id","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}},{"name":"page","in":"query","description":"页码","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int32"}},{"name":"size","in":"query","description":"单页数","required":false,"style":"form","allowReserved":true,"schema":{"maximum":500,"exclusiveMaximum":false,"type":"integer","format":"int32"}},{"name":"startTime","in":"query","description":"开始时间","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}},{"name":"symbol","in":"query","description":"交易对","required":false,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«PageResult«MMTradeVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"PageResult«MMTradeVO»","type":"object","properties":{"items":{"type":"array","items":{"title":"MMTradeVO","type":"object","properties":{"clientOrderId":{"type":"string"},"fee":{"type":"string"},"isMaker":{"type":"boolean"},"marginUnfrozen":{"type":"string"},"oppositeUserId":{"type":"integer","format":"int64"},"orderId":{"type":"string"},"orderSide":{"type":"string"},"positionSide":{"type":"string"},"price":{"type":"string"},"quantity":{"type":"string"},"symbol":{"type":"string"},"timestamp":{"type":"integer","format":"int64"}}}},"page":{"type":"integer","format":"int64"},"ps":{"type":"integer","format":"int64"},"total":{"type":"integer","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

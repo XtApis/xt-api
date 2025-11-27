@@ -1,0 +1,63 @@
+---
+id: get-balance-convert-using-get
+title: "资产总计转化"
+description: "资产总计转化"
+sidebar_label: "资产总计转化"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE1v00AQ/SvVHNFSJ20PlW8QWlSBGok2XKIc1utJvGDvmt11SogsFQGCAx8X1HtVUCuBekN8tFz6W0ha/gWMbUrSIBVf1pp9b+btvNkdguM9C34bRu92fj45GD07Hh1+Hb9+P3qzBx0GOkXDndRqLQQfeuiu85grgQ2t+mhcy0rVu7myCQwM2lQrixb8ISzUarSEaIWRKfHBh+YtYCC0cqgc7V7xrtBiRYQJpz8nXYzgQ0MnKXd3qoQ3NpsnH6bL3m2eHAEDN0gJroN7KBwwSA3JdbLUUOUsMdwYPgAG0mFiJ+IVN88ZJGIibp2Rqgc5AzMZlsphDw0w6GqTcFeGFhcKINosdpPnuCj6UslCSzUrgl3o4+jL49P9V1RSlJknKCpLgkLfNCVw4uz7x9HLndH28aT4QPZCFDLhMaXLbOga/5uSwJfmrD4GS7X67EC0FM9cpI18hCEUoMVZ0Ko2gQxDVCViaRaxrt3cqs5UWNg4vXf26emPb/vj7aOzw91SLTBI0EW6mmfygLsIfPD6dU8Uk+cFpXHen/4ysGj6aOiiDCEz8e/MkXOp73mxFjyOtHX+cm25NtOlNdVFYzCca5kY8g4Dqbp6ckZO3x6MX3ye4ZXh8h6Od56Pd/doeNAkttndQNOXgsiZUb7TtrpWXJBtOYNYClQWqYziCQGvpVxEOLcwTwqn9G9tbc3zYndem55XUa13e62xsr6xcpUoOQM6fKmsXgZSbV3C1USNf7Z66lTnI+XwofPSmMvC1ELPsLKhDf16cR4yAhhUVsDfYe8woH4TdDgMuMWWifOcwg8yNAPw2x0GfW4kD6jD7U7OIEIeoincu48DaogQmFL+Po8zkkSPEflzPhv0quX5L19h3tI=
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"资产总计转化"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/compat/balance/convert"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+资产总计转化
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CompatResponseDTO«BalanceConvertVO»","type":"object","properties":{"ma":{"type":"array","items":{"type":"object"}},"mc":{"type":"string"},"rc":{"type":"integer","format":"int32"},"result":{"title":"BalanceConvertVO","type":"object","properties":{"coin":{"type":"string","description":"币种"},"convert":{"type":"number","description":"btc转化值","format":"bigdecimal"},"usdtConvert":{"type":"number","description":"usdt转化值","format":"bigdecimal"}}}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

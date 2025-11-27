@@ -1,0 +1,71 @@
+---
+id: get-all-symbols-using-get
+title: "获取所有交易对"
+description: "获取所有交易对"
+sidebar_label: "获取所有交易对"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVEFPE0EU/ivkHcnAtsCB7I2QYhoREpET6WG6+7odnZ1ZZmaLtdlED0Y5CCYmxIMXgnohkaMRYkz6W2jRf2He7ra2FKOnTd773pvvve/b1wPHIwv+Hvw8+jo4Prm+/Dh8/25w8e3Xyzc3379c/zgdvriABgOdoOFOaFUPwYcI3ZqUO924qaXdtUJF92qPgEHCDY/RoaGWPVA8RvAhkAKVWxAJMBAKfGgjD9EAgxBtYERCfW/hDO6nwmAIfotLiwxs0MaYg98D102oq3VGqAiyrEFom2hl0VJ+qVKhz3Tv7fvAINDKoXKUnffm6TPRVThJbdd1HGv1sGzYP98U1vXPi8f6V/0rYCMCuvkYA0dTG9qOE8XzaIw2kx1rFHiA1vII/1nNTWQnhuTG8C6tzWE8GS+rs4yGCvGOtTCIbXTXuopMXbX0nVUGbSrdf1AYN6Qalxq1Pk1EKIdRrnJLm5i7IrS8RBRyFiuV6qxOu4qnrq2NeIYh5KDlWdCGNk0RhqgKxMosYku7uQ2dqjDnN50rnD48fD78cDj2OzCI0bV16e7cy64NPnidqpekTSkCz+Z+97iUwMCi6Yx8nhpJrnYu8T1P6oDLtrbOX62sVmZMXlctNAbDuV0jgbwrRkqUdhm8fX1z+XmmrggPjz4Njs+GJ6+Gp2fkJTSx3W7toOmIgIpTo3ynbel1HpCQGQMpAlQ2V6f8J9cSHrRxbmmRGE7xPzg4WOR5dlGbyCtLrbdZX69t7dQWqCRjQMMXzKpFINHWxVxNvPG3RU8NNvaLw6fOSyQXuao5pV4pwh50qqRILgPtPhcCGJAUDQa0bUL1ek1ucdfILKPwfoqmC/5eg0GHG8GbtN+9RsZGB4i0C4WlxJ9Dc4vd+GZMnac7OT/B7i1Yh8uUcJCxXpleCwJM3ESOLhH5YGw/OqVZ9hssMgW4
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取所有交易对"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/symbol/all"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取所有交易对
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«string»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"type":"string"}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

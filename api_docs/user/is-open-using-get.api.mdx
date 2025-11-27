@@ -1,0 +1,71 @@
+---
+id: is-open-using-get
+title: "校验子账号是否开通合约"
+description: "校验子账号是否开通合约"
+sidebar_label: "校验子账号是否开通合约"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE1rFEEQ/SuhTiqdzCYGkbmFEGVRE1D3FPbQO1M72zrTPVb3bFyXgYCIOYjmIEE8GdQginoRxI9T/stszL+QmpmE2WxAT7NbVa8++r2qMTgZWfA3oXi3d/z4Q/Hkd/Hlx+T5++LFW+gKMCmSdMrodgg+KLuRou5YpaPra3dBQCpJJuiQOMUYtEwQfLBZbyUITKZdOwQBSoMPqXQDEBCiDUilnHE2kPBBpghD8B1lKMC6UVzmU0kaIwiwwQATCf4Y3Chlj9IOIyQQ0DeUSFeZrixDnnc5n02NtmgZsdRq8We6gY0bICAw2qF27L3kXeJPo45yZQurJkmMvl0nPPzUMyZGqQ9/gTjpxfTuYeD4UYhfzamqLhIZaqZaY8MttFZG+E+0pMg25pVEcsRP6jBp2mt0nvM0ITY81pHSEeQCEhudY88rT1v3zbkoQpvFruGqJ698LiO9Ol3wfEouL3Gpstpya3GWiI6WmRsYUo8whDLo8mzQNUM9FYaoq4jl2Yh14+aumUyH5VNM+yZv9o8/Pis+7/75dlC8+D559bXYPSh+bx9vvy52d45+HoCABN3AsNIjLLlg0frgDRe9wCSpdJ6s5OopO29S1N64KeGcJYo0PFmHjGLwYeBc6ntebAIZD4x1/tXW1dbMKrR1H4kwnOtQDCxedcJILZujlx8mO99ncJW5WtjJ3tPJ/lvWFFJiN/p3kIYqYHBG2nfG1mKXAROaC4hVgNqW7NWru5LKYIBzSwvc4VT/W1tbC7L0LhiKvBpqvZvt1bX1O2vzDMkF8PBVZ4uVITXWJVI3avwPEVNDnmrL4UPnpbFUpQLK9sY1SZswXCzHY5pAQE0U70pFFQjwp+5NVwDTwdDxuCctdijOczY/yJBG4G92BQwlKdljAjbHECrLv0Pw+zK2ONPl6SGBC7frU3Zx7syNO3eSk+3WvNtDGWf8DwTcx9HZK5l3cwEDlCFS2VMVshIEmLoGmA8Zq+hU0Hyv8/wvLrYnBA==
+sidebar_class_name: "get api-method"
+info_path: api_docs/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"校验子账号是否开通合约"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/compat/account/is-open/{subAccountId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+校验子账号是否开通合约
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"subAccountId","in":"path","description":"subAccountId","required":true,"style":"simple","schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

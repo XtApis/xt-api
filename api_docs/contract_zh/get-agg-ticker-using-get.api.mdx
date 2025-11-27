@@ -1,0 +1,71 @@
+---
+id: get-agg-ticker-using-get
+title: "获取指定交易对的聚合行情信息"
+description: "获取指定交易对的聚合行情信息"
+sidebar_label: "获取指定交易对的聚合行情信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVlFP3EYQ/itontrI4IOgKvIbQqRCbYNEQl8QD3v2nG8b22t210fp6SSiNjoqEUBKChFKpdCkVaWghEoVBGhVKb/l7Dv+RTW2OXzcJXBPlnbnm+/bmd35XAfNXAXWInT2N5IfH7f/Oks2f4+3XsGSASJEyTQXwawDFriop1z3AbcfolxQPHC/nHkABoRMMh81SspSh4D5CBbYHsdAj/IQDOABWFBF5qAEAxxUtuQhpb0SJ3E54hIdsCrMU2iAsqvoM7DqoFdDyqq05IELjYbRJVKrfll4FyzLEcrVPpLW6evk+dP43UkPiZYRcehVj/JUhPTBAOZ5YmUeFcpaIeajOpYooQpFoFDR/kSpRJ9e+rmvwABbBBoDTbu3zFv0KWTlOtUwLXxfBPN5wg9vuuX+du7DGRgX7KL8HdqaSi+pQ5pn3CilkMV0M7TwDSrFXLwWzaSrCidkUjIqJNfoF9dzdKNBJ3JwQE0M8JU7qFbZzmxQEQNRElXk6aL+wvGvl9+f8+otmJiMD7eS3aNkfbt1+vq8uUWsLLweGD/Zab1fa50dJy//IUz5BpjWyWEPxr4ekrxYS3YOW2fHFF8d4jwv1s7fPM9x/AY8G83kl8NLad5QVK1/N3Mq/wZUL5udtwWqAZ3/GFX885P2wUHr/Vr74FnWsZxWDiH36M/O8UZ88phw6gZN686JhgG6EM8Dje6A6ZXsHp3v/g1GOj2YziK/mCR4begL+duv2SORqCMZTPe+rksFRarbEwRJUZOl8f7JsxCwSFeF5D+gA2nQ7f6gu0KWueNgkEVM9kfcE3rkrogCJ333vXudzeN4ayfZaMZv97r1a+/91Hm0F2+vZ6bS+m8/efQODPBRV0XuJal16CpYYNbGzTAqe9w2l03muqM6ffVgQDqGc2OJpEc2onVomaYnbOZVhdLWndKdUl9lZ4MKSonOyIL0gIY0v5g6+WiJt9fbp3/0v/R0OTPAZKeZ7L+iwYPSV3OV+yhr3CZwJANLC5UPdWbTTaF3xG0MVNq03JumQmZXcWRijBT26F9ZWRlj6e6YkK6ZQ5X59ez0zL37M6MEoUuEUmXKxrOFUCjts6DAMVT9e07bvVsav9dm6DGe3oBUZz3vzSLUxqlRaXfAgGWyyMsOLRlATaC4er3MFC5Ir9Gg5cyIqW8OV6zsFVz9ioiuMcJn87k3fz5SdOyBKh/iatH8a8yLKChtdo1JTpRgLS7RKM3+PIbTUvwv+YSAYtilBqOeb0/ZNoa6sEfWTxK7D4H+oRqN/wGVZqO7
+sidebar_class_name: "get api-method"
+info_path: api/contract_zh/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取指定交易对的聚合行情信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/agg-ticker"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取指定交易对的聚合行情信息
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"symbol","in":"query","description":"交易对","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«AggTickerVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"AggTickerVO","type":"object","properties":{"a":{"type":"string","description":"24小时成交量"},"ap":{"type":"string","description":"卖一价格"},"bp":{"type":"string","description":"买一价格"},"c":{"type":"string","description":"最新价"},"h":{"type":"string","description":"24小时最高价"},"i":{"type":"string","description":"指数价格"},"l":{"type":"string","description":"24小时最低价"},"m":{"type":"string","description":"标记价格"},"o":{"type":"string","description":"24小时前第一笔成交价"},"r":{"type":"string","description":"24小时涨跌幅"},"s":{"type":"string","description":"交易对"},"t":{"type":"integer","description":"时间","format":"int64"},"v":{"type":"string","description":"24小时成交额"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

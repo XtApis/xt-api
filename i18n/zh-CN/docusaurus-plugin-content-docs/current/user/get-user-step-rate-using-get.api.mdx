@@ -1,0 +1,67 @@
+---
+id: get-user-step-rate-using-get
+title: "获取用户阶梯费率"
+description: "获取用户阶梯费率"
+sidebar_label: "获取用户阶梯费率"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVltPG0cU/ivoPKXJBhuSh3TfGi4VKhAEdvuAeBjvHttbdme2M7MGiiy16oVLy6WhQQRCqwaalLQFKqHiQFCk/BbvLjzlL7Szdl1jm2Qp9ctas3PO980535z9pkGSnAB9FMLvfwlmD8/W/gwe74W/z4VHT08PnoeLMzCmAXORE2kx2meCDjmUaYF8RKI7TCSmhUVz7/ekQAOOwmVUoAB9GjqTSfUwURjcclU06HDvA9DAYFQilert9cR19RBGHh2i/klL2gg6dDHHYXS4mvDVr/WI3al7r45BAznlqq0s8zEaEjRwuSIqrQo+cs54fcoetTCAQpAcvjWa8Fz0rO4inJMp0MCS6NSvV6OLRXUqE+veCMktmoOiBo7ItVgvVt700SxrGcVReLas599QgrcewWAWvUsEmikmiZ3ixMQPme059Syp52SQg9bQptOX33W+62/v3Cgfz/vbO1qbX/o8ePRb+WShfLQdrK2czSyBBlnGHSJBh4yVM9GwHGIr5qYlDOZR2Y8FtOuwLCox1wIsmF8L5rYqmqvPalF5q1MltIkxfin65dI35dJn5dKzStJwo+Qf7obrX8Ygr7A+IraN8i6xCTWugHZ2/w//26/KJw/PHm++AVBVaRilx2k3mYpRLv9kxZ9bqGCVX26GDx762zvBg/2WpXPIOPJejHGKaGf1yl9IluKk7C8MxE7aUJqB+Bip/4qRugTGFTQVQ0oVkKuJKZ6GKJNDnGUtGSP/8Ur5ZCF49Mzf/SFc3A83ZstHS9fSI90pra0j6c9+fXb/x2DjIFjdvxhOuGhYxE5FQDXADGM2Etp8vdf2/OUnwdpeOPc82J33S8v+0iFogJPEcdVgyxJboEpbnW1DnA0Sp8Usba7VSrm0Xum1v7wQPt1X7GRs5cg4UpFXH541rVw7X+F3Lkb1/q/BnY49tr1MXMgLEhQsd4izy6qivomtVDFxuftzevAkmD0MNr8IN+Zbyvr1i7nXL9br79WNhttw0QmL0VdZDequ85/6fyd14wCOfhrcTnY0W6E0JZ7MM259iiZEm241b+plPGOZJtLKjtvNOwaZbOtlHjUjE2Kiy9EgEk3QJfewqTyLh/7Sar3Xq1XeQZlnVX+nvASRedAhUehIeAJ5Qt3Om5xITDT4P9BAIC8gVzZyGjxu/42Tl9LVEwmbGcTOMyH1O8k7yaZm9dEsco5mW5rbUBzTwPrHDVUtT4VoU1xlOVj82V/aClZngp+2lBlC7oh72RHkBUspBTxOdclE1XASQ01H9cG1DKQi6h+Nxgy85xIjj22d7YrhOf4TExPtJHrbznguUQ0Vif6+rp7BkZ6bKkQpH7moMOuoLLhMSIfQOow3FP7c2WqikjgpE65NrKj1EavpalNGodChmIpIc7XGgNZozZV3V9VXIdPT6n6nuV0squVPPORToI+OaVAg3CIZVe/RsaIGeSQm8qiX4zilymMY6CpJFIjtKWrKtKtu1RSj3H+x+Bepq/kV
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取用户阶梯费率"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/user/step-rate/getUserStepRate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+:::caution deprecated
+
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+
+:::
+
+获取用户阶梯费率
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«UserStepRateDTO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"UserStepRateDTO","type":"object","properties":{"coinBasedTotalTradeVolume":{"type":"number","description":"近29天+今天, 币本位交易量","format":"bigdecimal"},"discountLevel":{"type":"integer","description":"折扣等级","format":"int32"},"lackTradeVolume":{"type":"number","description":"下一个等级相差的交易量","format":"bigdecimal"},"lackWalletBalance":{"type":"number","description":"下一个等级相差的钱包余额","format":"bigdecimal"},"levelReturnDay":{"type":"integer","description":"当前等级保留天数","format":"int32"},"makerFee":{"type":"number","description":"maker费率","format":"bigdecimal"},"nextLvMakerFee":{"type":"number","description":"下一个等级Maker费率","format":"bigdecimal"},"nextLvTakerFee":{"type":"number","description":"下一个等级Taker费率","format":"bigdecimal"},"nextLvTradeVolume":{"type":"number","description":"下一个等级交易量","format":"bigdecimal"},"nextLvWalletBalance":{"type":"number","description":"下一个等级钱包余额","format":"bigdecimal"},"notProfit":{"type":"number","description":"仓位未实现盈亏(USDT, 10分钟更新","format":"bigdecimal"},"specialType":{"type":"boolean","description":"是否是特殊帐号","example":false},"stepRateProName":{"type":"string","description":"专业费率名称"},"takerFee":{"type":"number","description":"taker费率","format":"bigdecimal"},"totalTradeVolume":{"type":"number","description":"近29天+今天, 交易量(10分钟更新)","format":"bigdecimal"},"uBasedTotalTradeVolume":{"type":"number","description":"近29天+今天, U本位交易量","format":"bigdecimal"},"ubasedTotalTradeVolume":{"type":"number","format":"bigdecimal"},"vipProType":{"type":"boolean","description":"是否是专业费率","example":false},"walletBalance":{"type":"number","description":"账户权益(USDT, 10分钟更新）：钱包余额+未实现盈亏","format":"bigdecimal"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

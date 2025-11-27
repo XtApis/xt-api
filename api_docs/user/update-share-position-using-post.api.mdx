@@ -1,0 +1,71 @@
+---
+id: update-share-position-using-post
+title: "分享我的仓位开关"
+description: "分享我的仓位开关"
+sidebar_label: "分享我的仓位开关"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v20YQ/SvGnJpga8ofKALeAsMBhNZ2YFcnQ4cVORI3JXfp2aUcVSDQAG3iS9OmCQIjtyAfCOJTkEMAu73kt1hy+y+KIWmFiggHKHoiNDNv3uy8mdEYnBxY8Pdh8vvRxenrv++9nR4//OePd9AVYFIk6ZTR7RB8yNJQOtyLJOFtYxXbO1bpwe2dve9BQCpJJuiQONsYtEwQfJBBYDLt2iEIUBp8OMiQRiAgRBuQSjkL+HB++nJ6/Hjy6LgeT3iQKcIQfEcZCrBuFHPOvqEEBMg4Noe7aJGGtZggwkSCPwY3SjlYaYcDJBAFTLrS9M065LmYVYla9mK8usRZzP9SVs+YGKWGPO9yRpsabdFywGqrxZ958p1vQUBgtEPt2Hvdu86fWlrliiI2TJIYvVsl/HhS8Xw8A3FJbXp3MHCsGLHATpW8SGSonmqTDVtorRzgF9GSBrb2PEkkuYXKYVK3V+g859eEWPNYR0oPIBeQ2EGDPS89bd03jShCm8WuqcPscxnpjXnC5sFYW2Wqgm21tbIoxAahdBhy1vUmf0fLzEWG1I+XQWuLQbcM9VQYoi4j1hcjto1bumUyHRatmvdNju6fn55Mjx5dPPv5/Ozx+V+/Tv78afLLexCQoIsM72pqbKGRdBH44A1XPJtIcltG48hrWGQQUAxstbwZxeBD5Fzqe15sAhlHxjr/RutGa2Ev2rqPRBgudSgGnmZ1KVE1RxdP3kyPPizgSvP04avJby+mTx9Mn7/gIUNK7E5/D2moAgZnpH1nbDX9MmCFcwGxClDbQs5qhW+mMohwaXWZK5yr//DwcFkW3mVDA6+CWu+79sbm9t7m1wzJBfDjy8pWSgP3MJG6xnFF5+feNpsxh3edl8ZSFUoXVY0rUfZhuMJdn8nCZTcI0xXAvWfAeNyTFjsU5zmbyzPFcoXK8m0Kwe/L2OJCNbPDAV/tVsfr2lLjyW2s+wccfXbJhzLOOA74hv4n9tk1vYJxFvOJrss/SBV2f7+bC4hQhkhFG0rUzSDA1NVQfCsZOFuO4g8rz/8FDOSC1g==
+sidebar_class_name: "post api-method"
+info_path: api_docs/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"分享我的仓位开关"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/smartMoney/updateSharePosition"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+分享我的仓位开关
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"accountId","in":"query","description":"交易员accountId","required":true,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}},{"name":"enable","in":"query","description":"enable","required":true,"style":"form","allowReserved":true,"schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

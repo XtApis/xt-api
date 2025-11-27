@@ -1,0 +1,71 @@
+---
+id: update-collection-symbols-using-post
+title: "更新自选交易对"
+description: "更新自选交易对"
+sidebar_label: "更新自选交易对"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVd1v01YU/1eq84gudVp4QH5joUjVNjrR5inKw4196pjZ95pzrxOyKBKIjzIJ6AMbYhoSrYCp+5DaSZMm2k6T+FsSlzztX5iO7bRJE4RfbJ3v8/udc9wDKwMDbh0+bv02uvv94PBt9vL5cP89NAToBEnaUKtVH1xIE19arOooQo+F6924qSNTM6EKvllb3wABhLdTNPYL7XfB7YGnlUVl+VMmSRR6eTDnltGKZcZrYSz5y4Y2QnChZpDOElzbWCtjhoQ+12iKlFyb7SbsoZu30LMgICGu1oZo8tClIccuDCWR7IIAH41HYcLxwYXhw73R1nb281/Zi4NzAIhsfzv7Yzd7/nTwz6vhvw9Hu0eD453sx4OTowf/HT9hz/t7w8c7o5/eDg4fDQ/+zF7uD96/Hr26+/GXe4PjnZNfDwtjEBBajCeLMZZCFUC/eLhHk2hlitqXKxV+TRe69iWISTwvOBfmQ1jVcazVzTLgh9+bWkco1Ycj+BxmSKRpMtQKC75GY2SAn/WWFMyD+3znpTc37Wkf52AiIDbBXKxyzara1HO9CE0a2QlV2Xmhsymp6nTCUFkMkEDApqZY2kJ0aRnGrCxXlmaJqBJKiz5HvTxPX1MytS1N4Xdjo0uzRtc1NUPfR1VYXJ61uKHtwnWdKj+Halo3d1xBQIy2pXlTE21ygqRtgQtOe8lJDZLjnW6WU+wyCDBIbSQ+AD1IKQIXWtYmruNE2pNRSxvrXqlcqcwszqraRCL0F2oUQb8hgJf65tn6r9yRcRLh1C7Wx2w1+gLCMY/lsJ38sJc9/nsmTyHOnr0bbr/JXmxlu294EpFis7a5jtQOPXZOSblWm3JFpMdj0BcQhR4qkxehZMyGVxPptXBheZE7muq30+ksyly7qClwSlfjfLVaXbmxvnKRXfoCGKyisqVCwFjHUk3k+BQ9U42dTqHFO9ZJIhnms5CX1CuZq0N7ics0+ZCesceygr+GAKaITXu9pjRYo6jfZ/HtFKkLbr0hoC0plE0Guc7At1D6SDnh32I3vxj5Vbm4wQWxeZTmG3z+YvfF2OOq52FiJ2z5GvEQnE5g+T9olj+CON88INnhgy474ALw74WD59chl/UgkipI+dq4UKTk53/mbIOg
+sidebar_class_name: "post api-method"
+info_path: api_docs/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"更新自选交易对"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/user/collection/update"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+更新自选交易对
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"title":"UserCollectionDTO","required":["symbols"],"type":"object","properties":{"symbols":{"type":"array","description":"全量更新自选交易对,每次操作必须传数组，全部删除了就是也需要传空数组","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

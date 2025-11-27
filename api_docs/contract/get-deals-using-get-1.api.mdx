@@ -1,0 +1,71 @@
+---
+id: get-deals-using-get-1
+title: "获取交易对的最新成交信息"
+description: "获取交易对的最新成交信息"
+sidebar_label: "获取交易对的最新成交信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVs1v1EYU/1eid2qRiXdDVCHfUFhQxEekQLhEEZq133qnHc84M+MN25WlVgXBAUgQ6oKqXiJoLxxIpaooyaFS/pasA/8FerZjvNklhPa02vf1+72Pec8DsCw04K3C++3H2S8Pjv7az57+Mdp8BWsOqBg1s1zJxQA8CNFeRibMiuEyvNq6fbcJDsRMswgtaooxAMkiBA98wVHa8zwGB7gED7rIAtTgQIDG1zymoCfsNK4nXGMAXocJgw4Yv4sRA28Ath9TVGM1lyGkqVMBySQ6hlhPUPcnELJfdz483BwLb3VC0W1fUISO0hSCCaE2ltGg7tVsKgYRlzxKIvCaDuA9XySG9/DGsbAkXNLk0mKYJ0uxmS1E382PETf9qK3E6dwP915nL5+P3u7+b/onC7hGAU2spEFD+rlGg37G4ZeugQO+khalJe059xz91KJym3NYUFGk5HIZ8ODNdW7swRualTtLB/sH+1CVRrW/R9/S2GiaLcsLeNRa6XrEFgluoDEsxC96Mx2aWpJMa0a15Bajurz0TlNKKsApZXEgMuG0chWaRdlRU700mkTYUymUeRU1+XJGtVgyidpTXk72aOtw73Ux2tWYtXkYoM8jJvJkJslOTNjuzujJMBvujraekUt8VuDD/XefBzZnAK5GO3WgXrpPj2cabPbinw8v/p72stK8DzbRcmG8udNf44W53Ie85hvNydlfkSyxXaX5jxhAbnRh0uiK0m0eBCgLi/lJi5vKzlxRiQzysRvXvX/6brQ5rApx9Nv97PefsuFOWeB/t7Of34IDEdquKtdvvm9tFzxwe003TtqC++66GyCjTZI//nIPJ1rQ1rU29lxXKJ+JrjLWu9i42Jgo7aLsoNYYzKxoAbQa+PGgl1M72np0tPfnhF8hLq5FNnyYbb+iwUYdmaXOLdQ97pNzoqVnlSlXCfOp2akDgvsoTd6ociNeipnfxZm5WWI4xn9jY2OW5dpZpUO3dDXu9cWF1s1brfPkkjpAyRfMmoUgVsZGTNYwzljzsTyrSbJ4z7qxYDzvd85wUPZjFXr5Mcw7Ag6s50GYoCNKhSeLwaDNDK5okaYkLlY+9SrghrVF7fCdgK9WMHyzXF6Bb2equzaV3A/Yr45jj4mELICuz3/Cqt+hU+Cqk/YJcY3+aE6Q4K2upc7xh8DX5V3/TDiFQN1sLOtCfcn3MbY1HR00olg9saut25CmHwGoEFLS
+sidebar_class_name: "get api-method"
+info_path: api_docs/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取交易对的最新成交信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/deal"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取交易对的最新成交信息
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"num","in":"query","description":"数量","required":true,"style":"form","allowReserved":true,"schema":{"minimum":1,"exclusiveMinimum":false,"type":"integer","format":"int64"}},{"name":"symbol","in":"query","description":"交易对","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«DealVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"DealVO","type":"object","properties":{"a":{"type":"number","description":"成交量","format":"bigdecimal"},"m":{"type":"string","description":"买卖方向"},"p":{"type":"number","description":"成交价","format":"bigdecimal"},"s":{"type":"string","description":"交易对"},"t":{"type":"integer","description":"成交时间","format":"int64"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: user-step-apply-using-post
+title: "用户阶梯费率申请"
+description: "用户阶梯费率申请"
+sidebar_label: "用户阶梯费率申请"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVUtv20YQ/ivGHIO1KTtGEfDmug4gtI0LP06CDityTG1K7jKzSymqQKAFijoBgrQHJwgS9NCmRl8oUqBFH4mRQ/5KKyk55S8UQ1IWZQlNeJEwr52d75tvh+BkZMFvweTkh/GtP189+GP87ZPJL7cnT79/+fvfk7vH0BZgUiTplNHNEHzILNK+w3QrTePBoVU6+mh3/wAEEN7I0Lp3TTgAfwiB0Q61478yTWMVFCW869Zottmgi4nkf065GMGHw3rh9w52QYAbpOwxnesYOBCQEvfiFNpp2QFn7EmH3NtwmqC0wwgJBIRoA1IpHw0+TE5+e/mkumUzBAFHhhLpyox3NiEXkCitmomM8JDiWkVJJAeL9c5+nNw7HT16nlH8+uzO+N6vk2efgwDlMLG1bOtI6QjyXIA1GQW46Fve6vjr0/HTr16f3Rl99/Dfv37659PPRre+ePXwBM4rvU2bo0fPJ7eP37bH4mM4bWq0LUe90Wjwz3zZ3fdB1GG+5F1ajuy2SRKj96qCL37uGBOj1C+evRFiJDJUL7XDhg/RWhnhmwlCkV0ynIs3r7L50oEJl2DDtLDR0lkVnqY+MkuzCG0Wu5qrunnpcxnp7fkDZ8StM/PyBkxR2WisLwKxTSgdhlx1c5n/UMvMdQ2pT6ZBlxeDrhrqqDBEXUZsLkZcM27lqsl0WIzqIl1n+lEqR0lgEJCg6xpWjtTYAiPpuuCD11v3WEs86zBdJenQm5MWEGCRekisT0PImOfQdS71PS82gYy7xjr/SuNKY4HvTX2ERBiu8HLkbQEsOnszedq5KZM0xqUa0rgoAa0pnu3Z8s6WtraEs8BcgJpSouJtOZ8lW87m8d3T0ZePx/ePx988ZlIjJXb3aB+pp4rTMtK+M7baNhkwo3IBsQpQ2+IaWiYcuJXKoIsrG2s8k7mJ9fv9NVl41wxFXpVqvQ+a2zvX9ndWOSUXwOMuO1svDYxZInXtjP9Beu5u55x2eNN5aSxVways1KuSBC3orXOntqD8OREq04wKbQGMNicMhx1peeB5zuYbGdIA/FZbQE+Skh2edosR6KIMkQrufIyDQoUKpVo94LY4PM4KVbj4OOVimrEVBJi6WiwrHPPpnNLV09ep3ryk2GYg2ef3UPbBB+D3k4sXilPYhhBLHWWsYD6UR/L3H2a60S4=
+sidebar_class_name: "post api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"用户阶梯费率申请"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/user/step-rate/userStepApply"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+用户阶梯费率申请
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"title":"UserStepApplyDTO","type":"object","properties":{"applyStepRateId":{"type":"integer","description":"申请阶梯Id","format":"int64"},"miniImageUrl":{"type":"array","description":"缩略图url，数组","items":{"type":"string"}},"source":{"type":"string","description":"申请来源，多个、分隔"},"sourceUrl":{"type":"array","description":"图片url，数组","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

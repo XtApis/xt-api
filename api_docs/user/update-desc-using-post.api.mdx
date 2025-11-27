@@ -1,0 +1,71 @@
+---
+id: update-desc-using-post
+title: "更新描述"
+description: "更新描述"
+sidebar_label: "更新描述"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVc1r1FAQ/1fKHOXZbGsRyU1rhcWPirWnsoe3yTT7NHkvznvZdV1ysBc9Wb8peCpVET1YQSjUg9C/pY31v5BJ0t20WzCXhJn5zddvZjICJyML/hocvXz+Z//z8dOvxdaLv69/QEeASZGkU0a3Q/AhS0Pp8DraYNUqHd1dXrkPAggfZWjdNRMOwR9BYLRD7fhTpmmsghLvPbBGs8wGPUwkfznlYgQfig8/i/e7xebm8e/d4+97xY+No82N4t1u7VoRhpydDAKTadcOOS83TBlqug8wcCAgJc7UKbRl3LEph6lMlXYYIYGAEG1AKuWswIfD/Y/F1pujV1sTkIB1Q4l0FeryAuQVqOHNOlI6mnJWFXH4e7t4+h3y8uEibGq0rVKbb7X4dRq2fBNEs28XvAvnt2rRJInR92qHB9+6xsQo9cEv+F9LkMhQ09USC26jtTLC/6IlRbZRvSSSQxCgHCZNeY3mogMT4nS/cgGJjc6R55WmrdfNuShCm8Wuoaorr3QuI714OuCE7iaXl+bHrMy35qaJWCSUDkP2unCeflXLzPUMqScnRpemjW4Y6qowRF1ZLExb3DFu5obJdFi26swINbYBBCToeoZ3LzW25EW6Hvjg9ec8m0hyt43GoTdZTBBgkfpIvNEjyCgGH3rOpb7nxSaQcc9Y519pXWlNDW9bryMRhjOrFEPeEcAre2+y3EuPZZLGeGbBWie70WBLndBYz9qft1+K53tTAStx8eLT0eZO8f5Zsb3Dg4iU2OX1FaS+ChickfadsfWGyICnIBcQqwC1LbPRMmHDq6kMejgzP8ulnSp8MBjMylI7ayjyaqj1brUXl+6sLF1kSC6Au1ZlNlcJuOeJ1I0YZ9g5Vc949hw+dl4aS1VOQJnJqCZuDfpzTNGYOk51Ql5HAPPDdqNRV1pcpTjPWfwoQxqCv9YR0JekZJcbu9bJBfRQhkgl2w9xWB6J8pBcvM/ZsHmclUt79hjn4gRxNQgwdQ1bPkA8AePpq099t77xSblsQHLAR1oOwAfgnwU7Lw9CKRtBLHWU8YHxoQrJzz+BK1UB
+sidebar_class_name: "post api-method"
+info_path: api_docs/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"更新描述"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/smartMoney/updateDesc"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+更新描述
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"title":"更新描述请求参数","required":["accountId"],"type":"object","properties":{"accountId":{"type":"integer","description":"交易员accountId","format":"int64"},"desc":{"type":"string","description":"描述信息"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

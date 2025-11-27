@@ -1,0 +1,71 @@
+---
+id: get-risk-balance-list-using-get
+title: "获取交易对风险基金余额"
+description: "获取交易对风险基金余额"
+sidebar_label: "获取交易对风险基金余额"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vl9vE0cQ/yrRPLXoEichqtC90chUUSGJTIIqRXlY303O2+ztHrt7Dql1UnkiUBGCKhJQi6o0LW2F1PDQPyFQVcpnsQ1+4itUu3dx72zXJrR9Ot3uzsxv5jf/GqBJoMBdgdbO1qvjJ80/99s3D2HVARGhJJoKPueDCwHqClXrHxJGuIeXqdLLivLgo/ISOBARSULUKI2iBnASIrjgMYpcj9MIHKAcXKgh8VGCAz4qT9LIKO95J/F6TCX64K4RptAB5dUwJOA2QG9GRqvSkvIAksTpGvKpRM8qywxdj1Fu9tlp7z5v7dx/83JrsVK+5jaP7jSPPu/s//rm5Vfz5U+W3ObRF6cHtwci0ZvMWFsTMgQHCGNio4IKZf2McKk/HKe9/4/MU64xsDE3ckSnRx/MFAAxGlI9InaP99sPnv3fuM5PF3CpzbAq2HBgzePv2g+/bB0+L2DTMv73jK0ajSoSXKEy99OTk+ZTtL/wMTjgCa6Ra3N7rnTOfHJaqbYgZkUYCl7JFJ48vSJ4IBZJgBVUMdMnT3PldW3h5MXJC3BOIYnqp+gZhiJpqlLTFBBKKWTeRtkcXEGlSIAjpYkMVM5tIiUx4aUaw/x5Jp0kxk0fBwTKgVAFgwKY3szxNTFQSlrH8/hHxWSkTzWi5vGGzpmrCsGQ8P6EfnjY2nnS/vp2t+zBAbxBwsggsbmROEbfosT62fTd+Wd9vcE9DXqPrgfP2nd/bm3tvd7/scBIFqZCVEbzHIqY50PC47A6oA03/3jU+fZxviKrNPDRoyFhYNk3ZdjLY6+W1tHNVz/cte8lEo3+Eg1xYOH3+Lz3W2fvlwF9yjH9cLS8bZp9PS6xSShRx5LPFrN3SAdKpWYmp/rLfZmTWNeEpJ+hD/bR+f5Hl4SsUt9Hnr6Y6X8xL/TYJRFz39ZV8e719u+te7vdvtY52O48+qn1zXHn1v0uRSHqmsjGsp2/ugYulOpTpSiuMuqVTEeSxNMlSdX6eDVNFnDANr9sTMeSmaGsdeSWSkx4hNWE0u6FyQuTfeGd42soJfpjy5KB6Yz0tKqznEy3h/50sMft7e9b9w7au7fa+wcmX1GGamHtKso69YxwLLmrhco6KfFMtiYOMOohV5a0bCJcjIhXw7HpCYOwgH9jY2OC2NsJIYNSJqpKl+dmy/NXy+NGJHHAOJ8im0oPIqF0SHjOxtvEv+BkN6U03tCliBFqibfwGhk3K1CfMkRZdjI/DT9mauUZWnXAkGAEGo0qUbgsWZKY43T8Gd58qkiV5UZYD5ruNDrjxjPQi3Xc7Nmw6oTF5h2YSf32WGyBDjFh799Rd3c7GaL/dMl5RxPvVbLl4v2x/MoxxGB3e/nb4qr5kdSYBHdl1QyYdCU+G635hXkIgPyzgtfp9UXPwygfEbO6GIjd5mKW+yT5Czbeff8=
+sidebar_class_name: "get api-method"
+info_path: api/contract_zh/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取交易对风险基金余额"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/contract/risk-balance"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取交易对风险基金余额
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"direction","in":"query","description":"方向（PREV:上一页；NEXT:下一页）","required":false,"style":"form","allowReserved":false,"schema":{"type":"string"}},{"name":"id","in":"query","description":"id","required":false,"style":"form","allowReserved":false,"schema":{"type":"integer","format":"int64"}},{"name":"limit","in":"query","description":"条数","required":false,"style":"form","allowReserved":false,"schema":{"type":"integer","format":"int32"}},{"name":"symbol","in":"query","description":"交易对","required":true,"style":"form","allowReserved":false,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«MongoPageResult«RiskBalanceVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"MongoPageResult«RiskBalanceVO»","type":"object","properties":{"hasNext":{"type":"boolean","description":"是否有下一页","example":false},"hasPrev":{"type":"boolean","description":"是否有上一页","example":false},"items":{"type":"array","description":"数据列表","items":{"title":"RiskBalanceVO","type":"object","properties":{"amount":{"type":"number","description":"余额","format":"bigdecimal"},"coin":{"type":"string","description":"币种"},"createdTime":{"type":"integer","description":"时间","format":"int64"},"id":{"type":"integer","description":"id","format":"int64"}}}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

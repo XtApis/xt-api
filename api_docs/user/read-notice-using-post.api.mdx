@@ -1,0 +1,71 @@
+---
+id: read-notice-using-post
+title: "阅读风险告知书"
+description: "阅读风险告知书"
+sidebar_label: "阅读风险告知书"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVE1v00AQ/SvRnKBa6iTtofKtilopAlrU0lOUw8aeJAv2rju7TgiRj4iKQwEJITghVLUCceCIoLf+FprSf4HGdtpECeJke2befLx5njE42bPgt+DyzdHVr7PLt6+uPp3+/nkGbQEmQZJOGd0MwQdCGe4YpwI8sEr3Hu3uPwYBiSQZo0PiJGPQMkbwwY0SBAFKgw+JdH0QEKINSCWc7jaA8DBVhCH4jlIUYN0oYrxVcRJxgA36GEvwxwXCB+tI6R5kWZvRNjHaomV/vVrlx3yZ3fsgIDDaoXbsXfFW+DGTVbm8YMPEsdF7ZcKLbx1jIpT64hzEtLLpPMHA8cjExDhV1EUiQ7OpttjwEK2VPfwvWlLPzkwnieSIiXMYz9pLdJbxNCEu4UNAbHvLeCo8Td01S1GENo3cjKucvPC5lHRjvqDSDntIIKBrKJauMK3VuVRerV6tLS6iQSgdhpx1fZn/QMvU9Q2p59OgtcWgbUMdFYaoi4j1xYgd4yrbJtVhTtW87/rDiz/fz69Pjq8/fr2VuYAYXd+wwBNj8wWxXn3wBjVP53L3BgqH98r3MdOQsTKRBlPVpxSBD33nEt/zIhPIqG+s8zeqG9UF5Td1F4kwrBxQBKxiNV1NqZ+rd18mRz8WcIV5cnx6+fpk8v7l5PMJiwsptrvdfaSBChickvadsaXqZcCbzQREKkBt8zWWf+hmIoM+Vuqr3OFc/8PhcFXm3lVDPa+EWu9Bs7G1s791jyGZAB6+6KxWGJi+WOqZGv9ifG6wG2E5fOa8JJIqX2/e0rhcRgsGNRBQrAAEzCwEBPh5grYAJp2Dx+OOtHhAUZax+TBFGoHfagsYSFKywzS3xhAqy+8h+F0ZWVzo6+ZuwJ298k7drZSHa2nP059Y8y88kFHKXyDgKY6mJy9rZwL6KEOkvIfCtRkEmLgZEN8p1saNNvNrm2V/Ae+VBnQ=
+sidebar_class_name: "post api-method"
+info_path: api_docs/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"阅读风险告知书"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/notice/view-notice/{type}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+阅读风险告知书
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"type","in":"path","description":"type","required":true,"style":"simple","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

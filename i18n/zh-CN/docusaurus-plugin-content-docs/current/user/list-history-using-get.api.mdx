@@ -1,0 +1,71 @@
+---
+id: list-history-using-get
+title: "查询历史仓位"
+description: "查询历史仓位"
+sidebar_label: "查询历史仓位"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询历史仓位"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/smartMoney/public/list-history"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+查询历史仓位
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"accountId","in":"query","description":"账户id","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"direction","in":"query","description":"方向,default:NEXT:下一页;PREVIOUS:上一页","required":false,"style":"form","schema":{"type":"string"}},{"name":"endTime","in":"query","description":"结束时间","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"id","in":"query","description":"id,排序ID，用于翻页","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"isFullClose","in":"query","description":"仓位模式：0部分平仓 1全部平仓 不传查询全部","required":false,"style":"form","schema":{"type":"integer","format":"int32"}},{"name":"limit","in":"query","description":"每页显示数量,default=10","required":false,"style":"form","schema":{"type":"integer","format":"int32"}},{"name":"page","in":"query","description":"页码","required":false,"style":"form","schema":{"minimum":1,"exclusiveMinimum":false,"type":"integer","format":"int32"}},{"name":"positionType","in":"query","description":"仓位模式：1全仓、2逐仓 不传查询全部","required":false,"style":"form","schema":{"type":"integer","format":"int32"}},{"name":"size","in":"query","description":"单页数","required":false,"style":"form","schema":{"maximum":100,"exclusiveMaximum":false,"minimum":1,"exclusiveMinimum":false,"type":"integer","format":"int32"}},{"name":"startTime","in":"query","description":"起始时间","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"symbol","in":"query","description":"交易对","required":false,"style":"form","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«PageResult«SMPositionHistoryVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"PageResult«SMPositionHistoryVO»","type":"object","properties":{"items":{"type":"array","items":{"title":"SMPositionHistoryVO","type":"object","properties":{"closeOpenPrice":{"type":"number","description":"已平仓的开仓均价","format":"bigdecimal"},"closePositionSize":{"type":"number","description":"平仓量","format":"bigdecimal"},"closePrice":{"type":"number","description":"平仓均价","format":"bigdecimal"},"closeProfit":{"type":"number","description":"已实现盈亏","format":"bigdecimal"},"closeTime":{"type":"integer","description":"平仓时间","format":"int64"},"contractType":{"type":"string","description":"合约类型：PERPETUAL(永续合约)、PREDICT(预测合约)"},"endLeverage":{"type":"integer","description":"平仓杠杠","format":"int32"},"force":{"type":"boolean","description":"是否是强平仓位历史，true-是，false-不是","example":false},"forceMarkPrice":{"type":"number","format":"bigdecimal"},"id":{"type":"integer","format":"int64"},"maxPositionSize":{"type":"number","description":"最大持仓量","format":"bigdecimal"},"openTime":{"type":"integer","description":"开仓时间","format":"int64"},"positionSide":{"type":"string","description":"持仓方向,LONG 多，SHORT 空"},"positionType":{"type":"string","description":"仓位类型:CROSSED(全仓);ISOLATED(逐仓)"},"startLeverage":{"type":"integer","description":"起始杠杠","format":"int32"},"symbol":{"type":"string","description":"交易对"},"totalFee":{"type":"number","description":"手续费","format":"bigdecimal"},"totalFundFee":{"type":"number","description":"资金费率","format":"bigdecimal"},"welfareAccount":{"type":"boolean","description":"赠金标识符","example":false},"working":{"type":"boolean"}}}},"page":{"type":"integer","format":"int64"},"ps":{"type":"integer","format":"int64"},"total":{"type":"integer","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

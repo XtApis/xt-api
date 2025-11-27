@@ -1,0 +1,71 @@
+---
+id: country-agentuid-filter-using-post
+title: "(内部)用户分国家区域代理uid展示币对"
+description: "(内部)用户分国家区域代理uid展示币对"
+sidebar_label: "(内部)用户分国家区域代理uid展示币对"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVcFu20YQ/RVjTm2wNmXHKALeXMMGhKZxYUe9CDqsyBG5KbnL7C6lqAIPQRDXhzYx0DYI0EMQOA0CBIjRS9PYMAr4W0wp+YtiSMqWJbkuygvJ2ZmdmTdv3w7A8sCA24R89/GnR28+PnmfP312dvRq+Pzn/PDDp8c/jU7enf39cvjwEFoMVIKaW6Fk3QcXPJVKq/trAUqbCn9TRBZ1wwgZfLO1cxcYaLyforFfKr8P7gA8JS1KS588SSLhFVs594ySZDNeiDGnLytshODC+kSCxjjBdrkpMLD9hLxU+x569J9oqs8KNGW2Inhd+VjsWTobq4UMIGNg+nFbRRNLXGveBwbCYmzmhGQMUoOaWj9fE9JigBoYdJSOuS1NX6xCVjwEgUmUNGVJK7UavXw0nhYJNQ8ubH0FbBKaG86Nq9CIYyW3qw1P394Wxp6+rUuLWvKoBGenaOrbrdPj0+NrEUKtlZ7MsEGGr9EYHuC10VwH5j+gV0UTFt5Vo4hNMA/vcqUuO2pulEaTRvZfS6j6mo/RtR2aUPU2Iz5ZW1upCLkENjXE4fPDfP/1x0cn+R+/jl4dAQN8wOOEsnd4ZHAe36pOprfK/3qYH36AMX1squUUh+eT7ubKOelWasuzPFvXyC36hNzqvPWG5KkNlRbfj51uzjptKt0Wvo+y9Fid9bij7MKmSqVfjPzy2melyHw++uXNcO99vreb/3aSv/sz//Eof/Hi7PhgtL+bCr+EsIKBQYw2VCQ3iSpOfcJtCC443WVHVHN1Smyd6sgv8kqRFjvFwIGBQd1FTUI3gFRH4EJobeI6TqQ8HoXKWPdW7VZtZhh12UGt0V9o6AiyFgMSq+0LWdsYT3lKby6GOx57c2xqXchILWMgxvSuuJrv742OXs+yojAPn/yePz0YPvth+PKA6Is6NludHdRd4VFwqqVrlakEhXt0OjIGkfBQmqJKyWNyXEu4F+LCyhK1fAmQXq+3xIvVJaUDpwo1zu36+sadnY1FCskYEJplZculgaYTczmR439N+1LX54y3+MA6ScRFwbui3kFFhCZ0l+nMV1S4QJzBVXRoMaCJU+xg0OYGGzrKMjLfT1H3wW22GHS5FrxNI2m2MgYhch91wZ/vsF+ocaHYi3epQnKP0kKDpi+2jI0j1jwPEzvhS0pPnDpneHVttqv7Mi6ppHmP7lLeAxeA7mDavBCowjaAiMsgJcl2oUxJzz8tM+6N
+sidebar_class_name: "post api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"(内部)用户分国家区域代理uid展示币对"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/internal/symbol/country-agentuid-filter"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+(内部)用户分国家区域代理uid展示币对
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"title":"CountryAgentUidFilterRequest","type":"object","properties":{"countryCode":{"type":"string"},"symbol":{"type":"array","items":{"type":"string"}},"userId":{"type":"integer","format":"int64"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«InternalFilterSymbolVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"InternalFilterSymbolVO","type":"object","properties":{"showFlag":{"type":"boolean","description":"是否能展示","example":false},"symbol":{"type":"string","description":"币对"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: get-indicator-using-get
+title: "获取k线指标"
+description: "获取k线指标"
+sidebar_label: "获取k线指标"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVsFu20YQ/RVjTonBmJJjBAZvhmEXQpsESOqTocOKHFEbk7v07FC2KvBUBO7BSHrKuYHRXHLqqUByCJB/sZzPCIakaCpSlcLtieDum3kz+2YfOQVWsYPgGL68vZz9+vLmr4+zV39ev76Cvgc2Q1KsrelFEECM3DORDhVbOnLaxD8c/AweZIpUiowkWaZgVIoQAKNRhh/oCDzQBgIYoYqQwIMIXUg6k7Tf4AhPc00YQcCUowcuHGGqIJgCTzJJqg1jXCYZWkoVV0uPdqAovIbZTdKBTea0pznSZIm1wSxR8iSRJJIfVlTgmLSJF/jKx1q2GvE/cMkB0Fh9p7sW6pZzqBJ3N9IMSdtoPWWD+ddNpupcp3kKQXe34wGeh0nu9Bgfz5fretcq/3AbiqIvpC6zxqGTxNudjjwW63v6I3gQWsNoWHY3/U15tNrXXNa5b9PUmmd1ws/vq/P4/BGaUuzgBYYsg09yP1hXtEhkqZ3pQBYeo3Mqxu9GK4pdSwVFpOSQNWPaXq+ji0KaiXCFbh6kLl6lZ7XTM0O7MorQ5Qn/wxbnZPYX+dYIUpRkO53usgxHRuU8sqR/wQhK0MNl0KGlgY4iNBViZxnxxPLGoc1NVJ7E4t6XV39fv35zcvPh0+zyYvbHBXiQIo9s7WClYfEIAvDHXT/LB4kO/VNfz41NZhRpPHeznBLxLuYs8P3EhioZWcfBbme3s3QHemaIRBhtHFECMpZ6ftj1RFz//tvNh3dLcdVy5bqzNxezt1cyLkipezp8jjTWoQTnZAK2rh5jFYpWhQeJDtG4Upn6uu5lKhzhxvaWVLhQ/9nZ2ZYqd7csxX4d6vyfevsHT54fPJCQwgNpvqqsWy1k1nGqTItjxSEv9NSMCeM5+1midClmWc20FuAYxl1Ro5QAPDgtHWYuQ98DOWmBTacD5fCIkqKQ5cqARJxIOzVIWub2TQ3NfYd7z2pbur/RWP/KCk9w0v48jFWSCwjEDu9EV3v/GrIacUeqltev4Wih/ntLjdevIWwwt3R9eSEtfBAc9wtv/ktwZynb/w5ramnDFrqvtvfCEDNu7cm3QaptbEP+c4riK0T/L3I=
+sidebar_class_name: "get api-method"
+info_path: api/contract_zh/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取k线指标"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/indicator"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取k线指标
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"tenant-id","in":"header","description":"tenant-id","required":true,"schema":{"type":"integer","format":"int64"}},{"name":"symbol","in":"query","description":"symbol","required":true,"style":"form","schema":{"type":"string"}},{"name":"name","in":"query","description":"name","required":true,"style":"form","schema":{"type":"string"}},{"name":"interval","in":"query","description":"interval","required":false,"style":"form","schema":{"type":"string"}},{"name":"period","in":"query","description":"period","required":true,"style":"form","schema":{"maximum":180,"exclusiveMaximum":false,"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«string»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"string"},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

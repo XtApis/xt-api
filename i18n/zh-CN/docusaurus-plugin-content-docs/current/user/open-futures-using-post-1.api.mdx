@@ -1,0 +1,71 @@
+---
+id: open-futures-using-post-1
+title: "开通合约"
+description: "开通合约"
+sidebar_label: "开通合约"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVM9r1FAQ/lfKHMuz2W57KLmVpYVFbcW6p1LkbTKbPE3eS+e9bF2XQEHUntSDePAmxVLwKhTUU/+X3dr/QibJlmx3wVPIzHzz4/vmzRicjCz4h/D358X07Gry7u3tm8vph++Tj+dwJMBkSNIpo7sh+Pynd3OXE9qeVTp6sn/w7Pk6CMgkyRQdEqcag5Ypgg+EgUlT1GHHhAgClAYfjnOkEQgI0QakMs69JJTwOFeEIfgDmVgUYN0o4ZwDQykIsEGMqQR/DG6Usd06UjqCojhisM2MtmjZ3261+DNfbv8hCAiMdqgde1e9Vf40sipXluuYNDX6aZ3w+kffmASlvv4NYlbZ9F9g4JgEYracquoikaFmqh02PEZrZYT/RUuKbGM6SSSZNOUwbdprdFHwNCEu4UNAaqNlPFWerh6YpShCmyeu4aonr3wuJ92ZL6i0wwgJRCmRdJVpo82lymrt1vqiEB1C6TDkrJvL/D0tcxcbUq9nQRuLQbuG+ioMUVcRm4sRe8at7JpchyVV877Jn9Pb06+TT2c3vy5AQIouNrzsmbGlLtLF4IM3bHs8ImmZeDIITK6dx++BlxFpOFv9nBLwIXYu8z0vMYFMYmOdv9Xaai0sfVcPkAjDlR4lwIurZmrUK3Pz+XJ6drWAq8zVI51+eT/9ds77hJTa/cEB0lAFDM5J+87YetFlwGIWAhIVoLalcvUz3c5kEONKe407nOv/5ORkTZbeNUORV0Ot96jb2dk72HnAkEIAD191tl4ZmLpU6kaNeyTPzXO3Qg5fOS9LpCqFLDsZ1/wfwrBdXpBKARBQawDljdJ8q5hojhyP+9Jij5KiYHN1cFibUFnZTxpH5V4bdwdh4RwtbfAljpaEDmWSc2wp6FCS4pLgHx4VAmKUIVLZSwXeDgLMXAPFh4iBd1vIJxaK4h/KZP/G
+sidebar_class_name: "post api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"开通合约"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v2/internal/account/open"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+开通合约
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"recommendCode","in":"query","description":"recommendCode","required":false,"style":"form","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

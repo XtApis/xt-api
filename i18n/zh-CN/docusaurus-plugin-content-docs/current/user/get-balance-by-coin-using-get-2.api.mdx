@@ -1,0 +1,71 @@
+---
+id: get-balance-by-coin-using-get-2
+title: "获取用户单币种资金"
+description: "获取用户单币种资金"
+sidebar_label: "获取用户单币种资金"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVt9vE0cQ/leieWrRNTaGB3Rv4DooaiFSIH2JIrS+G5+33ds9dvecBuuk0BIMBZKmoUhVxUOJKqxWLaraKKkMqsTf4vOP/6LdvcM4dZz46aTdmW+++WZvZpqgSaDAXYXBwb1ha7f/41G69Wd6f2v4dbu3/XO6sw9rDogIJdFU8EUfXAhQXyGMcA+vbJQF5SuK8uBq5eatEjgQEUlC1CgNaBM4CRFc8ATl4ADl4MLtGOUGOOCj8iSNDCy4kB7d7b98Ag5IvB1TiT64WsbogNIbzEDUhAzBAcKYWF9GhbIxZuPVMSTgNkFvRMZYaUl5AEmyZgBVJLhCZe5LxaL5HI+99Ak44AmukWtze65wznzGUKm2HMoiDAVfzgHf/prL8NnS2w4472KL6ufoaSOFNLppmkVGKYUcB6uYg2uoFAnwTG8iAzWWH5GSGA2pxnD8PPdOEpOPjyco4kCogpOUym4WeU2c6CVRxUyP8x8lfzb5BqGMVBnmLmMBeBxWUU6+hp1X/aft7psfhi+eg2NrTzS4UKWBjx4NCTOcqoLH6myw7pu94S+Ph63dmfA+pmqZ6Bk4jmB73xz0Hu73t1vTke37n5B1yj9g7eNI8LM5ZKFnSM2TQin0rxEZ0Blw0612t7M3ODhMXz7q/vN88OrusLU7Hd3HSCiqyzOyTr9qp5uv0wdHw9buqaypEozo2WkPN7/tdvZGhNP7nX5nbzq8iJAvSR/lAuKCFHdwFu6vN7udvfTJ9xl47+Gjfue3wV9/zxAly2LWQIPfX4yiTAdfJ4yN2vEMAn33R/p46/THkti/XceSl4+3EMo1BhZ05Ee5vlAyLtbrYvH8ZHNd4STWdSHpHfTBGl2YNFoQskp9H3lmcXHS4rrQcwsi5r5tbv+Tavsw3XnWf9ruPTg0mtnfKJtn4ECIui7yuWUHlK6DC4VGqWASkpywQjXTr+CjJpSBA3a85CMsluy/GHWtI7dQYMIjrC6Udi8VLxUn9F3kNZQS/bkVycAMH/qun+ZNMyM54ZcdZwO396zV+2nfNFWUoVqq3UDZoKa4EEvuaqHyYUU8044TBxj1kCtbqXzcXo6IV8e50rxheIz/+vr6PLG380IGhdxVFT5dLFeu36h8ZFwSB0zyGbPz2UEklA4JH4txuujH0hu9II1f6kLECLV1tsSaeUFWoVGyG0JWEnAgL4oFs2VZc8Aob2ybzSpRuCJZkpjjbKUwxfKpMoPGB7dGmMIJIqMpDx8s54vGh3Oj3eNEml/gxvsNpkFYbExscRtEUhMN3NW1xIE6Eh+lpZH5XPY8jPSYl1ksjOPoSV6t3IQk+RcTiaAo
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取用户单币种资金"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v2/internal/balance/detail"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取用户单币种资金
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"coin","in":"query","description":"币种","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«BalanceVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"BalanceVO","type":"object","properties":{"availableBalance":{"type":"number","description":"可用余额","format":"bigdecimal"},"bonus":{"type":"number","description":"体验金余额","format":"bigdecimal"},"bonusDisRate":{"type":"number","description":"体验金抵扣率","format":"bigdecimal"},"coin":{"type":"string","description":"币种"},"coupon":{"type":"number","description":"抵扣金余额","format":"bigdecimal"},"crossedMargin":{"type":"number","description":"全仓起始保证金","format":"bigdecimal"},"depositCoupon":{"type":"number","description":"储值券金额","format":"bigdecimal"},"isolatedMargin":{"type":"number","description":"逐仓保证金冻结","format":"bigdecimal"},"openOrderFeeFrozen":{"type":"number","description":"开仓单冻结手续费","format":"bigdecimal"},"openOrderMarginFrozen":{"type":"number","description":"订单冻结","format":"bigdecimal"},"walletBalance":{"type":"number","description":"钱包余额","format":"bigdecimal"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,63 @@
+---
+id: get-trade-stats-using-get
+title: "获取统计信息"
+description: "获取统计信息"
+sidebar_label: "获取统计信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVEFP1EAU/ivkHclIF9gY0ptBMEQFIyyXzR5m20d3tJ0pM9PFddNEYwyQGJaEBDxgDIIeNBGNBgMcTPgtbIF/odNWKC6GxNM0773vzffe93XaoKmnwK7C6dar5MXLk6+Hycr7bmcbagREiJJqJviECzZ4qGckdXFaU60qinHvztgMEJCoQsEVKrDbMFQqmcNF5UgWGizYMHUXCDiCa+TaZPutfnMop4EBNV+aaR/BhlERBII/zBsefbq4b3bq6BAI6FZo6kT9EToaCITScNQsuxylFLLYb8wE7qNS1MNr0VR66ZlXUSlpCwgwjUExnqPj2IzkYiGjtGTcg5hAoLwr4nGWmeBz4kqURBX5usi/OP+1/EWI/IFQzCx9lvpRkRqPgjpKIH8Jkyw/SzaXjw92ktdr3d39ZPNjd//b8eHa2WIHCMwJGVANNtSZ56LDAuobmpoFxdaMa/Su6r2xd7bxvdiGcX2znHYwY92mmv4fzaFy90sn2dhLllaPD3bO3r35F9c4XaqOJB+9rNQF5yK54SEDSVHl0mCvjSucRrohJHuKLqRFw71F40LWmesizyrKvRWTQveNi4i7qYcu505XfnQ76yeHb08/bx3/3Eqe7wKBAHVD5H+gUZ3qBthgNQetMKr7zLHmrXSjyhgFCCiUTZTmp25DJP3fbRtah7Zl+cKhfkMobY+URko9a57gcyglun0V6UNcI8D+ODW3Y3d16eTgQw8uC2fPRrK+mGxtG6+iDNTU3DTKJnMMOJLc1kLlLwF1jNFjAj5zkKtUHE6NseBWSJ0G9g0NGIaX+C8sLAzQNDsgpGflUGXdmxgdm5weu2EgMQEzfMZsMAuEQumA8sIdV+750lTnXtH4RFuhT1mqaMqnnWtQheagESRVAQjMQ+7tTIkaAbNsU9du16nCivTj2ITnI5QtsKs1Ak0qGa2b9VZrMYEGUhdlKt1jbJltOA6GRvZm9q+kj6cR59wV5hWO41+eCSVn
+sidebar_class_name: "get api-method"
+info_path: api/contract_zh/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取统计信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/tradestats"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取统计信息
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«TradeStatsVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"TradeStatsVO","type":"object","properties":{"openPositionValue":{"type":"number","description":"所有交易对未平仓量","format":"bigdecimal"},"time":{"type":"integer","description":"时间","format":"int64"},"tradeDataValue":{"type":"number","description":"所有交易对24小时成交额","format":"bigdecimal"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

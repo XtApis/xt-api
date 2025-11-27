@@ -1,0 +1,71 @@
+---
+id: update-sub-using-post
+title: "订阅&取消订阅"
+description: "订阅&取消订阅"
+sidebar_label: "订阅&取消订阅"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v00AQ/SvVHBBUS52WCiHfqqpIEdCilpyqHDb2JFmwd83sOiVEPnBA9NTyJdQrFBACCYkLSHDjt9BA/wWM7QaHWEVwsnbmzczbebPjETjZs+Bvw9HD3e+fX/+493Z8sHf8+AO0BZgESTpldDMEH9IklA630k7LKt27vrF1AwQkkmSMDolzjEDLGMEHGQQm1a4ZggClwYfbKdIQBIRoA1IJ5wQfvn1+OT54cvTooIonvJ0qwhB8RykKsG4Ycc6uoRgEyCgyO5tokQYVTNDHWII/AjdMGKy0wx4SiDxMusJ0cRmyTExYopadCE+nOMH8G62ujGwdr44xEUoNWdbmlDYx2qJlwFKjwZ/p6htXQEBgtEPt2DvvzfOnkla5nMWqiWOjN8uEX9+Vdb5+AXFS2nRuYuBYMmJdnSrqIpGhaqo1NlxDa2UP/xotqWcr15NEknuoHMZVexmdZXybECse60jpHmQCYtursWeFp6m7pjaK0KaRq+sw+1xKenW6YP1kXFjiUnm1pcbirBCrhNJhyFmX6/wtLVPXN6TunoAuzIIuG+qoMERdIJZnEevGzV02qQ7zVk37frx/cXxw/8zR/rPxx93iAAJidH3DrzMxNpdHuj744A0WPRtLcteMxqFn045XPF8QkM9o+V5Tin6l7juX+J4XmUBGfWOdf6lxqTHzFJq6i0QYzrUoAp5fdSJKOTnfn74Z736aiSvM471XR/uH42cPxs8PeayQYrvR3UIaqICDU9K+M7acdxmwppmASAWobS5g+WpXEhn0cW5pgRlO8d/Z2VmQuXfBUM8rQ613tbm6tr61dp5DMgF8+YLZYmHg1sVSV2rU93rqWpOBcnjHeUkkVS5rTmhUyrANg0Vu+EQIPqQd5l2I0RbA/WbkaNSRFlsUZRmbi23EEoXK8gr6vVT+oDFZD3B2s9xR5+ZqN2st4Vs4/GNhD2SUMg54Vf5X9cnSPKXiBPO7XJsPpHK7v93OBPRRhkh5G4qolSDAxFWieCNy4OQd5P+lLPsJ0lZvig==
+sidebar_class_name: "post api-method"
+info_path: api/user_zh/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"订阅&取消订阅"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/smartMoney/sub/update"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+订阅&取消订阅
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"accountId","in":"query","description":"交易员accountId","required":true,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}},{"name":"enable","in":"query","description":"enable","required":true,"style":"form","allowReserved":false,"schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,63 @@
+---
+id: category-using-get
+title: "获取异动分类"
+description: "获取异动分类"
+sidebar_label: "获取异动分类"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVE1v00AQ/SvVHCtTJ20PlW8oSlFEPyRKuEQ5bOyJvdTeNbPrlBD50gNUHFpOPXFBFQipJ06gllP+i1t+BoztVkkT0dNaM/N23rw36wlYERrwelD8Oi4+XxW/j4uP36HvgE6RhJVadQLwwBcWQ03jrpEqfNZ+CQ4QmlQrgwa8Caw3GnwEaHySKcPAg/3n4ICvlUVlObvqrvJh/AgTwV9W2hjBg5ZOEq1e1BdOL3eksdPLXUGHaFt151f70+vpNThgxylj9OA1+hYcSImpWlkRQSJNs3e3ObCLxogQH0ULCsuzrhJEYgwOSIvJbLxG5zmPF+BMxliSKoTcgcSES+J5lemooV6KIjRZbP9LoZ7roTqPznZn4dK+bNxSuiUnm5FqzQ8qlcUQCRwYakqErUIb6yWGUZuN5uJGdJXIbKRJvsMAyqKNxaJtTQMZBKiqis3Fij1tV7Z1poLSgvncn9Ofxdl5tcfFyfvbH7wzCdpI8x6HWAojbAQeuKOmm2aDWPpuUqrp3mvkgEEaIfHTmEBG8b+bI2tTz3Vj7Ys40sZ6W42tBjzs31FDJMJgpUsx5H0H5J3XtXHFp5Pbq28LuCp8c/q1OLu4Of9w8+WCHUVKzP7wAGkkfQZnpDyrTf2uhM+rkjsQSx+VKf1RIuHCp6nwI1xZX2OGc/yPjo7WRJld0xS6NdS4O51We++g/YQhuQM8fMWsWQVSbWwi1EyPpVLPTXW/LhbfWjeNhSxNLflMaht6MGqyJ6UR7FVpBU94Z0bfAdabSyeTgTDYpTjPOfwmQ17oXt+BkSApBqxwr587EKEIkEr3DnHMgvg+pnztSMQZU+K/Eftzvxv8W8vzv/hm0QM=
+sidebar_class_name: "get api-method"
+info_path: api/contract_zh/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取异动分类"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/market/category"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取异动分类
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«MarketCategoryVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"MarketCategoryVO","type":"object","properties":{"category":{"type":"string"},"desc":{"type":"string"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

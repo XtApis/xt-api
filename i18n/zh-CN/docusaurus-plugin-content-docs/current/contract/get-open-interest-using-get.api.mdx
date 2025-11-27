@@ -1,0 +1,71 @@
+---
+id: get-open-interest-using-get
+title: "获取交易对仓位头寸"
+description: "获取交易对仓位头寸"
+sidebar_label: "获取交易对仓位头寸"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20YQ/SvGnNKANmXHCALeAsMphCYxkNS9GD6syBG1LbnLzA7lqgKB9tRemhQIkPQaJO2lB1+Cpo1bFMhvkdTkXxRDUvLKUpz0RGDn4719bzg7Blapg+gIpj/98O/rXyf/PJt9dwrHAdgCSbG2pptABCnyQYGmaxgJHR86bdJP9z+HAApFKkdGki5jMCpHiCDONBre1AUEoA1EMECVIEEACbqYdCGdL+QRPig1YQJRX2UOA3DxAHMF0Rh4VEhXx6RNClUVLIDcKO/ZbI7yoEQarYAscs4RmEoB4FEmTfqWcrgM71hqXWGNQyfxnU5HPsswB59BALE1jIYlejW8Kh+vq+Yabs/muTX32oZvfvOV/eLgzRkEcwK29yXGLCqT+MG6gUciS37HfTm4g86pFD9YrSh13iUVkRLNNGPun7fVVSWXSnCNLAHkLl0nVxPpmr5dW0Xoyox9/ssKfPAG1kv3EEyZ99bM2PTFy+npHxDUNiuGCHo6TTDWucqEjl0a7ORjG07OXk2//ev9bdupWxHgYrfJ6xeznx9PT/+UIta5r7Q2jOkaBrOnv797+tLH1oav7zbSE3JJZm/Zs/NOfsm1HSmpq3Y726sjfWhUyQNL+htMoE66tpp0y1JPJwmaJmN3NeOu5Y1btjRJPU3LsbcPX00fPVmIMDl7PPn7x4VlOfLAtguoXjY8gAjC4XZYlL1Mx6H8b6RiDsXFTT0figAc0nC+lErKZAUxF1EYZjZW2cA6jm50bnRWpO2aPhJhsnFIGciPr+dj3M5qsyhXh6I+nj38Zfro+ezJ97Nnz2WMkXJ30L+PNNSxFJdkIrauXRQqlvGtAsh0jMbVfrV77Wah4gFu7GwJwyX+JycnW6qObllKw7bUhbe7e/t37+9vSkkVgFy+YbbdHBTWca6Mh3G59EvXW8wR49ccFpnStds1sXFryxEMt8Wj2pj2hmINNL/YuTnHAYj+UjEe95TDQ8qqSo6b/S2WJdqpXuY9BhfoLPYsXLnXbvVPNhaLfi3Zr3DkPwZDlZWSVJs8VKQFD6Kj4yqYv1b/j4j/ll1CwE875xCM2/DNOMaCvZg8I0Jx8SvIu1tV/wFVKsy5
+sidebar_class_name: "get api-method"
+info_path: i18n/zh-CN/docusaurus-plugin-content-docs/current/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取交易对仓位头寸"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/contract/open-interest"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取交易对仓位头寸
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"symbol","in":"query","description":"symbol","required":true,"style":"form","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«OpenInterestVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"OpenInterestVO","type":"object","properties":{"openInterest":{"type":"number","description":"头寸","format":"bigdecimal"},"openInterestUsd":{"type":"number","description":"头寸价值","format":"bigdecimal"},"symbol":{"type":"string","description":"交易对"},"time":{"type":"integer","description":"时间","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

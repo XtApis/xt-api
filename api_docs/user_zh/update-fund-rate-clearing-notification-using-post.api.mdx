@@ -1,0 +1,71 @@
+---
+id: update-fund-rate-clearing-notification-using-post
+title: "设置资金费率提醒开关"
+description: "设置资金费率提醒开关"
+sidebar_label: "设置资金费率提醒开关"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVE1rFEEQ/SuhTiqdzCZ6kLnJkkBQE0nMKeTQO1M72zrTPVbXbFyXAQ9qPMUPxLuIIAheVET8OPhfson/QmtmEmfdBU8NVe9VVderqjGwTjyEu3D84u3k8eeT9z+Ov7+HPQUuR9JsnF2PIYQijzXjWmHjLc3YTVGTscmGY9M3UQXb8cYmNza3b4KCXJPOkJEk8hiszhBCQKt7KYICYyGEOwXSCBTE6CMyuYRoYwjvFIYwhpCpQAWeR6kE6TvKQIFOU7e/hR5pKJi+Tr2AogFmGsIx8CgXdM+5FLWFstyTkD531qMXwEqnI8909s2roCByltGyeC8EF+RphTVcVdF1WebsVhPw57smz8+voE5Tu94tjFiaQdJKNnVeJHLUDrUqhuvovU7wv2xNiW99TxNp6aFhzNr2hl2W8psYWx7PohuUCjKfzLGXtWfd9t1cFqEvUp7XYfFxQbY7ndBYxgQJVKWc5tp0cUVSVdlWOsuzQnQJNWMsUS/N8+9YXfDAkbl3Cro4C1pz1DNxjLZGXJpFbDheWHOFjatWTfvqTTj59ODXwbOTj1+ODw8mT57+evT86Nv9o4cfQEGGPHCyG7nzlVKaBxBCMFwOCo8UeGQ2NgmsLMko6Bc2NjZZJM24GDULBAqqEW4WpaD0T+YBcx4GQeoinQ6c5/By53JnZlPWbR+JMF7YoRRkvM2pZs1g1Qs9w6vNk8M3R09eT14eTF69lqlDyvxmfxtpaCIhF2RDdr5ZBx2J5KWC1ERofaVvs9RXch0NcGFlSSqcqn9/f39JV94lR0nQUH1wbb27urG9uiiUUoF8vq5suTZIOzNtWzn+K8XUD89Gj/EuB3mqTTUAVW3jRqVdGC5Lvb6azEYpUFBrJcM6V609BSKI8Mfjnva4Q2lZirm+ZqJhbLycsL9H6Z/izs4LnNtqbtz5hbOzN7f02zhqn8ahTgsBVaoPNZnKHu7ulQoGqGOkqpCadSWKMOcWS26aEM/Gt7rZZfkbpNMu0w==
+sidebar_class_name: "post api-method"
+info_path: api/user_zh/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"设置资金费率提醒开关"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/user/setting/notify/funding-rate-clearing"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+设置资金费率提醒开关
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"enable","in":"query","description":"enable","required":true,"style":"form","allowReserved":false,"schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

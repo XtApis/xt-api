@@ -1,0 +1,71 @@
+---
+id: attention-using-post
+title: "关注/取消关注"
+description: "关注/取消关注"
+sidebar_label: "关注/取消关注"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vk1P20AQ/StoTi1acPhQhXxDCKSoLVRQTiiHjT1JtrV3zew6NI18qmg5lUvFvUKVkHpEag+98V9I1X9Rje2kDo6gLeJkeebNvLcz41kPwcmuBf8Art8f/3p3Mfr45fr0HFoCTIIknTK6GYIP0jnU/LZvle6+2Nl7CQISSTJGh8QJhqBljAwNApNq1wxBgNLgw2GKNAABIdqAVMJZbsAID1NFGILvKEUB1g0iTtUxFIMAG/QwluAPwQ0StivtsIsEIkdIV5ierEKWiYmO1CLdJWKCeRAFEcoQaf3v6lEHP4imSSPv6E4F9q862sZEKDVkWYuDbWK0RcuA5UaDH9NUO09BQGA0E7J33pvnRyWtcjnfholjo3fLhFdfS56rHyDG1Kb9CgPHo0k8v04VvEhkqJpqkw3P0VrZxTujJXVt5XiSSHLBlMO4ai+js4xPE2LFYx0p3YVMQGy7M+xZ4WnqjpkZRWjTyM2qMPtcSnpjmnD2JKwsM1XOttxYqjdig1A6DDnr6iz/vpap6xlSb8eglTpoy1BbhSHqArFaR2wbN7dlUh3mpZr2XR9fji4vvOvTs9G3k+IFBMToeoa3UGJs3h7peuCD11/y+KSkZeQFJhksOJIhetXZtUj98X5KKQIfes4lvudFJpBRz1jnrzXWGrX5b+oOEmE4t08R8ByrcXPKCfr56WJ08r0WV5iLLTo6+zD6fM7jhRTbnc4eUl8F+Woi7Ttjy7mXAfc2ExCpALXNG1l+reuJDHo4t7zICqf0Hx0dLcrcu2io65Wh1nvW3Njc3ttc4JBMAB++ULZUGLiEsdQVjtk1nzrWZLAcvnFeEkmVtzcXNCzbcQD9pXynFA3JzzZuCYjKQmkJ4LpzxHDYlhb3KcoyNheriFsVKivbEa+cjows1uRM1gU82i230+O56o0yU+9rHNy4ePoyShkHvCH/i3Ryg9zCOMHcn65+S9zCWwffX0D147qtyBXYH9IWv5BiVvAPWpmAXi4x73kRuB4EmLhKFF8HHDhZAvnPR5b9BotKDK4=
+sidebar_class_name: "post api-method"
+info_path: api/user_zh/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"关注/取消关注"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/internal/copy-trade/attention"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+关注/取消关注
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"accountId","in":"query","description":"accountId","required":true,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"userId","in":"query","description":"userId","required":true,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"leaderAccountId","in":"query","description":"leaderAccountId","required":true,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"attention","in":"query","description":"attention","required":true,"style":"form","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      
