@@ -96,16 +96,51 @@ const config: Config = {
 
   plugins: [
     [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'api',
+        path: 'api_docs',
+        routeBasePath: 'api',
+        sidebarPath: './sidebarsApi.ts',
+        docItemComponent: "@theme/ApiItem",
+      },
+    ],
+    [
       'docusaurus-plugin-openapi-docs',
       {
         id: "api", // plugin id
-        docsPluginId: "default", // configured for preset-classic
+        docsPluginId: "api", // configured for preset-classic
         config: {
-          petstore: { // "petstore" is the OpenAPI spec instance name
-            specPath: "openapi/petstore.yaml", // Path to the OpenAPI spec file
-            outputDir: "docs/petstore", // Output directory for generated docs
+          user_en: {
+            specPath: "api-docs/en/user/biz-user.yml",
+            outputDir: "api_docs/user",
             sidebarOptions: {
               groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+          } satisfies OpenApiPlugin.Options,
+          user_zh: {
+            specPath: "api-docs/zh/user/biz-user.yml",
+            outputDir: "api_docs/user_zh",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+          } satisfies OpenApiPlugin.Options,
+          contract_en: {
+            specPath: "api-docs/en/contract/biz-quotation.yml",
+            outputDir: "api_docs/contract",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+          } satisfies OpenApiPlugin.Options,
+          contract_zh: {
+            specPath: "api-docs/zh/contract/biz-quotation.yml",
+            outputDir: "api_docs/contract_zh",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
             },
           } satisfies OpenApiPlugin.Options,
         }
@@ -832,6 +867,7 @@ const config: Config = {
           sidebarId: 'api',
           position: 'left',
           label: 'API',
+          docsPluginId: 'api',
         },
         {
           type: 'search',
