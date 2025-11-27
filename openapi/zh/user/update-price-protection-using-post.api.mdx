@@ -1,0 +1,71 @@
+---
+id: update-price-protection-using-post
+title: "设置止盈止损价差保护开关"
+description: "设置止盈止损价差保护开关"
+sidebar_label: "设置止盈止损价差保护开关"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVM9r1FAQ/lfKnFRis60eJDcpLRS1La09lT28TWazT5P30nmTrXUJeBGLoF7Ei4hoFQRpLx56qD/Av6Xd+mfoJOma7S7o6cHM983Mm29mBsAqdhBswdnLT8O9o1+H38++HULbA5shKdbWLEcQQJ5FinGNdIhrZBlD8Ww6beK11Y274EGmSKXISBJsAEalCAGgUZ0EwQNtIIDtHGkXPIjQhaQzCdHEEG7nmjCCgClHDxzvJhKkaykFD1SS2J11dEh9wXRV4gQU9jBVEAyAdzNBd6xNUBkoiraEdJk1Dp0A5lstecazr94CD0JrGA2L94p/RZ5GWM1lFQs2Ta1ZrwP+/Fzn+XkM3nlq27mHIUszSLrHusqLRJaaoRbFcAedUzH+k60odo3vKSIlPdSMadNes4tCfhNhw+OYtImh8CB18RR7UXmWTddOZRG6POFpHRYf52QWxhNqwxgjgVcqp7gyXZuXVGW2+dbcpBALhIoxkqjXp/k3jcq5Z0k/PAddmwQtWeroKEJTIa5PIlYszyzZ3ERlq8Z91fAPD96fvd4bHrwfPnt7cnx0enR48uPN8OmH06+PTh9/AQ9S5J6VpcisK/VS3IMA/P6cnzsk3yGzNrGfybZczUbrAh6Uw1uvSE7Jn5w95izw/cSGKulZx8GN1o3WxI4smy4SYTSzSQnIYOtzteqRqrZ3gleZh88/nr7YH756Mny3L/OGlLrV7gZSX4dCzskEbF29CCoUsQsPEh2icaWy9TrfzFTYw5n5WalwrP6dnZ1ZVXpnLcV+TXX+7eWFxZWNxatCKTyQz1eVzVUGaWGqTCPHf4ow9s/R6DE+YD9LlC4HoKxwUOuzBf05qdqVk1lrVG7bBZXaHogQwhgMOsrhJiVFIebqfol2kXZytP6eoQvljA4KXFqvr9rlmdGhm1rsfdxtHsO+SnIBlWr3FenSHmy1Cw96qCKkspCKdTMMMeMGS66YEEejWl7povgNRy0qmw==
+sidebar_class_name: "post api-method"
+info_path: openapi/zh/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"设置止盈止损价差保护开关"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/user/setting/price-protection"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+设置止盈止损价差保护开关
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"enable","in":"query","description":"enable","required":true,"style":"form","allowReserved":false,"schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

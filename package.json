@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "gen-api-docs": "docusaurus gen-api-docs petstore"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -21,11 +22,10 @@
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "docusaurus-plugin-openapi-docs": "^4.5.1",
-    "docusaurus-preset-openapi": "^0.7.7",
     "docusaurus-theme-openapi-docs": "^4.5.1",
     "prism-react-renderer": "^2.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",

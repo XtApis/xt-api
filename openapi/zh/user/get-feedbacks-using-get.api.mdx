@@ -1,0 +1,63 @@
+---
+id: get-feedbacks-using-get
+title: "反馈功能标签列表"
+description: "反馈功能标签列表"
+sidebar_label: "反馈功能标签列表"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVMFO20AQ/RU0R2RwAhyQbxUNVVQKUiGnKIeNPbG32Lvu7Do0jXxqJVCllkvVHluEipBQz5WK2kP+JYH+RTW2QUlJ4bSrmXm7b+a93SFYERrw2nD18Xxy9GNyeTJ5ezz+eTY+fv/n7Ag6DugUSVipVTMAD0K0m4hBV/j7pmWkCp809sABQpNqZdCAN4SVWo2XAI1PMmUoeLDzFBzwtbKoLGcX3UVejB9hInhnpY0RPNjQSaLV8+rA0cWWNHZ0sSusND3h82k3BPYGKT7e2xldji7BATtIGa67L9C34EBKzNzKkhMSaZq+psGBZ2iMCPFBtKCwWKsqQSQG4IC0mEzHK3Sec6cBTmWMJalCyB1ITDgnnpeZpurpuShCk8X2XgpVX/cM6sE2/0uapZzLuqBmM1Ibs1CpLIZI4EBPUyJsGVpdKTCMWqvV73qkpURmI03yNQZQFK3eLdrU1JVBgKqsWLtbsa3twqbOVFAoMZsrfT1+9+X6za/J18Or77/HR5+vT87BgQRtpCuP82iEjcADt193M4PkmqnBLvWqybo3GwMOGKQ+Er+mIWQUgweRtannurH2RRxpY7312noN/uXUVD0kwmChRTHkHQfkjQ0qTcu3eQdXPdkP38bHp5NPh5OTU1YYKTE7vV2kvvQZnJHyrDbV6xM+uyh3IJY+KlNopkTChY9S4Ue4sLLMDGf4HxwcLIsiu6wpdCuocbeaG43t3cYSQ3IHuPmSWb0MpNrYRKipO+4Z/0xvt0ay+Mq6aSxkIXfBalhJ04Z+nZmawmdz5WH/3QrUcYA1YOBw2BUGWxTnOYdfZkgD8NodB/qCpOjy1Nud3IEIRYBUKLqPAx6S72PK9uiLOGOC/I+xZrfu4Q8xz/8CGA3yQg==
+sidebar_class_name: "get api-method"
+info_path: openapi/zh/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"反馈功能标签列表"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/user/satisfaction-feedback/feedbacks"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+反馈功能标签列表
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«SatisfactionFeedbackTypeDTO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"SatisfactionFeedbackTypeDTO","type":"object","properties":{"code":{"type":"string"},"desc":{"type":"string"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: submit-using-post
+title: "提交反馈"
+description: "提交反馈"
+sidebar_label: "提交反馈"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VktvFEcQ/itWnQA1nrXhgOaGLCNZAYxwfLL20DtTO9thpnuo7lnHWY0UKQgbpGQ5ICKRQ0A4CCXKKQcQrwO/xbuO/0VUM7PL7ENrByWn0dbr++rRVdsDJyML/g4cP341PHg9fPd8eK8/ePty0P/x5OUBNAWYFEk6ZfRGCD7YrJUot22Vjm5tbn0NAlJJMkGHxGF6oGWC4INKZITbFFsQoDT4cDdD2gMBIdqAVMoBwYejNw+P3j8b/PLx+MF+RvG5weHToze/n3z/86D/enBw/+Tp4/MggPBupghD8NsytijAur2YUdqGEhBggw4mEvweuL2U5daR0hHkuRgTimULT2NTJj14+OvfP3wYPts//vNjYEL8H0kRJpLunELqcH/416v/CNBKp2xbBkXshbDjSeASTKA7ys4ArrTDCAlEYSFdKbq0Cnne5Gg2NdqiZY/VRoM/k/ibX4GAwGiH2rH2gneBPzUc5QoCayZJjL5dBfz0R8uYGKX+9A7EiItpfYOB41klnmanSlwkMlQPtc6CG2itjPBUb0mRreUriSRXUTlM6vLKO885mxDntEdAYqN5bSs1G7pt5noR2ix2NVWVealzGem1ScAFLckLtNXGymwj1gilw5CjXp6n39Yycx1D6ruR0aVZo2uGWioMUZcWl2ctbhq3dM1kOixKNTWL/UdHbw+rlSQgQdcxvIxSY4u+SNcBH7zuipdZJK8+5BfbiGFLBvzILFJ3tKYyisGHjnOp73mxCWTcMdb5VxpXGjNPYUO3kQjDpW2KgadXjVpSzU25O2f8qpX602+D/ovhk/3h8xc8VEiJ3WxvIXVVwM4Zad8ZW027DLijuYBYBaht0b7q7V5NZdDBpdVlZjjBf3d3d1kW2mVDkVe5Wu/6xtr6za31i+ySC+DkS2YrpYDrl0hdw5iq9EQ+4zly+K3z0liqopsFk17VhB3orjA7W4zZ/EY0BXCt2bjXa0nLZyLPWVxuIm5PqKxsxbVdN8VkvBjOeEHmMr+De1OXqivjjO2AV+bZOfyru7GAyvhGfSmP0alYgDE+OV+Ice52dQjOL02fiAWoU3fnM3aTf5BicPB3mrmADsoQqZiC0vdqEGDqal58CthxvAeKfyJ5/g9i5kmY
+sidebar_class_name: "post api-method"
+info_path: openapi/zh/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"提交反馈"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/user/satisfaction-feedback"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+提交反馈
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"imageUrls","in":"query","description":"上传图片url(多个逗号分隔)","required":false,"style":"form","schema":{"type":"string"}},{"name":"labels","in":"query","description":"反馈功能标签code(多个逗号分隔)","required":false,"style":"form","schema":{"type":"string"}},{"name":"remark","in":"query","description":"备注","required":false,"style":"form","schema":{"type":"string"}},{"name":"satisfaction","in":"query","description":"满意度code","required":true,"style":"form","schema":{"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

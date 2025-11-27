@@ -1,0 +1,71 @@
+---
+id: exchange-using-post
+title: "资金划转(合约子账户间划转)"
+description: "资金划转(合约子账户间划转)"
+sidebar_label: "资金划转(合约子账户间划转)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVs9vE0cU/leipx4ATbK2CYjuLUqDZLWQijSXRq403n1eT9mdWd7MOgRrD5WK7EsLRf1x4FRRKFJbqRJUoKBe+FtqJ/kv2tldm13i2iEgtafVzps33zfvm/ejD4YHGtwdOPj28Xj47PCPL48G3xzcfz66/QRaDFSMxI1QsumDC3jT63IZ4LYWMvh4c+sTYBBz4hEaJHtKHySPEFzgkUqkAQZCggs3EqQ9YOCj9kjE9jxwYfzd70eDO8CA8EYiCH1wDSXIQJu90B7SURQBA+11MeLg9sHsxXZdJlEbCVi2gRtwoS0CHz0R8RDSlE1ZeErI+RxGz784+PmrN+EQc2OQrO9nO2vLn/LlW7Xl91v9OmvU0veATThqQ0IGVTaE3ChaQGh4f/Ri/6/9/QqnDg/1CUmt9Gvs4uoCKkKued5ihUbDe6PbDw+fPhoPnzU/eJMoRUKKKInArTP7asJEix5emSwW1yn4CWkwqOoppLm4WmGsEnNiyoP9/wVlwojT9QV0fxqMnzx+G60bFy4sEDvRSE1/Po88+/+TgLUspI6V1KjtsY1azX6q/DY/BAaekgalsdZzzjn7KZUGYTKW6yqKlLxWHPjyF9X+HD3z8sWrCOUrtnKRrW5G5LBIpKh80oZduIJa8wAXenMKdKlCcSJugywMRuX1wjtN7WV8LFkmujGIdDBjPc0tTdlRM70IdRKaGVDWZBKS61W82YKcb1ikDKxRqx+XYd2WMPTtqauz7NuSJ6arSNyabDp/fNNlRW3h+yjzHavHd1xVZumySqSfRapqyzvUaHjv8M9fz4zuDg/2H41+u5sn/NEPT3PDWWAQoekq27VipTPBuOmCC06v7rR5yKWHTieRvmOIS93JQqGRepNGllD4D1rXmNh1nFB5POwqbdxLtUu1Y9nTlB0kQn9pm0KwD1pMZCreUp5e/5J1468fju48GH8/GP/4wD40pEhvdraQesLL8peka5QuEoB7VuWUQSg8lDrTtEj0tZh7XVxqrFiGFf67u7srPLOuKAqcwlU7HzXXN65ubSxbl5SBvXzOrJ4v2NBFXJYwThz+yk2nz87gTePEIReZ+BnHfqHMDvTqwKDQxj5M+wAYTPVpMbAS2J39fptr3KYwTe1yXtOsar7QvB2WyuhrNKYlBM5cK+rc2aXpIDKT5HXcKw80PR4mdhPYCnsquOnMMQeumFxOCVYeIuaBTAeSd3Cp10eFObjl6ePdIFc6/hzkyhRx2uBOWvYcnGnrf/vrlTrzHMBpj38F2LI/JCwiuDutlEEXuY+U5UnuteZ5GJdDYduqdZzWzmzIT9O/ATySY0U=
+sidebar_class_name: "post api-method"
+info_path: openapi/zh/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"资金划转(合约子账户间划转)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/balance/fund/transfer"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+资金划转(合约子账户间划转)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"amount","in":"query","description":"数量","required":true,"style":"form","schema":{"type":"number","format":"bigdecimal"}},{"name":"coin","in":"query","description":"币种","required":true,"style":"form","schema":{"pattern":"^[A-Za-z0-9]{1,20}$","type":"string"}},{"name":"creator","in":"query","description":"创建人","required":false,"style":"form","schema":{"pattern":"^.{0,64}$","type":"string"}},{"name":"inAccount","in":"query","description":"划入账户ID","required":true,"style":"form","schema":{"minimum":1,"exclusiveMinimum":false,"type":"integer","format":"int64"}},{"name":"outAccount","in":"query","description":"划出账户ID","required":true,"style":"form","schema":{"minimum":1,"exclusiveMinimum":false,"type":"integer","format":"int64"}},{"name":"remark","in":"query","description":"备注","required":false,"style":"form","schema":{"pattern":"^.{0,255}$","type":"string"}},{"name":"userId","in":"query","description":"用户ID","required":true,"style":"form","schema":{"minimum":1,"exclusiveMinimum":false,"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«object»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"object"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

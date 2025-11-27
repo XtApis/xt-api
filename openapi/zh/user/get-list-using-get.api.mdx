@@ -1,0 +1,71 @@
+---
+id: get-list-using-get
+title: "查询接管记录"
+description: "查询接管记录"
+sidebar_label: "查询接管记录"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1V99PG0cQ/lfQPEaXGAiqoqv6gCiprCaA+KVKiIf13dje5m73srs2Ieik9Ik0CRBKCHlolJLfaiTIQ9IQHFqJv8U+46f+C+3e2c75bGxqpX6xvLsz3zczuzOfV0CRnARzAYL1F9W93ZO9t5WjbVg0gHsoiKKcpW0wIYfqCpVqTlKW+258FgzwiCAuKhTaegUYcRFMsKlAS1uBAZSBCdcLKJbBABulJagXbpkQPPxYub9p2JglBUeZE+M/zJrlg7vlg1u13fdfT02Pz6cn52bM8sGdaAkMEHi9QAXaYGaJI9EAqZYdDZnlwgUDpJVHl4C5AmrZ0+tSCcpy4PtGkx0ye5a62J1btbQVPH4S7PxR23nXDy5lCnMowAhPEBUtfTXSwoTa3UlQ2wjWf6kcbqS//fvTveqD1+XD9epfpT5TcSZKDnWp6lG2/Y3a7vvg0Z/V54fB9tva6kajhN8MDX45YheHW4hJRYTqXbeT9x8qr+7+z3WTy26GO92JlA+fB4+2Kvsfv9CtXUInSwSOWhYvsF4VerRfuf+yfLRV+/1ebXXz5N3L4PaHfnhkOHeQMPD9RW0tPc4kSn1geHBQf7XiTn4PBlicKWRK755LndNfMbdUhXhj3HU5m647PH5zlbMcnyI5nEZZcNTxm1lyDcVkEcX85HHpuARGgxHP/IiWDt8TujcpGtFBIbiII4zrhasoJclhT2sicjIWNRGC6KRShW58vW7t+zpIGzvUywBX5jrVMdpJsyzvaCXCsOP8u2ekZ0R5IifwhupQys53Jfj152bnBQPwBnE9zSO8J76h/U0JLP43f3dO95dMbSPlCV/bb4O1vcrtnZPd1y31qCcplpOeGbG4fjDJ3CcRKwc/VV+t6ZJYAonCaFJ0ag8Jpo2Gk+wahm7yve3DSdBu6xJxbUpQK06BFdxMJwbh5C6XPgS/fYr7ytCcjRZ1iaMdMu5SRpx54hTO4LO2ull7+vh0bx6XVB+doZ1eQ1tHLG2Vj9aiod9qffMMXOrW4bw5nVG9M/fm0uzOvpFsrWe94+39NXHNw49+3Kog2Fhrx+gy8yKrkcGh9gY7x0hB5bmgN9GG8NDF9kOXuchQ20YWnRhpPzHB1cBlXmB22MsSsT15cbL/tEUHGuCiyvO6AgxVn8qDCaniUErpJ3ieF1GkHCr1pkRRbOjBgnD+ncl5pTwzlXK4RZw8l8q8NHhpsC2paZZFIdAemBMO6HlDG92y/tqrD15HaU4otXA5WH9R2XgWPFwNdp/pXoDClZPZGRTF8PVAQTBTcVmfT8TSZfYNcKiFTIaFqc/ZUY9YeRwYvqAZtvBfWlq6QMLdC1zkUnVTmbqSHhufmBk/r018A3TwEbOhaMHjUrmExTA65rglquY9UXhDpTyH0LCaIZ+Vev4XoDikQ21WAHQ8UmndrtOsT6ysZIjEOeH4vl6O5IKujE0lyTgxKZCAb07xflR6R+7XcDnx16AYdSEALXPOTighzbuAfVb6fUJ1FeBdgMN23idmL3ndBbYh3vtETmjnLkBxMd4nWFwfd0NqSO1+s3lKq+4C2aa0P0Mv6h+CamwwFxa1MEJiowifVGQ9alnoxa20CNaGzR6q/zn7/j+Nrdu3
+sidebar_class_name: "get api-method"
+info_path: openapi/zh/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询接管记录"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/taker-over/list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+查询接管记录
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"direction","in":"query","description":"方向,default:NEXT:下一页;PREVIOUS:上一页","required":false,"style":"form","schema":{"type":"string"}},{"name":"endTime","in":"query","description":"结束时间","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"id","in":"query","description":"id,排序ID，用于翻页","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"limit","in":"query","description":"每页显示数量,default=10","required":false,"style":"form","schema":{"type":"integer","format":"int32"}},{"name":"startTime","in":"query","description":"起始时间","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"symbol","in":"query","description":"交易对","required":false,"style":"form","schema":{"type":"string"}},{"name":"welfareAccount","in":"query","description":"是否体验金账户","required":false,"style":"form","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«MongoPageResult«TakerOverVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"MongoPageResult«TakerOverVO»","type":"object","properties":{"hasNext":{"type":"boolean","description":"是否有下一页","example":false},"hasPrev":{"type":"boolean","description":"是否有上一页","example":false},"items":{"type":"array","description":"数据列表","items":{"title":"TakerOverVO","type":"object","properties":{"coin":{"type":"string","description":"币种"},"createdTime":{"type":"integer","description":"时间","format":"int64"},"id":{"type":"integer","description":"id","format":"int64"},"markPrice":{"type":"number","description":"接管价格","format":"bigdecimal"},"nominalValue":{"type":"number","description":"金额","format":"bigdecimal"},"positionSide":{"type":"string","description":"仓位方向"},"positionSize":{"type":"number","description":"仓位数量","format":"bigdecimal"},"symbol":{"type":"string","description":"交易对"},"welfareAccount":{"type":"boolean","description":"是否体验金账户","example":false}}}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      
