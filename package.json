@@ -13,7 +13,11 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "gen-api-docs": "docusaurus gen-api-docs all"
+    "gen-api-docs": "docusaurus gen-api-docs all",
+    "fix-sidebar-keys": "node scripts/ensure-i18n-sidebar-keys.js",
+    "openapi:generate": "npm run gen-api-docs",
+    "build:site": "npm run openapi:generate && npm run fix-sidebar-keys && npm run build",
+    "ci:build": "npm run fix-sidebar-keys && npm run build"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
