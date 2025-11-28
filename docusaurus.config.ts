@@ -96,20 +96,10 @@ const config: Config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'api',
-        path: 'api_docs',
-        routeBasePath: 'api',
-        sidebarPath: './sidebarsApi.ts',
-        docItemComponent: "@theme/ApiItem",
-      },
-    ],
-    [
       'docusaurus-plugin-openapi-docs',
       {
         id: "api", // plugin id
-        docsPluginId: "default", // configured for preset-classic
+        docsPluginId: "api", // must match the docs plugin id to generate into the right docs instance
         config: {
           user_en: {
             specPath: "api-docs/en/user/biz-user.yml",
@@ -119,14 +109,14 @@ const config: Config = {
               sidebarCollapsible: false,
             },
           } satisfies OpenApiPlugin.Options,
-          user_zh: {
-            specPath: "api-docs/zh/user/biz-user.yml",
-            outputDir: "i18n/zh-CN/docusaurus-plugin-content-docs/current/user",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              sidebarCollapsible: false,
-            },
-          } satisfies OpenApiPlugin.Options,
+          // user_zh: {
+          //   specPath: "api-docs/zh/user/biz-user.yml",
+          //   outputDir: "i18n/zh-CN/docusaurus-plugin-content-docs/current/user",
+          //   sidebarOptions: {
+          //     groupPathsBy: "tag",
+          //     sidebarCollapsible: false,
+          //   },
+          // } satisfies OpenApiPlugin.Options,
           contract_en: {
             specPath: "api-docs/en/contract/biz-quotation.yml",
             outputDir: "api_docs/contract",
@@ -135,17 +125,27 @@ const config: Config = {
               sidebarCollapsible: false,
             },
           } satisfies OpenApiPlugin.Options,
-          contract_zh: {
-            specPath: "api-docs/zh/contract/biz-quotation.yml",
-            outputDir: "i18n/zh-CN/docusaurus-plugin-content-docs/current/contract",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              sidebarCollapsible: false,
-            },
-          } satisfies OpenApiPlugin.Options,
+          // contract_zh: {
+          //   specPath: "api-docs/zh/contract/biz-quotation.yml",
+          //   outputDir: "i18n/zh-CN/docusaurus-plugin-content-docs/current/contract",
+          //   sidebarOptions: {
+          //     groupPathsBy: "tag",
+          //     sidebarCollapsible: false,
+          //   },
+          // } satisfies OpenApiPlugin.Options,
         }
       },
-    ]
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'api',
+        path: 'api_docs',
+        routeBasePath: 'api',
+        sidebarPath: './sidebarsApi.ts',
+        docItemComponent: "@theme/ApiItem",
+      },
+    ],
   ],
   themes: ["docusaurus-theme-openapi-docs"],
 
@@ -865,6 +865,7 @@ const config: Config = {
         {
           type: 'docSidebar',
           sidebarId: 'api',
+          docsPluginId: 'api',
           position: 'left',
           label: 'API',
         },
