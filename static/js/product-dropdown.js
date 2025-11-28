@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (productsContent) {
       // 获取当前语言
       const currentLang = document.documentElement.lang || 'en';
-      const basePath = currentLang === 'zh-Hans' ? '/zh-Hans' : '';
+      const basePath = currentLang === 'zh-CN' ? '/zh-CN' : '';
 
       productsContent.innerHTML = categoryData.products
         .map((product) => {
@@ -972,7 +972,7 @@ window.showCategory = function showCategory(category) {
   if (productsGrid) {
     // 获取当前语言
     const currentLang = document.documentElement.lang || 'en';
-    const basePath = currentLang === 'zh-Hans' ? '/zh-Hans' : '';
+    const basePath = currentLang === 'zh-CN' ? '/zh-CN' : '';
 
     productsGrid.innerHTML = categoryData.products
       .map((product) => {

@@ -17,8 +17,8 @@
     console.log('🌐 Current language:', currentLang);
 
     // 根据当前语言构建正确的路径
-    const basePath = currentLang === 'zh-Hans' ? '/zh-Hans' : '';
-    const targetUrl = `${basePath  }/docs/index_overview/overview`;
+    const basePath = currentLang === 'zh-CN' ? '/zh-CN' : '';
+    const targetUrl = `${basePath}/docs/index_overview/overview`;
 
     console.log('🎯 Navigating to:', targetUrl);
 
@@ -29,7 +29,7 @@
   function setupLogoClickHandler() {
     // 查找 logo 链接
     const logoLink = document.querySelector(
-      '.navbar__brand a, .navbar__logo a',
+      '.navbar__brand',
     );
 
     if (logoLink) {
