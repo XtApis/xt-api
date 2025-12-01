@@ -406,13 +406,13 @@ const config: Config = {
           ],
         },
 
-        {
-          type: 'docSidebar',
-          sidebarId: 'api',
-          docsPluginId: 'api',
-          position: 'left',
-          label: 'API',
-        },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'api',
+        //   docsPluginId: 'api',
+        //   position: 'left',
+        //   label: 'API',
+        // },
         {
           type: 'search',
           position: 'right',
