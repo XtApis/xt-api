@@ -24,7 +24,7 @@ export default function Home(): ReactNode {
 
     // 根据当前语言构建正确的路径
     const basePath = currentLang === "zh-CN" ? "/zh-CN" : "";
-    const targetUrl = `${basePath}/docs/index_overview/overview`;
+    const targetUrl = `${location.host}${basePath}/docs/index_overview/overview`;
 
     console.log("🎯 Home page redirecting to:", targetUrl);
     window.location.replace(targetUrl);
