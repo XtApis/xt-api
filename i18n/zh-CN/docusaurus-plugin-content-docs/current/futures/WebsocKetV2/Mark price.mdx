@@ -11,21 +11,37 @@ sidebar_position: 15
 mark_price@{symbol}
 ```
 
-- **示例**：`mark_price@btc_usdt`
-- **推送频率**：1000ms
+- 示例：`mark_price@btc_usdt`
+- 推送频率：`1000ms`
+
+---
+
+### 请求示例
+
+**订阅** — 建立 WebSocket 连接后，向服务器发送下列 JSON 字符串。
+
+```json title="SUBSCRIBE"
+{
+  "method": "SUBSCRIBE",
+  "params": [
+    "mark_price@btc_usdt"
+  ],
+  "id": "test"     // 此参数可自定义
+}
+```
 
 ---
 
 ### 响应示例
 
-```json title="响应"
+```json
 {
   "topic": "mark_price",
   "event": "mark_price@btc_usdt",
   "data": {
     "s": "btc_usdt", // 交易对
-    "p": "50000", // 价格
-    "t": 123124124 // 时间戳
+    "p": "50000",    // 价格
+    "t": 123124124   // 时间戳
   }
 }
 ```

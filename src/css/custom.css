@@ -3,6 +3,43 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
+/* 一级：顶层分类标题（Access Description、Entrust 这种） */
+.theme-doc-sidebar-menu
+  .theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible
+  > .menu__link {
+  font-size: 14px !important;
+}
+
+/* 二级：分类下的文档条目 */
+.theme-doc-sidebar-menu
+  .theme-doc-sidebar-item-link-level-2
+  > .menu__link {
+  font-size: 13px !important;
+}
+
+/* 三级：再往下嵌套一层的文档条目 */
+.theme-doc-sidebar-menu
+  .theme-doc-sidebar-item-link-level-3
+  > .menu__link {
+  font-size: 12px !important;
+}
+
+
+/* 缩小侧边栏分类(一级、二级)右侧的折叠箭头 */
+.theme-doc-sidebar-menu .menu__link--sublist::after,
+.theme-doc-sidebar-menu .menu__link--sublist-caret::after {
+  /* 原主题里大概是 2rem 2rem，这里改小一点 */
+  background-size: 1rem 1rem !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+}
+
+
+.navbar .DocSearch-Button {
+  border-radius: 999px !important;
+}
+
 
 /* You can override the default Infima variables here. */
 :root {
@@ -55,3 +92,5 @@
   display: flex;
   align-items: center;
 }
+
+

@@ -20,6 +20,19 @@ sidebar_position: 5
 - Use `recordId` if available, otherwise `clientOrderId`.
 - This endpoint retrieves the detailed information of a specific withdrawal record.
 
+### Request Example
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/withdraw?recordId=xxxxxxxxx' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```    
+
 ### Response Example
 
 ```json title="Response"

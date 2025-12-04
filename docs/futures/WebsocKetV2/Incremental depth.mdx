@@ -5,35 +5,49 @@ sidebar_label: Incremental depth
 sidebar_position: 16
 ---
 
-### Request Format
+### Request format
 
 ```
 depth_update@{symbol},{interval}
 ```
 
-- **interval options**: `100`, `250`, `500`, `1000` (default rate: 100ms)
-- **example**: `depth_update@btc_usdt,100ms`
+- Interval options: `100, 250, 500, 1000` (default: `100ms`)
+- Example: `depth_update@btc_usdt,100ms`
 
 ---
 
-### Response Example
+### Request example
 
-```json title="Response"
+**Subscribe** — After establishing the WebSocket connection, send the following JSON string.
+
+```json title="SUBSCRIBE"
+{
+  "method": "SUBSCRIBE",
+  "params": ["depth_update@btc_usdt,100ms"],
+  "id": "test" // this param could call whatever you want
+}
+```
+
+---
+
+### Response example
+
+```json
 {
   "topic": "depth_update",
   "event": "depth_update@btc_usdt",
   "data": {
     "s": "btc_usdt", // symbol
     "pu": 120, // previousUpdateId = previous lastUpdateId
-    "fu": 121, // firstUpdateId = previous lastUpdateId + 1
+    "fu": 121, // firstUpdateId    = previous lastUpdateId + 1
     "u": 123, // lastUpdateId
     "a": [
-      // asks (sell orders)
+      // asks
       ["34000", "1.2"],
       ["34001", "2.3"]
     ],
     "b": [
-      // bids (buy orders)
+      // bids
       ["32000", "0.2"],
       ["31000", "0.5"]
     ],

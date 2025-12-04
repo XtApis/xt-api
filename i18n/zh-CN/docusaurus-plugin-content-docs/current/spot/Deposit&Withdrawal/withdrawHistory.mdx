@@ -13,7 +13,7 @@ sidebar_position: 6
 | --- | --- | --- | --- | --- | --- |
 | currency | string | 是 | N/A | 币种名称，来自**获取充提币支持币种**接口 |  |
 | chain | string | 是 | N/A | 转账网络，来自**获取充提币支持币种**接口 |  |
-| status | string | 否 | N/A | 提币状态（参见[depositWithdrawStatus](#depositWithdrawStatus)） | SUBMIT, REVIEW, AUDITED, AUDITED_AGAIN, PENDING, SUCCESS, FAIL, CANCEL |
+| status | string | 否 | N/A | 提币状态（参见[depositWithdrawStatus](../Access%20Description/PublicModule#depositwithdraw-status)） | SUBMIT, REVIEW, AUDITED, AUDITED_AGAIN, PENDING, SUCCESS, FAIL, CANCEL |
 | fromId | long | 否 | N/A | 上次分页ID，即记录的主键ID |  |
 | direction | string | 否 | NEXT | 分页方向 | NEXT = 下一页，PREV = 上一页 |
 | limit | int | 否 | 10 | 每页记录数（最大200） | 1 ≤ limit ≤ 200 |
@@ -26,6 +26,19 @@ sidebar_position: 6
 - 每页限制数量可通过 `limit` 配置（默认10，最大200）。
 - 支持使用 `startTime` 和 `endTime` 进行时间范围筛选。
 - 状态值与**充提币记录状态**定义一致。
+
+### 请求示例
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/withdraw/history?currency=XT&chain=XT%20Smart%20Chain&limit=100' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
 
 ### 响应示例
 

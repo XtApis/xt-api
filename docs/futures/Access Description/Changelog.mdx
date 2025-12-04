@@ -1,0 +1,67 @@
+---
+id: websocketV2Changelog
+title: Changelog
+sidebar_label: Changelog
+sidebar_position: 100
+---
+
+### 2025-11-05
+
+Optimized documentation structure and added request example (curl)
+
+No change to API behavior or response schema
+
+## 4 Nov 2025
+
+### Structure changes
+
+- Renamed most sub-item/page titles for consistency.
+- Removed the **Subscription parameters** page.
+- Moved several sub-items into **General WebSocket Information**.
+
+### Added
+
+- **Kline** — `kline`, `klineZh`
+- **Trades** — `trades`, `tradesZh`
+- **Aggregate ticker** — `aggTicker`, `aggTickerZh`
+- **Index price** — `indexPrice`, `indexPriceZh`
+- **Mark price** — `markPrice`, `markPriceZh`
+- **Incremental depth** — `depthUpdate`, `depthUpdateZh`
+- **Limited depth** — `depthLimited`, `depthLimitedZh`
+- **Funding rate** — `fundRate`, `fundRateZh`
+
+### Conventions
+
+- All pages start with frontmatter (`id`, `title`, `sidebar_label`, `sidebar_position`).
+- Inline comments are vertically aligned within JSON code blocks for readability.
+- Pure Markdown + fenced code blocks only (no Tabs/CodeGroup) to maximize build stability.
+
+---
+
+## 3 Nov 2025
+
+### Information architecture
+
+- Removed submodules: **Rate limit rules**, **API library**, **Response format**.
+- Added submodule: **Changelog**.
+- Renamed submodule: **Error codes** → **General error codes**.
+
+### Added / Restructured
+
+- **General WebSocket Information** — `generalWebsocketInfo`, `generalWebsocketInfoZh`
+- **Request message format** — `requestMessageFormat`, `requestMessageFormatZh`
+- **Response message format** — `responseMessageFormat`, `responseMessageFormatZh`
+- **Push message format** — `pushMessageFormat`, `pushMessageFormatZh`
+- **Heartbeat** — `heartbeat`, `heartbeatZh`
+- **Error codes** — `errorCodes`, `errorCodesZh`
+- **Order book management** — `orderBookManagement`, `orderBookManagementZh`
+
+### Build hardening
+
+- Removed dependency on `<Tabs/>`/`<CodeGroup/>`; switched to fenced code blocks with `title="..."` for examples.
+- Ensured all IDs use **camelCase**.
+- Normalized sidebar ordering (General info first, then formats, then channels).
+
+```
+
+```

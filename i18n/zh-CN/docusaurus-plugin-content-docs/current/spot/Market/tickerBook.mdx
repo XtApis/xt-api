@@ -20,6 +20,14 @@ sidebar_position: 10
 1. 单个交易对：`10次/秒/IP`
 2. 多个交易对：`10次/秒/IP`
 
+### 请求示例
+
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/ticker/book?symbol=XT_USDT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```    
+
 ### 响应示例
 
 ```json title="Response"
@@ -29,12 +37,12 @@ sidebar_position: 10
   "ma": [],
   "result": [
     {
-      "s": "btc_usdt",
-      "t": 1661856036925,
-      "ap": null,
-      "aq": null,
-      "bp": null,
-      "bq": null
+      "s": "btc_usdt", // 交易对
+      "t": 1661856036925, // 更新时间
+      "ap": null, // 卖一价
+      "aq": null, // 卖一量
+      "bp": null, // 买一价
+      "bq": null // 买一量
     }
   ]
 }

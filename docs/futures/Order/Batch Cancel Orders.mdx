@@ -16,6 +16,7 @@ import CodeBlock from '@theme/CodeBlock';
 | Name | Type | Mandatory | Default | Description | Ranges |
 | --- | --- | --- | --- | --- | --- |
 | orderIds | string | true | N/A | Order IDs (comma-separated) |  |
+| clientOrderIds | string | false | N/A | Client order IDs (comma-separated) |  |
 
 ### Limit Flow Rules
 
@@ -24,12 +25,13 @@ import CodeBlock from '@theme/CodeBlock';
 ### Request Example
 
 <CodeBlock language="bash" title="Request">
-{`curl -X POST "https://fapi.xt.com/future/trade/v1/order/cancel-batch" \
+  {`
+  curl -X POST "https://fapi.xt.com/future/trade/v1/order/cancel-batch" \
   -H "validate-appkey: $APPKEY" \  # Required
   -H "validate-timestamp: $TIMESTAMP" \  # Required
   -H "validate-singature: $SINGATURE" \  # Required
   -H "Content-Type: application/x-www-form-urlencoded" \  # Required
-  -d "orderIds=111111,222222,333333"  # Required
+  --form 'orderIds="[\"558427531653690240\",\"558427531653690241\"]"'  # optional
 `}
 </CodeBlock>
 
@@ -50,5 +52,5 @@ import CodeBlock from '@theme/CodeBlock';
 ### Error Codes
 
 | Error code | Description |
-| --- | --- |
-|  |  |
+| ---------- | ----------- |
+|            |             |

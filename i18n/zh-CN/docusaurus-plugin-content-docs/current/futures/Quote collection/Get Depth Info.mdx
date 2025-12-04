@@ -5,40 +5,58 @@ sidebar_label: 获取深度信息
 sidebar_position: 2
 ---
 
-**类型:** GET
+### 请求方式
+- 类型: **GET**
+- 地址: `/future/market/v1/public/cg/orderbook`
+- 注意: 该方法不需要签名
 
-**描述:** `/future/market/v1/public/cg/orderbook`
+---
 
-> Content-Type = application/x-www-form-urlencoded
-
-### 注意事项：
-
-此接口无需签名认证。
 
 ### 请求参数
 
-| 参数名 | 类型   | 是否必填 | 默认值 | 描述                    | 取值范围 |
-| ------ | ------ | -------- | ------ | ----------------------- | -------- |
-| symbol | string | 是       | 无     | 交易对，如 BTC-USDT     |          |
-| level  | int    | 否       | 50     | 深度档位                | 1-200    |
+| 名称 | 类型 | 是否必需 | 默认值 | 描述 | 范围 |
+|------|------|-----------|--------|------|------|
+| symbol | string | TRUE | N/A | 交易对 |  |
+| level | int | FALSE | 50 | 深度档位 | 1-200 |
+
+---
+
+### 请求示例
+
+```bash
+curl -G "https://fapi.xt.com/future/market/v1/public/cg/orderbook" \
+    -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+    -d "symbol=eth_usdt"  # 必须
+```
+
+---
 
 ### 响应示例
 
-import CodeBlock from '@theme/CodeBlock';
+```json
+{
+    "ticker_id": "BTC-USDT",
+    "timestamp": 1698668957638,
+    "bids": [
+      ["34794.6", "97164"],
+      ["34794.5", "9897"],
+      ...
+    ],
+    "asks": [
+      ["34794.7", "168479"],
+      ["34794.8", "4009"],
+      ...
+    ]
+}
+```
 
-<CodeBlock language="json" title="Response">
-  {`{
-  "ticker_id": "BTC-USDT",
-  "timestamp": 1698668957638,
-  "bids": [
-    ["34794.6", "97164"],
-    ["34794.5", "9897"],
-    ...
-  ],
-  "asks": [
-    ["34794.7", "168479"],
-    ["34794.8", "4009"],
-    ...
-  ]
-}`}
-</CodeBlock>
+---
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | 交易对不存在 |
+
+---

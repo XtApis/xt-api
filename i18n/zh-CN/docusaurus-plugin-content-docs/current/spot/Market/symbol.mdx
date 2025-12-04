@@ -81,6 +81,15 @@ quantity <= max
 price <= openPrice * maxPriceMultiple
 ```
 
+### 请求示例
+
+```bash title="Request"
+// version: 版本号,非必填。如果请求版本等于响应版本，将不返回列表（减少IO）
+  curl --location --request GET 'https://sapi.xt.com/v4/public/symbol?symbol=XT_USDT&version=xxxxxxxx' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### 响应示例
 
 ```json title="Response"
@@ -89,33 +98,29 @@ price <= openPrice * maxPriceMultiple
   "mc": "SUCCESS",
   "ma": [],
   "result": {
-    "time": 1662444177871,
-    "version": "7cd2cfab0dc979339f1de904bd90c9cb",
+    "time": 1662444177871, // 时间
+    "version": "7cd2cfab0dc979339f1de904bd90c9cb", // 内容版本
     "symbols": [
       {
-        "id": 614,
-        "symbol": "btc_usdt",
-        "state": "ONLINE",
-        "tradingEnabled": true,
-        "openapiEnabled": true,
-        "nextStateTime": null,
-        "nextState": null,
-        "depthMergePrecision": 5,
-        "baseCurrency": "btc",
-        "baseCurrencyPrecision": 5,
-        "baseCurrencyId": 2,
-        "quoteCurrency": "usdt",
-        "quoteCurrencyPrecision": 6,
-        "quoteCurrencyId": 11,
-        "pricePrecision": 4,
-        "quantityPrecision": 6,
-        "takerFeeRate": 0.001,
-        "makerFeeRate": 0.002,
-        "orderTypes": ["LIMIT", "MARKET"],
-        "timeInForces": ["GTC", "FOK", "IOC", "GTX"],
-        "displayWeight": 1,
-        "displayLevel": "FULL",
-        "plates": [],
+        "symbol": "btc_usdt", // 交易对
+        "state": "ONLINE", // 交易对状态[ONLINE=上线的;OFFLINE=下线的,DELISTED=退市]
+        "tradingEnabled": true, // 是否启用交易
+        "openapiEnabled": true, // 是否启用OPENAPI
+        "nextStateTime": null, // 下一个状态时间
+        "nextState": null, // 下一个状态
+        "depthMergePrecision": 5, // 深度合并精度
+        "baseCurrency": "btc", // 标的资产
+        "baseCurrencyPrecision": 5, // 标的资产精度
+        "quoteCurrency": "usdt", // 报价资产
+        "quoteCurrencyPrecision": 6, // 报价资产精度
+        "pricePrecision": 4, // 交易价格精度
+        "quantityPrecision": 6, // 交易数量精度
+        "takerFeeRate": 0.001, // 吃单手续费率
+        "makerFeeRate": 0.002, // 挂单手续费率
+        "orderTypes": ["LIMIT", "MARKET"], // 订单类型[LIMIT=限价单;MARKET=市价单]
+        "timeInForces": ["GTC", "FOK", "IOC", "GTX"], // 有效方式[GTC=成交为止,一直有效; IOC=无法立即成交(吃单)的部分就撤销; FOK=无法全部立即成交就撤销; GTX=无法成为挂单方就撤销]
+        "displayWeight": 1, // 展示权重，越大越靠前
+        "displayLevel": "FULL", // 展示级别,[FULL=完全展示,SEARCH=搜索展示,DIRECT=直达展示,NONE=不展示]
         "filters": [
           {
             "filter": "PROTECTION_LIMIT",
@@ -147,7 +152,7 @@ price <= openPrice * maxPriceMultiple
             "filter": "QUOTE_QTY",
             "min": null
           }
-        ]
+        ] // 过滤器
       }
     ]
   }

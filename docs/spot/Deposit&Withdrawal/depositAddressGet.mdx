@@ -22,6 +22,19 @@ This endpoint retrieves the deposit address for a specified currency on a given 
 - Some currencies may require a **memo/tag** in addition to the address.
 - Always confirm the network matches the currency to avoid loss of funds.
 
+### Request Example
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/deposit/address?chain=XT%20Smart%20Chain&currency=XT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
+
 ### Response Example
 
 ```json title="Response"

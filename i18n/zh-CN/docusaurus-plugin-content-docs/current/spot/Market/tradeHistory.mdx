@@ -20,6 +20,14 @@ sidebar_position: 7
 
 10次/秒/IP
 
+### 请求示例
+
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/trade/history?symbol=XT_USDT&limit=200&direction=NEXT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### 响应示例
 
 ```json title="Response"
@@ -29,12 +37,12 @@ sidebar_position: 7
   "ma": [{}],
   "result": [
     {
-      "i": 0,
-      "t": 0,
-      "p": "string",
-      "q": "string",
-      "v": "string",
-      "b": true
+      "i": 0, // ID
+      "t": 0, // 成交时间
+      "p": "string", // 成交价
+      "q": "string", // 成交量
+      "v": "string", // 成交额
+      "b": true // 是否是buyerMaker
     }
   ]
 }

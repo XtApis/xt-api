@@ -6,11 +6,13 @@ sidebar_position: 8
 ---
 
 ### 接口说明
+
 **GET** `/v4/public/ticker`
 
 ---
 
 ### 限流规则
+
 1. 单一交易对：10次/秒/ip
 2. 多个交易对：10次/秒/ip
 
@@ -26,31 +28,38 @@ sidebar_position: 8
 
 ---
 
+### 请求示例
+
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/ticker?symbol=XT_USDT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### 响应示例
 
 ```json title="Response"
-
 {
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
   "result": [
     {
-      "s": "btc_usdt",
-      "t": 1662444879425,
-      "cv": "0.00",
-      "cr": "0.0000",
-      "o": "200.00",
-      "l": "200.00",
-      "h": "200.00",
-      "c": "200.00",
-      "q": "0.002",
-      "v": "0.40",
-      "ap": null,
-      "aq": null,
-      "bp": null,
-      "bq": null
+      "s": "btc_usdt", // 交易对
+      "t": 1662444879425, // 更新时间
+      "cv": "0.00", // 价格变动
+      "cr": "0.0000", // 价格变动百分比
+      "o": "200.00", // 最早一笔
+      "l": "200.00", // 最低
+      "h": "200.00", // 最高
+      "c": "200.00", // 最后一笔
+      "q": "0.002", // 成交量
+      "v": "0.40", // 成交额
+      "ap": null, // 卖一价
+      "aq": null, // 卖一量
+      "bp": null, // 买一价
+      "bq": null // 买一量
     }
   ]
 }
-
+```

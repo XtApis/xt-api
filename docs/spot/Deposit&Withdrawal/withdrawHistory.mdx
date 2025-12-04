@@ -13,7 +13,7 @@ sidebar_position: 6
 | --- | --- | --- | --- | --- | --- |
 | currency | string | true | N/A | Currency name, from **Get supported currencies for deposit/withdrawal** API |  |
 | chain | string | true | N/A | Transfer network, from **Get supported currencies for deposit/withdrawal** API |  |
-| status | string | false | N/A | Withdrawal status (see [depositWithdrawStatus](#depositWithdrawStatus)) | SUBMIT, REVIEW, AUDITED, AUDITED_AGAIN, PENDING, SUCCESS, FAIL, CANCEL |
+| status | string | false | N/A | Withdrawal status (see [depositWithdrawStatus](../Access%20Description/PublicModule#depositwithdraw-status)) | SUBMIT, REVIEW, AUDITED, AUDITED_AGAIN, PENDING, SUCCESS, FAIL, CANCEL |
 | fromId | long | false | N/A | The last pagination ID, i.e. the primary key ID of the record |  |
 | direction | string | false | NEXT | Pagination direction | NEXT = next page, PREV = previous page |
 | limit | int | false | 10 | Number of records per page (max 200) | 1 ≤ limit ≤ 200 |
@@ -39,6 +39,19 @@ sidebar_position: 6
 - Limit per page is configurable with `limit` (default 10, max 200).
 - Time range filtering is supported with `startTime` and `endTime`.
 - Status values align with **Deposit/Withdrawal record status** definitions.
+
+### Request Example
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/withdraw/history?currency=XT&chain=XT%20Smart%20Chain&limit=100' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+```
 
 ### Response Example
 

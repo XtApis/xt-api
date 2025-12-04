@@ -14,8 +14,8 @@ sidebar_position: 1
 | 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
 | --- | --- | --- | --- | --- | --- |
 | bizId | string | 是 | N/A | 用于幂等处理的唯一ID | 最大长度：128 |
-| from | enum | 是 | N/A | 资金转出账户 | [bizType 枚举](#bizType) |
-| to | enum | 是 | N/A | 资金转入账户 | [bizType 枚举](#bizType) |
+| from | enum | 是 | N/A | 资金转出账户 | [bizType 枚举](../Access%20Description/PublicModule#biztype) |
+| to | enum | 是 | N/A | 资金转入账户 | [bizType 枚举](../Access%20Description/PublicModule#biztype) |
 | currency | string | 是 | N/A | 币种名称，必须小写（例如 `usdt`、`btc`） |  |
 | symbol | string | 否 | N/A | 划转交易对（必须小写）。如果转入或转出账户中有一个是**杠杆账户**，则必填 |  |
 | amount | bigDecimal | 是 | N/A | 划转金额 |  |
