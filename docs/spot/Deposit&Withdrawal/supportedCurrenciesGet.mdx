@@ -19,6 +19,14 @@ sidebar_position: 1
 - The `currency` and `chain` fields in the response are required inputs for other **deposit/withdrawal APIs**.
 - Each currency includes its supported transfer networks, deposit/withdrawal status, and fee details.
 
+### Request Example
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/wallet/support/currency' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### Response Example
 
 ```json title="Response"

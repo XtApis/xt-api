@@ -19,22 +19,18 @@ sidebar_position: 2
 
 ---
 
-### Code Example
+### Request Example
 
-#### Java
-
-```java
-public String getBalance(){
-    // Your request logic here
-}
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/balance?currency=XT' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
 ```
-
-#### Python
-
-```python
-# Your request logic here
-```
-
 ---
 
 ### Response Example
@@ -43,14 +39,16 @@ public String getBalance(){
 {
   "rc": 0,
   "mc": "string",
-  "ma": [{}],
+  "ma": [
+    {}
+  ],
   "result": {
-    "currency": "usdt",
-    "currencyId": 0,
-    "frozenAmount": 0,
-    "availableAmount": 0,
-    "totalAmount": 0,
-    "convertBtcAmount": 0
+    "currency": "usdt",          // currency
+    "currencyId": 0,             // currency ID
+    "frozenAmount": 0,           // frozen amount
+    "availableAmount": 0,        // available amount
+    "totalAmount": 0,            // total amount
+    "convertBtcAmount": 0        // equivalent BTC amount
   }
 }
 ```

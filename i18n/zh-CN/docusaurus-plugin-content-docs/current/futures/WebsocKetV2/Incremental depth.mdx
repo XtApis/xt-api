@@ -11,22 +11,38 @@ sidebar_position: 16
 depth_update@{symbol},{interval}
 ```
 
-- **时间间隔选项**：`100`、`250`、`500`、`1000`（默认频率：100ms）
-- **示例**：`depth_update@btc_usdt,100ms`
+- 时间间隔选项：`100、250、500、1000`（默认频率：`100ms`）
+- 示例：`depth_update@btc_usdt,100ms`
+
+---
+
+### 请求示例
+
+**订阅** — 建立 WebSocket 连接后，向服务器发送下列 JSON 字符串。
+
+```json title="SUBSCRIBE"
+{
+  "method": "SUBSCRIBE",
+  "params": [
+    "depth_update@btc_usdt,100ms"
+  ],
+  "id": "test"     // 此参数可自定义
+}
+```
 
 ---
 
 ### 响应示例
 
-```json title="响应"
+```json
 {
   "topic": "depth_update",
   "event": "depth_update@btc_usdt",
   "data": {
-    "s": "btc_usdt", // 交易对
-    "pu": 120, // previousUpdateId = 前一个 lastUpdateId
-    "fu": 121, // firstUpdateId = 前一个 lastUpdateId + 1
-    "u": 123, // lastUpdateId
+    "s":  "btc_usdt", // 交易对
+    "pu": 120,         // previousUpdateId = 前一个 lastUpdateId
+    "fu": 121,         // firstUpdateId    = 前一个 lastUpdateId + 1
+    "u":  123,         // lastUpdateId
     "a": [
       // 卖单
       ["34000", "1.2"],
@@ -37,7 +53,8 @@ depth_update@{symbol},{interval}
       ["32000", "0.2"],
       ["31000", "0.5"]
     ],
-    "t": 123456789 // 时间戳
+    "t": 123456789   // 时间戳
   }
 }
 ```
+````

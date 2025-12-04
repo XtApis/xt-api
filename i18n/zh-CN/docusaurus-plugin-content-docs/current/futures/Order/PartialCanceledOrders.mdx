@@ -1,0 +1,101 @@
+---
+id: PartialCanceledOrders
+title: 查询部分成交部分撤销订单
+sidebar_label: 查询部分成交部分撤销订单
+sidebar_position: 5.1
+---
+
+
+### 请求方式
+- 类型: **GET**
+- 地址: `/future/trade/v2/order/partial-canceled-orders`
+
+---
+
+### 限流规则
+`200/s/apikey`
+
+---
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| page | integer | TRUE | 1 | 页码 |  |
+| size | integer | TRUE | 10 | 单页数量 |  |
+| startTime | integer | TRUE | N/A | 开始时间 | 起止毫秒时间戳间隔要在300000毫秒内 |
+| endTime | integer | TRUE | N/A | 结束时间 |  |
+| symbol | string | TRUE | N/A | 交易对 |  |
+
+> 注: 该接口限制只能查询五分钟内的数据
+
+---
+
+### 请求示例
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v2/order/partial-canceled-orders" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \  # 必须
+  -d "page=1" \  # 必须
+  -d "size=10" \  # 必须
+  -d "startTime=1762074200000"  \  # 必须
+  -d "endTime=1762074242467" \  # 必须
+```
+
+---
+
+### 响应示例
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false,   // 是否有下一页
+    "hasPrev": false,   // 是否有上一页
+    "items": [          // 数据列表
+      {
+        "clientOrderId": "",       // 客户订单 ID
+        "avgPrice": 0,             // 成交均价
+        "closePosition": false,    // 订单条件触发时是否全部平仓
+        "closeProfit": 0,          // 平仓盈亏
+        "createdTime": 0,          // 创建时间
+        "executedQty": 0,          // 成交量（张）
+        "forceClose": false,       // 是否为强平订单
+        "marginFrozen": 0,         // 占用保证金
+        "orderId": 0,              // 订单 ID
+        "orderSide": "",           // 订单方向
+        "orderType": "",           // 订单类型
+        "origQty": 0,              // 数量（张）
+        "positionSide": "",        // 仓位方向
+        "price": 0,                // 订单价格
+        "sourceId": 0,             // 触发条件 ID
+        "state": "",               // 订单状态 PARTIALLY_CANCELED
+        "symbol": "",              // 交易对
+        "timeInForce": "",         // 有效类型
+        "triggerProfitPrice": 0,   // 止盈触发价格
+        "triggerStopPrice": 0,     // 止损触发价格
+        "canceledQty": 0           // 已撤销数量 origQty - executeQty
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | 交易对不合法 |
+| invalid_time_in_force | 时间设定有误 |
+| the_number_of_orders_has_reached_the_maximum | 区间数据过多，超限 |

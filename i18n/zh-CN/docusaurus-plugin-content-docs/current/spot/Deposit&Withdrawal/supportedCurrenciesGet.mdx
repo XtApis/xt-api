@@ -19,6 +19,14 @@ sidebar_position: 1
 - 响应中的 `currency` 和 `chain` 字段是其他**充提币接口**的必需输入参数。
 - 每个币种包含其支持的转账网络、充提币状态和费用详情。
 
+### 请求示例
+
+```json title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/wallet/support/currency' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### 响应示例
 
 ```json title="响应"

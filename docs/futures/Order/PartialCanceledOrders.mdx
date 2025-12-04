@@ -1,0 +1,103 @@
+---
+id: PartialCanceledOrders
+title: Query Partially Filled and Partially Canceled Orders
+sidebar_label: Query Partially Filled and Partially Canceled Orders
+sidebar_position: 5.1
+---
+
+### Request Method
+
+- Type: **GET**
+- URL: `/future/trade/v2/order/partial-canceled-orders`
+
+---
+
+### Rate Limit
+
+`200/s/apikey`
+
+---
+
+### Request Parameters
+
+| Name | Type | Mandatory | Default | Description | Range |
+| --- | --- | --- | --- | --- | --- |
+| page | integer | TRUE | 1 | Page number |  |
+| size | integer | TRUE | 10 | Number of items per page |  |
+| startTime | integer | TRUE | N/A | Start time | The interval between start and end timestamps must be within 300000 milliseconds |
+| endTime | integer | TRUE | N/A | End time |  |
+| symbol | string | TRUE | N/A | Trading pair |  |
+
+> Note: This interface can only query data within the last five minutes.
+
+---
+
+### Request Example
+
+```bash
+curl -G "https://fapi.xt.com/future/trade/v2/order/partial-canceled-orders" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  # Required
+  -d "page=1" \  # Required
+  -d "size=10" \  # Required
+  -d "startTime=1762074200000"  \  # Required
+  -d "endTime=1762074242467" \  # Required
+```
+
+---
+
+### Response Example
+
+```json
+{
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "msgInfo": "",
+  "result": {
+    "hasNext": false, // Whether there is a next page
+    "hasPrev": false, // Whether there is a previous page
+    "items": [
+      // Data list
+      {
+        "clientOrderId": "", // Client order ID
+        "avgPrice": 0, // Average filled price
+        "closePosition": false, // Whether all positions are closed when triggered
+        "closeProfit": 0, // Close profit/loss
+        "createdTime": 0, // Creation time
+        "executedQty": 0, // Executed quantity (contracts)
+        "forceClose": false, // Whether it is a forced liquidation order
+        "marginFrozen": 0, // Frozen margin
+        "orderId": 0, // Order ID
+        "orderSide": "", // Order side
+        "orderType": "", // Order type
+        "origQty": 0, // Quantity (contracts)
+        "positionSide": "", // Position side
+        "price": 0, // Order price
+        "sourceId": 0, // Trigger condition ID
+        "state": "", // Order status PARTIALLY_CANCELED
+        "symbol": "", // Trading pair
+        "timeInForce": "", // Time in force
+        "triggerProfitPrice": 0, // Take-profit trigger price
+        "triggerStopPrice": 0, // Stop-loss trigger price
+        "canceledQty": 0 // Canceled quantity origQty - executeQty
+      }
+    ]
+  },
+  "returnCode": 0
+}
+```
+
+---
+
+### Error Codes
+
+| Error code | Description |
+| --- | --- |
+| invalid_symbol | Invalid trading pair |
+| invalid_time_in_force | Invalid time configuration |
+| the_number_of_orders_has_reached_the_maximum | Too much data in the interval, limit exceeded |

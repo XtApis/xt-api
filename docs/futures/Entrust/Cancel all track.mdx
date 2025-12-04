@@ -19,7 +19,9 @@ sidebar_position: 17
 
 ### Parameters
 
-_No optional parameters._
+| name | type | mandatory | default | description            | 
+| ---- | ---- | --------- | ------- | ---------------------- | 
+| symbol | string | false | N/A     | Trading pair |
 
 ---
 
@@ -30,7 +32,7 @@ curl -X POST "https://fapi.xt.com/future/trade/v1/entrust/cancel-all-track" \
     -H "validate-appkey: $APPKEY"              # Required
     -H "validate-timestamp: $TIMESTAMP"        # Required
     -H "validate-signature: $SIGNATURE"        # Required
-    -H "Content-Type: application/x-www-form-urlencoded"  # Required
+    -H "Content-Type: application/json"  # Required
 ```
 
 ---

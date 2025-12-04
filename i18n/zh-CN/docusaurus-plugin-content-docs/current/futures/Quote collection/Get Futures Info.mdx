@@ -5,22 +5,26 @@ sidebar_label: 获取合约信息
 sidebar_position: 1
 ---
 
-**类型:** GET
+### 请求方式
+- 类型: **GET**
+- 描述: `/future/market/v1/public/cg/contracts`
+- 注意: 该方法不需要签名
 
-**描述:** `/future/market/v1/public/cg/contracts`
+---
 
-> Content-Type = application/x-www-form-urlencoded
+### 请求示例
 
-### 注意事项：
+```bash
+curl -G "https://fapi.xt.com/future/market/v1/public/cg/contracts" \
+    -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+```
 
-此接口无需签名认证。
+---
 
 ### 响应示例
 
-import CodeBlock from '@theme/CodeBlock';
-
-<CodeBlock language="json" title="Response">
-  {`[{
+```json
+[{
   "id": 123,
   "ask": "1817.32",                 // 当前最低卖价
   "base_currency": "ETH",           // 基础交易对的货币代码，如 BTC
@@ -45,5 +49,15 @@ import CodeBlock from '@theme/CodeBlock';
   "target_volume": "73698647.51054371",  // 24小时交易量
   "ticker_id": "ETH-USD",           // 交易对标识符，使用分隔符区分基础/目标货币，如 BTC-PERP
   "underlyingType": 1               // 标的类型，币本位、USDT本位
-}]`}
-</CodeBlock>
+}]
+```
+
+---
+
+### 错误码
+
+| Error code | Desc |
+|-------------|------|
+| - | - |
+
+---

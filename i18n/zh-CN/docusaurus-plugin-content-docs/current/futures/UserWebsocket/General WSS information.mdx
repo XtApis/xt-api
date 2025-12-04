@@ -5,17 +5,16 @@ sidebar_label: 通用 WSS 信息
 sidebar_position: 1
 ---
 
-### 基础地址
 
-**wss://fstream.xt.com/ws/user**
+**WebSocket 基础地址**：`wss://fstream.xt.com/ws/user`（用户私人频道）
 
 ---
 
 ### 请求头
 
-必须添加压缩扩展协议的请求头：
+发送建立 WebSocket 连接的 HTTP 请求时，建议添加压缩扩展协议的请求头：
 
-```http
+```http title="建议请求头"
 Sec-Websocket-Extensions: permessage-deflate
 ```
 
@@ -23,21 +22,84 @@ Sec-Websocket-Extensions: permessage-deflate
 
 ### 订阅步骤
 
-**步骤 1：** 调用接口 `/v1/user/listen-key` 获取 **listenKey**。
+1. 调用接口获取 **ListenKey**：[`GET https://fapi.xt.com/future/v1/user/listen-key`](https://fapi.xt.com/future/v1/user/listen-key)。（建议在文档侧边栏超链接到「合约 API → 用户 → 获取 ListenKey」。）
+2. 建立 WebSocket 后，订阅**用户相关**事件时发送以下 JSON：
 
-**步骤 2：** 订阅用户相关的 WebSocket 事件时，发送：
-
-```json
+```json title="SUBSCRIBE"
 {
   "method": "SUBSCRIBE",
-  "params": ["order@{上一步获取的listenKey}"],
+  "params": ["{topic你关注的消息种类}@{上一步获取的ListenKey}"],
+  "id": "id_field_could_call_whatever_you_want"
+}
+```
+
+**注意事项**
+- 若收到 `invalid_listen_key`，表示 **ListenKey** 已过期或无效。👉 需要通过接口重新请求新的 ListenKey。
+- 用户相关数据将在**订阅成功且有变动**时推送。
+- 取消订阅时，`method` 设为 `UNSUBSCRIBE`。
+
+---
+
+## 请求消息格式
+
+**订阅 / 取消订阅**
+
+```json title="消息格式"
+{
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": [
+    "order@{ListenKey}",
+    "trade@{ListenKey}",
+    "balance@{ListenKey}",
+    "position@{ListenKey}",
+    "notify@{ListenKey}"
+  ],
+  "id": "{id}"   // 用户自定义
+}
+```
+
+**订阅示例** — 建立 WebSocket 连接后，向服务器发送下列 JSON 字符串：
+
+```json title="SUBSCRIBE 示例"
+{
+  "method": "SUBSCRIBE",
+  "params": [
+    "order@A246C3DF8EE532DC75007BC5D86698541678596355681"
+  ],
   "id": "test1"
 }
 ```
 
 ---
 
-### 注意事项
+## 响应消息格式
 
-- 如果收到 **`invalid_listen_key`**，表示 listenKey 已过期或无效。👉 需要通过接口重新请求新的 listenKey。
-- 用户相关数据将在**订阅成功后**推送。
+```json title="格式"
+{
+  "id":   "{id}",  // 回调 ID
+  "code": 1,        // 结果：0 = 成功；1 = 失败；2 = ListenKey 无效
+  "msg":  ""       // 订阅成功与否的信息或订阅的目标信息
+}
+```
+
+```json title="示例"
+{"id": "123", "code": 0, "msg": "success"}
+```
+
+---
+
+## 心跳检测
+
+每个客户端连接必须定期发送**文本** `ping` 消息。服务器将回复**文本** `pong`。
+
+如果服务器在 **30 秒** 内未收到 `ping`，将主动断开连接。
+
+---
+
+## 错误码
+
+| 错误码                     | 描述                               |
+| --- | --- |
+| `{topic}@invalid_listenkey` | ListenKey 过期或无效，请重新申请 |
+| `Invalid Parameter`        | 参数错误，请检查 JSON 字符串     |
+````

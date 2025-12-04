@@ -5,26 +5,40 @@ sidebar_label: Fund rate
 sidebar_position: 18
 ---
 
-### Request Format
+### Request format
 
 ```
 fund_rate@{symbol}
 ```
 
-- **example**: `fund_rate@btc_usdt`
-- **rate**: 60s
+- Example: `fund_rate@btc_usdt`
+- Push rate: `60s`
 
 ---
 
-### Response Example
+### Request example
 
-```json title="Response"
+**Subscribe** — After establishing the WebSocket connection, send the following JSON string.
+
+```json title="SUBSCRIBE"
+{
+  "method": "SUBSCRIBE",
+  "params": ["fund_rate@btc_usdt"],
+  "id": "test" // this param could call whatever you want
+}
+```
+
+---
+
+### Response example
+
+```json
 {
   "topic": "fund_rate",
   "event": "fund_rate@btc_usdt",
   "data": {
-    "s": "btc_usdt", // Trading pair
-    "r": "0.01", // Fund fee
+    "s": "btc_usdt", // symbol
+    "r": "0.01", // funding rate
     "t": 123124124 // timestamp
   }
 }

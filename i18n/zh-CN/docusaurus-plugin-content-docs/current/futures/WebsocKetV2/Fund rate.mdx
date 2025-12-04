@@ -11,21 +11,38 @@ sidebar_position: 18
 fund_rate@{symbol}
 ```
 
-- **示例**：`fund_rate@btc_usdt`
-- **推送频率**：60s
+- 示例：`fund_rate@btc_usdt`
+- 推送频率：`60s`
+
+---
+
+### 请求示例
+
+**订阅** — 建立 WebSocket 连接后，向服务器发送下列 JSON 字符串。
+
+```json title="SUBSCRIBE"
+{
+  "method": "SUBSCRIBE",
+  "params": [
+    "fund_rate@btc_usdt"
+  ],
+  "id": "test"     // 此参数可自定义
+}
+```
 
 ---
 
 ### 响应示例
 
-```json title="响应"
+```json
 {
   "topic": "fund_rate",
   "event": "fund_rate@btc_usdt",
   "data": {
     "s": "btc_usdt", // 交易对
-    "r": "0.01", // 资金费率
-    "t": 123124124 // 时间戳
+    "r": "0.01",     // 资金费率
+    "t": 123124124    // 时间戳
   }
 }
 ```
+````

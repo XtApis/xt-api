@@ -5,32 +5,33 @@ sidebar_label: Signature Statement
 sidebar_position: 4
 ---
 
-Since XT provides open interfaces for third-party platforms, **data security** must be ensured — such as preventing data tampering, avoiding outdated data, stopping repeated submissions, and controlling request frequency. Among these, verifying whether the data has been tampered with is the most critical.
+#### Signature Parameters Description
 
-### Signature Rules
+Since XT provides open APIs to third-party platforms, data security must be ensured — for example, preventing data tampering, avoiding outdated data, blocking duplicate submissions, and controlling request frequency. Among these, **data integrity verification** is the most crucial aspect.
 
-1. **AppKey & SecretKey** Distributed offline. Different calls should use different `appkey` and `secretkey`.
+##### Signature Parameters
 
-2. **Timestamp** Add a timestamp in **milliseconds (Unix timestamp)** of the request time. The validity of the request is calculated based on this value.
+1. **validate-appkey** — Public key obtained after applying for the API Key
+2. **validate-timestamp** — Request timestamp in milliseconds (Unix time). Request validity is determined based on this value and `validate-recvwindow`
+3. **validate-signature** — Some API requests require a signature. See details in ([Access Description -> Signature](../Access Description/Signature))
+4. **validate-recvwindow** — Defines the validity period of a request. Default is 5 seconds; maximum is 60 seconds
+   - If the timestamp is more than 5000ms earlier than server time, the request is invalid
+   - If the client timestamp is more than 1 second ahead of server time, the request will also be rejected
+   - It is **not recommended** to exceed 5 seconds, as this helps handle network jitter and ensures timeliness in high-frequency trading
+5. **validate-algorithms** — Signature is generated using an HSC-based algorithm
+   - Default: HmacSHA256
+   - Supported: HmacMD5, HmacSHA1, HmacSHA224, HmacSHA256, HmacSHA384, HmacSHA512
 
-3. **Signature** All request data must be signed.
+---
 
-4. **RecvWindow** The validity period is set by `recvWindow`. Default is **5 seconds**, maximum **60 seconds**.
+#### Request Header Signature Parameters
 
-   - If the timestamp is more than **5000ms older** than server time, the request is invalid.
-   - If the client timestamp is more than **1 second ahead** of the server, the request is also rejected.
-   - RecvWindow **> 5 seconds is not recommended**. This mechanism handles **network jitter** and helps ensure timeliness in high-frequency trading.
-
-5. **Signature Algorithms** Signatures are calculated with HSC-based protocols. Default: **HmacSHA256** Supported: `HmacMD5`, `HmacSHA1`, `HmacSHA224`, `HmacSHA256`, `HmacSHA384`, `HmacSHA512`
-
-### Required Signature Parameters
-
-| Name | Mandatory | Example | Description |
+| Name | Required | Example | Description |
 | --- | --- | --- | --- |
-| validate-appkey | true | `dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83` | API Key |
-| validate-timestamp | true | `1641446237201` | Unix timestamp (ms) |
-| validate-signature | true | `0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d` | Generated signature |
-| validate-recvwindow | false | `5000` (ms) | Time window for validity |
-| validate-algorithms | false | `HmacSHA256` | Default `HmacSHA256` |
-| api-version | false | `1.0` | Reserved, API version number |
-| validate-signversion | false | `1.0` | Reserved, signature version |
+| validate-appkey | TRUE | dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83 | Public key |
+| validate-timestamp | TRUE | 1641446237201 | Unix timestamp (milliseconds) |
+| validate-signature | TRUE | 0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d | Generated signature |
+| validate-recvwindow | FALSE | 5000 (ms) | Validity time window |
+| validate-algorithms | FALSE | HmacSHA256 | Default HmacSHA256 |
+| api-version | FALSE | 1 | Reserved field, API version number |
+| validate-signversion | FALSE | 1 | Reserved field, signature version |

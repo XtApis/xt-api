@@ -5,36 +5,38 @@ sidebar_label: Transactions
 sidebar_position: 9
 ---
 
-### Subscribe / Unsubscribe
+### 订阅 / 取消订阅
 
-```json title="Subscribe/Unsubscribe"
+```json title="订阅 / 取消订阅"
 {
   "method": "SUBSCRIBE/UNSUBSCRIBE",
-  "params": ["{trade}@{listenKey}"],
+  "params": ["trade@{ListenKey}"],
   "id": "{id}"
 }
 ```
 
----
+### 响应示例
 
-### Response Example
-
-```json title="Response"
+```json title="响应示例"
 {
   "topic": "trade",
   "event": "trade@123456",
   "data": {
-    "orderId": "12312312", // Order ID
-    "clientOrderId": "123456", // Client order ID
-    "price": "34244", // Price
-    "quantity": "123", // Quantity
-    "marginUnfrozen": "123", // Quantity of unfrozen margin
-    "timestamp": 1731231231, // Timestamp
-    "symbol": "btc_usdt", // Symbol
-    "orderSide": "BUY", // Order side
-    "positionSide": "LONG", // Position side
-    "isMaker": true, // Is maker or not (true=maker, false=taker)
-    "fee": 0.0002 // Fee
+    "orderId": "12312312", // 订单ID
+    "clientOrderId": "123456", // 客户订单ID
+    "price": "34244", // 价格
+    "quantity": "123", // 数量
+    "marginUnfrozen": "123", // 解冻保证金数量
+    "timestamp": 1731231231, // 时间戳
+    "symbol": "btc_usdt", // 交易对
+    "orderSide": "BUY", // 订单方向
+    "positionSide": "LONG", // 仓位方向
+    "isMaker": true, // 是否为挂单方（true=挂单方，false=吃单方）
+    "fee": 0.0002 // 手续费
   }
 }
+```
+
+```
+
 ```

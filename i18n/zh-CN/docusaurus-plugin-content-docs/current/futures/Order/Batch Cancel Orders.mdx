@@ -16,7 +16,7 @@ import CodeBlock from '@theme/CodeBlock';
 | 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
 | --- | --- | --- | --- | --- | --- |
 | orderIds | string | true | N/A | 订单 ID（逗号分隔） |  |
-
+| clientOrderIds  | string | FALSE | N/A | 客户端订单 ID（逗号分隔） |  |
 ### 限流规则
 
 200/s/apikey
@@ -29,7 +29,7 @@ import CodeBlock from '@theme/CodeBlock';
   -H "validate-timestamp: $TIMESTAMP" \  # 必须
   -H "validate-singature: $SINGATURE" \  # 必须
   -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
-  -d "orderIds=111111,222222,333333"  # 必须
+  --form 'orderIds="[\"558427531653690240\",\"558427531653690241\"]"'  # 非必须
 `}
 </CodeBlock>
 

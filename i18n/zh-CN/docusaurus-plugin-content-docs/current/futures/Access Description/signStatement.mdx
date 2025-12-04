@@ -5,32 +5,35 @@ sidebar_label: 签名说明
 sidebar_position: 4
 ---
 
-由于 XT 为第三方平台提供开放接口，必须确保**数据安全**——例如防止数据篡改、避免过时数据、阻止重复提交以及控制请求频率。其中，验证数据是否被篡改是最关键的。
+#### 签名参数说明
 
-### 签名规则
+由于 XT 为第三方平台提供开放接口，必须确保数据安全——例如防止数据篡改、避免过时数据、阻止重复提交以及控制请求频率。
+其中，**验证数据是否被篡改** 是最关键的。
 
-1. **AppKey & SecretKey** 线下分发。不同的调用应使用不同的 `appkey` 和 `secretkey`。
+##### 签名参数
+1. **validate-appkey** — 为申请 API Key 后获取的公钥
+2. **validate-timestamp** — 为请求时间的毫秒级时间戳（Unix 时间戳），请求的有效性基于此值和 `validate-recvwindow` 计算
+3. **validate-signature** — 部分接口请求数据须签名，签名规则见（[访问说明 -> 获取签名](../Access Description/Signature)）
+4. **validate-recvwindow** — 该次请求的有效期由 recvwindow 确定。默认为 5 秒，最大 60 秒
+   - 如果时间戳比服务器时间早 5000ms 以上，请求无效
+   - 如果客户端时间戳比服务器提前 1 秒以上，请求也会被拒绝
+   - RecvWindow 不建议超过 5 秒，此机制处理网络抖动并有助于确保高频交易中的时效性
+5. **validate-algorithms** — 签名使用基于 HSC 的协议计算
+   - 默认：HmacSHA256
+   - 支持：HmacMD5、HmacSHA1、HmacSHA224、HmacSHA256、HmacSHA384、HmacSHA512
 
-2. **Timestamp** 添加请求时间的**毫秒级时间戳（Unix 时间戳）**。请求的有效性基于此值计算。
+---
 
-3. **Signature** 所有请求数据必须签名。
-
-4. **RecvWindow** 有效期由 `recvWindow` 设置。默认为 **5 秒**，最大 **60 秒**。
-
-   - 如果时间戳比服务器时间**早 5000ms 以上**，请求无效。
-   - 如果客户端时间戳比服务器**提前 1 秒以上**，请求也会被拒绝。
-   - RecvWindow **不建议超过 5 秒**。此机制处理**网络抖动**并有助于确保高频交易中的时效性。
-
-5. **签名算法** 签名使用基于 HSC 的协议计算。默认：**HmacSHA256** 支持：`HmacMD5`、`HmacSHA1`、`HmacSHA224`、`HmacSHA256`、`HmacSHA384`、`HmacSHA512`
-
-### 必需的签名参数
+#### 请求头签名相关参数列表
 
 | 名称 | 必填 | 示例 | 描述 |
-| --- | --- | --- | --- |
-| validate-appkey | true | `dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83` | API Key |
-| validate-timestamp | true | `1641446237201` | Unix 时间戳（毫秒） |
-| validate-signature | true | `0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d` | 生成的签名 |
-| validate-recvwindow | false | `5000`（毫秒） | 有效性时间窗口 |
-| validate-algorithms | false | `HmacSHA256` | 默认 `HmacSHA256` |
-| api-version | false | `1.0` | 保留字段，API 版本号 |
-| validate-signversion | false | `1.0` | 保留字段，签名版本 |
+|------|------|------|------|
+| validate-appkey | TRUE | dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83 | 公钥 |
+| validate-timestamp | TRUE | 1641446237201 | Unix 时间戳（毫秒） |
+| validate-signature | TRUE | 0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d | 生成的签名 |
+| validate-recvwindow | FALSE | 5000（毫秒） | 有效性时间窗口 |
+| validate-algorithms | FALSE | HmacSHA256 | 默认 HmacSHA256 |
+| api-version | FALSE | 1 | 保留字段，API 版本号 |
+| validate-signversion | FALSE | 1 | 保留字段，签名版本 |
+
+---

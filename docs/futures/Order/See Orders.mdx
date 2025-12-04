@@ -20,7 +20,7 @@ import CodeBlock from '@theme/CodeBlock';
 | size | integer | false | 10 | Quantity of a single page |  |
 | startTime | integer | false | N/A | Start time |  |
 | endTime | integer | false | N/A | End time |  |
-| state | string | false | NEW | Order state: `NEW` (New order, unfilled); `PARTIALLY_FILLED` (Partial deal); `PARTIALLY_CANCELED` (Partial revocation); `FILLED` (Filled); `CANCELED` (Cancelled); `REJECTED` (Order failed); `EXPIRED` (Expired); `UNFINISHED` (Unfinished); `HISTORY` (History) | PREV; NEXT |
+| state | string | false | NEW | Order state: `NEW` (New order, unfilled); `PARTIALLY_CANCELED` (Partial revocation); `FILLED` (Filled); `CANCELED` (Cancelled); `REJECTED` (Order failed); `EXPIRED` (Expired); `UNFINISHED` (Unfinished); `HISTORY` (History) | PREV; NEXT |
 | symbol | string | false | N/A | Trading pair |  |
 
 ### Limit Flow Rules
@@ -30,7 +30,7 @@ import CodeBlock from '@theme/CodeBlock';
 ### Request Example
 
 <CodeBlock language="bash" title="Request">
-{`curl -G "https://fapi.xt.com/future/trade/v1/order/list" \
+  {`curl -G "https://fapi.xt.com/future/trade/v1/order/list" \
   -H "validate-appkey: $APPKEY" \  # Required
   -H "validate-timestamp: $TIMESTAMP" \  # Required
   -H "validate-singature: $SINGATURE" \  # Required
@@ -85,7 +85,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 ### Error Codes
 
-| Error code | Description |
-| --- | --- |
-| invalid state | Invalid state parameter |
+| Error code     | Description                     |
+| -------------- | ------------------------------- |
+| invalid state  | Invalid state parameter         |
 | invalid_symbol | The trading pair does not exist |

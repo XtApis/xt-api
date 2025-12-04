@@ -36,6 +36,25 @@ sidebar_position: 4
 
 ### 请求示例
 
+```json title="Request"
+  curl --location --request POST 'https://sapi.xt.com/v4/withdraw' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+    --header 'validate-algorithms: HmacSHA256' \
+    --header 'validate-recvwindow: 60000' \
+    --header 'validate-appkey: xxxxxxxxxx' \
+    --header 'validate-timestamp: xxxxxxxxxx' \
+    --header 'validate-signature: xxxxxxxxxx' \
+    --data '{
+        "currency": "XT",
+        "chain": "XT Smart Chain",
+        "amount": 10,
+        "address": "xxxxxxxxxx"
+    }'
+```
+
+### 响应示例
+
 ```json
 {
   "currency": "zb",

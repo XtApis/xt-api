@@ -19,6 +19,14 @@ sidebar_position: 6
 
 10/s/ip
 
+### Request Example
+
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/trade/recent?symbol=XT_USDT&limit=200' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### Response Example
 
 ```json title="Response"
@@ -28,12 +36,12 @@ sidebar_position: 6
   "ma": [{}],
   "result": [
     {
-      "i": 0,
-      "t": 0,
-      "p": "string",
-      "q": "string",
-      "v": "string",
-      "b": true
+      "i": 0, // ID
+      "t": 0, // trade time
+      "p": "string", // trade price
+      "q": "string", // trade quantity
+      "v": "string", // trade volume
+      "b": true // whether buyer is the maker
     }
   ]
 }

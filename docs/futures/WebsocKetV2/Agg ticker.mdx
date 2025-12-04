@@ -5,36 +5,50 @@ sidebar_label: Agg ticker
 sidebar_position: 12
 ---
 
-### Request Format
+### Request format
 
 ```
 agg_ticker@{symbol}
 ```
 
-- **example**: `agg_ticker@btc_usdt`
-- **rate**: 1000ms
+- Example: `agg_ticker@btc_usdt`
+- Push rate: `1000ms`
 
 ---
 
-### Response Example
+### Request example
 
-```json title="Response"
+**Subscribe** — After establishing the WebSocket connection, send the following JSON string.
+
+```json title="SUBSCRIBE"
+{
+  "method": "SUBSCRIBE",
+  "params": ["agg_ticker@btc_usdt"],
+  "id": "test" // this param could call whatever you want
+}
+```
+
+---
+
+### Response example
+
+```json
 {
   "topic": "agg_ticker",
   "event": "agg_ticker@btc_usdt",
   "data": {
-    "s": "btc_index", // trading pair
-    "o": "49000", // opening price
-    "c": "50000", // closing price
-    "h": "0.1", // highest price
-    "l": "0.1", // lowest price
+    "s": "btc_index", // symbol
+    "o": "49000", // open
+    "c": "50000", // close
+    "h": "0.1", // high
+    "l": "0.1", // low
     "a": "0.1", // volume
-    "v": "0.1", // turnover
-    "ch": "0.21", // quote change
+    "v": "0.1", // quote volume
+    "ch": "0.21", // change
     "i": "0.21", // index price
     "m": "0.21", // mark price
-    "bp": "0.21", // bid price
-    "ap": "0.21", // ask price
+    "bp": "0.21", // best bid
+    "ap": "0.21", // best ask
     "t": 123124124 // timestamp
   }
 }

@@ -18,6 +18,14 @@ sidebar_position: 4
 
 10次/秒/IP
 
+### 请求示例
+
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/depth?symbol=XT_USDT&limit=100' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### 响应示例
 
 ```json title="Response"
@@ -26,14 +34,14 @@ sidebar_position: 4
   "mc": "SUCCESS",
   "ma": [],
   "result": {
-    "timestamp": 1662445330524,
-    "lastUpdateId": 137333589606963580,
+    "timestamp": 1662445330524, // 时间戳
+    "lastUpdateId": 137333589606963580, // 最后更新记录
     "bids": [
       ["200.0000", "0.996000"],
       ["100.0000", "0.001000"],
       ["20.0000", "10.000000"]
-    ],
-    "asks": []
+    ], // 买盘 [价位,挂单量]
+    "asks": [] // 卖盘 [价位,挂单量]
   }
 }
 ```

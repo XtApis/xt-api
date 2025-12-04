@@ -7,40 +7,38 @@ sidebar_position: 10
 
 ### Subscribe / Unsubscribe
 
-```json title="Subscribe/Unsubscribe"
+```json title="Subscribe / Unsubscribe"
 {
   "method": "SUBSCRIBE/UNSUBSCRIBE",
-  "params": ["{order}@{listenKey}"],
+  "params": ["order@{ListenKey}"],
   "id": "{id}"
 }
 ```
 
----
-
-### Response Example
+### Response
 
 ```json title="Response"
 {
   "topic": "order",
   "event": "order@123456",
   "data": {
-    "symbol": "btc_usdt", // Trading pair
-    "orderId": "1234", // Order ID
-    "origQty": "34244", // Original quantity
-    "avgPrice": "123", // Average price
-    "price": "1111", // Order price
-    "executedQty": "34244", // Executed quantity (Cont)
-    "orderSide": "BUY", // BUY or SELL
-    "timeInForce": "IOC", // Valid way
-    "positionSide": "LONG", // LONG or SHORT
-    "marginFrozen": "123", // Occupied margin
-    "sourceType": "default", // DEFAULT: normal order; ENTRUST: plan commission; PROFIT: Take Profit and Stop Loss
-    "type": "ORDER", // Type
-    "state": "FILLED", // Order state: NEW, PARTIALLY_FILLED, PARTIALLY_CANCELED, FILLED, CANCELED, REJECTED, EXPIRED
-    "createdTime": 1731231231, // Create time
-    "leverage": 20, // Leverage
-    "positionType": "ISOLATED", // Position type: CROSSED, ISOLATED
-    "orderType": "MARKET" // Order type: LIMIT, MARKET
+    "symbol": "btc_usdt", // symbol
+    "orderId": "1234", // order ID
+    "origQty": "34244", // original quantity
+    "avgPrice": "123", // average filled price
+    "price": "1111", // order price
+    "executedQty": "34244", // filled quantity (contracts)
+    "orderSide": "BUY", // BUY (buy) or SELL (sell)
+    "timeInForce": "IOC", // time in force
+    "positionSide": "LONG", // LONG (long) or SHORT (short)
+    "marginFrozen": "123", // frozen margin
+    "sourceType": "default", // DEFAULT: normal; ENTRUST: conditional; PROFIT: TP/SL
+    "type": "ORDER", // type
+    "state": "FILLED", // NEW, PARTIALLY_FILLED, PARTIALLY_CANCELED, FILLED, CANCELED, REJECTED, EXPIRED
+    "createdTime": 1731231231, // create time (timestamp)
+    "leverage": 20, // leverage
+    "positionType": "ISOLATED", // CROSSED (cross), ISOLATED (isolated)
+    "orderType": "MARKET" // LIMIT (limit), MARKET (market)
   }
 }
 ```

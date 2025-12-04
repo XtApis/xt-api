@@ -22,6 +22,14 @@ sidebar_position: 5
 
 10/s/ip
 
+### Request Example
+
+```bash title="Request"
+  curl --location --request GET 'https://sapi.xt.com/v4/public/kline?symbol=XT_USDT&interval=3m&startTime=xxxxxxxxx&endTime=xxxxxxxxx&limit=100' \
+    --header 'accept: */*' \
+    --header 'Content-Type: application/json' \
+```
+
 ### Response
 
 ```json title="Response"

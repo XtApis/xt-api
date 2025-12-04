@@ -5,25 +5,39 @@ sidebar_label: Mark price
 sidebar_position: 15
 ---
 
-### Request Format
+### Request format
 
 ```
 mark_price@{symbol}
 ```
 
-- **example**: `mark_price@btc_usdt`
-- **rate**: 1000ms
+- Example: `mark_price@btc_usdt`
+- Push rate: `1000ms`
 
 ---
 
-### Response Example
+### Request example
 
-```json title="Response"
+**Subscribe** — After establishing the WebSocket connection, send the following JSON string.
+
+```json title="SUBSCRIBE"
+{
+  "method": "SUBSCRIBE",
+  "params": ["mark_price@btc_usdt"],
+  "id": "test" // this param could call whatever you want
+}
+```
+
+---
+
+### Response example
+
+```json
 {
   "topic": "mark_price",
   "event": "mark_price@btc_usdt",
   "data": {
-    "s": "btc_usdt", // trading pair
+    "s": "btc_usdt", // symbol
     "p": "50000", // price
     "t": 123124124 // timestamp
   }

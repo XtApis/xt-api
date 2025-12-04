@@ -5,23 +5,17 @@ sidebar_label: General WSS information
 sidebar_position: 1
 ---
 
-### Description
+## General WebSocket Information
 
-General WebSocket information for connecting to **XT WebSocket services**.
-
----
-
-### Base Address
-
-wss://fstream.x.group/ws/market
+**Base URL**: `wss://fstream.x.group/ws/market` _(Public channels; no listenKey required)_
 
 ---
 
 ### Request Headers
 
-The request header of the compression extension protocol must be added:
+When initiating the HTTP upgrade for the WebSocket connection, it is recommended to enable the per‑message compression extension:
 
-```http
+```http title="Recommended Header"
 Sec-Websocket-Extensions: permessage-deflate
 ```
 
@@ -29,21 +23,106 @@ Sec-Websocket-Extensions: permessage-deflate
 
 ### Subscription Steps
 
-**Step 1:** Call the interface `future/v1/user/listen-key` to obtain the **listenKey**.
+1. Establish a WebSocket connection.
+2. To subscribe to a public channel event, send:
 
-**Step 2:** When subscribing to user-related WebSocket events, send:
-
-```json
+```json title="Subscribe"
 {
   "method": "SUBSCRIBE",
-  "params": ["order@{listenKey obtained in the previous step}"],
-  "id": "test1"
+  "params": ["{topic}@{symbol_you_follow}"],
+  "id": "id_field_could_call_whatever_you_want"
 }
 ```
 
 ---
 
+## Request Message Format
+
+**Subscribe / Unsubscribe example**
+
+```json title="Message format"
+{
+  "method": "SUBSCRIBE/UNSUBSCRIBE",
+  "params": ["{topic1}@{arg1},{arg2}", "{topic2}@{arg}"],
+  "id": "id_field_could_call_whatever_you_want" // callback ID
+}
+```
+
+---
+
+## Response Message Format
+
+```json title="Response"
+{
+  "id": "{id}", // callback ID
+  "code": 1, // result 0=success; 1=failure; 2=listenKey invalid
+  "msg": ""
+}
+```
+
+---
+
+## Push Message Format
+
+```json title="Format"
+{
+  "topic": "topic",
+  "event": "{topic}@{symbol}", // title
+  "data": {}
+}
+```
+
+```json title="Example"
+{
+  "topic": "trade",
+  "event": "trade@btc_usdt",
+  "data": {
+    "s": "btc_usdt",
+    "i": 6316559590087222000,
+    "t": 1655992403617,
+    "p": "43000",
+    "q": "0.21",
+    "b": true
+  }
+}
+```
+
+---
+
+## Heartbeat
+
+Each client connection must periodically send a **text** `ping` message. The server will reply with a **text** `pong`.
+
+If the server does not receive a `ping` within **30 seconds**, it will proactively close the connection.
+
+---
+
+## Error Codes
+
+| Error code | Description                           |
+| ---------- | ------------------------------------- |
+| 400        | Bad request payload. Please check it. |
+
+---
+
+## Order Book Management
+
+**How to maintain a local order book correctly**
+
+1. Connect to `wss://fstream.xt.com/ws/market`, and subscribe to `depth_update@btc_usdt`.
+2. Buffer the events received from the stream.
+3. Fetch a depth snapshot: `https://fapi.xt.com/future/market/v1/public/depth?symbol=btc_usdt&level=500`.
+4. Discard any event where `u <= lastUpdateId` in the snapshot.
+5. The first processed event should satisfy `fu <= lastUpdateId + 1` and `u >= lastUpdateId + 1`.
+6. While listening to the stream, each new event must have `fu == previous.u + 1`.
+7. The data in each event is the **absolute** quantity at each price level.
+8. If the quantity is `0`, remove that price level.
+9. Receiving deletion of a price level that does not exist locally may happen and is normal.
+
 ### Notes
 
-- If you receive **`invalid_listen_key`**, it means the listenKey is expired or invalid. 👉 Re-request a new listenKey through the interface.
-- User-related data will be pushed **after subscription is successful**.
+Because the depth snapshot limits the number of levels, levels that have **no changes** after the initial snapshot will not be updated in the incremental depth stream. Therefore, even if you apply all updates correctly, those levels will not appear in the local order book, which may cause minor differences from the actual order book. For most use cases, a 500‑level snapshot is sufficient to understand the market and trade effectively.
+
+```
+
+```

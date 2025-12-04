@@ -5,27 +5,48 @@ sidebar_label: 指数价格
 sidebar_position: 14
 ---
 
-### 请求格式
+## Index Price ✅
+
+### Request format
 
 ```
 index_price@{symbol}
 ```
 
-- **示例**：`index_price@btc_usdt`
-- **推送频率**：1000ms
+- Example: `index_price@btc_usdt`
+- Push rate: `1000ms`
 
 ---
 
-### 响应示例
+### Request example
 
-```json title="响应"
+**Subscribe** — After establishing the WebSocket connection, send the following JSON string.
+
+```json title="SUBSCRIBE"
+{
+  "method": "SUBSCRIBE",
+  "params": [
+    "index_price@btc_usdt"
+  ],
+  "id": "test"     // this param could call whatever you want
+}
+```
+
+---
+
+### Response example
+
+```json
 {
   "topic": "index_price",
   "event": "index_price@btc_usdt",
   "data": {
-    "s": "btc_usdt", // 交易对
-    "p": "50000", // 价格
-    "t": 123124124 // 时间戳
+    "s": "btc_usdt", // symbol
+    "p": "50000",    // price
+    "t": 123124124   // timestamp
   }
 }
 ```
+
+
+
