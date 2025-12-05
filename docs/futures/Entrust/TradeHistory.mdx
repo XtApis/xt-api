@@ -1,0 +1,64 @@
+---
+id: TradeHistory
+title: Query Historical Filled Orders
+sidebar_label: Trade History
+sidebar_position: 6
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/order/trade-history`
+
+### Rate Limit
+`200/s/apikey`
+
+### Parameters
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| limit | integer | FALSE | 10 | Quantity | Max 500 |
+| startTime | integer | FALSE | N/A | Start time | Default: query data from 90 days ago |
+| endTime | integer | FALSE | N/A | End time |  |
+| symbol | string | TRUE | N/A | Trading pair |  |
+
+### Request Example
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/order/trade-history" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \ 
+  -d "limit=10" \ 
+  -d "startTime=1762074200000"  \ 
+  -d "endTime=1762074242467" \ 
+```
+
+### Response Example
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+        [          // Data list
+            {
+              "symbol": "BTCUSDT",            // string, trading pair
+              "orderSide": "BUY",             // string, "BUY" or "SELL"
+              "avgPrice": "67234.50",         // string, serialized BigDecimal to prevent precision loss
+              "origQty": "0.012",             // string, original order quantity (contracts or coins)
+              "executedQty": "0.012",         // string, executed quantity
+              "updatedTime": 1735698765000     // number, timestamp in ms (long type, usually not converted to string)
+            }
+        ]
+    },
+    "returnCode": 0
+}
+```
+
+### Error Codes
+| Error code | Description |
+|-------------|-------------|
+| invalid_symbol | Invalid trading pair |
+
+---

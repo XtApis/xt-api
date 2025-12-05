@@ -1,0 +1,95 @@
+---
+id: ProfitListHistory
+title: 查询历史止盈止损委托
+sidebar_label: 查询历史止盈止损委托
+sidebar_position: 24
+---
+
+**类型:** GET  
+**描述:** `/future/trade/v1/entrust/profit-list-history`
+
+### 限流规则
+`200/s/apikey`
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| id | integer | FALSE | 1 | 页码 |  |
+| limit | integer | FALSE | 10 | 单页数量 |  |
+| startTime | integer | FALSE | N/A | 开始时间 | 默认查询90天前 |
+| endTime | integer | FALSE | N/A | 结束时间 |  |
+| symbol | string | FALSE | N/A | 交易对 |  |
+| direction | string | FALSE | NEXT | NEXT；PREVIOUS |
+
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/profit-list-history" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \
+  -d "page=1" \
+  -d "size=10" \
+  -d "startTime=1762074200000" \
+  -d "endTime=1762074242467" \
+```
+
+### 响应示例
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // 是否有下一页
+      "hasPrev": false,   // 是否有上一页
+      "items": [          // 数据列表
+        {
+          "profitId": "",                       // string！Long转的（委托id）
+          "symbol": "BTCUSDT",                  // string，交易对
+          "positionSide": "LONG",               // string，"LONG" / "SHORT"
+          "origQty": "0.020",                   // string，委托数量（张）
+          "leverage": 20,                       // int，杠杆倍数
+          "triggerPriceType": "MARK_PRICE",     // string，INDEX_PRICE / MARK_PRICE / LATEST_PRICE
+          "triggerProfitPrice": "68500.00",     // string，止盈触发价
+          "triggerStopPrice": "59500.00",       // string，止损触发价
+          "entryPrice": "63250.80",             // string，开仓均价
+          "positionSize": "0.020",              // string，当前持仓数量（张）
+          "isolatedMargin": "63.25",            // string，逐仓保证金（仅逐仓有值）
+          "executedQty": "0.020",               // string，已成交数量
+          "avgPrice": "68320.50",               // string，已成交均价
+          "positionType": "ISOLATED",           // string，仓位模式：ISOLATED / CROSSED
+          "delegateQty": "0.020",               // string，实际委托数量
+          "delegatePrice": "68200.00",          // string，实际委托价格（市价单时通常为0或null）
+          "profitDelegateOrderType": "1",       // string，"1"限价 "2"市价（止盈）
+          "profitDelegateTimeInForce": "1",     // string，"1"GTC "2"FOK "3"IOC "4"GTX
+          "profitDelegatePrice": "68200.00",    // string，止盈限价单价格（市价时可为null）
+          "stopDelegateOrderType": "2",         // string，"1"限价 "2"市价（止损）
+          "stopDelegateTimeInForce": "3",       // string，止损常用IOC
+          "stopDelegatePrice": null,            // string，市价止损时为null
+          "closeType": "ALL",                   // string，"ALL"全平 "FIXED"固定数量
+          "state": "TRIGGERED",                 // string，关键状态：NOT_TRIGGERED / TRIGGERING / TRIGGERED / USER_REVOCATION / PLATFORM_REVOCATION / EXPIRED / DELEGATION_FAILED
+          "desc": "止盈触发，市价全平成功",         // string，描述/撤销原因
+          "triggerPriceSide": "PROFIT",         // string，实际触发方向：PROFIT / STOP （触发后才有值）
+          "createdTime": 1735689000000,         // number，创建时间（毫秒）
+          "updatedTime": 1735690123000,         // number，最后更新时间
+          "sourceType": "WEB",                  // string，来源：WEB / APP / API / STRATEGY 等
+          "profitType": 0,                      // int，0=普通止盈止损 1=MMR强止
+          "mmrThreshold": null                  // string，MMR止损时才会有值，如 "0.05"
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### 错误码
+| Error code | Desc |
+|-------------|------|
+| invalid_direction | direction 不正确 |
+| invalid_limit | limit参数设置不正确 |
+| invalid_symbol | 交易对不存在 |

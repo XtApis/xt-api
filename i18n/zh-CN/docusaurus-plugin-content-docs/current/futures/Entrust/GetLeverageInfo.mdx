@@ -1,0 +1,65 @@
+---
+id: GetLeverageInfo
+title: 获取杠杆信息
+sidebar_label: 获取杠杆信息
+sidebar_position: 32
+---
+
+**类型:** GET  
+**描述:** `/future/trade/v1/position/leverage/list`
+
+---
+**限流规则**  
+200/s/apikey
+
+---
+**请求参数**
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|----------|------|------|
+| symbol | string | TRUE | N/A | 交易对 |  |
+
+---
+**请求示例**
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/position/leverage/list" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \ # 必须
+```
+
+---
+**响应示例**
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // 是否有下一页
+      "hasPrev": false,   // 是否有上一页
+      "items": [          // 数据列表
+        {
+          "symbol": "BTCUSDT",                    // string，交易对
+          "accountId": "",                         // 账户id
+          "positionType": "ISOLATED",             // string，"CROSSED" 全仓 / "ISOLATED" 逐仓
+          "positionSide": "LONG",                 // string，"LONG" / "SHORT"
+          "contractType": "PERPETUAL",            // string，"PERPETUAL" 永续 / "PREDICT" 预测合约
+          "leverage": 25                           // int，当前生效的杠杆倍数
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+---
+**错误码**
+
+| 错误码 | 描述 |
+|---------|------|
+| invalid_symbol | 交易对不存在 |

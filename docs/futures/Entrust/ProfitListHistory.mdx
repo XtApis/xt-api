@@ -1,0 +1,98 @@
+---
+id: ProfitListHistory
+title: Query Historical Take-Profit & Stop-Loss Orders
+sidebar_label: Profit List History
+sidebar_position: 24
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/entrust/profit-list-history`
+
+### Rate Limit
+`200/s/apikey`
+
+### Parameters
+
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| id | integer | FALSE | 1 | Page number |  |
+| limit | integer | FALSE | 10 | Page size |  |
+| startTime | integer | FALSE | N/A | Start time | Default: query data from 90 days ago |
+| endTime | integer | FALSE | N/A | End time |  |
+| symbol | string | FALSE | N/A | Trading pair |  |
+| direction | string | FALSE | NEXT | NEXT; PREVIOUS |
+
+### Request Example
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/profit-list-history" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \
+  -d "page=1" \
+  -d "size=10" \
+  -d "startTime=1762074200000" \
+  -d "endTime=1762074242467" \
+```
+
+### Response Example
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // Has next page
+      "hasPrev": false,   // Has previous page
+      "items": [          // Data list
+        {
+          "profitId": "",                       // string, Long converted (order ID)
+          "symbol": "BTCUSDT",                  // Trading pair
+          "positionSide": "LONG",               // Position side: LONG / SHORT
+          "origQty": "0.020",                   // Order quantity (contracts)
+          "leverage": 20,                        // Leverage multiplier
+          "triggerPriceType": "MARK_PRICE",     // Trigger price type: INDEX_PRICE / MARK_PRICE / LATEST_PRICE
+          "triggerProfitPrice": "68500.00",     // Take-profit trigger price
+          "triggerStopPrice": "59500.00",       // Stop-loss trigger price
+          "entryPrice": "63250.80",             // Entry average price
+          "positionSize": "0.020",              // Current position size (contracts)
+          "isolatedMargin": "63.25",            // Isolated margin (only valid in isolated mode)
+          "executedQty": "0.020",               // Executed quantity
+          "avgPrice": "68320.50",               // Average executed price
+          "positionType": "ISOLATED",           // Position mode: ISOLATED / CROSSED
+          "delegateQty": "0.020",               // Actual order quantity
+          "delegatePrice": "68200.00",          // Actual order price (0 or null for market orders)
+          "profitDelegateOrderType": "1",       // Take-profit order type: 1=Limit, 2=Market
+          "profitDelegateTimeInForce": "1",     // Take-profit TIF: 1=GTC 2=FOK 3=IOC 4=GTX
+          "profitDelegatePrice": "68200.00",    // Take-profit limit price (nullable for market orders)
+          "stopDelegateOrderType": "2",         // Stop-loss order type: 1=Limit, 2=Market
+          "stopDelegateTimeInForce": "3",       // Common stop-loss TIF: IOC
+          "stopDelegatePrice": null,             // Null for market stop-loss orders
+          "closeType": "ALL",                   // Close type: ALL=Full Close, FIXED=Partial Close
+          "state": "TRIGGERED",                 // Order state: NOT_TRIGGERED / TRIGGERING / TRIGGERED / USER_REVOCATION / PLATFORM_REVOCATION / EXPIRED / DELEGATION_FAILED
+          "desc": "Take-profit triggered, full close successful",  // Description or revoke reason
+          "triggerPriceSide": "PROFIT",         // Actual trigger side: PROFIT / STOP (available after trigger)
+          "createdTime": 1735689000000,          // Creation timestamp (ms)
+          "updatedTime": 1735690123000,          // Last update time
+          "sourceType": "WEB",                  // Source: WEB / APP / API / STRATEGY
+          "profitType": 0,                       // 0=Normal TP/SL, 1=MMR forced stop
+          "mmrThreshold": null                   // Available only when profitType=1, e.g., "0.05"
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### Error Codes
+| Error code | Description |
+|-------------|-------------|
+| invalid_direction | Direction incorrect |
+| invalid_limit | Invalid limit parameter |
+| invalid_symbol | Invalid trading pair |
+
+---
+

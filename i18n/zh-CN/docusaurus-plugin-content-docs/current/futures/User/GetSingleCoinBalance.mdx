@@ -1,0 +1,65 @@
+---
+id: GetSingleCoinBalance
+title: 查询单币种资产
+sidebar_label: 查询单币种资产
+sidebar_position: 23
+---
+
+**类型:** GET  
+**描述:** `/future/user/v1/compat/balance/{coin}`
+
+---
+**限流规则**  
+200/s/apikey
+
+---
+**请求参数**  
+-
+
+---
+**请求示例**
+```bash
+curl -G "https://fapi.xt.com/future/user/v1/compat/balance/usdt" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+```
+
+---
+**响应示例**
+```json
+{
+    "rc":0,
+    "mc":"",
+    "ma":"",
+    "result": {
+          "accountId": 900123456789,                            // number，账户ID
+          "userId": 10086,                                      // number，用户ID
+          "coin": "USDT",                                       // string，当前资产币种
+          "underlyingType": 2,                                  // int，1=币本位 2=U本位
+          "walletBalance": "15234.87654321",                    // string，钱包总余额（含冻结）
+          "openOrderMarginFrozen": "800.00000000",              // string，开仓挂单冻结保证金
+          "isolatedMargin": "2150.50000000",                    // string，逐仓仓占用保证金
+          "crossedMargin": "4300.00000000",                     // string，全仓占用保证金
+          "amount": "8434.37654321",                            // string，可用余额（净资产余额）
+          "totalAmount": "12734.87654321",                      // string，保证金余额 = walletBalance + 未实现盈亏
+          "convertBtcAmount": "0.22681500",                     // string，钱包资产折算BTC量（特殊精度）
+          "convertUsdtAmount": "15234.88",                      // string，钱包资产折算USDT量（特殊精度）
+          "profit": "1250.45",                                  // string，已实现盈亏（累计）
+          "notProfit": "-500.00",                               // string，未实现盈亏（浮动盈亏）
+          "bonus": "1000.00000000",                             // string，体验金余额
+          "coupon": "300.00000000",                             // string，抵扣券余额
+          "depositCoupon": "5000.00000000",                     // string，储蓄券余额
+          "marginBalance": "13234.87654321",                    // string，最终保证金余额（可用于开仓的核心字段）
+          "openOrderFeeFrozen": "15.88"                         // string，开仓挂单预冻手续费
+    }
+}
+```
+
+---
+**错误码**
+
+| 错误码 | 描述 |
+|---------|------|
+| - | - |

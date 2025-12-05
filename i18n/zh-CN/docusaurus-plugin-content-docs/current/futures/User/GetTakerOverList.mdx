@@ -1,0 +1,88 @@
+---
+id: GetTakerOverList
+title: 查询接管记录
+sidebar_label: 查询接管记录
+sidebar_position: 24
+---
+
+**类型:** GET  
+**描述:** `/future/user/v1/taker-over/list`
+
+---  
+**限流规则**  
+200/s/apikey
+
+---  
+**请求参数**  
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|----------|------|------|
+| id | integer | FALSE | 1 | 页码 | - |
+| direction | string | FALSE | NEXT | NEXT；PREVIOUS |
+| limit | integer | FALSE | 10 | 单页数量 | - |
+| startTime | integer | FALSE | N/A | 开始时间 | - |
+| endTime | integer | FALSE | N/A | 结束时间 | - |
+| symbol | string | FALSE | N/A | 交易对 | - |
+
+---  
+**请求示例**
+```bash
+curl -G "https://fapi.xt.com/future/user/v1/taker-over/list" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \  
+  -d "id=1" \  
+  -d "limit=10" \  
+  -d "startTime=1762074200000" \  
+  -d "endTime=1762074242467" \  
+```
+
+---  
+**响应示例**
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // 是否有下一页
+      "hasPrev": false,   // 是否有上一页
+      "items": [          // 数据列表
+        {
+          "requestId": 9876543210987654321,                 
+          "tenantId": 10001,                                 // Long，租户ID（多租户系统用，单租户可为null或固定值）
+          "accountId": 900123456789,                         // long，合约账户ID
+          "userId": 55667788,                                // long，用户UID
+          "userGroupId": 3001,                               // long，用户分组ID（如VIP、代理等）
+          "symbolId": 1,                                     // long，交易对内部ID（如BTCUSDT=1）
+          "symbolGroupId": 10,                               // long，交易对分组ID（如主流币、DeFi等）
+          "positionType": 2,                                 // int，仓位模式：1=全仓(CROSSED) 2=逐仓(ISOLATED)
+          "positionSide": 1,                                 // int，持仓方向：1=LONG多 2=SHORT空（注意：不是字符串！）
+          "riskAccountId": 900123456789,                     // long，风控系统镜像的accountId（通常与accountId一致）
+          "riskUserId": 55667788,                            // long，风控镜像userId
+          "riskUserGroupId": 3001,                           // long，风控镜像userGroupId
+          "success": true,                                  
+          "positionSize": "0.05200000",                      // string（BigDecimal序列化），当前持仓数量（张）
+          "entryPrice": "6325080000",                        // string（BigDecimal），开仓均价（常放大8位存储）
+          "balance": "1523487654321",                        // string（BigDecimal），账户余额/保证金余额（放大8位）
+          "symbol": "BTCUSDT",                               // string，交易对名称
+          "markPrice": "6712345000000",                      // string（BigDecimal），当前标记价格（放大8位）
+          "marginRate": "01250000",                          // string（BigDecimal），保证金率，如0.125 = 12.5%（已放大8位）
+          "createdTime": 1735701234567                       // 时间戳（毫秒）
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+---  
+**错误码**  
+| 错误码 | 描述 |
+|---------|------|
+| invalid_direction | direction 不正确 |
+| invalid_limit | limit参数设置不正确 |
+| invalid_symbol | 交易对不存在 |

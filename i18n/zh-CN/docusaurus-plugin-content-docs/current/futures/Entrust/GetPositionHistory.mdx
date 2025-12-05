@@ -1,0 +1,92 @@
+---
+id: GetPositionHistory
+title: 查询历史仓位
+sidebar_label: 查询历史仓位
+sidebar_position: 33
+---
+
+**类型:** GET  
+**描述:** `/future/trade/v1/position/list-history`
+
+---
+**限流规则**  
+200/s/apikey
+
+---
+**请求参数**
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|----------|------|------|
+| id | integer | FALSE | 1 | 页码 |  |
+| direction | string | FALSE | NEXT | NEXT；PREVIOUS |
+| limit | integer | FALSE | 10 | 单页数量 |  |
+| symbol | string | FALSE | N/A | 交易对 |  |
+| startTime | long | FALSE | N/A | 开始时间 |  |
+| endTime | long | FALSE | N/A | 结束时间 |  |
+| positionType | integer | FALSE | N/A | 仓位模式 | 1全仓、2逐仓 不传查询全部 |
+| isFullClose | integer | FALSE | N/A | 仓位模式 | 0部分平仓 1全部平仓 不传全部 |
+
+---
+**请求示例**
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/position/list-history" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \ 
+  -d "id=1" \
+  -d "limit=10" \ 
+  -d "startTime=1762074200000"  \
+  -d "endTime=1762074242467" \
+```
+
+---
+**响应示例**
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // 是否有下一页
+      "hasPrev": false,   // 是否有上一页
+      "items": [          // 数据列表
+        {
+          "id": "1987654321098765432",                      // string，仓位历史记录ID（Long转string）
+          "positionSide": "LONG",                           // string，"LONG" 多头 / "SHORT" 空头
+          "contractType": "PERPETUAL",                      // string，"PERPETUAL" 永续 / "PREDICT" 预测合约
+          "symbol": "BTCUSDT",                              // string，交易对
+          "positionType": 2,                                // int，1=全仓 2=逐仓
+          "closeProfit": "127.83",                          // string，已实现盈亏（正数盈利，负数亏损）
+          "closePositionSize": "0.050",                     // string，本次平仓数量（张）
+          "closeOpenPrice": "63250.80",                     // string，被平掉部分的开仓均价
+          "closePrice": "65808.60",                         // string，实际平仓成交均价
+          "maxPositionSize": "0.080",                       // string，这笔仓位生命周期内最高持仓量
+          "openTime": 1735608000000,                        // number，开仓时间戳（毫秒）
+          "closeTime": 1735699200000,                       // number，平仓完成时间戳
+          "startLeverage": 25,                              // int，开仓时杠杆
+          "endLeverage": 25,                                // int，平仓时杠杆
+          "working": false,                                 // boolean，是否为“当前进行中”的仓位（未完全平掉）
+          "force": false,                                   // boolean，是否强平/爆仓
+          "forceMarkPrice": null,                           // string，强平时触发时的标记价
+          "totalFee": "18.92",                             // string，本次仓位生命周期累计手续费
+          "totalFundFee": "3.41",                          // string，本次仓位累计资金费用
+          "welfareAccount": false                           // boolean，是否为体验金/赠金账户产生的仓位
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+---
+**错误码**
+
+| 错误码 | 描述 |
+|---------|------|
+| invalid_direction | direction 不正确 |
+| invalid_limit | limit参数设置不正确 |
+| invalid_symbol | 交易对不存在 |

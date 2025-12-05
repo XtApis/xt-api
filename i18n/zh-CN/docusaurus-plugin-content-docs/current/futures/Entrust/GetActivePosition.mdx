@@ -1,0 +1,71 @@
+---
+id: GetActivePosition
+title: 获取当前持仓信息
+sidebar_label: 获取当前持仓信息
+sidebar_position: 31
+---
+
+**类型:** GET  
+**描述:** `/future/trade/v1/position/list/active`
+
+### 限流规则
+`200/s/apikey`
+
+### 请求参数
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| symbol | string | FALSE | N/A | 交易对 |  |
+| isDelivery | bool | FALSE | FALSE | 是否查询交割 |  |
+
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/position/list/active" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \ 
+```
+
+### 响应示例
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      [
+        {
+          "symbol": "BTCUSDT",                              // string，交易对
+          "positionType": "ISOLATED",                       // string，"CROSSED" 全仓 / "ISOLATED" 逐仓
+          "positionSide": "LONG",                           // string，"LONG" / "SHORT"
+          "contractType": "PERPETUAL",                      // string，"PERPETUAL" 永续 / "PREDICT" 预测合约
+          "positionSize": "0.032",                          // string，持仓数量（张）
+          "closeOrderSize": "0.008",                        // string，当前有平仓挂单的数量
+          "availableCloseSize": "0.024",                    // string，实际还能立刻平掉的数量
+          "entryPrice": "66543.21",                         // string，开仓均价
+          "openOrderSize": "0.010",                         // string，开仓方向挂单占用的数量
+          "isolatedMargin": "106.47",                       // string，逐仓模式下的保证金（全仓时为 "0" 或 null）
+          "openOrderMarginFrozen": "33.27",                 // string，开仓挂单冻结的保证金
+          "realizedProfit": "87.65",                        // string，已实现盈亏（含已平仓部分）
+          "autoMargin": false,                              // boolean，全仓模式下是否自动追加保证金
+          "leverage": 25,                                   // int，当前杠杆倍数
+          "contractSize": "0.001",                          // string，合约面值（1张 = 0.001 BTC）
+          "markPrice": "67234.80",                          // string，当前标记价格（强平/资金费率计算用）
+          "updatedTime": "1735701234567",                   // string，仓位信息最后更新时间戳（Long转string）
+          "welfareExpirationTime": 1767225599000,           // number，赠金/体验金到期时间戳（毫秒），无则 null
+          "mmrProfitId": "1987654321098765432",             // string，MMR强平止损单ID（Long转string），无则 null
+          "mmrThreshold": "0.05"                            // string，MMR阈值，如 5% 触发强止，无则 null                                       
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### 错误码
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | 交易对不存在 |

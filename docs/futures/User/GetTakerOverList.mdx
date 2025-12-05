@@ -1,0 +1,90 @@
+---
+id: GetTakerOverList
+title: Get Taker Over List
+sidebar_label: Get Taker Over List
+sidebar_position: 24
+---
+
+**Type:** GET  
+**Description:** `/future/user/v1/taker-over/list`
+
+---  
+**Rate Limit**  
+200/s/apikey
+
+---  
+**Request Parameters**  
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| id | integer | FALSE | 1 | Page number | - |
+| direction | string | FALSE | NEXT | NEXT; PREVIOUS |
+| limit | integer | FALSE | 10 | Page size | - |
+| startTime | integer | FALSE | N/A | Start time | - |
+| endTime | integer | FALSE | N/A | End time | - |
+| symbol | string | FALSE | N/A | Trading pair | - |
+
+---  
+**Request Example**
+```bash
+curl -G "https://fapi.xt.com/future/user/v1/taker-over/list" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  
+  -d "id=1" \  
+  -d "limit=10" \  
+  -d "startTime=1762074200000" \  
+  -d "endTime=1762074242467" \  
+```
+
+---  
+**Response Example**
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // Whether there is a next page
+      "hasPrev": false,   // Whether there is a previous page
+      "items": [          // Data list
+        {
+          "requestId": 9876543210987654321,                 
+          "tenantId": 10001,                                 // Long, Tenant ID (used in multi-tenant systems, may be null or fixed value for single tenant)
+          "accountId": 900123456789,                         // long, Futures account ID
+          "userId": 55667788,                                // long, User UID
+          "userGroupId": 3001,                               // long, User group ID (e.g., VIP, broker, etc.)
+          "symbolId": 1,                                     // long, Internal symbol ID (e.g., BTCUSDT=1)
+          "symbolGroupId": 10,                               // long, Symbol group ID (e.g., main coin, DeFi, etc.)
+          "positionType": 2,                                 // int, Position mode: 1=CROSSED 2=ISOLATED
+          "positionSide": 1,                                 // int, Position direction: 1=LONG 2=SHORT (integer, not string!)
+          "riskAccountId": 900123456789,                     // long, Mirrored accountId in risk system (usually same as accountId)
+          "riskUserId": 55667788,                            // long, Mirrored userId in risk system
+          "riskUserGroupId": 3001,                           // long, Mirrored userGroupId in risk system
+          "success": true,                                  
+          "positionSize": "0.05200000",                      // string(BigDecimal), Current position size (contracts)
+          "entryPrice": "6325080000",                        // string(BigDecimal), Entry price (scaled by 8)
+          "balance": "1523487654321",                        // string(BigDecimal), Account balance / margin balance (scaled by 8)
+          "symbol": "BTCUSDT",                               // string, Symbol name
+          "markPrice": "6712345000000",                      // string(BigDecimal), Mark price (scaled by 8)
+          "marginRate": "01250000",                          // string(BigDecimal), Margin rate, e.g. 0.125 = 12.5% (scaled by 8)
+          "createdTime": 1735701234567                       // Timestamp (ms)
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+---  
+**Error Codes**  
+| Error code | Description |
+|-------------|-------------|
+| invalid_direction | direction incorrect |
+| invalid_limit | limit parameter incorrect |
+| invalid_symbol | Symbol does not exist |
+
+---  

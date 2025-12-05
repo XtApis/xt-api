@@ -1,0 +1,99 @@
+---
+id: ReversePlanListHistory
+title: 查询历史计划反手
+sidebar_label: 查询历史计划反手
+sidebar_position: 27
+---
+
+**请求方式**  
+类型: GET  
+描述: `/future/trade/v1/entrust/reverse-plan-list-history`
+
+### 限流规则
+`200/s/apikey`
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| page | integer | FALSE | 1 | 页码 |  |
+| size | integer | FALSE | 10 | 单页数量 |  |
+| startTime | integer | FALSE | N/A | 开始时间 |  |
+| endTime | integer | FALSE | N/A | 结束时间 |  |
+| symbol | string | FALSE | N/A | 交易对 |  |
+
+> 注: 该接口限制只能查询五分钟内的数据
+
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/reverse-plan-list-history" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \
+  -d "page=1" \
+  -d "size=10" \
+```
+
+### 响应示例
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // 是否有下一页
+      "hasPrev": false,   // 是否有上一页
+      "items": [          // 数据列表
+        {
+          "entrustId": "",               // 委托id
+          "symbol": 0,                  // 交易对
+          "entrustType": false,         // 委托类型
+          "orderSide": 0,               // 买卖方向
+          "positionSide": 0,            // 持仓方向
+          "timeInForce": 0,             // 有效方式
+          "closePosition": false,       // 是否触发全平
+          "price": 0,                   // 订单价格
+          "origQty": 0,                 // 数量（张）
+          "stopPrice": "",              // 触发价格
+          "triggerPriceType": "",       // 触发价格类型
+          "executedQty": 0,             // 实际成交数量
+          "avgPrice": "",               // 实际成交均价
+          "isOrdinary": 0,              // 是否是普通计划单
+          "state": 0,                   // 订单状态
+          "marketOrderLevel": "",       // 市价最优档
+          "createdTime": "",            // 交易创建时间
+          "updatedTime": "",            // 更新时间
+          "delegateTriggerPriceType": 0,// 止盈止损触发价格类型
+          "triggerProfitPrice": 0,      // 止盈触发价
+          "triggerStopPrice": 0,        // 止损触发价
+          "profitDelegateOrderType": 0, // 止盈委托订单类型
+          "profitDelegateTimeInForce": 0, // 止盈委托有效方式
+          "profitDelegatePrice": 0,     // 止盈委托委托价格
+          "stopDelegateOrderType": 0,   // 止损委托订单类型
+          "stopDelegateTimeInForce": 0, // 止损委托有效方式
+          "stopDelegatePrice": 0,       // 止损委托价格
+          "clientOrderId":0,            // 下单传入的客户端ID
+          "reverseOpenExecutedQty":0,   // 反手开仓实际成交数量
+          "reverseOpenAvgPrice":0,      // 反手开仓实际成交均价
+          "reverseOrderId":0,           
+          "reverseOpenOrderId":0,       
+          "desc":0                      // 描述,撤销、委托失败等描述都会在这里
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### 错误码
+| Error code | Desc |
+|-------------|------|
+| invalid_position_type | Position type不正确 |
+| invalid_position_side | Position side不正确 |
+| invalid_profit_close_type | Position close type不正确 |
+| invalid_state | State 不正确 |
+| invalid_symbol | 交易对不存在 |

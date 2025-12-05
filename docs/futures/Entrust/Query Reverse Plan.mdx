@@ -1,0 +1,99 @@
+---
+id: ReversePlanList
+title: Query Reverse Plan
+sidebar_label: Reverse Plan List
+sidebar_position: 25
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/entrust/reverse-plan-list`
+
+### Rate Limit
+`200/s/apikey`
+
+### Parameters
+
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| positionType | string | FALSE | N/A | Position type | crossed; isolated |
+| positionSide | string | FALSE | N/A | Position side | long; short |
+| closeType | string | FALSE | N/A | Close type | fixed; all |
+| state | string | FALSE | N/A | Order state | not_triggered; triggered; triggering; user_revocation; platform_revocation; expired |
+| symbol | string | FALSE | N/A | Trading pair |  |
+| page | integer | FALSE | 1 | Page number |  |
+| size | integer | FALSE | 10 | Page size |  |
+
+### Request Example
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/reverse-plan-list" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \ 
+```
+
+### Response Example
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // Has next page
+      "hasPrev": false,   // Has previous page
+      "items": [          // Data list
+        {
+          "entrustId": "",               // Entrust ID
+          "symbol": 0,                    // Trading pair
+          "entrustType": false,           // Entrust type
+          "orderSide": 0,                 // Order side
+          "positionSide": 0,              // Position side
+          "timeInForce": 0,               // Time in force
+          "closePosition": false,         // Whether to close all positions
+          "price": 0,                     // Order price
+          "origQty": 0,                   // Quantity (contracts)
+          "stopPrice": "",                // Trigger price
+          "triggerPriceType": "",         // Trigger price type
+          "executedQty": 0,               // Executed quantity
+          "avgPrice": "",                 // Average executed price
+          "isOrdinary": 0,                // Is ordinary plan order
+          "state": 0,                     // Order state
+          "marketOrderLevel": "",         // Market order level
+          "createdTime": "",              // Created time
+          "updatedTime": "",              // Updated time
+          "delegateTriggerPriceType": 0,  // Delegate trigger price type
+          "triggerProfitPrice": 0,        // Take-profit trigger price
+          "triggerStopPrice": 0,          // Stop-loss trigger price
+          "profitDelegateOrderType": 0,   // Take-profit delegate order type
+          "profitDelegateTimeInForce": 0, // Take-profit delegate time in force
+          "profitDelegatePrice": 0,       // Take-profit delegate price
+          "stopDelegateOrderType": 0,     // Stop-loss delegate order type
+          "stopDelegateTimeInForce": 0,   // Stop-loss delegate time in force
+          "stopDelegatePrice": 0,         // Stop-loss delegate price
+          "clientOrderId": 0,             // Client order ID
+          "reverseOpenExecutedQty": 0,    // Reverse open executed quantity
+          "reverseOpenAvgPrice": 0,       // Reverse open average price
+          "reverseOrderId": 0,            // Reverse order ID
+          "reverseOpenOrderId": 0,        // Reverse open order ID
+          "desc": 0                       // Description, such as revoke or failure reason
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### Error Codes
+| Error code | Description |
+|-------------|-------------|
+| invalid_position_type | Position type incorrect |
+| invalid_position_side | Position side incorrect |
+| invalid_profit_close_type | Position close type incorrect |
+| invalid_state | State incorrect |
+| invalid_symbol | Invalid trading pair |
+
+---
+

@@ -1,0 +1,73 @@
+---
+id: GetActivePosition
+title: Get Active Position
+sidebar_label: Get Active Position
+sidebar_position: 31
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/position/list/active`
+
+### Rate Limit
+`200/s/apikey`
+
+### Parameters
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| symbol | string | FALSE | N/A | Trading pair |  |
+| isDelivery | bool | FALSE | FALSE | Whether to query delivery contract |  |
+
+### Request Example
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/position/list/active" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \ 
+```
+
+### Response Example
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      [
+        {
+          "symbol": "BTCUSDT",                              // string, trading pair
+          "positionType": "ISOLATED",                       // string, "CROSSED" (Cross) / "ISOLATED" (Isolated)
+          "positionSide": "LONG",                           // string, "LONG" / "SHORT"
+          "contractType": "PERPETUAL",                      // string, contract type: PERPETUAL / PREDICT
+          "positionSize": "0.032",                          // string, position size (contracts)
+          "closeOrderSize": "0.008",                        // string, quantity in closing orders
+          "availableCloseSize": "0.024",                    // string, quantity available to close immediately
+          "entryPrice": "66543.21",                         // string, average entry price
+          "openOrderSize": "0.010",                         // string, quantity in open orders (same direction)
+          "isolatedMargin": "106.47",                       // string, margin in isolated mode (0/null for cross)
+          "openOrderMarginFrozen": "33.27",                 // string, margin frozen for open orders
+          "realizedProfit": "87.65",                        // string, realized profit/loss
+          "autoMargin": false,                              // boolean, whether auto margin replenishment enabled
+          "leverage": 25,                                   // int, current leverage
+          "contractSize": "0.001",                          // string, contract size (e.g., 1 lot = 0.001 BTC)
+          "markPrice": "67234.80",                          // string, current mark price
+          "updatedTime": "1735701234567",                   // string, last updated timestamp (Long→string)
+          "welfareExpirationTime": 1767225599000,           // number, bonus expiration timestamp (ms), null if none
+          "mmrProfitId": "1987654321098765432",             // string, MMR liquidation order ID (Long→string), null if none
+          "mmrThreshold": "0.05"                            // string, MMR threshold (e.g., 0.05 = 5%), null if none
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### Error Codes
+| Error code | Description |
+|-------------|-------------|
+| invalid_symbol | Invalid trading pair |
+
+---

@@ -1,0 +1,71 @@
+---
+id: GetProfitListHistory
+title: Get Profit List History
+sidebar_label: Get Profit List History
+sidebar_position: 25
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/entrust/profit-list-history`
+
+---  
+**Rate Limit**  
+200/s/apikey
+
+---  
+**Request Parameters**  
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| id | integer | FALSE | 1 | Page number | - |
+| limit | integer | FALSE | 10 | Page size | - |
+| startTime | integer | FALSE | N/A | Start time (Default query 90 days ago) | - |
+| endTime | integer | FALSE | N/A | End time | - |
+| symbol | string | FALSE | N/A | Trading pair | - |
+| direction | string | FALSE | NEXT | NEXT; PREVIOUS |
+
+---  
+**Request Example**
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/entrust/profit-list-history" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \  
+  -d "page=1" \  
+  -d "size=10" \  
+  -d "startTime=1762074200000" \  
+  -d "endTime=1762074242467" \  
+```
+
+---  
+**Response Example**
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // Whether there is a next page
+      "hasPrev": false,   // Whether there is a previous page
+      "items": [          // Data list
+        {
+          "profitId": ""                       // string(Long to string), Entrust ID
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+---  
+**Error Codes**  
+| Error code | Description |
+|-------------|-------------|
+| invalid_direction | direction incorrect |
+| invalid_limit | limit parameter incorrect |
+| invalid_symbol | Symbol does not exist |
+
+---
