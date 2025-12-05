@@ -1,0 +1,108 @@
+---
+id: QueryAllOrders
+title: Query All Orders
+sidebar_label: Query All Orders
+sidebar_position: 30
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/order-entrust/list`
+
+### Rate Limit
+`200/s/apikey`
+
+### Parameters
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| page | integer | FALSE | 1 | Page number |  |
+| size | integer | FALSE | 10 | Page size |  |
+| startTime | long | FALSE | N/A | Start time |  |
+| endTime | long | FALSE | N/A | End time |  |
+| symbol | string | FALSE | N/A | Trading pair |  |
+| type | string | FALSE | NEXT | Type of entrust order: `ORDER` (limit/market) or `ENTRUST` (plan order). Default: `ORDER` |  |
+| state | string | FALSE |  | Order state. Options: `NEW`, `PARTIALLY_FILLED`, `FILLED`, `CANCELED`, `REJECTED`, `PLACED`, `UNFINISHED`, `HISTORY` |  |
+| forceClose | bool | FALSE | FALSE | Whether forced liquidation |  |
+
+### Request Example
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/order-entrust/list" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \ 
+  -d "page=1" \ 
+  -d "size=10" \ 
+  -d "startTime=1762074200000" \ 
+  -d "endTime=1762074242467" \ 
+```
+
+### Response Example
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "page": 1, 
+      "ps": 10, 
+      "total": 99,  
+      "items": [          // Data list
+        {
+          "id": "1876543210987654321",                      // string, order/entrust unified ID (Long→string)
+          "type": "ORDER",                                   // string, "ORDER"=normal order, "ENTRUST"=planned order
+          "symbol": "BTCUSDT",                               // string, trading pair
+          "orderType": "LIMIT",                              // string, LIMIT / MARKET / STOP / TAKE_PROFIT
+          "orderSide": "BUY",                                // string, BUY / SELL
+          "positionSide": "LONG",                            // string, LONG / SHORT / BOTH
+          "timeInForce": "GTC",                              // string, GTC / IOC / FOK / GTX
+          "closePosition": false,                            // boolean, whether close all
+          "price": "67200.00",                               // string, order price
+          "origQty": "0.015",                                // string, order quantity
+          "avgPrice": "67234.50",                            // string, average filled price
+          "executedQty": "0.015",                            // string, filled quantity
+          "marginFrozen": "50.42",                           // string, margin frozen
+          "leverage": 25,                                     // int, leverage (may be 0 for historical orders)
+          "openPrice": "63250.80",                           // string, open price (in hedge mode)
+          "entrustOrderId": null,                             // string, only valid after plan order triggers
+          "closeProfit": "59.51",                            // string, realized PnL (only after full close)
+          "state": "FILLED",                                 // string, NEW / PARTIALLY_FILLED / FILLED / CANCELED / REJECTED / EXPIRED
+          "createdTime": 1735698000000,                      // number, creation timestamp (ms)
+          "updatedTime": 1735698765000,                      // number, last update timestamp (ms)
+          "entrustType": null,                               // string, only valid for plan order (e.g. TAKE_PROFIT_MARKET)
+          "stopPrice": null,                                 // string, trigger price (plan order)
+          "isOrdinary": true,                                // boolean, true=ordinary plan order
+          "marketOrderLevel": null,                          // integer, market optimal level
+          "forceClose": false,                               // boolean, forced liquidation
+          "sourceType": "APP",                               // string, source: WEB / APP / API / COPY
+          "welfareAccount": false,                           // boolean, welfare account
+          "isProfit": false,                                 // boolean, triggered TP/SL
+          "triggerPriceType": null,                          // string, trigger price type
+          "delegateTriggerPriceType": "MARK_PRICE",          // string, TP/SL trigger price type
+          "triggerProfitPrice": "70000.00",                  // string, TP trigger price
+          "profitDelegateOrderType": "LIMIT",                // string, TP order type
+          "profitDelegateTimeInForce": "1",                  // string, "1"=GTC, "2"=FOK, "3"=IOC, "4"=GTX
+          "profitDelegatePrice": "69800.00",                 // string, TP limit order price
+          "triggerStopPrice": "60000.00",                    // string, SL trigger price
+          "stopDelegateOrderType": "MARKET",                 // string, SL order type
+          "stopDelegateTimeInForce": "3",                    // string, SL time in force
+          "stopDelegatePrice": null,                          // string, SL market = null
+          "markPrice": null,                                 // string, mark price (for forced liquidation)
+          "positionType": "ISOLATED"                         // string, ISOLATED / CROSSED
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### Error Codes
+| Error code | Description |
+|-------------|-------------|
+| invalid_size | Invalid `size` parameter |
+| invalid_page | Invalid `page` parameter |
+| invalid_symbol | Invalid trading pair |
+
+---

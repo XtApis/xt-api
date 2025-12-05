@@ -1,0 +1,67 @@
+---
+id: GetLeverageInfo
+title: Get Leverage Info
+sidebar_label: Get Leverage Info
+sidebar_position: 32
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/position/leverage/list`
+
+---
+**Rate Limit**  
+200/s/apikey
+
+---
+**Request Parameters**
+
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| symbol | string | TRUE | N/A | Trading pair |  |
+
+---
+**Request Example**
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/position/leverage/list" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \ # Required
+```
+
+---
+**Response Example**
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // Whether there is a next page
+      "hasPrev": false,   // Whether there is a previous page
+      "items": [          // Data list
+        {
+          "symbol": "BTCUSDT",                    // string, trading pair
+          "accountId": "",                        // account id
+          "positionType": "ISOLATED",             // string, "CROSSED" cross / "ISOLATED" isolated
+          "positionSide": "LONG",                 // string, "LONG" / "SHORT"
+          "contractType": "PERPETUAL",            // string, "PERPETUAL" perpetual / "PREDICT" prediction contract
+          "leverage": 25                           // int, current effective leverage multiple
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+---
+**Error Codes**
+
+| Error code | Description |
+|-------------|-------------|
+| invalid_symbol | Trading pair does not exist |
+
+---

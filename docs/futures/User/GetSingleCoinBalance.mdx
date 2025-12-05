@@ -1,0 +1,67 @@
+---
+id: GetSingleCoinBalance
+title: Get Single Coin Balance
+sidebar_label: Get Single Coin Balance
+sidebar_position: 23
+---
+
+**Type:** GET  
+**Description:** `/future/user/v1/compat/balance/{coin}`
+
+---
+**Rate Limit**  
+200/s/apikey
+
+---
+**Request Parameters**  
+-
+
+---
+**Request Example**
+```bash
+curl -G "https://fapi.xt.com/future/user/v1/compat/balance/usdt" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+```
+
+---
+**Response Example**
+```json
+{
+    "rc":0,
+    "mc":"",
+    "ma":"",
+    "result": {
+          "accountId": 900123456789,                            // number, Account ID
+          "userId": 10086,                                      // number, User ID
+          "coin": "USDT",                                       // string, Asset currency
+          "underlyingType": 2,                                  // int, 1=Coin-Margined 2=USDT-Margined
+          "walletBalance": "15234.87654321",                    // string, Total wallet balance (including frozen)
+          "openOrderMarginFrozen": "800.00000000",              // string, Margin frozen by open orders
+          "isolatedMargin": "2150.50000000",                    // string, Isolated margin occupied
+          "crossedMargin": "4300.00000000",                     // string, Cross margin occupied
+          "amount": "8434.37654321",                            // string, Available balance (net asset balance)
+          "totalAmount": "12734.87654321",                      // string, Margin balance = walletBalance + unrealized PnL
+          "convertBtcAmount": "0.22681500",                     // string, Wallet assets converted to BTC (high precision)
+          "convertUsdtAmount": "15234.88",                      // string, Wallet assets converted to USDT (high precision)
+          "profit": "1250.45",                                  // string, Realized profit/loss (cumulative)
+          "notProfit": "-500.00",                               // string, Unrealized profit/loss (floating PnL)
+          "bonus": "1000.00000000",                             // string, Bonus balance
+          "coupon": "300.00000000",                             // string, Coupon balance
+          "depositCoupon": "5000.00000000",                     // string, Savings coupon balance
+          "marginBalance": "13234.87654321",                    // string, Final margin balance (usable for opening positions)
+          "openOrderFeeFrozen": "15.88"                         // string, Opening order pre-frozen fee
+    }
+}
+```
+
+---
+**Error Codes**
+
+| Error code | Description |
+|-------------|-------------|
+| - | - |
+
+---

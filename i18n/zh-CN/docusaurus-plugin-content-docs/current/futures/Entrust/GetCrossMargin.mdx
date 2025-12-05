@@ -1,0 +1,48 @@
+---
+id: GetCrossMargin
+title: 查询全仓维持保证金
+sidebar_label: 查询全仓维持保证金
+sidebar_position: 34
+---
+
+**类型:** GET  
+**描述:** `/future/trade/v1/position/cross-margin/{symbol}`
+
+---
+**限流规则**  
+200/s/apikey
+
+---
+**请求参数**  
+-
+
+---
+**请求示例**
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/position/cross-margin/eth_usdt" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+```
+
+---
+**响应示例**
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": "result",
+    "returnCode": 0
+}
+```
+
+---
+**错误码**
+
+| 错误码 | 描述 |
+|---------|------|
+| invalid_symbol | 交易对不存在 |

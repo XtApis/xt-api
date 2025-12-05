@@ -4,6 +4,36 @@ title: Changelog
 sidebar_label: Changelog
 sidebar_position: 100
 ---
+### New API Endpoints (2025-12-05)
+
+A total of **14 new endpoints** have been added, covering **Biz-order** and **Biz-user** modules.
+
+### 🧩 Biz-order
+
+| No. | API Name | Method | Path |
+|------|-----------|-----------|------|
+| 1 | Get Reverse Plan Orders | GET | `/future/trade/v1/entrust/reverse-plan-list` |
+| 2 | Get Historical Reverse Plan Orders | GET | `/future/trade/v1/entrust/reverse-plan-list-history` |
+| 3 | Get Historical TP/SL Orders | GET | `/future/trade/v1/entrust/profit-list-history` |
+| 4 | Get Historical Orders with Trades | GET | `/future/trade/v1/order/trade-history` |
+| 5 | Get All Trade Details (No Pagination) | GET | `/future/trade/v1/order/trade-list-all` |
+| 6 | Get All Orders | GET | `/future/trade/v1/order-entrust/list` |
+| 7 | Get Active Positions | GET | `/future/trade/v1/position/list/active` |
+| 8 | Get Leverage Info | GET | `/future/trade/v1/position/leverage/list` |
+| 9 | Get Historical Positions | GET | `/future/trade/v1/position/list-history` |
+| 10 | Get Cross Margin Maintenance | GET | `/future/trade/v1/position/cross-margin/{symbol}` |
+
+---
+
+### 👤 Biz-user
+
+| No. | API Name | Method | Path |
+|------|-----------|-----------|------|
+| 11 | Get Auto-Deleveraging History | GET | `/future/user/v1/auto-deleverage/history` |
+| 12 | Get Single Coin Balance | GET | `/future/user/v1/compat/balance/{coin}` |
+| 13 | Get Take-Over Records | GET | `/future/user/v1/taker-over/list` |
+| 14 | Get Historical TP/SL Orders | GET | `/future/trade/v1/entrust/profit-list-history` |
+
 
 ### 2025-11-05
 

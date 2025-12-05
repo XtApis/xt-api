@@ -1,0 +1,106 @@
+---
+id: QueryAllOrders
+title: 查询全部委托
+sidebar_label: 查询全部委托
+sidebar_position: 30
+---
+
+**类型:** GET  
+**描述:** `/future/trade/v1/order-entrust/list`
+
+### 限流规则
+`200/s/apikey`
+
+### 请求参数
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| page | integer | FALSE | 1 | 页码 |  |
+| size | integer | FALSE | 10 | 单页数量 |  |
+| startTime | long | FALSE | N/A | 开始时间 |  |
+| endTime | long | FALSE | N/A | 结束时间 |  |
+| symbol | string | FALSE | N/A | 交易对 |  |
+| type | string | FALSE | NEXT | 委托类型：`ORDER`（限价/市价委托）或 `ENTRUST`（计划委托），默认 `ORDER` |  |
+| state | string | FALSE |  | 订单状态：`NEW`、`PARTIALLY_FILLED`、`FILLED`、`CANCELED`、`REJECTED`、`PLACED`、`UNFINISHED`、`HISTORY` |  |
+| forceClose | bool | FALSE | FALSE | 是否强平 |  |
+
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/order-entrust/list" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \ 
+  -d "page=1" \ 
+  -d "size=10" \ 
+  -d "startTime=1762074200000" \ 
+  -d "endTime=1762074242467" \ 
+```
+
+### 响应示例
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "page": 1, 
+      "ps": 10, 
+      "total": 99,  
+      "items": [          // 数据列表
+        {
+          "id": "1876543210987654321",                      // string，订单/委托统一ID（Long转string）
+          "type": "ORDER",                                   // string，"ORDER"普通委托 "ENTRUST"计划委托
+          "symbol": "BTCUSDT",                               // string，交易对
+          "orderType": "LIMIT",                              // string，LIMIT / MARKET / STOP / TAKE_PROFIT 等
+          "orderSide": "BUY",                                // string，"BUY" / "SELL"
+          "positionSide": "LONG",                            // string，"LONG" / "SHORT" / "BOTH"
+          "timeInForce": "GTC",                              // string，GTC / IOC / FOK / GTX
+          "closePosition": false,                            // boolean，是否全平
+          "price": "67200.00",                               // string，委托价格
+          "origQty": "0.015",                                // string，下单数量（张）
+          "avgPrice": "67234.50",                            // string，成交均价
+          "executedQty": "0.015",                            // string，已成交数量
+          "marginFrozen": "50.42",                           // string，当前冻结保证金
+          "leverage": 25,                                     // int，下单时杠杆（历史订单可能为0）
+          "openPrice": "63250.80",                           // string，开仓均价（对冲模式下有值）
+          "entrustOrderId": null,                             // string，仅计划委托触发后才有值
+          "closeProfit": "59.51",                            // string，平仓盈亏（已完全平仓才有）
+          "state": "FILLED",                                 // string，NEW / PARTIALLY_FILLED / FILLED / CANCELED / REJECTED / EXPIRED
+          "createdTime": 1735698000000,                      // number，创建时间戳（ms）
+          "updatedTime": 1735698765000,                      // number，最后更新时间
+          "entrustType": null,                               // string，计划委托时有值，如 TAKE_PROFIT_MARKET
+          "stopPrice": null,                                 // string，触发价格（计划单专用）
+          "isOrdinary": true,                                // boolean，true=普通计划单 false=持仓绑定的止盈止损
+          "marketOrderLevel": null,                          // integer，市价最优几档
+          "forceClose": false,                               // boolean，是否强平单
+          "sourceType": "APP",                               // string，WEB / APP / API / COPY 等
+          "welfareAccount": false,                           // boolean，是否体验金账户
+          "isProfit": false,                                 // boolean，成交时是否触发了止盈止损
+          "triggerPriceType": null,                          // string，计划单触发价格类型
+          "delegateTriggerPriceType": "MARK_PRICE",          // string，持仓止盈止损触发价类型
+          "triggerProfitPrice": "70000.00",                  // string，止盈触发价
+          "profitDelegateOrderType": "LIMIT",                // string，止盈单类型
+          "profitDelegateTimeInForce": "1",                  // string，"1"GTC "2"FOK "3"IOC "4"GTX
+          "profitDelegatePrice": "69800.00",                 // string，止盈限价单价格
+          "triggerStopPrice": "60000.00",                    // string，止损触发价
+          "stopDelegateOrderType": "MARKET",                 // string，止损单类型
+          "stopDelegateTimeInForce": "3",                    // string，止损常用IOC
+          "stopDelegatePrice": null,                          // string，市价止损为null
+          "markPrice": null,                                 // string，强平单时才有标记价格
+          "positionType": "ISOLATED"                         // string，ISOLATED / CROSSED（全仓可能为null）
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### 错误码
+| Error code | Desc |
+|-------------|------|
+| invalid_size | size不正确 |
+| invalid_page | page参数设置不正确 |
+| invalid_symbol | 交易对不存在 |

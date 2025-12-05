@@ -1,0 +1,94 @@
+---
+id: GetPositionHistory
+title: Get Position History
+sidebar_label: Get Position History
+sidebar_position: 33
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/position/list-history`
+
+---
+**Rate Limit**  
+200/s/apikey
+
+---
+**Request Parameters**
+
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| id | integer | FALSE | 1 | Page number |  |
+| direction | string | FALSE | NEXT | NEXT; PREVIOUS |
+| limit | integer | FALSE | 10 | Page size |  |
+| symbol | string | FALSE | N/A | Trading pair |  |
+| startTime | long | FALSE | N/A | Start time |  |
+| endTime | long | FALSE | N/A | End time |  |
+| positionType | integer | FALSE | N/A | Position mode | 1 Cross, 2 Isolated (empty = all) |
+| isFullClose | integer | FALSE | N/A | Close type | 0 Partial, 1 Full (empty = all) |
+
+---
+**Request Example**
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/position/list-history" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \ 
+  -d "id=1" \
+  -d "limit=10" \ 
+  -d "startTime=1762074200000"  \
+  -d "endTime=1762074242467" \
+```
+
+---
+**Response Example**
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+      "hasNext": false,   // Whether there is a next page
+      "hasPrev": false,   // Whether there is a previous page
+      "items": [          // Data list
+        {
+          "id": "1987654321098765432",                      // string, position history ID (Long to string)
+          "positionSide": "LONG",                           // string, "LONG" long / "SHORT" short
+          "contractType": "PERPETUAL",                      // string, "PERPETUAL" perpetual / "PREDICT" prediction
+          "symbol": "BTCUSDT",                              // string, trading pair
+          "positionType": 2,                                // int, 1=cross 2=isolated
+          "closeProfit": "127.83",                          // string, realized profit/loss
+          "closePositionSize": "0.050",                     // string, closed position size
+          "closeOpenPrice": "63250.80",                     // string, average open price of closed part
+          "closePrice": "65808.60",                         // string, average closing price
+          "maxPositionSize": "0.080",                       // string, max size during position life
+          "openTime": 1735608000000,                        // number, open timestamp (ms)
+          "closeTime": 1735699200000,                       // number, close timestamp (ms)
+          "startLeverage": 25,                              // int, leverage at opening
+          "endLeverage": 25,                                // int, leverage at closing
+          "working": false,                                 // boolean, is position still open
+          "force": false,                                   // boolean, forced liquidation
+          "forceMarkPrice": null,                           // string, mark price at liquidation
+          "totalFee": "18.92",                             // string, total fee during position
+          "totalFundFee": "3.41",                          // string, funding fee total
+          "welfareAccount": false                           // boolean, welfare/bonus account
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+---
+**Error Codes**
+
+| Error code | Description |
+|-------------|-------------|
+| invalid_direction | direction incorrect |
+| invalid_limit | limit parameter incorrect |
+| invalid_symbol | Trading pair does not exist |
+
+---

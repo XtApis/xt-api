@@ -1,0 +1,67 @@
+---
+id: TradeListAll
+title: 查询不分页的成交明细
+sidebar_label: 查询不分页的成交明细
+sidebar_position: 29
+---
+
+**类型:** GET  
+**描述:** `/future/trade/v1/order/trade-list-all`
+
+### 限流规则
+`200/s/apikey`
+
+### 请求参数
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| orderId | integer | FALSE | N/A | 订单id |  |
+| startTime | integer | FALSE | N/A | 开始时间 |  |
+| endTime | integer | FALSE | N/A | 结束时间 |  |
+| symbol | string | FALSE | N/A | 交易对 |  |
+
+### 请求示例
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/order/trade-list-all" \
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
+  -d "symbol=btc_usdt" \ 
+```
+
+### 响应示例
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+       [
+           {
+          "orderId": "1876543210987654321",                 // string！Long → Long转字符串
+          "execId": "2876543210987654322",                  // string！成交ID → Long转字符串
+          "symbol": "BTCUSDT",                              // string，交易对
+          "contractSize": 0.001,                            // number，合约面值（如BTC一张=0.001币）
+          "quantity": "0.015",                              // string，成交数量（张）
+          "price": "67234.80",                              // string，成交价格
+          "fee": "10.08522",                                // string，总手续费
+          "couponDeductFee": "3.00000",                     // string，优惠券抵扣部分
+          "bonusDeductFee": "2.00000",                      // string，体验金抵扣部分
+          "feeCoin": "USDT",                                // string，手续费计费币种
+          "timestamp": 1735698765432,                        // number，成交时间戳（毫秒）
+          "takerMaker": "TAKER",                            // string，枚举值：TAKER / MAKER
+          "orderSide": "BUY",                               // string，"BUY" / "SELL"
+          "positionSide": "LONG"                            // string，"LONG" / "SHORT" / "BOTH"
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### 错误码
+| Error code | Desc |
+|-------------|------|
+| invalid_limit | limit参数设置不正确 |

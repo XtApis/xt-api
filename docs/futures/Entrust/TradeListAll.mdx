@@ -1,0 +1,69 @@
+---
+id: TradeListAll
+title: Query All Trade Details（No pagination）
+sidebar_label: Query All Trade Details（No pagination）
+sidebar_position: 29
+---
+
+**Type:** GET  
+**Description:** `/future/trade/v1/order/trade-list-all`
+
+### Rate Limit
+`200/s/apikey`
+
+### Parameters
+| Name | Type | Required | Default | Description | Range |
+|------|------|-----------|----------|--------------|--------|
+| orderId | integer | FALSE | N/A | Order ID |  |
+| startTime | integer | FALSE | N/A | Start time |  |
+| endTime | integer | FALSE | N/A | End time |  |
+| symbol | string | FALSE | N/A | Trading pair |  |
+
+### Request Example
+```bash
+curl -G "https://fapi.xt.com/future/trade/v1/order/trade-list-all" \
+  -H "validate-appkey: $APPKEY" \  # Required
+  -H "validate-timestamp: $TIMESTAMP" \  # Required
+  -H "validate-singature: $SIGNATURE" \  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -d "symbol=btc_usdt" \ 
+```
+
+### Response Example
+```json
+{
+    "error": {
+      "code": "",
+      "msg": ""
+    },
+    "msgInfo": "",
+    "result": {
+       [
+           {
+          "orderId": "1876543210987654321",                 // string, Long → converted to string
+          "execId": "2876543210987654322",                  // string, trade ID → Long converted to string
+          "symbol": "BTCUSDT",                              // string, trading pair
+          "contractSize": 0.001,                            // number, contract size (e.g. 1 BTC contract = 0.001 BTC)
+          "quantity": "0.015",                              // string, trade quantity (contracts)
+          "price": "67234.80",                              // string, trade price
+          "fee": "10.08522",                                // string, total fee
+          "couponDeductFee": "3.00000",                     // string, coupon deduction
+          "bonusDeductFee": "2.00000",                      // string, bonus deduction
+          "feeCoin": "USDT",                                // string, fee currency
+          "timestamp": 1735698765432,                        // number, trade timestamp (ms)
+          "takerMaker": "TAKER",                            // string, enum: TAKER / MAKER
+          "orderSide": "BUY",                               // string, BUY / SELL
+          "positionSide": "LONG"                            // string, LONG / SHORT / BOTH
+        }
+      ]
+    },
+    "returnCode": 0
+}
+```
+
+### Error Codes
+| Error code | Description |
+|-------------|-------------|
+| invalid_limit | Invalid `limit` parameter setting |
+
+---
