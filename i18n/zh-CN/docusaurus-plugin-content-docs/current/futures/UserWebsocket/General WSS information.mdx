@@ -22,7 +22,7 @@ Sec-Websocket-Extensions: permessage-deflate
 
 ### 订阅步骤
 
-1. 调用接口获取 **ListenKey**：[`GET https://fapi.xt.com/future/v1/user/listen-key`](https://fapi.xt.com/future/v1/user/listen-key)。（建议在文档侧边栏超链接到「合约 API → 用户 → 获取 ListenKey」。）
+1. 调用接口获取 **ListenKey**：[`GET https://fapi.xt.com/future/user/v1/user/listen-key`](https://fapi.xt.com/future/user/v1/user/listen-key)。（建议在文档侧边栏超链接到「合约 API → 用户 → 获取 ListenKey」。）
 2. 建立 WebSocket 后，订阅**用户相关**事件时发送以下 JSON：
 
 ```json title="SUBSCRIBE"
