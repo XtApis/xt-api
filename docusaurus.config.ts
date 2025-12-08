@@ -6,7 +6,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
+  title: 'ApiDocs',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
