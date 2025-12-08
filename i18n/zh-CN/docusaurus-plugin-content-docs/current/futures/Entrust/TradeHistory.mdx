@@ -1,38 +1,38 @@
 ---
 id: TradeHistory
-title: Query Historical Filled Orders
-sidebar_label: Trade History
-sidebar_position: 6
+title: 查询有成交的历史订单
+sidebar_label: 查询有成交的历史订单
+sidebar_position: 28
 ---
 
-**Type:** GET  
-**Description:** `/future/trade/v1/order/trade-history`
+**类型:** GET  
+**描述:** `/future/trade/v1/order/trade-history`
 
-### Rate Limit
+### 限流规则
 `200/s/apikey`
 
-### Parameters
-| Name | Type | Required | Default | Description | Range |
-|------|------|-----------|----------|--------------|--------|
-| limit | integer | FALSE | 10 | Quantity | Max 500 |
-| startTime | integer | FALSE | N/A | Start time | Default: query data from 90 days ago |
-| endTime | integer | FALSE | N/A | End time |  |
-| symbol | string | TRUE | N/A | Trading pair |  |
+### 请求参数
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+|------|------|------|--------|------|------|
+| limit | integer | FALSE | 10 | 数量 | 最大为500 |
+| startTime | integer | FALSE | N/A | 开始时间 | 默认查询90天前 |
+| endTime | integer | FALSE | N/A | 结束时间 |  |
+| symbol | string | TRUE | N/A | 交易对 |  |
 
-### Request Example
+### 请求示例
 ```bash
 curl -G "https://fapi.xt.com/future/trade/v1/order/trade-history" \
-  -H "validate-appkey: $APPKEY" \  # Required
-  -H "validate-timestamp: $TIMESTAMP" \  # Required
-  -H "validate-singature: $SIGNATURE" \  # Required
-  -H "Content-Type: application/x-www-form-urlencoded" \  # Required
+  -H "validate-appkey: $APPKEY" \  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \  # 必须
+  -H "validate-singature: $SIGNATURE" \  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \  # 必须
   -d "symbol=btc_usdt" \ 
   -d "limit=10" \ 
   -d "startTime=1762074200000"  \ 
   -d "endTime=1762074242467" \ 
 ```
 
-### Response Example
+### 响应示例
 ```json
 {
     "error": {
@@ -41,14 +41,14 @@ curl -G "https://fapi.xt.com/future/trade/v1/order/trade-history" \
     },
     "msgInfo": "",
     "result": {
-        [          // Data list
+        [          // 数据列表
             {
-              "symbol": "BTCUSDT",            // string, trading pair
-              "orderSide": "BUY",             // string, "BUY" or "SELL"
-              "avgPrice": "67234.50",         // string, serialized BigDecimal to prevent precision loss
-              "origQty": "0.012",             // string, original order quantity (contracts or coins)
-              "executedQty": "0.012",         // string, executed quantity
-              "updatedTime": 1735698765000     // number, timestamp in ms (long type, usually not converted to string)
+              "symbol": "BTCUSDT",            // string，交易对
+              "orderSide": "BUY",             // string，"BUY" 或 "SELL"
+              "avgPrice": "67234.50",         // string！BigDecimal 序列化后是字符串，防止精度丢失
+              "origQty": "0.012",             // string，委托数量（张或币）
+              "executedQty": "0.012",         // string，已成交数量
+              "updatedTime": 1735698765000     // number，毫秒时间戳（long 类型，Java 返回时通常不转字符串）
             }
         ]
     },
@@ -56,9 +56,7 @@ curl -G "https://fapi.xt.com/future/trade/v1/order/trade-history" \
 }
 ```
 
-### Error Codes
-| Error code | Description |
-|-------------|-------------|
-| invalid_symbol | Invalid trading pair |
-
----
+### 错误码
+| Error code | Desc |
+|-------------|------|
+| invalid_symbol | 交易对不存在 |
