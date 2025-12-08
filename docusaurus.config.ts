@@ -318,7 +318,7 @@ const config: Config = {
                                data-i18n="item.label.Spot Trading APIs">Spot Trading APIs</div>
                         </a>
 
-                        <a href="/docs/futures/Access Description/ApiLibrary"
+                        <a href="/docs/futures/Access Description/BasicInformationOfTheInterface"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
