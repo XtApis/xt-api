@@ -4,9 +4,70 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-let hoverTimeout;
 
-document.addEventListener('DOMContentLoaded', () => {
+// ====== Dropdown open/close timers/state ======
+let hoverTimeout;
+let closeTimeout;
+let openedByClick = false;
+let overTrigger = false;
+let overMenu = false;
+let menuOpen = false;
+
+// 移出后不立即隐藏（单位 ms）
+const HIDE_DELAY = 800; // hover 打开后：移出触发区/菜单后延迟关闭
+const CLICK_HIDE_DELAY = 1200; // click 打开后：移出触发区/菜单后延迟关闭（想一直不关可改成 null）
+
+function onReady(fn) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fn);
+  } else {
+    fn();
+  }
+}
+
+function clearTimers() {
+  if (hoverTimeout) clearTimeout(hoverTimeout);
+  if (closeTimeout) clearTimeout(closeTimeout);
+  hoverTimeout = null;
+  closeTimeout = null;
+}
+
+function setMenuVisible(dropdown, dropdownMenu, trigger, visible) {
+  if (!dropdown || !dropdownMenu || !trigger) return;
+
+  if (visible) {
+    dropdown.classList.add('dropdown--show');
+    dropdownMenu.style.display = 'block';
+    dropdownMenu.style.opacity = '1';
+    dropdownMenu.style.visibility = 'visible';
+    trigger.setAttribute('aria-expanded', 'true');
+    menuOpen = true;
+  } else {
+    dropdown.classList.remove('dropdown--show');
+    dropdownMenu.style.display = 'none';
+    dropdownMenu.style.opacity = '0';
+    dropdownMenu.style.visibility = 'hidden';
+    trigger.setAttribute('aria-expanded', 'false');
+    menuOpen = false;
+    openedByClick = false;
+  }
+}
+
+function scheduleClose(dropdown, dropdownMenu, trigger, delay) {
+  if (delay == null) return; // 允许关闭延迟被禁用
+  if (closeTimeout) clearTimeout(closeTimeout);
+  closeTimeout = setTimeout(() => {
+    // 只有在鼠标不在触发区也不在菜单里时才关闭
+    if (!overTrigger && !overMenu) {
+      setMenuVisible(dropdown, dropdownMenu, trigger, false);
+    }
+  }, delay);
+}
+
+// =========================
+// 1) 原始 DOMContentLoaded
+// =========================
+onReady(() => {
   const productData = {
     Index: {
       title: 'Index',
@@ -433,12 +494,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize with Trading category
   updateProducts('Trading');
 
-  // Add hover delay for better UX
-  const dropdown = document.querySelector('.dropdown--hoverable');
-  const dropdownMenu = document.querySelector('.dropdown__menu');
+  // ====== 关键：Product 下拉菜单行为（点击打开 + 延迟关闭 + 不影响菜单内点击切换） ======
+  const trigger = document.getElementById('productDropdown');
+  const dropdown = trigger ? trigger.closest('.dropdown') : null;
+  const dropdownMenu = dropdown ? dropdown.querySelector('.dropdown__menu') : null;
 
-  if (dropdown && dropdownMenu) {
-    // Force full width styling
+  if (dropdown && dropdownMenu && trigger) {
+    // Force full width styling（保留你原来的逻辑，但选择器更稳）
     const applyFullWidth = () => {
       dropdownMenu.style.width = '100vw';
       dropdownMenu.style.maxWidth = '100vw';
@@ -450,13 +512,11 @@ document.addEventListener('DOMContentLoaded', () => {
       dropdownMenu.style.position = 'fixed';
       dropdownMenu.style.top = '60px';
       dropdownMenu.style.zIndex = '1000';
-      dropdownMenu.style.maxHeight = '400px';
+      dropdownMenu.style.maxHeight = '80vh';
       dropdownMenu.style.overflowY = 'auto';
 
-      // Also target the inner div
-      const innerDiv = dropdownMenu.querySelector(
-        'div[style*="padding: 15px; width: 100%"]',
-      );
+      // inner 容器（你页面里是 li > div）
+      const innerDiv = dropdownMenu.querySelector('li > div');
       if (innerDiv) {
         innerDiv.style.width = '100vw';
         innerDiv.style.maxWidth = '100vw';
@@ -465,55 +525,89 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    // Apply immediately
     applyFullWidth();
-
-    // Apply again after a short delay to ensure it sticks
     setTimeout(applyFullWidth, 100);
     setTimeout(applyFullWidth, 500);
 
-    // Show menu on hover with small delay to prevent flickering
-    dropdown.addEventListener('mouseenter', () => {
-      clearTimeout(hoverTimeout);
-      hoverTimeout = setTimeout(() => {
-        dropdownMenu.style.display = 'block';
-        dropdownMenu.style.opacity = '1';
-        dropdownMenu.style.visibility = 'visible';
-      }, 50); // Small delay to prevent flickering
+    // 初始隐藏（避免 async 情况下样式不一致）
+    setMenuVisible(dropdown, dropdownMenu, trigger, false);
+
+    // 点击 Product：切换开/关（不会影响菜单内部点击）
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      clearTimers();
+
+      if (menuOpen) {
+        setMenuVisible(dropdown, dropdownMenu, trigger, false);
+      } else {
+        openedByClick = true;
+        overTrigger = true;
+        setMenuVisible(dropdown, dropdownMenu, trigger, true);
+      }
     });
 
-    // Hide menu when leaving dropdown container with delay
-    dropdown.addEventListener('mouseleave', () => {
-      clearTimeout(hoverTimeout);
-      hoverTimeout = setTimeout(() => {
-        dropdownMenu.style.display = 'none';
-        dropdownMenu.style.opacity = '0';
-        dropdownMenu.style.visibility = 'hidden';
-      }, 100); // Small delay to prevent flickering
+    // 点击菜单内部：不关闭（让 showCategory / 链接跳转正常执行）
+    dropdownMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // 不要 preventDefault，避免链接无法跳转/切换
     });
 
-    // Keep menu visible when hovering over the menu itself
+    // 点击页面其它区域：关闭
+    document.addEventListener('click', (e) => {
+      if (!menuOpen) return;
+      if (dropdown.contains(e.target)) return;
+      setMenuVisible(dropdown, dropdownMenu, trigger, false);
+    });
+
+    // hover 进入触发区：打开（不强制覆盖 click 打开的状态）
+    trigger.addEventListener('mouseenter', () => {
+      overTrigger = true;
+      if (closeTimeout) clearTimeout(closeTimeout);
+      hoverTimeout = setTimeout(() => {
+        if (!menuOpen) {
+          openedByClick = false;
+          setMenuVisible(dropdown, dropdownMenu, trigger, true);
+        }
+      }, 0);
+    });
+
+    trigger.addEventListener('mouseleave', () => {
+      overTrigger = false;
+      // 如果是 click 打开的，用 CLICK_HIDE_DELAY；否则用 HIDE_DELAY
+      scheduleClose(
+        dropdown,
+        dropdownMenu,
+        trigger,
+        openedByClick ? CLICK_HIDE_DELAY : HIDE_DELAY,
+      );
+    });
+
+    // hover 进入菜单：保持打开
     dropdownMenu.addEventListener('mouseenter', () => {
-      clearTimeout(hoverTimeout);
-      dropdownMenu.style.display = 'block';
-      dropdownMenu.style.opacity = '1';
-      dropdownMenu.style.visibility = 'visible';
+      overMenu = true;
+      if (closeTimeout) clearTimeout(closeTimeout);
+      if (!menuOpen) {
+        openedByClick = false;
+        setMenuVisible(dropdown, dropdownMenu, trigger, true);
+      }
     });
 
-    // Hide menu when leaving the menu itself with delay
     dropdownMenu.addEventListener('mouseleave', () => {
-      clearTimeout(hoverTimeout);
-      hoverTimeout = setTimeout(() => {
-        dropdownMenu.style.display = 'none';
-        dropdownMenu.style.opacity = '0';
-        dropdownMenu.style.visibility = 'hidden';
-      }, 100); // Small delay to prevent flickering
+      overMenu = false;
+      scheduleClose(
+        dropdown,
+        dropdownMenu,
+        trigger,
+        openedByClick ? CLICK_HIDE_DELAY : HIDE_DELAY,
+      );
     });
   }
 });
 
-// Global function for category switching
-// must be defined outside DOMContentLoaded
+// =========================
+// 2) 全局 showCategory
+// =========================
 window.showCategory = function showCategory(category) {
   const productData = {
     AllProducts: {
@@ -736,11 +830,6 @@ window.showCategory = function showCategory(category) {
           description: 'Copy Trading APIs',
           href: '/docs/futures-copy/Copy Trading/ChooseLeader',
         },
-        // {
-        //   title: 'Installation',
-        //   description: 'Installation Guide',
-        //   href: '/docs/futures-copy/installation',
-        // },
       ],
     },
     tradingThirdParty: {
@@ -1065,9 +1154,7 @@ window.showCategory = function showCategory(category) {
       let allProductsElementById = document.getElementById('all-products-nav');
       if (!allProductsElementById) {
         // Fallback to old method
-        allProductsElementById = document.querySelector(
-          'div[style*="All Products"]',
-        );
+        allProductsElementById = document.querySelector('div[style*="All Products"]');
         if (!allProductsElementById) {
           const allDivs = document.querySelectorAll('div');
           allDivs.forEach((div) => {
@@ -1097,9 +1184,7 @@ window.showCategory = function showCategory(category) {
         rightContentIndex.style.borderRadius = '4px';
         console.log('Applied styles to right content Index link');
       } else {
-        console.log(
-          'Right content Index link not found by ID, trying fallback...',
-        );
+        console.log('Right content Index link not found by ID, trying fallback...');
         // Fallback method
         const allLinksFallback = document.querySelectorAll('a');
         console.log('Total links found for fallback:', allLinksFallback.length);
@@ -1126,8 +1211,10 @@ window.showCategory = function showCategory(category) {
   }
 };
 
-// Add event listeners for category buttons after DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// =========================
+// 3) 绑定分类点击事件逻辑
+// =========================
+onReady(() => {
   console.log('DOMContentLoaded fired');
   // Wait a bit for the navbar to be rendered
   setTimeout(() => {
@@ -1137,9 +1224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click event to "All Products" element
     let allProductsElement = document.getElementById('all-products-nav');
     if (!allProductsElement) {
-      console.log(
-        'All Products element not found by ID, trying alternative selector...',
-      );
+      console.log('All Products element not found by ID, trying alternative selector...');
       // Try alternative selector
       allProductsElement = document.querySelector('div[style*="All Products"]');
       if (!allProductsElement) {
@@ -1170,9 +1255,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (categoryButtons.length === 0) {
       console.log('No category buttons found, trying alternative selector...');
-      const altButtons = document.querySelectorAll(
-        'div[onclick^="showCategory"]',
-      );
+      const altButtons = document.querySelectorAll('div[onclick^="showCategory"]');
       console.log('Found alternative buttons:', altButtons.length);
 
       // Use alternative buttons if data-category buttons not found
