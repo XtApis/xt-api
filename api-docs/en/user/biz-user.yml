@@ -9,7 +9,7 @@ info:
     url: "http://www.apache.org/licenses/LICENSE-2.0"
   version: "1.0"
 servers:
-  - url: "http://localhost:8080"
+  - url: "https://fapi.xt.com"
     description: Inferred Url
 tags:
   - name: basic-error-controller
