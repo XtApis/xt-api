@@ -1,0 +1,68 @@
+---
+id: PositionByCurrency
+title: 获取用户持仓 (币种维度)
+sidebar_label: 获取用户持仓 (币种维度)
+sidebar_position: 5
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/finance/position-currency`
+
+按币种维度查询用户的理财持仓。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| currency | string | 否 | 币种筛选 |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/position-currency" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "currency": "usdt",
+      "amount": "1200.00",
+      "positionList": [
+        {
+          "category": "SAVING",
+          "productType": "DEMAND_SAVING",
+          "amount": "1200.00",
+          "apyList": [{"apy": "0.10"}],
+          "accInterest": "5.00"
+        }
+      ]
+    }
+  ]
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| currency | string | 币种 |
+| amount | string | 该币种总金额 |
+| positionList | array | 持仓列表 |
+| positionList[].category | string | 产品大类 |
+| positionList[].productType | string | 产品类型 |
+| positionList[].amount | string | 持仓金额 |
+| positionList[].apyList | array | 年化收益率列表 |
+| positionList[].accInterest | string | 累计利息 |

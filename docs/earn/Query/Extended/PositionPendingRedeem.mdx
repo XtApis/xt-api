@@ -1,0 +1,64 @@
+---
+id: PositionPendingRedeem
+title: Pending Redeem Orders (By Position)
+sidebar_label: Pending Redeem (Position)
+sidebar_position: 9
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/position/pending-redeem-order`
+
+Query pending redeem orders for a specific position.
+
+### Request Parameters
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| positionId | long | Yes | Position ID |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/position/pending-redeem-order" \\
+  -d "positionId=123456789" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "userId": 1,
+      "productId": 1001,
+      "currency": "USDT",
+      "amount": "500.00",
+      "createTime": 1700000000000,
+      "interestStartTime": 1700086400000,
+      "receiveAmount": "505.00"
+    }
+  ]
+}`}
+</CodeBlock>
+
+### Response Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| userId | long | User ID |
+| productId | long | Product ID |
+| currency | string | Currency |
+| amount | string | Amount |
+| createTime | long | Creation timestamp |
+| interestStartTime | long | Interest start timestamp |
+| receiveAmount | string | Expected receive amount |

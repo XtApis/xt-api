@@ -1,0 +1,76 @@
+---
+id: ProductPosition
+title: Check Product Subscription
+sidebar_label: Check Product Subscription
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/product-position`
+
+Check if user has subscribed to a specific product.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| productId | long | true | Product ID |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/product-position" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d "productId=1001"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "true"
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| result | string | "true" if user has subscribed, "false" otherwise |
+
+---
+
+## Check Structured Product Subscription
+
+**Description:**
+- `/v4/finance/product-position/shark` (Shark Fin)
+- `/v4/finance/product-position/smart` (Smart Trend)
+
+Check if user has subscribed to Shark Fin or Smart Trend products.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| productId | long | true | Product ID |
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "false"
+}`}
+</CodeBlock>

@@ -1,0 +1,84 @@
+---
+id: Position
+title: 获取用户持仓 (分页)
+sidebar_label: 获取用户持仓 (分页)
+sidebar_position: 3
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/finance/position`
+
+分页查询用户的理财持仓。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| category | string | 否 | 产品大类 |
+| productType | string | 否 | 产品类型 |
+| currency | string | 否 | 币种 |
+| status | string | 否 | 持仓状态：RUNNING、SETTLED |
+| page | integer | 否 | 页码 |
+| size | integer | 否 | 每页数量 |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/position" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d "page=1" \\
+  -d "size=10"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "hasPrev": false,
+    "hasNext": true,
+    "items": [
+      {
+        "positionId": "123456789",
+        "productId": 1001,
+        "currency": "USDT",
+        "apy": [{"apy": "0.12"}],
+        "amount": "1000.00",
+        "availableAmount": "800.00",
+        "yesterdayProfit": "1.23",
+        "totalProfit": "12.34",
+        "status": "RUNNING",
+        "startTime": 1700000000000,
+        "endTime": 1702592000000,
+        "productType": "TIME_SAVING"
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| positionId | string | 持仓ID |
+| productId | long | 产品ID |
+| currency | string | 币种 |
+| apy | array | 年化收益率列表 |
+| amount | string | 持仓金额 |
+| availableAmount | string | 可用金额 |
+| yesterdayProfit | string | 昨日收益 |
+| totalProfit | string | 累计收益 |
+| status | string | 持仓状态 |
+| startTime | long | 开始时间 |
+| endTime | long | 结束时间 |
+| productType | string | 产品类型 |

@@ -1,0 +1,63 @@
+---
+id: StructuredProductPosition
+title: 判断用户是否已申购 (结构化产品)
+sidebar_label: 判断用户是否已申购 (结构化产品)
+sidebar_position: 2
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:**
+- 鲨鱼鳍: `/v4/finance/product-position/shark`
+- 趋势智盈: `/v4/finance/product-position/smart`
+
+判断用户是否已申购结构化产品（鲨鱼鳍或趋势智盈）。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| productId | long | 是 | 产品ID |
+
+### 请求示例 (鲨鱼鳍)
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/product-position/shark" \\
+  -d "productId=1001" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 请求示例 (趋势智盈)
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/product-position/smart" \\
+  -d "productId=1001" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": "false"
+}`}
+</CodeBlock>
+
+### 响应参数
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| result | string | "true" 表示已申购，"false" 表示未申购 |

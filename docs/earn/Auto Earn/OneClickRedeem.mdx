@@ -1,0 +1,54 @@
+---
+id: OneClickRedeem
+title: One-Click Redeem
+sidebar_label: One-Click Redeem
+sidebar_position: 4
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** POST
+
+**Description:** `/v4/finance/one-click-redeem`
+
+One-click redeem all flexible savings products.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| currency | string | false | Currency (optional, redeems all if not specified) |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://sapi.xt.com/v4/finance/one-click-redeem" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "currency": "USDT"
+  }'
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    123456790,
+    123456791
+  ]
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| result | array | List of created redemption order IDs |

@@ -1,0 +1,66 @@
+---
+id: PositionByProduct
+title: Query Position by Product
+sidebar_label: Query Position by Product
+sidebar_position: 5
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/position-product`
+
+Query user's earn positions grouped by product.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| category | string | false | Product category filter |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/position-product" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "category": "SAVING",
+      "amount": "2000.00",
+      "runningOrderCount": 1,
+      "positionList": [
+        {
+          "productId": 1001,
+          "productType": "TIME_SAVING",
+          "amount": "2000.00"
+        }
+      ]
+    }
+  ]
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| category | string | Product category |
+| amount | string | Total amount in this category |
+| runningOrderCount | integer | Number of running orders |
+| positionList | array | Position list |
+| positionList[].productId | long | Product ID |
+| positionList[].productType | string | Product type |
+| positionList[].amount | string | Position amount |

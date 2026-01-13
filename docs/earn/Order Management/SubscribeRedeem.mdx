@@ -1,0 +1,56 @@
+---
+id: SubscribeRedeem
+title: Subscribe/Redeem
+sidebar_label: Subscribe/Redeem
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** POST
+
+**Description:** `/v4/finance/order`
+
+Subscribe or redeem earn products.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| productId | long | true | Product ID |
+| amount | string | true | Subscribe/redeem amount |
+| orderType | string | true | Order type: SUBSCRIBE, REDEEM |
+| redeemType | string | false | Redeem type (for XRWU): STANDARD, FAST |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://sapi.xt.com/v4/finance/order" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "productId": 1001,
+    "amount": "1000.00",
+    "orderType": "SUBSCRIBE"
+  }'
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": 123456789
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| result | long | Order ID |

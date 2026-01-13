@@ -1,0 +1,55 @@
+---
+id: XRWURedeemQuota
+title: XRWU赎回额度查询
+sidebar_label: XRWU赎回额度查询
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/finance/xrwu/redeem-quota`
+
+查询XRWU产品赎回额度信息。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| productId | long | 是 | XRWU产品ID |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/xrwu/redeem-quota" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d "productId=1001"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "property": "50000.00",
+    "residueIndividualDaily": "8000.00",
+    "residueProductDaily": "500000.00"
+  }
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| property | string | XRWU现货可用余额 |
+| residueIndividualDaily | string | 个人每日剩余额度 |
+| residueProductDaily | string | 产品每日剩余额度 |

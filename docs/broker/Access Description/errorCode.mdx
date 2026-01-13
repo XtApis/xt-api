@@ -1,0 +1,37 @@
+---
+id: ResponseCode
+title: response code
+sidebar_label: response code
+sidebar_position: 9
+---
+
+### HTTP Status Codes
+
+| httpStatus | description |
+| --- | --- |
+| 200 | The request is successful, please check the rc and mc sections further |
+| 404 | Interface does not exist |
+| 429 | The request is too frequent, please control the request rate according to the speed limit requirement |
+| 500 | Service exception |
+| 502 | Gateway exception |
+| 503 | Service unavailable, please try again later |
+
+---
+
+### Return Code (rc)
+
+| rc  | description      |
+| --- | ---------------- |
+| 0   | Business success |
+| 1   | Business failure |
+
+---
+
+### Message Code (mc)
+
+| mc | description |
+| --- | --- |
+| SUCCESS | success |
+| FAILURE | fail |
+| NO_OPERATION_PERMISSION | Current account does not have permission to operate |
+| PERMISSION_LIMIT | It's not allowed to operate other user\_ |

@@ -1,0 +1,84 @@
+---
+id: Position
+title: Query Position
+sidebar_label: Query Position
+sidebar_position: 2
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/position`
+
+Query user's earn positions with pagination.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| category | string | false | Product category |
+| productType | string | false | Product type |
+| currency | string | false | Currency |
+| status | string | false | Position status: RUNNING, SETTLED |
+| page | integer | false | Page number |
+| size | integer | false | Page size |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/position" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d "page=1" \\
+  -d "size=10"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "hasPrev": false,
+    "hasNext": true,
+    "items": [
+      {
+        "positionId": "123456789",
+        "productId": 1001,
+        "currency": "USDT",
+        "apy": [{"apy": "0.12"}],
+        "amount": "1000.00",
+        "availableAmount": "800.00",
+        "yesterdayProfit": "1.23",
+        "totalProfit": "12.34",
+        "status": "RUNNING",
+        "startTime": 1700000000000,
+        "endTime": 1702592000000,
+        "productType": "TIME_SAVING"
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| positionId | string | Position ID |
+| productId | long | Product ID |
+| currency | string | Currency |
+| apy | array | APY list |
+| amount | string | Position amount |
+| availableAmount | string | Available amount |
+| yesterdayProfit | string | Yesterday's profit |
+| totalProfit | string | Total profit |
+| status | string | Position status |
+| startTime | long | Start time |
+| endTime | long | End time |
+| productType | string | Product type |

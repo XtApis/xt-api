@@ -1,0 +1,66 @@
+---
+id: PositionDetail
+title: Query Position Detail
+sidebar_label: Query Position Detail
+sidebar_position: 6
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/position-detail`
+
+Query user's earn position detail by position ID.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| positionId | string | true | Position ID |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/position-detail" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d "positionId=123456789"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "positionId": "123456789",
+    "productId": 1001,
+    "currency": "USDT",
+    "amount": "1000.00",
+    "totalProfit": "12.34",
+    "redeemable": "800.00",
+    "productType": "TIME_SAVING",
+    "endTime": 1702592000000,
+    "reInvest": true
+  }
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| positionId | string | Position ID |
+| productId | long | Product ID |
+| currency | string | Currency |
+| amount | string | Position amount |
+| totalProfit | string | Total profit |
+| redeemable | string | Redeemable amount |
+| productType | string | Product type |
+| endTime | long | End time |
+| reInvest | boolean | Whether auto-reinvest is enabled |

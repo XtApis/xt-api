@@ -1,0 +1,63 @@
+---
+id: AutoEarnList
+title: 自动赚币列表
+sidebar_label: 自动赚币列表
+sidebar_position: 10
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/finance/auto-earn-list`
+
+查询自动赚币产品列表。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| currency | string | 否 | 币种筛选 |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/auto-earn-list" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "productId": 1001,
+      "enabled": true,
+      "apyList": [{"apy": "0.08"}],
+      "weight": 1,
+      "currency": "USDT",
+      "profitType": "NORMAL",
+      "available": true
+    }
+  ]
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| productId | long | 产品ID |
+| enabled | boolean | 是否已开启自动赚币 |
+| apyList | array | 年化收益率列表 |
+| weight | integer | 产品权重（排序用） |
+| currency | string | 币种 |
+| profitType | string | 收益类型 |
+| available | boolean | 产品是否可用 |

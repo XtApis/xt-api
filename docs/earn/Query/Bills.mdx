@@ -1,0 +1,79 @@
+---
+id: Bills
+title: Query Fund Records
+sidebar_label: Query Fund Records
+sidebar_position: 4
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/bills`
+
+Query user's earn fund records.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| type | string | false | Record type: SUBSCRIBE, REDEEM, INTEREST, etc. |
+| currency | string | false | Currency |
+| startTime | long | false | Start time (millisecond timestamp) |
+| endTime | long | false | End time (millisecond timestamp) |
+| page | integer | false | Page number |
+| size | integer | false | Page size |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/bills" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d "type=SUBSCRIBE" \\
+  -d "page=1" \\
+  -d "size=10"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "hasPrev": false,
+    "hasNext": true,
+    "items": [
+      {
+        "orderId": "123456789",
+        "type": "SUBSCRIBE",
+        "productId": 1001,
+        "productType": "DEMAND_SAVING",
+        "amount": "1000.00",
+        "currency": "USDT",
+        "status": "SUCCESS",
+        "createTime": 1700000000000,
+        "completeTime": 1700000001000
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| orderId | string | Order ID |
+| type | string | Record type |
+| productId | long | Product ID |
+| productType | string | Product type |
+| amount | string | Amount |
+| currency | string | Currency |
+| status | string | Status |
+| createTime | long | Create time |
+| completeTime | long | Complete time |

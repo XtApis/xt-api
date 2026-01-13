@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.apiSidebar.category.contract": {
+    "message": "contract",
+    "description": "The label for category 'contract' in sidebar 'apiSidebar'"
+  },
+  "sidebar.apiSidebar.category.user": {
+    "message": "user",
+    "description": "The label for category 'user' in sidebar 'apiSidebar'"
+  }
+}

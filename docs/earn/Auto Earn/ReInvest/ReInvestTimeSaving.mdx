@@ -1,0 +1,52 @@
+---
+id: ReInvestTimeSaving
+title: Fixed Savings Re-invest Setting
+sidebar_label: Fixed Savings Re-invest
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** POST
+
+**Description:** `/v4/finance/re-invest-timesaving`
+
+Enable or disable auto re-invest for fixed savings products.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| positionId | string | true | Position ID |
+| enabled | boolean | true | Enable or disable re-invest |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://sapi.xt.com/v4/finance/re-invest-timesaving" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "positionId": "123456789",
+    "enabled": true
+  }'
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": "success"
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| result | string | Operation result |

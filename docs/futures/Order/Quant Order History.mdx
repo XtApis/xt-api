@@ -1,0 +1,103 @@
+---
+id: quant-order-history
+title: "See Order History (Quant)"
+sidebar_label: "See Order History (Quant)"
+sidebar_position: 1.3
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/future/trade/v1/order/quant/list-history`
+
+Quant account dedicated historical order query interface, supports cursor pagination, returns up to 2000 records.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| id | long | false | N/A | Cursor ID for pagination, the last orderId from previous response |  |
+| direction | string | false | NEXT | Pagination direction | PREV;NEXT |
+| limit | integer | false | 10 | Number of records per page, max 2000 |  |
+| symbol | string | false | N/A | Trading pair |  |
+| forceClose | boolean | false | false | Whether to query forced liquidation orders |  |
+| startTime | long | false | N/A | Start time (millisecond timestamp), earliest 90 days ago |  |
+| endTime | long | false | N/A | End time (millisecond timestamp) |  |
+| origType | integer | false | N/A | Conditional order type: 1=Limit TP, 2=Limit SL, 3=Market TP, 4=Market SL |  |
+| orderSide | integer | false | N/A | Order side: 1=Buy, 2=Sell |  |
+| states | list\<integer\> | false | N/A | Order states: 2=Partially Filled, 3=Filled, 4=Canceled, 6=Expired |  |
+| orderOrigType | integer | false | N/A | Order type: 1=Limit, 2=Market, 3=Limit TP/SL, 4=Market TP/SL, 5=MMR Stop Loss |  |
+| welfareAccount | boolean | false | false | Whether to query bonus account |  |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+  {`curl -G "https://fapi.xt.com/future/trade/v1/order/quant/list-history" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-signature: $SIGNATURE" \\  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # Required
+  -d "symbol=btc_usdt" \\
+  -d "limit=10"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "returnCode": 0,
+  "msgInfo": "",
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "result": {
+    "hasPrev": false,
+    "hasNext": true,
+    "items": [
+      {
+        "orderId": 123456789,           // Order ID
+        "clientOrderId": "",            // Client order ID
+        "symbol": "btc_usdt",           // Trading pair
+        "orderSide": "BUY",             // Order side
+        "orderType": "LIMIT",           // Order type
+        "positionSide": "LONG",         // Position side
+        "price": "50000.00",            // Order price
+        "origQty": "0.1",               // Original quantity (contracts)
+        "executedQty": "0.1",           // Executed quantity (contracts)
+        "avgPrice": "50000.00",         // Average filled price
+        "state": "FILLED",              // Order state: NEW; PARTIALLY_FILLED; FILLED; CANCELED; REJECTED; EXPIRED
+        "closePosition": false,         // Whether to close all when triggered
+        "closeProfit": "100.00",        // Close profit and loss
+        "marginFrozen": "0",            // Frozen margin
+        "forceClose": false,            // Whether it's a liquidation order
+        "sourceId": 0,                  // Trigger condition ID
+        "timeInForce": "GTC",           // Time in force
+        "triggerProfitPrice": "0",      // TP trigger price
+        "triggerStopPrice": "0",        // SL trigger price
+        "createdTime": 1703520000000,   // Created time
+        "updatedTime": 1703520100000    // Updated time
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### Cursor Pagination Guide
+
+1. **First request**: Do not pass the `id` parameter
+2. **Next page**: Use the last record's ID from the previous response as the `id` parameter, with `direction=NEXT`
+3. **Previous page**: Use the first record's ID from the current list as the `id` parameter, with `direction=PREV`
+4. **Check for more data**: Use `hasNext` and `hasPrev` fields
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| not_quantification_account | Not a quant account, no permission to access this interface |

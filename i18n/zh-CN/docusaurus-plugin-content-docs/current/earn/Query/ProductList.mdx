@@ -1,0 +1,95 @@
+---
+id: ProductList
+title: 理财产品列表
+sidebar_label: 理财产品列表
+sidebar_position: 2
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/public/finance/product`
+
+获取理财市场上的产品列表。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| category | string | 否 | 产品大类：SAVING、SHARK_FIN、SMART_TREND等 |
+| currency | string | 否 | 币种筛选 |
+| page | integer | 否 | 页码 |
+| size | integer | 否 | 每页数量 |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/public/finance/product" \\
+  -H "Content-Type: application/json" \\
+  -d "category=SAVING" \\
+  -d "currency=usdt"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "groupTag": "usdt",
+        "productCollections": [
+          {
+            "category": "SAVING",
+            "financialProducts": [
+              {
+                "id": 1001,
+                "productType": "DEMAND_SAVING",
+                "currency": "usdt",
+                "currencyPrecision": 4,
+                "totalQuota": "500000.00",
+                "individualCap": "100000.00",
+                "singleMin": "10.00",
+                "singleMax": "50000.00",
+                "profitType": "NORMAL",
+                "available": true,
+                "autoEnable": true,
+                "duration": null,
+                "baseApy": "8.00",
+                "financeProductStatus": "SUBSCRIBING"
+              }
+            ],
+            "tag": "NORMAL"
+          }
+        ]
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| id | long | 产品ID |
+| productType | string | 产品类型：DEMAND_SAVING、TIME_SAVING、SHARK_FIN等 |
+| currency | string | 申购币种 |
+| currencyPrecision | integer | 币种精度 |
+| totalQuota | string | 产品总额度 |
+| individualCap | string | 个人申购上限 |
+| singleMin | string | 单笔最小申购金额 |
+| singleMax | string | 单笔最大申购金额 |
+| profitType | string | 收益类型：NORMAL（普通）、GRADING（分层） |
+| available | boolean | 是否可申购 |
+| autoEnable | boolean | 是否启用自动申购 |
+| duration | integer | 产品期限（天），活期为null |
+| baseApy | string | 基础年化收益率 |
+| financeProductStatus | string | 产品状态：SUBSCRIBING、RUNNING、SETTLED |

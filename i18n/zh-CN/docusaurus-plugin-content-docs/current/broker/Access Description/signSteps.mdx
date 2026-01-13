@@ -1,0 +1,157 @@
+---
+id: SignatureGeneration
+title: 签名生成
+sidebar_label: 签名生成
+sidebar_position: 5
+---
+
+以 `https://sapi.xt.com/v4/order` 为例。
+
+以下是在 Linux bash 环境中使用 echo openssl 和 curl 工具下单的 **appkey** 和 **secret** 示例（仅供演示）：
+
+:::info **密钥：** AppKey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+
+SecretKey: bc6630d0231fda5cd98794f52c4998659beda290 :::
+
+### 请求头数据
+
+```
+validate-algorithms: HmacSHA256
+validate-appkey: 3976eb88-76d0-4f6e-a6b2-a57980770085
+validate-recvwindow: 5000
+validate-timestamp: 1641446237201
+validate-signature: 2b5eb11e18796d12d88f13dc27dbbd02c2cc51ff7059765ed9821957d82bb4d9
+```
+
+---
+
+### 请求数据
+
+```json
+{
+  "type": "LIMIT",
+  "timeInForce": "GTC",
+  "side": "BUY",
+  "symbol": "btc_usdt",
+  "price": "39000",
+  "quantity": "2"
+}
+```
+
+---
+
+### 1. 数据部分
+
+- **method**：大写方法。例如：`GET`、`POST`、`DELETE`、`PUT`
+- **path**：按路径中的顺序连接所有值。例如：`/sign/test/bb/aa`
+- **query**：按字典序排列所有 key=value。示例：`userName=dfdfdf&password=ggg`
+- **body**：
+  - JSON：直接使用 JSON 字符串
+  - x-www-form-urlencoded：按字典序排列所有 key=value
+  - form-data：不支持
+
+重新拼接顺序：`path + query + body`
+
+**示例**
+
+- 方法：`POST`
+- 路径：`/v4/order`
+- 查询参数：`symbol=btc_usdt`
+- 请求体 (x-www-form-urlencoded)：
+  ```
+  symbol=btc_usdt&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1
+  ```
+- 请求体 (json)：
+  ```json
+  {
+    "symbol": "btc_usdt",
+    "side": "BUY",
+    "type": "LIMIT",
+    "timeInForce": "GTC",
+    "quantity": 2,
+    "price": 39000
+  }
+  ```
+
+混合使用：
+
+```
+查询参数: symbol=btc_usdt&side=BUY&type=LIMIT
+请求体: {"symbol":"btc_usdt","side":"BUY","type":"LIMIT"}
+```
+
+最终拼接值 (Y)：
+
+```
+Y = #method#path#query#body
+```
+
+规则：
+
+- query 有数据，body 为空 → `Y=#method#path#query`
+- query 为空，body 有数据 → `Y=#method#path#body`
+- 两者都存在 → `Y=#method#path#query#body`
+
+---
+
+### 2. 请求头部分
+
+按自然升序字母顺序排列键，用 `&` 连接形成 X。
+
+```
+validate-algorithms=HmacSHA256&validate-appkey=3976eb88-76d0-4f6e-a6b2-a57980770085&validate-recvwindow=5000&validate-timestamp=1641446237201
+```
+
+---
+
+### 3. 生成签名
+
+最终待加密字符串：
+
+```
+original = X + Y
+```
+
+签名生成：
+
+```java
+signature = org.apache.commons.codec.digest.HmacUtils.hmacSha256Hex(secretKey, original);
+```
+
+将生成的签名放入请求头：
+
+```
+validate-signature: {signature}
+```
+
+---
+
+### 4. 示例
+
+**原始签名消息**
+
+```
+validate-algorithms=HmacSHA256&validate-appkey=2063495b-85ec-41b3-a810-be84ceb78751&validate-recvwindow=60000&validate-timestamp=1666026215729#POST#/v4/order#{"symbol":"XT_USDT","side":"BUY","type":"LIMIT","timeInForce":"GTC","bizType":"SPOT","price":3,"quantity":2}
+```
+
+**请求消息示例**
+
+```bash
+curl --location --request POST 'https://sapi.xt.com/v4/order' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'validate-algorithms: HmacSHA256' \
+--header 'validate-appkey: 10c172ca-d791-4da5-91cd-e74d202dac96' \
+--header 'validate-recvwindow: 60000' \
+--header 'validate-timestamp: 1666026215729' \
+--header 'validate-signature: 4cb36e820f50d2e353e5e0a182dc4a955b1c26efcb4b513d81eec31dd36072ba' \
+--data-raw '{"symbol":"XT_USDT","side":"BUY","type":"LIMIT","timeInForce":"GTC","bizType":"SPOT","price":3,"quantity":2}'
+```
+
+---
+
+### 注意事项
+
+- 检查 **Content-Type** 格式
+- 验证签名原始消息与请求体匹配
+- 验证请求头参数
