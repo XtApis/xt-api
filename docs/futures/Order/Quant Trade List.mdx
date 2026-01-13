@@ -1,0 +1,88 @@
+---
+id: quant-trade-list
+title: "See Transaction Details (Quant)"
+sidebar_label: "See Transaction Details (Quant)"
+sidebar_position: 1.4
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/future/trade/v1/order/quant/trade-list`
+
+Quant account dedicated transaction details query interface, supports cursor pagination, returns up to 2000 records.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| id | long | false | N/A | Cursor ID for pagination (the last execId from previous response) |  |
+| direction | string | false | NEXT | Pagination direction | PREV;NEXT |
+| limit | integer | false | 10 | Number of records per page, max 2000 |  |
+| orderId | long | false | N/A | Order ID |  |
+| symbol | string | false | N/A | Trading pair |  |
+| startTime | long | false | N/A | Start time (millisecond timestamp) |  |
+| endTime | long | false | N/A | End time (millisecond timestamp) |  |
+| welfareAccount | boolean | false | false | Whether to query bonus account |  |
+
+### Limit Flow Rules
+
+200/s/apikey
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+  {`curl -G "https://fapi.xt.com/future/trade/v1/order/quant/trade-list" \\
+  -H "validate-appkey: $APPKEY" \\  # Required
+  -H "validate-timestamp: $TIMESTAMP" \\  # Required
+  -H "validate-signature: $SIGNATURE" \\  # Required
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # Required
+  -d "symbol=btc_usdt" \\
+  -d "limit=10"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "returnCode": 0,
+  "msgInfo": "",
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "result": {
+    "hasPrev": false,
+    "hasNext": true,
+    "items": [
+      {
+        "execId": 987654321,            // Trade ID
+        "orderId": 123456789,           // Order ID
+        "symbol": "btc_usdt",           // Trading pair
+        "price": "50000.00",            // Filled price
+        "quantity": "0.05",             // Filled quantity
+        "quoteQty": "2500.00",          // Quote quantity
+        "fee": "1.25",                  // Fee
+        "feeCoin": "USDT",              // Fee currency
+        "takerMaker": "TAKER",          // Taker or Maker
+        "timestamp": 1703520050000      // Transaction time
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### Cursor Pagination Guide
+
+1. **First request**: Do not pass the `id` parameter
+2. **Next page**: Use the last record's `execId` from the previous response as the `id` parameter, with `direction=NEXT`
+3. **Previous page**: Use the first record's `execId` from the current list as the `id` parameter, with `direction=PREV`
+4. **Check for more data**: Use `hasNext` and `hasPrev` fields
+
+### Error Codes
+
+| Error Code | Description |
+| --- | --- |
+| not_quantification_account | Not a quant account, no permission to access this interface |

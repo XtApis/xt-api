@@ -1,0 +1,59 @@
+---
+id: Coupons
+title: 获取用户加息券
+sidebar_label: 获取用户加息券
+sidebar_position: 4
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/finance/coupons`
+
+查询用户的可用加息券。
+
+### 请求参数
+
+无
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/coupons" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "id": 101,
+      "name": "新客加息券",
+      "rate": "0.02",
+      "amount": "1000.00",
+      "expireTime": 1702592000000,
+      "status": "AVAILABLE"
+    }
+  ]
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| id | long | 加息券ID |
+| name | string | 加息券名称 |
+| rate | string | 加息利率 |
+| amount | string | 最大适用金额 |
+| expireTime | long | 过期时间 |
+| status | string | 状态：AVAILABLE、USED、EXPIRED |

@@ -11,6 +11,14 @@
   font-size: 14px !important;
 }
 
+/* 二级：嵌套的子分类标题 */
+.theme-doc-sidebar-menu
+  .theme-doc-sidebar-item-category-level-2
+  > .menu__list-item-collapsible
+  > .menu__link {
+  font-size: 13px !important;
+}
+
 /* 二级：分类下的文档条目 */
 .theme-doc-sidebar-menu
   .theme-doc-sidebar-item-link-level-2

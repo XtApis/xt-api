@@ -364,6 +364,53 @@ onReady(() => {
         },
       ],
     },
+    earn: {
+      title: 'Earn',
+      description: 'Earn APIs',
+      products: [
+        {
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/earn/Access Description/BasicInformation',
+        },
+        {
+          title: 'Auto Earn',
+          description: 'Auto Earn APIs',
+          href: '/docs/earn/Auto Earn/AutoSubscribeSet',
+        },
+        {
+          title: 'Order Management',
+          description: 'Order Management APIs',
+          href: '/docs/earn/Order Management/SubscribeRedeem',
+        },
+        {
+          title: 'Query',
+          description: 'Query APIs',
+          href: '/docs/earn/Query/ProductList',
+        },
+        {
+          title: 'Special Products',
+          description: 'Special Products APIs',
+          href: '/docs/earn/Special Products/XRWURedeemQuota',
+        },
+      ],
+    },
+    broker: {
+      title: 'Broker',
+      description: 'Broker APIs',
+      products: [
+        {
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/broker/Access Description/BasicInformation',
+        },
+        {
+          title: 'Binding',
+          description: 'Binding APIs',
+          href: '/docs/broker/Binding/BindUserAccount',
+        },
+      ],
+    },
 
     Trading: {
       title: 'Trading',
@@ -669,6 +716,16 @@ window.showCategory = function showCategory(category) {
           description: 'Loan API',
           href: '/docs/loan/Access Description/BasicInformation',
         },
+        {
+          title: 'Earn',
+          description: 'Earn API',
+          href: '/docs/earn/Access Description/BasicInformation',
+        },
+        {
+          title: 'Broker',
+          description: 'Broker API',
+          href: '/docs/broker/Access Description/BasicInformation',
+        },
       ],
     },
     Index: {
@@ -956,6 +1013,53 @@ window.showCategory = function showCategory(category) {
         },
       ],
     },
+    earn: {
+      title: 'Earn',
+      description: 'Earn APIs',
+      products: [
+        {
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/earn/Access Description/BasicInformation',
+        },
+        {
+          title: 'Auto Earn',
+          description: 'Auto Earn APIs',
+          href: '/docs/earn/Auto Earn/AutoSubscribeSet',
+        },
+        {
+          title: 'Order Management',
+          description: 'Order Management APIs',
+          href: '/docs/earn/Order Management/SubscribeRedeem',
+        },
+        {
+          title: 'Query',
+          description: 'Query APIs',
+          href: '/docs/earn/Query/ProductList',
+        },
+        {
+          title: 'Special Products',
+          description: 'Special Products APIs',
+          href: '/docs/earn/Special Products/XRWURedeemQuota',
+        },
+      ],
+    },
+    broker: {
+      title: 'Broker',
+      description: 'Broker APIs',
+      products: [
+        {
+          title: 'Access Description',
+          description: 'Access Description APIs',
+          href: '/docs/broker/Access Description/BasicInformation',
+        },
+        {
+          title: 'Binding',
+          description: 'Binding APIs',
+          href: '/docs/broker/Binding/BindUserAccount',
+        },
+      ],
+    },
     Trading: {
       title: 'Trading',
       description: 'Explore our trading APIs',
@@ -1044,6 +1148,8 @@ window.showCategory = function showCategory(category) {
       userCenter: 'User Center',
       referralProgram: 'Referral Program',
       loan: 'Loan',
+      earn: 'Earn',
+      broker: 'Broker',
     };
     const titleLabel = labelMap[category] || categoryData.title || '';
     const titleKey = titleLabel.replace(/&/g, '&amp;');

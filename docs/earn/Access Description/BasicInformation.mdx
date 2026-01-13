@@ -1,0 +1,33 @@
+---
+id: BasicInformation
+title: Basic Information
+sidebar_label: Basic Information
+sidebar_position: 1
+---
+
+### Overview
+
+This document describes the API interfaces of the Earn system, which support core functionalities such as subscribing, redeeming, position query, and auto-earn settings.
+
+**Supported Product Types:**
+
+| Product Type | Subscribe | Redeem | Notes |
+| --- | --- | --- | --- |
+| Flexible Savings | Yes | Yes | Subscribe/redeem anytime, supports auto-subscribe and one-click earn |
+| Fixed Savings | Yes | No | Subscribe anytime, no redemption, supports auto-reinvest |
+| Flash Sale | Yes | No | Subscribe only during subscription period, no redemption |
+| On-chain Earn | Yes | Yes | Subscribe/redeem anytime, redemption has waiting period |
+| XRWU | Yes | Yes | Standard redemption (T+3) and fast redemption (instant) |
+| Wealth Management | Yes | Yes | Subscribe/redeem anytime, redemption arrives on next redemption day |
+| Shark Fin | Yes | No | Subscribe only during subscription period, no redemption, supports auto-reinvest |
+| Smart Trend | Yes | No | Subscribe only during subscription period, no redemption, supports auto-reinvest |
+
+**Basic Information:**
+
+- **Base URL:** `https://sapi.xt.com`
+- **Authentication Method:** API Key + Signature
+- **Content Type:** `application/json`
+
+### Authentication
+
+All API requests must include authentication information in the request header. The API requires **Earn permission** to be enabled.

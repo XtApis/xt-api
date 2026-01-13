@@ -1,0 +1,124 @@
+---
+id: BindUserAccount
+title: 绑定用户账户
+sidebar_label: 绑定用户账户
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** POST
+
+**描述:** `/v4/broker/account/bind`
+
+将用户账户绑定到经纪商关系。用户需要使用自己的 accessKey 和 secretKey 生成签名，经纪商携带用户签名调用此接口完成绑定。
+
+:::warning 注意
+如果需要解绑，请联系客服提交解绑工单。
+:::
+
+### 请求参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| userAccessKey | string | 是 | - | 用户API Key | - |
+| timestamp | number | 是 | - | UTC请求时间戳(毫秒)，5分钟内有效 | - |
+| userSignature | string | 是 | - | HMAC-SHA256签名。签名方式: `hmac_sha256(userAccessKey + timestamp, secretKey)` | - |
+| remark | string | 否 | - | 备注（长度不能超过32个字符） | - |
+
+### 签名算法说明
+
+```
+message = userAccessKey + timestamp
+userSignature = HMAC-SHA256(message, secretKey)
+```
+
+**时间戳验证:**
+- 请求时间戳与服务器时间差不能超过5分钟(300000毫秒)
+- 超时请求将被拒绝，返回"request expired"错误
+
+**Python签名示例代码:**
+
+<CodeBlock language="python" title="签名生成">
+{`import hmac
+import hashlib
+import time
+import requests
+import json
+
+def generate_signature(user_access_key, secret_key, timestamp):
+    """
+    生成HMAC-SHA256签名
+    :param user_access_key: 用户的user_access_key
+    :param secret_key: 用户的Secret Key
+    :param timestamp: 时间戳字符串(毫秒)
+    :return: 签名字符串(十六进制)
+    """
+    message = user_access_key + timestamp
+    signature = hmac.new(
+        secret_key.encode('utf-8'),
+        message.encode('utf-8'),
+        hashlib.sha256
+    ).hexdigest()
+    return signature
+
+# 使用示例
+if __name__ == "__main__":
+    user_access_key = "your_access_key"
+    user_secret_key = "your_secret_key"
+    timestamp = str(int(time.time() * 1000))
+
+    signature = generate_signature(user_access_key, user_secret_key, timestamp)
+    print(f"userAccessKey: {user_access_key}")
+    print(f"timestamp: {timestamp}")
+    print(f"userSignature: {signature}")`}
+</CodeBlock>
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://sapi.xt.com/v4/broker/account/bind" \\
+  -H "validate-appkey: $BROKER_APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $BROKER_SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "userAccessKey": "user_access_key_here",
+    "timestamp": 1702592000000,
+    "userSignature": "generated_user_signature_here",
+    "remark": "可选备注"
+  }'`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,                         //响应码 0表示成功
+  "mc": "SUCCESS",                 //业务错误码
+  "result": {
+    "userId": 7270726238734,       //用户ID
+    "accountId": 7270726238734,    //用户账户ID
+    "accountLevel": 1,             //用户账户等级 1主账户 2二级账户
+    "bindTime": 1703980800000      //绑定毫秒时间戳
+  }
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| userId | number | 用户ID |
+| accountId | number | 用户账户ID |
+| accountLevel | number | 用户账户等级：1=主账户，2=二级账户 |
+| bindTime | number | 绑定毫秒时间戳 |
+
+### 消息码（mc）
+
+| mc | 描述 |
+| --- | --- |
+| BROKER_BINDING_001 | Broker信息不存在（信息有误或审批未通过） |
+| BROKER_BINDING_002 | 签名校验不通过 |
+| BROKER_BINDING_003 | 不符合绑定条件 |
+| BROKER_BINDING_004 | 重复绑定或账户已被其他经纪商绑定 |

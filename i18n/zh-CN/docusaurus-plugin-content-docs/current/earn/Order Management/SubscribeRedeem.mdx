@@ -1,0 +1,56 @@
+---
+id: SubscribeRedeem
+title: 产品申购/赎回
+sidebar_label: 产品申购/赎回
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** POST
+
+**描述:** `/v4/finance/order`
+
+用于理财产品的申购或赎回操作。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| productId | long | 是 | 产品ID |
+| amount | string | 是 | 申购/赎回金额 |
+| orderType | string | 是 | 订单类型：SUBSCRIBE（申购）、REDEEM（赎回） |
+| redeemType | string | 否 | 赎回类型（XRWU专用）：STANDARD（标准）、FAST（快速） |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://sapi.xt.com/v4/finance/order" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "productId": 1001,
+    "amount": "1000.00",
+    "orderType": "SUBSCRIBE"
+  }'
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": 123456789
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| result | long | 订单ID |

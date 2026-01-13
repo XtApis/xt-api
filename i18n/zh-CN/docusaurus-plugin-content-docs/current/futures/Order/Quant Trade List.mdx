@@ -1,0 +1,88 @@
+---
+id: quant-trade-list
+title: "查看成交明细（量化）"
+sidebar_label: "查看成交明细（量化）"
+sidebar_position: 1.4
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/future/trade/v1/order/quant/trade-list`
+
+量化账号专用成交明细查询接口，支持游标分页，最大返回2000条记录。
+
+### 参数
+
+| 名称 | 类型 | 必填 | 默认值 | 描述 | 范围 |
+| --- | --- | --- | --- | --- | --- |
+| id | long | false | N/A | 游标ID，用于翻页（上一次返回的最后一条Trade的execId） |  |
+| direction | string | false | NEXT | 翻页方向 | PREV;NEXT |
+| limit | integer | false | 10 | 每页数量，最大2000 |  |
+| orderId | long | false | N/A | 订单ID |  |
+| symbol | string | false | N/A | 交易对 |  |
+| startTime | long | false | N/A | 开始时间（毫秒时间戳） |  |
+| endTime | long | false | N/A | 结束时间（毫秒时间戳） |  |
+| welfareAccount | boolean | false | false | 是否查询体验金账户 |  |
+
+### 限流规则
+
+200/s/apikey
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+  {`curl -G "https://fapi.xt.com/future/trade/v1/order/quant/trade-list" \\
+  -H "validate-appkey: $APPKEY" \\  # 必须
+  -H "validate-timestamp: $TIMESTAMP" \\  # 必须
+  -H "validate-signature: $SIGNATURE" \\  # 必须
+  -H "Content-Type: application/x-www-form-urlencoded" \\  # 必须
+  -d "symbol=btc_usdt" \\
+  -d "limit=10"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+  {`{
+  "returnCode": 0,
+  "msgInfo": "",
+  "error": {
+    "code": "",
+    "msg": ""
+  },
+  "result": {
+    "hasPrev": false,
+    "hasNext": true,
+    "items": [
+      {
+        "execId": 987654321,            // 成交 ID
+        "orderId": 123456789,           // 订单 ID
+        "symbol": "btc_usdt",           // 交易对
+        "price": "50000.00",            // 成交价格
+        "quantity": "0.05",             // 成交数量
+        "quoteQty": "2500.00",          // 成交额
+        "fee": "1.25",                  // 手续费
+        "feeCoin": "USDT",              // 手续费币种
+        "takerMaker": "TAKER",          // Taker 或 Maker
+        "timestamp": 1703520050000      // 成交时间
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### 游标分页使用说明
+
+1. **首次请求**：不传 `id` 参数
+2. **下一页**：使用上一次返回列表中最后一条记录的 `execId` 作为 `id` 参数，`direction=NEXT`
+3. **上一页**：使用当前列表第一条记录的 `execId` 作为 `id` 参数，`direction=PREV`
+4. **判断是否有更多数据**：通过 `hasNext` 和 `hasPrev` 字段判断
+
+### 错误码
+
+| 错误码 | 描述 |
+| --- | --- |
+| not_quantification_account | 非量化账号，无权访问此接口 |

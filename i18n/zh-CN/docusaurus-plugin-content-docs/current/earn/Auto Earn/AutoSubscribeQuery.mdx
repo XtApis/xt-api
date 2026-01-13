@@ -1,0 +1,62 @@
+---
+id: AutoSubscribeQuery
+title: 查询自动申购状态
+sidebar_label: 查询自动申购状态
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/finance/auto-subscribe`
+
+查询用户所有产品的自动申购状态。
+
+### 请求参数
+
+无
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/auto-subscribe" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "productId": 1001,
+      "enabled": true,
+      "createTime": 1700000000000,
+      "updateTime": 1700086400000
+    },
+    {
+      "productId": 1002,
+      "enabled": false,
+      "createTime": 1700000000000,
+      "updateTime": 1700172800000
+    }
+  ]
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| productId | long | 产品ID |
+| enabled | boolean | 是否开启自动申购 |
+| createTime | long | 创建时间 |
+| updateTime | long | 最后更新时间 |

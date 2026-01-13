@@ -279,6 +279,20 @@ const config: Config = {
                              onclick="showCategory('loan')"
                              data-category="loan"
                              data-i18n="item.label.Loan">Loan</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('earn')"
+                             data-category="earn"
+                             data-i18n="item.label.Earn">Earn</div>
+
+                        <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
+                             onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
+                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
+                             onclick="showCategory('broker')"
+                             data-category="broker"
+                             data-i18n="item.label.Broker">Broker</div>
                       </div>
                     </div>
 
@@ -396,6 +410,26 @@ const config: Config = {
                                data-i18n="item.label.Loan">Loan</div>
                           <div style="font-size: 12px; color: #6b7280;"
                                data-i18n="item.label.Loan API">Loan API</div>
+                        </a>
+
+                        <a href="/docs/earn/Access%20Description/BasicInformation"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
+                           onmouseout="this.style.opacity='1';">
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
+                               data-i18n="item.label.Earn">Earn</div>
+                          <div style="font-size: 12px; color: #6b7280;"
+                               data-i18n="item.label.Earn API">Earn API</div>
+                        </a>
+
+                        <a href="/docs/broker/Access%20Description/BasicInformation"
+                           style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
+                           onmouseover="this.style.opacity='0.7';"
+                           onmouseout="this.style.opacity='1';">
+                          <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
+                               data-i18n="item.label.Broker">Broker</div>
+                          <div style="font-size: 12px; color: #6b7280;"
+                               data-i18n="item.label.Broker API">Broker API</div>
                         </a>
                       </div>
                     </div>

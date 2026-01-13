@@ -1,0 +1,96 @@
+---
+id: ReInvestStructured
+title: Structured Products Re-invest Setting
+sidebar_label: Structured Products Re-invest
+sidebar_position: 2
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+## Shark Fin Re-invest Setting
+
+**Type:** POST
+
+**Description:** `/v4/finance/re-invest-shark-fin`
+
+Enable or disable auto re-invest for Shark Fin products.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| positionId | string | true | Position ID |
+| enabled | boolean | true | Enable or disable re-invest |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://sapi.xt.com/v4/finance/re-invest-shark-fin" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "positionId": "123456789",
+    "enabled": true
+  }'
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": true
+}`}
+</CodeBlock>
+
+---
+
+## Smart Trend Re-invest Setting
+
+**Type:** POST
+
+**Description:** `/v4/finance/re-invest-smart-trend`
+
+Enable or disable auto re-invest for Smart Trend products.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| positionId | string | true | Position ID |
+| enabled | boolean | true | Enable or disable re-invest |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://sapi.xt.com/v4/finance/re-invest-smart-trend" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "positionId": "123456789",
+    "enabled": true
+  }'
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": true
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| result | boolean | Operation result |

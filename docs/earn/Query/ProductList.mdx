@@ -1,0 +1,95 @@
+---
+id: ProductList
+title: Query Product List
+sidebar_label: Query Product List
+sidebar_position: 2
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/public/finance/product`
+
+Get earn product list from the market.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| category | string | false | Product category: SAVING, SHARK_FIN, SMART_TREND, etc. |
+| currency | string | false | Currency filter |
+| page | integer | false | Page number |
+| size | integer | false | Page size |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/public/finance/product" \\
+  -H "Content-Type: application/json" \\
+  -d "category=SAVING" \\
+  -d "currency=usdt"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": false,
+    "hasNext": false,
+    "items": [
+      {
+        "groupTag": "usdt",
+        "productCollections": [
+          {
+            "category": "SAVING",
+            "financialProducts": [
+              {
+                "id": 1001,
+                "productType": "DEMAND_SAVING",
+                "currency": "usdt",
+                "currencyPrecision": 4,
+                "totalQuota": "500000.00",
+                "individualCap": "100000.00",
+                "singleMin": "10.00",
+                "singleMax": "50000.00",
+                "profitType": "NORMAL",
+                "available": true,
+                "autoEnable": true,
+                "duration": null,
+                "baseApy": "8.00",
+                "financeProductStatus": "SUBSCRIBING"
+              }
+            ],
+            "tag": "NORMAL"
+          }
+        ]
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| id | long | Product ID |
+| productType | string | Product type: DEMAND_SAVING, TIME_SAVING, SHARK_FIN, etc. |
+| currency | string | Subscription currency |
+| currencyPrecision | integer | Currency precision |
+| totalQuota | string | Total product quota |
+| individualCap | string | Individual subscription cap |
+| singleMin | string | Minimum single subscription |
+| singleMax | string | Maximum single subscription |
+| profitType | string | Profit type: NORMAL, GRADING |
+| available | boolean | Whether available for subscription |
+| autoEnable | boolean | Whether auto-subscribe is enabled |
+| duration | integer | Product duration (days), null for flexible |
+| baseApy | string | Base annual percentage yield |
+| financeProductStatus | string | Product status: SUBSCRIBING, RUNNING, SETTLED |

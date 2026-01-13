@@ -1,0 +1,58 @@
+---
+id: Balance
+title: Query Earn Balance
+sidebar_label: Query Balance
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/balance`
+
+Query user's total earn assets and position overview.
+
+### Parameters
+
+None (user info obtained from request header authentication)
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/balance" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "totalAssets": "10500.00",
+    "totalAssetsBtc": "0.24",
+    "lastInterestAmount": "12.34",
+    "lastInterestAmountBtc": "0.00028",
+    "totalInterestAmount": "123.45",
+    "totalInterestAmountBtc": "0.0028"
+  }
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| totalAssets | string | Total assets (USDT valuation) |
+| totalAssetsBtc | string | Total assets (BTC valuation) |
+| lastInterestAmount | string | Yesterday's earnings |
+| lastInterestAmountBtc | string | Yesterday's earnings (BTC) |
+| totalInterestAmount | string | Total accumulated earnings |
+| totalInterestAmountBtc | string | Total accumulated earnings (BTC) |

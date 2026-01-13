@@ -1,0 +1,62 @@
+---
+id: AutoSubscribeQuery
+title: Query Auto Subscribe Status
+sidebar_label: Query Auto Subscribe Status
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/auto-subscribe`
+
+Query user's auto subscribe status for all products.
+
+### Parameters
+
+None
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/auto-subscribe" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "productId": 1001,
+      "enabled": true,
+      "createTime": 1700000000000,
+      "updateTime": 1700086400000
+    },
+    {
+      "productId": 1002,
+      "enabled": false,
+      "createTime": 1700000000000,
+      "updateTime": 1700172800000
+    }
+  ]
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| productId | long | Product ID |
+| enabled | boolean | Whether auto subscribe is enabled |
+| createTime | long | Create time |
+| updateTime | long | Last update time |

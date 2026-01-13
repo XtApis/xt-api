@@ -1,0 +1,59 @@
+---
+id: Coupons
+title: Query Interest Coupons
+sidebar_label: Query Interest Coupons
+sidebar_position: 3
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/coupons`
+
+Query user's available interest rate boost coupons.
+
+### Parameters
+
+None
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/coupons" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "id": 101,
+      "name": "New User Interest Boost Coupon",
+      "rate": "0.02",
+      "amount": "1000.00",
+      "expireTime": 1702592000000,
+      "status": "AVAILABLE"
+    }
+  ]
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| id | long | Coupon ID |
+| name | string | Coupon name |
+| rate | string | Boost rate |
+| amount | string | Maximum applicable amount |
+| expireTime | long | Expiration time |
+| status | string | Coupon status: AVAILABLE, USED, EXPIRED |

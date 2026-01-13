@@ -1,0 +1,53 @@
+---
+id: SignatureInstructions
+title: Signature Instructions
+sidebar_label: Signature Instructions
+sidebar_position: 4
+---
+
+Since XT needs to provide some open interfaces for third-party platforms, the issue of data security needs to be considered.
+Such as whether the data has been tampered with, whether the data is outdated, whether the data can be submitted repeatedly, and the access frequency of the interface.
+Whether data has been tampered with is the most important issue.
+
+### Instructions
+
+1. Please apply for **appkey** and **secretkey** in the user center first. Each user's appkey and secretkey are different.
+
+2. Add **timestamp**, its value should be the Unix timestamp (milliseconds) of the time when the request is sent.
+   The server validates the data time based on this value.
+
+3. Add **signature**, its value is obtained by a certain rule of signature algorithm.
+
+4. Add **recvwindow** (defining the valid time of the request).
+
+   - When a request is received by the server, the timestamp in the request is checked to ensure it falls between **2 to 60 seconds**.
+   - Any request with a timestamp older than **5000 ms** is considered invalid.
+   - The time window value can be set using the optional parameter: `recvWindow`.
+   - If the server determines that the client's timestamp is more than **1 second ahead**, the request will also be invalid.
+   - Online conditions may cause varying latency, so `recvWindow` can be adjusted according to your needs.
+   - **Not recommended:** `recvWindow` longer than 5 seconds.
+
+5. Add **algorithm** (signature method/algorithm).
+   The user calculates the signature according to the protocol of the hash. **HmacSHA256 is recommended**.
+
+   Supported algorithms:
+
+   - HmacMD5
+   - HmacSHA1
+   - HmacSHA224
+   - HmacSHA256 (recommended)
+   - HmacSHA384
+   - HmacSHA512
+
+---
+
+### Header Parameters
+
+| name | mandatory | example | description |
+| --- | --- | --- | --- |
+| validate-appkey | true | dbefbc809e3e83c283a984c3a1459732ea7db1360ca80c5c2c8867408d28cc83 | - |
+| validate-timestamp | true | 1641446237201 | - |
+| validate-signature | true | 0a7d0b5e802eb5e52ac0cfcd6311b0faba6e2503a9a8d1e2364b38617877574d | - |
+| validate-recvwindow | true | 5000 (millisecond) | - |
+| validate-algorithms | true | HmacSHA256 | HmacMD5, HmacSHA1, HmacSHA224, HmacSHA256, HmacSHA384, HmacSHA512. Default: HmacSHA256 |
+| validate-signversion | false | 1.0 | Reserved, signed version number |

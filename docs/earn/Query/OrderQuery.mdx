@@ -1,0 +1,101 @@
+---
+id: OrderQuery
+title: Query Orders
+sidebar_label: Query Orders
+sidebar_position: 3
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/order`
+
+Query user's earn order details based on filter conditions.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| productId | long | false | Product ID |
+| orderType | string | false | Order type: SUBSCRIBE, REDEEM, SETTLE_INTEREST |
+| status | string | false | Order status: SUCCESS, PROCESSING, FAILED |
+| startTime | long | false | Start time (millisecond timestamp) |
+| endTime | long | false | End time (millisecond timestamp) |
+| page | integer | false | Page number |
+| size | integer | false | Page size |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/order" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d "orderType=SUBSCRIBE" \\
+  -d "page=1" \\
+  -d "size=10"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": false,
+    "hasNext": true,
+    "items": [
+      {
+        "productName": "USDT Flexible Savings",
+        "currency": "USDT",
+        "profitType": "NORMAL",
+        "apy": [{"apy": "0.08"}],
+        "financeOrderType": "SUBSCRIBE",
+        "amount": "1000.00",
+        "productPrice": "1.00",
+        "startTime": 1700000000000,
+        "arrivalTime": 1700000001000,
+        "financeOrderStatus": "SUCCESS",
+        "duration": null,
+        "interestCurrency": "USDT"
+      },
+      {
+        "productName": "BTC Fixed Savings",
+        "currency": "USDT",
+        "profitType": "NORMAL",
+        "apy": [{"apy": "0.12"}],
+        "financeOrderType": "REDEEM",
+        "amount": "500.00",
+        "productPrice": "1.00",
+        "startTime": 1699900000000,
+        "arrivalTime": 1699900001000,
+        "financeOrderStatus": "PROCESSING",
+        "duration": 30,
+        "interestCurrency": "USDT"
+      }
+    ]
+  }
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| productName | string | Product name |
+| currency | string | Subscription currency |
+| profitType | string | Profit type |
+| apy | array | Reference APY |
+| financeOrderType | string | Order type: SUBSCRIBE, REDEEM, SETTLE_INTEREST |
+| amount | string | Amount |
+| productPrice | string | Product price |
+| startTime | long | Order start time |
+| arrivalTime | long | Arrival time |
+| financeOrderStatus | string | Order status: SUCCESS, PROCESSING, FAILED |
+| duration | integer | Duration (days), null for flexible |
+| interestCurrency | string | Interest currency |

@@ -1,0 +1,63 @@
+---
+id: AutoEarnList
+title: Query Auto Earn List
+sidebar_label: Query Auto Earn List
+sidebar_position: 7
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/auto-earn-list`
+
+Query auto earn product list.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| currency | string | false | Currency filter |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/auto-earn-list" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "productId": 1001,
+      "enabled": true,
+      "apyList": [{"apy": "0.08"}],
+      "weight": 1,
+      "currency": "USDT",
+      "profitType": "NORMAL",
+      "available": true
+    }
+  ]
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| productId | long | Product ID |
+| enabled | boolean | Whether auto-earn is enabled for this product |
+| apyList | array | APY list |
+| weight | integer | Product weight (for sorting) |
+| currency | string | Currency |
+| profitType | string | Profit type |
+| available | boolean | Whether product is available |

@@ -1,0 +1,60 @@
+---
+id: UserAssets
+title: 获取用户资产
+sidebar_label: 获取用户资产
+sidebar_position: 0
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/finance/balance`
+
+获取用户理财资产概览，包括总资产、活期资产、借贷资产等。
+
+### 请求参数
+
+无（通过请求头鉴权获取用户信息）
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/balance" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "totalAssets": "10500.00",
+    "totalAssetsBtc": "0.24",
+    "lastInterestAmount": "12.34",
+    "totalInterestAmount": "123.45",
+    "demandAssets": "5000.00",
+    "loanAssets": "-1000.00",
+    "positions": []
+  }
+}`}
+</CodeBlock>
+
+### 响应参数
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| totalAssets | string | 总资产(USDT估值) |
+| totalAssetsBtc | string | 总资产(BTC估值) |
+| lastInterestAmount | string | 最新派息 |
+| totalInterestAmount | string | 累计收益 |
+| demandAssets | string | 活期资产 |
+| loanAssets | string | 借贷资产(负值代表负债) |
+| positions | array | 持仓列表 |

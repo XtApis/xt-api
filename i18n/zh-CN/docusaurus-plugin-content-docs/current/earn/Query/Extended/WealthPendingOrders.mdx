@@ -1,0 +1,114 @@
+---
+id: WealthPendingOrders
+title: 待起息/待赎回订单 (财富管理)
+sidebar_label: 待起息/待赎回订单 (财富管理)
+sidebar_position: 8
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+## 查询待起息订单
+
+**类型:** GET
+
+**描述:** `/v4/finance/wealth/position/pending-interest-order`
+
+查询财富管理产品的待起息订单。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| productId | long | 否 | 产品ID |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/wealth/position/pending-interest-order" \\
+  -d "productId=1001" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "userId": 1,
+      "productId": 1001,
+      "currency": "USDT",
+      "amount": "500.00",
+      "createTime": 1700000000000,
+      "interestStartTime": 1700086400000,
+      "receiveAmount": "505.00"
+    }
+  ]
+}`}
+</CodeBlock>
+
+---
+
+## 查询待赎回订单
+
+**类型:** GET
+
+**描述:** `/v4/finance/wealth/position/pending-redeem-order`
+
+查询财富管理产品的待赎回订单。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| productId | long | 否 | 产品ID |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/wealth/position/pending-redeem-order" \\
+  -d "productId=1001" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "userId": 1,
+      "productId": 1001,
+      "currency": "USDT",
+      "amount": "500.00",
+      "createTime": 1700000000000,
+      "interestStartTime": 1700086400000,
+      "receiveAmount": "505.00"
+    }
+  ]
+}`}
+</CodeBlock>
+
+### 响应参数
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| userId | long | 用户ID |
+| productId | long | 产品ID |
+| currency | string | 币种 |
+| amount | string | 金额 |
+| createTime | long | 创建时间戳 |
+| interestStartTime | long | 起息时间戳 |
+| receiveAmount | string | 预计到账金额 |

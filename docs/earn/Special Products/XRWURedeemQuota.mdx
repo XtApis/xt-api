@@ -1,0 +1,55 @@
+---
+id: XRWURedeemQuota
+title: XRWU Redeem Quota Query
+sidebar_label: XRWU Redeem Quota
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** GET
+
+**Description:** `/v4/finance/xrwu/redeem-quota`
+
+Query XRWU product redemption quota information.
+
+### Parameters
+
+| Name | Type | Mandatory | Description |
+| --- | --- | --- | --- |
+| productId | long | true | XRWU Product ID |
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/xrwu/redeem-quota" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d "productId=1001"
+`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "property": "50000.00",
+    "residueIndividualDaily": "8000.00",
+    "residueProductDaily": "500000.00"
+  }
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| property | string | XRWU spot available balance |
+| residueIndividualDaily | string | Individual daily remaining quota |
+| residueProductDaily | string | Product daily remaining quota |

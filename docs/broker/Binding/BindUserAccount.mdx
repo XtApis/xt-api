@@ -1,0 +1,124 @@
+---
+id: BindUserAccount
+title: Bind User Account
+sidebar_label: Bind User Account
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**Type:** POST
+
+**Description:** `/v4/broker/account/bind`
+
+Bind a user account to the broker relationship. The user needs to generate a signature using their own accessKey and secretKey, and the broker calls this interface with the user's signature to complete the binding.
+
+:::warning Note
+If you need to unbind, please contact customer service to submit an unbind ticket.
+:::
+
+### Request Parameters
+
+| Name | Type | Required | Default | Description | Value Range |
+| --- | --- | --- | --- | --- | --- |
+| userAccessKey | string | Yes | - | User's API Key | - |
+| timestamp | number | Yes | - | UTC request timestamp (milliseconds), valid for 5 minutes | - |
+| userSignature | string | Yes | - | HMAC-SHA256 signature. Signature method: `hmac_sha256(userAccessKey + timestamp, secretKey)` | - |
+| remark | string | No | - | Remark (max 32 characters) | - |
+
+### Signature Algorithm
+
+```
+message = userAccessKey + timestamp
+userSignature = HMAC-SHA256(message, secretKey)
+```
+
+**Timestamp Validation:**
+- The difference between request timestamp and server time cannot exceed 5 minutes (300000 milliseconds)
+- Expired requests will be rejected with "request expired" error
+
+**Python Signature Example:**
+
+<CodeBlock language="python" title="Signature Generation">
+{`import hmac
+import hashlib
+import time
+import requests
+import json
+
+def generate_signature(user_access_key, secret_key, timestamp):
+    """
+    Generate HMAC-SHA256 signature
+    :param user_access_key: User's user_access_key
+    :param secret_key: User's Secret Key
+    :param timestamp: Timestamp string (milliseconds)
+    :return: Signature string (hexadecimal)
+    """
+    message = user_access_key + timestamp
+    signature = hmac.new(
+        secret_key.encode('utf-8'),
+        message.encode('utf-8'),
+        hashlib.sha256
+    ).hexdigest()
+    return signature
+
+# Usage example
+if __name__ == "__main__":
+    user_access_key = "your_access_key"
+    user_secret_key = "your_secret_key"
+    timestamp = str(int(time.time() * 1000))
+
+    signature = generate_signature(user_access_key, user_secret_key, timestamp)
+    print(f"userAccessKey: {user_access_key}")
+    print(f"timestamp: {timestamp}")
+    print(f"userSignature: {signature}")`}
+</CodeBlock>
+
+### Request Example
+
+<CodeBlock language="bash" title="Request">
+{`curl -X POST "https://sapi.xt.com/v4/broker/account/bind" \\
+  -H "validate-appkey: $BROKER_APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $BROKER_SIGNATURE" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "userAccessKey": "user_access_key_here",
+    "timestamp": 1702592000000,
+    "userSignature": "generated_user_signature_here",
+    "remark": "Optional remark"
+  }'`}
+</CodeBlock>
+
+### Response Example
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,                         // Response code, 0 means success
+  "mc": "SUCCESS",                 // Business message code
+  "result": {
+    "userId": 7270726238734,       // User ID
+    "accountId": 7270726238734,    // User account ID
+    "accountLevel": 1,             // Account level: 1=Primary account, 2=Secondary account
+    "bindTime": 1703980800000      // Binding timestamp (milliseconds)
+  }
+}`}
+</CodeBlock>
+
+### Response Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| userId | number | User ID |
+| accountId | number | User account ID |
+| accountLevel | number | Account level: 1=Primary account, 2=Secondary account |
+| bindTime | number | Binding timestamp (milliseconds) |
+
+### Message Codes (mc)
+
+| mc | Description |
+| --- | --- |
+| BROKER_BINDING_001 | Broker information does not exist (incorrect info or approval not passed) |
+| BROKER_BINDING_002 | Signature verification failed |
+| BROKER_BINDING_003 | Binding conditions not met |
+| BROKER_BINDING_004 | Duplicate binding or account already bound to another broker |

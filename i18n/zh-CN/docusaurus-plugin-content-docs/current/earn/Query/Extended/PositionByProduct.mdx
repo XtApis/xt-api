@@ -1,0 +1,66 @@
+---
+id: PositionByProduct
+title: 获取用户持仓 (产品维度)
+sidebar_label: 获取用户持仓 (产品维度)
+sidebar_position: 6
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+**类型:** GET
+
+**描述:** `/v4/finance/position-product`
+
+按产品维度查询用户的理财持仓。
+
+### 请求参数
+
+| 名称 | 类型 | 必填 | 描述 |
+| --- | --- | --- | --- |
+| category | string | 否 | 产品大类筛选 |
+
+### 请求示例
+
+<CodeBlock language="bash" title="Request">
+{`curl -G "https://sapi.xt.com/v4/finance/position-product" \\
+  -H "validate-appkey: $APPKEY" \\
+  -H "validate-timestamp: $TIMESTAMP" \\
+  -H "validate-signature: $SIGNATURE" \\
+  -H "Content-Type: application/json"
+`}
+</CodeBlock>
+
+### 响应示例
+
+<CodeBlock language="json" title="Response">
+{`{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": [
+    {
+      "category": "SAVING",
+      "amount": "2000.00",
+      "runningOrderCount": 1,
+      "positionList": [
+        {
+          "productId": 1001,
+          "productType": "TIME_SAVING",
+          "amount": "2000.00"
+        }
+      ]
+    }
+  ]
+}`}
+</CodeBlock>
+
+### 响应字段
+
+| 字段 | 类型 | 描述 |
+| --- | --- | --- |
+| category | string | 产品大类 |
+| amount | string | 该大类总金额 |
+| runningOrderCount | integer | 运行中订单数量 |
+| positionList | array | 持仓列表 |
+| positionList[].productId | long | 产品ID |
+| positionList[].productType | string | 产品类型 |
+| positionList[].amount | string | 持仓金额 |
