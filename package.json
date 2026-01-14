@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build --out-dir dist",
+    "build_dist": "docusaurus build --out-dir dist",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -16,7 +16,7 @@
     "gen-api-docs": "docusaurus gen-api-docs all",
     "fix-sidebar-keys": "node scripts/ensure-i18n-sidebar-keys.js",
     "openapi:generate": "npm run gen-api-docs",
-    "build:site": "npm run openapi:generate && npm run fix-sidebar-keys && npm run build"
+    "build": "API_BASE_URL=https://fapi.xt.com node scripts/update-openapi-url.js &&npm run openapi:generate && npm run fix-sidebar-keys && npm run build_dist"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
