@@ -18,3 +18,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Check scripts
+scripts/check_docs_sync.py
+__pycache__/
+
+# Logs
+logs/
