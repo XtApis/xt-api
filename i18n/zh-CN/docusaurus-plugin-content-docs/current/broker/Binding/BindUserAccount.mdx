@@ -11,7 +11,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 **描述:** `/v4/broker/account/bind`
 
-将用户账户绑定到经纪商关系。用户需要使用自己的 accessKey 和 secretKey 生成签名，经纪商携带用户签名调用此接口完成绑定。
+API经纪商通过用户提供的API Key进行签名，通过此接口完成绑定以建立返佣关系。
 
 :::warning 注意
 如果需要解绑，请联系客服提交解绑工单。

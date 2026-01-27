@@ -405,9 +405,14 @@ onReady(() => {
           href: '/docs/broker/Access Description/BasicInformation',
         },
         {
-          title: 'Binding',
-          description: 'Binding APIs',
+          title: 'API List',
+          description: 'API List',
           href: '/docs/broker/Binding/BindUserAccount',
+        },
+        {
+          title: 'Independent Broker',
+          description: 'Independent Broker APIs',
+          href: '/docs/broker/Independent Broker/CreateBrokerSubAccount',
         },
       ],
     },
@@ -1054,9 +1059,14 @@ window.showCategory = function showCategory(category) {
           href: '/docs/broker/Access Description/BasicInformation',
         },
         {
-          title: 'Binding',
-          description: 'Binding APIs',
+          title: 'API List',
+          description: 'API List',
           href: '/docs/broker/Binding/BindUserAccount',
+        },
+        {
+          title: 'Independent Broker',
+          description: 'Independent Broker APIs',
+          href: '/docs/broker/Independent Broker/CreateBrokerSubAccount',
         },
       ],
     },

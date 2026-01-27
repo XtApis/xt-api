@@ -320,7 +320,7 @@
     "description": "The label for category 'Access Description' in sidebar 'broker'"
   },
   "sidebar.broker.category.Binding": {
-    "message": "绑定接口",
+    "message": "接口列表",
     "description": "The label for category 'Binding' in sidebar 'broker'"
   },
   "sidebar.broker.link.generated-index.title": {
@@ -334,5 +334,13 @@
   "sidebar.broker.doc.Bind User Account": {
     "message": "绑定用户账户",
     "description": "The label for doc Bind User Account in sidebar broker"
+  },
+  "sidebar.broker.category.Independent Broker": {
+    "message": "独立经纪商",
+    "description": "The label for category 'Independent Broker' in sidebar 'broker'"
+  },
+  "sidebar.broker.doc.Create Broker Sub-Account": {
+    "message": "创建经纪商子账户",
+    "description": "The label for doc Create Broker Sub-Account in sidebar broker"
   }
 }

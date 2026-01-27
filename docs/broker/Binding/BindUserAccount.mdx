@@ -11,7 +11,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 **Description:** `/v4/broker/account/bind`
 
-Bind a user account to the broker relationship. The user needs to generate a signature using their own accessKey and secretKey, and the broker calls this interface with the user's signature to complete the binding.
+API brokers sign using the API Key provided by the user and call this interface to complete the binding and establish the commission relationship.
 
 :::warning Note
 If you need to unbind, please contact customer service to submit an unbind ticket.
