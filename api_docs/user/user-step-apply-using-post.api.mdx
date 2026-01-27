@@ -1,0 +1,71 @@
+---
+id: user-step-apply-using-post
+title: "用户阶梯费率申请"
+description: "用户阶梯费率申请"
+sidebar_label: "用户阶梯费率申请"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVUtv20YQ/ivGHIO1KDtGD7w5jgMIbePCj5Ogw4ocUZuSu5vdpWRVINACRZ0AQdKDUwQJckhToy8UKdCij8TIIX+llZSc8heKISmLtogmvEiY187O9823Y3A8suC3YXb8w/TWn28e/DH99tnsl9uz59+//v3v2d0j6DBQGg13QslWCD6kFs2eQ72pdTw6sEJGn+zs7QMDgzdTtO6KCkfgjyFQ0qF09JdrHYsgL+HdsEqSzQZ9TDj9c8LFCD4cVAtf3d8BBm6kyaO6NzBwwEAb6sUJtPOyI8rY5Q6pt/E8QUiHERpgEKINjNB0NPgwO/7t9bPylq0QGPSUSbgrMj7YgIxBIqRoJTzCAxNXKnJj+Gi53umPs/snk0cvUxO/Pb0zvf/r7MWXwEA4TGwl2zojZARZxsCq1AS47Ktvdfr4ZPr867endybfPfz3r5/++fyLya2v3jw8hrNK79Pm5NHL2e2j9+0x/whOq5W0xajXm036OV9250NgVZgveZfqkd1SSaLkblnw1c9dpWLk8tWLd0KMxihTLbVNho/RWh7huwliIlsznIs3L7Pp0oEKa7AhWtiodla5pyV7qjbLoE1jV3GVNy98LjVy6/yBC+JWmXl5HeaorDfXloHYMsgdhlR1o85/IHnq+sqIz+ZBl5eDrinTFWGIsojYWI64rtzKNZXKMB/VRbou9KNQjoLAwCBB11ekHFrZHCPu+uCDN1jzSEs861CvGu7QOyctwMCiGaAhfRpDSjyHvnPa+p7X41o0Dl0jUMkS21uyh8ZguEKrkXUYkOTsLsRp+5AnOsZaBWleFID2HM3OYnUXK1tZwUVgxkDMCVGytphOzY6TeXr3ZHLv6fSbo+mTp0RpNInd6e2hGYj8tNRI3ylb7hoPiE8Zg1gEKG1+DckTCtzUPOjjynqjCawyL9/zhsNhg+fehjKRV6Za76PW1vb1ve1VSskY0LCLztYKAyGWcFk5439wPne3M0Y7PHSejrnIeZUWalVQoA2DNerU5oQ/o0FpWhChw6BP1PHbMB53uaWBZxmZb6ZoRuC3OwwG3AjepWm3CYE+8hBNzpxPcZRrUK5Tq/vUFoXHaa4JF5+mjM0zNoMAtavEkr4Rn84IXT583fLFS/JdBsOH9BryIfgA9HpS8VxvctsYYi6jlPTLh+JI+v4DJGXQ9Q==
+sidebar_class_name: "post api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"用户阶梯费率申请"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/user/step-rate/userStepApply"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+用户阶梯费率申请
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"title":"UserStepApplyDTO","type":"object","properties":{"applyStepRateId":{"type":"integer","description":"申请阶梯Id","format":"int64"},"miniImageUrl":{"type":"array","description":"缩略图url，数组","items":{"type":"string"}},"source":{"type":"string","description":"申请来源，多个、分隔"},"sourceUrl":{"type":"array","description":"图片url，数组","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

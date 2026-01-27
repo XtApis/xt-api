@@ -1,0 +1,63 @@
+---
+id: get-coin-list-using-get
+title: "获取交易对币种"
+description: "获取交易对币种"
+sidebar_label: "获取交易对币种"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE1v00AQ/SvVHKslTtqefENRiiJKK1FyinLY2BNnwd41s+u0IfKhBwQXWiSkimtVPg6V6BFohZDyW5oU/gWMY6q0KYLTWjPvzbyZN/IInIws+G34sf95cnB4cfZu+vbN5PTrz+evLr99uvh+NN07hY4AkyJJp4xuhuBDhK5ulN5Q1rWs0tG9xiMQQGhToy1a8EewUq3yE6INSKXMBB+27oOAwGiH2nF22VvmxwZ9TCR/OeViBB/qJkmMflgWHJ9wp/GJdaR0ND4fn4MAN0wZabqPMXAgICXW6NSsPRIZmq/Y4MADtFZG+E+2pKh4S5QkkkMQoBwm8/GSnec8VIhzmZlSyAUkNrolns8yTd0zt7IIbRa7/5BwVZA5LiNdvy5EaYcREgjoGUqkm4VWV1hCoWKtWlv0qaVl5vqG1DMMoQCtLoLWDXVVGKKeIdYWEZvGLa2bTIeFvuu5G/c2+bJ3+fEVCEjQ9U15Y+yLdH3wwRvUvDTrxirw7DDpmtgLjNIWBFikARKf8Agyin9X7juXWt/zejJVlV1XCUwCN7s3dQ+JMFxqUQx5R4D640R5LpPXLy/PPizwZuHp/vvJwfH08MX06JhvCSmxW71tpIEKmJyR9p2x5a3LgI3MBcQqQG0Ld7RMGHg3lUEfl1YqVRBz6n3P29nZqcgiWzEUeSXVehvNemNzu3GHKbkAHn2mrDYLpMa6ROq5Hn9b9LXBru7F4a7z0liqwtVC0qg0oQ2DGjtS2MCbL4wohmQrOgL6xjrGjUZdabFFcZ5z+GmGNAS/3REwkKRklzfc7uQC+ihDpMK7JzjkhQQBpuz7QMYZ6+E/BPtzdRb8q8nzX6/yuew=
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取交易对币种"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/symbol/coins"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取交易对币种
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«string»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"type":"string"}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

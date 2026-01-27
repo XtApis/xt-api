@@ -1,0 +1,71 @@
+---
+id: update-profit-trigger-using-post
+title: "设置止盈止损提醒开关"
+description: "设置止盈止损提醒开关"
+sidebar_label: "设置止盈止损提醒开关"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVEtPFEEQ/iukTkqaHUBOczMEEqICATkRDr0ztbOtM91Ddc3iupnEi8rFR4zx4sEIMTExePHgwcfB/8Ki/0JrZsDB3cRTJ1VfPbq++moErBMP4S6cvXw/Pvz88+P3s28fYU+By5E0G2fXYgihyGPNuEmuZ/g2mSRB2vHGJpsb27dBQa5JZ8hIkmoEVmcIIaDV3RRBgbEQwn6BNAQFMfqITC6p2xjC/cIQxhAyFajA8zCVJD1HGSjQaeoOttAjDQTT06kXUNTHTEM4Ah7mgu46l6K2UJZ7ktLnznr0Alicn5fncvWNG6AgcpbRsnhng1l5WmkNV10suyxzdqtJ+ONDU+fHF1DnpV33DkYswyCZHZu6LhI5aqdaEcMt9F4n+N9oTYlvfU8TaZmhYcza9ia6LOU3MbY8nsnYBEoFmU+m2Mvas2Z7bmoUoS9SnjZh8XFBdvlyQWMZEyRQFXOaa9O1RSlVVVucX5gkYplQM8aSdWmaf8fqgvuOzP1z0LVJ0KqjroljtDViaRKx7nhm1RU2rkZ12Vev/vjk6Oz14fjkaPzkzfjZ81+PXpx+fXD68BMoyJD7TsSQO18xpbkPIQSDhaDwSIFHZmOTwDo2vWGQV2KZ41otQa0gUFCtcCOUgtI/lfvMuQ+DoKdz07nHnchlEzpZsz0kwnhmh1KQ5TbnjDVrVet3Iq42j5++O312PH71ePz2WHYOKfMbvW2kgYkkuCAbsvONGHQkhJcKUhOh9RW7jaSv5zrq48xiZx5Uq/swCA4ODjq68nYcJUET6oOba8sr69srcxJSKpCv150t1AYZZqZtq8Z/ibj0w4vFY7zHQZ5qU9Ff9TZqONqFwYL066u9bHgCBTVTtehaXAm0ZmtPQV/IDndhNOpqjzuUlqWY62smHMbGywn7e5T+ae/ivMCVrebGXZ25OHtTm7+Lw/ZpHOi0EFDF+0CTqezh7l6poI86RqoaqaOuRxHm3IqSmyaBF+tb3eyy/A0USymG
+sidebar_class_name: "post api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"设置止盈止损提醒开关"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/user/setting/notify/profit-trigger/update"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+设置止盈止损提醒开关
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"enable","in":"query","description":"enable","required":true,"style":"form","allowReserved":false,"schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

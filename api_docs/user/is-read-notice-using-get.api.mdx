@@ -1,0 +1,71 @@
+---
+id: is-read-notice-using-get
+title: "是否已阅读风险告知书"
+description: "是否已阅读风险告知书"
+sidebar_label: "是否已阅读风险告知书"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVM9P1FAQ/lfInJQ8tsuPU2+EgCEqJCAnsoe37Wz7tH2vzHtdWDc9GokHxMQYPBlDIBoPJF6IcuNvcRf5L8y0XVhcEk5tZ+abX9/X6YOTkQV/GwaH+1e/Twcf3l19Ofnz6xRaAkyGJJ0yejUEH5TdQBmuGacC3LJKR0+WX4CATJJM0SFxlj5omSL44HoZggClwYdMuhgEhGgDUhnnuw0g3MkVYQi+oxwFWNdLGG9VmiUcYIMYUwl+v0L4YB0pHUFRtBhtM6MtWvbPNZv8uFtm/SkICIx2qB17p71pfoxlVa4suGTS1OiNOuHlj7YxCUp9eQFiVNm0X2LgeGTizThV1UUiQ+OpltnwHK2VET6IlhTZsekkkezx4hym4/YaXRQ8TYj37ENAaqP79lR5VnXH3IsitHnixlz15JXP5aSX7hZU2mGEBAI6hlLpKtP8HJcqqy00ZyeJ2NIyd7Eh9RpDKIPmJ4NWDLVVGKKuIhYmI9aMm1oxuQ7LVdz1DY/OBoeng/Of10dv/p5dXB8fXH/+fitoASm62LCUIyyJYF364HVnPV2q2oulnekq3J2pv/s8csEqROqOFJ5TAj7EzmXW97yOzFRjzzUCk05ofFV3kAjDqS1KgPWqRiTUSrn6+G24fz6Bq8zDg5PB++Php7fDr8csI6TUrnc2kboqYHBO2nfG1vqWAXNYCEhUgNqWhNX/4mImgxin5hpNEGPd+563u7vbkKW3YSjyaqj1nq0uLa9tLs8wpBDAo1edzVaGzFiXSj1W48Hd35nwRksO95yXJVKVjJe99WtetqE7CwIqJkDAf9yAAL9M0hIQG+sY0O+3pcUtSoqCzTs5Ug/87ZaAriQl27zz7T6EyvJ7CH5HJhYners5F/Booz5Pj6fqe3Vv36N/V/Of25VJzl8g4BX2RpeuaBUCYpQhUtlD5VoMAszcGIjPEwvlRql8Y4viH13DC1A=
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"是否已阅读风险告知书"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/notice/has-view-notice/{type}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+是否已阅读风险告知书
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"type","in":"path","description":"type","required":true,"style":"simple","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

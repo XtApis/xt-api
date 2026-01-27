@@ -1,0 +1,71 @@
+---
+id: down-load-from-private-using-get
+title: "私有目录,下载图片"
+description: "私有目录,下载图片"
+sidebar_label: "私有目录,下载图片"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVc9vE1cQ/leiORX08CaB095QlFRRKVSBnFAOz7vj9Su77y3zZm1ca6VWPaSASi+AUEBFFFVFQqKqVBUqmh74W7AdTv0X2tldR5vatBIXr/Tmx/fNfDPjMbBOPIRX4d2XB7O7zya3Hh99fTi98+Pku6ewp8DlSJqNs9sxhBC7ob3gdLxFLvuMzEAz7npjk483r4CCXJPOkJEk3xiszhBC6Bb+yihHUGAshHC9QBqBghh9RCaX1P8kfvvqYHLryeyX15Pvb4dHLx9Pvr0XRi4fMekY1bsHv01/+Pno199nd/b/+uPAM+Y7miUl4fXCEMYQMhWowPMoFdCeowwU6DR1wx30SIOWT9THTEM4BhZeIXgmYxMoS3VM+hqO5oRzzf0FvrX9fejeZHkq9N4PtSfRPnfWoxf7+uqqfE6iXPoEFETOMloW6+ngtHxaWQ1XgBsuy5zdaRK+ed51LkVt37wGNUd23c8xYlGJRFM2NS4SOWqn2pSHT9F7neD/RmtKfKs6TaSrvjFm7fcmuiylmhiX9ENB5pNlfaot27bnlkYR+iLllqmpvLZxQXbjJKCxjAkSqGpENNdPZ9cFqkI7t7q2KMSu1QX3HZkvMIbK6eyi05ajroljtLXHuUWPi45Xtlxh46oVJ22zn76aPro5e/hicnhPvX11++jwcPLwz9nNfVCQIfed7F+ClQYykSEEg7UgqoQPZC9Tp+Mzeb2UwfgajkoZQJn8Zh8LSiGEPnPuwyDo6dx0bnAnctnCdG/bHhJhvLJLKciomnn/myGZ3X02/eblQlz9XB+P6f396ZOnMkFImb/Uu4w0MJEEF2RDdr4ZbR2JfKWC1ERofaVVs4Tncx31cWW9swqqxT4MguFw2NGVteMoCZpQH1zY3ti8eHnzjISUCqT0mtla/ZA7z5m2LYz/avuJ4o4niPEGB3mqTaVzRWvcSHIVBmtVWSKKJPiXLKAglMuxp6DvPEvAeNzVHncpLUt5rq+jqBUbr7up3JaeTj0usDk+C/DRTnOGTq186BldWpowbZ/vgU4L8aomYqDJCL8P51qf0KXI83NiR23YOSP5LfdKBX3UMVLFoLacjyLMuRUjB1PYHi+Q/FGV5d9kZpRs
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"私有目录,下载图片"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/common/download-private/{key}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+私有目录,下载图片
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"busType","in":"query","description":"业务类型:跟单:copytrade,阶梯费率：stepRate","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}},{"name":"key","in":"path","description":"key","required":true,"style":"simple","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

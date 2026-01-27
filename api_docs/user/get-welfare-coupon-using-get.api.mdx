@@ -1,0 +1,71 @@
+---
+id: get-welfare-coupon-using-get
+title: "合约可用赠金券"
+description: "合约可用赠金券"
+sidebar_label: "合约可用赠金券"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vt9PG0cQ/lfQPJHowEBQH+4NmaOySgH5h1oJoWp9t7a3vdu97O6ZUMsSqG1wRSlETpuoDQ0kbUIbVbRS09KYqBL/Sn3n+qn/QrV3B5yxg6M89Omk3flmZ775bmZqIFFZgL4MnbuHQeOPzpMdv/Hj2D/P97ubd2BFA+ZijiRhNGOBDmUs38N2CXGcZp7LaEEQWn7byIMGLuLIwRJz5a0GFDkYdBBrTpHZoAGhoMNND/M10MDCwuTEVW6TNhzf9AjHFuiSe1gDIdds5aTEuAMaCLOCHQR6DeSaGzqXnNAy1OsrCitcRgUW6n5qYkJ9ep9ZfAc0MBmVmEp1ez11XX0SXokMn0szx2E0Gzs8fTZPhDx91pP3aeu0BdpZHKz4ITal4oAruiSJosCcM550bKiDd7EQqIyHohEvi0SuiHOkqCMSO8nzGF2vq9wsPIAdDRxRHsRadJOhJTYQxbHwbHllCHFePdQMT8xhHk36pZ5TxLxPFt29R/76CWhh+ZEEHYqkbGGTOMiGMF2lqcuBX/biH290nm5H9lRyZMp8aD8Ut9vovHjS+bXlf7f178k3S0Z2ycgXZuZHg1+OO62fo+trf69vLGWN2Uw6P9p99GnwfCs+V+9hauWJk3yKUInLAzJtn9wPPtn3G8fBg8+DrxrBg4d6p9UM9h4G937v3vstSQGh8q1p5d3GVcyVjoa7D/b2g73bl7zcmFJeXCaIsno9TtqtZvvldsSJns4u5nLG7Ij/2WG71dQyucX5mbwxq3fXd9utpnIuJOLyzSnwT9b9p1tXUBD3jeFhv/g+uN/0j/68AA36s14Bav91EGwcdb+97e82hoo/d9bKrv4F/m8pvgFTYXuQrxff9oHfOI5lMVfIF7LGB8b7S0Y2YyykjZEojvbLZvenL7qbd/zGsQppNaJNTZWh4riw7ZdBGCfH0uM03dv/Lrxd1n09Qk1PTPZPiQJFnqwwTj7GFoRGN/qN5hgvEsvCNLKY7rdYYHJkjnnUCjvzoHr6O0edu4fRoFWcaOBgWWHxlA0HqqyADqnqZComIFXypMfxmHnWaAXm1bOB63EbdKhI6Qo9lSohl4zfkuMmc/rozNAS5hxbIwVug5qd5GwExJKOVoE+XHQcfPmDv/M4+HozOHishI65IxZLOcyrxFRgj1NdMhHPWmSqTq/6FTExFWF94tVgxkVmBY9MjU+AloheT6VWV1fHUXg7zng5FUNFaj6TNhZyxpiC1DVQqUeRTUYHLhPSQTTxxquo7knsXDES35Ip10YkrGsYUi0uwzJUJ+FctUpTPaVY0aDChFR2tVoRCVzgdr2ujqOVRxXIIgIVbbXdlJAtcF8Q56sJjGbjRejaiLjUUHpD/AivJfenKrI9ZRQWtYo4Ue+BvrxS16CCkYV5GEiEmjFN7MoESu1DCnguQ7XX1ev/AQ5Y6QQ=
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"合约可用赠金券"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/welfare/future-coupon"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+合约可用赠金券
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"symbol","in":"query","description":"symbol","required":true,"style":"form","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«WelfareCoupon»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"WelfareCoupon","type":"object","properties":{"amount":{"type":"number","description":"面值","format":"bigdecimal"},"coin":{"type":"string","description":"币种"},"contractType":{"type":"string","description":"合约类型：PERPETUAL(永续合约)、PREDICT(预测合约)"},"endTime":{"type":"integer","description":"优惠券有效期:结束时间","format":"int64"},"leverage":{"type":"integer","description":"杠杆","format":"int32"},"positionType":{"type":"string","description":"仓位类型:CROSSED 全仓,ISOLATED:逐仓"},"startTime":{"type":"integer","description":"优惠券有效期:开始时间","format":"int64"},"symbol":{"type":"string","description":"交易对"},"symbols":{"type":"array","description":"交易对信息集合","items":{"title":"WelfareCouponSymbol","type":"object","properties":{"contractType":{"type":"string","description":"合约类型：PERPETUAL(永续合约)、PREDICT(预测合约)"},"symbol":{"type":"string","description":"交易对"}}}},"type":{"type":"string","description":"卡券类型:FUTURE_EXPERIENCE 合约体验金券"},"welfareId":{"type":"integer","description":"welfareId","format":"int64"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

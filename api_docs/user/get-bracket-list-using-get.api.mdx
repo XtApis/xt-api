@@ -1,0 +1,63 @@
+---
+id: get-bracket-list-using-get
+title: "查询所有交易对杠杆分层"
+description: "查询所有交易对杠杆分层"
+sidebar_label: "查询所有交易对杠杆分层"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVUtP3EgQ/iuojlHvGEhOviWERGgJSCHkgjj02DWeTuxub3V7YHZkieQQghLy0D6UQ1AeBGWlHEikXaEsu1qJ3zI27L/YbdtMBgYNw8lWdX31+Krr6w4YHmhwlyDfeptvPcoeP8q+PIRlBipG4kYoOeODCwGaa8S9+2hmhTaLWsjg5vQdYECoYyU1anA7MDk+bj8+ao9EbMHgwvz3wMBT0qA09vSSc8l+tNfEiNs/I0yI4MKUiiIlb1cBDz7ZTAefFtpRXYVV8inuNfH6nfmD/YN9YGDasQWq+j30DDCIyVZtRFkNEinqTzBtDbdQax7guWhOQfGtvDgRbwMDYTDqt1foNLU9+th3og0JGUDKINLBGfa0PJmRDXUmilAnoRlaQtXXmRSd22CILSQeYIUb3myVafYkZuRc9dK/L4WQBgMkYKduS/5uu/v3JjBoKIq4KT0vTxY0ciHNLU6BkLe56adaJlH9jFiH+7/nTx90/9k62n3w7/rLw2fr/XHrIvDRExEPy+Crx82dHzh/vZZ9+FhtzNpm/svnoYHnVCQkD+/yMBkh+NHuTvblYZkie7HZ/brR3d/L1v4ammLBcLoQN2X8oz/2so9PRmRIyIsx9Pn5aAzpi9Z+kap1sRuDC3Y6ZvfPD/mrn7Ldr3Yxh+DKU0KTkJw6ufDfrvTpu5uWqCvjE4PyuCh5YpqKxI/oQ+F0edDphqK68H2UpceVQY85ZcZuqET6hRSdGsabnaPd9/nGWv56o9fnCb1nEKFpqkrp7fpy0wQXnNaEc6wTTrXETii0ddFILST7dnQgofD/uTSNibXrOA0ei9qqqXkqGuB5RjaQCP2xRQohXWYgjvWvkpjDn3/LH+8N7nJhzp/tZM+381/X83fbVnSQIj3fWEBqCc+CE5KuUbp6cLhnFSdlEAoPpS5mJXlkHa/GVrrGJmvjwPqqdx1nZWWlxovTmqLAqaDamZ2Zmp5bmP7OQlIGtvWysonSECttIi77coxC+4kmezfJ4Kpx4pCLYt5FeZ1qJEvQmgDWE29gPW21bWpjn+6m0sZ6djp1rnGRwjS15h8SpDa4S8sMWpwEr1u+l5ZTBk3kPlIxyfvYtvR4HsY2ZKvUrOLRttPqXRP7+qfpf92EI2s=
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询所有交易对杠杆分层"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/leverage/bracket/list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+查询所有交易对杠杆分层
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«SymbolBracketCacheDTO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"SymbolBracketCacheDTO","type":"object","properties":{"leverageBrackets":{"type":"array","items":{"title":"LeverageBracketCacheDTO","type":"object","properties":{"bracket":{"type":"integer","description":"档位","format":"int32"},"maintMarginRate":{"type":"number","description":"维持保证金率","format":"bigdecimal"},"maxLeverage":{"type":"number","description":"最大杠杆倍数","format":"bigdecimal"},"maxNominalValue":{"type":"number","description":"该层最大名义价值","format":"bigdecimal"},"maxStartMarginRate":{"type":"number","description":"最大起始保证金率","format":"bigdecimal"},"minLeverage":{"type":"number","description":"最小杠杆倍数","format":"bigdecimal"},"startMarginRate":{"type":"number","description":"起始保证金率","format":"bigdecimal"},"symbol":{"type":"string","description":"交易对"}}}},"symbol":{"type":"string"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

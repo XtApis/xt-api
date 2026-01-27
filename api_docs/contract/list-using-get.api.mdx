@@ -1,0 +1,71 @@
+---
+id: list-using-get
+title: "获取市场异动列表"
+description: "获取市场异动列表"
+sidebar_label: "获取市场异动列表"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVs1u1EgQfpWojsg7TkLEwTcUBRSxEATJXqIceuwaT4PdbarLE4aRL1wWcYA9sZe9ILQrJB5gEXDKu0zgMXar7Qw2Y00GxGnkqq+qvur6mxmwSh1ExzB//3T+14f5p6fz52/hJABbICnW1uwnEEGmHR85bdKbe4cQQKFI5chIYjoDo3KECGLFmFqaQgDaQASPSvQfCbqYdCHOuijCR6UmTCAaqcxhAI6nmXgaWcohABePMVcQzYCnhcgdkzYpVFWwCFqoFFcHbBDfHUwbxhQJAo9QXIuubnfCO/3kkvAN4meGPxF3rrDGoROL7c1N+enGPbgFAcTWMBoW7ZXwivy04mj2BHZtnltzr3F49u6uSvEeujLjs3e3FT1E/u3g7OPZRwguqNnhA4xZ+oCkTVjXNJDIUtvznghuo3N1BVZbK0pdK31FpHwnMeZteWNdVZJcgj3NEUDu0r6mqTX7ZmR7rcjn3Obf/xKXZvIt5eVUGv8XPi/1uJiZPt5SY1IxH3rFGv0TAE7Q8KHOL8df2/FPo7gNNWU+7CKHOk0w1rnKBO5Ycel6ybppPrRZr6o0CVI21SZdOxNfUz/f6+VRuDWBbFlla2Er3zlcktnttuNK1mK1s7m1PLVHRpU8tqSfYAIedHUZdMPSUCcJmhqxs4y4Y3njhi1N4gelq/vy4t/5y1ftfT9/9ueX128hgBx5bGXfp+ibUPEYIggnW2FRDjMdh7nv2FDOgewspMnFDSgp+9/3mLlwURiOVKEHj3kQ23xpIe6bERJhsnFEGcgu0xcT2YzF/I9nnz/8s2RXi89f/D1/+eb81e/nr9/I3CDl7mB0H2miYzEuyURsXbP7VCwDXQWQ6RiN8/VpNvf1QsVj3NgebELQYh+F4enp6UB57cBSGjamLvx1f3fvzv29X8SkCkBSr5lt1YLCOs6VacVY8dSd3BZNw/iYwyJT2pfWs5o1ZTiGyZbUxBdCauVLAYG/zXKxx9axwGazoXJ4RFlVibi+SlKiRDs1zFon6BsOi2PRvtG9xB7itIuaqKwUGMhpXD9O0TkMfTEaxA/6b27vCv8N4qv/E/kgLQEgOj6pAhijSpD8C9Y21+MYC25ZyWkVw8X4yL+kqvoPcrNICw==
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取市场异动列表"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/market/list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取市场异动列表
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"category","in":"query","description":"category","required":false,"style":"form","schema":{"type":"string"}},{"name":"page","in":"query","description":"page","required":false,"style":"form","schema":{"type":"integer","format":"int32"}},{"name":"size","in":"query","description":"size","required":false,"style":"form","schema":{"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«PageResult«MarketVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"PageResult«MarketVO»","type":"object","properties":{"items":{"type":"array","items":{"title":"MarketVO","type":"object","properties":{"category":{"type":"string"},"contractType":{"type":"integer","format":"int32"},"eventTime":{"type":"integer","format":"int64"},"rate":{"type":"number","format":"bigdecimal"},"status":{"type":"string"},"symbol":{"type":"string"},"underlyingType":{"type":"integer","format":"int32"}}}},"page":{"type":"integer","format":"int64"},"ps":{"type":"integer","format":"int64"},"total":{"type":"integer","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

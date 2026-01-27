@@ -1,0 +1,63 @@
+---
+id: get-template-using-get
+title: "获取分享文案模版"
+description: "获取分享文案模版"
+sidebar_label: "获取分享文案模版"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVE1PFEEQ/Sukjqbd4es0N4NgiAiJsF7IHnpnamdaZ7rH6p5dcDNXQVDggBjjiaCRhJhIYoTAbX8Luwv/Qnt2IAtL8OPUk6p6b17Vq+4mGB5ocBehvfr67OQAKgxUgsSNUHLaBxcCNAsYJxE3WNZCBo8mF4ABoU6U1KjBbcLo8LA9fNQeicQiwYW5x8DAU9KgNDZ7z7lnD+2FGHP7ZYSJEFyYUHGs5NOCsHUwI7RpHcyHnPDyx8/mWqetU2BglhMLUdXn6BlgkJAVa0RPBxIp6qeetIEnqDUP8I9oTkF+FlWciC8DA2Ew7o8X6Cyz3fnYl9GGhAwgYxDr4JZ41stMy5q6FUWo08jcKaHo68Zw/qI15A9VQ/ZxyzSuIgG74Vpn+2f301r77cnFhx9nx+sXH7eAQU1RzA24UBWBj56IeWT1WtZy8q+ca3dyenKWx7cMdYBzZ6Wzu9o+fN/9fHJ2/K2zs9Leetf9+t1y4H9wnK8f9nHkVhGalOTEdY+FNBjkPV41IKQZG80xFjU+PDJ4F8qSpyZUJF6hD3nR2GDRlKKq8H2UvYrxwYpZZYamVCr9fPuu5843jtqbO71L3Guss7/bfbMKDGI0oSqusl0NbkJwwamPONrukWOKRQIGGqmOZN+DJqQU/eYNjUm06zg1nojSkil5Kh4Y5LSsIRH6Q2WKIKswEJcrXuxrd3u/s3o0gOuFOxtf2pt7ueY9u8lIsZ6rzSPVhWfBKUnXKF28JtyzNyRjEAkPpc69kbnd8CDhXohDo6VhYH3qXcdpNBolnmdLigKngGpnZnpicnZ+8r6FZAxs6z1lI71AorSJuez7xx1jvtbb1cIYXDJOEnGR25qrahYWLEJ9xM7cmpA3XthQYRAqbWxBs1nlGssUZZkNv0yRlsFdrDCocxK8aqe7WMkYhMh9pNy3F7hsh+F5mFi76zxKrRD7/lpvrrbBPuRZ9guXRkGU
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取分享文案模版"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/share/template"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取分享文案模版
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«ShareTemplateVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"ShareTemplateVO","type":"object","properties":{"areaDown":{"type":"number","description":"收益区间下限","format":"bigdecimal"},"areaUp":{"type":"number","description":"收益区间上限","format":"bigdecimal"},"cnName":{"type":"string","description":"文案展示中文名称"},"enName":{"type":"string","description":"文案展示英文名称"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

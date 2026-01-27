@@ -1,0 +1,71 @@
+---
+id: get-ticker-using-get-1
+title: "获取指定交易对的行情信息"
+description: "获取指定交易对的行情信息"
+sidebar_label: "获取指定交易对的行情信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFrG0cQ/itmntqw0dmO6cO9BaME0zYGx+6LMWV1N5K2uds9z+7JUcWBSxucgmsHWuwQ0gc3aSnENCkUu7EphfwW6WT/i7J3Z/lkKXH1tLAz33zfzuzMdMDwhgZ3Fc4OttNvH/X/PE13fu3tvoA1BipC4kYoueCDCw00y8J7gLSihWzcrS5/OQMMIk48RINkg3RA8hDBBS8QKM1NEQEDIcGFJnIfCRj4qD0SkY16xY9wPRaEPrh1HmhkoL0mhhzcDph2ZKNqQ0I2IEnYgEi3w5oKLljWY6T2CEn35GX69Mfe67dDJIZiy2HagY1TVxQCAx4EamMJNVKr5PNeHWs2oI6U1KitfXZ62h7D9IufAgNPSYPSWOsN54Y9SlGFyTTMqzBUcqkI+O5Vnu0vFt+dArugVrWv0DM272SrY0ROjESKyrGq9uJz1Jo38Fo0p4YuPY8TcZtFYTAs3xfoJLHP8XFMQhiEujEuUbllQdbVWBShjgNT1n/x9uu1jwa8Wv/Zud6b3XT/KH38pHvy8nxr11J61+PS55vp3pvu6bH1b07A83zz/NXTAhdMhOv+s1PgxiTqfbje9z/0Dw+7f2/2D3/K31jEoAm4j34/O97uvX1kcfp63GVPJQxMyV9Ig40xnZ7uH53v/wUs6zRucs9P5iy8NXEJf/k5/1OEJiY5P/wZLxWUqW7NWkiGmpueGe3SFclj01QkvkYfMqdbo053FNWE76PMPeZGPe4pM3VHxdLP2mTYdrZz3NvdS7e3en88G+Sv/+y7fPJ2/z1Iv3kNDEI0TVUM3GzAmia44LRmnCiuBcJz1h2TdQcwyAZVMXpjCuygNSbSruPUeSQqD03FU+FINhdkHYnQn1qhAOwQExeNWXRf78nj/slvI7j8Ot8P6d5WevDCtidSqBfr95FawrPgmKRrlC6GHvfs77CNIDyUOitUMbtvR9xr4tRsZRpYSb3rOBsbGxWeWSuKGk4B1c5nC/PVe/erNy3EfhwknSubyS8ipU3IZYnjf+Z86J2Dn2TwoXGigIus3pnCTlGPVWhl2y+rCDBYt5nIq7LGoKm0sT6dTo1rXKEgSex1vp5srXyheS0o7borAgbrAj5aKjbWx1PlPTZW4QNsl1diiwexdcpK3OIkLCW4q2t2nOX7eDIt5W39AQFlt0sNrFOYb3seRqZkswvRShx8/LvVZUiS/wDF7z8U
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取指定交易对的行情信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/ticker"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取指定交易对的行情信息
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"symbol","in":"query","description":"交易对","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«TickerVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"TickerVO","type":"object","properties":{"a":{"type":"string","description":"24小时成交量"},"c":{"type":"string","description":"最新价"},"h":{"type":"string","description":"24小时最高价"},"l":{"type":"string","description":"24小时最低价"},"o":{"type":"string","description":"24小时前第一笔成交价"},"r":{"type":"string","description":"24小时涨跌幅"},"s":{"type":"string","description":"交易对"},"t":{"type":"integer","description":"时间","format":"int64"},"v":{"type":"string","description":"24小时成交额"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: get-auto-deleverage-history-using-get
+title: "获取自动减仓历史"
+description: "获取自动减仓历史"
+sidebar_label: "获取自动减仓历史"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1V11vE0cU/SvoPqIlTgLqw6I+RBBKVEiifKBKKA/j3ev1tLszy8ysEzdaqU9NykcMDQREW7URlKYgFdRCAzG0Un6Ld5088Rfa2bUdx3bWqUX9Ynl27j1n7p0993gZFHEkmFehfncrXt3eW3kaXd+KViq16josGMB9FERRziZsMMFBNRYofh5dLKEgDl6kUnFRnpeUOZ+Mz4EBPhHEQ4VCJ10GRjwEE2wq0NJpwADKwIRrAYoyGGCjtAT1k0cmxBtvott3DBsLJHCVOTn+2ZxZe32j9vqr/c1XZ6dnxq9MTM3PmrXX19MlMEDgtYAKtMEsEFeiAVKVXQ1Z4MIDA6RVRI+AuQyq7Ot1qQRlDoSh0WKHzJ6jHmZzq1fX4x9+jO//uX//5SC4lCl0UICR7CAqXfrozCEm1M4mQW0jXvs22qlMnH//9mb97lZtZ63+d3XAUhyLkks9qvq07Xllf/NV/OCv+uOd+N6L/ZVKs4Ufjwx/OGKnRw8Rk4oI1b9ve6+2o19u/M99k2Uvz91sIrWdx/GD9ej5mw90axfRLRCBY5bFA9avQw+eR7ef1N6t7z+9ub9yZ+/lk3h1exAeec5dJAzCcEFHS58ziVJvGB0e1l+Hcac+BQMszhQypZ+ezJ3UX21pqUrwznHP42ymkXD32WXOHD5NHJxBGbhq91lP3bkytVvdrYLRZMfzn6OlS+ELLVyKptRQCC7a0cb1wmWUkjjYN5oIR7ZVgAhBdIGpQq99vREdhvrANvbonQGedHr1NH0ywQq8Z5RIStDO//jV6Xu6IpGTuKR6tLj3HYq//6alyGAALhHP15yS+xMaOt+0wNJ/y3f96HydZW6WvyPXvRfxrd+i1ft7m1uHetMo2BH16VsdSyBRmE6HXpLQwaIpMp1KYWhh7x+fqH93rM8l1Ttmaa9r1SUz1fXau1vpJH3/9uElzhwzevzw7OzFqZk5s/7rTpJSUKs9Fwu8fA9Ctep2/NPbdlJ56thoUY+4Os21gDBFVbl/pnQsHJ1JIHHpl2hPC16gqn++6M0ftep6/bvV2k5G1oYs969ZS5pDo1NXj3uRW+LafYuTjz6jCgQ7d1gcMkZdGnVmeKRbV+cZCVSRC10ySDad7t50gYs8tW1k6Y4z3TsmuTpxgQfMTmSrY26ubUeVjXY/GK19HVV+BwM8VEXe8IOJ5VNFMCFXGsmRQPFTdutFyxXTN01PEhSlpikMhPsvQFEpX5q5XIH4dGhJDVnc6yrtBCugEGifmBcu6JFDmyLZeLFT19pt1pLleO3nqPIo3liJNx/pVx2FJ6cKsyhKye2HQDBTcdkYUcTSzQ4NcKmFTCZNaozaMZ9YRTwxOqTdzAF7M5dbXFwcIsnTIS6cXCNU5i5NnBufnB0/pUNCA/TRU2Yj6YLPpfIIa8PIqPehs7VujsIllfNdQpP+JqyWG724CqURMKCjG2BAsx8LBhS5VHrn8nKeSJwXbhjq5dQ/6C7ZVJK82+YNOmi0xvogtr3nGb7Acsd/hRJxA70PtO85PqEOr54BdmD9B4TKdOQZwInWD4jZz29nwDbd/IDIHWY6A6jdnQ8I1m6Ys5Ca3nvQah7hjTMgu6z3AfSC/iGoxgbz6oJ2REhsFMkrlUaPWRb67VHaFevAlq7qv9Jh+A8NU/Au
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取自动减仓历史"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/auto-deleverage/history"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取自动减仓历史
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"direction","in":"query","description":"方向,default:NEXT:下一页;PREVIOUS:上一页","required":false,"style":"form","schema":{"type":"string"}},{"name":"endTime","in":"query","description":"结束时间","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"id","in":"query","description":"id,排序ID，用于翻页","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"limit","in":"query","description":"每页显示数量,default=10","required":false,"style":"form","schema":{"type":"integer","format":"int32"}},{"name":"startTime","in":"query","description":"起始时间","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"symbol","in":"query","description":"交易对","required":false,"style":"form","schema":{"type":"string"}},{"name":"welfareAccount","in":"query","description":"是否体验金账户","required":false,"style":"form","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«MongoPageResult«AutoDeleverageHistoryVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"MongoPageResult«AutoDeleverageHistoryVO»","type":"object","properties":{"hasNext":{"type":"boolean","description":"是否有下一页","example":false},"hasPrev":{"type":"boolean","description":"是否有上一页","example":false},"items":{"type":"array","description":"数据列表","items":{"title":"AutoDeleverageHistoryVO","type":"object","properties":{"createdTime":{"type":"integer","description":"时间","format":"int64"},"id":{"type":"integer","description":"id","format":"int64"},"positionSide":{"type":"string","description":"仓位方向：Long:多;SHORT:空"},"price":{"type":"number","description":"价格","format":"bigdecimal"},"quantity":{"type":"number","description":"数量","format":"bigdecimal"},"realizedProfit":{"type":"number","description":"平仓盈亏","format":"bigdecimal"},"symbol":{"type":"string","description":"交易对"},"welfareAccount":{"type":"boolean","description":"是否体验金","example":false}}}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

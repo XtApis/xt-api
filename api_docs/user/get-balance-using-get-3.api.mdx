@@ -1,0 +1,63 @@
+---
+id: get-balance-using-get-3
+title: "获取用户资金"
+description: "获取用户资金"
+sidebar_label: "获取用户资金"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVd9vG0UQ/leieawOX+r06d4gOFVE20htw0sUofXd+Lxwt3vM7jlNrZNSIHVL24TgUgmhPtAI1aKCCkGUILdCyt/is+P/AvbusNw6P+5p72bn++abmdVMGzTzFThrcHLwzbizN/rpKN3+M72/Pf66N9z5Jd3dh3ULZITENJdi2QMHfNQfsYAJF1cVF/7V2u3PFsACQhVJoVCB04bq/Lw5PFQu8chAwYGVT8ACVwqNQpvbS/Ylcyi3iSEzX5rrAMGBRRmGUtwsCI9fXeNKH78qgn66ctw/7oMFejMyzrL+OboaLIjI6NQ8V4BEkqZJa8ZwHZViPl6IZuRnZ+HFiNgmWMA1htP2Ap0kJi8Pp26UJi58SCwIlX+KPclvlkVDnooiVHGgz5VQ5DUpy8VJtRgPWD3AAjLFLuKwjgTWex1Ld1+PnvYGb38cv3gOFjQkhUyDA3Xue+jykAVGa12KWF1MNnjbHf/6eNzZK8X3MVc3mS6hcUI7/PZg+HB/tNM5m9mVXMyWeybro3ujl09y/ziS4mINeegSqbkklULvOiOfl+BNt3uDfvfk4DB9+Wjwz/OT1/fGnb2z2T2MpOJ6saTq9KteuvUmfXA07uydq5orGTBdXvZ467tBvzsRnN7vj/rds+llhGKFPKQlxCWSd7GM9jdbg343ffJDTj58+GjU/+3kr79LRMmzKBvo5PcXkyhnk2+wIJiMxRIF+v6P9PH2+Y8lGxGEOiax+O5s4UKjn7FOgFzohWqGMagr85dnp++qYLFuSuJ30YPMaWHWaUlSnXseitzjyqzHDannlmQsvGzqvVerncN099noaW/44DDfJ2BBiLopi71hRhLTTXDAblVtkwcJFtj1vG52wJVxUUgtJLOV2hBT8B9xU+tIObbdYBGv3NEVV4YzNV0WDSRCb26VAkjWLeD/z9ZiUOa6ZnC5OV92w2ed4c/7ZpAihWqlcQupxU1DISbhaKmKBcZcM5oTCwLuolBZcwQLjeOHEXObOFetzIM1pd6x7Y2NjQrLbiuSfLuAKvva8mLtxq3aBwaSWGBSz5Vdzg2RVDpkYirGqXV+J6vJW9F4R9tRwHjW0UxPu+jBGrSqZqEUXQALij6AyUtps/mbUmnj2W7XmcJVCpLEmL+MkTbBWVu3oMWIm51i/hILmsg8pKx1X+CmqYfrYmS62mJBbBSZrW/aM3kXV2u3IUn+BfADQmw=
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取用户资金"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v2/internal/balance/list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取用户资金
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«BalanceVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"BalanceVO","type":"object","properties":{"availableBalance":{"type":"number","description":"可用余额","format":"bigdecimal"},"bonus":{"type":"number","description":"体验金余额","format":"bigdecimal"},"bonusDisRate":{"type":"number","description":"体验金抵扣率","format":"bigdecimal"},"coin":{"type":"string","description":"币种"},"coupon":{"type":"number","description":"抵扣金余额","format":"bigdecimal"},"crossedMargin":{"type":"number","description":"全仓起始保证金","format":"bigdecimal"},"depositCoupon":{"type":"number","description":"储值券金额","format":"bigdecimal"},"isolatedMargin":{"type":"number","description":"逐仓保证金冻结","format":"bigdecimal"},"openOrderFeeFrozen":{"type":"number","description":"开仓单冻结手续费","format":"bigdecimal"},"openOrderMarginFrozen":{"type":"number","description":"订单冻结","format":"bigdecimal"},"walletBalance":{"type":"number","description":"钱包余额","format":"bigdecimal"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

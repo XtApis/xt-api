@@ -1,0 +1,71 @@
+---
+id: get-balance-by-coin-using-get-1
+title: "单币种资产"
+description: "单币种资产"
+sidebar_label: "单币种资产"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVtFOG0cU/RXrPrXpFgNBfbAEEhCIUNtQBehLhKrx7tiedndmMzNr4lgrQQsFUgilEJo2SaWGVqC0JWkVFMCgSvkW79p+yi+0s7vQBdt4I9Uva83euefce2bnnjJIlBeQuQXeL1uNr3a9hWNv79C//6u3tg3TGjAbcyQJo2MGZCCP5RAyEdXxUGmYETolCM1fH5n8rAc0sBFHFpaYq3RloMjCkIHbDualQV1nDpVjBmhA6OkqaGBgoXNiK4BWsRzfdgjHBmRyyBRYAyFLpsqaY9wCDYRewBaCTBlkyVbrhEqcxxy0IALJcOmDPnBd7YySzgg9JWIjWWjiEQX8hy65EwMXxLJN3ApeSE5oHlx3Wu0WNqMCC/W+t7tbPc7DjH8IGuiMSkylenslfUU9YlmJDACHmWUjeTNKeG1y/PVvUZdGHfrp+OsKaKcMWPZzrEulBlfSSRLin2OJOEeq+URiS8TWo72uq4Glt6hKA6537PXV3iAQC8eU8RrihDvSRWdnoBXc+S56B9/6S6+I0UJzDZCl8sSyUMfKtkqy9ry2uZvq7+8fGBhI+Y9e+puH1YMjb3G2vj9fPdqpnvzQePokDpEleQPrxEKmwsky6ojOMNWTjcazlcbievtMwdlr6n1z0XO1ndUwnhYxl0NSH0xY6wwyzbPvuPHdn97KQlikf+9hbe/71NDk8GX0ArgpYcj/C29q4trkZYCOzWhnFP/evr+8fXlrORMCGx8jnicJMnoLu9XKRvXvJ/Xnc43Fde/rSq2y0T67gW0miBxOyNf7cre+Me8tHbTPSAQzkUxOODFVK0gYKfIWeTt9BZTJTzjLkQSHwn/8zNv7qXb/Re3RUvVorX1OZmM6zg3MRzEe5ewuTtLb49lqZcPb2fSXH4a98Je/qVX+qL88TAAUtjspVn3vqbf6oFPH7YRt8V791akhkklkJv32/NlKfX++sbj+5vjH8M4INUy9l7qgQHT3hZff1ovqwVFi2R1qYG6WCM1PBmQSXNlz/uPfqyerb45XnPBfyyniCMwTzYDa5m77GXDu/kkgQaxN7WqOfhr0dfc0z/UpihxZYJzcxQYEQVebg0YZzxLDwDSM6GuOuMFkapQ51Agm8gWSqw9CnuFNChpYWBZY5NECMyYLkIF0sSetB+4hnQ0bkC6rCeMq94J58dSsOdz89ywXpLRFJp3OIZt03ZFdOrOa2jNGc5hzbKSmuAnK5xCaY/FBH2rRRqLQWPpbi/7P28oFYG6J8dwE5kWitAGH04xkIvJFSFdH3NXAJDqmIhAv8nCDNtILONXb1Q1ajH0mnZ6ZmelCwdsuxvPpaKtIfzQ2PHJjYuR9tcXVQJUeMusJF2wmpIVoDKO5yedKOjtIEt+RadtEJNAyIFOOBLgFxZ6gGCUBaBCJABpkgkE/rUGBCakCy+UsEniKm66rlkOHrLQxiEBZM2aCL7A4c5DN/rklwS9wqVVsEZmOCg5ELSJOFOhbEnjnZmSZ301FHrolg1MfSktx3FNmwU532tWggJGBecAhfDWo69iWsU3KMiu+Z6f/+sgkuO4/Oj3nhA==
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"单币种资产"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/compat/balance/{coin}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+单币种资产
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"queryAccountId","in":"query","description":"queryAccountId","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"coin","in":"path","description":"coin","required":true,"style":"simple","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CompatResponseDTO«AccountFunVO»","type":"object","properties":{"ma":{"type":"array","items":{"type":"object"}},"mc":{"type":"string"},"rc":{"type":"integer","format":"int32"},"result":{"title":"AccountFunVO","type":"object","properties":{"accountId":{"type":"integer","description":"帐户id","format":"int64"},"amount":{"type":"number","description":"可用 ===>>> 更改为净资产余额","format":"bigdecimal"},"bonus":{"type":"number","description":"体验金","format":"bigdecimal"},"coin":{"type":"string","description":"币种"},"convertBtcAmount":{"type":"number","description":"walletBalance钱包资产折算 BTC","format":"bigdecimal"},"convertUsdtAmount":{"type":"number","description":"walletBalance钱包资产折算 USDT","format":"bigdecimal"},"coupon":{"type":"number","description":"抵扣金","format":"bigdecimal"},"crossedMargin":{"type":"number","description":"全仓保证金冻结","format":"bigdecimal"},"depositCoupon":{"type":"number","description":"储蓄券","format":"bigdecimal"},"isolatedMargin":{"type":"number","description":"保证金冻结","format":"bigdecimal"},"marginBalance":{"type":"number","description":"保证金余额","format":"bigdecimal"},"notProfit":{"type":"number","description":"未实现盈亏","format":"bigdecimal"},"openOrderFeeFrozen":{"type":"number","description":"开仓委托冻结手续费","format":"bigdecimal"},"openOrderMarginFrozen":{"type":"number","description":"订单冻结","format":"bigdecimal"},"profit":{"type":"number","description":"已盈亏","format":"bigdecimal"},"totalAmount":{"type":"number","description":"总资金：币种余额 + 未实现盈亏 ===>>>> 更新为保证金余额","format":"bigdecimal"},"underlyingType":{"type":"integer","description":"币本位，u本位","format":"int32"},"userId":{"type":"integer","description":"用户id","format":"int64"},"walletBalance":{"type":"number","description":"币种余额","format":"bigdecimal"}}}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

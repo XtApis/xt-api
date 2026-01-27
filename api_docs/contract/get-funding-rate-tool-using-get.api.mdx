@@ -1,0 +1,71 @@
+---
+id: get-funding-rate-tool-using-get
+title: "获取资金费率工具"
+description: "获取资金费率工具"
+sidebar_label: "获取资金费率工具"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1P5EYQ/SuoTsmqGQOLcvBtRSBCSRaJhRPi0GPXeDppd5vq8sBk5FOyIoeITS57X602l5wiJULJ3va/DJB/EZXtGTw7E1B8sVRf73VV9esJsM4CxCdw9+anm+9f3v7+/ubq3fTVWzhV4Askzca7/RRiyJD3Spcalx1qxiPv7XEwLvti9wgUFJp0jowktSbgdI4QQ2INOl43BSgwDmIYok6RQEGKISFTSPGP4gjPSkOYQjzQNqCCkAwx1xBPgMeFVA1MxmVQVWoOFMZ539sZylmJNF4CmcfcIzCVAsBjK0UGnnJ4CO9UckPhXcAg/q2NDfktwhx8CQoS7xgdi/dJ9ER+naqGa7gdn+feHbYFP/wmzZXOfn508OE9qBm673+DCUuLSebBpsFGIk/dcrti+BpD0Bk+mq0pC50TaiItDTOMedfeZleVnCjFFT1RkIdsVa8az74b+JVZhKG03OXfOf6j9BNvLSb1ZjpGctp2QIxjzOolk4FqbkxPtwR2cL/AnQxX5v3FhL7JUkxMrq1kObzgnTnkkcnxUbjPtiWxXbnV7SHkktzOYl//m3z9Kdje2FzeuWOnSx56Mt9hCnXQ0+WgPU99k6bomojt5Yjnntf2fOnSeuKLvrur6+mr13d//vDP5S93f/x1e3U5vX43fXkNCnLkoW8VopYCHkIM0WgzKsq+NUl0FrV9XyfNuM6+voYBaTTTi5KsqANzEeIoGujC9C64l/h86RbvuwESYbp2TBbkRprZirV7NP35x9u/f13Ka8yNtt28vrx581a2DCkPB4MXSCOTSHJJLmYf2husE9nQSoE1CbpQz6kVnGeFToa4ttXbANVhH0fR+fl5T9fenqcsalND9NX+zu7zF7vrklIpkKM3zDYbQ+ED59p1MB5o+cLZ5svDeMFRYbWpR1yzmrTjOIHRpsymHggoOIP5ZegM5VTB0AeW8MmkrwMek60qMTeSKqNKTdB929Hnj7jMpQ8+OWyF9tO1ufauZPotjrv6PNK2lKB6vCNNRvAgPjmt1OwB+X9Eus/LAwS6Yfcc1KR1P0sSLLjjE2UXivP9l6ewqv4FmcCZkA==
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取资金费率工具"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/funding-rate-tool"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取资金费率工具
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"symbol","in":"query","description":"symbol","required":true,"style":"form","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«FundRateDTO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"FundRateDTO","type":"object","properties":{"collectionInternal":{"type":"integer","format":"int32"},"fundingRate":{"type":"number","format":"bigdecimal"},"nextCollectionTime":{"type":"integer","format":"int64"},"symbol":{"type":"string"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

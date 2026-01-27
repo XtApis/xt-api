@@ -1,0 +1,71 @@
+---
+id: upload-public-using-post
+title: "上传图片，公共目录"
+description: "上传图片，公共目录"
+sidebar_label: "上传图片，公共目录"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVc9vE0cU/leid2rRxJsETnujVpCitgQ55BTlMN59tgd2Z5Y3s3Zca6VKFQpNgV6gqoJUShESEqgVUlVaEXrgb8F2OPEvVG92k65j06r1Za2Z9/t73zcjcLJrIdyBd18eTu89HR88PP7q9eTuk/G3j2FXgMmQpFNGb8QQQp4lRsZX8naiom2rdPfK5tZVEJBJkik6JI40Ai1ThBDaub06zBAEKA0h3MiRhiAgRhuRyjgohPD298PxwaPpi1fjH74Jj18+HN+5H0YmGzqSMYp33/82+emX41//mN7df390aB1mLek4JOGNXBHGEDrKUYB1w4STdgylIEAmiRm00CL1azZRD1MJ4Qgc1xWCdaR0F4pitwyI1n1i4iFbREY71I7/yixLVOSnEFyzXPXog6GEL0A6bl9pSUMoCjETwUQO3bJ1hDL9r5E4FqHNjLZo2WVtZYU/syPd/BREvf5zwbkziZTzs2qaNDW6VQV886zM/OYViJNaTPsaRo4RJt4Ep8q0SGSoHmmdDz5Ha2UX/9VbUtfW+pVEkvdCOUzr55U39xyZGBfAJiC13UVwljcbumMWehHaPHEfuHI56eZsPqUddpHqkCjtzq95RDjZ2srqPAxNQukw5qgXFt1va5m7niH1xYnR+XmjS4baKo5RlxYX5i0uG7d0yeQ69pM6S66Dt0c/jh/8Of16//3R7fHN5+ObL6YPfh6/vg8CUnQ9w7TOjPUoSdeDEIL+ahD5zQhKvi9nnvAgwNOpInlOCYTQcy6zYRB0ZKYae64RmXSO4hu6g0QYL21TAkw1JlHrb7qt78k0S2ZWX51AV+3X9N7Tya2Xc5HL41KtJt/tTx495uVDSu1mZwupryJ2zkmHztiKFDJi5AsBiYpQW49zJVgXMxn1cGmtsQKi1l8YBIPBoCH9bcNQN6hcbfDZRnP98tb6MrsUAng4ZWWr5QFPNpW6luOfIZlp73T/HO65IEuk8lvgCxtVaO1Af9U3xnhx1TOI7QroMbbhDoxGbWlxm5Ki4ONSjBnHWFnZTlgkOzKxOFfDqZDAR61Kcz9e+r+qvbCh6ziceS36MsnZyu9KX5Li+iDc2S0E9FDGSL7w0q1Zlrd8xndOswtx4nExijBzNVvWR051yofqVWtXT0Hq1QA6KuEMxk/GCxXJAX8Sqbs5C18IZSr+/QXr171G
+sidebar_class_name: "post api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"上传图片，公共目录"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/common/upload-public"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+上传图片，公共目录
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"busType","in":"query","description":"业务类型:跟单:copytrade,阶梯费率：stepRate","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"string","format":"binary"}},"application/octet-stream":{"schema":{"type":"string","format":"binary"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«string»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"string"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

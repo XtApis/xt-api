@@ -1,0 +1,71 @@
+---
+id: get-deliver-kline-using-get
+title: "获取交割合约的k线信息"
+description: "获取交割合约的k线信息"
+sidebar_label: "获取交割合约的k线信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9V29P20YY/yroebVVVxwHqCa/QzTdUAt0aaJNQmg67Et8w2ebu3OARZFabVOZQIDUru3Q2MTarS94wTptRSNMlfgsxJRX/Qrb2U7q/FHC6JgUyfbd77nn9/y9J1WQuCzAmIXXu+vhl1+fvqiHGz83Np/CHALPJxxL6rmTFhhQJvI6cWiF8JsOdUlRULf8Ya4ACHzMMSOScHVQFVzMCBhgeq7k2JSFFZ8AAuqCAYsB4SuAwCLC5NRXZ4MBJ4fPGt/8dvqi3vhh7c3R9kQxn89NFz6bmpkufISmc582X5sbHxfH84VcPt5qfjQ3P8nlbsY76g0QcLIYUE4sMCQPCAIhVxzFr+RxBgiw43hLeSIIr6Qwpk0YBqMKUrE3QEhO3TLUaqhlH3GtAmUDTDutPwh3fgwfvzx7/HsblxJ2xEXJUFeSMuGAIjEs46Vro230FIhXsNOfX8xM/bYfhg/3w/V7OntztD7C0BhD+hhDIxmGdBtlbTRqo2s2+sBGetZGuoWyFhqxkL6E9KlL9LJDGZX9bTj7bqux+jLc2Q2//fXdfczwMmUBA0Mfy2QQkGXTCQStkKnmenIqo26CS4Oaiwmob8BGsm2W+pjygXUSPnnQ2P8zgV6Wz4XEXA7O7dd/HDSer/1/uT2ndAjfcwURSiKbyahHO6kZVfKq9RBXqt0r2hX1SOmhMmI14THmufnkwOO9W1TI472otV0vzBzXj+vQip83/zkxVRb6XPVESWMChHOPp8/MqYUpIgQuk4HSmJdFynDMOVY+ppKw9HoiXaspsyzSI3IImCj3imi8M+mWvJ5SnIjAkX0pJHY1vTLYpm5FXR1ndevk8NnZ/U1FwRyMjzvoSf1A4e1znP/93bO9JwneORf+5K+NBN/DUZ34xtHdxvO1BO8PxreK9rYq2hoC8S9kFF72rI5ebbxH0SConDskP+2onIkSQwbcnWjPtj49LJYazejd5Vh0cSBtj9MviAURaKQbdMPj89SyiBsjRrsR054cuuEFrhXVQUcb2jhobD6KZ4jG1urp4S+n218tnB6+Onm1G97bBwSMSNtLRphoXJE2GKBVdM0P5h1qaouaFU82VxdUpgOCqEsl80zAnX/U2FL6wtC0Evbp8LIcNj3W5chJt0Q4J9ZQkTug+hVt1l5SSDG/7pyKluPBK3x0P9x9qiqNcCZmSncIr1BTCQfcNaQnkv6GTZUYKsepSVwRhSrp3+M+Nm0ylB3OAEqxNzRtaWlpGEe7wx4va4mo0G5NTuSm7+SuKhGVM4SLmJkeL/iekAy7KR2Dvd5mYiuNJFmWmu9gGgU7IldNIjILFV2FJ4oJIFiMDknHZQ6B7QmpoNXqPBakyJ1aTS3HN5SKlkUFnndS11AHj9bdAO/lkxvr/aHLnUB7mr5AVrqH5Ap2AgUFdRuf35KOKbOPvrdD6wVVpZz2n82OffimptgLEu6YDvvoao6a7+6ZzkGtj9IEcUGdHSNYHz3pme6tsjn1wanSBsbsnLphCbYIjyopFhw3TeKn3aImKiXY6qrqT2Ct9jdBQEQT
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取交割合约的k线信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/deliver-kline"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取交割合约的k线信息
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"contractType","in":"query","description":"交割类型：CURRENT_MONTH,NEXT_MONTH,CURRENT_QUARTER,NEXT_QUARTER,CURRENT_WEEK,NEXT_WEEK","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}},{"name":"endTime","in":"query","description":"结束时间","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}},{"name":"interval","in":"query","description":"时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}},{"name":"limit","in":"query","description":"限制条数","required":false,"style":"form","allowReserved":true,"schema":{"maximum":1500,"exclusiveMaximum":false,"minimum":1,"exclusiveMinimum":false,"type":"integer","format":"int32"}},{"name":"pair","in":"query","description":"交易对pair","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}},{"name":"startTime","in":"query","description":"起始时间","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«KlineDTO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"KlineDTO","type":"object","properties":{"a":{"type":"string","description":"成交量"},"c":{"type":"string","description":"结束价"},"h":{"type":"string","description":"最高价"},"l":{"type":"string","description":"最低价"},"o":{"type":"string","description":"开始价"},"p":{"type":"string","description":"交易对Pair"},"s":{"type":"string","description":"交易对"},"t":{"type":"integer","description":"时间","format":"int64"},"v":{"type":"string","description":"成交额"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      
