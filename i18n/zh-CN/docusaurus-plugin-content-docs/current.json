@@ -316,12 +316,16 @@
     "description": "The label for category 'Extended Query' in sidebar 'earn'"
   },
   "sidebar.broker.category.Access Description": {
-    "message": "概述",
+    "message": "访问说明",
     "description": "The label for category 'Access Description' in sidebar 'broker'"
   },
   "sidebar.broker.category.Binding": {
     "message": "接口列表",
     "description": "The label for category 'Binding' in sidebar 'broker'"
+  },
+  "sidebar.broker.category.API List": {
+    "message": "接口列表",
+    "description": "The label for category 'API List' in sidebar 'broker'"
   },
   "sidebar.broker.link.generated-index.title": {
     "message": "经纪商",
