@@ -17,7 +17,7 @@
     "gen-api-docs": "docusaurus gen-api-docs all",
     "fix-sidebar-keys": "node scripts/ensure-i18n-sidebar-keys.js",
     "openapi:generate": "npm run gen-api-docs",
-    "build": "API_BASE_URL=https://fapi.xt.com node scripts/update-openapi-url.js && npm run clean-api-docs &&npm run openapi:generate && npm run fix-sidebar-keys && npm run build_dist"
+    "build": "API_BASE_URL=https://fapi.xt-qa2.com node scripts/update-openapi-url.js && npm run clean-api-docs &&npm run openapi:generate && npm run fix-sidebar-keys && npm run build_dist"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
