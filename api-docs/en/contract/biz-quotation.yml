@@ -6,68 +6,46 @@ info:
   contact: {}
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0'
-  version: '1.0'
+    url: "http://www.apache.org/licenses/LICENSE-2.0"
+  version: "1.0"
 servers:
   - url: "https://fapi.xt.com"
     description: Inferred Url
-
 tags:
   - name: basic-error-controller
     description: Basic Error Controller
-  - name: listenKey
-    description: Listen Key Controller
   - name: operation-handler
     description: Operation Handler
-  - name: symbol-controller
-    description: Symbol Controller
   - name: web-mvc-links-handler
     description: Web Mvc Links Handler
-  - name: 内部接口
-    description: Internal Controller
-  - name: 分享
-    description: Share Controller
-  - name: 合约告知书
-    description: Notice Controller
-  - name: 合约聪明钱
-    description: Smart Money Controller
-  - name: 合约聪明钱-order
-    description: Smart Money Order Controller
-  - name: 外部兼容接口
-    description: Compat Controller
-  - name: 接管记录
-    description: Take Over Controller
-  - name: 操盘手相关
-    description: Trader Controller
+  - name: 内部获取交易对配置信息
+    description: Internal Cg V 2 Controller
+  - name: 内部获取行情信息
+    description: Internal Quotation Controller
+  - name: 合约信息
+    description: Contract Info Controller
+  - name: 外部接口信息
+    description: External Controller
+  - name: 市场异动
+    description: Market Controller
   - name: 服务器时间
     description: Server Time Controller
   - name: 杠杆分层
     description: Leverage Bracket Controller
-  - name: 用户合约相关信息
-    description: Account Controller
-  - name: 用户满意度反馈
-    description: User Satisfaction Feedback Controller
-  - name: 用户相关内部接口
-    description: Internal User V 2 Controller
-  - name: 用户福利-赠金
-    description: Welfare Controller
-  - name: 用户自动减仓
-    description: Auto Deleverage Controller
-  - name: 用户设置
-    description: User Setting Controller
-  - name: 用户资金相关
-    description: Balance Controller
-  - name: 用户阶梯等级费率
-    description: User Step Rate Controller
-  - name: 自选交易对
-    description: User Collection Controller
-  - name: 账户内部接口
-    description: Internal Account V 2 Controller
-  - name: 资金相关内部接口
-    description: Internal Balance V 2 Controller
-  - name: 通用功能接口
-    description: Common Controller
-
+  - name: 获取事件合约配置信息
+    description: Event Future Controller
+  - name: 获取交易对配置信息
+    description: Symbol Controller
+  - name: 获取交易对配置信息(v2)
+    description: Symbol V 2 Controller
+  - name: 获取交易对配置信息(v3)
+    description: Symbol V 3 Controller
+  - name: 获取板块配置信息
+    description: Plate Controller
+  - name: 行情接口
+    description: Internal Quotation V 2 Controller
+  - name: 行情类接口
+    description: Merchant Controller
 paths:
   /error:
     get:
@@ -76,17 +54,17 @@ paths:
       summary: error
       operationId: errorUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: object
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
     put:
       tags:
@@ -94,19 +72,19 @@ paths:
       summary: error
       operationId: errorUsingPUT
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: object
-        '201':
+        "201":
           description: Created
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
     post:
       tags:
@@ -114,19 +92,19 @@ paths:
       summary: error
       operationId: errorUsingPOST
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: object
-        '201':
+        "201":
           description: Created
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
     delete:
       tags:
@@ -134,17 +112,17 @@ paths:
       summary: error
       operationId: errorUsingDELETE
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: object
-        '204':
+        "204":
           description: No Content
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
     options:
       tags:
@@ -152,17 +130,17 @@ paths:
       summary: error
       operationId: errorUsingOPTIONS
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: object
-        '204':
+        "204":
           description: No Content
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
     head:
       tags:
@@ -170,17 +148,17 @@ paths:
       summary: error
       operationId: errorUsingHEAD
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: object
-        '204':
+        "204":
           description: No Content
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
     patch:
       tags:
@@ -188,17 +166,17 @@ paths:
       summary: error
       operationId: errorUsingPATCH
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: object
-        '204':
+        "204":
           description: No Content
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
     trace:
       tags:
@@ -206,17 +184,17 @@ paths:
       summary: error
       operationId: errorUsingTRACE
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: object
-        '204':
+        "204":
           description: No Content
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
   /v1/public/contract/open-interest:
     get:
@@ -239,17 +217,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«OpenInterestVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«OpenInterestVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/contract/risk-balance:
     get:
@@ -266,7 +244,7 @@ paths:
             type: string
         - name: direction
           in: query
-          description: '方向（PREV:上一页；NEXT:下一页）'
+          description: "方向（PREV:上一页；NEXT:下一页）"
           required: false
           style: form
           allowReserved: false
@@ -299,18 +277,18 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«MongoPageResult«RiskBalanceVO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/event-future/limit:
     get:
@@ -319,17 +297,17 @@ paths:
       summary: 获取事件合约限制信息
       operationId: getEventFutureLimitUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«EventFutureLimitInfoVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«EventFutureLimitInfoVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/event-future/list/detail:
     get:
@@ -338,17 +316,17 @@ paths:
       summary: 获取所事件合约配置信息
       operationId: getEventFutureListUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«EventFutureConfigVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«EventFutureConfigVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/cg/contracts:
     get:
@@ -364,19 +342,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ContractVO'
-        '401':
+                  $ref: "#/components/schemas/ContractVO"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/cg/orderbook:
     get:
@@ -393,7 +371,7 @@ paths:
             type: string
         - name: level
           in: query
-          description: '档位（min:1,max:200）'
+          description: "档位（min:1,max:200）"
           required: false
           style: form
           allowReserved: true
@@ -402,24 +380,24 @@ paths:
             format: int32
         - name: symbol
           in: query
-          description: '交易对,例如 BTC-USDT'
+          description: "交易对,例如 BTC-USDT"
           required: true
           style: form
           allowReserved: true
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/OrderBookVO'
-        '401':
+                $ref: "#/components/schemas/OrderBookVO"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/cg/orderbook:
     get:
@@ -436,7 +414,7 @@ paths:
             type: string
         - name: level
           in: query
-          description: '档位（min:1,max:200）'
+          description: "档位（min:1,max:200）"
           required: false
           style: form
           allowReserved: true
@@ -445,24 +423,24 @@ paths:
             format: int32
         - name: symbol
           in: query
-          description: '交易对,例如 BTC-USDT'
+          description: "交易对,例如 BTC-USDT"
           required: true
           style: form
           allowReserved: true
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/OrderBookVO'
-        '401':
+                $ref: "#/components/schemas/OrderBookVO"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/contract/risk-balance:
     get:
@@ -479,7 +457,7 @@ paths:
             type: string
         - name: direction
           in: query
-          description: '方向（PREV:上一页；NEXT:下一页）'
+          description: "方向（PREV:上一页；NEXT:下一页）"
           required: false
           style: form
           allowReserved: false
@@ -512,18 +490,18 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«MongoPageResult«RiskBalanceVO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/leverage/bracket/list:
     get:
@@ -532,18 +510,18 @@ paths:
       summary: 查询所有交易对杠杆分层
       operationId: getBracketListUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«List«SymbolBracketCacheDTO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/internal/q/kline:
     get:
@@ -569,7 +547,7 @@ paths:
             format: int64
         - name: interval
           in: query
-          description: '时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M'
+          description: "时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M"
           required: true
           style: form
           allowReserved: true
@@ -606,17 +584,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«KlineVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«KlineVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/q/deal:
     get:
@@ -651,17 +629,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«DealVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«DealVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/q/depth:
     get:
@@ -678,7 +656,7 @@ paths:
             type: string
         - name: level
           in: query
-          description: '档位（min:1,max:50）'
+          description: "档位（min:1,max:50）"
           required: true
           style: form
           allowReserved: true
@@ -696,17 +674,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«DepthVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«DepthVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/q/funding-rate:
     get:
@@ -729,17 +707,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«FundRateDTO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«FundRateDTO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/q/funding-rate-record:
     get:
@@ -785,18 +763,18 @@ paths:
             type: integer
             format: int32
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«MongoPageResult«FundRateRecordVO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/q/symbol-index-price:
     get:
@@ -820,17 +798,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«PriceVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«PriceVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/q/symbol-mark-price:
     get:
@@ -854,17 +832,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«PriceVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«PriceVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/q/ticker:
     get:
@@ -888,17 +866,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«TickerVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«TickerVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/q/ticker/book:
     get:
@@ -922,17 +900,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«TickerBookVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«TickerBookVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/internal/fund-rate/white-user:
     get:
@@ -955,12 +933,12 @@ paths:
           content:
             "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«boolean»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«boolean»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/internal/symbol/country-agentuid-filter:
     post:
@@ -972,16 +950,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CountryAgentUidFilterRequest'
+              $ref: "#/components/schemas/CountryAgentUidFilterRequest"
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«List«InternalFilterSymbolVO»»
-        '201':
+        "201":
           description: Created
         "401":
           description: Unauthorized
@@ -1005,18 +983,18 @@ paths:
             type: integer
             format: int64
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«List«InternalSymbolCacheDTO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/internal/tenant-symbol/list:
     get:
@@ -1034,18 +1012,18 @@ paths:
             type: integer
             format: int64
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«List«InternalTenantSymbolCacheDTO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/internal/symbol/list:
     get:
@@ -1074,17 +1052,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«SymbolListDTO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«SymbolListDTO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/leverage/bracket/detail:
     get:
@@ -1101,17 +1079,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«SymbolBracketVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«SymbolBracketVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/leverage/bracket/list:
     get:
@@ -1120,18 +1098,18 @@ paths:
       summary: 查询所有交易对杠杆分层
       operationId: getBracketListUsingGET_1
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«List«SymbolBracketCacheDTO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/market/category:
     get:
@@ -1140,17 +1118,17 @@ paths:
       summary: 获取异动分类
       operationId: categoryUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«MarketCategoryVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«MarketCategoryVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/market/list:
     get:
@@ -1183,17 +1161,17 @@ paths:
             type: integer
             format: int32
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«PageResult«MarketVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«PageResult«MarketVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/merchant/q/trade-list:
     get:
@@ -1258,17 +1236,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«PageResult«MMTradeVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«PageResult«MMTradeVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /actuator/health:
     get:
@@ -1284,7 +1262,7 @@ paths:
               additionalProperties:
                 type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1296,11 +1274,11 @@ paths:
             application/vnd.spring-boot.actuator.v2+json:
               schema:
                 type: object
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /actuator/health/**:
     get:
@@ -1316,7 +1294,7 @@ paths:
               additionalProperties:
                 type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1328,11 +1306,11 @@ paths:
             application/vnd.spring-boot.actuator.v2+json:
               schema:
                 type: object
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /actuator/prometheus:
     get:
@@ -1348,7 +1326,7 @@ paths:
               additionalProperties:
                 type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             text/plain;version=0.0.4;charset=utf-8:
@@ -1357,11 +1335,11 @@ paths:
             application/openmetrics-text;version=1.0.0;charset=utf-8:
               schema:
                 type: object
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/plate/list:
     get:
@@ -1378,17 +1356,17 @@ paths:
           schema:
             type: boolean
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«PlateVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«PlateVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/agg-ticker:
     get:
@@ -1412,17 +1390,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«AggTickerVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«AggTickerVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/agg-tickers:
     get:
@@ -1438,17 +1416,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«AggTickerVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«AggTickerVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/deal:
     get:
@@ -1483,17 +1461,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«DealVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«DealVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/deliver-kline:
     get:
@@ -1522,7 +1500,7 @@ paths:
             format: int64
         - name: interval
           in: query
-          description: '时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M'
+          description: "时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M"
           required: true
           style: form
           allowReserved: true
@@ -1559,17 +1537,17 @@ paths:
             type: integer
             format: int64
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«KlineDTO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«KlineDTO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/depth:
     get:
@@ -1586,7 +1564,7 @@ paths:
             type: string
         - name: level
           in: query
-          description: '档位（min:1,max:50）'
+          description: "档位（min:1,max:50）"
           required: true
           style: form
           allowReserved: true
@@ -1604,17 +1582,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«DepthVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«DepthVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/funding-rate:
     get:
@@ -1637,17 +1615,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«FundRateDTO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«FundRateDTO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/funding-rate-record:
     get:
@@ -1664,7 +1642,7 @@ paths:
             type: string
         - name: direction
           in: query
-          description: '方向（PREV:上一页；NEXT:下一页）'
+          description: "方向（PREV:上一页；NEXT:下一页）"
           required: false
           style: form
           allowReserved: false
@@ -1697,18 +1675,18 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«MongoPageResult«FundRateRecordVO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/funding-rate-record-chart:
     get:
@@ -1747,17 +1725,17 @@ paths:
             type: integer
             format: int64
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«FundRateRecordVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«FundRateRecordVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/funding-rate-record-tool:
     get:
@@ -1774,7 +1752,7 @@ paths:
             type: string
         - name: direction
           in: query
-          description: '方向（PREV:上一页；NEXT:下一页）'
+          description: "方向（PREV:上一页；NEXT:下一页）"
           required: false
           style: form
           allowReserved: false
@@ -1807,18 +1785,18 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
                 $ref: >-
                   #/components/schemas/CommonResponse«MongoPageResult«FundRateRecordVO»»
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/funding-rate-tool:
     get:
@@ -1841,17 +1819,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«FundRateDTO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«FundRateDTO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/index-price:
     get:
@@ -1875,17 +1853,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«PriceVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«PriceVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/index-price/list:
     get:
@@ -1937,17 +1915,17 @@ paths:
             type: integer
             format: int32
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«IndexPriceDTO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«IndexPriceDTO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/indicator:
     get:
@@ -1995,17 +1973,17 @@ paths:
             type: integer
             format: int32
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«string»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«string»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/kline:
     get:
@@ -2031,7 +2009,7 @@ paths:
             format: int64
         - name: interval
           in: query
-          description: '时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M'
+          description: "时间间隔支持1m，3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,2d,3d,1w,1M"
           required: true
           style: form
           allowReserved: true
@@ -2068,17 +2046,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«KlineDTO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«KlineDTO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/mark-price:
     get:
@@ -2102,17 +2080,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«PriceVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«PriceVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/openprice:
     get:
@@ -2139,17 +2117,17 @@ paths:
             type: integer
             format: int32
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«OpenPriceVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«OpenPriceVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/symbol-index-price:
     get:
@@ -2173,17 +2151,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«PriceVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«PriceVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/symbol-mark-price:
     get:
@@ -2207,17 +2185,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«PriceVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«PriceVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/ticker:
     get:
@@ -2241,17 +2219,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«TickerVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«TickerVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/ticker/book:
     get:
@@ -2275,17 +2253,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«TickerBookVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«TickerBookVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/ticker/books:
     get:
@@ -2301,17 +2279,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«TickerBookVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«TickerBookVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/tickers:
     get:
@@ -2327,17 +2305,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«TickerVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«TickerVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/q/tradestats:
     get:
@@ -2346,17 +2324,17 @@ paths:
       summary: 获取统计信息
       operationId: getTradeStatsUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«TradeStatsVO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«TradeStatsVO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/time:
     get:
@@ -2365,17 +2343,17 @@ paths:
       summary: 获取服务器时间
       operationId: getServerTimeUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«long»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«long»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/symbol/all:
     get:
@@ -2391,17 +2369,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«string»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«string»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/symbol/coin/detail:
     get:
@@ -2412,7 +2390,7 @@ paths:
       parameters:
         - name: coin
           in: query
-          description: '币种，多个币种用,隔开'
+          description: "币种，多个币种用,隔开"
           required: false
           style: form
           explode: true
@@ -2420,17 +2398,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«CoinDetailVO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«CoinDetailVO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/symbol/coins:
     get:
@@ -2439,17 +2417,17 @@ paths:
       summary: 获取交易对币种
       operationId: getCoinListUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«string»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«string»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/symbol/detail:
     get:
@@ -2473,17 +2451,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«SymbolCacheDTO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«SymbolCacheDTO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v1/public/symbol/list:
     get:
@@ -2499,17 +2477,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«List«SymbolCacheDTO»»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«List«SymbolCacheDTO»»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v2/public/symbol/list:
     get:
@@ -2532,17 +2510,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«SymbolListDTO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«SymbolListDTO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /v3/public/symbol/list:
     get:
@@ -2565,17 +2543,17 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*':
+            "*/*":
               schema:
-                $ref: '#/components/schemas/CommonResponse«SymbolListDTO»'
-        '401':
+                $ref: "#/components/schemas/CommonResponse«SymbolListDTO»"
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
   /actuator:
     get:
@@ -2584,7 +2562,7 @@ paths:
       summary: links
       operationId: linksUsingGET
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2602,19 +2580,65 @@ paths:
                 type: object
                 additionalProperties:
                   type: object
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
 components:
   schemas:
-    "CommonResponse«boolean»":
+    AggTickerVO:
+      title: AggTickerVO
       type: object
       properties:
-        code:
+        a:
+          type: string
+          description: 24小时成交量
+        ap:
+          type: string
+          description: 卖一价格
+        bp:
+          type: string
+          description: 买一价格
+        c:
+          type: string
+          description: 最新价
+        h:
+          type: string
+          description: 24小时最高价
+        i:
+          type: string
+          description: 指数价格
+        l:
+          type: string
+          description: 24小时最低价
+        m:
+          type: string
+          description: 标记价格
+        o:
+          type: string
+          description: 24小时前第一笔成交价
+        r:
+          type: string
+          description: 24小时涨跌幅
+        s:
+          type: string
+          description: 交易对
+        t:
           type: integer
+          description: 时间
+          format: int64
+        v:
+          type: string
+          description: 24小时成交额
+    CoinDetailVO:
+      title: CoinDetailVO
+      type: object
+      properties:
+        actualPrecision:
+          type: integer
+          description: 实际精度
           format: int32
         coin:
           type: string
@@ -2631,11 +2655,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/AggTickerVO'
+          $ref: "#/components/schemas/AggTickerVO"
         returnCode:
           type: integer
           format: int32
@@ -2644,11 +2668,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/DepthVO'
+          $ref: "#/components/schemas/DepthVO"
         returnCode:
           type: integer
           format: int32
@@ -2657,11 +2681,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/EventFutureLimitInfoVO'
+          $ref: "#/components/schemas/EventFutureLimitInfoVO"
         returnCode:
           type: integer
           format: int32
@@ -2670,11 +2694,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/FundRateDTO'
+          $ref: "#/components/schemas/FundRateDTO"
         returnCode:
           type: integer
           format: int32
@@ -2683,13 +2707,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/AggTickerVO'
+            $ref: "#/components/schemas/AggTickerVO"
         returnCode:
           type: integer
           format: int32
@@ -2698,13 +2722,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/CoinDetailVO'
+            $ref: "#/components/schemas/CoinDetailVO"
         returnCode:
           type: integer
           format: int32
@@ -2713,13 +2737,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/DealVO'
+            $ref: "#/components/schemas/DealVO"
         returnCode:
           type: integer
           format: int32
@@ -2728,13 +2752,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/EventFutureConfigVO'
+            $ref: "#/components/schemas/EventFutureConfigVO"
         returnCode:
           type: integer
           format: int32
@@ -2743,13 +2767,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/FundRateRecordVO'
+            $ref: "#/components/schemas/FundRateRecordVO"
         returnCode:
           type: integer
           format: int32
@@ -2758,13 +2782,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/IndexPriceDTO'
+            $ref: "#/components/schemas/IndexPriceDTO"
         returnCode:
           type: integer
           format: int32
@@ -2773,13 +2797,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/InternalFilterSymbolVO'
+            $ref: "#/components/schemas/InternalFilterSymbolVO"
         returnCode:
           type: integer
           format: int32
@@ -2788,13 +2812,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/InternalSymbolCacheDTO'
+            $ref: "#/components/schemas/InternalSymbolCacheDTO"
         returnCode:
           type: integer
           format: int32
@@ -2803,13 +2827,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/InternalTenantSymbolCacheDTO'
+            $ref: "#/components/schemas/InternalTenantSymbolCacheDTO"
         returnCode:
           type: integer
           format: int32
@@ -2818,13 +2842,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/KlineDTO'
+            $ref: "#/components/schemas/KlineDTO"
         returnCode:
           type: integer
           format: int32
@@ -2833,13 +2857,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/KlineVO'
+            $ref: "#/components/schemas/KlineVO"
         returnCode:
           type: integer
           format: int32
@@ -2848,13 +2872,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/MarketCategoryVO'
+            $ref: "#/components/schemas/MarketCategoryVO"
         returnCode:
           type: integer
           format: int32
@@ -2863,13 +2887,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/OpenPriceVO'
+            $ref: "#/components/schemas/OpenPriceVO"
         returnCode:
           type: integer
           format: int32
@@ -2878,13 +2902,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/PlateVO'
+            $ref: "#/components/schemas/PlateVO"
         returnCode:
           type: integer
           format: int32
@@ -2893,13 +2917,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/PriceVO'
+            $ref: "#/components/schemas/PriceVO"
         returnCode:
           type: integer
           format: int32
@@ -2908,13 +2932,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/SymbolBracketCacheDTO'
+            $ref: "#/components/schemas/SymbolBracketCacheDTO"
         returnCode:
           type: integer
           format: int32
@@ -2923,13 +2947,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/SymbolCacheDTO'
+            $ref: "#/components/schemas/SymbolCacheDTO"
         returnCode:
           type: integer
           format: int32
@@ -2938,13 +2962,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/TickerBookVO'
+            $ref: "#/components/schemas/TickerBookVO"
         returnCode:
           type: integer
           format: int32
@@ -2953,13 +2977,13 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
           type: array
           items:
-            $ref: '#/components/schemas/TickerVO'
+            $ref: "#/components/schemas/TickerVO"
         returnCode:
           type: integer
           format: int32
@@ -2968,7 +2992,7 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
@@ -2983,11 +3007,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/MongoPageResult«FundRateRecordVO»'
+          $ref: "#/components/schemas/MongoPageResult«FundRateRecordVO»"
         returnCode:
           type: integer
           format: int32
@@ -2996,11 +3020,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/MongoPageResult«RiskBalanceVO»'
+          $ref: "#/components/schemas/MongoPageResult«RiskBalanceVO»"
         returnCode:
           type: integer
           format: int32
@@ -3009,11 +3033,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/OpenInterestVO'
+          $ref: "#/components/schemas/OpenInterestVO"
         returnCode:
           type: integer
           format: int32
@@ -3022,11 +3046,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/PageResult«MMTradeVO»'
+          $ref: "#/components/schemas/PageResult«MMTradeVO»"
         returnCode:
           type: integer
           format: int32
@@ -3035,11 +3059,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/PageResult«MarketVO»'
+          $ref: "#/components/schemas/PageResult«MarketVO»"
         returnCode:
           type: integer
           format: int32
@@ -3048,11 +3072,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/PriceVO'
+          $ref: "#/components/schemas/PriceVO"
         returnCode:
           type: integer
           format: int32
@@ -3061,11 +3085,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/SymbolBracketVO'
+          $ref: "#/components/schemas/SymbolBracketVO"
         returnCode:
           type: integer
           format: int32
@@ -3074,11 +3098,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/SymbolCacheDTO'
+          $ref: "#/components/schemas/SymbolCacheDTO"
         returnCode:
           type: integer
           format: int32
@@ -3087,11 +3111,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/SymbolListDTO'
+          $ref: "#/components/schemas/SymbolListDTO"
         returnCode:
           type: integer
           format: int32
@@ -3100,11 +3124,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/TickerBookVO'
+          $ref: "#/components/schemas/TickerBookVO"
         returnCode:
           type: integer
           format: int32
@@ -3113,11 +3137,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/TickerVO'
+          $ref: "#/components/schemas/TickerVO"
         returnCode:
           type: integer
           format: int32
@@ -3126,11 +3150,11 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
-          $ref: '#/components/schemas/TradeStatsVO'
+          $ref: "#/components/schemas/TradeStatsVO"
         returnCode:
           type: integer
           format: int32
@@ -3139,7 +3163,7 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
@@ -3152,7 +3176,7 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
@@ -3166,7 +3190,7 @@ components:
       type: object
       properties:
         error:
-          $ref: '#/components/schemas/ErrorMessage'
+          $ref: "#/components/schemas/ErrorMessage"
         msgInfo:
           type: string
         result:
@@ -3183,7 +3207,7 @@ components:
           description: Current lowest ask price
         base_currency:
           type: string
-          description: 'Symbol/currency code of base pair, eg. BTC'
+          description: "Symbol/currency code of base pair, eg. BTC"
         base_volume:
           type: string
           description: 24小时交易量
@@ -3253,7 +3277,7 @@ components:
           type: string
         target_currency:
           type: string
-          description: 'Symbol/currency code of target pair, eg. ETH'
+          description: "Symbol/currency code of target pair, eg. ETH"
         target_volume:
           type: string
           description: 24小时交易额
@@ -3341,8 +3365,40 @@ components:
           type: string
         msg:
           type: string
-          description: 提示信息
-        data:
+    EventFutureConfigVO:
+      title: EventFutureConfigVO
+      type: object
+      properties:
+        amountConfig:
+          type: string
+          description: 预设金额
+        amountScale:
+          type: integer
+          description: 金额精度
+          format: int32
+        cycleConfig:
+          type: string
+          description: 周期配置
+        maxAmount:
+          type: number
+          description: 最大下单金额
+          format: bigdecimal
+        minAmount:
+          type: number
+          description: 最小下单金额
+          format: bigdecimal
+        state:
+          type: integer
+          description: 状态
+          format: int32
+        symbol:
+          type: string
+          description: 交易对
+    EventFutureLimitInfoVO:
+      title: EventFutureLimitInfoVO
+      type: object
+      properties:
+        isFirstUse:
           type: boolean
           description: 是否首次使用
           example: false
@@ -3480,7 +3536,7 @@ components:
           format: int32
         productType:
           type: string
-          description: '合约类型，perpetual, futures，不区分交割间隔'
+          description: "合约类型，perpetual, futures，不区分交割间隔"
         quoteCoin:
           type: string
           description: 报价资产
@@ -3493,7 +3549,7 @@ components:
           description: 币种
         state:
           type: integer
-          description: '交易对状态：0:待上市；1:交易中；2:已下架'
+          description: "交易对状态：0:待上市；1:交易中；2:已下架"
           format: int32
         symbol:
           type: string
@@ -3792,7 +3848,7 @@ components:
             - USE_PROXY
             - VARIANT_ALSO_NEGOTIATES
         view:
-          $ref: '#/components/schemas/View'
+          $ref: "#/components/schemas/View"
         viewName:
           type: string
     MongoPageResult«FundRateRecordVO»:
@@ -3811,7 +3867,7 @@ components:
           type: array
           description: 数据列表
           items:
-            $ref: '#/components/schemas/FundRateRecordVO'
+            $ref: "#/components/schemas/FundRateRecordVO"
     MongoPageResult«RiskBalanceVO»:
       title: MongoPageResult«RiskBalanceVO»
       type: object
@@ -3828,7 +3884,7 @@ components:
           type: array
           description: 数据列表
           items:
-            $ref: '#/components/schemas/RiskBalanceVO'
+            $ref: "#/components/schemas/RiskBalanceVO"
     OpenInterestVO:
       title: OpenInterestVO
       type: object
@@ -3891,7 +3947,7 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/MMTradeVO'
+            $ref: "#/components/schemas/MMTradeVO"
         page:
           type: integer
           format: int64
@@ -3908,7 +3964,7 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/MarketVO'
+            $ref: "#/components/schemas/MarketVO"
         page:
           type: integer
           format: int64
@@ -3974,7 +4030,7 @@ components:
         leverageBrackets:
           type: array
           items:
-            $ref: '#/components/schemas/LeverageBracketCacheDTO'
+            $ref: "#/components/schemas/LeverageBracketCacheDTO"
         symbol:
           type: string
     SymbolBracketVO:
@@ -3984,7 +4040,7 @@ components:
         leverageBrackets:
           type: array
           items:
-            $ref: '#/components/schemas/LeverageBracketCacheDTO'
+            $ref: "#/components/schemas/LeverageBracketCacheDTO"
         symbol:
           type: string
     SymbolCacheDTO:
@@ -4084,7 +4140,7 @@ components:
           minimum: 0
           exclusiveMinimum: false
           type: number
-          description: '最新价格与标记价格偏离，默认0.01,当最新价格和标记价格价差超过时，止盈止损订单将不会触发'
+          description: "最新价格与标记价格偏离，默认0.01,当最新价格和标记价格价差超过时，止盈止损订单将不会触发"
           format: bigdecimal
         liquidationFee:
           type: number
@@ -4187,17 +4243,17 @@ components:
           description: 事件关联参数
         predictEventSort:
           type: string
-          description: '事件关联排序:WIN 胜, FLAT 平, NEGATIVE 负'
+          description: "事件关联排序:WIN 胜, FLAT 平, NEGATIVE 负"
         predictEventType:
           type: string
-          description: '预测事件类型:PERPETUAL 永续事件，ONCE 单事件'
+          description: "预测事件类型:PERPETUAL 永续事件，ONCE 单事件"
         pricePrecision:
           type: integer
           description: 价格精度
           format: int32
         productType:
           type: string
-          description: '合约类型，perpetual, futures，不区分交割间隔'
+          description: "合约类型，perpetual, futures，不区分交割间隔"
         quantityPrecision:
           type: integer
           description: 数量精度
@@ -4272,7 +4328,7 @@ components:
           type: array
           description: 交易对列表
           items:
-            $ref: '#/components/schemas/SymbolCacheDTO'
+            $ref: "#/components/schemas/SymbolCacheDTO"
         time:
           type: integer
           description: 时间
