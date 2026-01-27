@@ -1,0 +1,71 @@
+---
+id: get-depth-using-get-3
+title: "获取交易对的深度信息"
+description: "获取交易对的深度信息"
+sidebar_label: "获取交易对的深度信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVk9vG0UU/yrRO0E19dpJ4LC3KriVBW2ktOklstB493k9sDOzmZl1Yqw9IKgoEmmRECniFgV64VAqIaqmRUj9LLFTTv0K6O1u3PWfxtCeLL957/1+7/8OwfHIgr8DL4++G3915+zxs/G9X0f3j6HNQCdouBNatULwIUL3ESaut22Fiq41b326BgwSbrhEh4Z8DEFxieBDEAtU7rJIgIFQ4EMPeYgGGIRoAyMScjqjZ3A3FQZD8Ls8tsjABj2UHPwhuEFCXq0zQkWQZWwCFGMf43OQ3RTNYA5jfHR8+tfBq+d3pVB+g0m+739Qf/X82ylIZ1JCdIOYvHa1kcCAx7He20KLpl/RmbCSQgmZSvAbDHA/iFMr+nj9XFgGUVIXymGUJ4B8c1eI1langrED2dFLojk9+WX80w+jR0/fmf5sUtvk0CZaWbT0vlqv0880/ObHwCDQyqFy9HrJu0Q/Fa/C5Rw2tJRabZUOX/yWd87tzRfPYJIT3fkMA0c9ZKjRnChw0Rhtqq6aJLiO1vIIl1pzE9lKdNwYTkkUDmVVXlpnGUUT4oJ8MJA2WpSn4qWlunqhlUGbxq7Kvwx9OfUFvKezPzo4HB38uCCcN4VZJd1Z6v706e9v736B/M29mzFwFf3X0zEzug/+/OfBHzND8+E6maf/wTxNQu6wFS5wkOWVcqlRG9Plv2BQs9xqvd6YH4ttxVPX00Z8gSHkSmvzSle16YgwRFVorM9r3NBu5apOVZg35vTby3tPRvcPJyk8+/nr8ZPHo5OHp38fjb98BAwkup4u93S+mF0PfPD6DS9JO7EIvF0vpE4EBvlKKDd2amLaz84l1ve8Lk9Ebd/VAi3n0tlSXTQGw5VtEwOtC3E+A2Wjj76/e3bycL5rc3FxVcaH34yPjmkU0Ei72b2Jpi8CMk6N8p225XrhAfVHxiAWASqbV6jcklcSHvRwZbVWB1Zh73ve3t5ejeevNW0irzS13ietjeaNm83LZJIxoNALZo1CkGjrJFcVjKXJnopw0jwO952XxFzkJc65DctC7EC/QVXJSwEMdnMnVI42g562jlSGww63uG3iLCNxcQGoSKGwvBNXbuMM/mQjw3tb5VF4f+WCw7eQ7+c4qFzUPo9T0gE6UG+FXz1VFwBOrt5rxDb9MYIgwd9pZ+z8++H/5aL6dXEBgaraVNTF85UgwMRV3ujmEcXJwF1r3oIs+xdL8Fxo
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取交易对的深度信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/depth"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取交易对的深度信息
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"level","in":"query","description":"档位（min:1,max:50）","required":true,"style":"form","allowReserved":true,"schema":{"minimum":1,"exclusiveMinimum":false,"type":"integer","format":"int32"}},{"name":"symbol","in":"query","description":"交易对","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«DepthVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"DepthVO","type":"object","properties":{"a":{"type":"array","description":"卖单","items":{"type":"array","items":{"type":"string"}}},"b":{"type":"array","description":"买单","items":{"type":"array","items":{"type":"string"}}},"s":{"type":"string","description":"交易对"},"t":{"type":"integer","description":"时间","format":"int64"},"u":{"type":"integer","description":"updateId","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

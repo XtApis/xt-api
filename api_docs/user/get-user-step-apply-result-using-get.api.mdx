@@ -1,0 +1,63 @@
+---
+id: get-user-step-apply-result-using-get
+title: "获取用户申请临时等级结果"
+description: "获取用户申请临时等级结果"
+sidebar_label: "获取用户申请临时等级结果"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVF1v1EYU/Sur+xgN692QJ7+hkKAISqSEfYryMLHveg32jHvnesOyspQ+VKFFChIfoUVQNQQEVQVUKkoCqYrEb2Ht8NS/QMfeppvuttCnse/nuXPO3D6wDAy4K1DceZZf3//w3V7+6GXx/JvizdOjV6+LrU1YFaATJMmhVgs+uBAgtwzSMmNyJkmi3hKaNOKWCVVwbu4SCCA0iVYGDbh9mG407OGj8ShMbBFwYfE8CPC0YlRsvVPOlD2M18FY2i8OOUJwYVbHsVZLw4Lvfp7Q+OylxXeHIIB7ic3Qa5fRYxCQkIXNYQUDiTSNVp6zhi/QGBngJ7MlBeU5jJJEsgcCQsZ41D7MzjI7nI8jHsMUqgAyAbEJJtizyrOg2npiFpWjjuKffBOfnMSw5FFgoWIMkED8g6Hi271846s/frvfqA1+/3rwYif/8aDWrM4PG/eP3m7Wpqu//Mat4vAhCGhriiVXNU9PW9SMcXIBuxh9RsP3B6/ye3uV8v672BJySuqs7P3Pqu/fPizufj94/FN+95cJHbLymm3p2ZPc/V17PKXMmmk0xyXeUjLljqbwGvpQBp0eD5rXtBb6PqoqYmY84qLm2rxOlV+q6qTvaGt/cHO7erjFnV+PXu6Pjlsc3s5/eAACYuSOHj5cqwfJHXDB6Tad1CA5hjE5RZLRmfywQYBB6iLZNdGHlKI/W3eYE+M6TlsmYf0q1z0dj939gmojEfq1FkWQrQoI/1L3UMIV8nHpleZ868ng5m6+vZnv7FpVI8Vmsb2M1A09m5ySclmb4R6Rnn0cmYAo9FCZkj4lYxt4JpFeB2vT9QaIEfSu46yvr9dl6a1rCpxhqnEuLMzOXVyeO2VTMgF29ApZszIk2nAs1UiPz2TixJzH+mK8yk4SybBUQYmwP2RpBbpNi9qU8jtmCsS/LGG7rDvasM3s99ekwRZFWWbNX6ZIPXBXVgV0JYVyzVKwspoJ6KD0kUpyr2DP3pjnYWJ578ootQjterYEHivJ7vks+wjXK2fa
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取用户申请临时等级结果"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/user/step-rate/getUserStepApplyResult"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取用户申请临时等级结果
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«UserStepApplyResultDTO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"UserStepApplyResultDTO","type":"object","properties":{"state":{"type":"integer","description":"状态：0 待审核 1审核通过 2审核拒绝","format":"int32"},"tempLevel":{"type":"integer","description":"临时等级","format":"int32"},"tempLevelReturnDay":{"type":"integer","description":"临时等级保留天数","format":"int32"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

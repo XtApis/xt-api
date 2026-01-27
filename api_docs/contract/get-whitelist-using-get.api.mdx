@@ -1,0 +1,71 @@
+---
+id: get-whitelist-using-get
+title: "(内部)获取资金费白名单"
+description: "(内部)获取资金费白名单"
+sidebar_label: "(内部)获取资金费白名单"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVEtrFFsQ/iuhVion00kMd9E7CVEGvQpqcBGyONNd0320+5y2TvXEOPTi4nMTH4iiS/GBIOhGERUR/C3OJPkXl+ruhA4T0NWBqvrq9X2nxsA68RCuw+Tunb1b73YffJk8fPb72+vp8yeTj1/37mzv/Pjw++fL6X8fYUOBK5A0G2f7MYSQIF9JDWNmPK95Y5Mzq5dBQaFJ58hIkncMVucIIZQeqR+DAmMhhOsl0hYoiNFHZApJ2Y0hvF4awhhCphIVeN7KJMnQUQ4KfJRiriEcA28VYjeWMUECVUdobkz/LENVbUg2Xzjr0QtiaWFBnsOFL5wFBZGzjJbFeyI4IU+njuG6gRWX585ebBP+ej9wLkNtf30Htd+LG1zFiGUPJOti09RFIkfdVKti+Be91wn+Ea0p8Z15NZGW9RnGvGtv0VUl08TY8XgmYxOoFOQ+OcJeNZ6+HbojUYS+zLjjaidvfFySXTlc8GhKTi5Jqbra8sLiLBFrVpecOjI3MYY66ORs0GlHAxPHaJuI5dmI847nTrvSxvUqDvuONUo/3kh99/PtvXuPdz993XnxY/Joe7L9FBTkyKlrFV4LmlMIIRgtBjIVWZ0Fw9LG86QZg035AvMiXVEm0mhf+CVlEELKXPgwCIa6ML0b3ItcPqP7vh0iEcZza5SBKNbs09BqZfLo/s63tzO4xjx98Gby8NX02b3py1ciJKTcXxheQhqZqP55ZEN2vlW4joTFSkFmIrS+pqz9oqcKHaU4t9RbANXpPgyCzc3Nnq69PUdJ0EJ9cK6/snr+0uq8QCoFMnrT2WJjKJznXNtOjb/Y/qEZD/TEeIODItOmZr3ubtwysw6jxfqwNNyI5PbZAQUdfjYUpM6zIMbjgfa4RllVibm5R8JabLweZHJ6hjrzONPOwZWAYxfbK3V87uBwHdnsNdzqHreRzkoJqpkeaTJSD8L1jUpBijpGqhtpUKeiCAvuoOQ0CfBAo3J0q+p/pekcEQ==
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"(内部)获取资金费白名单"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/internal/fund-rate/white-user"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+(内部)获取资金费白名单
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"userId","in":"query","description":"userId","required":true,"style":"form","schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

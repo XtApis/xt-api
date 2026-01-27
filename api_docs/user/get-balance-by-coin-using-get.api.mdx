@@ -1,0 +1,71 @@
+---
+id: get-balance-by-coin-using-get
+title: "获取用户单币种资金"
+description: "获取用户单币种资金"
+sidebar_label: "获取用户单币种资金"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVt9v3EQQ/leieYLKnJO0T35rjwRF0EZKCS9RHvbsOd+Cvevuru+aniyliHD9mTRcqYRQH2iEGoGgQhAl6Foh9W8534//Anbtmksvl/jJ0u7MN998s56ZNijiS3A2YPj0cHDveHT0zbizP/zxJN35EzYt4BEKoihnKx444KO6RgLCXLy2VeWUrUvK/E+WPgcLIiJIiAqFBmsDIyGCAy6nDCygDBy4FaPYAgs8lK6gkQYFB9KTu8OXj8ECgbdiKtADR4kYLZBqK9AQdS5CsIAEAW+toUTRnLBxGxgScNqgtiJtLJWgzIck2dSAMuJMotT3i/Pz+nM69uqnYIHLmUKm9O0l+5L+TKBSZThUeRhytpYDvv01F+GL1bc9sN7F5rUv0VVaCqFVUzSLjEJwMQm2pA+uo5TExwu9ifDlRH5ECKI1pArDyfPcO0l0Ph6eoYgFofTPUiq7WWF1fqaXQBkHapJ/kfzF5JuEBqQWYO4yEYDFYQ3F9GvYezV8eth/88P4xXOwTO2JAgdq1PfQpSEJNKcaZ7G8GKz/pjv+5dG4s18K72Mq14gqwbGAHTw4Gtw/GO52ZiOb9z8l64x/wNjHEWcXc8hCl0jNFVxK9K4T4dMSuOnOYb/XHR0dpy8f9v95Pnp1d9zZn43uYcQlVdWSrNOvD9Pt1+m9k3Fn/1zWVPKAqPK0x9tP+r1uQTj9tjfsdWfD8wjZqvBQLCMuC34Hy3B/vd3vddPH32fgg/sPh73fRn/9XSJKlkXZQKPfXxRRZoO3SBAUzbiEQN/9kT7aOf+xJOZvV7Fg1dMthDKFvgEt/ChTlxe1i/G6Mr8w3VzXGYlVgwt6Bz0wRpenjZa5qFHPQ5ZZXJm2uMHV3DKPmWea23tS7R6ne8+ywaU1M79RNsHAghBVg+dTywwo1QAH7OaCXctksz1UhAZggZkq+eSKRfAfdEOpSDq2XScRrdxWFZeHU6KusDoKgd7cughATxz6ronmnTJjNuWXHQ92f073DgbPOoOfDnQnRRHK1fpNFE2qKwqxYI7iMp9QxNU9OLEgoC4yacqTz9irEXEbOLdYmQdrgr1j261Wq0LMbYUL385dpf3ZSnXpxs2lj7RLYoFOPWO2kB1EXKqQsIkY5yt9Kr3i2Si8rewoINQU1xBr51XYgOYCWJDXwSCYSmxa0OBSaYN2u0YkrosgSfRxtjzo+nhU6pHigVMngcSp6MU8hw/W8pXiw7liyziT21e49f+u0iRBrE1MRZtEUB0NnI3NxIIGEg+FoZH5XHVdjNSEl14htGPx+PR2lCT/AqQ6lBc=
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取用户单币种资金"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/balance/detail"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取用户单币种资金
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"coin","in":"query","description":"币种","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«BalanceVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"BalanceVO","type":"object","properties":{"availableBalance":{"type":"number","description":"可用余额","format":"bigdecimal"},"bonus":{"type":"number","description":"体验金余额","format":"bigdecimal"},"bonusDisRate":{"type":"number","description":"体验金抵扣率","format":"bigdecimal"},"coin":{"type":"string","description":"币种"},"coupon":{"type":"number","description":"抵扣金余额","format":"bigdecimal"},"crossedMargin":{"type":"number","description":"全仓起始保证金","format":"bigdecimal"},"depositCoupon":{"type":"number","description":"储值券金额","format":"bigdecimal"},"isolatedMargin":{"type":"number","description":"逐仓保证金冻结","format":"bigdecimal"},"openOrderFeeFrozen":{"type":"number","description":"开仓单冻结手续费","format":"bigdecimal"},"openOrderMarginFrozen":{"type":"number","description":"订单冻结","format":"bigdecimal"},"walletBalance":{"type":"number","description":"钱包余额","format":"bigdecimal"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

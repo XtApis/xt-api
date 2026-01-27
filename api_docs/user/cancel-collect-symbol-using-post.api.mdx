@@ -1,0 +1,75 @@
+---
+id: cancel-collect-symbol-using-post
+title: "取消收藏交易对（废弃）"
+description: "取消收藏交易对（废弃）"
+sidebar_label: "取消收藏交易对（废弃）"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVL1u1EAQfpVoSrSck0DlDk5BivgJIqQ6XbG3nvNtsHfN7Poux8kSEgVJQwoQ0CEESAgKuiAgFc/CHVDxCmjWTjBJJHBje/5nvm9mBl6mDuIe/Hj47uf9vW+fXy+eP55/+AR9AbZAkl5bs55ADEoahVnXZhkqvznNBzbbctqkNzc2b4MAwrslOn/ZJlOIZ6Cs8Wg8f8qiyLQKgaJtZw3LnBphLvnLTwuEGJwnbVKoqqriWK6wxqFjg9XlZX4l6BTpgqNADBtXQbRznIvOnQirfcZxuzbPrbnVBPz6fmBthtJ8/QLiKLUdbKPyIKAg7tjrOi8SWWqHWmPBdXROpvhPb0mpa7UnieQUBGiPeVveeHPTyiZ4xkAE5C49c1BBs26G9kwvQldmvqVqOq91viTT/TuhNh5TJBAwtJRLX4surAZMONvq8sppILqE0mPCUS+epd8ysvQjS/rekdGF00ZXLA10kqCpLS6etrhh/dIVW5okjCrBglCFvLGnEsUJ6/n+08XB7uLJwY9n+8eM/nW4O//8Yn744NfhHgjI0Y8s87qwLsAn/QhiiMYrUemQIlUTnUlbMx8EOKQxEq/LDErKIIaR94WLo2goC93Z8R1lczhZzboZIhEmS1uUQdUXwEtw68+6rO3IvMha6AnQR6g21Pv+5O1i9+OpyLV48ejNfP/V4unDxctXzEuk3G0MN5HGWrFzSSb21jULIxWTohKQaYXGBQYYmbPhpUKqES6tdpZBtPqLo2gymXRk0HYspVHj6qJr6921G5tr59mlEsDDqStbqQU821yaVo7/geavJo/56XHHR0UmdWBJKG/WoNaD8QqX7AJ9/yDHPzV2fQEjxjnuwWw2kA63KKsqFt8tkaYQ9/oCxpK0HPDAe/1KwAhlghTAvoPTcEvCvTl/mwti86wMu33yvlXiyOOSUlj4li3fKabAMfua6zlozmYedhJITvikygnEAHyIOXi4G0E2g0yatOQ7FEOdkp/frvQd5Q==
+sidebar_class_name: "post api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"取消收藏交易对（废弃）"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/user/collection/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+:::caution deprecated
+
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+
+:::
+
+取消收藏交易对（废弃）
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"string"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

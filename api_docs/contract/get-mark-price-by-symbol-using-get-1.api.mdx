@@ -1,0 +1,71 @@
+---
+id: get-mark-price-by-symbol-using-get-1
+title: "获取单个交易对的标记价格"
+description: "获取单个交易对的标记价格"
+sidebar_label: "获取单个交易对的标记价格"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVctuFEcU/RXrrgIqT9vGyqJ3xBqQlYCRjdlYFqrpvtNTcXdV+9btMZNRrwDBgpcU8RArEEkWiZSHFIUEZ8W3eMbOX6Dqbg81zBCSVUt1H+fUPbdOD4FlYiHcgZOX98Y3bx//djh+8P3o4SvYFWByJMnK6PUYQkiQL0nau0Iqwi8GW4OsY9Jtq3RysX31+jIIyCXJDBnJ9RuClhlCCFGqUPOiykGA0hBCD2WMBAJitBGp3AF8kEe4XyjCGMKuTC0KsFEPMwnhEHiQu66WSekEylJMgGzF6BRlv0AazIAcvflu/Ozb0S9/TYEwFQ6DB6nr0zWUgQCZpuZgEy1S38v5KI9d19DmRlu0Lr6ytOQ+0/AbX4KAyGhGzS56NjjrPl5XxRWHNZNlRm82Dd/+VA392sbbQxCnyKbzNUbsxk5OJ1Y1LhIZ8lu13cEltFYm+MlqSYn1bieJpBuiYsz886a6LN1tYpwzDwGZTebNqY6s666ZW0Voi5R9/s3VP0k99/rpIuvMWbGjw9fjF3+DqCSWDCF0VBJjpDKZOnA7S+njC1QKYC9facZkDub46R//PP3dx1SaP1+tJ0HIBem16RG+7+SXnFtxJVXV6tLy7Gpta1lwz5D6BmOoks7NJl0w1FFxjLrOWJ3NuGx44YIpdFyJOx07efB69PDJ6P7joz9/nMzh+Pmt8Ys7Jz//OhluhtwzjWFUrsA9CCHoLwd50UlVFOwH9VNdzCTtLeZOXxBQPbTGOgpKnVEw5zYMgq7MVesGtyKTzYx3XXeRCOOFbUrBPUJ1ulnN+owe3T1+88NMXX1cW934yZ3xy1duwZAyu9HdQuo7TiEUpEM2tnm0MnKClwJSFaG2lWaN95zPZdTDhZXWEgiPfRgEBwcHLVlFW4aSoCm1wVfra+3LW+1FV1IKcFevmS3XB7mxnEntYfzH8U/dc7JUjDc4yFOpKukrhsNGmh3oV+5diQMC9p0YMwLtCugZyy59OOxIi9uUlqU7rp3WyRYrKzupZ9sfcJk4H3y22ZjvmQXfkueS3cOB7+59mRYuqVK7L0k5SAh3dktx+mv5f1z8H8+/EPDT3nMQwyZ8PoowZy/mvN1RnDyHi+2rUJbvAJTyuZY=
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取单个交易对的标记价格"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/symbol-mark-price"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取单个交易对的标记价格
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"symbol","in":"query","description":"交易对","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«PriceVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"PriceVO","type":"object","properties":{"p":{"type":"number","description":"价格","format":"bigdecimal"},"s":{"type":"string","description":"交易对"},"t":{"type":"integer","description":"时间","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: get-ticker-book-using-get-1
+title: "获取指定交易对的买一卖一行情信息"
+description: "获取指定交易对的买一卖一行情信息"
+sidebar_label: "获取指定交易对的买一卖一行情信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVc9rG0cU/lfEO9lhorUd08PeUqME0zYGx87FmDK7+7SaandmNTMrRxULLWlxD2kcCDglPZm0vRSaFELTxIdC/hZpnfwXZWZX8shSa7engZn3ve+b93MImsYK/D14f/KwfPDt2e+n5aOfx0fPYZ+AyFBSzQTfjMCHGPUOC7soPxaiu6sYj2+3dj5fBQIZlTRFjdI4GgKnKYIPYcKQ6+ssAwKMgw8dpBFKIBChCiXLjOcLdhJ7OZMYgd+miUICKuxgSsEfgh5kxqvSkvEYioJMidQgDUQyYenlKAdzJKO3P5U/PBm/eDNDomVuOPQgMX7aQqZAgCaJONhGhbLv2Pyjjn3jUGWCK1TmfW1lxRyz9FufAIFQcI1cm9dr3jVzOF6Ztho2RJoKvl07fPfrecTvbb07BTKhF8EXGGoTe2mypFlFjlIK6fprmYvPUCka46VoKmPlfJFKSU0kmcbUva/RRWG+FOGCoBBIVbwoWNXLJm+LhSiJKk+0q9/9/+X6s3mvFwuBqq5qZJKFuDT+/nj051ej09fLhpv2rgju6UEN/XB4ZKHBFXgDFk14R29eOrzBFXgt2PBW0Amvuhw5rfulqkssTjs4xjXGC7qy/PFVefyyfPrHh6evljRLcRmI7RCqK9RH61U+Jepc8o3ZQjj36kJurBmIRa2vrM53yS6nue4Iyb7ECKzRjXmjW0IGLIqQVxbr8xZ3hG7cEjmPbInOvr1/9Hp8dFw+PBz/9mwam7Nn31SBrdJaTcLRXyfl1y+AQIq6I+oBaIed7oAPXn/Vy/IgYaHX87StUi8QogsE7OSoZ2EuEzP5tM6U73ltmrHmfd0MRToX8E3eRikxauzKBMxUYZMuqVth/Pi7s7e/zOGq62pol8eH5clz0ycoU7XVvouyz0IDziX3tVD1FKKhKYGCQMJC5Mpmrh6mNzMadrCx1lwB4qj3Pe/g4KBJ7WtTyNirocr7dHOjdedu67qBFATM1ytlq9VFJpROKXc4/kcSZv48LTON97WXJZTZYrBqh3WC9qBvV5NNERDomajYNAEBm6h9Ah2htDEdDgOqcFcmRWGuqxVi0hcxRYPE2UcXdExHOixt11tlueHumoVCuzhw11afJrkxslnvU8kMJfh7+wWZ7Mz/psXdqP8iwDU710CG9fPNMMRMO29maRmJ04a43dqBovgb9JEUQQ==
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取指定交易对的买一卖一行情信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/ticker/book"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取指定交易对的买一卖一行情信息
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"symbol","in":"query","description":"交易对","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«TickerBookVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"TickerBookVO","type":"object","properties":{"ap":{"type":"string","description":"asks price(卖一价)"},"aq":{"type":"string","description":"asks qty(卖一量)"},"bp":{"type":"string","description":"bids price(买一价)"},"bq":{"type":"string","description":"bids qty(买一量)"},"s":{"type":"string","description":"交易对(symbol)"},"t":{"type":"integer","description":"更新时间(time)","format":"int64"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

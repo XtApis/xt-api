@@ -1,0 +1,71 @@
+---
+id: get-depth-using-get
+title: "获取交易对的深度信息"
+description: "获取交易对的深度信息"
+sidebar_label: "获取交易对的深度信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVUtvE0kQ/itWnRbU8dgh2sPceIRVtIhIJOYSWag9U7Z7PdM9dPc4MdYceEgEIRIkpIDYUxQ22huLhEAbsbt/Jh6WE38B1czEjB+bLJxG0/X6qurrr4dgeceAuwGjV3uf7v+e7vw22j04/mc/vfsamgxUhJpboeSKDy500F7ByHYbRsjOT8vrwCDimodoUVOSIUgeIrjgBQKlXRARMBASXOgi91EDAx+Np0VEKaf8NN6OhUYf3DYPDDIwXhdDDu4Q7CCirMZqITuQJGxcKMA+BidFbseoBzM10v2D47+efP6wHQrp1lnIt9zFWu3zh0dza9pBQHnbSofAgAeB2ryBBnWfnKyO5+ES0mIn647CuM2PLixOIDWDsKXOgHp89Cp98Wz0+k92/Pfj0eG9yqX1ywuNtSvrE1ALFN+DdDzBJiU0kZIGDdkXazX6TMJZ/RkYeEpalJas553z9CllFTbDsKp91JeU6t1cBXZSS7V+Qc8SRTSxyIq8Ejc9U0LEteazg8icGAiL4Tzn6fNxWwmDlvDPzp85fV9+K7we6lvCn7X/5zohiwvRWB5Gc4kzRdlf36Z7f6TP3316/naKVT8uEYwMyVKtPruzhuSx7Sot7qAPmdOFWaerSreE76PMPZZmPa4rW7mqYukTh6ds/+68H+3ujZv7+PJB+v7N6OiwUA0GIdquKvQikwjbBRecft2J4lYgPMfrOIoo01KqBwwy0hYCEuuA5MLayLiO0+aRqG7ZqqfCmSGtyDZqjX6loQMgQgvZVmVWjp5ufzw6nInLj3OhS/cepvsHxFnUoVltr6HuC4+CYy1dq0xxAbhHFyBhEAgPpUEqU9zrixH3ulhZrNaAldC7jrO5uVnlmbWqdMcpQo1zbeXy8vW15QUKSRhQ6zmyen4QKWNDLks1zpz4RIdjelncsk4UcJHtOcM2LLaxAf06rSbbBzVJ7P26kyaDrjKW/IbDFjfY0EGS0HEuXLQpXxjeCkraOQViLBynKvBcqD0clLS9z4OYfIDU9P9X/eFGoZjnKqfp6ikAxpL9FUGTfrQgCOBuNBN28rJ920TK794pAMpuE1PIzRc9DyNbspFAE8TxBaQ3Okm+AAGF5VE=
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取交易对的深度信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/cg/orderbook"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取交易对的深度信息
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}},{"name":"level","in":"query","description":"档位（min:1,max:200）","required":false,"style":"form","allowReserved":true,"schema":{"type":"integer","format":"int32"}},{"name":"symbol","in":"query","description":"交易对,例如 BTC-USDT","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"OrderBookVO","type":"object","properties":{"asks":{"type":"array","description":"asks","items":{"type":"array","items":{"type":"string"}}},"bids":{"type":"array","description":"bids","items":{"type":"array","items":{"type":"string"}}},"ticker_id":{"type":"string","description":"交易对"},"timestamp":{"type":"integer","description":"更新时间","format":"int64"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

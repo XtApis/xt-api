@@ -1,0 +1,71 @@
+---
+id: bonus-list-using-get
+title: "体验金详情"
+description: "体验金详情"
+sidebar_label: "体验金详情"
+hide_title: true
+hide_table_of_contents: true
+api: eJytV91PG0cQ/1fQPEYHBoL6cFUfKHEqqwlEfESVEA/ru/F527vdy+4eH7FOSlVVEJJA0kLIQx+KSCltpJJKpaXQphJ/i33GT/0Xqr2z4YyNbWj8crq5mfn9dmbnwyVQxJFgzkJ1Yy9a+aO6u15Z+an/9OD72vILmDOA+yiIopzlbDAhz1kg71CpZiRlzifZaTDAJ4J4qFBoNyVgxEMwwQqEQGYtgQGUgQkPAhT6xUZpCeprj2BC5fDL6o/PjL5A2goMEPggoAJtMAvElWiAVEuu9lbgwgMDpFVEj4BZArXka7lUgjIHwtBoAc7ZvUDHWleGpUyhgwKMWIOoRPTBSBMRmwq0YrCOPKKXf1aevzBsLJDAVeZ49rNps3z4pHz4qLZ98OG9yez93MTMlFk+XE1E7ylMtEt4qG1Ea99UjtZzt/7962l1Y698tFb95/iaBHoKmEs9qroEa3+9tn0QvXpXfX0Ubb6tLa83AvfR0ODg+2N2cxjCcE67kz5nEqW2GB4c1I9mRhOfggEWZwqZ0l9vZG7oRwqHqpjAGPc8zibrDk/e3OXM4feIg5MoA1edvPlY19YtVIS69ydOjk+OwWiQ5PnP0dKh8YWuR0UTQigEF2mMrBbcRSmJg12tiXBkKhBECBJXq0IvLa9bh6E+po1tbpUBnnTa3bbkS44VeFsrER88zb9bTLqeqUjkOC6qFFyecxcJa71Jr/Yrz3ej7x6f1RoYgIvE8zWT+PKEhvZ3T+D81fytXu7vYnAbQb/ga/Nt9OyXysrW6fZeU0bqYWqKSvc8WxYPmNL9u4d6NIB4Wj2lzAIv36ybp46NFvWIqw3y9GGT8/MMx+Oinafm85b//rb281M9cC7FOBsnLTDt+3rapueT21ROEoXdCUerB9HjnWh/o/zuyeWccdGnAqeph23xL9B+/Wu0uRJt/V7b+q0tOYHW6FUzE0i8jo3oMWLxTzNTgWBjzc2hQ19NrEYGh1q76QwjgSpyQR+iDbHSzVal21zkqW0jSzRGWjXGueq7zQNmx23rkst2ur8bffU1GOChKnK93TgYVw9RRTAhMz+UWUC3QARm4nvcb8cV1+9SqdUkivnGzhMIF0woKuVLM5MpEJ8OLKoBi3stac6xAgqBdt+McEFPGNrojvXaTtawFrtEHK39UFnfiV4uR9s7uu5ReHKiMIVinlraOBDMVFzWJxKxdN5DA1xqIZNxduqjdtQnVhH7hgf0zDxnb2YyCwsLAyT+OsCFk6mbysyd3Fh2fCrbr01CA/TRE2ZDicDnUnmEpTBaA910pLObonBRZXyX0DifMZlSPQmzMD8EBtTTAPWG0pSIOQOKXCqtWyrlicQZ4YahFicbhE6PTSXJu6ml4AKRs/F9cR9ty/ALXGreb+eJG2g10LvMVbHiBbQHnFjvmkjXWDE7MErvtdck1HG57ABN/08Quq2OHXAbm+k59Jx+EVRjgzk7p1cFJDaK+L4lRqOWhX7aSq+G2vCs3+j/T2H4HxESAdw=
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"体验金详情"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/welfare/bonus-detail-list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+体验金详情
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"currency","in":"query","description":"币种, usdt","required":false,"style":"form","schema":{"type":"string"}},{"name":"currencyId","in":"query","description":"币种Id","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"direction","in":"query","description":"方向,default:NEXT:下一页;PREVIOUS:上一页","required":false,"style":"form","schema":{"type":"string"}},{"name":"id","in":"query","description":"id,排序ID，用于翻页","required":false,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"limit","in":"query","description":"每页显示数量,default=100","required":false,"style":"form","schema":{"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«MongoPageResult«BonusDetailVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"MongoPageResult«BonusDetailVO»","type":"object","properties":{"hasNext":{"type":"boolean","description":"是否有下一页","example":false},"hasPrev":{"type":"boolean","description":"是否有上一页","example":false},"items":{"type":"array","description":"数据列表","items":{"title":"BonusDetailVO","type":"object","properties":{"accountId":{"type":"integer","format":"int64"},"amount":{"type":"number","format":"bigdecimal"},"bizId":{"type":"string"},"bonus":{"type":"number","description":"体验金","format":"bigdecimal"},"currency":{"type":"string","description":"币种"},"currencyId":{"type":"integer","format":"int64"},"disRate":{"type":"number","description":"抵扣比例","format":"bigdecimal"},"expireTime":{"type":"integer","description":"失效时间","format":"int64"},"recAmount":{"type":"number","format":"bigdecimal"},"useAmount":{"type":"number","format":"bigdecimal"},"userId":{"type":"integer","format":"int64"}}}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

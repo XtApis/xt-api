@@ -1,0 +1,71 @@
+---
+id: get-coin-detail-using-get
+title: "获取币种详情"
+description: "获取币种详情"
+sidebar_label: "获取币种详情"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFuHEUQ/RWrjlGzYzs5zS0yDrIIMUowF8uH3pna3Yae7kl1z9rLaiQiZMGBOEhEUcgBKYpJEJFihJAITgiSv8W7a5/4Baie8XrtXcXkNJruetWv3quu7oOXbQfxOhzt/DG49+Bwf3f48PvB3p/H23dHf704/Pvx8M4ebAiwOZL0ypqVFGJoo1+yyryPXiq95pRpf7D8CQjIJckMPRKn7IORGUIMiVUGBCgDMdwukHogIEWXkMo5I8QweHln9OzuP6+/Hew+Onz5S/U7uv+zOH50f/D6SxBAeLtQhCnELakdCnC+pzl5y1IGAnAr1zZFiD0VKEBqbTdvokPqMqZadEkHMwlxH3wvZ6zzpEwbynKDD3C5NQ4d7y/Oz/PnLMnVD0FAYo1H43n3UnSJPxNZlQ+UlmyWWXOzTnjw/Lpy/uD5qWCfrh68OngF4oSGbX6GiWf5iGX2qiKBRJYm8y7zwkfonGzjhWhJbTdRqiSSrLvymE2u1+iy5NJYvylxBGSuPUu0amfFtOxMFKErtH8rhbFep8pcXFfiC6k/JkyUC76M8yvjsY003Vwvfjz+YXv025vB/lMQoWGkr+IvL0IoXJnpEmb3KMenyuVa9t6Fw/Dhm9Hu/ls4uNyGK3Uxj9HOr0e/PzthE2wg9AWZpbP+nVI5f1pZoa7ML0w3+ZqRhe9YUl9gCiHo8nTQNUtNlaZoqogr0xE3rJ+7ZguThs46u1dNmqqAo72nw6+2QUCGvmPr0RIGie9ADFF3IcqLplZJ5HpZ0+qIvYrS0CwgINzvetgUpP9L3vE+d3EUtWSuGlu+kdhsSsEV00IiTOfWSAPffXXSw3VDDr77ZhR8OtcBYXm489Pg3pPhg6+Hj59wtyJlbrV1C6mrEgYXZGJvXT0rZMJXoBSgVYLGBYPqsXg1l0kH5xYb8yAm2MdRtLm52ZBht2GpHdVQF11fWVq+cWv5PYaUArj0itlCtZBb5zNpJs6YqfWZqsb94nHLR7mWKrga+PRrH9ahu8CmBCdY9uAFiJPJXvuxIaBjnef4fr8pHa6RLkterqY+u5QqJ5t6Yo6fIzOer//jTZhJ/HPsnT45XakLDgkudyUpPhvi9Y1SQAdlihRIVZirSYK5n0DxgGfguDf5kSvLfwEr8bU7
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取币种详情"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/symbol/coin/detail"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取币种详情
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"coin","in":"query","description":"币种，多个币种用,隔开","required":false,"style":"form","explode":true,"allowReserved":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«CoinDetailVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"CoinDetailVO","type":"object","properties":{"actualPrecision":{"type":"integer","description":"实际精度","format":"int32"},"coin":{"type":"string","description":"币种"},"displayPrecision":{"type":"integer","description":"显示精度","format":"int32"},"spotCoin":{"type":"string","description":"现货币种"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

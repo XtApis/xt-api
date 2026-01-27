@@ -1,0 +1,71 @@
+---
+id: apply-using-post
+title: "申请跟单操盘手"
+description: "申请跟单操盘手"
+sidebar_label: "申请跟单操盘手"
+hide_title: true
+hide_table_of_contents: true
+api: eJytlt9rG0cQx/8VM49ho7OdPN2bMQ6YtnGo6yejh9Xd6LTt3e5ldk+2Ku4hhZK6SWpaOybgQChJIKQ0pRjqNi55yN8S3Tn/Rdk7STn9qBwcPR3a2ZnP7szsfNUFwwMN7jZkBw/y40fZ3r38+O/e9ydQZ6BiJG6Ekus+uMDjOOxsaSGDWxubXwGDmBOP0CBZ/y5IHiG4gBEXITAQEly4nSB1gIGP2iMR21jgwvvvXuWv/gQGhLcTQeiD2+ShRgbadEIbpKkoAgbaa2HEwe2C6cR2XRsSMoA0ZUNehL7gK56nEmlmY/Nnb3ovfzm/c5ifnGVH//T+3Z/TEeKWkjibne3dyx6/7u2fzgspPJPQRdDDv/LjH3vHb/K9u/PiKi1s9FtIQvkX4O/feXd20Pv5Rfb4yZzwhrgvZLC2GyMJlN4FCXj3+ln26CA/23//8v58T7BpiBsMOh/F//0of/j8k/h166xjJTVqa19eXLSfUdrGZ8DAU9KgNNZ6xbliP5WowhS4VRVFSn7ZD/j2t4ZSIXL59gzYgKwaX6Nn31NMdgoYUXKRSFE11Jpd+AK15gFe6M0p0JXbcSJeJNBgVF3ve6epvY2PU/LBINLBtDyVlnXZVFO9CHUSmoqpf/PSZhKSq6NAIQ0GSMCKEnFTLl1btqiCtry4NFmIVUJu0LdRr0+zb0memJYi8e1g07XJTTcUNYTvoyx3XJ/ccVOZhRsqkX6RqrFZd3hy/sfp+emT3oOHw8kODCI0LeWXD7koEDctcMFpLznFfL9q+7u4sEZqD0Z7QiG40DIm1q7jNHksarum5qloouPXZROJ0F/YohBs24pBLfoNkx++yH44nZzNxXL20/Pe/tPs6G7261PbTUiR3mhuIrWFZ50Tkq5Rut/m3LOlTBmEwkOpi7r1X+lKzL0WLizXFoFVTu86zs7OTo0X1pqiwOm7aufz9dW1m5trV61LysBevTzZUrlg8xVxWWH8X4pHLjbsJIO7xolDLop6Fkfq9rO/De0lYDCS/zqDlq2Quw3dboNr3KIwTe1yOWlsVXyheSOsjJMx8nAUfBDcqYf5BjsV3W7zMLF7wA69j0dMFdcZuDHZviS1KqszYAOBvixlVEdngYayfFnUqGbOQo0r8SWJYxo5gzhNfD8NOhDGi6EVvf2ArNsfJCwT3O16yqCFxeuxr6N0X/E8jKsNZkXROg4HYfFnNk3/A7DTESY=
+sidebar_class_name: "post api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"申请跟单操盘手"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/apply-trader"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+申请跟单操盘手
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"email","in":"query","description":"邮箱","required":false,"style":"form","schema":{"type":"string"}},{"name":"mediaAccount","in":"query","description":"社媒联系方式","required":false,"style":"form","schema":{"type":"string"}},{"name":"phone","in":"query","description":"手机号","required":false,"style":"form","schema":{"type":"string"}},{"name":"picture","in":"query","description":"收益图片","required":false,"style":"form","schema":{"type":"string"}},{"name":"positionPeriod","in":"query","description":"持仓周期","required":false,"style":"form","schema":{"type":"string"}},{"name":"tradingExperience","in":"query","description":"交易经验","required":false,"style":"form","schema":{"type":"string"}},{"name":"tradingStrategy","in":"query","description":"交易策略","required":false,"style":"form","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«boolean»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"boolean"},"returnCode":{"type":"integer","format":"int32"}}}}}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

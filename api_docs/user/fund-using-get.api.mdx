@@ -1,0 +1,71 @@
+---
+id: fund-using-get
+title: "获取账户资金"
+description: "获取账户资金"
+sidebar_label: "获取账户资金"
+hide_title: true
+hide_table_of_contents: true
+api: eJytV11vE0cU/SvWfWrpNpsA6sNKRErSpIpaSAVJX1AexrvX9rS7M8vMbEKwVgotkECBlCZNaYFKBbVEtAVagRJiUCV+i3dtP/EX6OwaZ5PY8ZbWL7Z3773n3I+ZOVMFRcoSrNMQXbrY+mojvv5LtHIPZg3gPgqiKGeTDlhQCpgzIykrfzQ+DQb4RBAPFQrtWgVGPAQLbE4ZGEAZWHAmQLEABjgobUF9HQgsiLbON+5fAwMEngmoQAcsJQI0QKoFV4coceGBAcR1+fxJlCjmMjZ2BT0CVhXUgq+NpRKUlSEMjQ6FQKKYdA4m0bHpQ2IfHmUKyyjASCyISh99cHQXA2LbPGCqH4ms2Q6PEnHlfyMyq8NJnzOJUnscHhzUX7vBpz4GA2zOFDKl3x4yD+mvDA5VCYEx7nmcnWwHfPnbSMp6ImCfTb2sgfGGEC9+jrbSgyH03CiagqMQXGTjjesHx1FKUsa+3kSUZSZpIgTRdaQKvezztncY6pQc7DIfBniy3G1u0jeTrMS7egmUgauy/LP59+ffaXG3zu1dGN/Ey5vU6dJSA4in42SisMArdguy8qixtlE4duzY8PBwIb71JF57Vt/ajpYWm08v1Lfv11/80Lp7JwtRpGUHbeoRV+MUOQtkf5j6i9XWg6utpRu9IyU7wb6S9tgNEns2h0KNKnskZ67zxHVRjRKXMBtb3/4ZXb2YJhlfudl4+H1hdHrsIHoJ3Ix01P+FN3Pqw+mDAAOfs/4o8ZWn8eV7B5dWcCnROU5EmeaIGF3cqNdW63/faT4631q6EV2qNWqrvaM76HNJ1VhOvtGXG83VC9HyVu+IVHKXqPyEc1P1koDtjvyLuP1WAePqU8FLNMdQxLcfRA9/alx/3Li1XN9e6R2T+8imhINiAnFC8HOYp7bPF+u11ej+Wnz5ZlqL+PLXjdofzSfPcgCl5c6L1Xx4N7r2Xb+K+znLEm3+1a8giivi5l178WKt+fRCa+nGq+c/pntG2sPCe4U9HWjvfenmt/64vrWdu+0Bc1C4C5SVpxMyObbs8/Ht3+svrr16fjVIf+3ZvY8cTgKncqN/wMbaRu8zYNf+k6MFmTL1yjlMjjgVCDa2+9zsLi90NsnHgKODQ/tFxQwjgapwQc+hA4nRkf1GE1wUqeMgSy2O7rc4wVVhggfMSU70PWN6fTNaWW8++TVe3kwnAgzwUFW41qhlTM5goipggTk3ZOo8BCOu2T6JTa1izao+nEItq7S6bCvYQLj/xK8o5UvLNEvEpwNn1YDNvX2VnWQlFAKdwoxwQcst+kY+tDVC2sYe3U31dby+FP98TwsIFJ6cKp1CMUftRL8KZiku2/KM2Hp1hAa41EYmkx61ZeaIT+wKFg4PDIKRYW+Z5vz8/ABJ3g5wUTbbrtL8ZHJs/MSp8fe1S2iATj1lNpQ+8LlUHmEZjK7l3pVVZ2QUnlWm7xKaNDbhU2234jTMDSVaOG2GVvdpO/R86T4bYCV6YdaACpdKe1SrRSJxRrhhqB+nElr3yaGSFN2MVN5DpyNq4Z2TbVX9bqFz6+hK9gtc2Lm7zBE30CagFf1bgXVuFweAdWzeEi57eTgAJmu2gzSr/wiqocA6PRsaUEHioEjqmzqO2Db6KuOlLwjasbPW9DUwDF8DJAxlPA==
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取账户资金"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/internal/account/fund/{coin}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取账户资金
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"coin","in":"query","description":"币种","required":true,"style":"form","allowReserved":true,"schema":{"type":"string"}},{"name":"userId","in":"query","description":"userId","required":true,"style":"form","schema":{"type":"integer","format":"int64"}},{"name":"accountId","in":"query","description":"accountId","required":false,"style":"form","schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«AccountFunVO»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"title":"AccountFunVO","type":"object","properties":{"accountId":{"type":"integer","description":"帐户id","format":"int64"},"amount":{"type":"number","description":"可用 ===>>> 更改为净资产余额","format":"bigdecimal"},"bonus":{"type":"number","description":"体验金","format":"bigdecimal"},"coin":{"type":"string","description":"币种"},"convertBtcAmount":{"type":"number","description":"walletBalance钱包资产折算 BTC","format":"bigdecimal"},"convertUsdtAmount":{"type":"number","description":"walletBalance钱包资产折算 USDT","format":"bigdecimal"},"coupon":{"type":"number","description":"抵扣金","format":"bigdecimal"},"crossedMargin":{"type":"number","description":"全仓保证金冻结","format":"bigdecimal"},"depositCoupon":{"type":"number","description":"储蓄券","format":"bigdecimal"},"isolatedMargin":{"type":"number","description":"保证金冻结","format":"bigdecimal"},"marginBalance":{"type":"number","description":"保证金余额","format":"bigdecimal"},"notProfit":{"type":"number","description":"未实现盈亏","format":"bigdecimal"},"openOrderFeeFrozen":{"type":"number","description":"开仓委托冻结手续费","format":"bigdecimal"},"openOrderMarginFrozen":{"type":"number","description":"订单冻结","format":"bigdecimal"},"profit":{"type":"number","description":"已盈亏","format":"bigdecimal"},"totalAmount":{"type":"number","description":"总资金：币种余额 + 未实现盈亏 ===>>>> 更新为保证金余额","format":"bigdecimal"},"underlyingType":{"type":"integer","description":"币本位，u本位","format":"int32"},"userId":{"type":"integer","description":"用户id","format":"int64"},"walletBalance":{"type":"number","description":"币种余额","format":"bigdecimal"}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: get-tickers-using-get
+title: "获取全交易对的行情信息"
+description: "获取全交易对的行情信息"
+sidebar_label: "获取全交易对的行情信息"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVV9LHFcU/ypyHsNkR430Yd6CmCD5IzSxL7IPd2fOzt5m5t7x3Dtr7DJgaSQppBpo0RDSB5s0BBSSQtFEKQU/y+6sfotyZkaz625rfbpwzu937vl/OmBFaMBbgpOd5/kP6/0/jvKN33ubb6DugE6QhJVazQfgQYj2ofQfIZlFI1V4e+4hOJAIEjFaJLbRASViBA/8SKKy12UCDkgFHrRQBEjgQIDGJ5mw0Qs4wuVUEgbgNUVk0AHjtzAW4HXAriZs1ViSKoQsqzPaJFoZNKyfnpzkZ9j2wh1wwNfKorKsveZe42fAqrQRm53VcazV15XB49270tjj3TLUbxaOj46PwDlzQTe+Rd9y3MTJsbJ0AIk0DdqcY8E9NEaEeClbUGgGwhREYpUTZzEelFfsLOOwAhyTGAdiE45LWKmZV009lkVo0sj+pwtVXGdZuTym0Y8uFn96pvdxM9/ez5+96B6+PX26ya74l/Py12v51sfu0QHjW1f45/Xa6e7Lihddidf9a6PijUngv/F6P/7U39vrflrr7/1SxljZoCv8vf/+5OB57/M688zlvO7h2/zlz70Pnxk/WFGpLIZjJjDf3j/d/hMcaGqKhS2RX80wvX3lEv72K/da0VA2JTU73KVfXBj868Z0wWHWzOTU6BgvKpHalib5HQZQgG6Mgm5pasggQFUiZkYR97WduKVTFRTzM6w72TjobW711t+fZ6//6km5Drt/7+TffwAHYrQtXW3BYu3ZFnjgtqfcJG1E0neXXVsuR3DAILXPNmJKEe8/axPjuW5TJLL22NZ8HY8kc141kQiDiUWKgHecPJvXavh6L571D9+N8EpxubXzraf5zhueTqTYLDQfILWlz+SUlGe1qXai8Lk5eA6kj8oUZap2981E+C2cmK5NgjPgvee6KysrNVFoa5pCt6Ia9+787Nz9B3PXmcJ9g2RKz6ZKQaKNjYUa+OP/ZHwoyPMmsvjYukkkZFHqwr1OVY0laE9xaYp6gAPLnIaqJnUHWtpYBnU6DWFwkaIsY/FyirQK3lLdgbYgKRqc6qU6r5byZnERA2lY8eU2XXDu/MwMXbSxLj/C1QuwtohSxkHmdCr1Td/HxA7o+HhxS5y3IV/fLPsHgdDtFg==
+sidebar_class_name: "get api-method"
+info_path: api/contract/合约
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取全交易对的行情信息"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/public/q/tickers"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取全交易对的行情信息
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"client-ip","in":"header","description":"client-ip","required":false,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«TickerVO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"TickerVO","type":"object","properties":{"a":{"type":"string","description":"24小时成交量"},"c":{"type":"string","description":"最新价"},"h":{"type":"string","description":"24小时最高价"},"l":{"type":"string","description":"24小时最低价"},"o":{"type":"string","description":"24小时前第一笔成交价"},"r":{"type":"string","description":"24小时涨跌幅"},"s":{"type":"string","description":"交易对"},"t":{"type":"integer","description":"时间","format":"int64"},"v":{"type":"string","description":"24小时成交额"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

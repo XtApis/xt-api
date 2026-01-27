@@ -1,0 +1,63 @@
+---
+id: get-step-rates-using-get
+title: "获取用户费率表"
+description: "获取用户费率表"
+sidebar_label: "获取用户费率表"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVk9P3EYU/yronZLI4IWgHnxLCVSoKUj86WXFYdZ+7E6xZ9yZ5yV0ZamXiEQhkKYJCU1zSEIVqqgqVVGSLrSV+Cy7XvbEV2jHdqhhoexprDfv3++937znBhCranDK0Hm8k9x93332Lnn1a+eXe53mm6O9Pzrrq7BggQxRMeJSTHrgQBVpljCcYYR6XnNR/Wx8DixQqEMpNGpwGjBSKpnDQ+0qHhpTcGD6c7DAlYJQkLm9Zl8zh3ZrGDDzRZx8BAfGZBBIMZM7PHx7i2s6fPsx6M256cP9w32wgFZCoy4rX6FLYEGoTKbEsxxQKamKbseN4AvUmlXxUmumqumZazGl2ApYwAmDojy3jmODzMPCjSbFRRViCwJdPUceZzeTYlGea6VQRz79bwo5rkJhLoXlKmSE3hwPzsnVOtOw9t3n7f1m8vRd9+keWLAoVcAIHPAY4SAZFwa28ZgXug9vrWbTWHGvYMAFYRVVjwX3ilG5oE9Gja2PdfRn0NCIS3GTrfThKqN06+8XnSdb7e2fkye7V0rHB2vDpdLVMzGuj6Q9Y0uoJrBYJBEFlXM8p5r5Wyl4qvCqhy4PmJ81M2BqqY8aba8mv+8YC00YTrF+upRBaz980Hmze3yw1tq/k323PjxoHfyQ/Hiv++3+0V/fGafUNyrqBxUp5uGX0o+CPjy2mtvJs+9bH+53tx52VzeuRNqjq8cHa8n6o3Zzo/N45+I4Uej1T9rk+V6yuXsJaTOPfZA285aTdpn5PtKnzGfC7QNx99Fv7bU7rT+3uq9eZLgz0BcBTUeCQoqUGDs9S/5j9VmmxpnVaGm4d97OCxZRTSr+DXqQKl3vVZqQqsI9D0WmMdqrMSVpYEJGwkun3Om7o/X37Y3NbHdkbDl6aRoZINVkvizMDGJUAwfs+rAdaVS2IfegYoR2cZmABRpVHZVZSA2IlP9vhBpRqB3bXmQhH7pNQ64Mego9KRZRKfQG5pUP8YIF/ONQzSdklmDvy0nFyfpP7Y3XyeZq8vK1mZ+oAj29OIuqzk2XIVLCIanz3cVcM5PNFOIuCp12SaTvFG6EzK3hwMhQCaxC9o5tLy8vD7H0dkiqqp2bavvW5Nj41Oz4oDGJLTDQs8yGM0EoNQVMFGJcVPBTwE54Q3ib7NBnPO1umlIjb0YZ6sMmTZ3S6qQhYJ3a72b716Qmo99oVJjGeeXHsRF/HaFaAae8YEGdKc4qptLlhdiCGjLPvK1yA5ZwxRTGdTE0PKgzPzJ5mc1v+nRCE/MLEcf/AFc8RFM=
+sidebar_class_name: "get api-method"
+info_path: api/user/用户
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"获取用户费率表"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/user/step-rate/getStepRates"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+获取用户费率表
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"*/*":{"schema":{"title":"CommonResponse«List«StepRateDTO»»","type":"object","properties":{"error":{"title":"ErrorMessage","type":"object","properties":{"args":{"type":"array","items":{"type":"object"}},"code":{"type":"string"},"msg":{"type":"string"}}},"msgInfo":{"type":"string"},"result":{"type":"array","items":{"title":"StepRateDTO","type":"object","properties":{"createdTime":{"type":"string","description":"创建时间","format":"date-time"},"creator":{"type":"string","description":"创建人"},"id":{"type":"integer","description":"id","format":"int64"},"levelRetentionDay":{"type":"integer","description":"等级保留天数(0，100)","format":"int32"},"makerFee":{"type":"number","description":"maker费率","format":"bigdecimal"},"remark":{"type":"string","description":"备注"},"stepName":{"type":"string","description":"等级名称，仅名称不会有逻辑"},"takerFee":{"type":"number","description":"taker费率","format":"bigdecimal"},"tradeVolume":{"type":"number","description":"交易下限量(usdt)，排序用","format":"bigdecimal"},"updatedTime":{"type":"string","description":"更新时间","format":"date-time"},"updater":{"type":"string","description":"更新人"},"walletBalance":{"type":"number","description":"钱包余额下限(usdt)","format":"bigdecimal"}}}},"returnCode":{"type":"integer","format":"int32"}}}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      
