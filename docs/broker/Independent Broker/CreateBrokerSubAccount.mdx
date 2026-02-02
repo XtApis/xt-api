@@ -5,118 +5,26 @@ sidebar_label: Create Broker Sub-Account
 sidebar_position: 1
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-
 **Type:** POST
 
-**Description:** `/api/user/account`
+**Description:** `/v4/user/account`
 
-Independent brokers can create broker sub-accounts through this API. Only approved Independent Brokers can call this interface.
+### Parameters
 
-:::warning Important Notice
-Broker sub-accounts created via API will have **all trading permissions enabled by default**, including spot trading, futures trading, etc. After successful creation, the sub-account will automatically have login restrictions applied, which need to be managed by the broker through other means.
-:::
+| Name        | Type    | Mandatory | Default | Description                                              | Ranges |
+| ----------- | ------- | --------- | ------- | -------------------------------------------------------- | ------ |
+| accountName | string  | true      | -       | Sub-account name                                         | 6-16   |
+| type        | integer | false     | 1       | Account type: 1-General account, 7-Broker sub-account    | 1, 7   |
 
-:::info Prerequisites
-- The calling account must be a **primary account** (level=1)
-- The caller must be an approved **Independent Broker** (status=APPROVED, type=INDEPENDENT)
-:::
-
-### Request Parameters
-
-#### Header Parameters
-
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| account-id | string | Yes | User account ID, injected by gateway after authentication, must be a primary account |
-
-#### Body Parameters
-
-| Name | Type | Required | Default | Description | Value Range |
-| --- | --- | --- | --- | --- | --- |
-| accountName | string | Yes | - | Sub-account name (6-16 characters, must comply with username rules) | 6-16 characters |
-| type | integer | No | 1 | Account type: 1-General account, 7-Broker sub-account | 1, 7 |
-
-### Request Example
-
-<CodeBlock language="bash" title="Request">
-{`curl -X POST "https://sapi.xt.com/api/user/account" \\
-  -H "validate-appkey: $APPKEY" \\
-  -H "validate-timestamp: $TIMESTAMP" \\
-  -H "validate-signature: $SIGNATURE" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "accountName": "subaccount01",
-    "type": 7
-  }'`}
-</CodeBlock>
+---
 
 ### Response Example
 
-**Success Response:**
-
-<CodeBlock language="json" title="Success Response">
-{`{
+```json title="Response"
+{
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
-  "result": true
-}`}
-</CodeBlock>
-
-**Error Response:**
-
-<CodeBlock language="json" title="Error Response">
-{`{
-  "rc": 1,
-  "mc": "USER_SUB_ACCOUNT_ILLEGAL",
-  "ma": [],
-  "result": null
-}`}
-</CodeBlock>
-
-### Response Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| rc | integer | Return code, 0=success, 1=failure |
-| mc | string | Message code for internationalization |
-| ma | array | Internationalization parameters |
-| result | boolean | Creation result, true=success |
-
-### Account Types
-
-| Type Value | Name | Description |
-| --- | --- | --- |
-| 1 | GENERAL | General sub-account (default) |
-| 7 | BROKER_SUB | Broker sub-account |
-
-### Sub-Account Limits
-
-| Account Type | Limit Description |
-| --- | --- |
-| General sub-account | Based on user's configured `account_count` or system default limit |
-| Broker sub-account | Based on system-configured broker account limit |
-
-### Error Codes
-
-| Error Code (mc) | Description |
-| --- | --- |
-| USER_SUB_ACCOUNT_ILLEGAL | Invalid sub-account name (must be 6-16 characters, comply with username rules) |
-| INVALID_TYPE_PARAM | Invalid account type (only 1 or 7 allowed) |
-| NO_OPERATION_PERMISSION | No operation permission (not a primary account or no broker qualification) |
-| SUB_ACCOUNT_LIMIT | Sub-account limit exceeded |
-| ACCOUNT_NAME_EXIST | Account name already exists |
-| SUB_ACCOUNT_CREATE_FAIL | Sub-account creation failed (lock acquisition failed or other exception) |
-
-### Notes
-
-1. **Account Name Format**: Sub-account names must comply with username rules and be 6-16 characters in length. The system will automatically convert the account name to `{accountName}@{userId}` format for storage.
-
-2. **Broker Qualification Verification**: When creating a broker sub-account (type=7), the system will verify whether the caller is an approved Independent Broker.
-
-3. **Login Restrictions**: Broker sub-accounts will automatically have login restrictions applied after successful creation, which need to be lifted through broker management features.
-
-4. **Trading Permissions**: Broker sub-accounts created via API have all trading permissions enabled by default.
-
-5. **Concurrency Control**: The system uses distributed locks to prevent concurrent creation conflicts, with a lock timeout of 3 seconds.
+  "result": true //true: success; false/null: unsuccess
+}
+```
