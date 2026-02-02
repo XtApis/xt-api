@@ -5,118 +5,26 @@ sidebar_label: 创建经纪商子账户
 sidebar_position: 1
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-
 **类型:** POST
 
-**描述:** `/api/user/account`
+**描述:** `/v4/user/account`
 
-独立经纪商通过此接口创建经纪商子账户。只有审核通过的独立经纪商（Independent Broker）才能调用此接口。
+### 参数
 
-:::warning 重要说明
-通过API创建的经纪商子账户**默认会开启所有交易权限**，包括现货交易、合约交易等。创建成功后，子账户会自动被设置登录限制，需要经纪商通过其他方式管理子账户的登录权限。
-:::
+| 名称        | 类型    | 是否必填 | 默认值 | 描述                                    | 取值范围 |
+| ----------- | ------- | -------- | ------ | --------------------------------------- | -------- |
+| accountName | string  | 是       | -      | 子账户名称                              | 6-16     |
+| type        | integer | 否       | 1      | 账户类型：1-普通账户，7-经纪商子账号    | 1, 7     |
 
-:::info 前提条件
-- 调用账户必须是**主账户**（level=1）
-- 调用者必须是审核通过的**独立经纪商**（status=APPROVED, type=INDEPENDENT）
-:::
-
-### 请求参数
-
-#### 请求头参数
-
-| 名称 | 类型 | 是否必填 | 描述 |
-| --- | --- | --- | --- |
-| account-id | string | 是 | 用户账户ID，由网关鉴权后注入，必须为主账户 |
-
-#### 请求体参数
-
-| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
-| --- | --- | --- | --- | --- | --- |
-| accountName | string | 是 | - | 子账户名称（6-16位，需符合用户名规则） | 6-16位字符 |
-| type | integer | 否 | 1 | 账户类型：1-普通账户，7-经纪商子账号 | 1, 7 |
-
-### 请求示例
-
-<CodeBlock language="bash" title="Request">
-{`curl -X POST "https://sapi.xt.com/api/user/account" \\
-  -H "validate-appkey: $APPKEY" \\
-  -H "validate-timestamp: $TIMESTAMP" \\
-  -H "validate-signature: $SIGNATURE" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "accountName": "subaccount01",
-    "type": 7
-  }'`}
-</CodeBlock>
+---
 
 ### 响应示例
 
-**成功响应：**
-
-<CodeBlock language="json" title="Success Response">
-{`{
+```json title="Response"
+{
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
-  "result": true
-}`}
-</CodeBlock>
-
-**失败响应：**
-
-<CodeBlock language="json" title="Error Response">
-{`{
-  "rc": 1,
-  "mc": "USER_SUB_ACCOUNT_ILLEGAL",
-  "ma": [],
-  "result": null
-}`}
-</CodeBlock>
-
-### 响应字段
-
-| 字段 | 类型 | 描述 |
-| --- | --- | --- |
-| rc | integer | 返回码，0=成功，1=失败 |
-| mc | string | 消息编码，用于国际化 |
-| ma | array | 国际化参数 |
-| result | boolean | 创建结果，true=成功 |
-
-### 账户类型说明
-
-| 类型值 | 名称 | 说明 |
-| --- | --- | --- |
-| 1 | GENERAL | 普通子账户（默认） |
-| 7 | BROKER_SUB | 经纪商子账户 |
-
-### 子账户数量限制
-
-| 账户类型 | 限制说明 |
-| --- | --- |
-| 普通子账户 | 根据用户配置的 `account_count` 或系统默认限制 |
-| 经纪商子账户 | 根据系统配置的经纪商账户限制 |
-
-### 错误码
-
-| 错误码 (mc) | 描述 |
-| --- | --- |
-| USER_SUB_ACCOUNT_ILLEGAL | 子账户名不合法（需6-16位，符合用户名规则） |
-| INVALID_TYPE_PARAM | 无效的账户类型（只允许1或7） |
-| NO_OPERATION_PERMISSION | 无操作权限（非主账户或无经纪商资格） |
-| SUB_ACCOUNT_LIMIT | 子账户数量超过限制 |
-| ACCOUNT_NAME_EXIST | 账户名已存在 |
-| SUB_ACCOUNT_CREATE_FAIL | 子账户创建失败（获取锁失败或其他异常） |
-
-### 注意事项
-
-1. **账户名格式**：子账户名需要符合用户名规则，长度为6-16位字符。系统会自动将账户名转换为 `{accountName}@{userId}` 格式存储。
-
-2. **经纪商资格验证**：创建经纪商子账户（type=7）时，系统会验证调用者是否为审核通过的独立经纪商。
-
-3. **登录限制**：经纪商子账户创建成功后会自动被设置登录限制，需要通过经纪商管理功能解除。
-
-4. **交易权限**：通过API创建的经纪商子账户默认开启所有交易权限。
-
-5. **并发控制**：系统使用分布式锁防止并发创建冲突，锁超时时间为3秒。
+  "result": true //true: 成功; false/null: 失败
+}
+```
