@@ -7,7 +7,9 @@ sidebar_position: 10
 
 ### Endpoint
 
-`GET /v4/referal/invite/agent/user/info`
+`GET /v4/referal/agent/user/info`
+
+> Supports queries within the last month.
 
 ---
 
@@ -18,7 +20,7 @@ sidebar_position: 10
 | uidList | string | Yes | - | uid list, e.g: [6118530023996, 6118530023997] | - |
 | startTime | number | Yes | - | start time, e.g: 20250902 | - |
 | endTime | number | Yes | - | end time, e.g: 20250905 | - |
-| fromId | number | Yes | - | from id, e.g: 48739 | - |
+| fromId | number | No | - | from id, e.g: 48739 | - |
 | direction | string | Yes | - | query direction | PREV, NEXT |
 | limit | number | Yes | - | query page size limit, e.g: 100 | - |
 
