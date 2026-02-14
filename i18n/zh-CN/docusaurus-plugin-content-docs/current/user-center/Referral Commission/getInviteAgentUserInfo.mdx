@@ -6,7 +6,9 @@ sidebar_position: 10
 ---
 
 ### 接口地址
-`GET /v4/referal/invite/agent/user/info`
+`GET /v4/referal/agent/user/info`
+
+> 支持近一个月查询。
 
 ---
 
@@ -17,7 +19,7 @@ sidebar_position: 10
 | uidList     | string | 是       | -      | 用户 ID 列表，例如：[6118530023996, 6118530023997] | -          |
 | startTime   | number | 是       | -      | 起始时间，例如：20250902                | -          |
 | endTime     | number | 是       | -      | 结束时间，例如：20250905                | -          |
-| fromId      | number | 是       | -      | 起始 ID，例如：48739                    | -          |
+| fromId      | number | 否       | -      | 起始 ID，例如：48739                    | -          |
 | direction   | string | 是       | -      | 查询方向                                | PREV, NEXT |
 | limit       | number | 是       | -      | 每页条数，例如：100                     | -          |
 
