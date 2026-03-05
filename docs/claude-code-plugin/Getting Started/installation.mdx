@@ -1,0 +1,79 @@
+---
+id: Installation
+title: Installation & Setup
+sidebar_label: Installation & Setup
+sidebar_position: 2
+---
+
+# Installation & Setup
+
+## Install the Plugin
+
+### Install via Claude Code CLI
+
+Run the following commands in Claude Code:
+
+```bash
+claude plugin marketplace add realm520/xt-exchange-plugin
+claude plugin install xt-exchange@realm520-xt-exchange-plugin
+```
+
+Python dependencies (`requests`) are installed automatically on the first Claude Code session start via a `SessionStart` hook.
+
+### Browse & Install Interactively
+
+You can also browse and install the plugin interactively:
+
+```bash
+/plugin browse
+```
+
+Select `realm520-xt-exchange-plugin` → `xt-exchange` → Install now.
+
+### Updating the Plugin
+
+```bash
+/plugin marketplace update realm520-xt-exchange-plugin
+/plugin install xt-exchange@realm520-xt-exchange-plugin
+```
+
+### Verifying Installation
+
+After installation, restart Claude Code. Type `/xt-exchange` to confirm the plugin is active.
+
+## API Key Setup
+
+### Create Credentials File
+
+```bash
+mkdir -p ~/.xt-exchange
+cat > ~/.xt-exchange/credentials.json << 'EOF'
+{
+  "access_key": "your_access_key",
+  "secret_key": "your_secret_key"
+}
+EOF
+chmod 600 ~/.xt-exchange/credentials.json
+```
+
+### Required Permissions
+
+Enable the following permissions in the [XT.COM API Management](https://www.xt.com/en/accounts/api-manage) page:
+
+| Permission | Description |
+|-----------|-------------|
+| **Read** | Market data and account queries |
+| **Trade** | Place and cancel orders |
+| **Transfer** | Internal account transfers |
+| **Withdraw** | Withdrawals to external addresses |
+
+:::caution
+Only enable the permissions you actually need. If you only need to query market data and account balances, enabling **Read** permission alone is sufficient.
+:::
+
+### Security Notes
+
+- API credentials are stored locally at `~/.xt-exchange/credentials.json`
+- File permissions are set to owner-read-only (`600`)
+- Never share your API keys or commit them to version control
+- It is recommended to set IP whitelist restrictions in the XT.COM API Management page

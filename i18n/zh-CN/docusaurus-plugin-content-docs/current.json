@@ -346,5 +346,13 @@
   "sidebar.broker.doc.Create Broker Sub-Account": {
     "message": "创建经纪商子账户",
     "description": "The label for doc Create Broker Sub-Account in sidebar broker"
+  },
+  "sidebar.claude-code-plugin.category.Getting Started": {
+    "message": "快速开始",
+    "description": "The label for category 'Getting Started' in sidebar 'claude-code-plugin'"
+  },
+  "sidebar.claude-code-plugin.category.Trading": {
+    "message": "交易",
+    "description": "The label for category 'Trading' in sidebar 'claude-code-plugin'"
   }
 }

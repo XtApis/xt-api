@@ -125,6 +125,12 @@
         'item.label.API List': 'API List',
         'item.label.Independent Broker': 'Independent Broker',
         'item.label.Independent Broker APIs': 'Independent Broker APIs',
+        'item.label.Claude Code Plugin': 'Claude Code Plugin',
+        'item.label.Claude Code Plugin Docs': 'Claude Code Plugin Docs',
+        'item.label.Getting Started': 'Getting Started',
+        'item.label.Getting Started Docs': 'Getting Started Docs',
+        'item.label.Trading': 'Trading',
+        'item.label.Trading Features & Safety': 'Trading Features & Safety',
       },
       'zh-CN': {
         'item.label.All Products': '所有产品',
@@ -248,6 +254,12 @@
         'item.label.API List': '接口列表',
         'item.label.Independent Broker': '独立经纪商',
         'item.label.Independent Broker APIs': '独立经纪商 API',
+        'item.label.Claude Code Plugin': 'Claude Code 交易插件',
+        'item.label.Claude Code Plugin Docs': 'Claude Code 交易插件文档',
+        'item.label.Getting Started': '快速开始',
+        'item.label.Getting Started Docs': '快速开始文档',
+        'item.label.Trading': '交易',
+        'item.label.Trading Features & Safety': '交易功能与安全',
       },
     };
   }
