@@ -1,0 +1,52 @@
+---
+id: Safety
+title: Safety & Notice
+sidebar_label: Safety & Notice
+sidebar_position: 2
+---
+
+# Safety & Notice
+
+## How to Use
+
+Type `/xt-exchange` in Claude Code and follow the prompts.
+
+The plugin uses **progressive disclosure** — it asks one question at a time rather than showing a full menu, keeping interactions fast and context-efficient.
+
+## Safety Mechanisms
+
+### Order Confirmation
+
+All order placement, cancellation, and transfer actions **require explicit confirmation** before execution. The plugin will display full order details and ask you to confirm before proceeding.
+
+### Withdrawal Protection
+
+Withdrawals are **irreversible**. Before execution, the plugin displays full details including:
+
+- Currency and chain
+- Amount and fee
+- Destination address
+
+Explicit confirmation is required before any withdrawal is executed.
+
+### Credential Security
+
+- API credentials are stored locally at `~/.xt-exchange/credentials.json`
+- File permissions are set to **owner-read-only** (`chmod 600`)
+- Credentials are never transmitted to any third party — they are only used for direct API calls to XT.COM
+
+## Best Practices
+
+1. **Start with Read-only** — Enable only the **Read** permission initially to familiarize yourself with the plugin
+2. **Use IP Whitelisting** — Restrict your API key to specific IP addresses via the XT.COM API Management page
+3. **Small Orders First** — Test with small amounts before executing larger trades
+4. **Review Before Confirming** — Always review the order details displayed by the plugin before confirming
+
+## Notice
+
+- Orders are initiated by AI based on natural language interpretation of your instructions. AI understanding may differ from your intent — always review order details before confirming.
+- Cryptocurrency trading involves market risk and prices may fluctuate significantly. This plugin does not provide investment advice. Always do your own research (DYOR).
+- Certain operations (such as withdrawals) are irreversible once executed. Please exercise caution.
+- By using this plugin, you acknowledge and accept the above risks. Please refer to the [XT.COM Terms of Use](https://xtsupport.zendesk.com/hc/en-us/articles/900001631023-User-Agreement) for details.
+
+Thank you for your support of XT.COM!

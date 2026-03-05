@@ -1,0 +1,113 @@
+---
+id: TradingFeatures
+title: Trading Features
+sidebar_label: Trading Features
+sidebar_position: 1
+---
+
+# Trading Features
+
+Simply type `/xt-exchange` in Claude Code and describe what you want to do.
+
+## Spot Trading
+
+The plugin interacts with the XT.COM Spot API (`sapi.xt.com`) for spot trading operations.
+
+### Market Data
+
+Query real-time market information through natural conversation:
+
+- **Ticker** — Get the latest price for any trading pair
+- **24h Statistics** — Volume, high, low, price change over the last 24 hours
+- **Order Book** — Current bid/ask depth
+- **K-lines** — Candlestick data with configurable intervals
+- **Symbol Info** — Trading pair details (min order size, price precision, etc.)
+
+### Account
+
+Check your account status:
+
+- **Balance** — View available and frozen balances for all coins or a specific coin
+- **Open Orders** — List all currently active orders
+- **Order History** — Query past filled or cancelled orders
+
+### Trading
+
+Execute spot trades through confirmation-based interaction:
+
+- **Limit Buy/Sell** — Place limit orders at a specified price
+- **Market Buy/Sell** — Place market orders for immediate execution
+- **Cancel Order** — Cancel a specific open order by order ID
+- **Cancel All** — Cancel all open orders for a given trading pair
+
+### Assets
+
+Manage your assets across accounts:
+
+- **Account Transfer** — Move funds between account types (SPOT / LEVER / FUTURES_U / FUTURES_C / FINANCE)
+- **Withdrawal** — Withdraw funds to an external address (requires explicit confirmation)
+
+### Usage Examples
+
+- "What is the current price of BTC/USDT?"
+- "Show me my USDT balance"
+- "Buy 0.01 BTC at market price"
+- "Cancel all my open orders for ETH/USDT"
+
+---
+
+## Futures Trading
+
+The plugin interacts with the XT.COM Futures API (`fapi.xt.com`) for USDT-M perpetual futures trading.
+
+### Market Data
+
+Query futures market information:
+
+- **Ticker** — Latest futures price for any contract
+- **Order Book** — Current bid/ask depth for futures
+- **Funding Rate** — Current and historical funding rates
+- **K-lines** — Futures candlestick data with configurable intervals
+
+### Account
+
+Check your futures account status:
+
+- **Equity & Margin** — View total equity, available margin, and margin usage
+- **Open Positions** — List all currently held positions with unrealized PnL
+- **Open Orders** — List all active futures orders
+
+### Trading
+
+Execute futures trades through confirmation-based interaction:
+
+- **Open Long** — Open a long position (limit or market order)
+- **Open Short** — Open a short position (limit or market order)
+- **Close Position** — Close an existing position (partially or fully)
+- **Cancel Order** — Cancel a specific open futures order
+- **Order History** — Query past futures order records
+
+### Important Notes
+
+:::info Contract Size
+Futures quantity is measured in **contracts** (integer). Contract size varies by symbol:
+
+| Symbol | Contract Size |
+|--------|--------------|
+| BTC | 0.001 BTC per contract |
+| ETH | 0.01 ETH per contract |
+
+Check the specific contract specifications for other symbols.
+:::
+
+:::info Transfer Account Types
+When transferring funds to/from futures, use these account type identifiers:
+
+| Type | Description |
+|------|-------------|
+| `SPOT` | Spot account |
+| `LEVER` | Margin account |
+| `FUTURES_U` | USDT-M Futures account |
+| `FUTURES_C` | Coin-M Futures account |
+| `FINANCE` | Earn account |
+:::

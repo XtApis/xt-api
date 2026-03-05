@@ -731,6 +731,11 @@ window.showCategory = function showCategory(category) {
           description: 'Broker API',
           href: '/docs/broker/Access Description/BasicInformation',
         },
+        {
+          title: 'Claude Code Plugin',
+          description: 'Claude Code Plugin Docs',
+          href: '/docs/claude-code-plugin/Getting Started/Overview',
+        },
       ],
     },
     Index: {
@@ -1067,6 +1072,22 @@ window.showCategory = function showCategory(category) {
           title: 'Independent Broker',
           description: 'Independent Broker APIs',
           href: '/docs/broker/Independent Broker/CreateBrokerSubAccount',
+        },
+      ],
+    },
+    claudeCodePlugin: {
+      title: 'Claude Code Plugin',
+      description: 'Claude Code Plugin Docs',
+      products: [
+        {
+          title: 'Getting Started',
+          description: 'Getting Started Docs',
+          href: '/docs/claude-code-plugin/Getting Started/Overview',
+        },
+        {
+          title: 'Trading',
+          description: 'Trading Features & Safety',
+          href: '/docs/claude-code-plugin/Trading/TradingFeatures',
         },
       ],
     },

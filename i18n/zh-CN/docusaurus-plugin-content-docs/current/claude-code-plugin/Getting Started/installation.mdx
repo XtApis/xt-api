@@ -1,0 +1,79 @@
+---
+id: Installation
+title: 安装与配置
+sidebar_label: 安装与配置
+sidebar_position: 2
+---
+
+# 安装与配置
+
+## 安装插件
+
+### 通过 Claude Code CLI 安装
+
+在 Claude Code 中运行以下命令：
+
+```bash
+claude plugin marketplace add realm520/xt-exchange-plugin
+claude plugin install xt-exchange@realm520-xt-exchange-plugin
+```
+
+Python 依赖（`requests`）会在首次 Claude Code 会话启动时通过 `SessionStart` 钩子自动安装。
+
+### 交互式浏览安装
+
+您也可以通过交互方式浏览并安装插件：
+
+```bash
+/plugin browse
+```
+
+选择 `realm520-xt-exchange-plugin` → `xt-exchange` → 立即安装。
+
+### 更新插件
+
+```bash
+/plugin marketplace update realm520-xt-exchange-plugin
+/plugin install xt-exchange@realm520-xt-exchange-plugin
+```
+
+### 验证安装
+
+安装完成后，重启 Claude Code。输入 `/xt-exchange` 确认插件已激活。
+
+## 配置 API 密钥
+
+### 创建凭证文件
+
+```bash
+mkdir -p ~/.xt-exchange
+cat > ~/.xt-exchange/credentials.json << 'EOF'
+{
+  "access_key": "your_access_key",
+  "secret_key": "your_secret_key"
+}
+EOF
+chmod 600 ~/.xt-exchange/credentials.json
+```
+
+### 所需权限
+
+在 [XT.COM API 管理](https://www.xt.com/zh-CN/accounts/api-manage) 页面启用以下权限：
+
+| 权限 | 说明 |
+|------|------|
+| **读取 (Read)** | 行情数据和账户查询 |
+| **交易 (Trade)** | 下单和撤单 |
+| **划转 (Transfer)** | 内部账户划转 |
+| **提币 (Withdraw)** | 向外部地址提币 |
+
+:::caution
+请仅开启您实际需要的权限。如果只需要查询行情和账户余额，仅开启 **读取** 权限即可。
+:::
+
+### 安全注意事项
+
+- API 凭证存储在本地 `~/.xt-exchange/credentials.json`
+- 文件权限设置为仅所有者可读（`600`）
+- 切勿分享您的 API 密钥或将其提交到版本控制中
+- 建议在 XT.COM API 管理页面设置 IP 白名单限制
