@@ -1,0 +1,44 @@
+---
+id: Overview
+title: Overview
+sidebar_label: Overview
+sidebar_position: 1
+---
+
+# XT Exchange Plugin for Claude Code
+
+XT.COM officially launches the Claude Code Trading Plugin — gain XT-level market insights and trade execution capabilities through natural conversation.
+
+## What is Claude Code?
+
+Claude Code is Anthropic's AI coding tool. Skills extend Claude Code with domain-specific knowledge — when a skill is active, Claude understands the library's architecture, APIs, and conventions without you having to paste documentation into every conversation.
+
+## What is this Plugin?
+
+The XT Exchange Plugin brings XT.COM exchange capabilities directly into Claude Code. Instead of manually calling APIs or writing trading scripts, you can interact with XT.COM through natural conversation.
+
+The plugin uses **progressive disclosure** — it asks one question at a time rather than showing a full menu, keeping interactions fast and context-efficient.
+
+## Skills Included
+
+### Spot Trading (`sapi.xt.com`)
+
+Market data (Ticker / 24h stats / Order book / K-lines / Symbol info), Account (Balance / Open orders / Order history), Trading (Limit & market buy/sell / Cancel order / Cancel all), Assets (Account transfer / Withdrawal), with API Key/Secret signature support.
+
+### Futures Trading (`fapi.xt.com`, USDT-M Perpetual)
+
+Market data (Ticker / Order book / Funding rate / K-lines), Account (Equity & margin / Open positions / Open orders), Trading (Open long/short / Close position / Cancel order / Order history).
+
+## Key Advantages
+
+- **Conversation as Trading**: A single plugin covers both spot and futures — view market data and place orders instantly.
+- **Research to Execution**: From market queries > account overview > order placement, the entire workflow without switching tools.
+- **Safe Confirmation Mechanism**: All order placement, cancellation, and withdrawal operations require explicit confirmation before execution.
+- **Developer Friendly**: Fully open plugin, install and use immediately — access XT-level trading capabilities through natural conversation.
+
+## Requirements
+
+- Python 3.8+
+- `requests` >= 2.28.0
+- Claude Code CLI installed
+- XT.COM account with API key
