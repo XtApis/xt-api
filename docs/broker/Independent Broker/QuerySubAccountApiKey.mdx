@@ -1,0 +1,52 @@
+---
+id: QuerySubAccountApiKey
+title: Query Sub-Account API Keys
+sidebar_label: Query Sub-Account API Keys
+sidebar_position: 3
+---
+
+**Type:** GET
+
+**Description:** `/v4/user/account/api-key/broker-sub`
+
+Returns the API Keys of the broker's sub-accounts. The request must be signed with the **broker master account's** API Key. The `accessKey` is masked and no `secretKey` is returned.
+
+### Parameters
+
+| Name         | Type | Mandatory | Default | Description                                                                | Ranges |
+| ------------ | ---- | --------- | ------- | -------------------------------------------------------------------------- | ------ |
+| subAccountId | long | false     | -       | Filter by sub-account; omit to list all sub-accounts of this broker        | -      |
+
+---
+
+### Response Parameters
+
+| Name         | Type     | Description         |
+| ------------ | -------- | ------------------- |
+| subAccountId | long     | Sub-account id      |
+| accessKey    | string   | Masked access key   |
+| permissions  | string[] | Permission codes    |
+| bindIps      | string[] | Bound IPs           |
+| status       | string   | `active` / `disabled` |
+| createTime   | long     | Creation time (ms)  |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "subAccountId": 10049631158745,
+      "accessKey": "69af****0840",
+      "permissions": ["QUERY"],
+      "bindIps": [],
+      "status": "active",
+      "createTime": 1784088472976
+    }
+  ],
+  "success": true
+}
+```

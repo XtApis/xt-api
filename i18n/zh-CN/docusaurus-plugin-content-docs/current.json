@@ -347,6 +347,18 @@
     "message": "创建经纪商子账户",
     "description": "The label for doc Create Broker Sub-Account in sidebar broker"
   },
+  "sidebar.broker.doc.Create Sub-Account API Key": {
+    "message": "创建子账户 API Key",
+    "description": "The label for doc Create Sub-Account API Key in sidebar broker"
+  },
+  "sidebar.broker.doc.Query Sub-Account API Keys": {
+    "message": "查询子账户 API Key",
+    "description": "The label for doc Query Sub-Account API Keys in sidebar broker"
+  },
+  "sidebar.broker.doc.Delete Sub-Account API Key": {
+    "message": "删除子账户 API Key",
+    "description": "The label for doc Delete Sub-Account API Key in sidebar broker"
+  },
   "sidebar.claude-code-plugin.category.Getting Started": {
     "message": "快速开始",
     "description": "The label for category 'Getting Started' in sidebar 'claude-code-plugin'"

@@ -1,0 +1,57 @@
+---
+id: CreateSubAccountApiKey
+title: Create Sub-Account API Key
+sidebar_label: Create Sub-Account API Key
+sidebar_position: 2
+---
+
+**Type:** POST
+
+**Description:** `/v4/user/account/api-key/broker-sub`
+
+Creates an API Key for a broker sub-account. The request must be signed with the **broker master account's** API Key. The `WITHDRAW` permission is **not** allowed.
+
+### Parameters
+
+| Name         | Type     | Mandatory | Default | Description                                                       | Ranges                                               |
+| ------------ | -------- | --------- | ------- | ----------------------------------------------------------------- | ---------------------------------------------------- |
+| subAccountId | long     | true      | -       | Target sub-account id (must belong to this master account)        | -                                                    |
+| keyName      | string   | true      | -       | Remark / label                                                    | -                                                    |
+| permissions  | string[] | true      | -       | Permission codes; `WITHDRAW` is rejected                          | QUERY, TRADE, TRANSFER, FUTURE                       |
+| bindIps      | string[] | false     | -       | IP allowlist                                                      | -                                                    |
+
+---
+
+### Response Parameters
+
+:::caution
+`secretKey` is returned **only once**, at creation time. Store it immediately — it cannot be retrieved again.
+:::
+
+| Name         | Type     | Description                                  |
+| ------------ | -------- | -------------------------------------------- |
+| subAccountId | long     | Sub-account id                               |
+| accessKey    | string   | The new access key                           |
+| secretKey    | string   | The secret key — returned once, store it now |
+| permissions  | string[] | Granted permissions                          |
+| bindIps      | string[] | Bound IPs                                    |
+| createTime   | long     | Creation time (ms)                           |
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "subAccountId": 10049631158745,
+    "accessKey": "69af55c4-e26c-4cea-a0b4-61a33c400840",
+    "secretKey": "7b6394de5c35bf6cb11c570b06d6db54e8050bc1",
+    "permissions": ["QUERY"],
+    "bindIps": [],
+    "createTime": 1784088472976
+  },
+  "success": true
+}
+```
