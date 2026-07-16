@@ -7,16 +7,23 @@ sidebar_position: 1
 
 **Type:** POST
 
-**Description:** `/v4/user/account`
+**Description:** `/v4/user/account/broker-sub`
+
+Creates a sub-account under the broker master account. The request must be signed with the **broker master account's** API Key. The sub-account shares the master's `userId` and has its own `accountId`.
 
 ### Parameters
 
-| Name        | Type    | Mandatory | Default | Description                                              | Ranges |
-| ----------- | ------- | --------- | ------- | -------------------------------------------------------- | ------ |
-| accountName | string  | true      | -       | Sub-account name                                         | 6-16   |
-| type        | integer | false     | 1       | Account type: 1-General account, 7-Broker sub-account    | 1, 7   |
+| Name        | Type   | Mandatory | Default | Description                                      | Ranges |
+| ----------- | ------ | --------- | ------- | ------------------------------------------------ | ------ |
+| accountName | string | true      | -       | Sub-account display name, letters and digits only | 6-16   |
 
 ---
+
+### Response Parameters
+
+| Name         | Type | Description                      |
+| ------------ | ---- | -------------------------------- |
+| subAccountId | long | The newly created sub-account id |
 
 ### Response Example
 
@@ -25,6 +32,18 @@ sidebar_position: 1
   "rc": 0,
   "mc": "SUCCESS",
   "ma": [],
-  "result": true //true: success; false/null: unsuccess
+  "result": {
+    "subAccountId": 10049631158745
+  },
+  "success": true
 }
 ```
+
+---
+
+### Error Codes
+
+| Code                       | Description                                            |
+| -------------------------- | ------------------------------------------------------ |
+| USER_SUB_ACCOUNT_ILLEGAL   | `accountName` fails the rule (letters/digits, 6-16)    |
+| SUB_ACCOUNT_LIMIT          | Sub-account quota reached for this master account      |

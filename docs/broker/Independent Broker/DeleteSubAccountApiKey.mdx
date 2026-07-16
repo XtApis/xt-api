@@ -1,0 +1,32 @@
+---
+id: DeleteSubAccountApiKey
+title: Delete Sub-Account API Key
+sidebar_label: Delete Sub-Account API Key
+sidebar_position: 4
+---
+
+**Type:** DELETE
+
+**Description:** `/v4/user/account/api-key/broker-sub`
+
+Deletes a sub-account API Key. The request must be signed with the **broker master account's** API Key.
+
+### Parameters
+
+| Name      | Type   | Mandatory | Default | Description                                                          | Ranges |
+| --------- | ------ | --------- | ------- | -------------------------------------------------------------------- | ------ |
+| accessKey | string | true      | -       | The key to delete (must belong to a sub-account of this broker)      | -      |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": true,
+  "success": true
+}
+```
