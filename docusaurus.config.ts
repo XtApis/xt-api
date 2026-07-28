@@ -297,9 +297,9 @@ const config: Config = {
                         <div style="padding: 12px 20px; cursor: pointer; transition: background-color 0.2s; color: #6b7280; font-size: 14px;"
                              onmouseover="this.style.backgroundColor='#f3f4f6'; this.style.color='#1f2937';"
                              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b7280';"
-                             onclick="showCategory('claudeCodePlugin')"
-                             data-category="claudeCodePlugin"
-                             data-i18n="item.label.Claude Code Plugin">Claude Code Plugin</div>
+                             onclick="showCategory('aiTradeKit')"
+                             data-category="aiTradeKit"
+                             data-i18n="item.label.AI TradeKit">AI TradeKit</div>
                       </div>
                     </div>
 
@@ -439,14 +439,14 @@ const config: Config = {
                                data-i18n="item.label.Broker API">Broker API</div>
                         </a>
 
-                        <a href="/docs/claude-code-plugin/Getting%20Started/Overview"
+                        <a href="/docs/ai-tradekit/Getting%20Started/Overview"
                            style="text-decoration: none; color: inherit; transition: opacity 0.2s;"
                            onmouseover="this.style.opacity='0.7';"
                            onmouseout="this.style.opacity='1';">
                           <div style="font-weight: 600; margin-bottom: 4px; font-size: 14px; color: #1f2937;"
-                               data-i18n="item.label.Claude Code Plugin">Claude Code Plugin</div>
+                               data-i18n="item.label.AI TradeKit">AI TradeKit</div>
                           <div style="font-size: 12px; color: #6b7280;"
-                               data-i18n="item.label.Claude Code Plugin Docs">Claude Code Plugin Docs</div>
+                               data-i18n="item.label.AI TradeKit Docs">AI TradeKit Docs</div>
                         </a>
                       </div>
                     </div>

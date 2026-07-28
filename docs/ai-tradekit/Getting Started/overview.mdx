@@ -1,0 +1,112 @@
+---
+id: Overview
+title: Overview
+sidebar_label: Overview
+sidebar_position: 1
+---
+
+# XT AI TradeKit Overview
+
+**XT AI TradeKit** is XT.COM's AI-agent-native trading suite. Once installed, you can use plain language to have your AI assistant check markets, run positioning analysis, research coins, read announcements and news, manage assets, and place orders — without writing a single line of API integration code.
+
+> This is the next generation of the original "XT Exchange Plugin for Claude Code". Compared with the plugin, TradeKit splits capabilities into a **local MCP tool layer plus a scenario-oriented Skill layer**, works with any MCP-compatible client (Claude Code / Cursor / Codex, etc.), and adds aggregated market data, coin research, and news.
+
+---
+
+## What Skills and MCP Are
+
+| Concept | Role |
+|---------|------|
+| **MCP (Model Context Protocol)** | A standard protocol that lets AI clients call external tools. TradeKit ships an MCP server that runs **entirely on your machine**, wrapping XT's APIs into 39 structured tools. |
+| **Skill** | A domain playbook written for the AI: which tools to use in which scenario, how to confirm with you, and how to present results. With Skills, you no longer paste API docs into the chat. |
+
+The two layers together mean that when you say "market buy 100 USDT of BTC", the AI knows to first look up the symbol rules, adjust precision, show you the parameters, wait for your confirmation, and only then call the order tool.
+
+---
+
+## Architecture
+
+```
+AItradekit/
+├── mcp/                      # Local MCP server (Python, stdio, no cloud service involved)
+│   ├── server.py             # 39 tools
+│   └── xt_tradekit/          # XT spot/futures clients + aggregated data + news
+├── skills/                   # Scenario-oriented Skills
+│   ├── xt-market/            # Market data
+│   ├── xt-market-analysis/   # In-depth positioning analysis
+│   ├── xt-coin-research/     # Coin research and token security
+│   ├── xt-news/              # News feed and XT announcements
+│   ├── xt-spot-trade/        # Spot trading
+│   ├── xt-futures-trade/     # USDT-M perpetual futures
+│   ├── xt-assets/            # Assets (balances / transfer / withdrawal)
+│   └── xt-tradekit-setup/    # One-command install / update
+├── install.sh                # One-command install script
+└── setup-credentials.sh      # API Key setup script (run in your own terminal)
+```
+
+- **MCP layer**: unified structured tools callable by any MCP client. Runs fully locally — your API Key never leaves your machine.
+- **Skill layer**: decides which tool to use when, the interaction and confirmation flow, and the output format.
+
+---
+
+## Capabilities
+
+### Market Data and Analysis (no API Key required)
+
+- **Spot market data**: live prices, 24h change, order book depth, klines, gainers/losers/volume rankings, symbol rules
+- **Futures market data**: last / mark / index price, order book, klines, current and historical funding rates, contract specs
+- **Aggregated market data**: market-wide open interest, long/short ratio, taker buy/sell volume, liquidation records, Fear & Greed index, global market cap overview
+- **Coin research**: market cap rank, FDV, circulating/total supply, all-time high, project profile; on-chain token security checks (honeypot, buy/sell tax, open source, mint authority, holder concentration)
+- **News**: XT official announcements (10 languages) + announcement keyword search + aggregated crypto news feed (EN/ZH)
+
+### Trading and Assets (API Key required)
+
+- **Spot**: balances, open orders, order history, limit/market orders, cancel, cancel all
+- **USDT-M perpetuals**: account equity, positions, open orders, open/close positions, cancel, order history
+- **Assets**: transfers between accounts (SPOT / LEVER / FUTURES_U / FUTURES_C / FINANCE), withdrawal, deposit/withdrawal chain and fee lookup
+
+---
+
+## Key Characteristics
+
+**One interface across spot and futures**
+Market data, analysis, order placement, positions, and assets all happen in a single session — no switching between tools.
+
+**A complete path from research to execution**
+"Why is this coin pumping?" → check news and announcements → look at positioning and long/short dynamics → run a token security check → size the position → confirm and place the order, all in one conversation.
+
+**Progressive interaction**
+The AI asks one key question at a time instead of handing you a long form. It asks only for what is missing.
+
+**Secure by default**
+
+- Local MCP: the server runs on your own machine, credentials live in a local file (mode 600), and nothing passes through a cloud service
+- Keys never enter the conversation: the assistant can only see a **masked status** via `xt_credentials_status`; the Skill layer explicitly forbids reading the credentials file or asking you for your key
+- Mandatory confirmation: full parameters are shown before any order, cancellation, or transfer; withdrawals show the full address and require a second confirmation
+- Read-only mode: `XT_TRADEKIT_READONLY=1` disables every write operation at the server layer
+
+---
+
+## Requirements
+
+| Item | Requirement |
+|------|-------------|
+| Python | 3.10+ |
+| Client | Claude Code CLI, or any other MCP-capable client (Cursor / Codex, etc.) |
+| Account | An XT.COM account and API Key are needed only for trading operations; market data, analysis, research, and news work out of the box |
+| OS | macOS / Linux (WSL recommended on Windows) |
+
+---
+
+## Next Steps
+
+- [Installation & Setup](./Installation) — install the local MCP server and Skills in one command
+- [API Key & Security](./ApiKeyAndSecurity) — least-privilege configuration
+- [Spot Trading](../Trading/SpotTrading) — spot, futures, assets
+- [Tools Reference](../Reference/ToolsReference) — full description of all 39 tools
+
+---
+
+## Disclaimer
+
+Output from this tool is data analysis and does not constitute investment advice. Crypto asset trading carries extremely high risk; evaluate independently and take responsibility for your own decisions.

@@ -232,15 +232,17 @@ PRODUCTS_CONFIG = [
     },
 
     {
-        "name_en": "Claude Code Plugin",
-        "name_zh": "Claude Code 交易插件",
-        "desc_en": "Claude Code Plugin Docs",
-        "desc_zh": "Claude Code 交易插件文档",
-        "doc_dir": "claude-code-plugin",
-        "sidebar_id": "claude-code-plugin",
+        "name_en": "AI TradeKit",
+        "name_zh": "AI 交易套件",
+        "desc_en": "AI TradeKit Docs",
+        "desc_zh": "AI 交易套件文档",
+        "doc_dir": "ai-tradekit",
+        "sidebar_id": "ai-tradekit",
         "categories": [
             ("Getting Started", "快速开始"),
             ("Trading", "交易"),
+            ("Market Research", "行情与研究"),
+            ("Reference", "参考"),
         ],
         "navbar_subcategories": [],
     },

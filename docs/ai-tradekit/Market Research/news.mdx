@@ -1,0 +1,70 @@
+---
+id: NewsAndAnnouncements
+title: News & Announcements
+sidebar_label: News & Announcements
+sidebar_position: 4
+---
+
+# News & Announcements
+
+Powered by the `xt-news` skill. No API Key required.
+
+---
+
+## Tools
+
+| Tool | Purpose | Parameters |
+|------|---------|------------|
+| `xt_announcements` | XT.COM official announcements: listings, delistings, deposit/withdrawal suspension and resumption, maintenance, campaigns | `locale`, `limit` |
+| `xt_announcement_search` | Search official announcements by keyword | `keyword`, `locale`, `limit` |
+| `market_news` | Aggregated crypto news feed in reverse chronological order, filterable by keyword/coin | `keyword`, `lang` (`en`/`zh`), `limit` |
+
+`locale` supports 10 languages: `en-us` / `zh-cn` / `zh-tw` / `ko-kr` / `ru` / `es` / `tr` / `vi` / `ar` / `fa`.
+
+---
+
+## Intent Routing
+
+| What you ask | What the assistant uses |
+|--------------|-------------------------|
+| "Any recent news?" | `market_news` |
+| "What has XT listed recently?" | `xt_announcements` |
+| "Is XX listed on XT?" | `xt_announcement_search(keyword=XX)` |
+| "Why is XX up/down?" | `market_news(keyword=XX)` + `xt_announcement_search` + market/derivatives metrics |
+| "When is XT's maintenance?" | `xt_announcement_search(keyword=maintenance)` |
+
+---
+
+## Attributing Price Moves
+
+The most valuable use — lining up the news flow with the market setup:
+
+```
+You: Why is SOL up so much today
+
+AI: [Price]   sol_usdt 24h +9.4%, turnover +180% vs yesterday
+    [News]
+      · 06:20 An ETF issuer filed an amendment for a spot SOL ETF (aggregated feed)
+      · 09:05 TVL of a SOL ecosystem protocol grew 40% in a day (aggregated feed)
+    [XT announcements] No related listing or maintenance announcement
+    [Market]  OI +14% over 24h, funding rate rose from 0.008% to 0.031%,
+              24M USD of shorts liquidated in the last 12h
+    [Attribution] A sentiment-driven rally triggered by the ETF news, amplified by
+                  concentrated short covering. Funding is already clearly elevated,
+                  so chasing longs is getting expensive.
+```
+
+---
+
+## Data Source Notes
+
+- XT announcements are **official data**
+- The news feed comes from **TradeKit aggregated public sources**; outlet names may be retained in the output, and no other exchange is involved
+
+The feed is delayed and may contain unverified information — cross-check it yourself.
+
+---
+
+## Disclaimer
+
+The above is data analysis and does not constitute investment advice.

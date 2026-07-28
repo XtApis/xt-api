@@ -1,0 +1,102 @@
+---
+id: FuturesTrading
+title: 合约交易
+sidebar_label: 合约交易
+sidebar_position: 2
+---
+
+# 合约交易（U 本位永续）
+
+由 `xt-futures-trade` skill 驱动。与现货共用同一把 API Key（需 Trade 权限）。交易对格式同样是 `btc_usdt`。
+
+---
+
+## 能做什么
+
+| 场景 | 工具 | 是否需要 Key |
+|------|------|------------|
+| 账户权益、可用保证金 | `xt_futures_account` | ✅ |
+| 当前持仓 | `xt_futures_positions` | ✅ |
+| 当前委托 | `xt_futures_open_orders` | ✅ |
+| 开仓 / 平仓 | `xt_futures_place_order` | ✅ |
+| 撤单 | `xt_futures_cancel_order` | ✅ |
+| 历史订单 | `xt_futures_order_history` | ✅ |
+| 合约规格（面值/精度/最大杠杆） | `xt_futures_contract_info` | ❌ |
+| 行情、盘口、K 线、资金费率 | `xt_futures_*` 行情工具 | ❌ |
+
+---
+
+## 开平仓语义
+
+XT 永续用 `order_side` + `position_side` 的组合表达开平方向：
+
+| 意图 | order_side | position_side |
+|------|-----------|---------------|
+| 开多 | `BUY` | `LONG` |
+| 开空 | `SELL` | `SHORT` |
+| 平多 | `SELL` | `LONG` |
+| 平空 | `BUY` | `SHORT` |
+
+其余参数：
+
+| 参数 | 说明 |
+|------|------|
+| `symbol` | 如 `btc_usdt` |
+| `quantity` | **张数（整数）**，不是币的个数 |
+| `order_type` | `LIMIT` / `MARKET` |
+| `price` | 限价单必填 |
+
+---
+
+## 张数换算
+
+合约以「张」为单位，每张的面值由合约规格决定。你说「开 0.5 个 ETH 的多单」时，助手会：
+
+1. 调用 `xt_futures_contract_info` 拿到 `contractSize`（每张面值）
+2. 换算张数 = 目标数量 ÷ contractSize，并按精度取整
+3. 在确认环节把**币数量、张数、预估名义价值**一起展示给你
+
+```
+你：开 0.5 个 ETH 的多单，限价 3200
+AI：eth_usdt 每张面值 0.01 ETH → 0.5 ETH = 50 张
+    确认开仓：
+      交易对    eth_usdt
+      方向      开多（BUY + LONG）
+      类型      LIMIT
+      价格      3200.00
+      张数      50（≈ 0.5 ETH，名义 1600 USDT）
+    确认执行？
+```
+
+> 换算涉及取整，实际数量可能与你说的略有出入。确认时请核对张数与名义价值。
+
+---
+
+## 平仓
+
+```
+你：把 ETH 多单平掉一半
+AI：当前 eth_usdt 多头持仓 50 张（≈0.5 ETH），开仓均价 3180，未实现盈亏 +12.3 USDT
+    平掉一半 = 25 张
+    确认平仓：eth_usdt / 平多（SELL + LONG） / MARKET / 25 张？
+```
+
+---
+
+## 资金费率
+
+资金费率既是成本也是信号：
+
+- `xt_futures_funding_rate` — 当前费率与下次结算时间
+- `xt_futures_funding_rate_history` — 历史序列，用于判断多空成本结构
+
+配合 `market_open_interest`（全市场未平仓量）和 `market_long_short_ratio`（多空比）可以看清仓位拥挤度。详见[盘面分析](../Market%20Research/MarketAnalysis)。
+
+---
+
+## 风险提示
+
+- 合约带杠杆，**亏损可能超过保证金**。开仓前请确认自己的保证金率与强平价。
+- 张数换算与精度取整由助手完成，**最终以你确认的参数为准**，请逐项核对。
+- 只读模式（`XT_TRADEKIT_READONLY=1`）下所有开平仓、撤单会被 server 直接拒绝。
+- 输出为数据分析，不构成投资建议。

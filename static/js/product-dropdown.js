@@ -732,9 +732,9 @@ window.showCategory = function showCategory(category) {
           href: '/docs/broker/Access Description/BasicInformation',
         },
         {
-          title: 'Claude Code Plugin',
-          description: 'Claude Code Plugin Docs',
-          href: '/docs/claude-code-plugin/Getting Started/Overview',
+          title: 'AI TradeKit',
+          description: 'AI TradeKit Docs',
+          href: '/docs/ai-tradekit/Getting Started/Overview',
         },
       ],
     },
@@ -1075,19 +1075,29 @@ window.showCategory = function showCategory(category) {
         },
       ],
     },
-    claudeCodePlugin: {
-      title: 'Claude Code Plugin',
-      description: 'Claude Code Plugin Docs',
+    aiTradeKit: {
+      title: 'AI TradeKit',
+      description: 'AI TradeKit Docs',
       products: [
         {
           title: 'Getting Started',
           description: 'Getting Started Docs',
-          href: '/docs/claude-code-plugin/Getting Started/Overview',
+          href: '/docs/ai-tradekit/Getting Started/Overview',
         },
         {
           title: 'Trading',
-          description: 'Trading Features & Safety',
-          href: '/docs/claude-code-plugin/Trading/TradingFeatures',
+          description: 'Trading Docs',
+          href: '/docs/ai-tradekit/Trading/SpotTrading',
+        },
+        {
+          title: 'Market Research',
+          description: 'Market Research Docs',
+          href: '/docs/ai-tradekit/Market Research/MarketData',
+        },
+        {
+          title: 'Reference',
+          description: 'Reference Docs',
+          href: '/docs/ai-tradekit/Reference/ToolsReference',
         },
       ],
     },

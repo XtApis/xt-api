@@ -1,0 +1,106 @@
+---
+id: FAQ
+title: FAQ & Troubleshooting
+sidebar_label: FAQ & Troubleshooting
+sidebar_position: 2
+---
+
+# FAQ & Troubleshooting
+
+---
+
+## Installation
+
+**Q: The assistant says it cannot find the `xt-tradekit` tools**
+
+1. Restart the Claude Code session (the MCP server is loaded at session start)
+2. Run `claude mcp list` and confirm `xt-tradekit` is registered
+3. If it is missing, re-run `bash install.sh`, or simply tell the assistant "install XT TradeKit"
+
+**Q: `python3: command not found`**
+
+Install Python 3.10+ and re-run `install.sh`. On macOS you can use `brew install python@3.12`.
+
+**Q: Does it work on Windows?**
+
+Install it under WSL. Native Windows is not supported.
+
+**Q: How do I update?**
+
+```bash
+cd <repo> && git pull && bash install.sh
+```
+
+Skills are symlinked, so `git pull` takes effect immediately; the MCP server needs a session restart.
+
+---
+
+## Credentials
+
+**Q: It says credentials are not configured**
+
+Run `bash setup-credentials.sh` **in your own terminal**. If you use environment variables, confirm `XT_ACCESS_KEY` / `XT_SECRET_KEY` are active in the shell that launched Claude Code.
+
+**Q: I'm migrating from the old XT Exchange Plugin — do I need to reconfigure my key?**
+
+No. TradeKit remains compatible with the legacy path `~/.xt-exchange/credentials.json`.
+
+**Q: I accidentally pasted my Secret Key into the conversation**
+
+**Revoke and rotate that key** in the XT console immediately, then reconfigure with `setup-credentials.sh`.
+
+**Q: Can the assistant see my key?**
+
+No. The key is used for signing only inside the MCP server process. The assistant can only call `xt_credentials_status` and receives a masked status. The Skill layer explicitly forbids reading the credentials file.
+
+---
+
+## Trading
+
+**Q: Order placement reports "insufficient permission"**
+
+In XT "API Management", confirm that (1) the Trade permission is enabled, and (2) your current egress IP is whitelisted (update the whitelist whenever your IP changes).
+
+**Q: Order placement reports a precision or minimum notional error**
+
+The assistant normally calls `xt_spot_symbol_info` first to correct this. If it still fails, ask it to re-query the symbol rules before ordering again.
+
+**Q: How is the futures contract count calculated?**
+
+Contracts = target coin quantity ÷ face value per contract (`contractSize`), rounded to the required precision. The assistant shows the coin quantity, contract count, and notional together at confirmation. **The contract count you confirm is what counts.**
+
+**Q: Every write operation is being rejected**
+
+Check whether read-only mode is on: `echo $XT_TRADEKIT_READONLY`. When it is `1` the server layer disables all write operations; run `unset XT_TRADEKIT_READONLY` and restart the session.
+
+**Q: Can the AI trade fully automatically?**
+
+No, and it is not advisable. Every write operation requires your explicit confirmation in the conversation — this is a hard constraint by design.
+
+---
+
+## Data
+
+**Q: Aggregated data doesn't match XT market data**
+
+They measure different things: XT market data comes from XT alone, while open interest, long/short ratio, liquidations and similar metrics are **market-wide aggregated public data** and are delayed. Do not use them for precise calculations or arbitrage decisions.
+
+**Q: If the token security check passes, is the token safe?**
+
+No. The check is an automated scan of public on-chain data. It catches common traps such as honeypots, high taxes, and mint authority, but **cannot guarantee the team will not rug**. Small-cap tokens always carry extremely high risk.
+
+---
+
+## Uninstalling
+
+```bash
+claude mcp remove --scope user xt-tradekit
+rm -f ~/.claude/skills/xt-*
+rm -rf ~/.xt-tradekit          # also deletes local credentials
+```
+
+---
+
+## Feedback
+
+Issues and suggestions: [github.com/XtApis/AItradekit/issues](https://github.com/XtApis/AItradekit/issues)

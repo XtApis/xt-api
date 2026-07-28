@@ -1,0 +1,104 @@
+---
+id: SpotTrading
+title: 现货交易
+sidebar_label: 现货交易
+sidebar_position: 1
+---
+
+# 现货交易
+
+由 `xt-spot-trade` skill 驱动。所有写操作需要带 **Trade 权限**的 API Key，并且必须经过确认。
+
+交易对格式统一为小写下划线：`btc_usdt`、`eth_usdt`。你说「BTC」「BTC/USDT」「BTCUSDT」，助手会自动转换。
+
+---
+
+## 能做什么
+
+| 场景 | 工具 | 是否需要 Key |
+|------|------|------------|
+| 查现货余额与 USDT 估值 | `xt_spot_balances` | ✅ |
+| 查当前挂单 | `xt_spot_open_orders` | ✅ |
+| 查历史订单 | `xt_spot_order_history` | ✅ |
+| 限价 / 市价下单 | `xt_spot_place_order` | ✅ |
+| 撤单 | `xt_spot_cancel_order` | ✅ |
+| 全部撤单（可按交易对） | `xt_spot_cancel_all_orders` | ✅ |
+| 交易对规则（精度、最小下单额） | `xt_spot_symbol_info` | ❌ |
+
+---
+
+## 下单参数
+
+`xt_spot_place_order` 的参数语义：
+
+| 参数 | 说明 |
+|------|------|
+| `symbol` | 交易对，如 `btc_usdt` |
+| `side` | `BUY` / `SELL` |
+| `order_type` | `LIMIT` / `MARKET` |
+| `price` | 限价单必填 |
+| `quantity` | 基础币数量。限价单必填；**市价卖出**用它 |
+| `quote_qty` | 计价币金额。**市价买入**用它（如「用 100 USDT 买」） |
+
+要点：
+
+- **市价买用金额，市价卖用数量**。这是最容易搞混的地方，助手会在确认环节写清楚。
+- 下单前助手会先查 `xt_spot_symbol_info`，按交易对的价格/数量精度和最小下单额校正参数，避免被交易所拒单。
+
+---
+
+## 典型对话
+
+**限价买入**
+
+```
+你：BTC 跌到 95000 帮我挂个限价买单，买 0.01 个
+AI：先查了 btc_usdt 规则（价格精度 2 / 数量精度 5 / 最小 5 USDT）。
+    确认下单参数：
+      交易对  btc_usdt
+      方向    BUY
+      类型    LIMIT
+      价格    95000.00
+      数量    0.01000
+      预估成交额 950.00 USDT
+    确认执行？
+你：确认
+AI：✅ 已提交，订单号 xxxxx
+```
+
+**市价买入（按金额）**
+
+```
+你：用 100 U 市价买 BTC
+AI：确认：btc_usdt / BUY / MARKET / 金额 100 USDT（市价买入按金额计）。确认执行？
+```
+
+**撤单**
+
+```
+你：把我 BTC 的挂单都撤了
+AI：当前 btc_usdt 有 2 笔挂单：
+      #1 BUY 0.01 @ 95000
+      #2 SELL 0.005 @ 108000
+    确认全部撤销？
+```
+
+---
+
+## 首次使用：凭证引导
+
+如果还没配置 API Key，助手在执行任何认证操作前会先调用 `xt_credentials_status`，发现未配置时会引导你在**自己的终端**运行：
+
+```bash
+bash setup-credentials.sh
+```
+
+助手不会、也不能替你输入密钥，更不会读取凭证文件内容。详见 [API Key 与安全](../Getting%20Started/ApiKeyAndSecurity)。
+
+---
+
+## 注意
+
+- 只读模式（`XT_TRADEKIT_READONLY=1`）下所有下单/撤单会被 server 直接拒绝。
+- 每次确认请自己核对方向、价格和数量单位。
+- 输出为数据分析，不构成投资建议。

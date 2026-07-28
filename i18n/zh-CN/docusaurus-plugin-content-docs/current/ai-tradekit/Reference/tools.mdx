@@ -1,0 +1,111 @@
+---
+id: ToolsReference
+title: 工具参考（39 个）
+sidebar_label: 工具参考
+sidebar_position: 1
+---
+
+# 工具参考
+
+`xt-tradekit` 本地 MCP server 提供的全部 39 个工具。标注 🔑 的需要 API Key。
+
+---
+
+## 现货行情（5）
+
+| 工具 | 说明 | 参数 |
+|------|------|------|
+| `xt_spot_ticker` | 24h 行情：最新价、开高低、涨跌幅、成交量额 | `symbol` |
+| `xt_spot_top_movers` | USDT 交易对榜单 | `direction`=`gainers`/`losers`/`volume`，`limit`=10 |
+| `xt_spot_depth` | 盘口买卖档 | `symbol`, `limit`=10 |
+| `xt_spot_klines` | K 线 | `symbol`, `interval`=`1h`, `limit`=24 |
+| `xt_spot_symbol_info` | 交易对规则：精度、最小下单额 | `symbol` |
+
+## 合约行情（6）
+
+| 工具 | 说明 | 参数 |
+|------|------|------|
+| `xt_futures_ticker` | 最新价、标记价、指数价、买一卖一 | `symbol` |
+| `xt_futures_depth` | 盘口 | `symbol`, `level`=10 |
+| `xt_futures_klines` | K 线 | `symbol`, `interval`=`1h`, `limit`=24 |
+| `xt_futures_funding_rate` | 当前资金费率 + 下次结算时间 | `symbol` |
+| `xt_futures_funding_rate_history` | 历史资金费率序列 | `symbol`, `limit`=10 |
+| `xt_futures_contract_info` | 每张面值、精度、最大杠杆 | `symbol` |
+
+> K 线 `interval` 可选：`1m` `5m` `15m` `30m` `1h` `4h` `1d` `1w`
+
+## 聚合市场数据（9）
+
+| 工具 | 说明 | 参数 |
+|------|------|------|
+| `market_open_interest` | 全市场 U 本位永续未平仓量（币量 + 美元） | `symbol` |
+| `market_long_short_ratio` | 多空账户比序列 | `symbol`, `period`=`1H`, `limit`=24 |
+| `market_taker_volume` | 主动买/卖成交量对比序列 | `symbol`, `period`=`1H`, `limit`=24 |
+| `market_recent_liquidations` | 近期强平记录 | `symbol`, `limit`=20 |
+| `market_fear_greed` | 恐惧贪婪指数序列 | `days`=7 |
+| `market_global_overview` | 全球市值、成交额、BTC/ETH 占比 | — |
+| `market_coin_profile` | 市值排名、FDV、供应、ATH、赛道、简介 | `coin` |
+| `market_token_security` | 链上代币安全：蜜罐/税率/开源/增发/集中度 | `chain`, `contract_address` |
+| `market_sentiment_snapshot` | 组合视图：恐惧贪婪 + 主动买卖比 + 多空比 | `symbol`=`btc_usdt` |
+
+> `period` 可选：`5m` `1H` `1D`
+
+## 新闻资讯（3）
+
+| 工具 | 说明 | 参数 |
+|------|------|------|
+| `xt_announcements` | XT 官方公告 | `locale`=`en-us`, `limit`=10 |
+| `xt_announcement_search` | 公告关键词搜索 | `keyword`, `locale`, `limit` |
+| `market_news` | 聚合加密快讯 | `keyword`, `lang`=`en`, `limit`=20 |
+
+> `locale`：`en-us` `zh-cn` `zh-tw` `ko-kr` `ru` `es` `tr` `vi` `ar` `fa`
+
+## 凭证（1）
+
+| 工具 | 说明 |
+|------|------|
+| `xt_credentials_status` | 检查凭证配置状态：是否已配置、来源、文件权限、**掩码后的 Access Key**。永不返回密钥内容 |
+
+## 现货交易 🔑（6）
+
+| 工具 | 说明 | 参数 |
+|------|------|------|
+| `xt_spot_balances` | 现货余额（默认仅非零资产 + USDT 估值） | `currency` |
+| `xt_spot_open_orders` | 当前挂单 | `symbol` |
+| `xt_spot_order_history` | 历史订单 | `symbol`, `limit`=20 |
+| `xt_spot_place_order` ⚠️ | 下单 | `symbol`, `side`, `order_type`, `price`, `quantity`, `quote_qty` |
+| `xt_spot_cancel_order` ⚠️ | 撤单 | `order_id` |
+| `xt_spot_cancel_all_orders` ⚠️ | 全部撤单 | `symbol` |
+
+## 合约交易 🔑（6）
+
+| 工具 | 说明 | 参数 |
+|------|------|------|
+| `xt_futures_account` | 账户权益、可用保证金 | — |
+| `xt_futures_positions` | 当前持仓（非零） | `symbol` |
+| `xt_futures_open_orders` | 当前委托 | `symbol` |
+| `xt_futures_place_order` ⚠️ | 开平仓 | `symbol`, `order_side`, `position_side`, `quantity`（张）, `order_type`, `price` |
+| `xt_futures_cancel_order` ⚠️ | 撤单 | `order_id` |
+| `xt_futures_order_history` | 历史订单 | `symbol`, `limit`=20 |
+
+## 资产（3）
+
+| 工具 | 说明 | 参数 |
+|------|------|------|
+| `xt_currency_chains` | 充提链、手续费、最小提币量 | `currency` |
+| `xt_asset_transfer` 🔑⚠️ | 账户间划转 | `from_account`, `to_account`, `currency`, `amount` |
+| `xt_withdraw` 🔑⚠️ | 提币（**不可逆**） | `currency`, `chain`, `amount`, `address` |
+
+---
+
+## 标记说明
+
+- 🔑 需要 API Key
+- ⚠️ **写操作**：调用前必须向用户展示完整参数并获得明确确认；`XT_TRADEKIT_READONLY=1` 时被 server 层直接拒绝
+
+## 通用约定
+
+- **交易对格式**：小写下划线，`btc_usdt`
+- **合约数量单位**：张（整数），下单前用 `xt_futures_contract_info` 换算
+- **开平方向**：开多 `BUY+LONG` / 开空 `SELL+SHORT` / 平多 `SELL+LONG` / 平空 `BUY+SHORT`
+- **划转账户类型**：`SPOT` `LEVER` `FUTURES_U` `FUTURES_C` `FINANCE`

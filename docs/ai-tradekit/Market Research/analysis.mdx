@@ -1,0 +1,81 @@
+---
+id: MarketAnalysis
+title: Market Analysis
+sidebar_label: Market Analysis
+sidebar_position: 2
+---
+
+# Market Analysis
+
+Powered by the `xt-market-analysis` skill. It combines XT market data with **TradeKit aggregated public market data** to produce a structured read on long/short dynamics. No API Key required.
+
+---
+
+## Data Dimensions
+
+| Tool | What it shows | Parameters |
+|------|---------------|------------|
+| `market_open_interest` | Market-wide USDT-M perpetual open interest (coin amount + USD value) — position size | `symbol` |
+| `market_long_short_ratio` | Long/short account ratio time series (`>1` net long, `<1` net short) — retail sentiment | `symbol`, `period` (`5m/1H/1D`), `limit` |
+| `market_taker_volume` | Taker buy vs sell volume — real buying and selling pressure | `symbol`, `period`, `limit` |
+| `market_recent_liquidations` | Recent liquidation records (side/size/price/time) — leverage flushes | `symbol`, `limit` |
+| `market_fear_greed` | Fear & Greed index (0 extreme fear ~ 100 extreme greed) | `days` |
+| `market_global_overview` | Global market cap, 24h turnover, BTC/ETH dominance | — |
+| `market_sentiment_snapshot` | **Combined view**: Fear & Greed + 24h taker buy/sell ratio + latest long/short ratio | `symbol` |
+
+Pair these with XT's own price, klines, order book, and funding rate (see [Market Data](./MarketData)).
+
+---
+
+## How to Read These Metrics
+
+**Price × Open Interest**
+
+| Combination | Meaning |
+|-------------|---------|
+| Price up + OI up | New longs entering; the trend has capital behind it |
+| Price up + OI down | Driven by short covering; sustainability is questionable |
+| Price down + OI up | New shorts entering |
+| Price down + OI down | Longs stopping out; deleveraging |
+
+**Funding rate + long/short ratio**
+A clearly positive rate together with an elevated long/short ratio means longs are crowded and holding costs are high, which invites a long squeeze. The reverse applies too.
+
+**Taker buy/sell volume**
+The long/short ratio reflects **account counts**, while taker volume reflects **where the money actually is**. When they diverge, trust the money.
+
+**Liquidation records**
+Clustered liquidations are often a short-term bottom/top signal — market structure only cleans up after leverage has been flushed.
+
+---
+
+## Example Conversation
+
+```
+You: Analyze the ETH setup — how do long/short dynamics look
+
+AI: [Price]      eth_usdt 3,240, 24h +2.8%, mark price 3,239
+    [Positions]  Market-wide OI 4.21B USD, 24h +6.2% — price up with OI up, new longs entering
+    [Sentiment]  Long/short ratio 1.34 (long-leaning); Fear & Greed 68 (greed)
+    [Flow]       24h taker buy/sell = 1.12, buyers slightly ahead
+    [Cost]       Funding rate +0.021%/8h, roughly 23% annualized — long holding cost is already high
+    [Liquidations] Shorts made up 71% of liquidations over 24h, with a cluster around 3,180
+    [Conclusion] The rally is driven by new longs, but funding and the long/short ratio are rising
+                 together, so positioning is crowded. 3,180 is the recent dividing line; a break
+                 below could trigger cascading long stop-outs.
+```
+
+---
+
+## Data Source Notes
+
+- XT's price, klines, order book, and funding rate are labeled "**XT market data**"
+- Open interest, long/short ratio, taker volume, liquidations, sentiment indices, and coin profiles are labeled "**TradeKit aggregated public data**"
+
+The two categories differ in update frequency and coverage, so do not mix them in precise calculations. Aggregated data is delayed and is **not suitable for high-frequency or arbitrage decisions**.
+
+---
+
+## Disclaimer
+
+The above is data analysis and does not constitute investment advice.

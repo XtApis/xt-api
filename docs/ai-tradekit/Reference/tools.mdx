@@ -1,0 +1,111 @@
+---
+id: ToolsReference
+title: Tools Reference (39)
+sidebar_label: Tools Reference
+sidebar_position: 1
+---
+
+# Tools Reference
+
+All 39 tools provided by the local `xt-tradekit` MCP server. Those marked 🔑 require an API Key.
+
+---
+
+## Spot Market Data (5)
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `xt_spot_ticker` | 24h data: last price, OHLC, change, volume and turnover | `symbol` |
+| `xt_spot_top_movers` | USDT pair rankings | `direction`=`gainers`/`losers`/`volume`, `limit`=10 |
+| `xt_spot_depth` | Order book levels | `symbol`, `limit`=10 |
+| `xt_spot_klines` | Klines | `symbol`, `interval`=`1h`, `limit`=24 |
+| `xt_spot_symbol_info` | Symbol rules: precision, minimum notional | `symbol` |
+
+## Futures Market Data (6)
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `xt_futures_ticker` | Last price, mark price, index price, best bid/ask | `symbol` |
+| `xt_futures_depth` | Order book | `symbol`, `level`=10 |
+| `xt_futures_klines` | Klines | `symbol`, `interval`=`1h`, `limit`=24 |
+| `xt_futures_funding_rate` | Current funding rate + next settlement time | `symbol` |
+| `xt_futures_funding_rate_history` | Historical funding rate series | `symbol`, `limit`=10 |
+| `xt_futures_contract_info` | Face value per contract, precision, max leverage | `symbol` |
+
+> Kline `interval` options: `1m` `5m` `15m` `30m` `1h` `4h` `1d` `1w`
+
+## Aggregated Market Data (9)
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `market_open_interest` | Market-wide USDT-M perpetual open interest (coin amount + USD) | `symbol` |
+| `market_long_short_ratio` | Long/short account ratio series | `symbol`, `period`=`1H`, `limit`=24 |
+| `market_taker_volume` | Taker buy vs sell volume series | `symbol`, `period`=`1H`, `limit`=24 |
+| `market_recent_liquidations` | Recent liquidation records | `symbol`, `limit`=20 |
+| `market_fear_greed` | Fear & Greed index series | `days`=7 |
+| `market_global_overview` | Global market cap, turnover, BTC/ETH dominance | — |
+| `market_coin_profile` | Market cap rank, FDV, supply, ATH, sector, profile | `coin` |
+| `market_token_security` | On-chain token security: honeypot/tax/open source/mint/concentration | `chain`, `contract_address` |
+| `market_sentiment_snapshot` | Combined view: Fear & Greed + taker buy/sell ratio + long/short ratio | `symbol`=`btc_usdt` |
+
+> `period` options: `5m` `1H` `1D`
+
+## News (3)
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `xt_announcements` | XT official announcements | `locale`=`en-us`, `limit`=10 |
+| `xt_announcement_search` | Announcement keyword search | `keyword`, `locale`, `limit` |
+| `market_news` | Aggregated crypto news feed | `keyword`, `lang`=`en`, `limit`=20 |
+
+> `locale`: `en-us` `zh-cn` `zh-tw` `ko-kr` `ru` `es` `tr` `vi` `ar` `fa`
+
+## Credentials (1)
+
+| Tool | Description |
+|------|-------------|
+| `xt_credentials_status` | Check credential setup: whether configured, source, file permissions, and the **masked Access Key**. Never returns the key itself |
+
+## Spot Trading 🔑 (6)
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `xt_spot_balances` | Spot balances (non-zero assets + USDT valuation by default) | `currency` |
+| `xt_spot_open_orders` | Open orders | `symbol` |
+| `xt_spot_order_history` | Order history | `symbol`, `limit`=20 |
+| `xt_spot_place_order` ⚠️ | Place an order | `symbol`, `side`, `order_type`, `price`, `quantity`, `quote_qty` |
+| `xt_spot_cancel_order` ⚠️ | Cancel an order | `order_id` |
+| `xt_spot_cancel_all_orders` ⚠️ | Cancel all orders | `symbol` |
+
+## Futures Trading 🔑 (6)
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `xt_futures_account` | Account equity, available margin | — |
+| `xt_futures_positions` | Current positions (non-zero) | `symbol` |
+| `xt_futures_open_orders` | Open orders | `symbol` |
+| `xt_futures_place_order` ⚠️ | Open/close a position | `symbol`, `order_side`, `position_side`, `quantity` (contracts), `order_type`, `price` |
+| `xt_futures_cancel_order` ⚠️ | Cancel an order | `order_id` |
+| `xt_futures_order_history` | Order history | `symbol`, `limit`=20 |
+
+## Assets (3)
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `xt_currency_chains` | Chains, fees, minimum withdrawal amount | `currency` |
+| `xt_asset_transfer` 🔑⚠️ | Transfer between accounts | `from_account`, `to_account`, `currency`, `amount` |
+| `xt_withdraw` 🔑⚠️ | Withdrawal (**irreversible**) | `currency`, `chain`, `amount`, `address` |
+
+---
+
+## Legend
+
+- 🔑 Requires an API Key
+- ⚠️ **Write operation**: full parameters must be shown to the user and explicitly confirmed before the call; rejected outright at the server layer when `XT_TRADEKIT_READONLY=1`
+
+## Common Conventions
+
+- **Symbol format**: lowercase with an underscore, `btc_usdt`
+- **Futures quantity unit**: contracts (integer); convert with `xt_futures_contract_info` before ordering
+- **Open/close direction**: open long `BUY+LONG` / open short `SELL+SHORT` / close long `SELL+LONG` / close short `BUY+SHORT`
+- **Transfer account types**: `SPOT` `LEVER` `FUTURES_U` `FUTURES_C` `FINANCE`

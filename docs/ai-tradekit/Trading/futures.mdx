@@ -1,0 +1,102 @@
+---
+id: FuturesTrading
+title: Futures Trading
+sidebar_label: Futures Trading
+sidebar_position: 2
+---
+
+# Futures Trading (USDT-M Perpetuals)
+
+Powered by the `xt-futures-trade` skill. It shares the same API Key as spot (Trade permission required). Symbols use the same `btc_usdt` format.
+
+---
+
+## What You Can Do
+
+| Scenario | Tool | Key required |
+|----------|------|--------------|
+| Account equity, available margin | `xt_futures_account` | ✅ |
+| Current positions | `xt_futures_positions` | ✅ |
+| Open orders | `xt_futures_open_orders` | ✅ |
+| Open / close a position | `xt_futures_place_order` | ✅ |
+| Cancel an order | `xt_futures_cancel_order` | ✅ |
+| Order history | `xt_futures_order_history` | ✅ |
+| Contract specs (contract size / precision / max leverage) | `xt_futures_contract_info` | ❌ |
+| Market data, order book, klines, funding rate | `xt_futures_*` market tools | ❌ |
+
+---
+
+## Open/Close Semantics
+
+XT perpetuals express direction through the combination of `order_side` and `position_side`:
+
+| Intent | order_side | position_side |
+|--------|-----------|---------------|
+| Open long | `BUY` | `LONG` |
+| Open short | `SELL` | `SHORT` |
+| Close long | `SELL` | `LONG` |
+| Close short | `BUY` | `SHORT` |
+
+Remaining parameters:
+
+| Parameter | Description |
+|-----------|-------------|
+| `symbol` | e.g. `btc_usdt` |
+| `quantity` | **Number of contracts (integer)**, not the number of coins |
+| `order_type` | `LIMIT` / `MARKET` |
+| `price` | Required for limit orders |
+
+---
+
+## Contract Quantity Conversion
+
+Futures are denominated in contracts, and each contract's face value is set by the contract spec. When you say "open a long for 0.5 ETH", the assistant will:
+
+1. Call `xt_futures_contract_info` to get `contractSize` (face value per contract)
+2. Convert contracts = target quantity ÷ contractSize, rounded to the required precision
+3. Show you the **coin quantity, contract count, and estimated notional** together at the confirmation step
+
+```
+You: Open a long for 0.5 ETH, limit 3200
+AI:  eth_usdt face value is 0.01 ETH per contract → 0.5 ETH = 50 contracts
+     Confirm opening position:
+       Symbol     eth_usdt
+       Side       Open long (BUY + LONG)
+       Type       LIMIT
+       Price      3200.00
+       Contracts  50 (≈ 0.5 ETH, notional 1600 USDT)
+     Execute?
+```
+
+> Conversion involves rounding, so the actual quantity may differ slightly from what you said. Verify the contract count and notional at confirmation.
+
+---
+
+## Closing a Position
+
+```
+You: Close half of my ETH long
+AI:  Current eth_usdt long position: 50 contracts (≈0.5 ETH), avg entry 3180, unrealized PnL +12.3 USDT
+     Half = 25 contracts
+     Confirm close: eth_usdt / close long (SELL + LONG) / MARKET / 25 contracts?
+```
+
+---
+
+## Funding Rate
+
+The funding rate is both a cost and a signal:
+
+- `xt_futures_funding_rate` — current rate and next settlement time
+- `xt_futures_funding_rate_history` — historical series, useful for reading the long/short cost structure
+
+Combine it with `market_open_interest` (market-wide open interest) and `market_long_short_ratio` (long/short ratio) to gauge how crowded positioning is. See [Market Analysis](../Market%20Research/MarketAnalysis).
+
+---
+
+## Risk Notice
+
+- Futures are leveraged, and **losses can exceed your margin**. Confirm your margin ratio and liquidation price before opening a position.
+- Contract conversion and precision rounding are done by the assistant, but **the parameters you confirm are what count** — check each line.
+- In read-only mode (`XT_TRADEKIT_READONLY=1`) all position opening/closing and cancellation is rejected directly by the server.
+- Output is data analysis and does not constitute investment advice.

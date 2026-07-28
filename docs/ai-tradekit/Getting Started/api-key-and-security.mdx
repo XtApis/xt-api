@@ -1,0 +1,92 @@
+---
+id: ApiKeyAndSecurity
+title: API Key & Security
+sidebar_label: API Key & Security
+sidebar_position: 3
+---
+
+# API Key & Security
+
+When an AI agent executes trades, the security boundary must be explicit. This page describes TradeKit's security design and how you should configure your API Key.
+
+---
+
+## Keys Never Enter the Conversation
+
+This is the first principle of the whole design.
+
+- Keys are entered through `setup-credentials.sh` **in your own terminal** using silent input (`read -s`): no echo, nothing in shell history.
+- Credentials are stored at `~/.xt-tradekit/credentials.json`, with directory mode 700 and file mode 600 — readable only by you.
+- Keys are read **only inside the MCP server process**, for request signing.
+- The assistant can only call `xt_credentials_status`, which returns **whether credentials are configured, their source, file permissions, and a masked Access Key** — never the key itself.
+- The Skill layer explicitly forbids reading the credentials file (e.g. via `cat`) or asking the user for their key.
+
+> If you have ever pasted an Access Key / Secret Key into any AI conversation, **rotate that key** in the XT console immediately.
+
+---
+
+## Least Privilege
+
+When creating a key on the XT.COM "API Management" page:
+
+| Permission | Recommendation | Notes |
+|------------|----------------|-------|
+| **Read** | ✅ Enable | Required for balances, positions, and orders |
+| **Trade** | ✅ Enable as needed | Required for placing/cancelling orders; not needed for analysis-only use |
+| **Transfer** | ⚠️ As needed | Enable only if you need spot ↔ futures transfers |
+| **Withdraw** | ❌ Not recommended | Withdrawal permission is not advisable in an AI trading setup |
+
+In addition:
+
+- **Bind an IP whitelist.** This is the single most effective way to limit damage if a key leaks.
+- **Create a dedicated key** for AI use rather than reusing one already in use by other programs, so it can be revoked at any time.
+- Rotate keys regularly.
+
+---
+
+## Read-Only Mode
+
+Recommended for analysis-only, demo, and teaching scenarios:
+
+```bash
+export XT_TRADEKIT_READONLY=1
+```
+
+Or set it in the `env` block of your MCP configuration. Once enabled, the server layer rejects **every write operation** (orders, cancellations, transfers, withdrawals) without relying on the Skill layer's discipline. This is a hard constraint.
+
+---
+
+## Mandatory Confirmation Flow
+
+Every write operation must be confirmed before execution:
+
+| Operation | Confirmation requirement |
+|-----------|--------------------------|
+| Spot/futures order | Show full parameters (symbol, side, type, price, quantity/amount, estimated notional) and wait for explicit confirmation |
+| Cancel / cancel all | Show the orders to be cancelled, then confirm |
+| Transfer | Show source account, destination account, currency, and amount, then confirm |
+| **Withdrawal** | Show currency, chain, amount, fee, and the **full address**, state clearly that it is irreversible, and require a **second confirmation** |
+
+"Confirmation" means you explicitly agree in the conversation. An ambiguous reply does not count.
+
+---
+
+## Data Flow
+
+```
+Your terminal  ──stdio──>  local MCP server  ──HTTPS──>  XT.COM API
+                                 │
+                                 └── ~/.xt-tradekit/credentials.json (600)
+```
+
+- The MCP server runs on your own machine — **no cloud MCP service is involved**.
+- Credentials are never uploaded, synced, or passed to a third party.
+- Only tool call parameters and their results travel through the conversation.
+
+---
+
+## Risk Notice
+
+- The AI can misread intent. **Read the parameters yourself at every confirmation**, especially the quantity unit (futures are priced in contracts), the side, and the address.
+- Aggregated public data within market data may be delayed; do not use it for high-frequency or arbitrage decisions.
+- Output from this tool is data analysis and does not constitute investment advice. Crypto asset trading carries extremely high risk.

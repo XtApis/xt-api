@@ -1,0 +1,142 @@
+---
+id: Installation
+title: Installation & Setup
+sidebar_label: Installation & Setup
+sidebar_position: 2
+---
+
+# Installation & Setup
+
+Installation has two parts: **Skills** (which tell the AI what to do) and the **local MCP server** (which actually calls XT's APIs). Pick whichever method suits you.
+
+---
+
+## Option 1: npx (recommended)
+
+Works with Claude Code / Cursor / Codex and other clients that support a skills directory.
+
+```bash
+npx skills add XtApis/AItradekit
+```
+
+Once installed, tell your AI assistant:
+
+```
+Install XT TradeKit
+```
+
+The `xt-tradekit-setup` skill handles the rest: clone the repo to `~/.xt-tradekit/app` → create a Python venv → install dependencies → register the MCP server over stdio.
+
+---
+
+## Option 2: Clone and run the installer
+
+```bash
+git clone https://github.com/XtApis/AItradekit.git
+cd AItradekit
+bash install.sh
+```
+
+`install.sh` performs the following steps:
+
+1. Checks for `python3`, creates a virtual environment at `mcp/.venv`, and installs dependencies
+2. Registers the MCP server `xt-tradekit` as **user-scoped stdio** (equivalent to `claude mcp add --scope user xt-tradekit -- <venv>/bin/python <repo>/mcp/server.py`)
+3. Symlinks the 8 skills under `skills/` into `~/.claude/skills/` (symlinks make a later `git pull` take effect immediately)
+
+> **Restart your Claude Code session for the changes to take effect.**
+
+If the `claude` CLI is not present, the script skips registration and prints the command / args you need for manual configuration.
+
+---
+
+## Option 3: Manual configuration for other MCP clients
+
+Add the following to your client's MCP configuration file:
+
+```json
+{
+  "mcpServers": {
+    "xt-tradekit": {
+      "command": "<repo>/mcp/.venv/bin/python",
+      "args": ["<repo>/mcp/server.py"]
+    }
+  }
+}
+```
+
+Replace `<repo>` with the absolute path to the repository. To enable read-only mode, add:
+
+```json
+      "env": { "XT_TRADEKIT_READONLY": "1" }
+```
+
+---
+
+## Verifying the Installation
+
+After restarting the session, ask something that needs no credentials:
+
+```
+What's the BTC price right now
+```
+
+If live XT market data comes back, both the MCP server and the Skills are ready. You can also ask the assistant to call `xt_credentials_status` to check credential setup (it returns a masked value only, never the key).
+
+---
+
+## Configuring an API Key (only needed for trading)
+
+Market data, analysis, coin research, and news require **no credentials at all**. Only balance queries, order placement, cancellation, transfers, and withdrawals do.
+
+1. Create an API Key on the XT.COM "API Management" page
+2. Run the following **in your own terminal**:
+
+```bash
+bash setup-credentials.sh
+```
+
+The script reads the Secret Key silently via `read -s`: no echo, nothing written to shell history, and **nothing passes through the AI conversation**. Credentials are saved to `~/.xt-tradekit/credentials.json` (directory 700 / file 600).
+
+Environment variables are also supported:
+
+```bash
+export XT_ACCESS_KEY="your_access_key"
+export XT_SECRET_KEY="your_secret_key"
+```
+
+The legacy plugin path `~/.xt-exchange/credentials.json` remains compatible, so migrating from the plugin requires no reconfiguration.
+
+For permission recommendations see [API Key & Security](./ApiKeyAndSecurity).
+
+---
+
+## Updating
+
+```bash
+cd <repo> && git pull && bash install.sh
+```
+
+Or simply tell the assistant "update XT TradeKit". Skills are symlinked, so `git pull` takes effect immediately; the MCP server requires a session restart.
+
+---
+
+## Uninstalling
+
+```bash
+claude mcp remove --scope user xt-tradekit
+rm -f ~/.claude/skills/xt-*
+rm -rf ~/.xt-tradekit          # also deletes local credentials
+```
+
+---
+
+## Common Issues
+
+| Symptom | Fix |
+|---------|-----|
+| Assistant says the xt-tradekit tools are not found | Restart the Claude Code session; confirm `xt-tradekit` appears in `claude mcp list` |
+| `python3: command not found` | Install Python 3.10+ and re-run `install.sh` |
+| Trading tools report missing credentials | Run `setup-credentials.sh`, or verify the environment variables are active in the current shell |
+| Order placement reports insufficient permission | On the XT API Management page, confirm the Trade permission is enabled and your current egress IP is whitelisted |
+
+See [FAQ & Troubleshooting](../Reference/FAQ) for more.

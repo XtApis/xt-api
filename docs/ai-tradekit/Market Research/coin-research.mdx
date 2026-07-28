@@ -1,0 +1,83 @@
+---
+id: CoinResearch
+title: Coin Research
+sidebar_label: Coin Research
+sidebar_position: 3
+---
+
+# Coin Research and Token Security
+
+Powered by the `xt-coin-research` skill. No API Key required.
+
+---
+
+## Fundamentals
+
+`market_coin_profile(coin)` — `coin` can be `btc` or `bitcoin`. It returns:
+
+- Market cap rank, current market cap, **FDV (fully diluted valuation)**
+- Circulating supply / total supply
+- All-time high (ATH) and the drawdown since
+- Sector classification and project profile
+
+```
+You: How do ARB's fundamentals look
+AI:  [ARB / Arbitrum] Market cap rank #42, market cap 1.24B USD
+     FDV 3.87B USD — FDV/market cap ≈ 3.1, a large share of tokens is still locked
+     Circulating 3.2B / total 10B (32%)
+     ATH $2.40 (2023-01), -87% since
+     Sector: Layer 2, Ethereum ecosystem
+```
+
+**The FDV / market cap ratio** is the key to judging unlock pressure: the higher the ratio, the more tokens are yet to circulate and the greater the future sell pressure.
+
+---
+
+## Comparing Multiple Coins
+
+```
+You: Compare ARB, OP, and MATIC
+```
+
+The assistant fetches all three profiles in parallel and lays them out side by side by market cap, FDV, circulation rate, and sector, then combines that with [market data](./MarketData) to describe relative performance.
+
+---
+
+## On-Chain Token Security Check
+
+`market_token_security(chain, contract_address)` — a must before buying any small-cap token.
+
+Checks performed:
+
+| Item | Risk it indicates |
+|------|-------------------|
+| **Honeypot** | You can buy but not sell; funds are locked outright |
+| **Buy/sell tax** | High tax rates eat into principal; 10%+ warrants serious caution |
+| **Open source** | A closed-source contract cannot be audited for behavior |
+| **Mint authority** | The team can mint without limit and dilute holders |
+| **Holder concentration** | If top addresses hold too much, a single address can dump the price |
+
+```
+You: Is this contract safe — 0xabc...def (BSC)
+
+AI: [Token security check · BSC]
+    ✅ Not a honeypot
+    ⚠️ Buy tax 5% / sell tax 12% — sell tax is clearly high
+    ✅ Contract is open source
+    ❌ Mint authority exists, owner has not renounced
+    ⚠️ Top 10 addresses hold 68%, high concentration
+    [Conclusion] High risk. Un-renounced mint authority + high sell tax + concentrated holdings;
+                 large positions are not advisable.
+```
+
+> The security check is an automated scan of public on-chain data. It **catches common traps but cannot guarantee the absence of risk**. Passing the check does not mean the team will not rug.
+
+---
+
+## Data Source Notes
+
+Data not originating from XT is uniformly labeled "**TradeKit aggregated public data**".
+
+## Disclaimer
+
+The above is data analysis and does not constitute investment advice. Small-cap tokens carry extremely high risk.

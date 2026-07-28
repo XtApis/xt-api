@@ -1,0 +1,104 @@
+---
+id: SpotTrading
+title: Spot Trading
+sidebar_label: Spot Trading
+sidebar_position: 1
+---
+
+# Spot Trading
+
+Powered by the `xt-spot-trade` skill. Every write operation requires an API Key with **Trade permission** and must be confirmed.
+
+Symbols use lowercase with an underscore: `btc_usdt`, `eth_usdt`. Say "BTC", "BTC/USDT", or "BTCUSDT" and the assistant converts it automatically.
+
+---
+
+## What You Can Do
+
+| Scenario | Tool | Key required |
+|----------|------|--------------|
+| Spot balances with USDT valuation | `xt_spot_balances` | ✅ |
+| Open orders | `xt_spot_open_orders` | ✅ |
+| Order history | `xt_spot_order_history` | ✅ |
+| Limit / market order | `xt_spot_place_order` | ✅ |
+| Cancel an order | `xt_spot_cancel_order` | ✅ |
+| Cancel all orders (optionally per symbol) | `xt_spot_cancel_all_orders` | ✅ |
+| Symbol rules (precision, minimum notional) | `xt_spot_symbol_info` | ❌ |
+
+---
+
+## Order Parameters
+
+Parameter semantics of `xt_spot_place_order`:
+
+| Parameter | Description |
+|-----------|-------------|
+| `symbol` | Trading pair, e.g. `btc_usdt` |
+| `side` | `BUY` / `SELL` |
+| `order_type` | `LIMIT` / `MARKET` |
+| `price` | Required for limit orders |
+| `quantity` | Base asset amount. Required for limit orders; used for **market sells** |
+| `quote_qty` | Quote asset amount. Used for **market buys** (e.g. "buy with 100 USDT") |
+
+Key points:
+
+- **Market buys use an amount, market sells use a quantity.** This is the easiest thing to mix up, and the assistant spells it out at the confirmation step.
+- Before placing an order the assistant calls `xt_spot_symbol_info` and adjusts parameters to the symbol's price/quantity precision and minimum notional, so the exchange does not reject the order.
+
+---
+
+## Example Conversations
+
+**Limit buy**
+
+```
+You: Place a limit buy for 0.01 BTC if it drops to 95000
+AI:  Checked btc_usdt rules first (price precision 2 / quantity precision 5 / min 5 USDT).
+     Confirm order parameters:
+       Symbol      btc_usdt
+       Side        BUY
+       Type        LIMIT
+       Price       95000.00
+       Quantity    0.01000
+       Est. notional 950.00 USDT
+     Execute?
+You: Confirm
+AI:  ✅ Submitted, order ID xxxxx
+```
+
+**Market buy (by amount)**
+
+```
+You: Market buy 100 USDT of BTC
+AI:  Confirm: btc_usdt / BUY / MARKET / amount 100 USDT (market buys are sized by amount). Execute?
+```
+
+**Cancel**
+
+```
+You: Cancel all my BTC orders
+AI:  btc_usdt currently has 2 open orders:
+       #1 BUY 0.01 @ 95000
+       #2 SELL 0.005 @ 108000
+     Confirm cancelling all?
+```
+
+---
+
+## First Use: Credential Guidance
+
+If no API Key is configured yet, the assistant calls `xt_credentials_status` before any authenticated operation. When it finds nothing configured, it guides you to run the following **in your own terminal**:
+
+```bash
+bash setup-credentials.sh
+```
+
+The assistant will not — and cannot — enter your key for you, and it never reads the contents of the credentials file. See [API Key & Security](../Getting%20Started/ApiKeyAndSecurity).
+
+---
+
+## Notes
+
+- In read-only mode (`XT_TRADEKIT_READONLY=1`) all order placement and cancellation is rejected directly by the server.
+- Verify side, price, and quantity units yourself at every confirmation.
+- Output is data analysis and does not constitute investment advice.

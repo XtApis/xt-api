@@ -1,0 +1,142 @@
+---
+id: Installation
+title: 安装与配置
+sidebar_label: 安装与配置
+sidebar_position: 2
+---
+
+# 安装与配置
+
+安装分两部分：**Skills**（告诉 AI 怎么做）和**本地 MCP server**（实际调用 XT 接口）。任选一种方式即可。
+
+---
+
+## 方式一：npx（推荐）
+
+适用于 Claude Code / Cursor / Codex 等支持 skills 目录的客户端。
+
+```bash
+npx skills add XtApis/AItradekit
+```
+
+安装完成后，对 AI 助手说：
+
+```
+安装 XT TradeKit
+```
+
+`xt-tradekit-setup` skill 会自动完成剩余步骤：克隆仓库到 `~/.xt-tradekit/app` → 创建 Python venv → 安装依赖 → 以 stdio 方式注册 MCP server。
+
+---
+
+## 方式二：克隆仓库一键安装
+
+```bash
+git clone https://github.com/XtApis/AItradekit.git
+cd AItradekit
+bash install.sh
+```
+
+`install.sh` 会依次执行：
+
+1. 检查 `python3`，在 `mcp/.venv` 创建虚拟环境并安装依赖
+2. 以 **user 级 stdio** 注册 MCP server `xt-tradekit`（等价于 `claude mcp add --scope user xt-tradekit -- <venv>/bin/python <repo>/mcp/server.py`）
+3. 把 `skills/` 下的 8 个 skill 软链到 `~/.claude/skills/`（软链方便后续 `git pull` 即更新）
+
+> **重启 Claude Code 会话后生效。**
+
+如果本机没有 `claude` CLI，脚本会跳过注册并打印手动配置所需的 command / args。
+
+---
+
+## 方式三：其他 MCP 客户端手动配置
+
+在客户端的 MCP 配置文件中加入：
+
+```json
+{
+  "mcpServers": {
+    "xt-tradekit": {
+      "command": "<repo>/mcp/.venv/bin/python",
+      "args": ["<repo>/mcp/server.py"]
+    }
+  }
+}
+```
+
+把 `<repo>` 替换为仓库绝对路径。需要只读模式时追加：
+
+```json
+      "env": { "XT_TRADEKIT_READONLY": "1" }
+```
+
+---
+
+## 验证安装
+
+重启会话后，直接问一个不需要密钥的问题：
+
+```
+BTC 现在多少钱
+```
+
+如果返回了 XT 的实时行情，说明 MCP 与 Skills 都已就绪。也可以让助手调用 `xt_credentials_status` 查看凭证配置状态（只返回掩码，不含密钥）。
+
+---
+
+## 配置 API Key（仅交易类操作需要）
+
+行情、分析、币种研究、新闻资讯**不需要任何密钥**。只有查余额、下单、撤单、划转、提币需要。
+
+1. 在 XT.COM「API 管理」页创建 API Key
+2. **在你自己的终端**运行：
+
+```bash
+bash setup-credentials.sh
+```
+
+脚本用 `read -s` 静默读取 Secret Key：不回显、不写入 shell history、**不经过 AI 对话**。凭证保存到 `~/.xt-tradekit/credentials.json`（目录 700 / 文件 600）。
+
+也支持环境变量：
+
+```bash
+export XT_ACCESS_KEY="your_access_key"
+export XT_SECRET_KEY="your_secret_key"
+```
+
+并兼容旧版插件的 `~/.xt-exchange/credentials.json`，从插件版迁移无需重新配置。
+
+权限建议见 [API Key 与安全](./ApiKeyAndSecurity)。
+
+---
+
+## 更新
+
+```bash
+cd <repo> && git pull && bash install.sh
+```
+
+或直接对助手说「更新 XT TradeKit」。Skills 是软链，`git pull` 后立即生效；MCP server 需要重启会话。
+
+---
+
+## 卸载
+
+```bash
+claude mcp remove --scope user xt-tradekit
+rm -f ~/.claude/skills/xt-*
+rm -rf ~/.xt-tradekit          # 同时删除本地凭证
+```
+
+---
+
+## 常见问题
+
+| 现象 | 处理 |
+|------|------|
+| 助手说找不到 xt-tradekit 工具 | 重启 Claude Code 会话；确认 `claude mcp list` 中存在 `xt-tradekit` |
+| `python3: command not found` | 安装 Python 3.10+ 后重跑 `install.sh` |
+| 交易类工具报未配置凭证 | 运行 `setup-credentials.sh`，或检查环境变量是否在当前 shell 生效 |
+| 下单报权限不足 | 到 XT API 管理页确认已勾选 Trade 权限，且当前出口 IP 在白名单内 |
+
+更多见 [FAQ 与排障](../Reference/FAQ)。

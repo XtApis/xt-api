@@ -1,0 +1,98 @@
+---
+id: AssetManagement
+title: 资产管理
+sidebar_label: 资产管理
+sidebar_position: 3
+---
+
+# 资产管理
+
+由 `xt-assets` skill 驱动，覆盖余额查询、账户间划转、提币与充提链查询。
+
+---
+
+## 能做什么
+
+| 场景 | 工具 | 权限要求 |
+|------|------|---------|
+| 现货余额与 USDT 估值 | `xt_spot_balances` | Read |
+| 合约账户权益 | `xt_futures_account` | Read |
+| 账户间划转 | `xt_asset_transfer` | **Transfer** |
+| 提币 | `xt_withdraw` | **Withdraw**（不建议开启） |
+| 充提链、手续费、最小提币量 | `xt_currency_chains` | 无需 |
+
+---
+
+## 账户间划转
+
+```
+xt_asset_transfer(from_account, to_account, currency, amount)
+```
+
+支持的账户类型：
+
+| 值 | 含义 |
+|----|------|
+| `SPOT` | 现货账户 |
+| `LEVER` | 杠杆账户 |
+| `FUTURES_U` | U 本位合约账户 |
+| `FUTURES_C` | 币本位合约账户 |
+| `FINANCE` | 理财账户 |
+
+```
+你：从现货划 500 U 到 U 本位合约
+AI：确认划转：
+      从    SPOT
+      到    FUTURES_U
+      币种  USDT
+      数量  500
+    确认执行？
+```
+
+需要 API Key 的 **Transfer** 权限。只在确有划转需求时开启。
+
+---
+
+## 提币
+
+⚠️ **提币不可逆。转错地址或链没有任何补救手段。**
+
+```
+xt_withdraw(currency, chain, amount, address)
+```
+
+流程约束：
+
+1. 助手先调用 `xt_currency_chains` 查该币支持的链、手续费、最小提币量
+2. 展示**币种、链、数量、手续费、到账数量、完整地址**
+3. 明确提示不可逆
+4. **要求二次确认**，你必须两次明确同意才会执行
+
+```
+你：提 0.5 ETH 到 0x1234...abcd
+AI：ETH 支持的链：ERC20（手续费 0.0012 ETH，最小 0.01）、ARB（手续费 0.0001 ETH）…
+    请确认使用哪条链？
+你：ERC20
+AI：⚠️ 提币不可逆，请逐项核对：
+      币种  ETH
+      链    ERC20
+      数量  0.5
+      手续费 0.0012 ETH
+      到账  0.4988 ETH
+      地址  0x1234...................abcd（完整地址已展示）
+    地址和链是否确认无误？
+你：确认
+AI：请再次确认执行提币。
+```
+
+> **强烈建议 AI 交易场景不要开启 Withdraw 权限。** 需要提币时手动到 XT 网页/App 操作。见 [API Key 与安全](../Getting%20Started/ApiKeyAndSecurity)。
+
+---
+
+## 只读模式
+
+```bash
+export XT_TRADEKIT_READONLY=1
+```
+
+开启后划转与提币在 server 层被直接拒绝，不依赖对话层的确认流程。纯分析场景建议常开。

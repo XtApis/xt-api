@@ -1,0 +1,69 @@
+---
+id: NewsAndAnnouncements
+title: 新闻与公告
+sidebar_label: 新闻与公告
+sidebar_position: 4
+---
+
+# 新闻与公告
+
+由 `xt-news` skill 驱动。无需 API Key。
+
+---
+
+## 工具
+
+| 工具 | 用途 | 参数 |
+|------|------|------|
+| `xt_announcements` | XT.COM 官方公告：上新、下架、充提暂停/恢复、维护、活动 | `locale`, `limit` |
+| `xt_announcement_search` | 按关键词搜索官方公告 | `keyword`, `locale`, `limit` |
+| `market_news` | 聚合加密快讯，按时间倒序，可按关键词/币种过滤 | `keyword`, `lang`（`en`/`zh`）, `limit` |
+
+`locale` 支持 10 种语言：`en-us` / `zh-cn` / `zh-tw` / `ko-kr` / `ru` / `es` / `tr` / `vi` / `ar` / `fa`。
+
+---
+
+## 意图路由
+
+| 你问什么 | 助手用什么 |
+|---------|-----------|
+| 「最近有什么消息」 | `market_news` |
+| 「XT 最近上了什么新币」 | `xt_announcements` |
+| 「XX 币 XT 上了吗」 | `xt_announcement_search(keyword=XX)` |
+| 「XX 为什么涨/跌」 | `market_news(keyword=XX)` + `xt_announcement_search` + 行情/衍生品指标 |
+| 「XT 什么时候维护」 | `xt_announcement_search(keyword=维护)` |
+
+---
+
+## 涨跌归因
+
+最有价值的用法——把消息面和盘面对上：
+
+```
+你：SOL 今天为什么涨这么多
+
+AI：【价格】sol_usdt 24h +9.4%，成交额较昨日 +180%
+   【消息】
+     · 06:20 某 ETF 发行方提交 SOL 现货 ETF 修订文件（聚合快讯）
+     · 09:05 SOL 生态某协议 TVL 单日增长 40%（聚合快讯）
+   【XT 公告】无相关上新/维护公告
+   【盘面】未平仓量 24h +14%，资金费率由 0.008% 升至 0.031%，
+           近 12h 空头强平 2,400 万美元
+   【归因】ETF 消息触发的情绪驱动上涨，伴随空头集中平仓放大涨幅。
+           费率已明显偏高，追多成本上升。
+```
+
+---
+
+## 数据口径
+
+- XT 公告为**官方数据**
+- 快讯来自 **TradeKit 聚合公开信息源**，输出中可能保留媒体名称，不涉及其他交易所
+
+快讯存在延迟且可能包含未经证实的信息，请自行交叉验证。
+
+---
+
+## 免责声明
+
+以上为数据分析，不构成投资建议。

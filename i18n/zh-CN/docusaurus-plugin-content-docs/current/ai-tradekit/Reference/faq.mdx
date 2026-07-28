@@ -1,0 +1,106 @@
+---
+id: FAQ
+title: FAQ 与排障
+sidebar_label: FAQ 与排障
+sidebar_position: 2
+---
+
+# FAQ 与排障
+
+---
+
+## 安装
+
+**Q：助手说找不到 `xt-tradekit` 的工具**
+
+1. 重启 Claude Code 会话（MCP server 在会话启动时加载）
+2. `claude mcp list` 确认 `xt-tradekit` 已注册
+3. 若不在，重跑 `bash install.sh`，或直接对助手说「安装 XT TradeKit」
+
+**Q：`python3: command not found`**
+
+安装 Python 3.10+ 后重跑 `install.sh`。macOS 可用 `brew install python@3.12`。
+
+**Q：Windows 能用吗**
+
+建议在 WSL 中安装。原生 Windows 未做适配。
+
+**Q：怎么更新**
+
+```bash
+cd <repo> && git pull && bash install.sh
+```
+
+Skills 是软链，`git pull` 后立即生效；MCP server 需重启会话。
+
+---
+
+## 凭证
+
+**Q：提示未配置凭证**
+
+在**你自己的终端**运行 `bash setup-credentials.sh`。如果用环境变量，确认 `XT_ACCESS_KEY` / `XT_SECRET_KEY` 在启动 Claude Code 的那个 shell 里生效。
+
+**Q：从旧版 XT Exchange Plugin 迁移，要重新配 Key 吗**
+
+不用。TradeKit 兼容旧路径 `~/.xt-exchange/credentials.json`。
+
+**Q：我不小心把 Secret Key 粘进对话里了**
+
+立刻到 XT 后台**吊销并轮换该 Key**。然后用 `setup-credentials.sh` 重新配置。
+
+**Q：助手能看到我的密钥吗**
+
+不能。密钥只在 MCP server 进程内用于签名。助手只能调用 `xt_credentials_status`，拿到掩码后的状态。Skill 层明令禁止读取凭证文件。
+
+---
+
+## 交易
+
+**Q：下单报「权限不足」**
+
+到 XT「API 管理」确认：①已勾选 Trade 权限；②当前出口 IP 在白名单内（IP 变了要更新白名单）。
+
+**Q：下单报精度/最小下单额错误**
+
+助手正常会先查 `xt_spot_symbol_info` 校正。若仍失败，让它重新查询交易对规则再下。
+
+**Q：合约张数怎么算**
+
+张数 = 目标币数量 ÷ 每张面值（`contractSize`），按精度取整。助手会在确认环节同时展示币数量、张数、名义价值。**以你确认的张数为准。**
+
+**Q：所有写操作都被拒绝**
+
+检查是否开着只读模式：`echo $XT_TRADEKIT_READONLY`。为 `1` 时 server 层禁用一切写操作，`unset XT_TRADEKIT_READONLY` 后重启会话。
+
+**Q：能让 AI 全自动交易吗**
+
+不能，也不建议。所有写操作都强制要求你在对话中明确确认，这是设计上的硬约束。
+
+---
+
+## 数据
+
+**Q：聚合数据和 XT 行情对不上**
+
+两者口径不同：XT 行情是 XT 单家交易所的数据；未平仓量、多空比、强平等是**全市场聚合公开数据**，存在延迟。不要用于精确计算或套利决策。
+
+**Q：代币安全检查通过就安全吗**
+
+不。检查基于链上公开数据的自动扫描，能识别蜜罐、高税、增发权限等常见陷阱，但**不能保证项目方不会 rug**。小市值代币风险始终极高。
+
+---
+
+## 卸载
+
+```bash
+claude mcp remove --scope user xt-tradekit
+rm -f ~/.claude/skills/xt-*
+rm -rf ~/.xt-tradekit          # 同时删除本地凭证
+```
+
+---
+
+## 反馈
+
+问题与建议：[github.com/XtApis/AItradekit/issues](https://github.com/XtApis/AItradekit/issues)

@@ -359,12 +359,20 @@
     "message": "删除子账户 API Key",
     "description": "The label for doc Delete Sub-Account API Key in sidebar broker"
   },
-  "sidebar.claude-code-plugin.category.Getting Started": {
+  "sidebar.ai-tradekit.category.Getting Started": {
     "message": "快速开始",
-    "description": "The label for category 'Getting Started' in sidebar 'claude-code-plugin'"
+    "description": "The label for category 'Getting Started' in sidebar 'ai-tradekit'"
   },
-  "sidebar.claude-code-plugin.category.Trading": {
+  "sidebar.ai-tradekit.category.Trading": {
     "message": "交易",
-    "description": "The label for category 'Trading' in sidebar 'claude-code-plugin'"
+    "description": "The label for category 'Trading' in sidebar 'ai-tradekit'"
+  },
+  "sidebar.ai-tradekit.category.Market Research": {
+    "message": "行情与研究",
+    "description": "The label for category 'Market Research' in sidebar 'ai-tradekit'"
+  },
+  "sidebar.ai-tradekit.category.Reference": {
+    "message": "参考",
+    "description": "The label for category 'Reference' in sidebar 'ai-tradekit'"
   }
 }

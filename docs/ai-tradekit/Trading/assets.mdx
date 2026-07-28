@@ -1,0 +1,98 @@
+---
+id: AssetManagement
+title: Asset Management
+sidebar_label: Asset Management
+sidebar_position: 3
+---
+
+# Asset Management
+
+Powered by the `xt-assets` skill, covering balance queries, transfers between accounts, withdrawals, and deposit/withdrawal chain lookup.
+
+---
+
+## What You Can Do
+
+| Scenario | Tool | Permission |
+|----------|------|------------|
+| Spot balances with USDT valuation | `xt_spot_balances` | Read |
+| Futures account equity | `xt_futures_account` | Read |
+| Transfer between accounts | `xt_asset_transfer` | **Transfer** |
+| Withdrawal | `xt_withdraw` | **Withdraw** (not recommended) |
+| Chains, fees, minimum withdrawal amount | `xt_currency_chains` | None |
+
+---
+
+## Transfers Between Accounts
+
+```
+xt_asset_transfer(from_account, to_account, currency, amount)
+```
+
+Supported account types:
+
+| Value | Meaning |
+|-------|---------|
+| `SPOT` | Spot account |
+| `LEVER` | Margin account |
+| `FUTURES_U` | USDT-M futures account |
+| `FUTURES_C` | Coin-M futures account |
+| `FINANCE` | Earn account |
+
+```
+You: Transfer 500 USDT from spot to USDT-M futures
+AI:  Confirm transfer:
+       From      SPOT
+       To        FUTURES_U
+       Currency  USDT
+       Amount    500
+     Execute?
+```
+
+Requires the **Transfer** permission on your API Key. Enable it only when you genuinely need transfers.
+
+---
+
+## Withdrawals
+
+⚠️ **Withdrawals are irreversible. There is no recovery if the address or chain is wrong.**
+
+```
+xt_withdraw(currency, chain, amount, address)
+```
+
+Process constraints:
+
+1. The assistant first calls `xt_currency_chains` to look up supported chains, fees, and minimum withdrawal amount for the currency
+2. It shows the **currency, chain, amount, fee, amount received, and full address**
+3. It states clearly that the action is irreversible
+4. It **requires a second confirmation** — you must explicitly agree twice before execution
+
+```
+You: Withdraw 0.5 ETH to 0x1234...abcd
+AI:  Chains supported for ETH: ERC20 (fee 0.0012 ETH, min 0.01), ARB (fee 0.0001 ETH)…
+     Which chain should I use?
+You: ERC20
+AI:  ⚠️ Withdrawals are irreversible. Please verify each line:
+       Currency  ETH
+       Chain     ERC20
+       Amount    0.5
+       Fee       0.0012 ETH
+       Received  0.4988 ETH
+       Address   0x1234...................abcd (full address shown)
+     Are the address and chain correct?
+You: Confirm
+AI:  Please confirm execution of the withdrawal once more.
+```
+
+> **Strongly consider leaving the Withdraw permission disabled in AI trading setups.** Withdraw manually through the XT website or app when needed. See [API Key & Security](../Getting%20Started/ApiKeyAndSecurity).
+
+---
+
+## Read-Only Mode
+
+```bash
+export XT_TRADEKIT_READONLY=1
+```
+
+Once enabled, transfers and withdrawals are rejected at the server layer rather than relying on the conversational confirmation flow. Keeping it on is recommended for analysis-only use.
