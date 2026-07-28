@@ -1,0 +1,33 @@
+---
+id: QueryUserBalance
+title: Query User Balance
+sidebar_label: Query User Balance
+sidebar_position: 7
+---
+
+**Type:** GET
+
+**Description:** `/v4/referal/invite/user/balance`
+
+### Parameters
+
+| Name | Type   | Mandatory | Default | Description | Ranges |
+| ---- | ------ | --------- | ------- | ----------- | ------ |
+| uid  | number | true      |         | User ID     |        |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "userId": 123456789,
+    "role": "PARTNER",
+    "balance": 123456
+  }
+}
+```

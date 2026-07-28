@@ -1,0 +1,38 @@
+---
+id: QueryUserInformation
+title: Query User Information
+sidebar_label: Query User Information
+sidebar_position: 4
+---
+
+**Type:** GET
+
+**Description:** `/v4/referal/invite/single/user/info`
+
+### Parameters
+
+| Name | Type   | Mandatory | Default | Description |
+| ---- | ------ | --------- | ------- | ----------- |
+| uid  | number | true      |         | User ID     |
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "uid": 123456789,
+    "registerTime": 1737095389000,
+    "countryCode": "86",
+    "mobile": "123****4567",
+    "email": "639***3@gmail.com",
+    "riskControlStatus": 0,
+    "kycStatus": 2,
+    "registerInviteCode": 23456
+  }
+}
+```

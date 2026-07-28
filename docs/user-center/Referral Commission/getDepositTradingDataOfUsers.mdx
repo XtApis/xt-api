@@ -1,0 +1,41 @@
+---
+id: GetDepositTradingDataOfUsers
+title: Get Deposit & Trading Data Of Users
+sidebar_label: Get Deposit & Trading Data Of Users
+sidebar_position: 2
+---
+
+**Type:** GET **Description:** `/v4/referal/invite/user/data`
+
+### Parameters
+
+| Name      | Type   | Mandatory | Default | Description     | Ranges |
+| --------- | ------ | --------- | ------- | --------------- | ------ |
+| startTime | number | false     |         | Start time      |        |
+| endTime   | number | false     |         | End time        |        |
+| uid       | number | true      |         | Queried user ID |        |
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "userId": 123456789,
+    "role": "PARTNER",
+    "deposit": true,
+    "depositDetails": [
+      {
+        "amount": 100,
+        "amountU": 100,
+        "currency": "USDT",
+        "timestamp": 1721962593000
+      }
+    ],
+    "trade": true,
+    "tradeAmount": 1000.1234
+  }
+}
+```

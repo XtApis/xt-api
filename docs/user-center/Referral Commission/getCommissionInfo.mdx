@@ -1,0 +1,66 @@
+---
+id: QueryAgentCommissionData
+title: Query Agent Commission Data
+sidebar_label: Query Agent Commission Data
+sidebar_position: 7
+---
+
+**Type:** GET
+
+**Description:** `/v4/referal/invite/agent/rebate/data`
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| startTime | number | false |  | Commission deposit start time |  |
+| endTime | number | false |  | Commission deposit end time |  |
+| inviteCode | string | false |  | Registration invitation code |  |
+| type | number | true |  | Commission type | 1-spot, 2-future |
+| fromId | number | false |  | Starting ID |  |
+| direction | string | false | NEXT | Query direction | PREV, NEXT |
+| limit | int | false | 10 | Limit number, max 100 | `1 <= limit <= 100` |
+
+---
+
+#### **Remark**
+
+Only supports querying data for the past three months.
+
+---
+
+### Response Example
+
+```json title="Response"
+{
+  "ma": [],
+  "mc": "SUCCESS",
+  "rc": 0,
+  "result": {
+    "totalCount": 1,
+    "pageCount": 20,
+    "items": [
+      {
+        "id": 1,
+        "uid": 123,
+        "spotRebateRate": 0.1,
+        "futuresRebateRate": 0.2,
+        "amountCurrency": 666,
+        "commission": 23,
+        "currency": "usdt",
+        "date": "2025-01-22T09:57:01.601Z",
+        "makerAmount": 32,
+        "rate": 2,
+        "sourceType": 1,
+        "state": 1,
+        "symbol": "btc_usdt",
+        "takerAmount": 23,
+        "totalCommissionUsdtAmount": 123,
+        "totalTradeUsdtAmount": 2222,
+        "type": 1,
+        "usdtAmount": 243253
+      }
+    ]
+  }
+}
+```
