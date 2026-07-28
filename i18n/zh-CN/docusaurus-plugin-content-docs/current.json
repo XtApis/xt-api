@@ -127,9 +127,9 @@
     "message": "用户 WebSocket",
     "description": "The label for category 'UserWebsocket' in sidebar 'futures'"
   },
-  "sidebar.futures.category.WebsocketV2": {
+  "sidebar.futures.category.WebsocKetV2": {
     "message": "WebSocket V2 接口",
-    "description": "The label for category WebsocketV2 in sidebar futures"
+    "description": "The label for category WebsocKetV2 in sidebar futures"
   },
   "sidebar.margin-spot.category.Access Description": {
     "message": "访问说明",
@@ -298,10 +298,6 @@
   "sidebar.earn.category.Auto Earn.category.ReInvest": {
     "message": "复投设置接口详情",
     "description": "The label for nested category ReInvest under Auto Earn in sidebar earn"
-  },
-  "sidebar.futures.category.WebsocKetV2": {
-    "message": "WebsocKetV2",
-    "description": "The label for category 'WebsocKetV2' in sidebar 'futures'"
   },
   "sidebar.user-center.category.WebSocket Notice": {
     "message": "WebSocket Notice",
