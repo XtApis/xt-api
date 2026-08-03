@@ -5,8 +5,6 @@ sidebar_label: 查询子账户划转记录
 sidebar_position: 8
 ---
 
-**生产地址:** `https://sapi.xt.com`
-
 **类型:** GET
 
 **描述:** `/v4/user/account/broker-sub/transfer-records`
@@ -29,7 +27,7 @@ sidebar_position: 8
 ### 请求示例
 
 ```bash
-curl -X GET 'https://sapi.xt.com/v4/user/account/broker-sub/transfer-records?subAccountId=2354789012345&limit=20' \
+curl -X GET '{baseUrl}/v4/user/account/broker-sub/transfer-records?subAccountId=2354789012345&limit=20' \
   -H 'validate-algorithms: HmacSHA256' \
   -H 'validate-appkey: {accessKey}' \
   -H 'validate-recvwindow: 60000' \

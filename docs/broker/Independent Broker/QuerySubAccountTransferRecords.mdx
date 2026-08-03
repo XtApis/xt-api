@@ -5,8 +5,6 @@ sidebar_label: Query Sub-Account Transfer Records
 sidebar_position: 8
 ---
 
-**Production Endpoint:** `https://sapi.xt.com`
-
 **Type:** GET
 
 **Description:** `/v4/user/account/broker-sub/transfer-records`
@@ -29,7 +27,7 @@ Records are returned in descending transfer id order. `direction` is `in` for tr
 ### Request Example
 
 ```bash
-curl -X GET 'https://sapi.xt.com/v4/user/account/broker-sub/transfer-records?subAccountId=2354789012345&limit=20' \
+curl -X GET '{baseUrl}/v4/user/account/broker-sub/transfer-records?subAccountId=2354789012345&limit=20' \
   -H 'validate-algorithms: HmacSHA256' \
   -H 'validate-appkey: {accessKey}' \
   -H 'validate-recvwindow: 60000' \

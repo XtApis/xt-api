@@ -9,6 +9,8 @@ Independent broker sub-accounts use the same account, asset, spot trading, and f
 
 The only difference is the **statistics and commission attribution logic** used for the independent broker business. There are no other functional differences.
 
+For the endpoint and authentication rules used by the sub-account management APIs in this section, refer to [Basic Information](/docs/broker/Access%20Description/BasicInformation).
+
 ## Trading APIs
 
 For spot and futures trading, use the standard sub-account API documentation:
@@ -16,14 +18,19 @@ For spot and futures trading, use the standard sub-account API documentation:
 - [Spot Trading API](/docs/spot/Access%20Description/BasicInformationOfTheInterface)
 - [Futures Trading API](/docs/futures/Access%20Description/BasicInformationOfTheInterface)
 
+:::note
+Base URLs may differ between product sections. Before calling an API, check the Basic Information page in the corresponding section and use the Base URL documented there.
+:::
+
+## Deposit and Withdrawal History
+
+Independent broker sub-accounts use the standard spot account history APIs. Refer to the existing documentation:
+
+- [Withdrawal History](/docs/spot/Deposit&Withdrawal/WithdrawHistory)
+- [Deposit History](/docs/spot/Deposit&Withdrawal/GetDepositHistory)
+
+For both endpoints, `currency` and `chain` are optional.
+
 ## Sub-Account Limit
 
 An independent broker master account supports up to **5,000 sub-accounts**.
-
-## Production Endpoint
-
-```text
-https://sapi.xt.com
-```
-
-Only the production endpoint is documented in this section.

@@ -219,13 +219,13 @@ PRODUCTS_CONFIG = [
         "sidebar_id": "broker",
         "categories": [
             ("Access Description", "访问说明"),
-            ("API List", "接口列表"),
+            ("API Broker", "API 经纪商"),
             ("Independent Broker", "独立经纪商"),
         ],
         "navbar_subcategories": [
             ("Access Description", "访问说明"),
             ("Access Description APIs", "访问说明 API"),
-            ("API List", "接口列表"),
+            ("API Broker", "API 经纪商"),
             ("Independent Broker", "独立经纪商"),
             ("Independent Broker APIs", "独立经纪商 API"),
         ],

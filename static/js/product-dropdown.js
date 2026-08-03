@@ -405,8 +405,8 @@ onReady(() => {
           href: '/docs/broker/Access Description/BasicInformation',
         },
         {
-          title: 'API List',
-          description: 'API List',
+          title: 'API Broker',
+          description: 'API Broker',
           href: '/docs/broker/Binding/BindUserAccount',
         },
         {
@@ -1064,8 +1064,8 @@ window.showCategory = function showCategory(category) {
           href: '/docs/broker/Access Description/BasicInformation',
         },
         {
-          title: 'API List',
-          description: 'API List',
+          title: 'API Broker',
+          description: 'API Broker',
           href: '/docs/broker/Binding/BindUserAccount',
         },
         {

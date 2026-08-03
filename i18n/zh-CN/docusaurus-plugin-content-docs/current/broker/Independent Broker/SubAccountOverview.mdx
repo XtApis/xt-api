@@ -9,6 +9,8 @@ sidebar_position: 1
 
 两者的唯一区别是独立经纪商业务使用不同的**统计与返佣归属逻辑**，除此之外没有其他功能差异。
 
+本栏目子账户管理接口使用的域名和鉴权规则，请统一参考 [基础信息](/zh-CN/docs/broker/Access%20Description/BasicInformation)。
+
 ## 交易 API
 
 现货和合约交易可直接使用普通子账户 API 文档：
@@ -16,14 +18,19 @@ sidebar_position: 1
 - [现货交易 API](/zh-CN/docs/spot/Access%20Description/BasicInformationOfTheInterface)
 - [合约交易 API](/zh-CN/docs/futures/Access%20Description/BasicInformationOfTheInterface)
 
+:::note
+不同业务板块的 Base URL 可能不同。调用接口前，请查看对应板块的“基础信息”文档，并以该板块标注的 Base URL 为准。
+:::
+
+## 充提币历史
+
+独立经纪商子账户统一使用现货账户的充提币历史接口，请参考现有文档：
+
+- [提现历史](/zh-CN/docs/spot/Deposit&Withdrawal/WithdrawHistory)
+- [充值历史](/zh-CN/docs/spot/Deposit&Withdrawal/GetDepositHistory)
+
+这两个接口的 `currency` 和 `chain` 均为非必填参数。
+
 ## 子账户数量上限
 
 一个独立经纪商母账户最高支持 **5,000 个子账户**。
-
-## 生产环境地址
-
-```text
-https://sapi.xt.com
-```
-
-本栏目仅提供生产环境接口地址。

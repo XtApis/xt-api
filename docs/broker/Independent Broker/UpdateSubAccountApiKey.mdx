@@ -5,8 +5,6 @@ sidebar_label: Update Sub-Account API Key
 sidebar_position: 5
 ---
 
-**Production Endpoint:** `https://sapi.xt.com`
-
 **Type:** POST
 
 **Description:** `/v4/user/account/api-key/broker-sub/update`
@@ -27,7 +25,7 @@ The three optional fields are independent; only supplied fields are updated. The
 ### Request Example
 
 ```bash
-curl -X POST 'https://sapi.xt.com/v4/user/account/api-key/broker-sub/update' \
+curl -X POST '{baseUrl}/v4/user/account/api-key/broker-sub/update' \
   -H 'validate-algorithms: HmacSHA256' \
   -H 'validate-appkey: {accessKey}' \
   -H 'validate-recvwindow: 60000' \

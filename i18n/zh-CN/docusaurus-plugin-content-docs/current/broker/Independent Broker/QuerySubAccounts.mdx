@@ -5,8 +5,6 @@ sidebar_label: 查询子账户列表
 sidebar_position: 7
 ---
 
-**生产地址:** `https://sapi.xt.com`
-
 **类型:** GET
 
 **描述:** `/v4/user/account`
@@ -26,7 +24,7 @@ sidebar_position: 7
 ### 请求示例
 
 ```bash
-curl -X GET 'https://sapi.xt.com/v4/user/account?level=2' \
+curl -X GET '{baseUrl}/v4/user/account?level=2' \
   -H 'validate-algorithms: HmacSHA256' \
   -H 'validate-appkey: {accessKey}' \
   -H 'validate-recvwindow: 60000' \
