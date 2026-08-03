@@ -1,0 +1,57 @@
+---
+id: UpdateSubAccountApiKey
+title: 修改子账户 API Key
+sidebar_label: 修改子账户 API Key
+sidebar_position: 5
+---
+
+**生产地址:** `https://sapi.xt.com`
+
+**类型:** POST
+
+**描述:** `/v4/user/account/api-key/broker-sub/update`
+
+使用**经纪商母账户**的 API Key 签名调用，修改经纪商名下子账户的 API Key。
+
+### 参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| accessKey | string | 是 | - | 待修改的 access key | 经纪商名下子账户的 access key |
+| permissions | string[] | 否 | - | 权限码列表；不传则不修改 | QUERY、TRADE、TRANSFER、FUTURE；不允许 WITHDRAW |
+| bindIps | string[] | 否 | - | IP 白名单；不传则不修改，空数组表示清空 | IPv4 地址 |
+| status | string | 否 | - | 状态；不传则不修改 | `active`、`disabled` |
+
+三个可选字段相互独立，仅更新请求中传入的字段。POST 请求体必须与参与签名的原始 JSON 字节完全一致。
+
+### 请求示例
+
+```bash
+curl -X POST 'https://sapi.xt.com/v4/user/account/api-key/broker-sub/update' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}' \
+  -H 'Content-Type: application/json' \
+  -d '{"accessKey":"92e8bab4-a957-4cad-bc77-629e2dc4ca8e","status":"active","permissions":["QUERY"],"bindIps":[]}'
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "subAccountId": 2354789012345,
+    "accessKey": "92e8****ca8e",
+    "permissions": ["QUERY"],
+    "bindIps": [],
+    "status": "active",
+    "createTime": 1784639157333
+  },
+  "success": true
+}
+```

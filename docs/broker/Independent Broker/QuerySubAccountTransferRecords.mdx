@@ -1,0 +1,66 @@
+---
+id: QuerySubAccountTransferRecords
+title: Query All Sub-Account Transfer Records
+sidebar_label: Query Sub-Account Transfer Records
+sidebar_position: 8
+---
+
+**Production Endpoint:** `https://sapi.xt.com`
+
+**Type:** GET
+
+**Description:** `/v4/user/account/broker-sub/transfer-records`
+
+Queries transfer records for one or all sub-accounts belonging to the broker. Sign the request with the **broker master account's** API Key.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| subAccountId | long | false | - | Sub-account id; omit to query all sub-accounts | Sub-account belonging to the broker |
+| currencyId | long | false | - | Currency id | Valid currency id |
+| startTime | long | false | - | Start time | Millisecond timestamp |
+| endTime | long | false | - | End time | Millisecond timestamp |
+| cursor | long | false | - | `nextCursor` returned by the previous page; omit for the first page | - |
+| limit | int | false | 20 | Items per page | 1-100 |
+
+Records are returned in descending transfer id order. `direction` is `in` for transfers into a sub-account and `out` for transfers out. `billType` 17 means transfer in and 18 means transfer out.
+
+### Request Example
+
+```bash
+curl -X GET 'https://sapi.xt.com/v4/user/account/broker-sub/transfer-records?subAccountId=2354789012345&limit=20' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "items": [
+      {
+        "id": 88761234500,
+        "subAccountId": 2354789012345,
+        "accountId": 2354700000001,
+        "toAccountId": 2354789012345,
+        "billType": 17,
+        "currencyId": 11,
+        "amount": "100.00000000",
+        "direction": "in",
+        "createTime": 1784639157333
+      }
+    ],
+    "hasNext": false,
+    "nextCursor": null
+  },
+  "success": true
+}
+```

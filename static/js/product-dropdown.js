@@ -412,7 +412,7 @@ onReady(() => {
         {
           title: 'Independent Broker',
           description: 'Independent Broker APIs',
-          href: '/docs/broker/Independent Broker/CreateBrokerSubAccount',
+          href: '/docs/broker/Independent Broker/SubAccountOverview',
         },
       ],
     },
@@ -1071,7 +1071,7 @@ window.showCategory = function showCategory(category) {
         {
           title: 'Independent Broker',
           description: 'Independent Broker APIs',
-          href: '/docs/broker/Independent Broker/CreateBrokerSubAccount',
+          href: '/docs/broker/Independent Broker/SubAccountOverview',
         },
       ],
     },

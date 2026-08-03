@@ -1,0 +1,59 @@
+---
+id: QuerySubAccounts
+title: 查询子账户列表
+sidebar_label: 查询子账户列表
+sidebar_position: 7
+---
+
+**生产地址:** `https://sapi.xt.com`
+
+**类型:** GET
+
+**描述:** `/v4/user/account`
+
+仅支持使用**经纪商母账户**的 API Key 签名调用，返回当前经纪商名下的账户列表。
+
+### 参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| accountId | long | 否 | - | 按账户 id 精确过滤 | 经纪商名下账户 id |
+| accountName | string | 否 | - | 按账户名精确过滤 | - |
+| level | string | 否 | - | 按账户层级过滤 | 1=母账户，2=子账户 |
+
+返回结果为数组，不分页。查询子账户时传入 `level=2`。
+
+### 请求示例
+
+```bash
+curl -X GET 'https://sapi.xt.com/v4/user/account?level=2' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "id": "2354789012345",
+      "longId": 2354789012345,
+      "accountName": "broker0001",
+      "userId": 10046,
+      "level": 2,
+      "type": 2,
+      "parentAccountId": 2354700000001,
+      "createTimeMs": 1784088472976,
+      "updateTimeMs": 1784088472976
+    }
+  ],
+  "success": true
+}
+```

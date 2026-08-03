@@ -1,0 +1,59 @@
+---
+id: QuerySubAccounts
+title: Query Sub-Accounts
+sidebar_label: Query Sub-Accounts
+sidebar_position: 7
+---
+
+**Production Endpoint:** `https://sapi.xt.com`
+
+**Type:** GET
+
+**Description:** `/v4/user/account`
+
+Returns the accounts belonging to the current broker. Only the **broker master account's** API Key can call this endpoint.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| accountId | long | false | - | Exact account id filter | Account id belonging to the broker |
+| accountName | string | false | - | Exact account name filter | - |
+| level | string | false | - | Account level filter | 1=master account, 2=sub-account |
+
+The response is an unpaginated array. Use `level=2` to query sub-accounts.
+
+### Request Example
+
+```bash
+curl -X GET 'https://sapi.xt.com/v4/user/account?level=2' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": [
+    {
+      "id": "2354789012345",
+      "longId": 2354789012345,
+      "accountName": "broker0001",
+      "userId": 10046,
+      "level": 2,
+      "type": 2,
+      "parentAccountId": 2354700000001,
+      "createTimeMs": 1784088472976,
+      "updateTimeMs": 1784088472976
+    }
+  ],
+  "success": true
+}
+```

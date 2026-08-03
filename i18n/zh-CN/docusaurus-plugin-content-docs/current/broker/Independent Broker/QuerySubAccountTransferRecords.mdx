@@ -1,0 +1,66 @@
+---
+id: QuerySubAccountTransferRecords
+title: 查询所有子账户划转记录
+sidebar_label: 查询子账户划转记录
+sidebar_position: 8
+---
+
+**生产地址:** `https://sapi.xt.com`
+
+**类型:** GET
+
+**描述:** `/v4/user/account/broker-sub/transfer-records`
+
+使用**经纪商母账户**的 API Key 签名调用，查询经纪商名下一个或全部子账户的划转记录。
+
+### 参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| subAccountId | long | 否 | - | 子账户 id；不传则查询全部子账户 | 经纪商名下子账户 |
+| currencyId | long | 否 | - | 币种 id | 有效币种 id |
+| startTime | long | 否 | - | 开始时间 | 毫秒时间戳 |
+| endTime | long | 否 | - | 结束时间 | 毫秒时间戳 |
+| cursor | long | 否 | - | 上一页返回的 `nextCursor`，首页不传 | - |
+| limit | int | 否 | 20 | 每页条数 | 1-100 |
+
+记录按划转流水号 id 倒序返回。`direction` 中 `in` 表示转入子账户，`out` 表示从子账户转出；`billType` 中 17 表示转入，18 表示转出。
+
+### 请求示例
+
+```bash
+curl -X GET 'https://sapi.xt.com/v4/user/account/broker-sub/transfer-records?subAccountId=2354789012345&limit=20' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "items": [
+      {
+        "id": 88761234500,
+        "subAccountId": 2354789012345,
+        "accountId": 2354700000001,
+        "toAccountId": 2354789012345,
+        "billType": 17,
+        "currencyId": 11,
+        "amount": "100.00000000",
+        "direction": "in",
+        "createTime": 1784639157333
+      }
+    ],
+    "hasNext": false,
+    "nextCursor": null
+  },
+  "success": true
+}
+```

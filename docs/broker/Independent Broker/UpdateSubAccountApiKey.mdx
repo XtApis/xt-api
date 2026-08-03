@@ -1,0 +1,57 @@
+---
+id: UpdateSubAccountApiKey
+title: Update Sub-Account API Key
+sidebar_label: Update Sub-Account API Key
+sidebar_position: 5
+---
+
+**Production Endpoint:** `https://sapi.xt.com`
+
+**Type:** POST
+
+**Description:** `/v4/user/account/api-key/broker-sub/update`
+
+Updates an API Key belonging to the broker's sub-account. Sign the request with the **broker master account's** API Key.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| accessKey | string | true | - | Access key to update | Access key of the broker's sub-account |
+| permissions | string[] | false | - | Permission codes; omitted means unchanged | QUERY, TRADE, TRANSFER, FUTURE; WITHDRAW is not allowed |
+| bindIps | string[] | false | - | IP allowlist; omitted means unchanged, an empty array clears it | IPv4 addresses |
+| status | string | false | - | Status; omitted means unchanged | `active`, `disabled` |
+
+The three optional fields are independent; only supplied fields are updated. The POST body bytes must exactly match the raw JSON used to calculate the signature.
+
+### Request Example
+
+```bash
+curl -X POST 'https://sapi.xt.com/v4/user/account/api-key/broker-sub/update' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}' \
+  -H 'Content-Type: application/json' \
+  -d '{"accessKey":"92e8bab4-a957-4cad-bc77-629e2dc4ca8e","status":"active","permissions":["QUERY"],"bindIps":[]}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "subAccountId": 2354789012345,
+    "accessKey": "92e8****ca8e",
+    "permissions": ["QUERY"],
+    "bindIps": [],
+    "status": "active",
+    "createTime": 1784639157333
+  },
+  "success": true
+}
+```

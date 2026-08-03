@@ -339,6 +339,10 @@
     "message": "独立经纪商",
     "description": "The label for category 'Independent Broker' in sidebar 'broker'"
   },
+  "sidebar.broker.doc.Independent Broker Sub-Account Overview": {
+    "message": "独立经纪商子账户说明",
+    "description": "The label for doc Independent Broker Sub-Account Overview in sidebar broker"
+  },
   "sidebar.broker.doc.Create Broker Sub-Account": {
     "message": "创建经纪商子账户",
     "description": "The label for doc Create Broker Sub-Account in sidebar broker"
@@ -351,9 +355,29 @@
     "message": "查询子账户 API Key",
     "description": "The label for doc Query Sub-Account API Keys in sidebar broker"
   },
+  "sidebar.broker.doc.Update Sub-Account API Key": {
+    "message": "修改子账户 API Key",
+    "description": "The label for doc Update Sub-Account API Key in sidebar broker"
+  },
   "sidebar.broker.doc.Delete Sub-Account API Key": {
     "message": "删除子账户 API Key",
     "description": "The label for doc Delete Sub-Account API Key in sidebar broker"
+  },
+  "sidebar.broker.doc.Query Sub-Accounts": {
+    "message": "查询子账户列表",
+    "description": "The label for doc Query Sub-Accounts in sidebar broker"
+  },
+  "sidebar.broker.doc.Query All Sub-Account Transfer Records": {
+    "message": "查询子账户划转记录",
+    "description": "The label for doc Query All Sub-Account Transfer Records in sidebar broker"
+  },
+  "sidebar.broker.doc.Query Withdrawal History": {
+    "message": "查询提现历史",
+    "description": "The label for doc Query Withdrawal History in sidebar broker"
+  },
+  "sidebar.broker.doc.Query Deposit History": {
+    "message": "查询充值历史",
+    "description": "The label for doc Query Deposit History in sidebar broker"
   },
   "sidebar.ai-tradekit.category.Getting Started": {
     "message": "快速开始",

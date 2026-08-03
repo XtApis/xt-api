@@ -11,8 +11,8 @@ sidebar_position: 3
 
 | name | type | mandatory | default | description | ranges |
 | --- | --- | --- | --- | --- | --- |
-| currency | string | true | N/A | Currency name, from **Get supported currencies for deposit/withdrawal** API |  |
-| chain | string | true | N/A | Transfer network, from **Get supported currencies for deposit/withdrawal** API |  |
+| currency | string | false | N/A | Currency name, from **Get supported currencies for deposit/withdrawal** API |  |
+| chain | string | false | N/A | Transfer network, from **Get supported currencies for deposit/withdrawal** API |  |
 | status | string | false | N/A | Deposit status | SUBMIT, REVIEW, AUDITED, PENDING, SUCCESS, FAIL, CANCEL |
 | fromId | long | false | N/A | Start ID (e.g. `6216559590087220004`) |  |
 | direction | string | false | NEXT | Query direction | PREV, NEXT |

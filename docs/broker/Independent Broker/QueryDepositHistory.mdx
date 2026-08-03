@@ -1,0 +1,70 @@
+---
+id: QueryDepositHistory
+title: Query Deposit History
+sidebar_label: Query Deposit History
+sidebar_position: 10
+---
+
+**Production Endpoint:** `https://sapi.xt.com`
+
+**Type:** GET
+
+**Description:** `/v4/deposit/history`
+
+Sign the request with the **sub-account's own API Key**. The `QUERY` permission is sufficient.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| currency | string | false | - | Currency name | - |
+| chain | string | false | - | Transfer network | - |
+| status | string | false | - | Deposit status | SUBMIT, REVIEW, AUDITED, PENDING, SUCCESS, FAIL, CANCEL |
+| fromId | long | false | - | Starting record id | - |
+| direction | string | false | NEXT | Query direction | NEXT, PREV |
+| limit | int | false | 10 | Number of records | 1-200 |
+| startTime | long | false | - | Query start time | Millisecond timestamp |
+| endTime | long | false | - | Query end time | Millisecond timestamp |
+
+Some currencies require a memo/tag when depositing.
+
+### Request Example
+
+```bash
+curl -X GET 'https://sapi.xt.com/v4/deposit/history?currency=usdt&chain=Ethereum&limit=100' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {subAccountAccessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": true,
+    "hasNext": true,
+    "items": [
+      {
+        "id": 169669597,
+        "currency": "xlm2",
+        "chain": "XLM",
+        "memo": "441824256",
+        "status": "SUCCESS",
+        "amount": "0.1",
+        "confirmations": 12,
+        "transactionId": "28dd15b5c119e00886517f129e5e1f8283f0286b277bcd3cd1f95f7fd4a1f7fc",
+        "address": "GBY6UIYEYLAAXRQXVO7X5I4BSSCS54EAHTUILXWMW6ONPM3PNEA3LWEC",
+        "fromAddr": "GBTISB3JK65DG6LEEYYFW33RMMDHBQ65AEUPE5VDBTCLYYFS533FTG6Q",
+        "createdTime": 1667260957000
+      }
+    ]
+  },
+  "success": true
+}
+```
