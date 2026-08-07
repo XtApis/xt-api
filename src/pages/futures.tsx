@@ -9,7 +9,7 @@ import Translate from '@docusaurus/Translate';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-export default function Futures(): JSX.Element {
+export default function Futures(): React.JSX.Element {
   return (
     <Layout
       title="Futures Trading"

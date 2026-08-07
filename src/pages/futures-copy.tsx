@@ -9,7 +9,7 @@ import Translate from '@docusaurus/Translate';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-export default function FuturesCopy(): JSX.Element {
+export default function FuturesCopy(): React.JSX.Element {
   return (
     <Layout
       title="Futures Copy Trading"

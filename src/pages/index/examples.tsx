@@ -9,7 +9,7 @@ import Translate from '@docusaurus/Translate';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-export default function Examples(): JSX.Element {
+export default function Examples(): React.JSX.Element {
   return (
     <Layout
       title="Code Examples"

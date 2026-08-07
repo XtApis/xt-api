@@ -9,7 +9,7 @@ import Translate from '@docusaurus/Translate';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-export default function FAQ(): JSX.Element {
+export default function FAQ(): React.JSX.Element {
   return (
     <Layout title="FAQ" description="Frequently asked questions about XT API">
       <main className="container margin-vert--lg">

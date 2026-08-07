@@ -9,7 +9,7 @@ import Translate from '@docusaurus/Translate';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-export default function UserCenter(): JSX.Element {
+export default function UserCenter(): React.JSX.Element {
   return (
     <Layout title="User Center" description="XT API User Center Documentation">
       <main className="container margin-vert--lg">

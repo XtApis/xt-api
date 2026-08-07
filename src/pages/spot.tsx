@@ -9,7 +9,7 @@ import Translate from '@docusaurus/Translate';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-export default function Spot(): JSX.Element {
+export default function Spot(): React.JSX.Element {
   return (
     <Layout
       title="Spot Trading"
