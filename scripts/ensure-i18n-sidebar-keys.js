@@ -109,8 +109,8 @@ function main() {
   const root = path.join(process.cwd(), 'i18n', 'zh-CN', 'docusaurus-plugin-content-docs', 'current');
   const files = findSidebarFiles(root);
   if (files.length === 0) {
-    console.error('No sidebar.ts files found under', root);
-    process.exit(1);
+    console.log('No sidebar.ts files found under', root, '- skipping.');
+    return;
   }
   let any = false;
   for (const f of files) {
