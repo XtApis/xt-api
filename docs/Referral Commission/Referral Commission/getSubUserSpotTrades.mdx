@@ -1,0 +1,107 @@
+---
+id: QuerySubUserSpotTrades
+title: Query Sub-user Spot Trades
+sidebar_label: Query Sub-user Spot Trades
+sidebar_position: 11
+---
+
+**Type:** GET
+
+**Description:** `/v4/referal/invite/user/spot-trades`
+
+Channels / partners can query fill-by-fill spot trade details of their sub-users, including trade volume and the commission generated for the caller.
+
+All requests require API key signature. See [Signature Generation](/docs/Referral%20Commission/Access%20Description/SignatureGeneration).
+
+- The caller must be a channel / partner (CHANNEL / PARTNER).
+- If `startTime` / `endTime` are omitted, the last 7 days are queried. The interval between them can be at most 90 days.
+- Cursor paging: pass the `fillId` of the last record on the previous page as `fromId`, and set `direction` to choose the paging direction. Use `hasNext` / `hasPrev` to check whether more data exists.
+- `fillId`, `orderId`, `ts`, `volume`, `fee`, `rebateAmount` and similar fields are returned as strings to avoid precision loss.
+
+### Request Parameters
+
+| Name | Type | Required | Default | Description | Value Range |
+| --- | --- | --- | --- | --- | --- |
+| uid | long | No | - | Sub-user UID. If omitted, trades of all your sub-users are returned | Must be a sub-user under the caller |
+| symbol | string | No | - | Trading pair. If omitted, all pairs are returned. Case-insensitive | e.g. `btc_usdt` |
+| orderId | long | No | - | Order ID. Returns fills of this order only | - |
+| startTime | long | No | 7 days ago | Start time (milliseconds) | - |
+| endTime | long | No | Now | End time (milliseconds) | At most 90 days after startTime |
+| fromId | string | No | - | Cursor: the `fillId` of the last record on the previous page, as returned | - |
+| direction | string | No | NEXT | Paging direction. Case-insensitive | `NEXT` / `PREV` |
+| limit | int | No | 20 | Records per page | 1 ~ 100 |
+
+### Request Example
+
+```bash title="Request"
+curl -s 'https://api.xt.com/v4/referal/invite/user/spot-trades?uid=10000001&symbol=btc_usdt&limit=20' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
+  "result": {
+    "hasPrev": false,
+    "hasNext": true,
+    "items": [
+      {
+        "fillId": "7312998452300000001",    // Fill ID, used as fromId for the next page
+        "orderId": "6900000000000001",      // Order ID
+        "uid": "10000001",                  // Sub-user UID
+        "ts": "1792650669330",              // Fill time (milliseconds)
+        "bizType": "spot",                  // Business line: spot
+        "symbol": "BTC_USDT",               // Trading pair
+        "tradeScope": "taker",              // Liquidity role: taker / maker
+        "volume": "122.001",                // Trade volume (in USDT)
+        "feeCoin": "BTC",                   // Fee currency
+        "fee": "0.0000002",                 // Fee
+        "rebateAmount": "0.0366"            // Commission generated for the caller by this fill (USDT)
+      }
+    ]
+  }
+}
+```
+
+### Response Fields
+
+| Name | Type | Description |
+| --- | --- | --- |
+| hasPrev / hasNext | boolean | Whether a previous / next page exists |
+| items | array | Fill list |
+| └ fillId | string | Fill ID, used as fromId for the next page |
+| └ orderId | string | Order ID |
+| └ uid | string | Sub-user UID |
+| └ ts | string | Fill time (milliseconds) |
+| └ bizType | string | Business line: `spot` |
+| └ symbol | string | Trading pair |
+| └ tradeScope | string | Liquidity role: `taker` / `maker` |
+| └ volume | string | Trade volume (in USDT) |
+| └ feeCoin | string | Fee currency |
+| └ fee | string | Fee |
+| └ rebateAmount | string | Commission generated for the caller by this fill (USDT) |
+
+### Message Codes (mc)
+
+| mc | Description |
+| --- | --- |
+| SUCCESS | Success (`rc=0`) |
+| AUTH_001 | Missing signature headers such as `validate-appkey` |
+| AUTH_101 | API key does not exist or has been deleted |
+| AUTH_102 | API key is not activated |
+| AUTH_103 | Invalid signature. Check how the signature string is built |
+| AUTH_104 | Request IP is not bound to the API key |
+| AUTH_105 | Request expired: local time differs from server time by more than recvWindow |
+| COSMOS_1012 | No permission to view this user (caller is not a channel / partner, or uid is not a sub-user of the caller) |
+| COSMOS_1013 | User not found |
+| COSMOS_1056 | endTime cannot be earlier than startTime |
+| COSMOS_1057 | Query range cannot exceed 90 days (the interval between startTime and endTime) |
+| `参数格式错误: {param}` | Invalid parameter type or format (e.g. orderId is not a number, or direction has an invalid value) |
