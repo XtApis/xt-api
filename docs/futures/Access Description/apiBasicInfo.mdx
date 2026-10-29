@@ -112,7 +112,47 @@ curl -X POST "https://fapi.xt.com/future/user/v1/user/collection/add" \
 
 #### Rate Limits
 
-- **Asset-related endpoints:** Up to 3 requests per second.
-- **Other endpoints:** Up to 10 requests per second per user, and 1000 requests per minute per IP.
+Rate limits apply to both USDT-M (`fapi.xt.com`) and Coin-M (`dapi.xt.com`).
 
-> If the frequency limit is exceeded, the account will be locked for 10 minutes.
+- Private endpoints (signature required) are limited **per API key**.
+- Public endpoints (no signature) are limited **per client IP**.
+- Some endpoints share one quota. When endpoints are listed as a group, the limit applies to the total number of requests sent to all endpoints in that group.
+- Each limit has a **sustained rate** and a **burst capacity**. You can send up to the burst capacity at once; after that, quota is restored at the sustained rate.
+
+##### Private endpoints (per API key)
+
+| Group | Endpoints | Sustained rate | Burst |
+| --- | --- | --- | --- |
+| Batch cancel / close all | `/future/trade/v1/order/cancel-all`<br/>`/future/trade/v1/entrust/cancel-all-plan`<br/>`/future/trade/v1/entrust/cancel-all-track`<br/>`/future/trade/v1/order-entrust/cancel-all`<br/>`/future/user/v1/position/close-all` | 3 requests/s | 20 |
+| Cancel all TP/SL | `/future/trade/v1/entrust/cancel-all-profit-stop` | 1 request/s | 2 |
+| Adjust leverage | `/future/user/v1/position/adjust-leverage` | 5 requests/s | 20 |
+| Open orders and entrusts | `/future/trade/v1/order/list`<br/>`/future/trade/v1/entrust/plan-list`<br/>`/future/trade/v1/entrust/track-list`<br/>`/future/trade/v1/entrust/reverse-plan-list`<br/>`/future/trade/v1/order-entrust/list` | 20 requests/s | 50 |
+| Open order list (POST) | `/future/trade/v1/order/list-open-order` | 20 requests/s | 50 |
+| TP/SL and entrust history | `/future/trade/v1/entrust/profit-list`<br/>`/future/trade/v1/entrust/profit-list-history`<br/>`/future/trade/v1/entrust/plan-list-history`<br/>`/future/trade/v1/entrust/track-list-history`<br/>`/future/trade/v1/entrust/reverse-plan-list-history` | 5 requests/s | 15 |
+| Order and trade history | `/future/trade/v1/order/list-history`<br/>`/future/trade/v1/order/trade-list`<br/>`/future/trade/v1/order/trade-list-all`<br/>`/future/trade/v1/order/trade-history`<br/>`/future/trade/v1/order/quant/list-history`<br/>`/future/trade/v1/order/quant/trade-list`<br/>`/future/trade/v2/order/partial-canceled-orders` | 5 requests/s | 15 |
+| Position history | `/future/user/v1/position/break-list`<br/>`/future/user/v1/position/list-history` | 3 requests/s | 6 |
+| Account history | `/future/user/v1/balance/bills`<br/>`/future/user/v1/balance/funding-rate-list`<br/>`/future/user/v1/auto-deleverage/history`<br/>`/future/user/v1/taker-over/list` | 5 requests/s | 15 |
+| All other trading and position endpoints | Other `/future/trade/**` and `/future/user/v1/position/**` endpoints. GET and POST endpoints are counted separately | 200 requests/s | 200 |
+| All other account endpoints | Other `/future/user/**` endpoints. GET and POST endpoints are counted separately | 200 requests/s | 200 |
+
+Position endpoints can also be called with the `/future/trade/v1/position/` prefix; the same limits apply.
+
+##### Public endpoints (per IP)
+
+| Endpoint | Sustained rate | Burst |
+| --- | --- | --- |
+| `/future/market/v1/public/q/depth` | 10 requests/s | 10 |
+| `/future/market/v1/public/q/funding-rate` | 50 requests/s | 400 |
+| `/future/market/v1/public/contract/open-interest` | 50 requests/s | 400 |
+| All other `/future/market/**` endpoints (shared) | 100 requests/s | 200 |
+
+##### When a limit is exceeded
+
+- The request is rejected with HTTP status `429 Too Many Requests`.
+- Every response from a rate-limited endpoint carries these headers:
+  - `X-RateLimit-Remaining`: requests you can still send immediately
+  - `X-RateLimit-Replenish-Rate`: sustained rate per second
+  - `X-RateLimit-Burst-Capacity`: burst capacity
+  - `X-RateLimit-Requested-Tokens`: quota consumed by one request
+- On 429, back off before retrying (for example, wait 1 s and double the wait on each consecutive 429). Do not retry immediately in a loop.
+- For bulk queries across many symbols, prefer endpoints that return all symbols in one call, or use WebSocket subscriptions instead of polling.

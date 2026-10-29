@@ -102,9 +102,49 @@ curl -X POST "https://fapi.xt.com/future/user/v1/user/collection/add" \
 
 #### 限流规则
 
-- **资产类接口：** 每秒最多 3 次请求。
-- **其他接口：** 单个用户每秒最多 10 次请求，单个 IP 每分钟最多 1000 次。
+U 本位合约（`fapi.xt.com`）和币本位合约（`dapi.xt.com`）适用相同的频率限制。
 
-> 超过限制后账户将被锁定 10 分钟。
+- 私有接口（需要签名）按 **API Key** 限频。
+- 公开接口（无需签名）按 **客户端 IP** 限频。
+- 部分接口共用一份额度。以"组"列出的接口，限额针对该组所有接口的请求总数。
+- 每项限制包括**持续速率**和**突发容量**：可以一次性发出不超过突发容量的请求，之后额度按持续速率恢复。
+
+##### 私有接口（按 API Key）
+
+| 分组 | 接口 | 持续速率 | 突发容量 |
+| --- | --- | --- | --- |
+| 批量撤销 / 一键平仓 | `/future/trade/v1/order/cancel-all`<br/>`/future/trade/v1/entrust/cancel-all-plan`<br/>`/future/trade/v1/entrust/cancel-all-track`<br/>`/future/trade/v1/order-entrust/cancel-all`<br/>`/future/user/v1/position/close-all` | 每秒 3 次 | 20 |
+| 撤销全部止盈止损 | `/future/trade/v1/entrust/cancel-all-profit-stop` | 每秒 1 次 | 2 |
+| 调整杠杆 | `/future/user/v1/position/adjust-leverage` | 每秒 5 次 | 20 |
+| 当前订单与委托 | `/future/trade/v1/order/list`<br/>`/future/trade/v1/entrust/plan-list`<br/>`/future/trade/v1/entrust/track-list`<br/>`/future/trade/v1/entrust/reverse-plan-list`<br/>`/future/trade/v1/order-entrust/list` | 每秒 20 次 | 50 |
+| 当前挂单（POST） | `/future/trade/v1/order/list-open-order` | 每秒 20 次 | 50 |
+| 止盈止损与委托历史 | `/future/trade/v1/entrust/profit-list`<br/>`/future/trade/v1/entrust/profit-list-history`<br/>`/future/trade/v1/entrust/plan-list-history`<br/>`/future/trade/v1/entrust/track-list-history`<br/>`/future/trade/v1/entrust/reverse-plan-list-history` | 每秒 5 次 | 15 |
+| 历史订单与成交 | `/future/trade/v1/order/list-history`<br/>`/future/trade/v1/order/trade-list`<br/>`/future/trade/v1/order/trade-list-all`<br/>`/future/trade/v1/order/trade-history`<br/>`/future/trade/v1/order/quant/list-history`<br/>`/future/trade/v1/order/quant/trade-list`<br/>`/future/trade/v2/order/partial-canceled-orders` | 每秒 5 次 | 15 |
+| 仓位历史 | `/future/user/v1/position/break-list`<br/>`/future/user/v1/position/list-history` | 每秒 3 次 | 6 |
+| 账户历史 | `/future/user/v1/balance/bills`<br/>`/future/user/v1/balance/funding-rate-list`<br/>`/future/user/v1/auto-deleverage/history`<br/>`/future/user/v1/taker-over/list` | 每秒 5 次 | 15 |
+| 其他交易与仓位接口 | 其余 `/future/trade/**`、`/future/user/v1/position/**` 接口，GET 与 POST 分别计数 | 每秒 200 次 | 200 |
+| 其他账户接口 | 其余 `/future/user/**` 接口，GET 与 POST 分别计数 | 每秒 200 次 | 200 |
+
+仓位相关接口也可以使用 `/future/trade/v1/position/` 前缀调用，限额相同。
+
+##### 公开接口（按 IP）
+
+| 接口 | 持续速率 | 突发容量 |
+| --- | --- | --- |
+| `/future/market/v1/public/q/depth` | 每秒 10 次 | 10 |
+| `/future/market/v1/public/q/funding-rate` | 每秒 50 次 | 400 |
+| `/future/market/v1/public/contract/open-interest` | 每秒 50 次 | 400 |
+| 其余 `/future/market/**` 接口（共用） | 每秒 100 次 | 200 |
+
+##### 超出限制时
+
+- 请求返回 HTTP 状态码 `429 Too Many Requests`。
+- 受限接口的每个响应都带有以下响应头：
+  - `X-RateLimit-Remaining`：当前还能立即发出的请求数
+  - `X-RateLimit-Replenish-Rate`：每秒持续速率
+  - `X-RateLimit-Burst-Capacity`：突发容量
+  - `X-RateLimit-Requested-Tokens`：单次请求消耗的额度
+- 收到 429 后请先等待再重试（例如先等 1 秒，连续 429 时每次等待时间翻倍），不要立即循环重试。
+- 需要批量查询多个交易对时，优先使用一次返回全部交易对的接口，或改用 WebSocket 订阅代替轮询。
 
 ---
