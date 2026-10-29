@@ -1,0 +1,70 @@
+---
+id: QuerySubAccountList
+title: 查询子账户列表（游标分页）
+sidebar_label: 查询子账户列表（游标分页）
+sidebar_position: 12
+---
+
+**类型:** GET
+
+**描述:** `/v4/user/account/list`
+
+使用**经纪商母账户**的 API Key 签名调用，游标分页查询经纪商名下的子账户。子账户数量较多时，建议使用本接口代替不分页的 [查询子账户](/zh-CN/docs/broker/Independent%20Broker/QuerySubAccounts) 接口。
+
+### 参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| type | string | 否 | - | 账户类型，子账户传 `BROKER_SUB` | BROKER_SUB |
+| cursor | long | 否 | - | 游标：上一页最后一个账户 id，按 id 升序 | - |
+| limit | int | 否 | 100 | 每页条数 | 1-500 |
+| accountName | string | 否 | - | 按账户描述名过滤 | - |
+
+### 请求示例
+
+```bash
+curl -X GET '{baseUrl}/v4/user/account/list?type=BROKER_SUB&limit=100' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 5000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "items": [
+      {
+        "id": "10645823292041",
+        "accountName": "bkuat05881051@9807285125185",
+        "userId": 9807285125185,
+        "level": 2,
+        "type": 7,
+        "createTime": "2026-10-16 09:52:52",
+        "updateTime": "2026-10-16 09:52:52"
+      }
+    ],
+    "hasNext": true,
+    "nextCursor": 10645823357633
+  }
+}
+```
+
+### 响应参数
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| items[].id | string | 子账户 id |
+| items[].accountName | string | 账户描述名 |
+| items[].userId | long | 经纪商母账户 uid |
+| items[].level | int | 账户级别（2=子账户） |
+| items[].type | int | 账户类型（7=BROKER_SUB） |
+| items[].createTime | string | 创建时间 |
+| items[].updateTime | string | 更新时间 |
+| hasNext | boolean | 是否还有下一页 |
+| nextCursor | long | 下一页游标 |

@@ -1,0 +1,69 @@
+---
+id: QuerySpotSubAccountBalances
+title: Batch Query Sub-Account Spot Balances
+sidebar_label: Query Spot Sub-Account Balances
+sidebar_position: 9
+---
+
+**Type:** GET
+
+**Description:** `/v4/broker/balances`
+
+**Base URL:** `https://sapi.xt.com` (spot domain)
+
+Batch queries the spot assets of sub-accounts belonging to the broker. Sign the request with the **broker master account's** API Key. Use either `subAccountIds` for point queries or `cursor`/`limit` to traverse all sub-accounts; do not use both.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| subAccountIds | string | false | - | Comma-separated sub-account ids; mutually exclusive with `cursor` | Up to 100 ids |
+| cursor | long | false | - | Id of the last sub-account on the previous page; sub-accounts are traversed in ascending id order | - |
+| limit | int | false | 50 | Items per page | 1-100 |
+| currencies | string | false | - | Comma-separated currencies. If omitted, only currencies with a balance are returned. A non-existent currency returns a parameter error | Up to 20 currencies |
+| summaryOnly | boolean | false | false | If `true`, only converted totals are returned, without per-currency details | true / false |
+
+### Request Example
+
+```bash
+curl -X GET 'https://sapi.xt.com/v4/broker/balances?limit=50&summaryOnly=true' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 5000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "items": [
+      {
+        "subAccountId": 10645823292041,
+        "totalUsdtAmount": "0.0000",
+        "totalBtcAmount": "0.00000000",
+        "assets": []
+      }
+    ],
+    "hasNext": true,
+    "nextCursor": 10645823357632,
+    "timestamp": 1792149633665
+  }
+}
+```
+
+### Response Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| items[].subAccountId | long | Sub-account id |
+| items[].totalUsdtAmount | string | Total assets converted to USDT |
+| items[].totalBtcAmount | string | Total assets converted to BTC |
+| items[].assets | array | Per-currency asset details; empty when `summaryOnly=true` |
+| hasNext | boolean | Whether there is a next page |
+| nextCursor | long | Cursor for the next page; `null` when there is no next page |
+| timestamp | long | Response timestamp (milliseconds) |

@@ -1,0 +1,87 @@
+---
+id: QuerySubAccountFundRecords
+title: Query Sub-Account Fund Records
+sidebar_label: Query Fund Records
+sidebar_position: 14
+---
+
+**Type:** GET
+
+**Description:** `/v4/user/account/broker-sub/fund-records`
+
+Queries deposit or withdrawal records with cursor pagination. Full history is supported. Sign the request with the **broker master account's** API Key.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| uid | long | true | - | The broker's own master account uid or a sub-account id belonging to the broker | - |
+| type | string | true | - | Record type | IN_DEPOSIT (deposit), OUT_WITHDRAW (withdrawal / sub-to-master transfer out) |
+| currency | string | false | - | Currency filter | - |
+| status | string | false | SUCCESS | Status filter; `ALL` returns all statuses | SUBMIT, REVIEW, AUDITED, PENDING, SUCCESS, FAIL, CANCEL, ALL |
+| startTime | long | false | - | Creation time range start (milliseconds); omit both start and end for full history | Millisecond timestamp |
+| endTime | long | false | - | Creation time range end (milliseconds) | Millisecond timestamp |
+| updateStartTime | long | false | - | Update time range start (milliseconds) | Millisecond timestamp |
+| updateEndTime | long | false | - | Update time range end (milliseconds) | Millisecond timestamp |
+| fromId | long | false | - | Cursor (record `id`) | - |
+| direction | string | false | NEXT | Paging direction, case-insensitive | NEXT, PREV |
+| limit | int | false | 50 | Items per page | 1-100 |
+
+### Request Example
+
+```bash
+curl -X GET '{baseUrl}/v4/user/account/broker-sub/fund-records?uid=10645823292041&type=OUT_WITHDRAW&limit=50' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 5000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "items": [
+      {
+        "id": 680273498850183424,
+        "userId": 9807285125185,
+        "accountId": 10645823292041,
+        "type": "OUT_SUB_TRANSFER_OUT",
+        "currency": "usdt",
+        "chain": null,
+        "amount": "100.00000000",
+        "amountU": "100.00000000",
+        "fee": null,
+        "status": "SUCCESS",
+        "createdTime": 1792144413000,
+        "updatedTime": null
+      }
+    ],
+    "hasPrev": false,
+    "hasNext": false
+  }
+}
+```
+
+### Response Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| items[].id | long | Record id, also used as the cursor |
+| items[].userId | long | Broker master account uid |
+| items[].accountId | long | Account id |
+| items[].type | string | Record type, e.g. `IN_DEPOSIT`, `OUT_WITHDRAW`, `OUT_SUB_TRANSFER_OUT` (sub-to-master transfer out) |
+| items[].currency | string | Currency |
+| items[].chain | string | Chain; `null` for internal transfers |
+| items[].amount | string | Amount in the original currency |
+| items[].amountU | string | Amount converted to USDT at the price at the time of the record |
+| items[].fee | string | Fee |
+| items[].status | string | Status: SUBMIT / REVIEW / AUDITED / PENDING / SUCCESS / FAIL / CANCEL |
+| items[].createdTime | long | Creation time (milliseconds) |
+| items[].updatedTime | long | Update time (milliseconds) |
+| hasPrev | boolean | Whether there is a previous page |
+| hasNext | boolean | Whether there is a next page |

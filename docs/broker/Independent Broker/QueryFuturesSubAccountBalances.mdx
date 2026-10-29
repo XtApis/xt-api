@@ -1,0 +1,93 @@
+---
+id: QueryFuturesSubAccountBalances
+title: Batch Query Sub-Account Futures Balances
+sidebar_label: Query Futures Sub-Account Balances
+sidebar_position: 10
+---
+
+**Type:** GET
+
+**Description:** `/future/user/v1/broker-sub/balances`
+
+**Base URL:** `https://fapi.xt.com` (futures domain; the path must include the `/future/user` prefix)
+
+Batch queries the futures assets of sub-accounts belonging to the broker. Sign the request with the **broker master account's** API Key.
+
+:::caution Futures signature
+This endpoint uses the futures signature rules, which differ from the spot and user-center endpoints:
+
+- `X` = `validate-appkey=<ak>&validate-timestamp=<ts>`
+- `Y` = `#/future/user/v1/broker-sub/balances#<query>` (no METHOD segment)
+- The `validate-recvwindow` header is not required.
+- Responses use `returnCode` / `msgInfo` instead of `rc` / `mc`.
+:::
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| subAccountIds | string | false | - | Comma-separated sub-account ids; mutually exclusive with `cursor` | - |
+| cursor | long | false | - | Cursor; sub-accounts are traversed in ascending id order | - |
+| limit | int | false | 50 | Items per page | 1-100 |
+
+### Request Example
+
+```bash
+curl -X GET 'https://fapi.xt.com/future/user/v1/broker-sub/balances?limit=50' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "result": {
+    "items": [
+      {
+        "accountId": 10645823292041,
+        "userId": 9807285125185,
+        "coin": "usdt",
+        "underlyingType": 2,
+        "walletBalance": "0",
+        "marginBalance": "0",
+        "crossedMargin": "0",
+        "isolatedMargin": "0",
+        "openOrderMarginFrozen": "0",
+        "convertUsdtAmount": "0.0000",
+        "convertBtcAmount": "0.00000000",
+        "profit": "0",
+        "notProfit": "0"
+      }
+    ],
+    "hasNext": true,
+    "nextCursor": 10645823357632,
+    "timestamp": 1792149634276
+  }
+}
+```
+
+### Response Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| items[].accountId | long | Sub-account id |
+| items[].userId | long | Broker master account uid |
+| items[].coin | string | Currency |
+| items[].underlyingType | int | 1=coin-margined, 2=USDT-margined |
+| items[].walletBalance | string | Wallet balance |
+| items[].marginBalance | string | Margin balance |
+| items[].crossedMargin | string | Cross margin |
+| items[].isolatedMargin | string | Isolated margin |
+| items[].openOrderMarginFrozen | string | Margin frozen by open orders |
+| items[].convertUsdtAmount | string | Amount converted to USDT |
+| items[].convertBtcAmount | string | Amount converted to BTC |
+| items[].profit | string | Realized PnL |
+| items[].notProfit | string | Unrealized PnL |
+| hasNext | boolean | Whether there is a next page |
+| nextCursor | long | Cursor for the next page; `null` when there is no next page |
+| timestamp | long | Response timestamp (milliseconds) |

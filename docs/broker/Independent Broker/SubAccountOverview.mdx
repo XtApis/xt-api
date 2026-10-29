@@ -31,6 +31,49 @@ Independent broker sub-accounts use the standard spot account history APIs. Refe
 
 For both endpoints, `currency` and `chain` are optional.
 
+## Domains and Signatures
+
+Independent broker sub-account APIs are served by three domains with different gateways. Make sure the domain and signature method match before sending a request.
+
+| API Category | Production Domain | Notes |
+| --- | --- | --- |
+| [Spot sub-account balances](/docs/broker/Independent%20Broker/QuerySpotSubAccountBalances) | `https://sapi.xt.com` | Spot domain |
+| [Futures sub-account balances](/docs/broker/Independent%20Broker/QueryFuturesSubAccountBalances) | `https://fapi.xt.com` | Futures domain; paths include the `/future/user` prefix |
+| Sub-account management / fund queries | `https://api.xt.com` | User-center domain |
+
+All endpoints must be signed with the **independent broker master account's** API Key. Only a master account that is an approved independent broker can call them.
+
+Request headers:
+
+| Header | Description |
+| --- | --- |
+| validate-appkey | API Key access key |
+| validate-timestamp | Millisecond timestamp |
+| validate-algorithms | Fixed value `HmacSHA256` |
+| validate-recvwindow | Request validity window (milliseconds); required only for spot and user-center endpoints |
+| validate-signature | HMAC-SHA256 signature of `X + Y` |
+
+The signature string `X + Y` is built differently per domain:
+
+| Domain | X (parameters sorted alphabetically) | Y |
+| --- | --- | --- |
+| Spot `sapi` / User center `api` | `validate-algorithms=HmacSHA256&validate-appkey=<ak>&validate-recvwindow=5000&validate-timestamp=<ts>` | `#<METHOD>#<path>#<query>` (query sorted alphabetically by parameter name) |
+| Futures `fapi` | `validate-appkey=<ak>&validate-timestamp=<ts>` | `#<path>#<query>` (no METHOD) |
+
+:::note
+Futures endpoints return `returnCode` / `msgInfo`; spot and user-center endpoints return `rc` / `mc`.
+:::
+
 ## Sub-Account Limit
 
-An independent broker master account supports up to **5,000 sub-accounts**.
+An independent broker master account supports up to **50,000 sub-accounts**, and each sub-account can create up to 10 API Keys. Use [Query Sub-Account Quota](/docs/broker/Independent%20Broker/QuerySubAccountQuota) to check current usage.
+
+## Error Codes
+
+| mc / code | Description |
+| --- | --- |
+| AUTH_001 | Not authenticated / signature missing |
+| NO_OPERATION_PERMISSION | No permission: not a master account, not an approved independent broker, or the `uid` does not belong to the broker |
+| INVALID_PARAM | Invalid parameter format, e.g. a non-numeric value for a numeric parameter or a non-existent currency |
+| INVALID_TYPE_PARAM / INVALID_STATUS_PARAM / INVALID_DIRECTION_PARAM | Invalid `type` / `status` / `direction` value |
+| WALLET_SERVICE_UNAVAILABLE | Wallet service temporarily unavailable |
