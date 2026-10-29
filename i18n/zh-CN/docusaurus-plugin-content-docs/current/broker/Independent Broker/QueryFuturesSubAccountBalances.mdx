@@ -1,0 +1,93 @@
+---
+id: QueryFuturesSubAccountBalances
+title: 批量查询子账户合约余额
+sidebar_label: 查询合约子账户余额
+sidebar_position: 10
+---
+
+**类型:** GET
+
+**描述:** `/future/user/v1/broker-sub/balances`
+
+**域名:** `https://fapi.xt.com`（合约域名，路径须带 `/future/user` 前缀）
+
+使用**经纪商母账户**的 API Key 签名调用，批量查询经纪商名下子账户的合约资产。
+
+:::caution 合约签名
+本接口使用合约签名规则，与现货、用户中心接口不同：
+
+- `X` = `validate-appkey=<ak>&validate-timestamp=<ts>`
+- `Y` = `#/future/user/v1/broker-sub/balances#<query>`（无 METHOD）
+- 不需要 `validate-recvwindow` 请求头
+- 响应结构为 `returnCode` / `msgInfo`，而非 `rc` / `mc`
+:::
+
+### 参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| subAccountIds | string | 否 | - | 子账户 id，逗号分隔；与 `cursor` 二选一 | - |
+| cursor | long | 否 | - | 游标，按 id 升序遍历 | - |
+| limit | int | 否 | 50 | 每页条数 | 1-100 |
+
+### 请求示例
+
+```bash
+curl -X GET 'https://fapi.xt.com/future/user/v1/broker-sub/balances?limit=50' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "returnCode": 0,
+  "msgInfo": "success",
+  "result": {
+    "items": [
+      {
+        "accountId": 10645823292041,
+        "userId": 9807285125185,
+        "coin": "usdt",
+        "underlyingType": 2,
+        "walletBalance": "0",
+        "marginBalance": "0",
+        "crossedMargin": "0",
+        "isolatedMargin": "0",
+        "openOrderMarginFrozen": "0",
+        "convertUsdtAmount": "0.0000",
+        "convertBtcAmount": "0.00000000",
+        "profit": "0",
+        "notProfit": "0"
+      }
+    ],
+    "hasNext": true,
+    "nextCursor": 10645823357632,
+    "timestamp": 1792149634276
+  }
+}
+```
+
+### 响应参数
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| items[].accountId | long | 子账户 id |
+| items[].userId | long | 经纪商母账户 uid |
+| items[].coin | string | 币种 |
+| items[].underlyingType | int | 1=币本位，2=U本位 |
+| items[].walletBalance | string | 钱包余额 |
+| items[].marginBalance | string | 保证金余额 |
+| items[].crossedMargin | string | 全仓保证金 |
+| items[].isolatedMargin | string | 逐仓保证金 |
+| items[].openOrderMarginFrozen | string | 挂单冻结保证金 |
+| items[].convertUsdtAmount | string | 折算 USDT 金额 |
+| items[].convertBtcAmount | string | 折算 BTC 金额 |
+| items[].profit | string | 已实现盈亏 |
+| items[].notProfit | string | 未实现盈亏 |
+| hasNext | boolean | 是否还有下一页 |
+| nextCursor | long | 下一页游标；无下一页时为 `null` |
+| timestamp | long | 响应时间戳（毫秒） |

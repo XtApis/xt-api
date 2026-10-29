@@ -1,0 +1,78 @@
+---
+id: QuerySubAccountFundSummary
+title: Query Lifetime Deposit and Withdrawal Summary
+sidebar_label: Query Fund Summary
+sidebar_position: 13
+---
+
+**Type:** GET
+
+**Description:** `/v4/user/account/broker-sub/fund-summary`
+
+Queries the lifetime cumulative deposits and withdrawals, converted to USDT, of the broker's own master account or one of its sub-accounts. Sign the request with the **broker master account's** API Key.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| uid | long | true | - | Query target: the broker's own master account uid or a sub-account id belonging to the broker | - |
+| detail | boolean | false | false | If `true`, the response also includes the per-currency `byCurrency` breakdown | true / false |
+
+:::note Calculation rules
+- Only records with status `SUCCESS` are counted.
+- Amounts are converted to USDT at the price at the time of each record.
+- For a sub-account, "withdrawal" means cumulative transfers out from the sub-account to the master account (fund collection).
+:::
+
+### Request Example
+
+```bash
+curl -X GET '{baseUrl}/v4/user/account/broker-sub/fund-summary?uid=10645823292041&detail=true' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 5000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "userId": 10645823292041,
+    "totalDepositU": "0",
+    "totalWithdrawU": "100",
+    "netInflowU": "-100",
+    "depositCount": 0,
+    "withdrawCount": 1,
+    "firstDepositTime": null,
+    "lastDepositTime": null,
+    "firstWithdrawTime": 1792144413000,
+    "lastWithdrawTime": 1792144413000,
+    "updatedTime": 1792149635806,
+    "byCurrency": [
+      { "currency": "usdt", "depositAmount": "0", "withdrawAmount": "100" }
+    ]
+  }
+}
+```
+
+### Response Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| userId | long | Queried account id |
+| totalDepositU | string | Cumulative deposits converted to USDT |
+| totalWithdrawU | string | Cumulative withdrawals / transfers out converted to USDT |
+| netInflowU | string | Net inflow in USDT (deposits - withdrawals) |
+| depositCount | long | Number of deposits |
+| withdrawCount | long | Number of withdrawals / transfers out |
+| firstDepositTime / lastDepositTime | long | First / last deposit time (milliseconds); `null` if none |
+| firstWithdrawTime / lastWithdrawTime | long | First / last withdrawal time (milliseconds); `null` if none |
+| updatedTime | long | Statistics update time (milliseconds) |
+| byCurrency[].currency | string | Currency; returned only when `detail=true` |
+| byCurrency[].depositAmount | string | Deposit amount in the original currency |
+| byCurrency[].withdrawAmount | string | Withdrawal / transfer-out amount in the original currency |

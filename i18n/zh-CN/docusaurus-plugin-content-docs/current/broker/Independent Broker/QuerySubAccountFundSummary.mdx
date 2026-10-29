@@ -1,0 +1,78 @@
+---
+id: QuerySubAccountFundSummary
+title: 查询子账户累计充提
+sidebar_label: 查询累计充提
+sidebar_position: 13
+---
+
+**类型:** GET
+
+**描述:** `/v4/user/account/broker-sub/fund-summary`
+
+使用**经纪商母账户**的 API Key 签名调用，查询经纪商自身母账户或名下某子账户的 lifetime 累计充提折 U。
+
+### 参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| uid | long | 是 | - | 查询目标：经纪商自身母账户 uid 或名下子账户 id | - |
+| detail | boolean | 否 | false | 为 `true` 时响应追加 `byCurrency` 分币种明细 | true / false |
+
+:::note 统计口径
+- 充提均按成功（`SUCCESS`）记录统计。
+- 金额按记录时点价格折算为 USDT。
+- 子账户维度的「提现」为子账户向母账户划出（归集）的累计。
+:::
+
+### 请求示例
+
+```bash
+curl -X GET '{baseUrl}/v4/user/account/broker-sub/fund-summary?uid=10645823292041&detail=true' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 5000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "userId": 10645823292041,
+    "totalDepositU": "0",
+    "totalWithdrawU": "100",
+    "netInflowU": "-100",
+    "depositCount": 0,
+    "withdrawCount": 1,
+    "firstDepositTime": null,
+    "lastDepositTime": null,
+    "firstWithdrawTime": 1792144413000,
+    "lastWithdrawTime": 1792144413000,
+    "updatedTime": 1792149635806,
+    "byCurrency": [
+      { "currency": "usdt", "depositAmount": "0", "withdrawAmount": "100" }
+    ]
+  }
+}
+```
+
+### 响应参数
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| userId | long | 查询的账户 id |
+| totalDepositU | string | 累计充值折 U |
+| totalWithdrawU | string | 累计提现 / 划出折 U |
+| netInflowU | string | 净流入折 U（充值 - 提现） |
+| depositCount | long | 充值笔数 |
+| withdrawCount | long | 提现 / 划出笔数 |
+| firstDepositTime / lastDepositTime | long | 首次 / 最近充值时间（毫秒）；无记录时为 `null` |
+| firstWithdrawTime / lastWithdrawTime | long | 首次 / 最近提现时间（毫秒）；无记录时为 `null` |
+| updatedTime | long | 统计更新时间（毫秒） |
+| byCurrency[].currency | string | 币种；仅 `detail=true` 时返回 |
+| byCurrency[].depositAmount | string | 充值量（原币种） |
+| byCurrency[].withdrawAmount | string | 提现 / 划出量（原币种） |

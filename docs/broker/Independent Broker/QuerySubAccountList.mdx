@@ -1,0 +1,70 @@
+---
+id: QuerySubAccountList
+title: Query Sub-Account List (Cursor Pagination)
+sidebar_label: Query Sub-Account List
+sidebar_position: 12
+---
+
+**Type:** GET
+
+**Description:** `/v4/user/account/list`
+
+Queries the sub-accounts belonging to the broker with cursor pagination. Sign the request with the **broker master account's** API Key. For large numbers of sub-accounts, use this endpoint instead of the unpaginated [Query Sub-Accounts](/docs/broker/Independent%20Broker/QuerySubAccounts) endpoint.
+
+### Parameters
+
+| Name | Type | Mandatory | Default | Description | Ranges |
+| --- | --- | --- | --- | --- | --- |
+| type | string | false | - | Account type; use `BROKER_SUB` for sub-accounts | BROKER_SUB |
+| cursor | long | false | - | Id of the last account on the previous page; accounts are returned in ascending id order | - |
+| limit | int | false | 100 | Items per page | 1-500 |
+| accountName | string | false | - | Filter by account name | - |
+
+### Request Example
+
+```bash
+curl -X GET '{baseUrl}/v4/user/account/list?type=BROKER_SUB&limit=100' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 5000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "items": [
+      {
+        "id": "10645823292041",
+        "accountName": "bkuat05881051@9807285125185",
+        "userId": 9807285125185,
+        "level": 2,
+        "type": 7,
+        "createTime": "2026-10-16 09:52:52",
+        "updateTime": "2026-10-16 09:52:52"
+      }
+    ],
+    "hasNext": true,
+    "nextCursor": 10645823357633
+  }
+}
+```
+
+### Response Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| items[].id | string | Sub-account id |
+| items[].accountName | string | Account name |
+| items[].userId | long | Broker master account uid |
+| items[].level | int | Account level (2=sub-account) |
+| items[].type | int | Account type (7=BROKER_SUB) |
+| items[].createTime | string | Creation time |
+| items[].updateTime | string | Update time |
+| hasNext | boolean | Whether there is a next page |
+| nextCursor | long | Cursor for the next page |

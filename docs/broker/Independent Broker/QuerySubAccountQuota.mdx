@@ -1,0 +1,49 @@
+---
+id: QuerySubAccountQuota
+title: Query Sub-Account Quota
+sidebar_label: Query Sub-Account Quota
+sidebar_position: 11
+---
+
+**Type:** GET
+
+**Description:** `/v4/user/account/broker-sub/info`
+
+Queries the broker's sub-account quota and usage. Sign the request with the **broker master account's** API Key.
+
+### Parameters
+
+None. Only the authentication headers are required.
+
+### Request Example
+
+```bash
+curl -X GET '{baseUrl}/v4/user/account/broker-sub/info' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 5000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### Response Example
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "subAccountQty": 6,
+    "maxSubAccountQty": 50000,
+    "apiKeyLimitPerAccount": 10
+  }
+}
+```
+
+### Response Parameters
+
+| Name | Type | Description |
+| --- | --- | --- |
+| subAccountQty | int | Number of sub-accounts created |
+| maxSubAccountQty | int | Maximum number of sub-accounts |
+| apiKeyLimitPerAccount | int | Maximum number of API Keys per sub-account |

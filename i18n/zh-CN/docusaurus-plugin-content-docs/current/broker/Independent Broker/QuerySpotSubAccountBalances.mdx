@@ -1,0 +1,69 @@
+---
+id: QuerySpotSubAccountBalances
+title: 批量查询子账户现货余额
+sidebar_label: 查询现货子账户余额
+sidebar_position: 9
+---
+
+**类型:** GET
+
+**描述:** `/v4/broker/balances`
+
+**域名:** `https://sapi.xt.com`（现货域名）
+
+使用**经纪商母账户**的 API Key 签名调用，批量查询经纪商名下子账户的现货资产。`subAccountIds` 点查与 `cursor`/`limit` 遍历二选一。
+
+### 参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| subAccountIds | string | 否 | - | 子账户 id，逗号分隔；与 `cursor` 二选一 | 最多 100 个 |
+| cursor | long | 否 | - | 游标：上一页最后一个子账户 id，按 id 升序遍历全部子账户 | - |
+| limit | int | 否 | 50 | 每页条数 | 1-100 |
+| currencies | string | 否 | - | 币种，逗号分隔；不传返回有余额的币种；传不存在的币种报参数错误 | 最多 20 个 |
+| summaryOnly | boolean | 否 | false | 为 `true` 时仅返回折算总额，不返回币种明细 | true / false |
+
+### 请求示例
+
+```bash
+curl -X GET 'https://sapi.xt.com/v4/broker/balances?limit=50&summaryOnly=true' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 5000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
+
+### 响应示例
+
+```json title="Response"
+{
+  "rc": 0,
+  "mc": "SUCCESS",
+  "result": {
+    "items": [
+      {
+        "subAccountId": 10645823292041,
+        "totalUsdtAmount": "0.0000",
+        "totalBtcAmount": "0.00000000",
+        "assets": []
+      }
+    ],
+    "hasNext": true,
+    "nextCursor": 10645823357632,
+    "timestamp": 1792149633665
+  }
+}
+```
+
+### 响应参数
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| items[].subAccountId | long | 子账户 id |
+| items[].totalUsdtAmount | string | 折算 USDT 总额 |
+| items[].totalBtcAmount | string | 折算 BTC 总额 |
+| items[].assets | array | 分币种资产明细；`summaryOnly=true` 时为空 |
+| hasNext | boolean | 是否还有下一页 |
+| nextCursor | long | 下一页游标；无下一页时为 `null` |
+| timestamp | long | 响应时间戳（毫秒） |

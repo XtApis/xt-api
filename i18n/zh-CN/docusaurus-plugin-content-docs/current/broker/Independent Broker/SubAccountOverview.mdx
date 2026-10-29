@@ -31,6 +31,49 @@ sidebar_position: 1
 
 这两个接口的 `currency` 和 `chain` 均为非必填参数。
 
+## 域名与签名
+
+独立经纪商子账户相关接口分属三个域名、三套网关，请求前请确认域名与签名方式对应正确。
+
+| 接口类别 | 生产环境域名 | 说明 |
+| --- | --- | --- |
+| [现货子账户批量余额](/zh-CN/docs/broker/Independent%20Broker/QuerySpotSubAccountBalances) | `https://sapi.xt.com` | 现货域名 |
+| [合约子账户批量余额](/zh-CN/docs/broker/Independent%20Broker/QueryFuturesSubAccountBalances) | `https://fapi.xt.com` | 合约域名，路径带 `/future/user` 前缀 |
+| 子账户管理 / 充提查询 | `https://api.xt.com` | 用户中心域名 |
+
+所有接口均需使用**独立经纪商母账户**的 API Key 签名，仅审核通过的独立经纪商母账户可调用。
+
+请求头：
+
+| 请求头 | 说明 |
+| --- | --- |
+| validate-appkey | API Key 的 access key |
+| validate-timestamp | 毫秒级时间戳 |
+| validate-algorithms | 固定 `HmacSHA256` |
+| validate-recvwindow | 请求有效窗口（毫秒），仅现货 / 用户中心接口需要 |
+| validate-signature | `X + Y` 的 HMAC-SHA256 签名值 |
+
+签名串 `X + Y` 的拼法因域名而异：
+
+| 域名 | X（按参数名字母序） | Y |
+| --- | --- | --- |
+| 现货 `sapi` / 用户中心 `api` | `validate-algorithms=HmacSHA256&validate-appkey=<ak>&validate-recvwindow=5000&validate-timestamp=<ts>` | `#<METHOD>#<path>#<query>`（query 按参数名字母序） |
+| 合约 `fapi` | `validate-appkey=<ak>&validate-timestamp=<ts>` | `#<path>#<query>`（无 METHOD） |
+
+:::note
+合约接口响应结构为 `returnCode` / `msgInfo`，现货与用户中心接口为 `rc` / `mc`。
+:::
+
 ## 子账户数量上限
 
-一个独立经纪商母账户最高支持 **5,000 个子账户**。
+一个独立经纪商母账户最高支持 **50,000 个子账户**，每个子账户最多可创建 10 个 API Key。可通过 [查询子账户配额](/zh-CN/docs/broker/Independent%20Broker/QuerySubAccountQuota) 查看当前使用情况。
+
+## 错误码
+
+| mc / code | 说明 |
+| --- | --- |
+| AUTH_001 | 未鉴权 / 签名缺失 |
+| NO_OPERATION_PERMISSION | 无权限：非母账户、非审核通过的独立经纪商，或 `uid` 不属于名下 |
+| INVALID_PARAM | 参数格式错误，如数字参数传非数字、传入不存在的币种 |
+| INVALID_TYPE_PARAM / INVALID_STATUS_PARAM / INVALID_DIRECTION_PARAM | `type` / `status` / `direction` 取值非法 |
+| WALLET_SERVICE_UNAVAILABLE | 钱包服务暂不可用 |
