@@ -9,25 +9,71 @@ sidebar_position: 7
 
 **Description:** `/v4/referal/invite/user/balance`
 
-### Parameters
+Channels / partners can query the account balance of a specific sub-user. In addition to the total balance, the response breaks down the spot account and futures account (total / coin-margined / USDT-margined) balances. All values are converted to USDT.
 
-| Name | Type   | Mandatory | Default | Description | Ranges |
-| ---- | ------ | --------- | ------- | ----------- | ------ |
-| uid  | number | true      |         | User ID     |        |
+All requests require API key signature. See [Signature Generation](/docs/Referral%20Commission/Access%20Description/SignatureGeneration).
 
----
+- The caller must be a channel / partner (CHANNEL / PARTNER), and `uid` must be a sub-user under the caller.
+- Balance fields are returned as strings. If an account has no balance, `"0"` is returned.
+- `futuresBalance` = `futuresCoinBalance` + `futuresUsdtBalance`.
+
+### Request Parameters
+
+| Name | Type | Required | Default | Description | Value Range |
+| --- | --- | --- | --- | --- | --- |
+| uid | long | Yes | - | Sub-user UID | Must be a sub-user under the caller |
+
+### Request Example
+
+```bash title="Request"
+curl -s 'https://api.xt.com/v4/referal/invite/user/balance?uid=10000001' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
 
 ### Response Example
 
 ```json title="Response"
 {
-  "ma": [],
-  "mc": "SUCCESS",
   "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
   "result": {
-    "userId": 123456789,
-    "role": "PARTNER",
-    "balance": 123456
+    "userId": 10000001,                 // Sub-user UID
+    "role": "DIRECTOR",                 // Role: CHANNEL / PARTNER / DIRECTOR
+    "balance": "1234.5678",             // Total balance (in USDT)
+    "spotBalance": "800.1234",          // Spot account balance (in USDT)
+    "futuresBalance": "434.4444",       // Total futures account balance (in USDT)
+    "futuresCoinBalance": "34.4444",    // Coin-margined futures balance (in USDT)
+    "futuresUsdtBalance": "400.0000"    // USDT-margined futures balance (in USDT)
   }
 }
 ```
+
+### Response Fields
+
+| Name | Type | Description |
+| --- | --- | --- |
+| userId | long | Sub-user UID |
+| role | string | Role: `CHANNEL` / `PARTNER` / `DIRECTOR` (channel / partner / direct user) |
+| balance | string | Total balance (in USDT) |
+| spotBalance | string | Spot account balance (in USDT) |
+| futuresBalance | string | Total futures account balance (in USDT): coin-margined plus USDT-margined |
+| futuresCoinBalance | string | Coin-margined futures balance (in USDT) |
+| futuresUsdtBalance | string | USDT-margined futures balance (in USDT) |
+
+### Message Codes (mc)
+
+| mc | Description |
+| --- | --- |
+| SUCCESS | Success (`rc=0`) |
+| AUTH_101 | API key does not exist or has been deleted |
+| AUTH_103 | Invalid signature. Check how the signature string is built |
+| AUTH_104 | Request IP is not bound to the API key |
+| AUTH_105 | Request expired: local time differs from server time by more than recvWindow |
+| COSMOS_1001 | Asset service query failed |
+| COSMOS_1012 | No permission to view this user (uid is not a sub-user of the caller) |
+| COSMOS_1013 | User not found |

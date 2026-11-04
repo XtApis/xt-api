@@ -9,25 +9,71 @@ sidebar_position: 7
 
 **描述:** `/v4/referal/invite/user/balance`
 
-### 参数
+渠道 / 合伙人查询名下指定下级用户的账户余额。除总余额外，还返回现货账户和合约账户（总 / 币本位 / U 本位）的余额，均折算为 USDT。
 
-| 名称 | 类型   | 是否必需 | 默认值 | 描述 | 取值范围 |
-| ---- | ------ | --------- | ------- | ----------- | ------ |
-| uid  | number | true      |         | 用户ID     |        |
+所有请求均需 API Key 签名，签名方式见[签名生成](/docs/Referral%20Commission/Access%20Description/SignatureGeneration)。
 
----
+- 调用方须为渠道 / 合伙人（CHANNEL / PARTNER），`uid` 须为调用方名下的下级用户。
+- 余额字段均以字符串返回；对应账户无余额时返回 `"0"`。
+- `futuresBalance` = `futuresCoinBalance` + `futuresUsdtBalance`。
+
+### 请求参数
+
+| 名称 | 类型 | 是否必填 | 默认值 | 描述 | 取值范围 |
+| --- | --- | --- | --- | --- | --- |
+| uid | long | 是 | 无 | 下级用户 UID | 调用方名下的下级用户 |
+
+### 请求示例
+
+```bash title="Request"
+curl -s 'https://api.xt.com/v4/referal/invite/user/balance?uid=10000001' \
+  -H 'validate-algorithms: HmacSHA256' \
+  -H 'validate-appkey: {accessKey}' \
+  -H 'validate-recvwindow: 60000' \
+  -H 'validate-timestamp: {timestamp}' \
+  -H 'validate-signature: {signature}'
+```
 
 ### 响应示例
 
-```json title="响应"
+```json title="Response"
 {
-  "ma": [],
-  "mc": "SUCCESS",
   "rc": 0,
+  "mc": "SUCCESS",
+  "ma": [],
   "result": {
-    "userId": 123456789,
-    "role": "PARTNER",
-    "balance": 123456
+    "userId": 10000001,                 // 下级用户 UID
+    "role": "DIRECTOR",                 // 角色：CHANNEL / PARTNER / DIRECTOR
+    "balance": "1234.5678",             // 总余额（折 USDT）
+    "spotBalance": "800.1234",          // 现货账户余额（折 USDT）
+    "futuresBalance": "434.4444",       // 合约账户总余额（折 USDT）
+    "futuresCoinBalance": "34.4444",    // 合约币本位余额（折 USDT）
+    "futuresUsdtBalance": "400.0000"    // 合约 U 本位余额（折 USDT）
   }
 }
 ```
+
+### 响应字段
+
+| 名称 | 类型 | 描述 |
+| --- | --- | --- |
+| userId | long | 下级用户 UID |
+| role | string | 角色：`CHANNEL` / `PARTNER` / `DIRECTOR`（渠道 / 合伙人 / 直客） |
+| balance | string | 总余额（折 USDT） |
+| spotBalance | string | 现货账户余额（折 USDT） |
+| futuresBalance | string | 合约账户总余额（折 USDT），等于币本位与 U 本位之和 |
+| futuresCoinBalance | string | 合约币本位余额（折 USDT） |
+| futuresUsdtBalance | string | 合约 U 本位余额（折 USDT） |
+
+### 消息码（mc）
+
+| mc | 描述 |
+| --- | --- |
+| SUCCESS | 成功（`rc=0`） |
+| AUTH_101 | API Key 不存在或已删除 |
+| AUTH_103 | 签名错误，请检查签名明文拼接 |
+| AUTH_104 | 请求 IP 不在 API Key 绑定的 IP 列表中 |
+| AUTH_105 | 请求已过期：本机与服务器时间偏差超过 recvWindow |
+| COSMOS_1001 | 资产服务查询失败 |
+| COSMOS_1012 | 无权查看该用户信息（uid 不是调用方的下级） |
+| COSMOS_1013 | 未查询到该用户信息（目标用户不存在） |
